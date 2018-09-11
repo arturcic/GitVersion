@@ -10,6 +10,9 @@ jobs:
     inputs:
       version: '2.1.401'
   - script: dotnet --info
+    env:
+    - DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   - script: dotnet tool install -g Cake.Tool
 #   - script: dotnet cake .\build.cake
 - job: macOS
@@ -17,6 +20,9 @@ jobs:
     vmImage: 'xcode9-macos10.13'
   steps:
   - script: dotnet --info
+    env:
+    - DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   - script: dotnet tool install -g Cake.Tool
 #   - script: dotnet cake .\build.cake
 - job: Windows
@@ -24,5 +30,8 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - script: dotnet --info
+    env:
+    - DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   - script: dotnet tool install -g Cake.Tool
 #   - script: dotnet cake .\build.cake
