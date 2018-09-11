@@ -3,6 +3,7 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
+  - script: curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 2.1.202 && export PATH="$HOME/.dotnet:$PATH"
   - script: dotnet --info
 - job: macOS
   pool:
