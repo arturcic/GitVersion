@@ -3,20 +3,23 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
+  - task: DotNetCoreInstaller@0
+    inputs:
+    version: '2.1.300'
   - script: dotnet --info
   - script: dotnet tool install -g Cake.Tool
-  - script: dotnet cake .\build.cake
+#   - script: dotnet cake .\build.cake
 - job: macOS
   pool:
     vmImage: 'xcode9-macos10.13'
   steps:
   - script: dotnet --info
   - script: dotnet tool install -g Cake.Tool
-  - script: dotnet cake .\build.cake
+#   - script: dotnet cake .\build.cake
 - job: Windows
   pool:
     vmImage: 'vs2017-win2016'
   steps:
   - script: dotnet --info
   - script: dotnet tool install -g Cake.Tool
-  - script: dotnet cake .\build.cake
+#   - script: dotnet cake .\build.cake
