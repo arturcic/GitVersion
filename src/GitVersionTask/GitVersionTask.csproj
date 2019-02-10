@@ -32,9 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitTools.Core" Version="$(PackageVersion_GitToolsCore)">
-       <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="YamlDotNet" Version="$(PackageVersion_YamlDotNet)">
         <PrivateAssets>All</PrivateAssets>
     </PackageReference>

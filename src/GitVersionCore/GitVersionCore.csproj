@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitTools.Core" Version="$(PackageVersion_GitToolsCore)" />
+    <PackageReference Include="LibGit2Sharp" Version="0.25.0-preview-0033" />
     <PackageReference Include="YamlDotNet" Version="$(PackageVersion_YamlDotNet)" />
     <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="$(PackageVersion_LibGit2SharpNativeBinaries)" PrivateAssets="contentFiles" />
   </ItemGroup>
