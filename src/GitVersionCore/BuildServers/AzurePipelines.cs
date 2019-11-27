@@ -27,11 +27,6 @@ namespace GitVersion.BuildServers
 
         public override string GetCurrentBranch(bool usingDynamicRepos)
         {
-            var pullRequestBranchName = Environment.GetEnvironmentVariable("SYSTEM_PULLREQUEST_SOURCEBRANCH");
-            if (!string.IsNullOrWhiteSpace(pullRequestBranchName))
-            {
-                return pullRequestBranchName;
-            }
             return Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCH");
         }
 
