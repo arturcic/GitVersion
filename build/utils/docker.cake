@@ -170,7 +170,7 @@ string[] GetDockerTags(DockerImage dockerImage, BuildParameters parameters) {
 static string GetDockerCliPlatform(this ICakeContext context)
 {
     var buildSystem = context.BuildSystem();
-    var ciSupportsDockerBuild = buildSystem.IsRunningOnAzurePipelines || buildSystem.IsRunningOnAzurePipelinesHosted;
+    var ciSupportsDockerBuild = buildSystem.IsRunningOnAzurePipelines || buildSystem.IsRunningOnAzurePipelinesHosted || buildSystem.IsRunningOnGitHubActions;
 
     if (ciSupportsDockerBuild && context.Environment.Platform.Family != PlatformFamily.OSX || buildSystem.IsLocalBuild)
     {
