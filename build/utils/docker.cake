@@ -127,6 +127,13 @@ DockerContainerRunSettings GetDockerRunSettings(BuildParameters parameters)
             $"BUILD_SOURCEBRANCH={Context.EnvironmentVariable("BUILD_SOURCEBRANCH")}"
         };
     }
+    if (parameters.IsRunningOnGitHubActions) {
+        settings.Env = new[]
+        {
+            "GITHUB_ACTIONS=true",
+            $"GITHUB_REF={Context.EnvironmentVariable("GITHUB_REF")}"
+        };
+    }
 
     return settings;
 }
