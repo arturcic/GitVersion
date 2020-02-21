@@ -8,7 +8,7 @@ public class BuildParameters
     public string Target { get; private set; }
     public string Configuration { get; private set; }
 
-    public const string MainRepoOwner = "gittools";
+    public const string MainRepoOwner = "arturcic";
     public const string MainRepoName = "GitVersion";
     public string CoreFxVersion21 { get; private set; }  = "netcoreapp2.1";
     public string CoreFxVersion31 { get; private set; }  = "netcoreapp3.1";

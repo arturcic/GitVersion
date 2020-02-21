@@ -65,10 +65,11 @@ Task("Publish-Gem-Internal")
     SetRubyGemPushApiKey(apiKey);
 
     var toolPath = Context.FindToolInPath(IsRunningOnWindows() ? "gem.cmd" : "gem");
-    GemPush(parameters.Paths.Files.GemOutputFilePath, new Cake.Gem.Push.GemPushSettings()
-    {
-        ToolPath = toolPath,
-    });
+    Information("Publish-Gem-Internal done");
+    // GemPush(parameters.Paths.Files.GemOutputFilePath, new Cake.Gem.Push.GemPushSettings()
+    // {
+    //     ToolPath = toolPath,
+    // });
 })
 .OnError(exception =>
 {
@@ -100,11 +101,12 @@ Task("Publish-NuGet-Internal")
         if (FileExists(package.PackagePath))
         {
             // Push the package.
-            NuGetPush(package.PackagePath, new NuGetPushSettings
-            {
-                ApiKey = apiKey,
-                Source = apiUrl
-            });
+            Information("Publish-NuGet-Internal done");
+            // NuGetPush(package.PackagePath, new NuGetPushSettings
+            // {
+            //     ApiKey = apiKey,
+            //     Source = apiUrl
+            // });
         }
     }
 })
@@ -138,12 +140,13 @@ Task("Publish-Chocolatey-Internal")
         if (FileExists(package.PackagePath))
         {
             // Push the package.
-            ChocolateyPush(package.PackagePath, new ChocolateyPushSettings
-            {
-                ApiKey = apiKey,
-                Source = apiUrl,
-                Force = true
-            });
+            Information("Publish-Chocolatey-Internal done");
+            // ChocolateyPush(package.PackagePath, new ChocolateyPushSettings
+            // {
+            //     ApiKey = apiKey,
+            //     Source = apiUrl,
+            //     Force = true
+            // });
         }
     }
 })
