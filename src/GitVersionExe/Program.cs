@@ -1,6 +1,8 @@
 using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using GitVersion.Extensions;
+using GitVersion.MSBuildTask.LibGit2Sharp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,9 +19,20 @@ namespace GitVersion
             this.overrides = overrides;
         }
 
-        private static async Task Main(string[] args)
+        private static async Task MainInner(string[] args)
         {
             await new Program().RunAsync(args);
+        }
+
+        public static async Task Main(string[] args)
+        {
+            LibGit2SharpLoader.LoadAssembly();
+
+            var inContextAssembly = LibGit2SharpLoader.Instance.Assembly;
+            var innerProgramType = inContextAssembly.GetType(typeof(Program).FullName);
+
+            var mainInnerMethod = innerProgramType?.GetMethod(nameof(MainInner), BindingFlags.Static | BindingFlags.NonPublic);
+            await (Task) mainInnerMethod?.Invoke(null, new object[] { args });
         }
 
         internal Task RunAsync(string[] args)
