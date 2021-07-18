@@ -3,4 +3,4 @@ param(
     [parameter(Mandatory=$true, Position=1)][string] $repoPath
 )
 
-& "/native/$runtime/gitversion" $repoPath /showvariable FullSemver;
+& "/native/linux-x64/gitversion" /repo /showvariable FullSemver;
