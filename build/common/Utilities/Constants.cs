@@ -21,17 +21,21 @@ namespace Common.Utilities
         public const string DockerHubRegistry = "docker.io";
         public const string GitHubContainerRegistry = "ghcr.io";
 
-        public const string Alpine312 = "alpine.3.12-x64";
+        public const string Alpine313 = "alpine.3.13-x64";
+        public const string Alpine314 = "alpine.3.14-x64";
         public const string Debian10 = "debian.10-x64";
+        public const string Debian11 = "debian.11-x64";
         public const string Ubuntu2004 = "ubuntu.20.04-x64";
         public const string DockerDistroLatest = Debian10;
         public static readonly string[] DockerDistrosToBuild =
         {
-            Alpine312,
+            Alpine313,
+            Alpine314,
             "centos.7-x64",
             "centos.8-x64",
             "debian.9-x64",
             Debian10,
+            Debian11,
             "fedora.33-x64",
             "ubuntu.16.04-x64",
             "ubuntu.18.04-x64",
