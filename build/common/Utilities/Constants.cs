@@ -21,20 +21,24 @@ namespace Common.Utilities
         public const string DockerHubRegistry = "docker.io";
         public const string GitHubContainerRegistry = "ghcr.io";
 
-        public const string Alpine312 = "alpine.3.12-x64";
-        public const string Debian10 = "debian.10-x64";
-        public const string Ubuntu2004 = "ubuntu.20.04-x64";
+        public const string Alpine313 = "alpine.3.13";
+        public const string Alpine314 = "alpine.3.14";
+        public const string Debian10 = "debian.10";
+        public const string Debian11 = "debian.11";
+        public const string Ubuntu2004 = "ubuntu.20.04";
         public const string DockerDistroLatest = Debian10;
         public static readonly string[] DockerDistrosToBuild =
         {
-            Alpine312,
-            "centos.7-x64",
-            "centos.8-x64",
-            "debian.9-x64",
+            Alpine313,
+            Alpine314,
+            "centos.7",
+            "centos.8",
+            "debian.9",
             Debian10,
-            "fedora.33-x64",
-            "ubuntu.16.04-x64",
-            "ubuntu.18.04-x64",
+            Debian11,
+            "fedora.33",
+            "ubuntu.16.04",
+            "ubuntu.18.04",
             Ubuntu2004
         };
         public const string NugetOrgUrl = "https://api.nuget.org/v3/index.json";
