@@ -109,7 +109,8 @@ namespace Common.Utilities
         public static void DockerPullImage(this ICakeContext context, DockerImage dockerImage)
         {
             var tag = $"{dockerImage.DockerImageName()}:{dockerImage.Distro}-sdk-{dockerImage.TargetFramework}";
-            context.DockerPull(tag);
+            var platform = $"linux/{dockerImage.Architecture.ToString().ToLower()}";
+            context.DockerPull(new DockerImagePullSettings { Platform = platform }, tag);
         }
 
         public static void DockerTestImage(this BuildContextBase context, DockerImage dockerImage)
