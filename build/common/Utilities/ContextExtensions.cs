@@ -165,5 +165,5 @@ public static class ContextExtensions
     private static void EndGroup(this IAzurePipelinesCommands _, ICakeContext context) => context.Information("##[endgroup]");
 
     public static FilePath? GetGitVersionToolLocation(this ICakeContext context) =>
-        context.GetFiles($"src/GitVersion.App/bin/{Constants.DefaultConfiguration}/{Constants.NetVersion60}/gitversion.dll").SingleOrDefault();
+        context.MakeAbsolute(Paths.Tools.Combine("GitVersion").CombineWithFilePath("gitversion.dll"));
 }

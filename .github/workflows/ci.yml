@@ -63,6 +63,10 @@ jobs:
       name: '[Prepare]'
       if: steps.cache-cake.outputs.cache-hit != 'true'
       run: dotnet build build/CI.sln --configuration=Release
+    -
+      name: '[DogFood]'
+      shell: pwsh
+      run: dotnet run/build.dll --target=BuildPrepare
 
   build:
     name: Build code & Package

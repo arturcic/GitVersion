@@ -6,6 +6,7 @@ public class Paths
 
     public static readonly DirectoryPath Artifacts = Root.Combine("artifacts");
     public static readonly DirectoryPath Src = Root.Combine("src");
+    public static readonly DirectoryPath Tools = Root.Combine("tools");
     public static readonly DirectoryPath Docs = Root.Combine("docs");
     public static readonly DirectoryPath Build = Root.Combine("build");
     public static readonly DirectoryPath Integration = Root.Combine("tests").Combine("integration");
