@@ -1,5 +1,6 @@
+using System.Text.Json.Serialization;
+using GitVersion.Attributes;
 using GitVersion.VersionCalculation;
-using YamlDotNet.Serialization;
 
 namespace GitVersion.Model.Configuration;
 
@@ -31,55 +32,70 @@ public class BranchConfig
         PreReleaseWeight = branchConfiguration.PreReleaseWeight;
     }
 
-    [YamlMember(Alias = "mode")]
+    [JsonPropertyName("mode")]
+    [JsonPropertyDescription("The versioning mode for this branch. Can be 'ContinuousDelivery', 'ContinuousDeployment', 'Mainline'.")]
     public VersioningMode? VersioningMode { get; set; }
 
     /// <summary>
     /// Special value 'useBranchName' will extract the tag from the branch name
     /// </summary>
-    [YamlMember(Alias = "tag")]
+    [JsonPropertyName("tag")]
+    [JsonPropertyDescription("The label to use for this branch. Can be 'useBranchName' to extract the label from the branch name.")]
     public string? Tag { get; set; }
 
-    [YamlMember(Alias = "increment")]
+    [JsonPropertyName("increment")]
+    [JsonPropertyDescription("The increment strategy for this branch. Can be 'Inherit', 'Patch', 'Minor', 'Major', 'None'.")]
     public IncrementStrategy? Increment { get; set; }
 
-    [YamlMember(Alias = "prevent-increment-of-merged-branch-version")]
+    [JsonPropertyName("prevent-increment-of-merged-branch-version")]
+    [JsonPropertyDescription("Prevent increment of merged branch version.")]
     public bool? PreventIncrementOfMergedBranchVersion { get; set; }
 
-    [YamlMember(Alias = "tag-number-pattern")]
+    [JsonPropertyName("tag-number-pattern")]
+    [JsonPropertyDescription(@"The regex pattern to use to extract the number from the branch name. Defaults to '[/-](?<number>\d+)[-/]'.")]
+    [JsonPropertyPattern(@"[/-](?<number>\d+)[-/]")]
     public string? TagNumberPattern { get; set; }
 
-    [YamlMember(Alias = "track-merge-target")]
+    [JsonPropertyName("track-merge-target")]
+    [JsonPropertyDescription("Strategy which will look for tagged merge commits directly off the current branch.")]
     public bool? TrackMergeTarget { get; set; }
 
-    [YamlMember(Alias = "commit-message-incrementing")]
+    [JsonPropertyName("commit-message-incrementing")]
+    [JsonPropertyDescription("Sets whether it should be possible to increment the version with special syntax in the commit message. Can be 'Disabled', 'Enabled' or 'MergeMessageOnly'.")]
     public CommitMessageIncrementMode? CommitMessageIncrementing { get; set; }
 
-    [YamlMember(Alias = "regex")]
+    [JsonPropertyName("regex")]
+    [JsonPropertyDescription("The regex pattern to use to match this branch.")]
     public string? Regex { get; set; }
 
-    [YamlMember(Alias = "source-branches")]
+    [JsonPropertyName("source-branches")]
+    [JsonPropertyDescription("The source branches for this branch.")]
     public HashSet<string>? SourceBranches { get; set; }
 
-    [YamlMember(Alias = "is-source-branch-for")]
+    [JsonPropertyName("is-source-branch-for")]
+    [JsonPropertyDescription("The branches that this branch is a source branch.")]
     public HashSet<string>? IsSourceBranchFor { get; set; }
 
-    [YamlMember(Alias = "tracks-release-branches")]
+    [JsonPropertyName("tracks-release-branches")]
+    [JsonPropertyDescription("Indicates this branch config represents develop in GitFlow.")]
     public bool? TracksReleaseBranches { get; set; }
 
-    [YamlMember(Alias = "is-release-branch")]
+    [JsonPropertyName("is-release-branch")]
+    [JsonPropertyDescription("Indicates this branch config represents a release branch in GitFlow.")]
     public bool? IsReleaseBranch { get; set; }
 
-    [YamlMember(Alias = "is-mainline")]
+    [JsonPropertyName("is-mainline")]
+    [JsonPropertyDescription("When using Mainline mode, this indicates that this branch is a mainline. By default main and support/* are mainlines.")]
     public bool? IsMainline { get; set; }
 
-    [YamlMember(Alias = "pre-release-weight")]
+    [JsonPropertyName("pre-release-weight")]
+    [JsonPropertyDescription("Provides a way to translate the PreReleaseLabel to a number.")]
     public int? PreReleaseWeight { get; set; }
 
     /// <summary>
-    /// The name given to this configuration in the config file.
+    /// The name given to this configuration in the configuration file.
     /// </summary>
-    [YamlIgnore]
+    [JsonIgnore]
     public string Name { get; set; }
 
     public void MergeTo(BranchConfig targetConfig)

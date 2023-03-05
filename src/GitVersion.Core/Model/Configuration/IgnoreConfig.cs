@@ -1,5 +1,6 @@
+using System.Text.Json.Serialization;
+using GitVersion.Attributes;
 using GitVersion.VersionCalculation;
-using YamlDotNet.Serialization;
 
 namespace GitVersion.Model.Configuration;
 
@@ -7,13 +8,16 @@ public class IgnoreConfig
 {
     public IgnoreConfig() => ShAs = Enumerable.Empty<string>();
 
-    [YamlMember(Alias = "commits-before")]
+    [JsonPropertyName("commits-before")]
+    [JsonPropertyDescription("Commits before this date will be ignored. Format: yyyy-MM-ddTHH:mm:ss.")]
+    [JsonPropertyPattern("'yyyy-MM-ddTHH:mm:ss'", PatternFormat.DateTime)]
     public DateTimeOffset? Before { get; set; }
 
-    [YamlMember(Alias = "sha")]
+    [JsonPropertyName("sha")]
+    [JsonPropertyDescription("A sequence of SHAs to be excluded from the version calculations.")]
     public IEnumerable<string> ShAs { get; set; }
 
-    [YamlIgnore]
+    [JsonIgnore]
     public virtual bool IsEmpty => Before == null && ShAs.Any() == false;
 
     public virtual IEnumerable<IVersionFilter> ToFilters()

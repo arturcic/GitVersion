@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitTools.Testing", "GitTool
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitVersion.LibGit2Sharp", "GitVersion.LibGit2Sharp\GitVersion.LibGit2Sharp.csproj", "{093AFCF2-68F4-49B1-8173-7CB88467E783}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitVersion.Schema", "GitVersion.Schema\GitVersion.Schema.csproj", "{DA48F62A-8332-4101-92FF-5DA7ED5A4394}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{093AFCF2-68F4-49B1-8173-7CB88467E783}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{093AFCF2-68F4-49B1-8173-7CB88467E783}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{093AFCF2-68F4-49B1-8173-7CB88467E783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA48F62A-8332-4101-92FF-5DA7ED5A4394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA48F62A-8332-4101-92FF-5DA7ED5A4394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA48F62A-8332-4101-92FF-5DA7ED5A4394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA48F62A-8332-4101-92FF-5DA7ED5A4394}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

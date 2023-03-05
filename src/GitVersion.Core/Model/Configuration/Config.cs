@@ -1,8 +1,9 @@
 using System.Globalization;
+using System.Text.Json.Serialization;
+using GitVersion.Attributes;
 using GitVersion.Configuration;
 using GitVersion.Extensions;
 using GitVersion.VersionCalculation;
-using YamlDotNet.Serialization;
 
 namespace GitVersion.Model.Configuration;
 
@@ -16,85 +17,108 @@ public class Config
         Ignore = new IgnoreConfig();
     }
 
-    [YamlMember(Alias = "assembly-versioning-scheme")]
+    [JsonPropertyName("assembly-versioning-scheme")]
+    [JsonPropertyDescription("The scheme to use when setting AssemblyVersion attribute. Can be 'MajorMinorPatchTag', 'MajorMinorPatch', 'MajorMinor', 'Major', 'None'.")]
     public AssemblyVersioningScheme? AssemblyVersioningScheme { get; set; }
 
-    [YamlMember(Alias = "assembly-file-versioning-scheme")]
+    [JsonPropertyName("assembly-file-versioning-scheme")]
+    [JsonPropertyDescription("The scheme to use when setting AssemblyFileVersion attribute. Can be 'MajorMinorPatchTag', 'MajorMinorPatch', 'MajorMinor', 'Major', 'None'.")]
     public AssemblyFileVersioningScheme? AssemblyFileVersioningScheme { get; set; }
 
-    [YamlMember(Alias = "assembly-informational-format")]
+    [JsonPropertyName("assembly-informational-format")]
+    [JsonPropertyDescription("Specifies the format of AssemblyInformationalVersion. The default value is {InformationalVersion}.")]
     public string? AssemblyInformationalFormat { get; set; }
 
-    [YamlMember(Alias = "assembly-versioning-format")]
+    [JsonPropertyName("assembly-versioning-format")]
+    [JsonPropertyDescription("Specifies the format of AssemblyVersion and overwrites the value of assembly-versioning-scheme.")]
     public string? AssemblyVersioningFormat { get; set; }
 
-    [YamlMember(Alias = "assembly-file-versioning-format")]
+    [JsonPropertyName("assembly-file-versioning-format")]
+    [JsonPropertyDescription("Specifies the format of AssemblyFileVersion and overwrites the value of assembly-file-versioning-scheme.")]
     public string? AssemblyFileVersioningFormat { get; set; }
 
-    [YamlMember(Alias = "mode")]
+    [JsonPropertyName("mode")]
+    [JsonPropertyDescription("The versioning mode for this branch. Can be 'ContinuousDelivery', 'ContinuousDeployment', 'Mainline'.")]
     public VersioningMode? VersioningMode { get; set; }
 
-    [YamlMember(Alias = "tag-prefix")]
+    [JsonPropertyName("tag-prefix")]
+    [JsonPropertyDescription($"A regex which is used to trim Git tags before processing. Defaults to {DefaultTagPrefix}")]
     public string? TagPrefix { get; set; }
 
-    [YamlMember(Alias = "continuous-delivery-fallback-tag")]
+    [JsonPropertyName("continuous-delivery-fallback-tag")]
     public string? ContinuousDeploymentFallbackTag { get; set; }
 
-    [YamlMember(Alias = "next-version")]
+    [JsonPropertyName("next-version")]
+    [JsonPropertyDescription("Allows you to bump the next version explicitly. Useful for bumping main or a feature branch with breaking changes")]
     public string? NextVersion
     {
-        get => this.nextVersion;
+        get => nextVersion;
         set =>
-            this.nextVersion = int.TryParse(value, NumberStyles.Any, NumberFormatInfo.InvariantInfo, out var major)
+            nextVersion = int.TryParse(value, NumberStyles.Any, NumberFormatInfo.InvariantInfo, out var major)
                 ? $"{major}.0"
                 : value;
     }
 
-    [YamlMember(Alias = "major-version-bump-message")]
+    [JsonPropertyName("major-version-bump-message")]
+    [JsonPropertyDescription(@"The regex to match commit messages with to perform a major version increment. Default set to '\+semver:\s?(breaking|major)'")]
+    [JsonPropertyPattern(@"'\+semver:\s?(breaking|major)'")]
     public string? MajorVersionBumpMessage { get; set; }
 
-    [YamlMember(Alias = "minor-version-bump-message")]
+    [JsonPropertyName("minor-version-bump-message")]
+    [JsonPropertyDescription(@"The regex to match commit messages with to perform a minor version increment. Default set to '\+semver:\s?(feature|minor)'")]
+    [JsonPropertyPattern(@"'\+semver:\s?(feature|minor)'")]
     public string? MinorVersionBumpMessage { get; set; }
 
-    [YamlMember(Alias = "patch-version-bump-message")]
+    [JsonPropertyName("patch-version-bump-message")]
+    [JsonPropertyDescription(@"The regex to match commit messages with to perform a patch version increment. Default set to '\+semver:\s?(fix|patch)'")]
+    [JsonPropertyPattern(@"'\+semver:\s?(fix|patch)'")]
     public string? PatchVersionBumpMessage { get; set; }
 
-    [YamlMember(Alias = "no-bump-message")]
+    [JsonPropertyName("no-bump-message")]
+    [JsonPropertyDescription(@"Used to tell GitVersion not to increment when in Mainline development mode. . Default set to '\+semver:\s?(none|skip)'")]
+    [JsonPropertyPattern(@"'\+semver:\s?(none|skip)'")]
     public string? NoBumpMessage { get; set; }
 
-    [YamlMember(Alias = "legacy-semver-padding")]
+    [JsonPropertyName("legacy-semver-padding")]
     public int? LegacySemVerPadding { get; set; }
 
-    [YamlMember(Alias = "build-metadata-padding")]
+    [JsonPropertyName("build-metadata-padding")]
     public int? BuildMetaDataPadding { get; set; }
 
-    [YamlMember(Alias = "commits-since-version-source-padding")]
+    [JsonPropertyName("commits-since-version-source-padding")]
     public int? CommitsSinceVersionSourcePadding { get; set; }
 
-    [YamlMember(Alias = "tag-pre-release-weight")]
+    [JsonPropertyName("tag-pre-release-weight")]
+    [JsonPropertyDescription("The pre-release weight in case of tagged commits. Defaults to 60000.")]
     public int? TagPreReleaseWeight { get; set; }
-
-    [YamlMember(Alias = "commit-message-incrementing")]
-    public CommitMessageIncrementMode? CommitMessageIncrementing { get; set; }
-
-    [YamlMember(Alias = "branches")]
-    public Dictionary<string, BranchConfig> Branches { get; set; }
-
-    [YamlMember(Alias = "ignore")]
-    public IgnoreConfig Ignore { get; set; }
-
-    [YamlMember(Alias = "increment")]
-    public IncrementStrategy? Increment { get; set; }
-
-    [YamlMember(Alias = "commit-date-format")]
+    [JsonPropertyName("commit-date-format")]
+    [JsonPropertyDescription("The format to use when calculating the commit date. Defaults to 'yyyy-MM-dd'.")]
+    [JsonPropertyPattern("'yyyy-MM-dd'", PatternFormat.DateTime)]
     public string? CommitDateFormat { get; set; }
 
-    [YamlMember(Alias = "merge-message-formats")]
+    [JsonPropertyName("merge-message-formats")]
+    [JsonPropertyDescription("Custom merge message formats to enable identification of merge messages that do not follow the built-in conventions.")]
     public Dictionary<string, string> MergeMessageFormats { get; set; } = new();
 
-    [YamlMember(Alias = "update-build-number")]
-    public bool? UpdateBuildNumber { get; set; }
+    [JsonPropertyName("update-build-number")]
+    [JsonPropertyDescription("Whether to update the build number in the project file. Defaults to true.")]
+    public bool? UpdateBuildNumber { get; set; } = true;
 
+
+    [JsonPropertyName("commit-message-incrementing")]
+    public CommitMessageIncrementMode? CommitMessageIncrementing { get; set; }
+
+    [JsonPropertyName("branches")]
+    [JsonPropertyDescription("The header for all the individual branch configuration.")]
+    public Dictionary<string, BranchConfig> Branches { get; set; }
+
+	[JsonPropertyName("ignore")]
+    [JsonPropertyDescription("The header property for the ignore configuration.")]
+    public IgnoreConfig Ignore { get; set; }
+
+    [JsonPropertyName("increment")]
+    [JsonPropertyDescription("The increment strategy for this branch. Can be 'Inherit', 'Patch', 'Minor', 'Major', 'None'.")]
+    public IncrementStrategy? Increment { get; set; }
     public override string ToString()
     {
         var stringBuilder = new StringBuilder();
