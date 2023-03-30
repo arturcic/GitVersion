@@ -13,7 +13,7 @@ internal class SpaceAutomation : BuildAgentBase
 
     protected override string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => Environment.GetEnvironmentVariable("JB_SPACE_GIT_BRANCH");
+    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("JB_SPACE_GIT_BRANCH");
 
     public override string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
 

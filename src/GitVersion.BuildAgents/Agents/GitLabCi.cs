@@ -21,7 +21,7 @@ internal class GitLabCi : BuildAgentBase
         $"GitVersion_{name}={value}"
     };
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => Environment.GetEnvironmentVariable("CI_COMMIT_REF_NAME");
+    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("CI_COMMIT_REF_NAME");
 
     public override bool PreventFetch() => true;
 

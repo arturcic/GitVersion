@@ -22,10 +22,10 @@ internal class Jenkins : BuildAgentBase
     };
 
     public override string? GetCurrentBranch(bool usingDynamicRepos) => IsPipelineAsCode()
-        ? Environment.GetEnvironmentVariable("BRANCH_NAME")
-        : Environment.GetEnvironmentVariable("GIT_LOCAL_BRANCH") ?? Environment.GetEnvironmentVariable("GIT_BRANCH");
+        ? this.environment.GetEnvironmentVariable("BRANCH_NAME")
+        : this.environment.GetEnvironmentVariable("GIT_LOCAL_BRANCH") ?? this.environment.GetEnvironmentVariable("GIT_BRANCH");
 
-    private bool IsPipelineAsCode() => !Environment.GetEnvironmentVariable("BRANCH_NAME").IsNullOrEmpty();
+    private bool IsPipelineAsCode() => !this.environment.GetEnvironmentVariable("BRANCH_NAME").IsNullOrEmpty();
 
     public override bool PreventFetch() => true;
 

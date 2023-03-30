@@ -55,8 +55,8 @@ internal class BitBucketPipelines : BuildAgentBase
 
     private string? EvaluateEnvironmentVariable(string variableName)
     {
-        var branchName = Environment.GetEnvironmentVariable(variableName);
-        this.Log.Info("Evaluating environment variable {0} : {1}", variableName, branchName ?? "(null)");
+        var branchName = this.environment.GetEnvironmentVariable(variableName);
+        this.log.Info("Evaluating environment variable {0} : {1}", variableName, branchName ?? "(null)");
         return branchName;
     }
 }

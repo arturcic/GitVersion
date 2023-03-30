@@ -21,7 +21,7 @@ internal class AzurePipelines : BuildAgentBase
         $"##vso[task.setvariable variable=GitVersion.{name};isOutput=true]{value}"
     };
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCH");
+    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("BUILD_SOURCEBRANCH");
 
     public override bool PreventFetch() => true;
 
@@ -29,7 +29,7 @@ internal class AzurePipelines : BuildAgentBase
     {
         // For AzurePipelines, we'll get the Build Number and insert GitVersion variables where
         // specified
-        var buildNumberEnv = Environment.GetEnvironmentVariable("BUILD_BUILDNUMBER");
+        var buildNumberEnv = this.environment.GetEnvironmentVariable("BUILD_BUILDNUMBER");
         if (buildNumberEnv.IsNullOrWhiteSpace())
             return variables.FullSemVer;
 

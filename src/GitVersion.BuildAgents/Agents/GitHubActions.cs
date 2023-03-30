@@ -30,7 +30,7 @@ internal class GitHubActions : BuildAgentBase
         // https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files
         // The outgoing environment variables must be written to a temporary file (identified by the $GITHUB_ENV environment
         // variable, which changes for every step in a workflow) which is then parsed. That file must also be UTF-8 or it will fail.
-        var gitHubSetEnvFilePath = this.Environment.GetEnvironmentVariable(GitHubSetEnvTempFileEnvironmentVariableName);
+        var gitHubSetEnvFilePath = this.environment.GetEnvironmentVariable(GitHubSetEnvTempFileEnvironmentVariableName);
 
         if (gitHubSetEnvFilePath != null)
         {
@@ -50,7 +50,7 @@ internal class GitHubActions : BuildAgentBase
         }
     }
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => Environment.GetEnvironmentVariable("GITHUB_REF");
+    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("GITHUB_REF");
 
     public override bool PreventFetch() => true;
 }

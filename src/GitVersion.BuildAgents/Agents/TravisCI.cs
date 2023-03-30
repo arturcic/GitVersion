@@ -12,7 +12,7 @@ internal class TravisCi : BuildAgentBase
     public const string EnvironmentVariableName = "TRAVIS";
     protected override string EnvironmentVariable => EnvironmentVariableName;
 
-    public override bool CanApplyToCurrentContext() => "true".Equals(Environment.GetEnvironmentVariable(EnvironmentVariable)) && "true".Equals(Environment.GetEnvironmentVariable("CI"));
+    public override bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable)) && "true".Equals(this.environment.GetEnvironmentVariable("CI"));
 
     public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 

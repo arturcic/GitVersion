@@ -16,8 +16,8 @@ internal class AppVeyor : BuildAgentBase
 
     public override string GenerateSetVersionMessage(GitVersionVariables variables)
     {
-        var buildNumber = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_NUMBER");
-        var apiUrl = Environment.GetEnvironmentVariable("APPVEYOR_API_URL") ?? throw new Exception("APPVEYOR_API_URL environment variable not set");
+        var buildNumber = this.environment.GetEnvironmentVariable("APPVEYOR_BUILD_NUMBER");
+        var apiUrl = this.environment.GetEnvironmentVariable("APPVEYOR_API_URL") ?? throw new Exception("APPVEYOR_API_URL environment variable not set");
 
         using var httpClient = GetHttpClient(apiUrl);
 
@@ -43,7 +43,7 @@ internal class AppVeyor : BuildAgentBase
 
     public override string[] GenerateSetParameterMessage(string name, string? value)
     {
-        var apiUrl = Environment.GetEnvironmentVariable("APPVEYOR_API_URL") ?? throw new Exception("APPVEYOR_API_URL environment variable not set");
+        var apiUrl = this.environment.GetEnvironmentVariable("APPVEYOR_API_URL") ?? throw new Exception("APPVEYOR_API_URL environment variable not set");
         var httpClient = GetHttpClient(apiUrl);
 
         var body = new
@@ -69,12 +69,12 @@ internal class AppVeyor : BuildAgentBase
 
     public override string? GetCurrentBranch(bool usingDynamicRepos)
     {
-        var pullRequestBranchName = Environment.GetEnvironmentVariable("APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH");
+        var pullRequestBranchName = this.environment.GetEnvironmentVariable("APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH");
         if (!pullRequestBranchName.IsNullOrWhiteSpace())
         {
             return pullRequestBranchName;
         }
-        return Environment.GetEnvironmentVariable("APPVEYOR_REPO_BRANCH");
+        return this.environment.GetEnvironmentVariable("APPVEYOR_REPO_BRANCH");
     }
 
     public override bool PreventFetch() => false;

@@ -13,7 +13,7 @@ internal class BuildKite : BuildAgentBase
 
     protected override string EnvironmentVariable => EnvironmentVariableName;
 
-    public override bool CanApplyToCurrentContext() => "true".Equals(Environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
+    public override bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
 
     public override string GenerateSetVersionMessage(GitVersionVariables variables) =>
         string.Empty; // There is no equivalent function in BuildKite.
@@ -23,10 +23,10 @@ internal class BuildKite : BuildAgentBase
 
     public override string? GetCurrentBranch(bool usingDynamicRepos)
     {
-        var pullRequest = Environment.GetEnvironmentVariable("BUILDKITE_PULL_REQUEST");
+        var pullRequest = this.environment.GetEnvironmentVariable("BUILDKITE_PULL_REQUEST");
         if (string.IsNullOrEmpty(pullRequest) || pullRequest == "false")
         {
-            return Environment.GetEnvironmentVariable("BUILDKITE_BRANCH");
+            return this.environment.GetEnvironmentVariable("BUILDKITE_BRANCH");
         }
         else
         {
