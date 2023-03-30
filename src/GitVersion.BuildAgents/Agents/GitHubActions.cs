@@ -1,31 +1,32 @@
 using GitVersion.Extensions;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class GitHubActions : BuildAgentBase
+internal class GitHubActions : ICurrentBuildAgent
 {
+    private readonly IEnvironment environment;
     // https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables#default-environment-variables
 
-    public GitHubActions(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    public GitHubActions(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "GITHUB_ACTIONS";
     public const string GitHubSetEnvTempFileEnvironmentVariableName = "GITHUB_ENV";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) =>
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
+
+    public string GenerateSetVersionMessage(GitVersionVariables variables) =>
         string.Empty; // There is no equivalent function in GitHub Actions.
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) =>
+    public string[] GenerateSetParameterMessage(string name, string? value) =>
         Array.Empty<string>(); // There is no equivalent function in GitHub Actions.
 
-    public override void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
+    public void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
     {
-        base.WriteIntegration(writer, variables, updateBuildNumber);
+        var @base = (ICurrentBuildAgent)this;
+        @base.WriteIntegration(writer, variables, updateBuildNumber);
 
         // https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files
         // The outgoing environment variables must be written to a temporary file (identified by the $GITHUB_ENV environment
@@ -50,7 +51,7 @@ internal class GitHubActions : BuildAgentBase
         }
     }
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("GITHUB_REF");
+    public string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("GITHUB_REF");
 
-    public override bool PreventFetch() => true;
+    public bool PreventFetch() => true;
 }

@@ -1,21 +1,23 @@
-using GitVersion.Logging;
+using GitVersion.Extensions;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class SpaceAutomation : BuildAgentBase
+internal class SpaceAutomation : ICurrentBuildAgent
 {
-    public SpaceAutomation(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public SpaceAutomation(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "JB_SPACE_PROJECT_KEY";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("JB_SPACE_GIT_BRANCH");
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
+    public string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("JB_SPACE_GIT_BRANCH");
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => string.Empty;
+    public string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
+
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => string.Empty;
 }

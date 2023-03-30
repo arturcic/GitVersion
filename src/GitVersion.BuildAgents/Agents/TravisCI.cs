@@ -1,25 +1,23 @@
-using GitVersion.Logging;
+using GitVersion.Extensions;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class TravisCi : BuildAgentBase
+internal class TravisCi : ICurrentBuildAgent
 {
-    public TravisCi(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public TravisCi(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "TRAVIS";
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable)) && "true".Equals(this.environment.GetEnvironmentVariable("CI"));
+    public bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable))
+                                              && "true".Equals(this.environment.GetEnvironmentVariable("CI"));
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
-    {
-        $"GitVersion_{name}={value}"
-    };
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[] { $"GitVersion_{name}={value}" };
 
-    public override bool PreventFetch() => true;
+    public bool PreventFetch() => true;
 }

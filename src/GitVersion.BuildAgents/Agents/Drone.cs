@@ -1,27 +1,26 @@
 using GitVersion.Extensions;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class Drone : BuildAgentBase
+internal class Drone : ICurrentBuildAgent
 {
-    public Drone(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public Drone(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "DRONE";
-    protected override string EnvironmentVariable => EnvironmentVariableName;
-    public override bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
+    public string EnvironmentVariable => EnvironmentVariableName;
+    public bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[]
     {
         $"GitVersion_{name}={value}"
     };
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos)
+    public string? GetCurrentBranch(bool usingDynamicRepos)
     {
         // In Drone DRONE_BRANCH variable is equal to destination branch in case of pull request
         // https://discourse.drone.io/t/getting-the-branch-a-pull-request-is-created-from/670
@@ -51,5 +50,5 @@ internal class Drone : BuildAgentBase
         return this.environment.GetEnvironmentVariable("DRONE_BRANCH");
     }
 
-    public override bool PreventFetch() => false;
+    public bool PreventFetch() => false;
 }

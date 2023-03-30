@@ -1,5 +1,4 @@
 using GitVersion.Core.Tests.Helpers;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
 using GitVersion.VersionCalculation;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +14,7 @@ public class BuildServerBaseTests : TestBase
     [SetUp]
     public void SetUp()
     {
-        this.sp = ConfigureServices(services => services.AddSingleton<BuildAgent>());
+        this.sp = ConfigureServices(services => services.AddSingleton<ICurrentBuildAgent, BuildAgent>());
         this.buildServer = this.sp.GetRequiredService<IVariableProvider>();
     }
 
@@ -39,7 +38,7 @@ public class BuildServerBaseTests : TestBase
         var configuration = new TestEffectiveConfiguration();
 
         var variables = this.buildServer.GetVariablesFor(semanticVersion, configuration, null);
-        var buildAgent = this.sp.GetRequiredService<BuildAgent>();
+        var buildAgent = this.sp.GetRequiredService<ICurrentBuildAgent>();
         buildAgent.WriteIntegration(writes.Add, variables);
 
         writes[1].ShouldBe("1.2.3-beta.1+5");
@@ -49,18 +48,14 @@ public class BuildServerBaseTests : TestBase
         writes.ShouldNotContain(x => x != null && x.StartsWith("Executing GenerateSetVersionMessage for "));
     }
 
-    private class BuildAgent : BuildAgentBase
+    private class BuildAgent : ICurrentBuildAgent
     {
-        protected override string EnvironmentVariable => throw new NotImplementedException();
+        public string EnvironmentVariable => throw new NotImplementedException();
 
-        public BuildAgent(IEnvironment environment, ILog log) : base(environment, log)
-        {
-        }
+        public bool CanApplyToCurrentContext() => throw new NotImplementedException();
 
-        public override bool CanApplyToCurrentContext() => throw new NotImplementedException();
+        public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 
-        public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
-
-        public override string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
+        public string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
     }
 }

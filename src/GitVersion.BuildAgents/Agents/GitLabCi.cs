@@ -1,38 +1,46 @@
-using GitVersion.Logging;
+using GitVersion.Extensions;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class GitLabCi : BuildAgentBase
+internal class GitLabCi : ICurrentBuildAgent
 {
+    private readonly IEnvironment environment;
     public const string EnvironmentVariableName = "GITLAB_CI";
     private string? file;
 
-    public GitLabCi(IEnvironment environment, ILog log) : base(environment, log) => WithPropertyFile("gitversion.properties");
+    public GitLabCi(IEnvironment environment)
+    {
+        this.environment = environment.NotNull();
+        WithPropertyFile("gitversion.properties");
+    }
 
     public void WithPropertyFile(string propertiesFileName) => this.file = propertiesFileName;
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
+
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[]
     {
         $"GitVersion_{name}={value}"
     };
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("CI_COMMIT_REF_NAME");
+    public string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("CI_COMMIT_REF_NAME");
 
-    public override bool PreventFetch() => true;
+    public bool PreventFetch() => true;
 
-    public override void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
+    public void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
     {
         if (this.file is null)
             return;
 
-        base.WriteIntegration(writer, variables, updateBuildNumber);
+        var @base = (ICurrentBuildAgent)this;
+        @base.WriteIntegration(writer, variables, updateBuildNumber);
         writer($"Outputting variables to '{this.file}' ... ");
 
-        File.WriteAllLines(this.file, GenerateBuildLogOutput(variables));
+        File.WriteAllLines(this.file, @base.GenerateBuildLogOutput(variables));
     }
 }

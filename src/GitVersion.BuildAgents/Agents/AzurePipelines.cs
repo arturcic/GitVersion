@@ -1,31 +1,32 @@
 using System.Text.RegularExpressions;
 using GitVersion.Extensions;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class AzurePipelines : BuildAgentBase
+internal class AzurePipelines : ICurrentBuildAgent
 {
-    public AzurePipelines(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public AzurePipelines(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "TF_BUILD";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
+
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[]
     {
         $"##vso[task.setvariable variable=GitVersion.{name}]{value}",
         $"##vso[task.setvariable variable=GitVersion.{name};isOutput=true]{value}"
     };
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("BUILD_SOURCEBRANCH");
+    public string? GetCurrentBranch(bool usingDynamicRepos) => this.environment.GetEnvironmentVariable("BUILD_SOURCEBRANCH");
 
-    public override bool PreventFetch() => true;
+    public bool PreventFetch() => true;
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables)
+    public string GenerateSetVersionMessage(GitVersionVariables variables)
     {
         // For AzurePipelines, we'll get the Build Number and insert GitVersion variables where
         // specified

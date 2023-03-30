@@ -5,17 +5,24 @@ using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class TeamCity : BuildAgentBase
+internal class TeamCity : ICurrentBuildAgent
 {
-    public TeamCity(IEnvironment environment, ILog log) : base(environment, log)
+    private readonly IEnvironment environment;
+    private readonly ILog log;
+
+    public TeamCity(IEnvironment environment, ILog log)
     {
+        this.environment = environment.NotNull();
+        this.log = log.NotNull();
     }
 
     public const string EnvironmentVariableName = "TEAMCITY_VERSION";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos)
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
+
+    public string? GetCurrentBranch(bool usingDynamicRepos)
     {
         var branchName = this.environment.GetEnvironmentVariable("Git_Branch");
 
@@ -26,7 +33,8 @@ internal class TeamCity : BuildAgentBase
                 WriteBranchEnvVariableWarning();
             }
 
-            return base.GetCurrentBranch(usingDynamicRepos);
+            var @base = (ICurrentBuildAgent)this;
+            return @base.GetCurrentBranch(usingDynamicRepos);
         }
 
         return branchName;
@@ -37,13 +45,13 @@ Depending on your authentication and transport setup of your git VCS root things
 In your TeamCity build configuration, add a parameter called `env.Git_Branch` with value %teamcity.build.vcs.branch.<vcsid>%
 See https://gitversion.net/docs/reference/build-servers/teamcity for more info");
 
-    public override bool PreventFetch() => !string.IsNullOrEmpty(this.environment.GetEnvironmentVariable("Git_Branch"));
+    public bool PreventFetch() => !string.IsNullOrEmpty(this.environment.GetEnvironmentVariable("Git_Branch"));
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[]
     {
         $"##teamcity[setParameter name='GitVersion.{name}' value='{ServiceMessageEscapeHelper.EscapeValue(value)}']",
         $"##teamcity[setParameter name='system.GitVersion.{name}' value='{ServiceMessageEscapeHelper.EscapeValue(value)}']"
     };
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => $"##teamcity[buildNumber '{ServiceMessageEscapeHelper.EscapeValue(variables.FullSemVer)}']";
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => $"##teamcity[buildNumber '{ServiceMessageEscapeHelper.EscapeValue(variables.FullSemVer)}']";
 }

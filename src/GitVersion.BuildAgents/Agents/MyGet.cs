@@ -1,19 +1,18 @@
 using GitVersion.Extensions;
 using GitVersion.Helpers;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class MyGet : BuildAgentBase
+internal class MyGet : ICurrentBuildAgent
 {
-    public MyGet(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public MyGet(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "BuildRunner";
-    protected override string EnvironmentVariable => EnvironmentVariableName;
-    public override bool CanApplyToCurrentContext()
+    public string EnvironmentVariable => EnvironmentVariableName;
+    public bool CanApplyToCurrentContext()
     {
         var buildRunner = this.environment.GetEnvironmentVariable(EnvironmentVariable);
 
@@ -21,7 +20,7 @@ internal class MyGet : BuildAgentBase
                && buildRunner.Equals("MyGet", StringComparison.InvariantCultureIgnoreCase);
     }
 
-    public override string[] GenerateSetParameterMessage(string name, string? value)
+    public string[] GenerateSetParameterMessage(string name, string? value)
     {
         var messages = new List<string>
         {
@@ -36,7 +35,7 @@ internal class MyGet : BuildAgentBase
         return messages.ToArray();
     }
 
-    public override string? GenerateSetVersionMessage(GitVersionVariables variables) => null;
+    public string? GenerateSetVersionMessage(GitVersionVariables variables) => null;
 
-    public override bool PreventFetch() => false;
+    public bool PreventFetch() => false;
 }

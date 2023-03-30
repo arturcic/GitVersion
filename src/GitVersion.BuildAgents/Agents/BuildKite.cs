@@ -1,27 +1,27 @@
-using GitVersion.Logging;
+using GitVersion.Extensions;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class BuildKite : BuildAgentBase
+internal class BuildKite : ICurrentBuildAgent
 {
-    public BuildKite(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public BuildKite(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "BUILDKITE";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
+    public bool CanApplyToCurrentContext() => "true".Equals(this.environment.GetEnvironmentVariable(EnvironmentVariable), StringComparison.OrdinalIgnoreCase);
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) =>
+    public string GenerateSetVersionMessage(GitVersionVariables variables) =>
         string.Empty; // There is no equivalent function in BuildKite.
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) =>
+    public string[] GenerateSetParameterMessage(string name, string? value) =>
         Array.Empty<string>(); // There is no equivalent function in BuildKite.
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos)
+    public string? GetCurrentBranch(bool usingDynamicRepos)
     {
         var pullRequest = this.environment.GetEnvironmentVariable("BUILDKITE_PULL_REQUEST");
         if (string.IsNullOrEmpty(pullRequest) || pullRequest == "false")
@@ -36,5 +36,5 @@ internal class BuildKite : BuildAgentBase
         }
     }
 
-    public override bool PreventFetch() => true;
+    public bool PreventFetch() => true;
 }

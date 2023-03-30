@@ -1,24 +1,26 @@
-using GitVersion.Logging;
+using GitVersion.Extensions;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class ContinuaCi : BuildAgentBase
+internal class ContinuaCi : ICurrentBuildAgent
 {
-    public ContinuaCi(IEnvironment environment, ILog log) : base(environment, log)
-    {
-    }
+    private readonly IEnvironment environment;
+
+    public ContinuaCi(IEnvironment environment) => this.environment = environment.NotNull();
 
     public const string EnvironmentVariableName = "ContinuaCI.Version";
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[]
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
+
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[]
     {
         $"@@continua[setVariable name='GitVersion_{name}' value='{value}' skipIfNotDefined='true']"
     };
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => $"@@continua[setBuildVersion value='{variables.FullSemVer}']";
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => $"@@continua[setBuildVersion value='{variables.FullSemVer}']";
 
-    public override bool PreventFetch() => false;
+    public bool PreventFetch() => false;
 }

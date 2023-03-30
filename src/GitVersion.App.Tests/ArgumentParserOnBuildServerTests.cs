@@ -17,7 +17,7 @@ public class ArgumentParserOnBuildServerTests : TestBase
         {
             services.AddSingleton<IArgumentParser, ArgumentParser>();
             services.AddSingleton<IGlobbingResolver, GlobbingResolver>();
-            services.AddSingleton<ICurrentBuildAgent, MockBuildAgent>();
+            services.AddSingleton<ICurrentBuildAgent, BuildAgent>();
         });
         this.argumentParser = sp.GetRequiredService<IArgumentParser>();
     }
@@ -29,17 +29,14 @@ public class ArgumentParserOnBuildServerTests : TestBase
         arguments.NoFetch.ShouldBe(true);
     }
 
-    private class MockBuildAgent : ICurrentBuildAgent
+    private class BuildAgent : ICurrentBuildAgent
     {
-        public bool IsDefault => false;
+        public string EnvironmentVariable => throw new NotImplementedException();
+
         public bool CanApplyToCurrentContext() => throw new NotImplementedException();
 
-        public void WriteIntegration(Action<string> writer, GitVersionVariables variables, bool updateBuildNumber = true) => throw new NotImplementedException();
+        public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 
-        public string GetCurrentBranch(bool usingDynamicRepos) => throw new NotImplementedException();
-
-        public bool PreventFetch() => true;
-
-        public bool ShouldCleanUpRemotes() => throw new NotImplementedException();
+        public string[] GenerateSetParameterMessage(string name, string? value) => Array.Empty<string>();
     }
 }

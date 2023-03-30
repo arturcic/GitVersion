@@ -1,32 +1,43 @@
+using GitVersion.Extensions;
 using GitVersion.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class BitBucketPipelines : BuildAgentBase
+internal class BitBucketPipelines : ICurrentBuildAgent
 {
+    private readonly IEnvironment environment;
+    private readonly ILog log;
     public const string EnvironmentVariableName = "BITBUCKET_WORKSPACE";
     public const string BranchEnvironmentVariableName = "BITBUCKET_BRANCH";
     public const string TagEnvironmentVariableName = "BITBUCKET_TAG";
     public const string PullRequestEnvironmentVariableName = "BITBUCKET_PR_ID";
     private string? file;
 
-    public BitBucketPipelines(IEnvironment environment, ILog log) : base(environment, log) => WithPropertyFile("gitversion.properties");
+    public BitBucketPipelines(IEnvironment environment, ILog log)
+    {
+        this.environment = environment.NotNull();
+        this.log = log.NotNull();
+        WithPropertyFile("gitversion.properties");
+    }
 
-    protected override string EnvironmentVariable => EnvironmentVariableName;
+    public string EnvironmentVariable => EnvironmentVariableName;
 
-    public override string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
+    public bool CanApplyToCurrentContext() => !this.environment.GetEnvironmentVariable(EnvironmentVariable).IsNullOrEmpty();
+
+    public string GenerateSetVersionMessage(GitVersionVariables variables) => variables.FullSemVer;
 
     public void WithPropertyFile(string propertiesFileName) => this.file = propertiesFileName;
 
-    public override string[] GenerateSetParameterMessage(string name, string? value) => new[] { $"GITVERSION_{name.ToUpperInvariant()}={value}" };
+    public string[] GenerateSetParameterMessage(string name, string? value) => new[] { $"GITVERSION_{name.ToUpperInvariant()}={value}" };
 
-    public override void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
+    public void WriteIntegration(Action<string?> writer, GitVersionVariables variables, bool updateBuildNumber = true)
     {
         if (this.file is null)
             return;
 
-        base.WriteIntegration(writer, variables, updateBuildNumber);
+        var @base = (ICurrentBuildAgent)this;
+        @base.WriteIntegration(writer, variables, updateBuildNumber);
         writer($"Outputting variables to '{this.file}' ... ");
         writer("To import the file into your build environment, add the following line to your build step:");
         writer($"  - source {this.file}");
@@ -42,7 +53,7 @@ internal class BitBucketPipelines : BuildAgentBase
         File.WriteAllLines(this.file, exports);
     }
 
-    public override string? GetCurrentBranch(bool usingDynamicRepos)
+    public string? GetCurrentBranch(bool usingDynamicRepos)
     {
         var branchName = EvaluateEnvironmentVariable(BranchEnvironmentVariableName);
         if (branchName?.StartsWith("refs/heads/") == true)
