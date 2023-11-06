@@ -24,7 +24,7 @@ public static class StringExtensions
         }
         catch
         {
-            path = PathHelper.Combine(System.Environment.CurrentDirectory, path);
+            path = PathHelper.Combine(SysEnv.CurrentDirectory, path);
 
             try
             {
