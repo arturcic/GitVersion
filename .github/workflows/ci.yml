@@ -137,3 +137,8 @@ jobs:
       name: '[Release]'
       shell: pwsh
       run: echo "Release" ${{ github.ref }}
+    -
+      name: '[Release Info]'
+      if: ${{ github.event_name == 'repository_dispatch' }}
+      shell: pwsh
+      run: echo "Release" ${{ github.event.client_payload.ref }}      
