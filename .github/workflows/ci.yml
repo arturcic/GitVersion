@@ -21,7 +21,7 @@ on:
       - '!docs/**'
 
   repository_dispatch:
-    types: [ release ]
+    types: [ trigger-release ]
 
 env:
   DOTNET_ROLL_FORWARD: "Major"
@@ -138,7 +138,11 @@ jobs:
       shell: pwsh
       run: echo "Release" ${{ github.ref }}
     -
-      name: '[Release Info]'
+      name: '[Publish Release]'
       if: ${{ github.event_name == 'repository_dispatch' }}
-      shell: pwsh
-      run: echo "Release" ${{ github.event.client_payload.ref }}      
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        event-type: publish-release
+        client-payload: '{"ref": "${{ github.event.client_payload.ref }}", "sha": "${{ github.event.client_payload.sha }}"}' 

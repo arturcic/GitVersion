@@ -3,7 +3,7 @@ name: Verify & Publish Docs
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [release]
+    types: [ publish-release ]
   push:
     branches:
     - main
