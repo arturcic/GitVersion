@@ -19,6 +19,7 @@ public class ConfigurationExtensionsTests : TestBase
             }
         };
 
+        
         var result = configuration.GetReleaseBranchConfiguration();
 
         result.Count.ShouldBe(2);
