@@ -2,7 +2,7 @@
 name: Improvement request
 about: Describe the change you want to request.
 title: "[Improvement]"
-labels: improvement
+labels: ''
 assignees: ''
 
 ---

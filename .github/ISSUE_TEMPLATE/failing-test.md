@@ -2,7 +2,7 @@
 name: Failing test
 about: Describe the scenario you have as a unit test.
 title: "[Failing test]"
-labels: failing test case
+labels: ''
 assignees: ''
 
 ---
