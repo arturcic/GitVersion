@@ -4,6 +4,15 @@ updates:
   labels:
     - "dependencies"
   commit-message:
+    prefix: "(tools deps)"
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  labels:
+    - "dependencies"
+  commit-message:
     prefix: "(ci deps)"
   groups:
     microsoft:
