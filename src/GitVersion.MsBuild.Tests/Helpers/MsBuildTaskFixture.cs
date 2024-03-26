@@ -61,6 +61,7 @@ public class MsBuildTaskFixture(RepositoryFixtureBase fixture)
             { Jenkins.EnvironmentVariableName, null },
             { AzurePipelines.EnvironmentVariableName, null },
             { GitHubActions.EnvironmentVariableName, null },
+            { GitHubActions.GitHubSetEnvTempFileEnvironmentVariableName, null },
             { SpaceAutomation.EnvironmentVariableName, null }
         };
 

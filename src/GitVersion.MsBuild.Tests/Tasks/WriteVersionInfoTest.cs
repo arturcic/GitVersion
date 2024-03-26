@@ -1,3 +1,4 @@
+using GitVersion.Helpers;
 using GitVersion.MsBuild.Tasks;
 using GitVersion.MsBuild.Tests.Helpers;
 using Microsoft.Build.Utilities.ProjectCreation;
@@ -7,7 +8,7 @@ namespace GitVersion.MsBuild.Tests.Tasks;
 [TestFixture]
 public class WriteVersionInfoTest : TestTaskBase
 {
-    private string GitHubEnvFilePath { get; } = Path.GetTempFileName();
+    private string GitHubEnvFilePath { get; } = PathHelper.GetTempPath() + "/github-env.txt";
 
     [OneTimeTearDown]
     public void OneTimeTearDown()
@@ -72,7 +73,6 @@ public class WriteVersionInfoTest : TestTaskBase
     }
 
     [Test]
-    [Ignore("This test is not working on GitHub Actions")]
     public void WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInGitHubActions()
     {
         var task = new WriteVersionInfoToBuildLog();
