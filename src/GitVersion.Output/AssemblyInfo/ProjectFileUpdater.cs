@@ -37,7 +37,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
         {
             var localProjectFile = projectFile.FullName;
 
-            var originalFileContents = fileSystem.ReadAllText(localProjectFile);
+            var originalFileContents = fileSystem.File.ReadAllText(localProjectFile);
             XElement fileXml;
             try
             {
@@ -57,19 +57,19 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
             log.Debug($"Update file: {localProjectFile}");
 
             var backupProjectFile = localProjectFile + ".bak";
-            fileSystem.Copy(localProjectFile, backupProjectFile, true);
+            fileSystem.File.Copy(localProjectFile, backupProjectFile, true);
 
             this.restoreBackupTasks.Add(() =>
             {
-                if (fileSystem.Exists(localProjectFile))
+                if (fileSystem.File.Exists(localProjectFile))
                 {
-                    fileSystem.Delete(localProjectFile);
+                    fileSystem.File.Delete(localProjectFile);
                 }
 
-                fileSystem.Move(backupProjectFile, localProjectFile);
+                fileSystem.File.Move(backupProjectFile, localProjectFile);
             });
 
-            this.cleanupBackupTasks.Add(() => fileSystem.Delete(backupProjectFile));
+            this.cleanupBackupTasks.Add(() => fileSystem.File.Delete(backupProjectFile));
 
             if (!assemblyVersion.IsNullOrWhiteSpace())
             {
@@ -94,7 +94,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
             var outputXmlString = fileXml.ToString();
             if (originalFileContents != outputXmlString)
             {
-                fileSystem.WriteAllText(localProjectFile, outputXmlString);
+                fileSystem.File.WriteAllText(localProjectFile, outputXmlString);
             }
         }
 
@@ -184,7 +184,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
             {
                 var fullPath = PathHelper.Combine(workingDirectory, item);
 
-                if (fileSystem.Exists(fullPath))
+                if (fileSystem.File.Exists(fullPath))
                 {
                     yield return new FileInfo(fullPath);
                 }
@@ -196,7 +196,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
         }
         else
         {
-            foreach (var item in fileSystem.DirectoryEnumerateFiles(workingDirectory, "*", SearchOption.AllDirectories).Where(IsSupportedProjectFile))
+            foreach (var item in fileSystem.Directory.EnumerateFiles(workingDirectory, "*", SearchOption.AllDirectories).Where(IsSupportedProjectFile))
             {
                 var assemblyInfoFile = new FileInfo(item);
 

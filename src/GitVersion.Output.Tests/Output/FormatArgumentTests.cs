@@ -23,7 +23,14 @@ public class FormatArgumentTests : TestBase
 
         var sp = ConfigureServices(services =>
         {
-            var options = Options.Create(new GitVersionOptions { WorkingDirectory = fixture.RepositoryPath, RepositoryInfo = { TargetBranch = fixture.Repository.Head.CanonicalName }, Format = format, Output = { OutputType.Json } });
+            var fixtureRepositoryPath = fixture.RepositoryPath;
+            var options = Options.Create(new GitVersionOptions
+            {
+                WorkingDirectory = fixtureRepositoryPath,
+                RepositoryInfo = { TargetBranch = fixture.Repository.Head.CanonicalName },
+                Format = format,
+                Output = { OutputType.Json }
+            });
             var repository = fixture.Repository.ToGitRepository();
 
             services.AddSingleton(options);

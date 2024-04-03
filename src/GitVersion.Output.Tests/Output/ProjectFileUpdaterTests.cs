@@ -277,7 +277,7 @@ public class ProjectFileUpdaterTests : TestBase
     <Version>2.3.1</Version>
   </PropertyGroup>
 </Project>";
-            var transformedXml = fs.ReadAllText(fileName);
+            var transformedXml = fs.File.ReadAllText(fileName);
             transformedXml.ShouldBe(XElement.Parse(expectedXml).ToString());
         });
     }
@@ -288,7 +288,9 @@ public class ProjectFileUpdaterTests : TestBase
         AssemblyVersioningScheme versioningScheme = AssemblyVersioningScheme.MajorMinorPatch,
         Action<IFileSystem, GitVersionVariables>? verify = null)
     {
+        var file = Substitute.For<IFile>();
         this.fileSystem = Substitute.For<IFileSystem>();
+        this.fileSystem.File.Returns(file);
         var version = new SemanticVersion
         {
             BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0),
@@ -297,12 +299,12 @@ public class ProjectFileUpdaterTests : TestBase
             Patch = 1
         };
 
-        this.fileSystem.Exists(fileName).Returns(true);
-        this.fileSystem.ReadAllText(fileName).Returns(projectFileContent);
-        this.fileSystem.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        file.Exists(fileName).Returns(true);
+        file.ReadAllText(fileName).Returns(projectFileContent);
+        file.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             projectFileContent = c.ArgAt<string>(1);
-            this.fileSystem.ReadAllText(fileName).Returns(projectFileContent);
+            file.ReadAllText(fileName).Returns(projectFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();

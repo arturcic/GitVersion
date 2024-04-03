@@ -22,7 +22,7 @@ public class ConfigurationProviderTests : TestBase
     {
         this.repoPath = PathHelper.Combine(PathHelper.GetTempPath(), "MyGitRepo");
         var options = Options.Create(new GitVersionOptions { WorkingDirectory = repoPath });
-        var sp = ConfigureServices(services => services.AddSingleton(options));
+        var sp = ConfigureServices(services => services.AddSingleton(options).AddSingleton<IFileSystem>(new FileSystem()));
         this.configurationProvider = (ConfigurationProvider)sp.GetRequiredService<IConfigurationProvider>();
         this.fileSystem = sp.GetRequiredService<IFileSystem>();
 

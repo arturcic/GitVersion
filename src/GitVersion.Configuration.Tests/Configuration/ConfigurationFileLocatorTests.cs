@@ -203,7 +203,7 @@ public static class ConfigurationFileLocatorTests
             ConfigureServices(services =>
             {
                 if (log != null) services.AddSingleton(log);
-                services.AddSingleton(Options.Create(gitVersionOptions));
+                services.AddSingleton(Options.Create(gitVersionOptions)).AddSingleton<IFileSystem>(new FileSystem());
             });
     }
 }

@@ -40,7 +40,7 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.CreateDirectory(task.IntermediateOutputPath);
+            fileSystem.Directory.CreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "AssemblyInfo");
@@ -62,7 +62,7 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.CreateDirectory(task.IntermediateOutputPath);
+            fileSystem.Directory.CreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "GitVersionInformation");

@@ -71,8 +71,8 @@ internal class ConfigurationProvider(
 
     private IReadOnlyDictionary<object, object?>? ReadOverrideConfiguration(string? configFilePath)
     {
-        if (configFilePath == null || !fileSystem.Exists(configFilePath)) return null;
-        var content = fileSystem.ReadAllText(configFilePath);
+        if (configFilePath == null || !fileSystem.File.Exists(configFilePath)) return null;
+        var content = fileSystem.File.ReadAllText(configFilePath);
         return configurationSerializer.Deserialize<Dictionary<object, object?>>(content);
     }
 
