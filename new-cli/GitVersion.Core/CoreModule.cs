@@ -1,5 +1,5 @@
+using System.IO.Abstractions;
 using GitVersion.Infrastructure;
-
 namespace GitVersion;
 
 public class CoreModule : IGitVersionModule
