@@ -45,7 +45,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, true, assemblyInfoFile));
 
-        this.fileSystem.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
+        this.fileSystem.File.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
     }
 
     [TestCase("cs")]
@@ -63,7 +63,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, true, assemblyInfoFile));
 
-        this.fileSystem.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
+        this.fileSystem.File.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
     }
 
     [TestCase("cs")]
@@ -85,7 +85,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         foreach (var item in assemblyInfoFiles)
         {
             var fullPath = PathHelper.Combine(workingDir, item);
-            this.fileSystem.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
+            this.fileSystem.File.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
         }
     }
 
@@ -104,13 +104,15 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-        this.fileSystem.Exists(fullPath).ShouldBeFalse();
+        this.fileSystem.File.Exists(fullPath).ShouldBeFalse();
     }
 
     [Test]
     public void ShouldNotCreateAssemblyInfoFileForUnknownSourceCodeAndEnsureAssemblyInfo()
     {
+        var file = Substitute.For<IFile>();
         this.fileSystem = Substitute.For<IFileSystem>();
+        this.fileSystem.File.Returns(file);
         var workingDir = Path.GetTempPath();
         const string assemblyInfoFile = "VersionAssemblyInfo.js";
         var fullPath = PathHelper.Combine(workingDir, assemblyInfoFile);
@@ -121,7 +123,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, true, assemblyInfoFile));
 
-        this.fileSystem.Received(0).WriteAllText(fullPath, Arg.Any<string>());
+        file.Received(0).WriteAllText(fullPath, Arg.Any<string>());
     }
 
     [Test]
@@ -137,7 +139,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, [.. assemblyInfoFiles]));
 
-        this.fileSystem.Received().DirectoryEnumerateFiles(Arg.Is(workingDir), Arg.Any<string>(), Arg.Any<SearchOption>());
+        this.fileSystem.Received().Directory.EnumerateFiles(Arg.Is(workingDir), Arg.Any<string>(), Arg.Any<SearchOption>());
     }
 
     [TestCase("cs", "[assembly: AssemblyVersion(\"1.0.0.0\")]\r\n[assembly: AssemblyInformationalVersion(\"1.0.0.0\")]\r\n[assembly: AssemblyFileVersion(\"1.0.0.0\")]")]
@@ -154,7 +156,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -175,7 +177,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            assemblyFileContent = fs.ReadAllText(fileName);
+            assemblyFileContent = fs.File.ReadAllText(fileName);
             assemblyFileContent.ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
         });
     }
@@ -194,7 +196,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -215,7 +217,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -236,7 +238,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -257,7 +259,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 !s.Contains(@"AssemblyVersionAttribute(""1.0.0.0"")") &&
                 !s.Contains(@"AssemblyInformationalVersionAttribute(""1.0.0.0"")") &&
                 !s.Contains(@"AssemblyFileVersionAttribute(""1.0.0.0"")") &&
@@ -281,7 +283,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -302,7 +304,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -323,7 +325,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.1.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -344,7 +346,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -365,7 +367,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            fs.Received().WriteAllText(fileName, Arg.Is<string>(s =>
+            fs.Received().File.WriteAllText(fileName, Arg.Is<string>(s =>
                 s.Contains(@"AssemblyVersion(""2.3.0.0"")") &&
                 s.Contains(@"AssemblyInformationalVersion(""2.3.1+3.Branch.foo.Sha.hash"")") &&
                 s.Contains(@"AssemblyFileVersion(""2.3.1.0"")")));
@@ -386,7 +388,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            assemblyFileContent = fs.ReadAllText(fileName);
+            assemblyFileContent = fs.File.ReadAllText(fileName);
             assemblyFileContent.ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
         });
     }
@@ -405,7 +407,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            assemblyFileContent = fs.ReadAllText(fileName);
+            assemblyFileContent = fs.File.ReadAllText(fileName);
             assemblyFileContent.ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
         });
     }
@@ -424,7 +426,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, fs);
             assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, assemblyInfoFile));
 
-            assemblyFileContent = fs.ReadAllText(fileName);
+            assemblyFileContent = fs.File.ReadAllText(fileName);
             assemblyFileContent.ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
         });
     }
@@ -435,7 +437,9 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         AssemblyVersioningScheme versioningScheme = AssemblyVersioningScheme.MajorMinorPatch,
         Action<IFileSystem, GitVersionVariables>? verify = null)
     {
+        var file = Substitute.For<IFile>();
         this.fileSystem = Substitute.For<IFileSystem>();
+        this.fileSystem.File.Returns(file);
         var version = new SemanticVersion
         {
             BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0),
@@ -444,12 +448,12 @@ public class AssemblyInfoFileUpdaterTests : TestBase
             Patch = 1
         };
 
-        this.fileSystem.Exists(fileName).Returns(true);
-        this.fileSystem.ReadAllText(fileName).Returns(assemblyFileContent);
-        this.fileSystem.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        file.Exists(fileName).Returns(true);
+        file.ReadAllText(fileName).Returns(assemblyFileContent);
+        file.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             assemblyFileContent = c.ArgAt<string>(1);
-            this.fileSystem.ReadAllText(fileName).Returns(assemblyFileContent);
+            file.ReadAllText(fileName).Returns(assemblyFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();

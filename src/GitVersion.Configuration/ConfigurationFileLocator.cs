@@ -19,23 +19,23 @@ internal class ConfigurationFileLocator(IFileSystem fileSystem, IOptions<GitVers
 
     public void Verify(string? workingDirectory, string? projectRootDirectory)
     {
-        if (!Path.IsPathRooted(this.configurationFile) && !fileSystem.PathsEqual(workingDirectory, projectRootDirectory))
+        if (!Path.IsPathRooted(this.configurationFile) && !PathHelper.Equal(workingDirectory, projectRootDirectory))
             WarnAboutAmbiguousConfigFileSelection(workingDirectory, projectRootDirectory);
     }
 
     public IGitVersionConfiguration ReadConfiguration(string? configFilePath)
     {
-        if (configFilePath == null || !fileSystem.Exists(configFilePath)) return GitHubFlowConfigurationBuilder.New.Build();
+        if (configFilePath == null || !fileSystem.File.Exists(configFilePath)) return GitHubFlowConfigurationBuilder.New.Build();
 
-        var readAllText = fileSystem.ReadAllText(configFilePath);
+        var readAllText = fileSystem.File.ReadAllText(configFilePath);
         return ConfigurationSerializer.Read(new StringReader(readAllText));
     }
 
     public IReadOnlyDictionary<object, object?>? ReadOverrideConfiguration(string? configFilePath)
     {
-        if (configFilePath == null || !fileSystem.Exists(configFilePath)) return null;
+        if (configFilePath == null || !fileSystem.File.Exists(configFilePath)) return null;
 
-        var readAllText = fileSystem.ReadAllText(configFilePath);
+        var readAllText = fileSystem.File.ReadAllText(configFilePath);
 
         return ConfigurationSerializer.Deserialize<Dictionary<object, object?>>(readAllText);
     }
@@ -45,7 +45,7 @@ internal class ConfigurationFileLocator(IFileSystem fileSystem, IOptions<GitVers
         bool HasConfigurationFileAt(string fileName, out string? configFile)
         {
             configFile = null;
-            if (!fileSystem.Exists(PathHelper.Combine(workingDirectory, fileName))) return false;
+            if (!fileSystem.File.Exists(PathHelper.Combine(workingDirectory, fileName))) return false;
 
             configFile = PathHelper.Combine(workingDirectory, fileName);
             return true;
@@ -64,8 +64,8 @@ internal class ConfigurationFileLocator(IFileSystem fileSystem, IOptions<GitVers
         TryGetConfigurationFile(workingDirectory, null, out var workingConfigFile);
         TryGetConfigurationFile(null, projectRootDirectory, out var projectRootConfigFile);
 
-        var hasConfigInWorkingDirectory = workingConfigFile != null && fileSystem.Exists(workingConfigFile);
-        var hasConfigInProjectRootDirectory = projectRootConfigFile != null && fileSystem.Exists(projectRootConfigFile);
+        var hasConfigInWorkingDirectory = workingConfigFile != null && fileSystem.File.Exists(workingConfigFile);
+        var hasConfigInProjectRootDirectory = projectRootConfigFile != null && fileSystem.File.Exists(projectRootConfigFile);
 
         if (hasConfigInProjectRootDirectory && hasConfigInWorkingDirectory)
         {

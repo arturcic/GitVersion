@@ -10,7 +10,7 @@ namespace GitVersion.Testing;
 public abstract class RepositoryFixtureBase : IDisposable
 {
     protected RepositoryFixtureBase(Func<string, Repository> repositoryBuilder)
-        : this(repositoryBuilder(PathHelper.GetTempPath()))
+        : this(repositoryBuilder(PathHelper.GetRepositoryTempPath()))
     {
     }
 
@@ -50,10 +50,11 @@ public abstract class RepositoryFixtureBase : IDisposable
         {
             DirectoryHelper.DeleteDirectory(RepositoryPath);
         }
-        catch (Exception e)
+        catch (IOException e)
         {
             Console.WriteLine("Failed to clean up repository path at {0}. Received exception: {1}", RepositoryPath,
                 e.Message);
+            throw;
         }
 
         this.SequenceDiagram.End();
@@ -66,7 +67,7 @@ public abstract class RepositoryFixtureBase : IDisposable
 
     public void Remove(string branch) => Repository.Branches.Remove(branch);
 
-    public static void Init(string path, string branchName) => GitTestExtensions.ExecuteGitCmd($"init {path} -b {branchName}");
+    public static void Init(string path, string branchName = "main") => GitTestExtensions.ExecuteGitCmd($"init {path} -b {branchName}");
 
     public string MakeATaggedCommit(string tag)
     {
@@ -134,8 +135,9 @@ public abstract class RepositoryFixtureBase : IDisposable
     /// </summary>
     public LocalRepositoryFixture CloneRepository()
     {
-        var localPath = PathHelper.GetTempPath();
+        var localPath = PathHelper.GetRepositoryTempPath();
         Repository.Clone(RepositoryPath, localPath);
+        Console.WriteLine($"Cloned repository to '{localPath}' from '{RepositoryPath}'");
         return new LocalRepositoryFixture(new Repository(localPath));
     }
 

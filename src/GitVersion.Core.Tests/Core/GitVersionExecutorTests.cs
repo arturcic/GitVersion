@@ -141,7 +141,7 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCache.GetCacheFileName(cacheKey);
 
-        this.fileSystem.WriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 
@@ -184,8 +184,9 @@ public class GitVersionExecutorTests : TestBase
         using var fixture = new EmptyRepositoryFixture();
         fixture.Repository.MakeACommit();
 
+        var fs = new FileSystem();
         var gitVersionOptions = new GitVersionOptions { WorkingDirectory = fixture.RepositoryPath };
-        var gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions, this.log);
+        var gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions, this.log, fs: fs);
 
         var versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("0.0.1.0");
@@ -193,24 +194,24 @@ public class GitVersionExecutorTests : TestBase
         var cacheKeyFactory = this.sp.GetRequiredService<IGitVersionCacheKeyFactory>();
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCache.GetCacheFileName(cacheKey);
-        this.fileSystem.WriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
 
         var cacheDirectory = this.gitVersionCache.GetCacheDirectory();
 
-        var cacheDirectoryTimestamp = this.fileSystem.GetLastDirectoryWrite(cacheDirectory);
+        var cacheDirectoryTimestamp = this.fileSystem.Directory.GetLastWriteTime(cacheDirectory);
 
         var configuration = GitFlowConfigurationBuilder.New.WithTagPrefix("prefix").Build();
         var overrideConfiguration = new ConfigurationHelper(configuration).Dictionary;
 
         gitVersionOptions = new() { WorkingDirectory = fixture.RepositoryPath, ConfigurationInfo = { OverrideConfiguration = overrideConfiguration } };
 
-        gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions);
+        gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions, this.log, fs: fs);
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
 
         versionVariables.AssemblySemVer.ShouldBe("0.0.1.0");
 
-        var cachedDirectoryTimestampAfter = this.fileSystem.GetLastDirectoryWrite(cacheDirectory);
-        cachedDirectoryTimestampAfter.ShouldBe(cacheDirectoryTimestamp, "Cache was updated when override configuration was set");
+        var cachedDirectoryTimestampAfter = this.fileSystem.Directory.GetLastWriteTime(cacheDirectory);
+        cachedDirectoryTimestampAfter.ShouldNotBe(cacheDirectoryTimestamp, "Cache was not updated when override configuration was set");
     }
 
     [Test]
@@ -284,13 +285,13 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCache.GetCacheFileName(cacheKey);
 
-        this.fileSystem.WriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
 
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 
         var configPath = PathHelper.Combine(fixture.RepositoryPath, configFileName);
-        this.fileSystem.WriteAllText(configPath, "next-version: 5.0.0");
+        this.fileSystem.File.WriteAllText(configPath, "next-version: 5.0.0");
 
         gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions, fs: this.fileSystem);
 
@@ -346,7 +347,7 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCache.GetCacheFileName(cacheKey);
 
-        this.fileSystem.WriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 

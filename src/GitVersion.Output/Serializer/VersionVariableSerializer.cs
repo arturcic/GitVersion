@@ -83,14 +83,14 @@ public class VersionVariableSerializer(IFileSystem fileSystem) : IVersionVariabl
 
     private GitVersionVariables FromFileInternal(string filePath)
     {
-        var json = fileSystem.ReadAllText(filePath);
+        var json = fileSystem.File.ReadAllText(filePath);
         return FromJson(json);
     }
 
     private void ToFileInternal(GitVersionVariables gitVersionVariables, string filePath)
     {
         var json = ToJson(gitVersionVariables);
-        fileSystem.WriteAllText(filePath, json);
+        fileSystem.File.WriteAllText(filePath, json);
     }
 
     private static JsonSerializerOptions JsonSerializerOptions() => new() { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, Converters = { new VersionVariablesJsonStringConverter() } };

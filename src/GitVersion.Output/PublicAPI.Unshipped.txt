@@ -12,7 +12,7 @@ GitVersion.OutputVariables.VersionVariableSerializer.FromFile(string! filePath) 
 GitVersion.OutputVariables.VersionVariableSerializer.FromJson(string! json) -> GitVersion.OutputVariables.GitVersionVariables!
 GitVersion.OutputVariables.VersionVariableSerializer.ToFile(GitVersion.OutputVariables.GitVersionVariables! gitVersionVariables, string! filePath) -> void
 GitVersion.OutputVariables.VersionVariableSerializer.ToJson(GitVersion.OutputVariables.GitVersionVariables! gitVersionVariables) -> string!
-GitVersion.OutputVariables.VersionVariableSerializer.VersionVariableSerializer(GitVersion.IFileSystem! fileSystem) -> void
+GitVersion.OutputVariables.VersionVariableSerializer.VersionVariableSerializer(System.IO.Abstractions.IFileSystem! fileSystem) -> void
 GitVersion.OutputVariables.VersionVariablesJsonModel
 GitVersion.OutputVariables.VersionVariablesJsonModel.AssemblySemFileVer.get -> string?
 GitVersion.OutputVariables.VersionVariablesJsonModel.AssemblySemFileVer.set -> void

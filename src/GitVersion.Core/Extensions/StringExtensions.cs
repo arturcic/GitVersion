@@ -40,7 +40,7 @@ public static class StringExtensions
     }
 
     public static bool IsSwitchArgument(this string? value) => value != null
-                                                              && (value.StartsWith("-") || value.StartsWith("/"))
+                                                              && (value.StartsWith('-') || value.StartsWith('/'))
                                                               && !Regex.Match(value, @"/\w+:").Success; //Exclude msbuild & project parameters in form /blah:, which should be parsed as values, not switch names.
 
     public static bool IsSwitch(this string? value, string switchName)

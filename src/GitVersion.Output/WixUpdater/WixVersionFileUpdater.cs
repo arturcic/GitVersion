@@ -25,8 +25,8 @@ internal sealed class WixVersionFileUpdater(ILog log, IFileSystem fileSystem) : 
         var root = doc.DocumentElement;
         doc.InsertBefore(xmlDecl, root);
 
-        this.fileSystem.Delete(this.wixVersionFile);
-        using var fs = this.fileSystem.OpenWrite(this.wixVersionFile);
+        this.fileSystem.File.Delete(this.wixVersionFile);
+        using var fs = this.fileSystem.File.OpenWrite(this.wixVersionFile);
         doc.Save(fs);
     }
 

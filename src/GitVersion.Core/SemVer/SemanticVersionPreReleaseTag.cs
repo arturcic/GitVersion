@@ -63,7 +63,7 @@ public sealed class SemanticVersionPreReleaseTag :
         left?.CompareTo(right) >= 0;
 
     public static bool operator <=(SemanticVersionPreReleaseTag? left, SemanticVersionPreReleaseTag? right) =>
-        StringComparerUtils.IgnoreCaseComparer.Compare(left?.Name, right?.Name) != 1;
+        StringComparer.InvariantCultureIgnoreCase.Compare(left?.Name, right?.Name) != 1;
 
     public static implicit operator string?(SemanticVersionPreReleaseTag? preReleaseTag) => preReleaseTag?.ToString();
 
@@ -99,7 +99,7 @@ public sealed class SemanticVersionPreReleaseTag :
             return -1;
         }
 
-        var nameComparison = StringComparerUtils.IgnoreCaseComparer.Compare(Name, other?.Name);
+        var nameComparison = StringComparer.InvariantCultureIgnoreCase.Compare(Name, other?.Name);
         return nameComparison != 0 ? nameComparison : Nullable.Compare(Number, other?.Number);
     }
 

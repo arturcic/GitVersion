@@ -1,5 +1,6 @@
 using Microsoft.Extensions.FileSystemGlobbing;
-using Microsoft.Extensions.FileSystemGlobbing.Abstractions;
+using DirectoryInfoBase = Microsoft.Extensions.FileSystemGlobbing.Abstractions.DirectoryInfoBase;
+using DirectoryInfoWrapper = Microsoft.Extensions.FileSystemGlobbing.Abstractions.DirectoryInfoWrapper;
 
 namespace GitVersion;
 

@@ -114,7 +114,7 @@ internal class GitVersionCacheKeyFactory(
                 {
                     var fi = new FileInfo(file);
                     result.Add(fi.Name);
-                    result.Add(File.ReadAllText(file));
+                    result.Add(this.fileSystem.File.ReadAllText(file));
                 }
                 catch (IOException e)
                 {
@@ -170,9 +170,9 @@ internal class GitVersionCacheKeyFactory(
         if (!this.configFileLocator.TryGetConfigurationFile(workingDirectory, projectRootDirectory, out var configFilePath))
             return string.Empty;
         if (configFilePath == null) return string.Empty;
-        if (!this.fileSystem.Exists(configFilePath)) return string.Empty;
+        if (!this.fileSystem.File.Exists(configFilePath)) return string.Empty;
 
-        var configFileContent = this.fileSystem.ReadAllText(configFilePath);
+        var configFileContent = this.fileSystem.File.ReadAllText(configFilePath);
         return GetHash(configFileContent);
     }
 

@@ -39,7 +39,7 @@ internal class WixFileTests : TestBase
         var logAppender = new TestLogAppender(Action);
         var log = new Log(logAppender);
 
-        var sp = ConfigureServices(service => service.AddSingleton<ILog>(log));
+        var sp = ConfigureServices(service => service.AddSingleton<ILog>(log).AddSingleton<IFileSystem>(new FileSystem()));
 
         var fileSystem = sp.GetRequiredService<IFileSystem>();
         var variableProvider = sp.GetRequiredService<IVariableProvider>();
@@ -50,7 +50,7 @@ internal class WixFileTests : TestBase
         wixVersionFileUpdater.Execute(versionVariables, new(workingDir));
 
         var file = PathHelper.Combine(workingDir, WixVersionFileUpdater.WixVersionFileName);
-        fileSystem
+        fileSystem.File
             .ReadAllText(file)
             .ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved")));
     }
@@ -79,7 +79,7 @@ internal class WixFileTests : TestBase
         var logAppender = new TestLogAppender(Action);
         var log = new Log(logAppender);
 
-        var sp = ConfigureServices(service => service.AddSingleton<ILog>(log));
+        var sp = ConfigureServices(service => service.AddSingleton<ILog>(log).AddSingleton<IFileSystem>(new FileSystem()));
 
         var fileSystem = sp.GetRequiredService<IFileSystem>();
         var variableProvider = sp.GetRequiredService<IVariableProvider>();
@@ -89,11 +89,12 @@ internal class WixFileTests : TestBase
 
         // fake an already existing file
         var file = PathHelper.Combine(workingDir, WixVersionFileUpdater.WixVersionFileName);
-        fileSystem.WriteAllText(file, new('x', 1024 * 1024));
+        fileSystem.File.WriteAllText(file, new('x', 1024 * 1024));
 
         wixVersionFileUpdater.Execute(versionVariables, new(workingDir));
 
         fileSystem
+            .File
             .ReadAllText(file)
             .ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved")));
     }

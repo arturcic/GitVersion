@@ -12,11 +12,7 @@ public class RemoteRepositoryFixture : RepositoryFixtureBase
     public RemoteRepositoryFixture(Func<string, Repository> builder)
         : base(builder) => CreateLocalRepository();
 
-    public RemoteRepositoryFixture() : this("main")
-    {
-    }
-
-    public RemoteRepositoryFixture(string branchName)
+    public RemoteRepositoryFixture(string branchName = "main")
         : this(path => CreateNewRepository(path, branchName))
     {
     }

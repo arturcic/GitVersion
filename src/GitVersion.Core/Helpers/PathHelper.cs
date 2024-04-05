@@ -2,6 +2,12 @@ namespace GitVersion.Helpers;
 
 internal static class PathHelper
 {
+    public static readonly StringComparison OsDependentComparison = SysEnv.OSVersion.Platform switch
+    {
+        PlatformID.Unix or PlatformID.MacOSX => StringComparison.Ordinal,
+        _ => StringComparison.OrdinalIgnoreCase,
+    };
+
     public static string NewLine => SysEnv.NewLine;
 
     public static string GetCurrentDirectory() => AppContext.BaseDirectory ?? throw new InvalidOperationException();
@@ -13,6 +19,13 @@ internal static class PathHelper
         {
             tempPath = SysEnv.GetEnvironmentVariable("RUNNER_TEMP");
         }
+
+        return tempPath!;
+    }
+
+    public static string GetRepositoryTempPath()
+    {
+        var tempPath = GetTempPath();
         return Combine(tempPath, "TestRepositories", Guid.NewGuid().ToString());
     }
 
@@ -53,4 +66,10 @@ internal static class PathHelper
 
         return Path.Combine(path1, path2, path3, path4);
     }
+
+    public static bool Equal(string? path, string? otherPath) =>
+        string.Equals(
+            GetFullPath(path).TrimEnd('\\').TrimEnd('/'),
+            GetFullPath(otherPath).TrimEnd('\\').TrimEnd('/'),
+            OsDependentComparison);
 }

@@ -66,6 +66,7 @@
         <PackageReference Include="NUnit3TestAdapter"/>
         <PackageReference Include="JunitXml.TestLogger"/>
         <PackageReference Include="Shouldly"/>
+        <PackageReference Include="System.IO.Abstractions.TestingHelpers" />
 
         <PackageReference Include="coverlet.msbuild">
             <PrivateAssets>all</PrivateAssets>
@@ -84,18 +85,21 @@
         <Using Include="NSubstitute"/>
         <Using Include="NUnit.Framework"/>
         <Using Include="Shouldly"/>
+        <Using Include="System.IO.Abstractions.TestingHelpers"/>
     </ItemGroup>
 
     <ItemGroup>
         <Using Include="System.Collections"/>
         <Using Include="System.Collections.Specialized"/>
         <Using Include="System.Diagnostics"/>
+        <Using Include="System.IO.Abstractions"/>
         <Using Include="System.Reflection"/>
         <Using Include="System.Text"/>
         <Using Include="System.Text.Json"/>
         <Using Include="System.Text.Json.Serialization"/>
         <Using Include="System.Xml"/>
         <Using Include="System.Environment" Alias="SysEnv"/>
+        <Using Include="System.IO.Abstractions"/>
     </ItemGroup>
 
     <ItemGroup>
