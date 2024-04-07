@@ -6,10 +6,11 @@ using GitVersion.OutputVariables;
 
 namespace GitVersion;
 
-internal class ArgumentParser(IEnvironment environment, ICurrentBuildAgent buildAgent, IConsole console, IGlobbingResolver globbingResolver)
+internal class ArgumentParser(IEnvironment environment, IFileSystem fileSystem, ICurrentBuildAgent buildAgent, IConsole console, IGlobbingResolver globbingResolver)
     : IArgumentParser
 {
     private readonly IEnvironment environment = environment.NotNull();
+    private readonly IFileSystem fileSystem = fileSystem.NotNull();
     private readonly ICurrentBuildAgent buildAgent = buildAgent.NotNull();
     private readonly IConsole console = console.NotNull();
     private readonly IGlobbingResolver globbingResolver = globbingResolver.NotNull();
@@ -97,19 +98,19 @@ internal class ArgumentParser(IEnvironment environment, ICurrentBuildAgent build
         return arguments;
     }
 
-    private static void ValidateConfigurationFile(Arguments arguments)
+    private void ValidateConfigurationFile(Arguments arguments)
     {
         if (arguments.ConfigurationFile.IsNullOrWhiteSpace()) return;
 
         if (Path.IsPathRooted(arguments.ConfigurationFile))
         {
-            if (!File.Exists(arguments.ConfigurationFile)) throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
+            if (!this.fileSystem.File.Exists(arguments.ConfigurationFile)) throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
             arguments.ConfigurationFile = Path.GetFullPath(arguments.ConfigurationFile);
         }
         else
         {
             var configFilePath = Path.GetFullPath(PathHelper.Combine(arguments.TargetPath, arguments.ConfigurationFile));
-            if (!File.Exists(configFilePath)) throw new WarningException($"Could not find config file at '{configFilePath}'");
+            if (!this.fileSystem.File.Exists(configFilePath)) throw new WarningException($"Could not find config file at '{configFilePath}'");
             arguments.ConfigurationFile = configFilePath;
         }
     }
