@@ -11,6 +11,7 @@ namespace GitVersion.App.Tests;
 public class ArgumentParserTests : TestBase
 {
     private IEnvironment environment;
+    private IFileSystem fileSystem;
     private IArgumentParser argumentParser;
 
     [SetUp]
@@ -23,6 +24,7 @@ public class ArgumentParserTests : TestBase
         });
         this.environment = sp.GetRequiredService<IEnvironment>();
         this.argumentParser = sp.GetRequiredService<IArgumentParser>();
+        this.fileSystem = sp.GetRequiredService<IFileSystem>();
     }
 
     [Test]
@@ -294,8 +296,8 @@ public class ArgumentParserTests : TestBase
     {
         using var repo = new EmptyRepositoryFixture();
 
-        var assemblyFile1 = PathHelper.Combine(repo.RepositoryPath, "CommonAssemblyInfo.cs");
-        using var file = File.Create(assemblyFile1);
+        var assemblyFile = PathHelper.Combine(repo.RepositoryPath, "CommonAssemblyInfo.cs");
+        using var file = File.Create(assemblyFile);
 
         var assemblyFile2 = PathHelper.Combine(repo.RepositoryPath, "VersionAssemblyInfo.cs");
         using var file2 = File.Create(assemblyFile2);
@@ -754,10 +756,16 @@ public class ArgumentParserTests : TestBase
     [Test]
     public void EnsureConfigurationFileIsSet()
     {
-        var configFile = PathHelper.GetTempPath() + Guid.NewGuid() + ".yaml";
-        File.WriteAllText(configFile, "next-version: 1.0.0");
+        var directoryName = PathHelper.GetTempPath();
+        var configFile = directoryName + Guid.NewGuid() + ".yaml";
+
+        if (!this.fileSystem.Directory.Exists(directoryName))
+        {
+            this.fileSystem.Directory.CreateDirectory(directoryName);
+        }
+        this.fileSystem.File.WriteAllText(configFile, "next-version: 1.0.0");
         var arguments = this.argumentParser.ParseArguments($"-config {configFile}");
         arguments.ConfigurationFile.ShouldBe(configFile);
-        File.Delete(configFile);
+        this.fileSystem.File.Delete(configFile);
     }
 }
