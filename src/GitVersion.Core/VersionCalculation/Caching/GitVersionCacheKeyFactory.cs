@@ -84,12 +84,7 @@ internal class GitVersionCacheKeyFactory(
             // choice of which exceptions to catch depends entirely on the specific task
             // you are intending to perform and also on how much you know with certainty
             // about the systems on which this code will run.
-            catch (UnauthorizedAccessException e)
-            {
-                this.log.Error(e.Message);
-                continue;
-            }
-            catch (DirectoryNotFoundException e)
+            catch (Exception e) when (e is UnauthorizedAccessException or DirectoryNotFoundException)
             {
                 this.log.Error(e.Message);
                 continue;
@@ -100,12 +95,7 @@ internal class GitVersionCacheKeyFactory(
             {
                 files = Directory.GetFiles(currentDir);
             }
-            catch (UnauthorizedAccessException e)
-            {
-                this.log.Error(e.Message);
-                continue;
-            }
-            catch (DirectoryNotFoundException e)
+            catch (Exception e) when (e is UnauthorizedAccessException or DirectoryNotFoundException)
             {
                 this.log.Error(e.Message);
                 continue;
@@ -115,7 +105,7 @@ internal class GitVersionCacheKeyFactory(
             {
                 try
                 {
-                    var fi = new FileInfo(file);
+                    var fi = this.fileSystem.FileInfo.New(file);
                     result.Add(fi.Name);
                     result.Add(this.fileSystem.File.ReadAllText(file));
                 }

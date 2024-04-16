@@ -283,7 +283,7 @@ public class ArgumentParserTests : TestBase
         using var repo = new EmptyRepositoryFixture();
 
         var assemblyFile = PathHelper.Combine(repo.RepositoryPath, "CommonAssemblyInfo.cs");
-        using var file = File.Create(assemblyFile);
+        using var file = this.fileSystem.File.Create(assemblyFile);
 
         var arguments = this.argumentParser.ParseArguments($"-targetpath {repo.RepositoryPath} -updateAssemblyInfo CommonAssemblyInfo.cs");
         arguments.UpdateAssemblyInfo.ShouldBe(true);
