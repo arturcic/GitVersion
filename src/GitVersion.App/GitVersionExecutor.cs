@@ -8,6 +8,7 @@ namespace GitVersion;
 
 internal class GitVersionExecutor(
     ILog log,
+    IFileSystem fileSystem,
     IConsole console,
     IConfigurationFileLocator configurationFileLocator,
     IConfigurationProvider configurationProvider,
@@ -20,6 +21,7 @@ internal class GitVersionExecutor(
     : IGitVersionExecutor
 {
     private readonly ILog log = log.NotNull();
+    private readonly IFileSystem fileSystem = fileSystem.NotNull();
     private readonly IConsole console = console.NotNull();
     private readonly IConfigurationFileLocator configurationFileLocator = configurationFileLocator.NotNull();
     private readonly IConfigurationProvider configurationProvider = configurationProvider.NotNull();
@@ -122,7 +124,7 @@ internal class GitVersionExecutor(
             gitVersionOptions.Output.Add(OutputType.BuildServer);
         }
 
-        ConfigureLogging(gitVersionOptions, this.log);
+        ConfigureLogging(gitVersionOptions, this.log, this.fileSystem);
 
         var workingDirectory = gitVersionOptions.WorkingDirectory;
         if (gitVersionOptions.Diag)
@@ -157,7 +159,7 @@ internal class GitVersionExecutor(
         return false;
     }
 
-    private static void ConfigureLogging(GitVersionOptions gitVersionOptions, ILog log)
+    private static void ConfigureLogging(GitVersionOptions gitVersionOptions, ILog log, IFileSystem fileSystem)
     {
         if (gitVersionOptions.Output.Contains(OutputType.BuildServer) || gitVersionOptions.LogFilePath == "console")
         {
@@ -166,7 +168,7 @@ internal class GitVersionExecutor(
 
         if (gitVersionOptions.LogFilePath != null && gitVersionOptions.LogFilePath != "console")
         {
-            log.AddLogAppender(new FileAppender(gitVersionOptions.LogFilePath));
+            log.AddLogAppender(new FileAppender(fileSystem, gitVersionOptions.LogFilePath));
         }
     }
 }
