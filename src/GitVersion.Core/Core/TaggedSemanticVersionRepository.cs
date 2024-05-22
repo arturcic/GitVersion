@@ -72,7 +72,7 @@ internal sealed class TaggedSemanticVersionRepository(ILog log, IGitRepository g
             {
                 var shaHashSet = new HashSet<string>(ignore.Filter(branch.Commits).Select(element => element.Id.Sha));
 
-                foreach (var semanticVersion in GetTaggedSemanticVersions(tagPrefix, format, ignore).SelectMany(_ => _))
+                foreach (var semanticVersion in GetTaggedSemanticVersions(tagPrefix, format, ignore).SelectMany(v => v))
                 {
                     foreach (var commit in semanticVersion.Tag.Commit.Parents.Where(element => shaHashSet.Contains(element.Id.Sha)))
                     {

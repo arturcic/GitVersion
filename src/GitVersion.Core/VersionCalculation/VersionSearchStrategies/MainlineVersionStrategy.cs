@@ -149,9 +149,9 @@ internal sealed class MainlineVersionStrategy(
 
             if (commitsWasBranchedFromLazy.Value.TryGetValue(item, out var effectiveConfigurationsWasBranchedFrom))
             {
-                var effectiveConfigurationWasBranchedFrom = effectiveConfigurationsWasBranchedFrom.First();
+                var effectiveConfigurationWasBranchedFrom = effectiveConfigurationsWasBranchedFrom[0];
 
-                if (!(configuration.IsMainBranch == true) || effectiveConfigurationWasBranchedFrom.Value.IsMainBranch == true)
+                if (configuration.IsMainBranch != true || effectiveConfigurationWasBranchedFrom.Value.IsMainBranch == true)
                 {
                     var excludeBranch = branch;
                     if (effectiveConfigurationsWasBranchedFrom.Any(element =>
@@ -167,7 +167,7 @@ internal sealed class MainlineVersionStrategy(
 
                     commitsWasBranchedFromLazy = new Lazy<IReadOnlyDictionary<ICommit, List<(IBranch Branch, IBranchConfiguration Configuration)>>>
                         (() => branch is null ? new Dictionary<ICommit, List<(IBranch, IBranchConfiguration)>>()
-                            : GetCommitsWasBranchedFrom(branch, excludeBranch is null ? Array.Empty<IBranch>() : [excludeBranch])
+                            : GetCommitsWasBranchedFrom(branch, excludeBranch is null ? [] : [excludeBranch])
                     );
 
                     TaggedSemanticVersions taggedSemanticVersion = TaggedSemanticVersions.OfBranch;
@@ -278,7 +278,7 @@ internal sealed class MainlineVersionStrategy(
     private IReadOnlyDictionary<ICommit, List<(IBranch, IBranchConfiguration)>> GetCommitsWasBranchedFrom(
         IBranch branch, params IBranch[] excludedBranches)
     {
-        Dictionary<ICommit, List<(IBranch, IBranchConfiguration Configuration)>> result = new();
+        Dictionary<ICommit, List<(IBranch, IBranchConfiguration Configuration)>> result = [];
 
         var branchCommits = repositoryStore.FindCommitBranchesBranchedFrom(
             branch, Context.Configuration, excludedBranches: excludedBranches
@@ -292,24 +292,24 @@ internal sealed class MainlineVersionStrategy(
             var branchConfiguration = Context.Configuration.GetBranchConfiguration(item);
 
             var key = branchCommitDictionary[item];
-            if (result.ContainsKey(key))
+            if (result.TryGetValue(key, out var value))
             {
-                if (branchConfiguration.Increment == IncrementStrategy.Inherit && branchConfiguration.IsMainBranch is null)
+                if (branchConfiguration is { Increment: IncrementStrategy.Inherit, IsMainBranch: null })
                 {
                     throw new InvalidOperationException();
                 }
 
                 if ((branchConfiguration.IsMainBranch ?? Context.Configuration.IsMainBranch) == true)
                 {
-                    foreach (var element in result[key].ToArray())
+                    foreach (var _ in value.ToArray())
                     {
-                        result[key].Add(new(item, branchConfiguration));
+                        value.Add(new(item, branchConfiguration));
                     }
                 }
             }
             else
             {
-                result.Add(key: key, value: [new(item, branchConfiguration)]);
+                result.Add(key: key, value: [new ValueTuple<IBranch, IBranchConfiguration>(item, branchConfiguration)]);
             }
         }
 
