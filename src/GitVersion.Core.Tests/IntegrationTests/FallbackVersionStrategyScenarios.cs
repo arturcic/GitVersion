@@ -21,7 +21,7 @@ public class FallbackVersionStrategyScenarios : TestBase
             .WithBranch("main", _ => _.WithIncrement(increment))
             .Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeACommit();
 
@@ -39,7 +39,7 @@ public class FallbackVersionStrategyScenarios : TestBase
             .WithBranch("main", _ => _.WithIncrement(IncrementStrategy.None))
             .Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeACommit($"+semver: {increment}");
 
@@ -58,7 +58,7 @@ public class FallbackVersionStrategyScenarios : TestBase
                 .WithTracksReleaseBranches(false)
             ).Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeACommit("A");
         fixture.BranchTo("release/foo");
@@ -106,7 +106,7 @@ public class FallbackVersionStrategyScenarios : TestBase
                 .WithTracksReleaseBranches(tracksReleaseBranches)
             ).Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeACommit("A");
         fixture.MakeACommit("B");

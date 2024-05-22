@@ -1370,7 +1370,7 @@ public class OtherScenarios : TestBase
     {
         var configuration = GitFlowConfigurationBuilder.New.Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeACommit("A");
         fixture.MakeATaggedCommit("4.0.0-beta.14");
@@ -1388,7 +1388,7 @@ public class OtherScenarios : TestBase
             .WithBranch("main", _ => _.WithLabel(labelOnMain))
             .Build();
 
-        using EmptyRepositoryFixture fixture = new("main");
+        using var fixture = new EmptyRepositoryFixture();
 
         fixture.MakeATaggedCommit("1.0.0");
         fixture.MakeATaggedCommit("4.0.0-beta.14");
