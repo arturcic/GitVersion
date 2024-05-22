@@ -184,13 +184,13 @@ GitVersion.Git.BranchCommit.Equals(GitVersion.Git.BranchCommit? other) -> bool
 GitVersion.Git.CommitExtensions
 GitVersion.Git.CommitFilter
 GitVersion.Git.CommitFilter.ExcludeReachableFrom.get -> object?
-GitVersion.Git.CommitFilter.ExcludeReachableFrom.set -> void
+GitVersion.Git.CommitFilter.ExcludeReachableFrom.init -> void
 GitVersion.Git.CommitFilter.FirstParentOnly.get -> bool
-GitVersion.Git.CommitFilter.FirstParentOnly.set -> void
+GitVersion.Git.CommitFilter.FirstParentOnly.init -> void
 GitVersion.Git.CommitFilter.IncludeReachableFrom.get -> object?
-GitVersion.Git.CommitFilter.IncludeReachableFrom.set -> void
+GitVersion.Git.CommitFilter.IncludeReachableFrom.init -> void
 GitVersion.Git.CommitFilter.SortBy.get -> GitVersion.Git.CommitSortStrategies
-GitVersion.Git.CommitFilter.SortBy.set -> void
+GitVersion.Git.CommitFilter.SortBy.init -> void
 GitVersion.Git.CommitSortStrategies
 GitVersion.Git.CommitSortStrategies.None = 0 -> GitVersion.Git.CommitSortStrategies
 GitVersion.Git.CommitSortStrategies.Reverse = 4 -> GitVersion.Git.CommitSortStrategies

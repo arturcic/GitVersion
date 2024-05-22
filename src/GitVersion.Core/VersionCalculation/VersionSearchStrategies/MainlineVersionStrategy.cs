@@ -335,20 +335,20 @@ internal sealed class MainlineVersionStrategy(
         var incrementSteps = GetIncrements(iteration, targetLabel, incrementStrategyFinder, configuration).ToArray();
 
         BaseVersion? result = null;
-        for (var i = 0; i < incrementSteps.Length; i++)
+        foreach (var baseVersionIncrement in incrementSteps)
         {
-            if (incrementSteps[i] is BaseVersionOperand baseVersionOperand)
+            switch (baseVersionIncrement)
             {
-                result = new BaseVersion(baseVersionOperand);
-            }
-            else if (incrementSteps[i] is BaseVersionOperator baseVersionOperator)
-            {
-                result ??= new BaseVersion();
-                result = result.Apply(baseVersionOperator);
-            }
-            else if (incrementSteps[i] is BaseVersion baseVersion)
-            {
-                result = baseVersion;
+                case BaseVersionOperand baseVersionOperand:
+                    result = new BaseVersion(baseVersionOperand);
+                    break;
+                case BaseVersionOperator baseVersionOperator:
+                    result ??= new BaseVersion();
+                    result = result.Apply(baseVersionOperator);
+                    break;
+                case BaseVersion baseVersion:
+                    result = baseVersion;
+                    break;
             }
         }
         return result ?? throw new InvalidOperationException();

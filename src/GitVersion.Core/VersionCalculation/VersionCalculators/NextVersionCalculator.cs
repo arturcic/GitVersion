@@ -120,7 +120,7 @@ internal class NextVersionCalculator(
                 branch: Context.CurrentBranch.Name.Friendly,
                 commitSha: Context.CurrentCommit.Sha,
                 commitShortSha: Context.CurrentCommit.Id.ToString(7),
-                commitDate: Context.CurrentCommit?.When,
+                commitDate: Context.CurrentCommit.When,
                 numberOfUnCommittedChanges: Context.NumberOfUncommittedChanges
             );
 
