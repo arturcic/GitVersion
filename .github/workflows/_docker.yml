@@ -27,7 +27,7 @@ jobs:
           - ubuntu.20.04
           - ubuntu.22.04
           - ubuntu.24.04
-        targetFramework: [ '8.0', '6.0' ]
+        targetFramework: [ '8.0' ]
 
     steps:
     -
