@@ -61,15 +61,14 @@ internal class GitRepositoryInfo : IGitRepositoryInfo
 
     private string? GetDotGitDirectory()
     {
-        var gitDirectory = !DynamicGitRepositoryPath.IsNullOrWhiteSpace()
+        string gitDirectory = !DynamicGitRepositoryPath.IsNullOrWhiteSpace()
             ? DynamicGitRepositoryPath
             : Repository.Discover(gitVersionOptions.WorkingDirectory);
 
-        gitDirectory = gitDirectory?.TrimEnd('/', '\\');
-        if (gitDirectory.IsNullOrEmpty())
-            throw new DirectoryNotFoundException("Cannot find the .git directory");
+        gitDirectory = gitDirectory.TrimEnd('/', '\\');
+        EnsureGitDirectory(gitDirectory);
 
-        var directoryInfo = Directory.GetParent(gitDirectory) ?? throw new DirectoryNotFoundException("Cannot find the .git directory");
+        var directoryInfo = Directory.GetParent(gitDirectory) ?? throw new DirectoryNotFoundException();
         return gitDirectory.Contains(PathHelper.Combine(".git", "worktrees"))
             ? Directory.GetParent(directoryInfo.FullName)?.FullName
             : gitDirectory;
@@ -84,8 +83,7 @@ internal class GitRepositoryInfo : IGitRepositoryInfo
 
         var gitDirectory = Repository.Discover(gitVersionOptions.WorkingDirectory);
 
-        if (gitDirectory.IsNullOrEmpty())
-            throw new DirectoryNotFoundException("Cannot find the .git directory");
+        EnsureGitDirectory(gitDirectory);
 
         return new Repository(gitDirectory).Info.WorkingDirectory;
     }
@@ -109,5 +107,11 @@ internal class GitRepositoryInfo : IGitRepositoryInfo
         {
             return false;
         }
+    }
+
+    private static void EnsureGitDirectory(string? gitDirectory)
+    {
+        if (gitDirectory.IsNullOrWhiteSpace())
+            throw new DirectoryNotFoundException("Cannot find the .git directory");
     }
 }
