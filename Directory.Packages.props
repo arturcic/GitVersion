@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="LibGit2Sharp" Version="0.30.0" />
+    <PackageVersion Include="Polly" Version="8.5.0" />
+    <PackageVersion Include="Roslynator.Analyzers" Version="4.12.9" />
+    <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.12.9" />
+  </ItemGroup>
+</Project>
