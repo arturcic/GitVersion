@@ -52,11 +52,11 @@ public class ExecCmdLineArgumentTest
     [Test]
     public void WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage()
     {
-        var result = GitVersionHelper.ExecuteIn(Path.GetTempPath(), null, false);
+        var result = GitVersionHelper.ExecuteIn(PathHelper.GetTempPath(), null, false);
 
         result.ExitCode.ShouldNotBe(0);
         result.Output.ShouldNotBeNull();
-        result.Output.ShouldContain("Cannot find the .git directory");
+        result.Output.ShouldContain("failed to resolve path");
     }
 
     [TestCase(" -help")]
