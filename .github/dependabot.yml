@@ -23,7 +23,6 @@ updates:
     - "/build"
     - "/new-cli"
     - "/src"
-    - "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
