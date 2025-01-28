@@ -34,10 +34,15 @@ runs:
       password: ${{ inputs.docker_registry_password }}
   -
     name: '[Docker Publish] DockerHub'
-    shell: pwsh
-    run: | 
-        dotnet run/docker.dll `
-              --target=DockerPublish --arch=${{ inputs.arch }} --dotnet_version=${{ inputs.dotnet_version }} `
+    uses: nick-fields/retry@v3
+    with:
+      timeout_seconds: 15
+      max_attempts: 3
+      retry_on: error
+      shell: pwsh
+      command: >-
+        dotnet run/docker.dll
+              --target=DockerPublish --arch=${{ inputs.arch }} --dotnet_version=${{ inputs.dotnet_version }}
               --docker_distro=${{ inputs.docker_distro }} --docker_registry dockerhub --verbosity=diagnostic
   -
     name: Login to GitHub
@@ -49,7 +54,7 @@ runs:
   -
     name: '[Docker Publish] GitHub'
     shell: pwsh
-    run: |
+    run: >-
         dotnet run/docker.dll `
               --target=DockerPublish --arch=${{ inputs.arch }} --dotnet_version=${{ inputs.dotnet_version }} `
               --docker_distro=${{ inputs.docker_distro }} --docker_registry github --verbosity=diagnostic

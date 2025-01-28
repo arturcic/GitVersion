@@ -32,7 +32,7 @@ runs:
   -
     name: '[Docker Publish Manifests] DockerHub'
     shell: pwsh
-    run: |
+    run: >-
         dotnet run/docker.dll `
               --target=DockerManifest --arch=amd64 --arch=arm64 --dotnet_version=${{ inputs.dotnet_version }} `
               --docker_distro=${{ inputs.docker_distro }} --docker_registry dockerhub
@@ -46,7 +46,7 @@ runs:
   -
     name: '[Docker Publish Manifests] GitHub'
     shell: pwsh
-    run: |
+    run: >-
         dotnet run/docker.dll `
               --target=DockerManifest --arch=amd64 --arch=arm64 --dotnet_version=${{ inputs.dotnet_version }} `
               --docker_distro=${{ inputs.docker_distro }} --docker_registry github
