@@ -1,6 +1,8 @@
+using System.IO.Abstractions;
 using GitVersion.Agents;
 using GitVersion.Configuration;
 using GitVersion.Core.Tests.Helpers;
+using GitVersion.Extensions;
 using GitVersion.Git;
 using GitVersion.Helpers;
 using GitVersion.Logging;
@@ -147,7 +149,7 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCacheProvider.GetCacheFileName(cacheKey);
 
-        this.fileSystem.FileWriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 
@@ -199,7 +201,7 @@ public class GitVersionExecutorTests : TestBase
         var cacheKeyFactory = this.sp.GetRequiredService<IGitVersionCacheKeyFactory>();
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCacheProvider.GetCacheFileName(cacheKey);
-        this.fileSystem.FileWriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
 
         var cacheDirectory = this.gitVersionCacheProvider.GetCacheDirectory();
 
@@ -292,13 +294,13 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCacheProvider.GetCacheFileName(cacheKey);
 
-        this.fileSystem.FileWriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
 
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 
         var configPath = PathHelper.Combine(fixture.RepositoryPath, configFileName);
-        this.fileSystem.FileWriteAllText(configPath, "next-version: 5.0.0");
+        this.fileSystem.File.WriteAllText(configPath, "next-version: 5.0.0");
 
         gitVersionCalculator = GetGitVersionCalculator(gitVersionOptions, fs: this.fileSystem);
 
@@ -354,7 +356,7 @@ public class GitVersionExecutorTests : TestBase
         var cacheKey = cacheKeyFactory.Create(null);
         var cacheFileName = this.gitVersionCacheProvider.GetCacheFileName(cacheKey);
 
-        this.fileSystem.FileWriteAllText(cacheFileName, versionCacheFileContent);
+        this.fileSystem.File.WriteAllText(cacheFileName, versionCacheFileContent);
         versionVariables = gitVersionCalculator.CalculateVersionVariables();
         versionVariables.AssemblySemVer.ShouldBe("4.10.3.0");
 

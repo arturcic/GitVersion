@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Core.Tests.Helpers;
 
 namespace GitVersion.Core.Tests.IntegrationTests;
@@ -25,7 +26,7 @@ public class FileSystemTests : TestBase
         File.WriteAllText(TempFilePath, "(－‸ლ)", encoding);
 
         var fileSystem = new FileSystem();
-        fileSystem.FileWriteAllText(TempFilePath, @"¯\(◉◡◔)/¯");
+        fileSystem.File.WriteAllText(TempFilePath, @"¯\(◉◡◔)/¯");
 
         using var stream = File.OpenRead(TempFilePath);
         var preamble = encoding.GetPreamble();
@@ -41,7 +42,7 @@ public class FileSystemTests : TestBase
         var encoding = Encoding.UTF8;
 
         var fileSystem = new FileSystem();
-        fileSystem.FileWriteAllText(TempFilePath, "╚(ಠ_ಠ)=┐");
+        fileSystem.File.WriteAllText(TempFilePath, "╚(ಠ_ಠ)=┐");
 
         using var stream = File.OpenRead(TempFilePath);
         var preamble = encoding.GetPreamble();

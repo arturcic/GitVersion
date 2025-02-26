@@ -119,7 +119,7 @@ internal class GitVersionTaskExecutor(
 
         foreach (var file in this.fileSystem.Directory.GetFiles(tempPath))
         {
-            if (GetLastDirectoryWrite(file) >= DateTime.Now.AddDays(-1).Ticks)
+            if (this.fileSystem.GetLastDirectoryWrite(file) >= DateTime.Now.AddDays(-1).Ticks)
                 continue;
             try
             {
@@ -131,13 +131,6 @@ internal class GitVersionTaskExecutor(
             }
         }
     }
-
-    private long GetLastDirectoryWrite(string path) => this.fileSystem.DirectoryInfo.New(path)
-        .GetDirectories("*.*", SearchOption.AllDirectories)
-        .Select(d => d.LastWriteTimeUtc)
-        .DefaultIfEmpty()
-        .Max()
-        .Ticks;
 
     private GitVersionVariables GitVersionVariables(GitVersionTaskBase task) => serializer.FromFile(task.VersionFile);
 }
