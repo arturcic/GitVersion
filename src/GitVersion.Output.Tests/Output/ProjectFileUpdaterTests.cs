@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using System.Xml.Linq;
 using GitVersion.Configuration;
 using GitVersion.Core.Tests.Helpers;
@@ -293,7 +294,7 @@ public class ProjectFileUpdaterTests : TestBase
                                           </PropertyGroup>
                                         </Project>
                                         """;
-            var transformedXml = fs.FileReadAllText(fileName);
+            var transformedXml = fs.File.ReadAllText(fileName);
             transformedXml.ShouldBe(XElement.Parse(expectedXml).ToString());
         });
     }
@@ -307,12 +308,12 @@ public class ProjectFileUpdaterTests : TestBase
         this.fileSystem = Substitute.For<IFileSystem>();
         var version = new SemanticVersion { BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0), Major = 2, Minor = 3, Patch = 1 };
 
-        this.fileSystem.FileExists(fileName).Returns(true);
-        this.fileSystem.FileReadAllText(fileName).Returns(projectFileContent);
-        this.fileSystem.When(f => f.FileWriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        this.fileSystem.File.Exists(fileName).Returns(true);
+        this.fileSystem.File.ReadAllText(fileName).Returns(projectFileContent);
+        this.fileSystem.When(f => f.File.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             projectFileContent = c.ArgAt<string>(1);
-            this.fileSystem.FileReadAllText(fileName).Returns(projectFileContent);
+            this.fileSystem.File.ReadAllText(fileName).Returns(projectFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();
