@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Extensions;
 using GitVersion.Helpers;
 
@@ -14,13 +15,13 @@ public static class Extensions
 
         var fullPath = PathHelper.Combine(path, fileName);
         var directory = PathHelper.GetDirectoryName(fullPath);
-        if (!fileSystem.DirectoryExists(directory))
+        if (!fileSystem.Directory.Exists(directory))
         {
-            fileSystem.DirectoryCreateDirectory(directory);
+            fileSystem.Directory.CreateDirectory(directory);
         }
 
-        fileSystem.FileWriteAllText(fullPath, text);
+        fileSystem.File.WriteAllText(fullPath, text);
 
-        return Disposable.Create(fullPath, () => fileSystem.FileDelete(fullPath));
+        return Disposable.Create(fullPath, () => fileSystem.File.Delete(fullPath));
     }
 }
