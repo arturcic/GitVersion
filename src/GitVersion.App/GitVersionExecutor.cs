@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Configuration;
 using GitVersion.Extensions;
 using GitVersion.Git;
@@ -133,7 +134,7 @@ internal class GitVersionExecutor(
             GitExtensions.DumpGraphLog(logMessage => this.log.Info(logMessage));
         }
 
-        if (!this.fileSystem.DirectoryExists(workingDirectory))
+        if (!this.fileSystem.Directory.Exists(workingDirectory))
         {
             this.log.Warning($"The working directory '{workingDirectory}' does not exist.");
         }

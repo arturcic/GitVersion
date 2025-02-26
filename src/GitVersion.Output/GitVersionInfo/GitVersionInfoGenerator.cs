@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Extensions;
 using GitVersion.Helpers;
 using GitVersion.OutputVariables;
@@ -22,7 +23,7 @@ internal sealed class GitVersionInfoGenerator(IFileSystem fileSystem) : IGitVers
 
         if (File.Exists(filePath))
         {
-            originalFileContents = this.fileSystem.FileReadAllText(filePath);
+            originalFileContents = this.fileSystem.File.ReadAllText(filePath);
         }
 
         var fileExtension = Path.GetExtension(filePath);
@@ -53,7 +54,7 @@ internal sealed class GitVersionInfoGenerator(IFileSystem fileSystem) : IGitVers
 
         if (fileContents != originalFileContents)
         {
-            this.fileSystem.FileWriteAllText(filePath, fileContents);
+            this.fileSystem.File.WriteAllText(filePath, fileContents);
         }
 
         return;

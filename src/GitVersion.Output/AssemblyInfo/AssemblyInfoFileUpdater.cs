@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using System.Text.RegularExpressions;
 using GitVersion.Core;
 using GitVersion.Extensions;
@@ -44,21 +45,21 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         {
             var localAssemblyInfo = assemblyInfoFile.FullName;
             var backupAssemblyInfo = localAssemblyInfo + ".bak";
-            fileSystem.FileCopy(localAssemblyInfo, backupAssemblyInfo, true);
+            fileSystem.File.Copy(localAssemblyInfo, backupAssemblyInfo, true);
 
             this.restoreBackupTasks.Add(() =>
             {
-                if (fileSystem.FileExists(localAssemblyInfo))
+                if (fileSystem.File.Exists(localAssemblyInfo))
                 {
-                    fileSystem.FileDelete(localAssemblyInfo);
+                    fileSystem.File.Delete(localAssemblyInfo);
                 }
 
-                fileSystem.FileMove(backupAssemblyInfo, localAssemblyInfo);
+                fileSystem.File.Move(backupAssemblyInfo, localAssemblyInfo);
             });
 
-            this.cleanupBackupTasks.Add(() => fileSystem.FileDelete(backupAssemblyInfo));
+            this.cleanupBackupTasks.Add(() => fileSystem.File.Delete(backupAssemblyInfo));
 
-            var originalFileContents = fileSystem.FileReadAllText(localAssemblyInfo);
+            var originalFileContents = fileSystem.File.ReadAllText(localAssemblyInfo);
             var fileContents = originalFileContents;
             var appendedAttributes = false;
 
@@ -85,7 +86,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
 
             if (originalFileContents != fileContents)
             {
-                fileSystem.FileWriteAllText(localAssemblyInfo, fileContents);
+                fileSystem.File.WriteAllText(localAssemblyInfo, fileContents);
             }
         }
         CommitChanges();
@@ -163,7 +164,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         }
         else
         {
-            foreach (var item in fileSystem.DirectoryEnumerateFiles(workingDirectory, "AssemblyInfo.*", SearchOption.AllDirectories))
+            foreach (var item in fileSystem.Directory.EnumerateFiles(workingDirectory, "AssemblyInfo.*", SearchOption.AllDirectories))
             {
                 var assemblyInfoFile = new FileInfo(item);
 
@@ -178,7 +179,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
     private bool EnsureVersionAssemblyInfoFile(string fullPath, bool ensureAssemblyInfo)
     {
         fullPath = fullPath.NotNull();
-        if (fileSystem.FileExists(fullPath))
+        if (fileSystem.File.Exists(fullPath))
         {
             return true;
         }
@@ -194,12 +195,12 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         {
             var fileInfo = new FileInfo(fullPath);
 
-            if (fileInfo.Directory != null && !fileSystem.DirectoryExists(fileInfo.Directory.FullName))
+            if (fileInfo.Directory != null && !fileSystem.Directory.Exists(fileInfo.Directory.FullName))
             {
-                fileSystem.DirectoryCreateDirectory(fileInfo.Directory.FullName);
+                fileSystem.Directory.CreateDirectory(fileInfo.Directory.FullName);
             }
 
-            fileSystem.FileWriteAllText(fullPath, assemblyInfoSource);
+            fileSystem.File.WriteAllText(fullPath, assemblyInfoSource);
             return true;
         }
 

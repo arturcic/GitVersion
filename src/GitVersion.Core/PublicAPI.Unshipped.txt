@@ -1,17 +1,1 @@
 #nullable enable
-GitVersion.IFileSystem.DirectoryCreateDirectory(string! path) -> void
-GitVersion.IFileSystem.DirectoryEnumerateFiles(string? directory, string! searchPattern, System.IO.SearchOption searchOption) -> System.Collections.Generic.IEnumerable<string!>!
-GitVersion.IFileSystem.DirectoryExists(string! path) -> bool
-GitVersion.IFileSystem.DirectoryGetDirectories(string! path) -> string![]!
-GitVersion.IFileSystem.DirectoryGetFiles(string! path) -> string![]!
-GitVersion.IFileSystem.FileCopy(string! from, string! to, bool overwrite) -> void
-GitVersion.IFileSystem.FileDelete(string! path) -> void
-GitVersion.IFileSystem.FileExists(string! file) -> bool
-GitVersion.IFileSystem.FileGetLastWriteTime(string! path) -> long
-GitVersion.IFileSystem.FileMove(string! from, string! to) -> void
-GitVersion.IFileSystem.FileOpenRead(string! path) -> System.IO.Stream!
-GitVersion.IFileSystem.FileOpenWrite(string! path) -> System.IO.Stream!
-GitVersion.IFileSystem.FileReadAllText(string! path) -> string!
-GitVersion.IFileSystem.FileWriteAllText(string? file, string! fileContents) -> void
-GitVersion.IFileSystem.FileWriteAllText(string? file, string! fileContents, System.Text.Encoding! encoding) -> void
-GitVersion.IFileSystem.GetLastDirectoryWrite(string! path) -> long

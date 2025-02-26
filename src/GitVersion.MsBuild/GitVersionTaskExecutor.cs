@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Configuration;
 using GitVersion.Extensions;
 using GitVersion.Helpers;
@@ -40,15 +41,15 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.DirectoryCreateDirectory(task.IntermediateOutputPath);
+            fileSystem.Directory.CreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "AssemblyInfo");
         task.AssemblyInfoTempFilePath = PathHelper.Combine(fileWriteInfo.WorkingDirectory, fileWriteInfo.FileName);
 
-        if (!this.fileSystem.DirectoryExists(fileWriteInfo.WorkingDirectory))
+        if (!this.fileSystem.Directory.Exists(fileWriteInfo.WorkingDirectory))
         {
-            this.fileSystem.DirectoryCreateDirectory(fileWriteInfo.WorkingDirectory);
+            this.fileSystem.Directory.CreateDirectory(fileWriteInfo.WorkingDirectory);
         }
         var gitVersionOptions = this.options.Value;
         gitVersionOptions.WorkingDirectory = fileWriteInfo.WorkingDirectory;
@@ -66,15 +67,15 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.DirectoryCreateDirectory(task.IntermediateOutputPath);
+            fileSystem.Directory.CreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "GitVersionInformation");
         task.GitVersionInformationFilePath = PathHelper.Combine(fileWriteInfo.WorkingDirectory, fileWriteInfo.FileName);
 
-        if (!this.fileSystem.DirectoryExists(fileWriteInfo.WorkingDirectory))
+        if (!this.fileSystem.Directory.Exists(fileWriteInfo.WorkingDirectory))
         {
-            this.fileSystem.DirectoryCreateDirectory(fileWriteInfo.WorkingDirectory);
+            this.fileSystem.Directory.CreateDirectory(fileWriteInfo.WorkingDirectory);
         }
         var gitVersionOptions = this.options.Value;
         gitVersionOptions.WorkingDirectory = fileWriteInfo.WorkingDirectory;
@@ -111,18 +112,18 @@ internal class GitVersionTaskExecutor(
     private void DeleteTempFiles()
     {
         var tempPath = FileHelper.TempPath;
-        if (!this.fileSystem.DirectoryExists(tempPath))
+        if (!this.fileSystem.Directory.Exists(tempPath))
         {
             return;
         }
 
-        foreach (var file in this.fileSystem.DirectoryGetFiles(tempPath))
+        foreach (var file in this.fileSystem.Directory.GetFiles(tempPath))
         {
-            if (this.fileSystem.FileGetLastWriteTime(file) >= DateTime.Now.AddDays(-1).Ticks)
+            if (GetLastDirectoryWrite(file) >= DateTime.Now.AddDays(-1).Ticks)
                 continue;
             try
             {
-                this.fileSystem.FileDelete(file);
+                this.fileSystem.File.Delete(file);
             }
             catch (UnauthorizedAccessException)
             {
@@ -130,6 +131,13 @@ internal class GitVersionTaskExecutor(
             }
         }
     }
+
+    private long GetLastDirectoryWrite(string path) => this.fileSystem.DirectoryInfo.New(path)
+        .GetDirectories("*.*", SearchOption.AllDirectories)
+        .Select(d => d.LastWriteTimeUtc)
+        .DefaultIfEmpty()
+        .Max()
+        .Ticks;
 
     private GitVersionVariables GitVersionVariables(GitVersionTaskBase task) => serializer.FromFile(task.VersionFile);
 }

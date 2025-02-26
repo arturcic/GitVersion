@@ -352,7 +352,6 @@ GitVersion.IConverterContext.WorkingDirectory.get -> string!
 GitVersion.IEnvironment
 GitVersion.IEnvironment.GetEnvironmentVariable(string! variableName) -> string?
 GitVersion.IEnvironment.SetEnvironmentVariable(string! variableName, string? value) -> void
-GitVersion.IFileSystem
 GitVersion.IGitPreparer
 GitVersion.IGitPreparer.EnsureLocalBranchExistsForCurrentBranch(GitVersion.Git.IRemote! remote, string! currentBranch) -> void
 GitVersion.IGitPreparer.Prepare() -> void
