@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using GitVersion.Configuration;
 using GitVersion.Core.Tests.Helpers;
 using GitVersion.Helpers;
@@ -340,7 +341,7 @@ public class ArgumentParserTests : TestBase
 
         var subdir = PathHelper.Combine(repo.RepositoryPath, "subdir");
 
-        this.fileSystem.DirectoryCreateDirectory(subdir);
+        this.fileSystem.Directory.CreateDirectory(subdir);
         var assemblyFile3 = PathHelper.Combine(subdir, "LocalAssemblyInfo.cs");
         using var file3 = File.Create(assemblyFile3);
 
@@ -361,7 +362,7 @@ public class ArgumentParserTests : TestBase
         using var file = File.Create(assemblyFile);
 
         var targetPath = PathHelper.Combine(repo.RepositoryPath, "subdir1", "subdir2");
-        this.fileSystem.DirectoryCreateDirectory(targetPath);
+        this.fileSystem.Directory.CreateDirectory(targetPath);
 
         var arguments = this.argumentParser.ParseArguments($"-targetpath {targetPath} -updateAssemblyInfo ..\\..\\CommonAssemblyInfo.cs");
         arguments.UpdateAssemblyInfo.ShouldBe(true);
