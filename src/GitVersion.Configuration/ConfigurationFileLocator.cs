@@ -43,7 +43,7 @@ internal class ConfigurationFileLocator(
         foreach (var candidatePath in candidatePaths)
         {
             this.log.Debug($"Trying to find configuration file at '{candidatePath}'");
-            if (fileSystem.Exists(candidatePath))
+            if (fileSystem.FileExists(candidatePath))
             {
                 this.log.Info($"Found configuration file at '{candidatePath}'");
                 return candidatePath;

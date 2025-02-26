@@ -293,7 +293,7 @@ public class ProjectFileUpdaterTests : TestBase
                                           </PropertyGroup>
                                         </Project>
                                         """;
-            var transformedXml = fs.ReadAllText(fileName);
+            var transformedXml = fs.FileReadAllText(fileName);
             transformedXml.ShouldBe(XElement.Parse(expectedXml).ToString());
         });
     }
@@ -307,12 +307,12 @@ public class ProjectFileUpdaterTests : TestBase
         this.fileSystem = Substitute.For<IFileSystem>();
         var version = new SemanticVersion { BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0), Major = 2, Minor = 3, Patch = 1 };
 
-        this.fileSystem.Exists(fileName).Returns(true);
-        this.fileSystem.ReadAllText(fileName).Returns(projectFileContent);
-        this.fileSystem.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        this.fileSystem.FileExists(fileName).Returns(true);
+        this.fileSystem.FileReadAllText(fileName).Returns(projectFileContent);
+        this.fileSystem.When(f => f.FileWriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             projectFileContent = c.ArgAt<string>(1);
-            this.fileSystem.ReadAllText(fileName).Returns(projectFileContent);
+            this.fileSystem.FileReadAllText(fileName).Returns(projectFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();

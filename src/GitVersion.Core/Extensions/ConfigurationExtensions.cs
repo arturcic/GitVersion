@@ -127,7 +127,7 @@ internal static class ConfigurationExtensions
                 return (dirOrFilePath, Path.GetDirectoryName(dirOrFilePath)!);
             }
 
-            if (fileSystem.Exists(dirOrFilePath))
+            if (fileSystem.FileExists(dirOrFilePath))
             {
                 string? relativeGitDirPath = ReadGitDirFromFile(dirOrFilePath);
                 if (!string.IsNullOrWhiteSpace(relativeGitDirPath))

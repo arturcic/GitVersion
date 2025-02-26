@@ -22,7 +22,7 @@ internal sealed class GitVersionInfoGenerator(IFileSystem fileSystem) : IGitVers
 
         if (File.Exists(filePath))
         {
-            originalFileContents = this.fileSystem.ReadAllText(filePath);
+            originalFileContents = this.fileSystem.FileReadAllText(filePath);
         }
 
         var fileExtension = Path.GetExtension(filePath);
@@ -53,7 +53,7 @@ internal sealed class GitVersionInfoGenerator(IFileSystem fileSystem) : IGitVers
 
         if (fileContents != originalFileContents)
         {
-            this.fileSystem.WriteAllText(filePath, fileContents);
+            this.fileSystem.FileWriteAllText(filePath, fileContents);
         }
 
         return;

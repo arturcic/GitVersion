@@ -44,21 +44,21 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         {
             var localAssemblyInfo = assemblyInfoFile.FullName;
             var backupAssemblyInfo = localAssemblyInfo + ".bak";
-            fileSystem.Copy(localAssemblyInfo, backupAssemblyInfo, true);
+            fileSystem.FileCopy(localAssemblyInfo, backupAssemblyInfo, true);
 
             this.restoreBackupTasks.Add(() =>
             {
-                if (fileSystem.Exists(localAssemblyInfo))
+                if (fileSystem.FileExists(localAssemblyInfo))
                 {
-                    fileSystem.Delete(localAssemblyInfo);
+                    fileSystem.FileDelete(localAssemblyInfo);
                 }
 
-                fileSystem.Move(backupAssemblyInfo, localAssemblyInfo);
+                fileSystem.FileMove(backupAssemblyInfo, localAssemblyInfo);
             });
 
-            this.cleanupBackupTasks.Add(() => fileSystem.Delete(backupAssemblyInfo));
+            this.cleanupBackupTasks.Add(() => fileSystem.FileDelete(backupAssemblyInfo));
 
-            var originalFileContents = fileSystem.ReadAllText(localAssemblyInfo);
+            var originalFileContents = fileSystem.FileReadAllText(localAssemblyInfo);
             var fileContents = originalFileContents;
             var appendedAttributes = false;
 
@@ -85,7 +85,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
 
             if (originalFileContents != fileContents)
             {
-                fileSystem.WriteAllText(localAssemblyInfo, fileContents);
+                fileSystem.FileWriteAllText(localAssemblyInfo, fileContents);
             }
         }
         CommitChanges();
@@ -178,7 +178,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
     private bool EnsureVersionAssemblyInfoFile(string fullPath, bool ensureAssemblyInfo)
     {
         fullPath = fullPath.NotNull();
-        if (fileSystem.Exists(fullPath))
+        if (fileSystem.FileExists(fullPath))
         {
             return true;
         }
@@ -196,10 +196,10 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
 
             if (fileInfo.Directory != null && !fileSystem.DirectoryExists(fileInfo.Directory.FullName))
             {
-                fileSystem.CreateDirectory(fileInfo.Directory.FullName);
+                fileSystem.DirectoryCreateDirectory(fileInfo.Directory.FullName);
             }
 
-            fileSystem.WriteAllText(fullPath, assemblyInfoSource);
+            fileSystem.FileWriteAllText(fullPath, assemblyInfoSource);
             return true;
         }
 

@@ -16,11 +16,11 @@ public static class Extensions
         var directory = PathHelper.GetDirectoryName(fullPath);
         if (!fileSystem.DirectoryExists(directory))
         {
-            fileSystem.CreateDirectory(directory);
+            fileSystem.DirectoryCreateDirectory(directory);
         }
 
-        fileSystem.WriteAllText(fullPath, text);
+        fileSystem.FileWriteAllText(fullPath, text);
 
-        return Disposable.Create(fullPath, () => fileSystem.Delete(fullPath));
+        return Disposable.Create(fullPath, () => fileSystem.FileDelete(fullPath));
     }
 }

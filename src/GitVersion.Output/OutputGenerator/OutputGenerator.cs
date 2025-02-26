@@ -38,7 +38,7 @@ internal sealed class OutputGenerator(
             var retryOperation = new RetryAction<IOException>();
             retryOperation.Execute(() =>
             {
-                if (context.OutputFile != null) this.fileSystem.WriteAllText(context.OutputFile, json);
+                if (context.OutputFile != null) this.fileSystem.FileWriteAllText(context.OutputFile, json);
             });
         }
 

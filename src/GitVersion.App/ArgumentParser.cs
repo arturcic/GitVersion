@@ -108,13 +108,13 @@ internal class ArgumentParser(IEnvironment environment,
 
         if (Path.IsPathRooted(arguments.ConfigurationFile))
         {
-            if (!this.fileSystem.Exists(arguments.ConfigurationFile)) throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
+            if (!this.fileSystem.FileExists(arguments.ConfigurationFile)) throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
             arguments.ConfigurationFile = Path.GetFullPath(arguments.ConfigurationFile);
         }
         else
         {
             var configFilePath = Path.GetFullPath(PathHelper.Combine(arguments.TargetPath, arguments.ConfigurationFile));
-            if (!this.fileSystem.Exists(configFilePath)) throw new WarningException($"Could not find config file at '{configFilePath}'");
+            if (!this.fileSystem.FileExists(configFilePath)) throw new WarningException($"Could not find config file at '{configFilePath}'");
             arguments.ConfigurationFile = configFilePath;
         }
     }

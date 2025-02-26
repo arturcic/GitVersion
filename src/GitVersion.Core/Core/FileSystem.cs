@@ -4,42 +4,42 @@ namespace GitVersion;
 
 internal class FileSystem : IFileSystem
 {
-    public void Copy(string from, string to, bool overwrite) => File.Copy(from, to, overwrite);
+    public void FileCopy(string from, string to, bool overwrite) => File.Copy(from, to, overwrite);
 
-    public void Move(string from, string to) => File.Move(from, to);
+    public void FileMove(string from, string to) => File.Move(from, to);
 
-    public bool Exists(string file) => File.Exists(file);
+    public bool FileExists(string file) => File.Exists(file);
 
-    public void Delete(string path) => File.Delete(path);
+    public void FileDelete(string path) => File.Delete(path);
 
-    public string ReadAllText(string path) => File.ReadAllText(path);
+    public string FileReadAllText(string path) => File.ReadAllText(path);
 
-    public void WriteAllText(string? file, string fileContents)
+    public void FileWriteAllText(string? file, string fileContents)
     {
         // Opinionated decision to use UTF8 with BOM when creating new files or when the existing
         // encoding was not easily detected due to the file not having an encoding preamble.
         var encoding = EncodingHelper.DetectEncoding(file) ?? Encoding.UTF8;
-        WriteAllText(file, fileContents, encoding);
+        FileWriteAllText(file, fileContents, encoding);
     }
 
-    public void WriteAllText(string? file, string fileContents, Encoding encoding)
+    public void FileWriteAllText(string? file, string fileContents, Encoding encoding)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(file);
 
         File.WriteAllText(file, fileContents, encoding);
     }
 
-    public Stream OpenWrite(string path) => File.OpenWrite(path);
+    public Stream FileOpenWrite(string path) => File.OpenWrite(path);
 
-    public Stream OpenRead(string path) => File.OpenRead(path);
+    public Stream FileOpenRead(string path) => File.OpenRead(path);
 
-    public void CreateDirectory(string path) => Directory.CreateDirectory(path);
+    public void DirectoryCreateDirectory(string path) => Directory.CreateDirectory(path);
 
     public bool DirectoryExists(string path) => Directory.Exists(path);
 
-    public string[] GetFiles(string path) => Directory.GetFiles(path);
+    public string[] DirectoryGetFiles(string path) => Directory.GetFiles(path);
 
-    public string[] GetDirectories(string path) => Directory.GetDirectories(path);
+    public string[] DirectoryGetDirectories(string path) => Directory.GetDirectories(path);
 
     public IEnumerable<string> DirectoryEnumerateFiles(string? directory, string searchPattern, SearchOption searchOption)
     {
@@ -48,7 +48,7 @@ internal class FileSystem : IFileSystem
         return Directory.EnumerateFiles(directory, searchPattern, searchOption);
     }
 
-    public long GetLastWriteTime(string path) => File.GetLastWriteTime(path).Ticks;
+    public long FileGetLastWriteTime(string path) => File.GetLastWriteTime(path).Ticks;
 
     public long GetLastDirectoryWrite(string path) => new DirectoryInfo(path)
         .GetDirectories("*.*", SearchOption.AllDirectories)

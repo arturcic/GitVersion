@@ -40,7 +40,7 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.CreateDirectory(task.IntermediateOutputPath);
+            fileSystem.DirectoryCreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "AssemblyInfo");
@@ -48,7 +48,7 @@ internal class GitVersionTaskExecutor(
 
         if (!this.fileSystem.DirectoryExists(fileWriteInfo.WorkingDirectory))
         {
-            this.fileSystem.CreateDirectory(fileWriteInfo.WorkingDirectory);
+            this.fileSystem.DirectoryCreateDirectory(fileWriteInfo.WorkingDirectory);
         }
         var gitVersionOptions = this.options.Value;
         gitVersionOptions.WorkingDirectory = fileWriteInfo.WorkingDirectory;
@@ -66,7 +66,7 @@ internal class GitVersionTaskExecutor(
         if (!string.IsNullOrEmpty(task.IntermediateOutputPath))
         {
             // Ensure provided output path exists first. Fixes issue #2815.
-            fileSystem.CreateDirectory(task.IntermediateOutputPath);
+            fileSystem.DirectoryCreateDirectory(task.IntermediateOutputPath);
         }
 
         var fileWriteInfo = task.IntermediateOutputPath.GetFileWriteInfo(task.Language, task.ProjectFile, "GitVersionInformation");
@@ -74,7 +74,7 @@ internal class GitVersionTaskExecutor(
 
         if (!this.fileSystem.DirectoryExists(fileWriteInfo.WorkingDirectory))
         {
-            this.fileSystem.CreateDirectory(fileWriteInfo.WorkingDirectory);
+            this.fileSystem.DirectoryCreateDirectory(fileWriteInfo.WorkingDirectory);
         }
         var gitVersionOptions = this.options.Value;
         gitVersionOptions.WorkingDirectory = fileWriteInfo.WorkingDirectory;
@@ -116,13 +116,13 @@ internal class GitVersionTaskExecutor(
             return;
         }
 
-        foreach (var file in this.fileSystem.GetFiles(tempPath))
+        foreach (var file in this.fileSystem.DirectoryGetFiles(tempPath))
         {
-            if (this.fileSystem.GetLastWriteTime(file) >= DateTime.Now.AddDays(-1).Ticks)
+            if (this.fileSystem.FileGetLastWriteTime(file) >= DateTime.Now.AddDays(-1).Ticks)
                 continue;
             try
             {
-                this.fileSystem.Delete(file);
+                this.fileSystem.FileDelete(file);
             }
             catch (UnauthorizedAccessException)
             {

@@ -49,8 +49,8 @@ public class DynamicRepositoryTests : TestBase
         gitPreparer.Prepare();
 
         var fileSystem = sp.GetRequiredService<IFileSystem>();
-        fileSystem.CreateDirectory(dynamicDirectory);
-        fileSystem.CreateDirectory(workingDirectory);
+        fileSystem.DirectoryCreateDirectory(dynamicDirectory);
+        fileSystem.DirectoryCreateDirectory(workingDirectory);
 
         var gitVersionCalculator = sp.GetRequiredService<IGitVersionCalculateTool>();
 

@@ -74,7 +74,7 @@ internal class GitVersionCacheKeyFactory(
             string[] subDirs;
             try
             {
-                subDirs = this.fileSystem.GetDirectories(currentDir);
+                subDirs = this.fileSystem.DirectoryGetDirectories(currentDir);
             }
             // An UnauthorizedAccessException exception will be thrown if we do not have
             // discovery permission on a folder or file. It may or may not be acceptable
@@ -99,7 +99,7 @@ internal class GitVersionCacheKeyFactory(
             string[] files;
             try
             {
-                files = this.fileSystem.GetFiles(currentDir);
+                files = this.fileSystem.DirectoryGetFiles(currentDir);
             }
             catch (UnauthorizedAccessException e)
             {
@@ -116,9 +116,9 @@ internal class GitVersionCacheKeyFactory(
             {
                 try
                 {
-                    if (!this.fileSystem.Exists(file)) continue;
+                    if (!this.fileSystem.FileExists(file)) continue;
                     result.Add(Path.GetFileName(file));
-                    result.Add(this.fileSystem.ReadAllText(file));
+                    result.Add(this.fileSystem.FileReadAllText(file));
                 }
                 catch (IOException e)
                 {
@@ -174,9 +174,9 @@ internal class GitVersionCacheKeyFactory(
         var configFilePath = this.configFileLocator.GetConfigurationFile(workingDirectory)
                              ?? this.configFileLocator.GetConfigurationFile(projectRootDirectory);
         if (configFilePath == null) return string.Empty;
-        if (!this.fileSystem.Exists(configFilePath)) return string.Empty;
+        if (!this.fileSystem.FileExists(configFilePath)) return string.Empty;
 
-        var configFileContent = this.fileSystem.ReadAllText(configFilePath);
+        var configFileContent = this.fileSystem.FileReadAllText(configFilePath);
         return GetHash(configFileContent);
     }
 

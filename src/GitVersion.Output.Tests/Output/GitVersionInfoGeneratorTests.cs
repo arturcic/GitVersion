@@ -35,7 +35,7 @@ public class GitVersionInfoGeneratorTests : TestBase
 
         var directory = PathHelper.Combine(PathHelper.GetTempPath(), "GitVersionInfoGeneratorTests", Guid.NewGuid().ToString());
         if (!fileSystem.DirectoryExists(directory))
-            fileSystem.CreateDirectory(directory);
+            fileSystem.DirectoryCreateDirectory(directory);
         var fileName = "GitVersionInformation.g." + fileExtension;
         var fullPath = PathHelper.Combine(directory, fileName);
 
@@ -45,7 +45,7 @@ public class GitVersionInfoGeneratorTests : TestBase
 
         generator.Execute(variables, new(directory, fileName, fileExtension));
 
-        fileSystem.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
+        fileSystem.FileReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
 
         DirectoryHelper.DeleteDirectory(directory);
     }
@@ -76,7 +76,7 @@ public class GitVersionInfoGeneratorTests : TestBase
 
         var directory = PathHelper.Combine(PathHelper.GetTempPath(), "GitVersionInfoGeneratorTests", Guid.NewGuid().ToString());
         if (!fileSystem.DirectoryExists(directory))
-            fileSystem.CreateDirectory(directory);
+            fileSystem.DirectoryCreateDirectory(directory);
         var fileName = "GitVersionInformation.g." + fileExtension;
         var fullPath = PathHelper.Combine(directory, fileName);
 
@@ -86,7 +86,7 @@ public class GitVersionInfoGeneratorTests : TestBase
 
         generator.Execute(variables, new(directory, fileName, fileExtension, targetNamespace));
 
-        fileSystem.ReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
+        fileSystem.FileReadAllText(fullPath).ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved", fileExtension)));
 
         DirectoryHelper.DeleteDirectory(directory);
     }

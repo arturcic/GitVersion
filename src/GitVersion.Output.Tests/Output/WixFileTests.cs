@@ -58,7 +58,7 @@ internal class WixFileTests : TestBase
 
         var file = PathHelper.Combine(workingDir, WixVersionFileUpdater.WixVersionFileName);
         fileSystem
-            .ReadAllText(file)
+            .FileReadAllText(file)
             .ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved")));
     }
 
@@ -97,14 +97,14 @@ internal class WixFileTests : TestBase
         var file = PathHelper.Combine(workingDir, WixVersionFileUpdater.WixVersionFileName);
         if (!fileSystem.DirectoryExists(workingDir))
         {
-            fileSystem.CreateDirectory(workingDir);
+            fileSystem.DirectoryCreateDirectory(workingDir);
         }
-        fileSystem.WriteAllText(file, new('x', 1024 * 1024));
+        fileSystem.FileWriteAllText(file, new('x', 1024 * 1024));
 
         wixVersionFileUpdater.Execute(versionVariables, new(workingDir));
 
         fileSystem
-            .ReadAllText(file)
+            .FileReadAllText(file)
             .ShouldMatchApproved(c => c.SubFolder(PathHelper.Combine("Approved")));
     }
 }
