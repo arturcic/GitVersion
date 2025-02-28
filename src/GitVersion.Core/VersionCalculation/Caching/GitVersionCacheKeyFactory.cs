@@ -69,7 +69,7 @@ internal class GitVersionCacheKeyFactory(
         {
             var currentDir = dirs.Pop();
 
-            var di = new DirectoryInfo(currentDir);
+            var di = this.fileSystem.DirectoryInfo.New(currentDir);
             result.Add(di.Name);
 
             string[] subDirs;

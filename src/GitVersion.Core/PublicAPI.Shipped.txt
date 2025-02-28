@@ -331,7 +331,6 @@ GitVersion.GitVersionOptions.WixInfo.get -> GitVersion.WixInfo!
 GitVersion.GitVersionOptions.WorkingDirectory.get -> string!
 GitVersion.GitVersionOptions.WorkingDirectory.set -> void
 GitVersion.Helpers.Disposable
-GitVersion.Helpers.EncodingHelper
 GitVersion.Helpers.IDisposable<T>
 GitVersion.Helpers.IDisposable<T>.Value.get -> T
 GitVersion.Helpers.LambdaEqualityHelper<T>
@@ -761,8 +760,6 @@ static GitVersion.Git.ReferenceName.operator ==(GitVersion.Git.ReferenceName? le
 static GitVersion.Git.ReferenceName.Parse(string! canonicalName) -> GitVersion.Git.ReferenceName!
 static GitVersion.Helpers.Disposable.Create(System.Action! disposer) -> System.IDisposable!
 static GitVersion.Helpers.Disposable.Create<T>(T value, System.Action! disposer) -> GitVersion.Helpers.IDisposable<T>!
-static GitVersion.Helpers.EncodingHelper.DetectEncoding(string? filename) -> System.Text.Encoding?
-static GitVersion.Helpers.EncodingHelper.DetectEncoding(System.Collections.Generic.IList<byte>! bytes) -> System.Text.Encoding?
 static GitVersion.Helpers.ServiceMessageEscapeHelper.EscapeValue(string? value) -> string?
 static GitVersion.Logging.LogExtensions.Debug(this GitVersion.Logging.ILog! log, GitVersion.Logging.LogAction! logAction) -> void
 static GitVersion.Logging.LogExtensions.Debug(this GitVersion.Logging.ILog! log, GitVersion.Logging.Verbosity verbosity, GitVersion.Logging.LogAction! logAction) -> void

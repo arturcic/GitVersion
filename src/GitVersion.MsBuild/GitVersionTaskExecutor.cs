@@ -120,7 +120,9 @@ internal class GitVersionTaskExecutor(
         foreach (var file in this.fileSystem.Directory.GetFiles(tempPath))
         {
             if (this.fileSystem.GetLastDirectoryWrite(file) >= DateTime.Now.AddDays(-1).Ticks)
+            {
                 continue;
+            }
             try
             {
                 this.fileSystem.File.Delete(file);
