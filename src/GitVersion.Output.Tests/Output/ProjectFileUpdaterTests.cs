@@ -305,20 +305,22 @@ public class ProjectFileUpdaterTests : TestBase
         AssemblyVersioningScheme versioningScheme = AssemblyVersioningScheme.MajorMinorPatch,
         Action<IFileSystem, GitVersionVariables>? verify = null)
     {
-        this.fileSystem = Substitute.For<IFileSystem>();
+        var file = Substitute.For<IFile>();
         var version = new SemanticVersion { BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0), Major = 2, Minor = 3, Patch = 1 };
 
-        this.fileSystem.File.Exists(fileName).Returns(true);
-        this.fileSystem.File.ReadAllText(fileName).Returns(projectFileContent);
-        this.fileSystem.When(f => f.File.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        file.Exists(fileName).Returns(true);
+        file.ReadAllText(fileName).Returns(projectFileContent);
+        file.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             projectFileContent = c.ArgAt<string>(1);
-            this.fileSystem.File.ReadAllText(fileName).Returns(projectFileContent);
+            file.ReadAllText(fileName).Returns(projectFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();
         var variables = this.variableProvider.GetVariablesFor(version, configuration, 0);
 
+        this.fileSystem = Substitute.For<IFileSystem>();
+        this.fileSystem.File.Returns(file);
         verify?.Invoke(this.fileSystem, variables);
     }
 }

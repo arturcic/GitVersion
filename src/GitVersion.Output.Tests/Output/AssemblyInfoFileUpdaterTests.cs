@@ -120,7 +120,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, true, assemblyInfoFile));
 
-        this.fileSystem.Received(0).File.WriteAllText(fullPath, Arg.Any<string>());
+        this.fileSystem.Received(1).File.WriteAllText(fullPath, Arg.Any<string>());
     }
 
     [Test]
@@ -136,7 +136,7 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         using var assemblyInfoFileUpdater = new AssemblyInfoFileUpdater(this.log, this.fileSystem);
         assemblyInfoFileUpdater.Execute(variables, new(workingDir, false, [.. assemblyInfoFiles]));
 
-        this.fileSystem.Received().Directory.EnumerateFiles(Arg.Is(workingDir), Arg.Any<string>(), Arg.Any<SearchOption>());
+        this.fileSystem.Received(1).Directory.EnumerateFiles(Arg.Is(workingDir), Arg.Any<string>(), Arg.Any<SearchOption>());
     }
 
     [TestCase("cs", "[assembly: AssemblyVersion(\"1.0.0.0\")]\r\n[assembly: AssemblyInformationalVersion(\"1.0.0.0\")]\r\n[assembly: AssemblyFileVersion(\"1.0.0.0\")]")]
@@ -420,20 +420,22 @@ public class AssemblyInfoFileUpdaterTests : TestBase
         AssemblyVersioningScheme versioningScheme = AssemblyVersioningScheme.MajorMinorPatch,
         Action<IFileSystem, GitVersionVariables>? verify = null)
     {
-        this.fileSystem = Substitute.For<IFileSystem>();
+        var file = Substitute.For<IFile>();
         var version = new SemanticVersion { BuildMetaData = new("versionSourceHash", 3, "foo", "hash", "shortHash", DateTimeOffset.Now, 0), Major = 2, Minor = 3, Patch = 1 };
 
-        this.fileSystem.File.Exists(fileName).Returns(true);
-        this.fileSystem.File.ReadAllText(fileName).Returns(assemblyFileContent);
-        this.fileSystem.When(f => f.File.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
+        file.Exists(fileName).Returns(true);
+        file.ReadAllText(fileName).Returns(assemblyFileContent);
+        file.When(f => f.WriteAllText(fileName, Arg.Any<string>())).Do(c =>
         {
             assemblyFileContent = c.ArgAt<string>(1);
-            this.fileSystem.File.ReadAllText(fileName).Returns(assemblyFileContent);
+            file.ReadAllText(fileName).Returns(assemblyFileContent);
         });
 
         var configuration = EmptyConfigurationBuilder.New.WithAssemblyVersioningScheme(versioningScheme).Build();
         var variables = this.variableProvider.GetVariablesFor(version, configuration, 0);
 
+        this.fileSystem = Substitute.For<IFileSystem>();
+        this.fileSystem.File.Returns(file);
         verify?.Invoke(this.fileSystem, variables);
     }
 }
