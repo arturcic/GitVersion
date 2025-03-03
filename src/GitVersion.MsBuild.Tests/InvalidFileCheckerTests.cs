@@ -1,6 +1,8 @@
+using System.IO.Abstractions;
 using GitVersion.Core.Tests.Helpers;
 using GitVersion.Helpers;
 using GitVersion.MsBuild.Tests.Mocks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GitVersion.MsBuild.Tests;
 
@@ -9,25 +11,28 @@ public class InvalidFileCheckerTests : TestBase
 {
     private string projectDirectory;
     private string projectFile;
+    private IFileSystem fileSystem;
 
     [SetUp]
     public void CreateTemporaryProject()
     {
+        var sp = ConfigureServices();
+        this.fileSystem = sp.GetRequiredService<IFileSystem>();
         this.projectDirectory = PathHelper.Combine(PathHelper.GetTempPath(), Guid.NewGuid().ToString());
         this.projectFile = PathHelper.Combine(this.projectDirectory, "Fake.csproj");
 
-        Directory.CreateDirectory(this.projectDirectory);
+        this.fileSystem.Directory.CreateDirectory(this.projectDirectory);
 
-        File.Create(this.projectFile).Close();
+        this.fileSystem.File.Create(this.projectFile).Close();
     }
 
     [TearDown]
-    public void Cleanup() => Directory.Delete(this.projectDirectory, true);
+    public void Cleanup() => this.fileSystem.Directory.Delete(this.projectDirectory, true);
 
     [Test]
     public void VerifyIgnoreNonAssemblyInfoFile()
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "SomeOtherFile.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "SomeOtherthis.fileSystem.File.cs")))
         {
             writer.Write("""
 
@@ -39,13 +44,13 @@ public class InvalidFileCheckerTests : TestBase
                          """);
         }
 
-        FileHelper.CheckForInvalidFiles([new MockTaskItem { ItemSpec = "SomeOtherFile.cs" }], this.projectFile);
+        FileHelper.CheckForInvalidFiles([new MockTaskItem { ItemSpec = "SomeOtherthis.fileSystem.File.cs" }], this.projectFile);
     }
 
     [Test]
     public void VerifyAttributeFoundCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System.Reflection.AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -65,7 +70,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyUnformattedAttributeFoundCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System . Reflection   .   AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -86,7 +91,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWorksCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -104,7 +109,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWithNoNewLineAtEndWorksCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -121,7 +126,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyStringWorksCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -142,7 +147,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyIdentifierWorksCSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.cs")))
         {
             writer.Write("""
 
@@ -162,7 +167,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyAttributeFoundVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System.Reflection.AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -182,7 +187,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyUnformattedAttributeFoundVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System . Reflection   .   AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -203,7 +208,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWorksVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -221,7 +226,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWithNoNewLineAtEndWorksVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -238,7 +243,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyStringWorksVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -258,7 +263,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyIdentifierWorksVisualBasic([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.vb")))
         {
             writer.Write("""
 
@@ -277,7 +282,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyAttributeFoundFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System.Reflection.AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 
@@ -297,7 +302,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyUnformattedAttributeFoundFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion", "System . Reflection   .   AssemblyVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 
@@ -318,7 +323,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWorksFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 
@@ -336,7 +341,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyCommentWithNoNewLineAtEndWorksFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 
@@ -353,7 +358,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyStringWorksFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 
@@ -372,7 +377,7 @@ public class InvalidFileCheckerTests : TestBase
     [Test]
     public void VerifyIdentifierWorksFSharp([Values("AssemblyVersion", "AssemblyFileVersion", "AssemblyInformationalVersion")] string attribute)
     {
-        using (var writer = File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
+        using (var writer = this.fileSystem.File.CreateText(PathHelper.Combine(this.projectDirectory, "AssemblyInfo.fs")))
         {
             writer.Write("""
 

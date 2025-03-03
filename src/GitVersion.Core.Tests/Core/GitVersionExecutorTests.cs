@@ -592,9 +592,9 @@ public class GitVersionExecutorTests : TestBase
         exception?.Message.ShouldBe("Repository is a shallow clone. Git repositories must contain the full history. See https://gitversion.net/docs/reference/requirements#unshallow for more info.");
     }
 
-    private static string GetWorktreePath(EmptyRepositoryFixture fixture)
+    private string GetWorktreePath(EmptyRepositoryFixture fixture)
     {
-        var worktreePath = PathHelper.Combine(Directory.GetParent(fixture.RepositoryPath)?.FullName, Guid.NewGuid().ToString());
+        var worktreePath = PathHelper.Combine(this.fileSystem.Directory.GetParent(fixture.RepositoryPath)?.FullName, Guid.NewGuid().ToString());
         return worktreePath;
     }
 

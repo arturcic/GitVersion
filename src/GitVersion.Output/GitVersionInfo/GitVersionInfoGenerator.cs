@@ -21,7 +21,7 @@ internal sealed class GitVersionInfoGenerator(IFileSystem fileSystem) : IGitVers
 
         string? originalFileContents = null;
 
-        if (File.Exists(filePath))
+        if (this.fileSystem.File.Exists(filePath))
         {
             originalFileContents = this.fileSystem.File.ReadAllText(filePath);
         }
