@@ -480,8 +480,9 @@ public class GitVersionExecutorTests : TestBase
     public void CalculateVersionFromWorktreeHead()
     {
         // Setup
+        this.fileSystem = new FileSystem();
         using var fixture = new EmptyRepositoryFixture();
-        var repoDir = new DirectoryInfo(fixture.RepositoryPath);
+        var repoDir = fileSystem.DirectoryInfo.New(fixture.RepositoryPath);
         var worktreePath = PathHelper.Combine(repoDir.Parent?.FullName, $"{repoDir.Name}-v1");
 
         fixture.Repository.MakeATaggedCommit("v1.0.0");
@@ -494,7 +495,7 @@ public class GitVersionExecutorTests : TestBase
 
         var gitVersionOptions = new GitVersionOptions { WorkingDirectory = worktreeFixture.RepositoryPath };
 
-        var sut = GetGitVersionCalculator(gitVersionOptions);
+        var sut = GetGitVersionCalculator(gitVersionOptions, fs: this.fileSystem);
 
         // Execute
         var version = sut.CalculateVersionVariables();
