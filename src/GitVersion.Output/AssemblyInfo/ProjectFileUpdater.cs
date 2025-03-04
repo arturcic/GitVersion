@@ -174,7 +174,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
         this.restoreBackupTasks.Clear();
     }
 
-    private IEnumerable<FileInfo> GetProjectFiles(AssemblyInfoContext context)
+    private IEnumerable<IFileInfo> GetProjectFiles(AssemblyInfoContext context)
     {
         var workingDirectory = context.WorkingDirectory;
         var assemblyInfoFileNames = new HashSet<string>(context.AssemblyInfoFiles);
@@ -187,7 +187,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
 
                 if (fileSystem.File.Exists(fullPath))
                 {
-                    yield return new FileInfo(fullPath);
+                    yield return fileSystem.FileInfo.New(fullPath);
                 }
                 else
                 {
@@ -199,7 +199,7 @@ internal sealed class ProjectFileUpdater(ILog log, IFileSystem fileSystem) : IPr
         {
             foreach (var item in fileSystem.Directory.EnumerateFiles(workingDirectory, "*", SearchOption.AllDirectories).Where(IsSupportedProjectFile))
             {
-                var assemblyInfoFile = new FileInfo(item);
+                var assemblyInfoFile = fileSystem.FileInfo.New(item);
 
                 yield return assemblyInfoFile;
             }

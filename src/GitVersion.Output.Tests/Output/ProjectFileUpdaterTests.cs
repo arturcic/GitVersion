@@ -321,6 +321,7 @@ public class ProjectFileUpdaterTests : TestBase
 
         this.fileSystem = Substitute.For<IFileSystem>();
         this.fileSystem.File.Returns(file);
+        this.fileSystem.FileInfo.Returns(new FileSystem().FileInfo);
         verify?.Invoke(this.fileSystem, variables);
     }
 }

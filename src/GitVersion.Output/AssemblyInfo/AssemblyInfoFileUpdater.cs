@@ -144,7 +144,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         return inputString;
     }
 
-    private IEnumerable<FileInfo> GetAssemblyInfoFiles(AssemblyInfoContext context)
+    private IEnumerable<IFileInfo> GetAssemblyInfoFiles(AssemblyInfoContext context)
     {
         var workingDirectory = context.WorkingDirectory;
         var ensureAssemblyInfo = context.EnsureAssemblyInfo;
@@ -158,7 +158,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
 
                 if (EnsureVersionAssemblyInfoFile(fullPath, ensureAssemblyInfo))
                 {
-                    yield return new FileInfo(fullPath);
+                    yield return fileSystem.FileInfo.New(fullPath);
                 }
             }
         }
@@ -166,7 +166,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
         {
             foreach (var item in fileSystem.Directory.EnumerateFiles(workingDirectory, "AssemblyInfo.*", SearchOption.AllDirectories))
             {
-                var assemblyInfoFile = new FileInfo(item);
+                var assemblyInfoFile = fileSystem.FileInfo.New(item);
 
                 if (this.templateManager.IsSupported(assemblyInfoFile.Extension))
                 {
@@ -193,7 +193,7 @@ internal sealed class AssemblyInfoFileUpdater(ILog log, IFileSystem fileSystem) 
 
         if (!assemblyInfoSource.IsNullOrWhiteSpace())
         {
-            var fileInfo = new FileInfo(fullPath);
+            var fileInfo = fileSystem.FileInfo.New(fullPath);
 
             if (fileInfo.Directory != null && !fileSystem.Directory.Exists(fileInfo.Directory.FullName))
             {
