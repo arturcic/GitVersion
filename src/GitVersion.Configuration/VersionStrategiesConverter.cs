@@ -14,7 +14,7 @@ internal class VersionStrategiesConverter : IYamlTypeConverter
 
     public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer)
     {
-        List<VersionStrategies> strategies = new();
+        List<VersionStrategies> strategies = [];
 
         if (parser.TryConsume<SequenceStart>(out var _))
         {
