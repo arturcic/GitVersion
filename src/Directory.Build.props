@@ -65,7 +65,6 @@
         <PackageReference Include="NUnit3TestAdapter"/>
         <PackageReference Include="JunitXml.TestLogger"/>
         <PackageReference Include="Shouldly"/>
-        <PackageReference Include="System.IO.Abstractions.TestingHelpers"/>
 
         <PackageReference Include="coverlet.msbuild">
             <PrivateAssets>all</PrivateAssets>
