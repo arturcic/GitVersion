@@ -11,13 +11,15 @@ namespace GitVersion.MsBuild;
 
 internal static class GitVersionTasks
 {
-    public static bool GetVersion(GetVersion task) => ExecuteGitVersionTask(task, executor => executor.GetVersion(task));
-
-    public static bool UpdateAssemblyInfo(UpdateAssemblyInfo task) => ExecuteGitVersionTask(task, executor => executor.UpdateAssemblyInfo(task));
-
-    public static bool GenerateGitVersionInformation(GenerateGitVersionInformation task) => ExecuteGitVersionTask(task, executor => executor.GenerateGitVersionInformation(task));
-
-    public static bool WriteVersionInfoToBuildLog(WriteVersionInfoToBuildLog task) => ExecuteGitVersionTask(task, executor => executor.WriteVersionInfoToBuildLog(task));
+    public static bool Execute(GitVersionTaskBase task) =>
+        task switch
+        {
+            GetVersion getVersion => ExecuteGitVersionTask(getVersion, executor => executor.GetVersion(getVersion)),
+            UpdateAssemblyInfo updateAssemblyInfo => ExecuteGitVersionTask(updateAssemblyInfo, executor => executor.UpdateAssemblyInfo(updateAssemblyInfo)),
+            GenerateGitVersionInformation generateGitVersionInformation => ExecuteGitVersionTask(generateGitVersionInformation, executor => executor.GenerateGitVersionInformation(generateGitVersionInformation)),
+            WriteVersionInfoToBuildLog writeVersionInfoToBuildLog => ExecuteGitVersionTask(writeVersionInfoToBuildLog, executor => executor.WriteVersionInfoToBuildLog(writeVersionInfoToBuildLog)),
+            _ => throw new NotSupportedException($"Task type {task.GetType().Name} is not supported")
+        };
 
     private static bool ExecuteGitVersionTask<T>(T task, Action<IGitVersionTaskExecutor> action)
         where T : GitVersionTaskBase

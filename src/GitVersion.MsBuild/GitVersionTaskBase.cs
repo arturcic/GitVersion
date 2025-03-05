@@ -18,9 +18,7 @@ public abstract class GitVersionTaskBase : ITask
 
     public TaskLoggingHelper Log { get; }
 
-    public bool Execute() => OnExecute();
-
-    protected abstract bool OnExecute();
+    public bool Execute() => GitVersionTasks.Execute(this);
 
     public Action<IServiceCollection>? Overrides { get; set; }
 
