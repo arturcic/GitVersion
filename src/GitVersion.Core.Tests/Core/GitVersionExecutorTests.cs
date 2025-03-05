@@ -628,6 +628,10 @@ public class GitVersionExecutorTests : TestBase
             if (environment != null) services.AddSingleton(environment);
             var options = Options.Create(gitVersionOptions);
             services.AddSingleton(options);
-            services.AddSingleton<IGitRepositoryInfo>(new GitRepositoryInfo(options));
+            services.AddSingleton<IGitRepositoryInfo>(sp =>
+            {
+                var fs = sp.GetRequiredService<IFileSystem>();
+                return new GitRepositoryInfo(fs, options);
+            });
         });
 }
