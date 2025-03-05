@@ -7,8 +7,7 @@ namespace GitVersion.Git;
 
 internal class GitRepositoryInfo : IGitRepositoryInfo
 {
-    private readonly IOptions<GitVersionOptions> options;
-    private GitVersionOptions gitVersionOptions => this.options.Value;
+    private readonly GitVersionOptions gitVersionOptions;
 
     private readonly Lazy<string?> dynamicGitRepositoryPath;
     private readonly Lazy<string?> dotGitDirectory;
@@ -17,7 +16,7 @@ internal class GitRepositoryInfo : IGitRepositoryInfo
 
     public GitRepositoryInfo(IOptions<GitVersionOptions> options)
     {
-        this.options = options.NotNull();
+        this.gitVersionOptions = options.NotNull().Value;
 
         this.dynamicGitRepositoryPath = new(GetDynamicGitRepositoryPath);
         this.dotGitDirectory = new(GetDotGitDirectory);
