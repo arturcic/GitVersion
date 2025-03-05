@@ -10,13 +10,10 @@ GitVersion.MsBuild.GitVersionTaskBase.GitVersionTaskBase() -> void
 GitVersion.MsBuild.GitVersionTaskBase.HostObject.get -> Microsoft.Build.Framework.ITaskHost!
 GitVersion.MsBuild.GitVersionTaskBase.HostObject.set -> void
 GitVersion.MsBuild.GitVersionTaskBase.Log.get -> Microsoft.Build.Utilities.TaskLoggingHelper!
-GitVersion.MsBuild.GitVersionTaskBase.Overrides.get -> System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection!>?
-GitVersion.MsBuild.GitVersionTaskBase.Overrides.set -> void
 GitVersion.MsBuild.GitVersionTaskBase.SolutionDirectory.get -> string!
 GitVersion.MsBuild.GitVersionTaskBase.SolutionDirectory.set -> void
 GitVersion.MsBuild.GitVersionTaskBase.VersionFile.get -> string!
 GitVersion.MsBuild.GitVersionTaskBase.VersionFile.set -> void
-GitVersion.MsBuild.GitVersionTaskBase.WithOverrides(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection!>! overrides) -> void
 GitVersion.MsBuild.Tasks.GenerateGitVersionInformation
 GitVersion.MsBuild.Tasks.GenerateGitVersionInformation.GenerateGitVersionInformation() -> void
 GitVersion.MsBuild.Tasks.GenerateGitVersionInformation.GitVersionInformationFilePath.get -> string!

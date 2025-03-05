@@ -11,26 +11,27 @@ namespace GitVersion.MsBuild;
 
 internal static class GitVersionTasks
 {
-    public static bool Execute(GitVersionTaskBase task) =>
-        task switch
+    public static bool Execute(GitVersionTaskBase task, IServiceProvider? serviceProvider = null)
+    {
+        serviceProvider ??= BuildServiceProvider(task);
+        var executor = serviceProvider.GetRequiredService<IGitVersionTaskExecutor>();
+        return task switch
         {
-            GetVersion getVersion => ExecuteGitVersionTask(getVersion, executor => executor.GetVersion(getVersion)),
-            UpdateAssemblyInfo updateAssemblyInfo => ExecuteGitVersionTask(updateAssemblyInfo, executor => executor.UpdateAssemblyInfo(updateAssemblyInfo)),
-            GenerateGitVersionInformation generateGitVersionInformation => ExecuteGitVersionTask(generateGitVersionInformation, executor => executor.GenerateGitVersionInformation(generateGitVersionInformation)),
-            WriteVersionInfoToBuildLog writeVersionInfoToBuildLog => ExecuteGitVersionTask(writeVersionInfoToBuildLog, executor => executor.WriteVersionInfoToBuildLog(writeVersionInfoToBuildLog)),
+            GetVersion getVersion => ExecuteGitVersionTask(getVersion, () => executor.GetVersion(getVersion)),
+            UpdateAssemblyInfo updateAssemblyInfo => ExecuteGitVersionTask(updateAssemblyInfo, () => executor.UpdateAssemblyInfo(updateAssemblyInfo)),
+            GenerateGitVersionInformation generateGitVersionInformation => ExecuteGitVersionTask(generateGitVersionInformation, () => executor.GenerateGitVersionInformation(generateGitVersionInformation)),
+            WriteVersionInfoToBuildLog writeVersionInfoToBuildLog => ExecuteGitVersionTask(writeVersionInfoToBuildLog, () => executor.WriteVersionInfoToBuildLog(writeVersionInfoToBuildLog)),
             _ => throw new NotSupportedException($"Task type {task.GetType().Name} is not supported")
         };
+    }
 
-    private static bool ExecuteGitVersionTask<T>(T task, Action<IGitVersionTaskExecutor> action)
+    private static bool ExecuteGitVersionTask<T>(T task, Action action)
         where T : GitVersionTaskBase
     {
         var taskLog = task.Log;
         try
         {
-            var sp = BuildServiceProvider(task);
-            var gitVersionTaskExecutor = sp.GetRequiredService<IGitVersionTaskExecutor>();
-
-            action(gitVersionTaskExecutor);
+            action();
         }
         catch (WarningException errorException)
         {
@@ -61,7 +62,7 @@ internal static class GitVersionTasks
         gitVersionOptions.Settings.NoFetch = gitVersionOptions.Settings.NoFetch || buildAgent.PreventFetch();
     }
 
-    private static IServiceProvider BuildServiceProvider(GitVersionTaskBase task)
+    internal static IServiceProvider BuildServiceProvider(GitVersionTaskBase task)
     {
         var services = new ServiceCollection();
 
@@ -77,7 +78,6 @@ internal static class GitVersionTasks
         services.AddModule(new GitVersionOutputModule());
         services.AddModule(new GitVersionMsBuildModule());
         services.AddSingleton<IConsole>(new MsBuildAdapter(task.Log));
-        task.Overrides?.Invoke(services);
 
         var sp = services.BuildServiceProvider();
         Configure(sp, task);
