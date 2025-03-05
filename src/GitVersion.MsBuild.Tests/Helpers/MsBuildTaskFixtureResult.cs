@@ -9,8 +9,6 @@ public sealed class MsBuildTaskFixtureResult<T>(IDisposable fixture) : IDisposab
 
     public T Task { get; set; }
 
-    public IServiceProvider ServiceProvider { get; set; }
-
     public int Errors { get; set; }
     public int Warnings { get; set; }
     public int Messages { get; set; }

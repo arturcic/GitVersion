@@ -126,7 +126,7 @@ internal class GitVersionExecutor(
             gitVersionOptions.Output.Add(OutputType.BuildServer);
         }
 
-        ConfigureLogging(gitVersionOptions, this.log);
+        ConfigureLogging(gitVersionOptions, this.log, this.fileSystem);
 
         var workingDirectory = gitVersionOptions.WorkingDirectory;
         if (gitVersionOptions.Diag)
@@ -160,7 +160,7 @@ internal class GitVersionExecutor(
         return false;
     }
 
-    private static void ConfigureLogging(GitVersionOptions gitVersionOptions, ILog log)
+    private static void ConfigureLogging(GitVersionOptions gitVersionOptions, ILog log, IFileSystem fileSystem)
     {
         if (gitVersionOptions.Output.Contains(OutputType.BuildServer) || gitVersionOptions.LogFilePath == "console")
         {
@@ -169,7 +169,7 @@ internal class GitVersionExecutor(
 
         if (gitVersionOptions.LogFilePath != null && gitVersionOptions.LogFilePath != "console")
         {
-            log.AddLogAppender(new FileAppender(gitVersionOptions.LogFilePath));
+            log.AddLogAppender(new FileAppender(fileSystem, gitVersionOptions.LogFilePath));
         }
     }
 }

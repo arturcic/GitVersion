@@ -1,9 +1,7 @@
-using System.IO.Abstractions;
 using GitVersion.Helpers;
 using GitVersion.MsBuild.Tasks;
 using GitVersion.MsBuild.Tests.Helpers;
 using Microsoft.Build.Utilities.ProjectCreation;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GitVersion.MsBuild.Tests.Tasks;
 
@@ -82,12 +80,11 @@ public class WriteVersionInfoTest : TestTaskBase
 
         result.Success.ShouldBe(true);
         result.Errors.ShouldBe(0);
-        var fileSystem = result.ServiceProvider.GetRequiredService<IFileSystem>();
 
-        string content = fileSystem.File.ReadAllText(envFilePath);
+        string content = this.FileSystem.File.ReadAllText(envFilePath);
         content.ShouldContain("GitVersion_SemVer=1.0.1");
 
-        fileSystem.File.Delete(envFilePath);
+        this.FileSystem.File.Delete(envFilePath);
     }
 
     [Test]

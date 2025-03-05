@@ -31,7 +31,6 @@ public class MsBuildTaskFixture(RepositoryFixtureBase fixture)
             {
                 Success = result,
                 Task = task,
-                ServiceProvider = sp,
                 Errors = buildEngine.Errors,
                 Warnings = buildEngine.Warnings,
                 Messages = buildEngine.Messages,
