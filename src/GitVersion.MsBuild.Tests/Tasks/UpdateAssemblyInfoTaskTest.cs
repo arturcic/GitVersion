@@ -1,9 +1,11 @@
+using System.IO.Abstractions;
 using GitVersion.Core.Tests.Helpers;
 using GitVersion.Helpers;
 using GitVersion.MsBuild.Tasks;
 using GitVersion.MsBuild.Tests.Helpers;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities.ProjectCreation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GitVersion.MsBuild.Tests.Tasks;
 
@@ -29,8 +31,9 @@ public class UpdateAssemblyInfoTaskTest : TestTaskBase
         result.Errors.ShouldBe(0);
         result.Task.AssemblyInfoTempFilePath.ShouldNotBeNull();
         result.Task.AssemblyInfoTempFilePath.ShouldMatch($@"AssemblyInfo.*\.g\.{extension}");
+        var fileSystem = result.ServiceProvider.GetRequiredService<IFileSystem>();
 
-        var fileContent = File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
+        var fileContent = fileSystem.File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
         fileContent.ShouldContain(@"assembly: AssemblyVersion(""1.2.4.0"")");
     }
 
@@ -46,8 +49,9 @@ public class UpdateAssemblyInfoTaskTest : TestTaskBase
         result.Errors.ShouldBe(0);
         result.Task.AssemblyInfoTempFilePath.ShouldNotBeNull();
         result.Task.AssemblyInfoTempFilePath.ShouldMatch($@"AssemblyInfo.*\.g\.{extension}");
+        var fileSystem = result.ServiceProvider.GetRequiredService<IFileSystem>();
 
-        var fileContent = File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
+        var fileContent = fileSystem.File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
         fileContent.ShouldContain(@"assembly: AssemblyVersion(""1.0.1.0"")");
     }
 
@@ -109,8 +113,9 @@ public class UpdateAssemblyInfoTaskTest : TestTaskBase
         result.Errors.ShouldBe(0);
         result.Task.AssemblyInfoTempFilePath.ShouldNotBeNull();
         result.Task.AssemblyInfoTempFilePath.ShouldMatch($@"AssemblyInfo.*\.g\.{extension}");
+        var fileSystem = result.ServiceProvider.GetRequiredService<IFileSystem>();
 
-        var fileContent = File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
+        var fileContent = fileSystem.File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
         fileContent.ShouldContain(@"assembly: AssemblyVersion(""1.2.4.0"")");
         DirectoryHelper.DeleteDirectory(task.IntermediateOutputPath);
     }
@@ -127,8 +132,9 @@ public class UpdateAssemblyInfoTaskTest : TestTaskBase
         result.Errors.ShouldBe(0);
         result.Task.AssemblyInfoTempFilePath.ShouldNotBeNull();
         result.Task.AssemblyInfoTempFilePath.ShouldMatch($@"AssemblyInfo.*\.g\.{extension}");
+        var fileSystem = result.ServiceProvider.GetRequiredService<IFileSystem>();
 
-        var fileContent = File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
+        var fileContent = fileSystem.File.ReadAllText(result.Task.AssemblyInfoTempFilePath);
         fileContent.ShouldContain(@"assembly: AssemblyVersion(""1.0.1.0"")");
         DirectoryHelper.DeleteDirectory(task.IntermediateOutputPath);
     }
