@@ -4,16 +4,16 @@ using GitVersion.Generated;
 using GitVersion.Infrastructure;
 using Serilog.Events;
 
-namespace GitVersion;
+namespace GitVersion.SystemCommandline;
 
 // ReSharper disable once ClassNeverInstantiated.Global
-internal class GitVersionApp(RootCommandImpl rootCommand)
+internal class GitVersionAppRunner(RootCommandImpl rootCommand) : IGitVersionAppRunner
 {
     private readonly RootCommandImpl rootCommand = rootCommand.NotNull();
 
     public Task<int> RunAsync(string[] args, CancellationToken cancellationToken)
     {
-        var cliConfiguration = new CommandLineConfiguration(rootCommand);
+        var cliConfiguration = new CommandLineConfiguration(this.rootCommand);
         var parseResult = cliConfiguration.Parse(args);
 
         var logFile = parseResult.GetValue<FileInfo?>(GitVersionSettings.LogFileOption);
