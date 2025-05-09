@@ -9,11 +9,11 @@ namespace GitVersion.SystemCommandline;
 // ReSharper disable once ClassNeverInstantiated.Global
 internal class GitVersionAppRunner(RootCommandImpl rootCommand) : IGitVersionAppRunner
 {
-    private readonly RootCommandImpl rootCommand = rootCommand.NotNull();
+    private readonly RootCommandImpl _rootCommand = rootCommand.NotNull();
 
     public Task<int> RunAsync(string[] args, CancellationToken cancellationToken)
     {
-        var cliConfiguration = new CommandLineConfiguration(this.rootCommand);
+        var cliConfiguration = new CommandLineConfiguration(_rootCommand);
         var parseResult = cliConfiguration.Parse(args);
 
         var logFile = parseResult.GetValue<FileInfo?>(GitVersionSettings.LogFileOption);
@@ -25,7 +25,7 @@ internal class GitVersionAppRunner(RootCommandImpl rootCommand) : IGitVersionApp
         return parseResult.InvokeAsync(cancellationToken);
     }
 
-    // Note: there are 2 locations to watch for dotnet-suggest
+    // Note: there are 2 locations to watch for the dotnet-suggest tool
     // - sentinel file: $env:TEMP\system-commandline-sentinel-files\ and
     // - registration file: $env:LOCALAPPDATA\.dotnet-suggest-registration.txt or $HOME/.dotnet-suggest-registration.txt
 
