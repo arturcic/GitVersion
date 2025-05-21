@@ -1,52 +1,27 @@
-using System;
+using GitVersion.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli;
 
 namespace GitVersion.Infrastructure;
 
-public sealed class TypeRegistrar : ITypeRegistrar
+internal sealed class TypeRegistrar(IServiceCollection builder) : ITypeRegistrar
 {
-    private readonly IServiceCollection _builder;
+    private readonly IServiceCollection _builder = builder.NotNull();
 
-    public TypeRegistrar(IServiceCollection builder)
-    {
-        _builder = builder;
-    }
+    public ITypeResolver Build() => new TypeResolver(_builder.BuildServiceProvider());
 
-    public ITypeResolver Build()
-    {
-        return new TypeResolver(_builder.BuildServiceProvider());
-    }
+    public void Register(Type service, Type implementation) => _builder.AddSingleton(service, implementation);
 
-    public void Register(Type service, Type implementation)
-    {
-        _builder.AddSingleton(service, implementation);
-    }
+    public void RegisterInstance(Type service, object implementation) => _builder.AddSingleton(service, implementation);
 
-    public void RegisterInstance(Type service, object implementation)
-    {
-        _builder.AddSingleton(service, implementation);
-    }
-
-    public void RegisterLazy(Type service, Func<object> func)
-    {
-        _builder.AddSingleton(service, _ => func());
-    }
+    public void RegisterLazy(Type service, Func<object> func) => _builder.AddSingleton(service, _ => func());
 }
 
-public sealed class TypeResolver : ITypeResolver, IDisposable
+internal sealed class TypeResolver(IServiceProvider provider) : ITypeResolver, IDisposable
 {
-    private readonly IServiceProvider _provider;
+    private readonly IServiceProvider _provider = provider.NotNull();
 
-    public TypeResolver(IServiceProvider provider)
-    {
-        _provider = provider ?? throw new ArgumentNullException(nameof(provider));
-    }
-
-    public object? Resolve(Type? type)
-    {
-        return type == null ? null : _provider.GetService(type);
-    }
+    public object? Resolve(Type? type) => type == null ? null : _provider.GetService(type);
 
     public void Dispose()
     {

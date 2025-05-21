@@ -6,8 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console.Cli;
 using GitVersion.Commands;
 using GitVersion.Infrastructure;
-using GitVersion.Services; // Required for IGitVersionExecutor
-using System; // Required for Action
 
 namespace GitVersion;
 
@@ -22,9 +20,9 @@ internal class Program
     internal async Task<int> RunAsync(string[] args)
     {
         var services = new ServiceCollection();
-        ConfigureServices(services, args); // Populate our services
+        ConfigureServices(services); // Populate our services
         this.overrides?.Invoke(services);
-        
+
         var registrar = new TypeRegistrar(services);
         var app = new CommandApp<DefaultCommand>(registrar);
 
@@ -40,7 +38,7 @@ internal class Program
         return await app.RunAsync(args);
     }
 
-    private void ConfigureServices(IServiceCollection services, string[] args)
+    private void ConfigureServices(IServiceCollection services)
     {
         // Register all services needed by GitVersion and its commands
         services.AddModule(new GitVersionCoreModule());

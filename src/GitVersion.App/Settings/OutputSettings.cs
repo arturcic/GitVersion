@@ -1,6 +1,6 @@
 namespace GitVersion.Settings;
 
-public class OutputSettings
+internal class OutputSettings
 {
     // Properties like ShowVariable, Format, OutputFile, and Output are currently defined in GitVersionSettings.
     // This class is a placeholder for potential future refactoring

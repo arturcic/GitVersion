@@ -3,7 +3,7 @@ namespace GitVersion.Settings;
 /// <summary>
 /// Specifies the verbosity level of logging.
 /// </summary>
-public enum Verbosity
+internal enum Verbosity
 {
     None,
     Error,

@@ -50,7 +50,7 @@ public class JsonOutputOnBuildServerTest
         fixture.Repository.MakeACommit();
 
         var env = new KeyValuePair<string, string?>(TeamCity.EnvironmentVariableName, "8.0.0");
-        
+
         string arguments = $" --output json --output buildserver --output file";
         if (!string.IsNullOrEmpty(outputFileArgument))
         {

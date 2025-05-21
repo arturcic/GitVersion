@@ -1,27 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GitVersion.Logging;
-using GitVersion.Services;
+using GitVersion.Extensions;
 using GitVersion.Settings;
 using Spectre.Console.Cli;
 
 namespace GitVersion.Commands;
 
-public class DefaultCommand : AsyncCommand<GitVersionSettings>
+internal class DefaultCommand(IGitVersionExecutor gitVersionExecutor) : Command<GitVersionSettings>
 {
-    private readonly IGitVersionExecutor _gitVersionExecutor;
+    private readonly IGitVersionExecutor _gitVersionExecutor = gitVersionExecutor.NotNull();
 
-    public DefaultCommand(IGitVersionExecutor gitVersionExecutor)
-    {
-        _gitVersionExecutor = gitVersionExecutor ?? throw new ArgumentNullException(nameof(gitVersionExecutor));
-    }
-
-    public override async Task<int> ExecuteAsync(CommandContext context, GitVersionSettings settings)
+    public override int Execute(CommandContext context, GitVersionSettings settings)
     {
         var gitVersionOptions = ToGitVersionOptions(settings);
-        return await _gitVersionExecutor.ExecuteAsync(gitVersionOptions);
+        return _gitVersionExecutor.Execute(gitVersionOptions);
     }
 
     private static GitVersionOptions ToGitVersionOptions(GitVersionSettings settings)
@@ -31,14 +21,14 @@ public class DefaultCommand : AsyncCommand<GitVersionSettings>
 
         var gitVersionOptions = new GitVersionOptions
         {
-            AssemblyInfo =
+            AssemblySettingsInfo =
             {
                 UpdateProjectFiles = settings.UpdateProjectFiles,
                 UpdateAssemblyInfo = settings.UpdateAssemblyInfo,
                 EnsureAssemblyInfo = settings.EnsureAssemblyInfo,
                 Files = settings.UpdateAssemblyInfoFileName?.ToHashSet() ?? new HashSet<string>()
             },
-            Authentication =
+            AuthenticationInfo =
             {
                 Username = settings.Username,
                 Password = settings.Password,
@@ -85,7 +75,7 @@ public class DefaultCommand : AsyncCommand<GitVersionSettings>
             var workingDirectory = settings.TargetPath.TrimEnd('/', '\\');
             gitVersionOptions.WorkingDirectory = workingDirectory;
         }
-        
+
         return gitVersionOptions;
     }
 
@@ -119,17 +109,14 @@ public class DefaultCommand : AsyncCommand<GitVersionSettings>
         return overrideConfiguration;
     }
 
-    private static Logging.Verbosity MapVerbosity(Settings.Verbosity settingsVerbosity)
+    private static Logging.Verbosity MapVerbosity(Verbosity settingsVerbosity) => settingsVerbosity switch
     {
-        return settingsVerbosity switch
-        {
-            Settings.Verbosity.None => Logging.Verbosity.Quiet, // Closest match
-            Settings.Verbosity.Error => Logging.Verbosity.Minimal, // Shows Errors
-            Settings.Verbosity.Warn => Logging.Verbosity.Normal,  // Shows Warns, Errors
-            Settings.Verbosity.Info => Logging.Verbosity.Normal,  // Shows Info, Warns, Errors
-            Settings.Verbosity.Debug => Logging.Verbosity.Verbose, // Shows Debug and above
-            Settings.Verbosity.Trace => Logging.Verbosity.Diagnostic, // Shows Trace and above
-            _ => Logging.Verbosity.Normal,
-        };
-    }
+        Verbosity.None => Logging.Verbosity.Quiet, // Closest match
+        Verbosity.Error => Logging.Verbosity.Minimal, // Shows Errors
+        Verbosity.Warn => Logging.Verbosity.Normal,  // Shows Warns, Errors
+        Verbosity.Info => Logging.Verbosity.Normal,  // Shows Info, Warns, Errors
+        Verbosity.Debug => Logging.Verbosity.Verbose, // Shows Debug and above
+        Verbosity.Trace => Logging.Verbosity.Diagnostic, // Shows Trace and above
+        _ => Logging.Verbosity.Normal,
+    };
 }

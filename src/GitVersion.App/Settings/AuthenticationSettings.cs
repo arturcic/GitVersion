@@ -1,6 +1,6 @@
 namespace GitVersion.Settings;
 
-public class AuthenticationSettings
+internal class AuthenticationSettings
 {
     // Properties like Username and Password are currently defined in GitVersionSettings.
     // This class is a placeholder for potential future refactoring

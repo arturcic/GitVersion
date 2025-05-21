@@ -3,7 +3,7 @@ using Spectre.Console.Cli;
 
 namespace GitVersion.Settings;
 
-public class GitVersionSettings : CommandSettings
+internal class GitVersionSettings : CommandSettings
 {
     [Description("The working directory (can be a directory, git repository URL or cloned repository).")]
     [CommandArgument(0, "[TARGET_PATH]")]
@@ -20,7 +20,7 @@ public class GitVersionSettings : CommandSettings
 
     [Description("Specifies the verbosity level.")]
     [CommandOption("--verbosity <VERBOSITY>")]
-    [DefaultValue(Verbosity.Normal)]
+    [DefaultValue(Verbosity.Info)]
     public Verbosity Verbosity { get; init; }
 
     [Description("Skips fetching the repository.")]
@@ -92,7 +92,7 @@ public class GitVersionSettings : CommandSettings
     [CommandOption("--update-assemblyinfo")]
     [DefaultValue(false)]
     public bool UpdateAssemblyInfo { get; init; }
-    
+
     [Description("Specifies the assembly info file(s) to update. Can be a globbing pattern.")]
     [CommandOption("--update-assemblyinfo-file-name <ASSEMBLY_INFO_FILE_NAME>")]
     public string[]? UpdateAssemblyInfoFileName { get; init; }
@@ -114,7 +114,7 @@ public class GitVersionSettings : CommandSettings
     [Description("The commit id to operate on.")]
     [CommandOption("-c|--commit-id <COMMIT_ID>")]
     public string? CommitId { get; init; }
-    
+
     [Description("Path to the cloned dynamic repository.")]
     [CommandOption("--dynamic-repository-clone-path <PATH>")]
     public string? ClonePath { get; init; }
