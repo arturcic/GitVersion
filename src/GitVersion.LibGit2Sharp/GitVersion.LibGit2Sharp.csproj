@@ -2,6 +2,8 @@
 
     <ItemGroup>
         <PackageReference Include="LibGit2Sharp" />
+        <PackageReference Include="System.Collections.Immutable" />
+        <PackageReference Include="System.Reflection.Metadata" />
     </ItemGroup>
 
     <ItemGroup>
