@@ -8,4 +8,8 @@
         <InternalsVisibleTo Include="GitVersion.MsBuild.Tests" />
         <InternalsVisibleTo Include="GitVersion.BuildAgents.Tests" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Collections.Immutable" />
+      <PackageReference Include="System.Reflection.Metadata" />
+    </ItemGroup>
 </Project>
