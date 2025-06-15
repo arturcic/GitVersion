@@ -25,4 +25,9 @@
         <InternalsVisibleTo Include="GitVersion.Output.Tests" />
         <InternalsVisibleTo Include="schema" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Collections.Immutable" />
+      <PackageReference Include="System.Reflection.Metadata" />
+    </ItemGroup>
 </Project>
