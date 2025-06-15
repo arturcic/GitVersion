@@ -4,4 +4,8 @@
         <ProjectReference Include="..\GitVersion.Core.Tests\GitVersion.Core.Tests.csproj" />
         <ProjectReference Include="..\GitVersion.Core\GitVersion.Core.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Collections.Immutable" />
+      <PackageReference Include="System.Reflection.Metadata" />
+    </ItemGroup>
 </Project>

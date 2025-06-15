@@ -15,7 +15,9 @@
         <PackageReference Include="Polly" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
         <PackageReference Include="Microsoft.Extensions.Options" />
+        <PackageReference Include="System.Collections.Immutable" />
         <PackageReference Include="System.IO.Abstractions" />
+        <PackageReference Include="System.Reflection.Metadata" />
     </ItemGroup>
 
     <ItemGroup>

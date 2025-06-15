@@ -9,6 +9,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="System.Collections.Immutable" />
+        <PackageReference Include="System.Reflection.Metadata" />
         <PackageReference Include="YamlDotNet" />
     </ItemGroup>
 
