@@ -1,3 +1,5 @@
+using System.CommandLine;
+using System.CommandLine.Parsing;
 using System.IO.Abstractions;
 using GitVersion.Agents;
 using GitVersion.Extensions;
@@ -21,85 +23,259 @@ internal class ArgumentParser(IEnvironment environment,
     private readonly IConsole console = console.NotNull();
     private readonly IGlobbingResolver globbingResolver = globbingResolver.NotNull();
 
+    // Option declarations with inline initialization
+    private readonly Argument<string> pathArgument = new("path")
+    {
+        Arity = ArgumentArity.ZeroOrOne,
+        Description = "The directory containing .git. If not defined current directory is used."
+    };
+    private readonly Option<bool> helpOption = new("-h", "Shows help");
+    private readonly Option<bool> versionOption = new("-version") { Description = "Displays the version of GitVersion" };
+    private readonly Option<bool> diagOption = new("--diag") { Description = "Runs GitVersion with additional diagnostic information (requires git.exe to be installed)" };
+    private readonly Option<string> targetPathOption = new("-targetpath") { Description = "Same as 'path', but not positional" };
+    private readonly Option<List<OutputType>> outputOption = new("-output", "Determines the output to the console. Can be either 'json', 'file', 'buildserver' or 'dotenv', will default to 'json'")
+    {
+        AllowMultipleArgumentsPerToken = true
+    };
+    private readonly Option<string> outputFileOption = new("--outputfile", "Path to output file. It is used in combination with --output 'file'");
+    private readonly Option<string> showVariableOption = new("-showvariable", "Used in conjunction with --output json, will output just a particular variable");
+    private readonly Option<string> formatOption = new("-format", "Used in conjunction with --output json, will output a format containing version variables");
+    private readonly Option<string> logFileOption = new("-l", "Path to logfile");
+    private readonly Option<string> configOption = new("-config", "Path to config file (defaults to GitVersion.yml, GitVersion.yaml, .GitVersion.yml or .GitVersion.yaml)");
+    private readonly Option<bool> showConfigOption = new("-showconfig", "Outputs the effective GitVersion config in yaml format");
+    private readonly Option<List<string>> overrideConfigOption = new("-overrideconfig", "Overrides GitVersion config values inline (key=value pairs)")
+    {
+        AllowMultipleArgumentsPerToken = true
+    };
+    private readonly Option<bool> noCacheOption = new("-nocache", "Bypasses the cache, result will not be written to the cache");
+    private readonly Option<bool> noNormalizeOption = new("-nonormalize", "Disables normalize step on a build server");
+    private readonly Option<bool> allowShallowOption = new("-allowshallow", "Allows GitVersion to run on a shallow clone");
+    private readonly Option<Verbosity> verbosityOption = new("-verbosity", "Specifies the amount of information to be displayed");
+    private readonly Option<List<string>> updateAssemblyInfoOption = new("-updateAssemblyInfo", "Will recursively search for all 'AssemblyInfo.cs' files in the git repo and update them")
+    {
+        AllowMultipleArgumentsPerToken = true
+    };
+    private readonly Option<List<string>> updateProjectFilesOption = new("-updateProjectFiles", "Will recursively search for all project files (.csproj/.vbproj/.fsproj) files in the git repo and update them")
+    {
+        AllowMultipleArgumentsPerToken = true
+    };
+    private readonly Option<bool> ensureAssemblyInfoOption = new("-ensureAssemblyInfo") { Description = "If the assembly info file specified with --updateassemblyinfo is not found, it will be created" };
+    private readonly Option<bool> updateWixVersionFileOption = new("--updatewixversionfile") { Description = "All the GitVersion variables are written to 'GitVersion_WixVersion.wxi'" };
+    private readonly Option<string> urlOption = new("-url") { Description = "Url to remote git repository" };
+    private readonly Option<string> branchOption = new("-b") { Description = "Name of the branch to use on the remote repository, must be used in combination with --url" };
+    private readonly Option<string> usernameOption = new("-u") { Description = "Username in case authentication is required" };
+    private readonly Option<string> passwordOption = new("-p") { Description = "Password in case authentication is required" };
+    private readonly Option<string> commitOption = new("--commit") { Description = "The commit id to check. If not specified, the latest available commit on the specified branch will be used" };
+    private readonly Option<string> dynamicRepoLocationOption = new("-dynamicRepoLocation") { Description = "By default dynamic repositories will be cloned to %tmp%. Use this switch to override" };
+    private readonly Option<bool> noFetchOption = new("-nofetch") { Description = "Disables 'git fetch' during version calculation" };
+
     private const string defaultOutputFileName = "GitVersion.json";
     private static readonly IEnumerable<string> availableVariables = GitVersionVariables.AvailableVariables;
 
     public Arguments ParseArguments(string commandLineArguments)
     {
         var arguments = QuotedStringHelpers.SplitUnquoted(commandLineArguments, ' ');
-
         return ParseArguments(arguments);
     }
 
     public Arguments ParseArguments(string[] commandLineArguments)
     {
-        if (commandLineArguments.Length == 0)
+        var rootCommand = CreateRootCommand();
+        var parseResult = rootCommand.Parse(commandLineArguments);
+
+        if (parseResult.Errors.Any())
         {
-            var args = new Arguments
-            {
-                TargetPath = SysEnv.CurrentDirectory
-            };
-
-            args.Output.Add(OutputType.Json);
-
-            AddAuthentication(args);
-
-            args.NoFetch = this.buildAgent.PreventFetch();
-
-            return args;
+            throw new WarningException(string.Join(System.Environment.NewLine, parseResult.Errors.Select(e => e.Message)));
         }
 
-        var firstArgument = commandLineArguments[0];
+        return CreateArgumentsFromParseResult(parseResult);
+    }
 
-        if (firstArgument.IsHelp())
-        {
-            return new Arguments
-            {
-                IsHelp = true
-            };
-        }
+    private RootCommand CreateRootCommand()
+    {
+        var rootCommand = new RootCommand("Use convention to derive a SemVer product version from a GitFlow or GitHub based repository.");
 
-        if (firstArgument.IsSwitch("version"))
-        {
-            return new Arguments
-            {
-                IsVersion = true
-            };
-        }
+        // Add positional argument
+        rootCommand.Add(pathArgument);
 
+        // Add all options
+        rootCommand.Add(helpOption);
+        rootCommand.Add(versionOption);
+        rootCommand.Add(diagOption);
+        rootCommand.Add(targetPathOption);
+        rootCommand.Add(outputOption);
+        rootCommand.Add(outputFileOption);
+        rootCommand.Add(showVariableOption);
+        rootCommand.Add(formatOption);
+        rootCommand.Add(logFileOption);
+        rootCommand.Add(configOption);
+        rootCommand.Add(showConfigOption);
+        rootCommand.Add(overrideConfigOption);
+        rootCommand.Add(noCacheOption);
+        rootCommand.Add(noNormalizeOption);
+        rootCommand.Add(allowShallowOption);
+        rootCommand.Add(verbosityOption);
+        rootCommand.Add(updateAssemblyInfoOption);
+        rootCommand.Add(updateProjectFilesOption);
+        rootCommand.Add(ensureAssemblyInfoOption);
+        rootCommand.Add(updateWixVersionFileOption);
+        rootCommand.Add(urlOption);
+        rootCommand.Add(branchOption);
+        rootCommand.Add(usernameOption);
+        rootCommand.Add(passwordOption);
+        rootCommand.Add(commitOption);
+        rootCommand.Add(dynamicRepoLocationOption);
+        rootCommand.Add(noFetchOption);
+
+        return rootCommand;
+    }
+
+    private Arguments CreateArgumentsFromParseResult(ParseResult parseResult)
+    {
         var arguments = new Arguments();
 
+        // Handle help and version first
+        if (parseResult.GetValue(helpOption))
+        {
+            return new Arguments { IsHelp = true };
+        }
+
+        if (parseResult.GetValue(versionOption))
+        {
+            return new Arguments { IsVersion = true };
+        }
+
+        // Add authentication from environment
         AddAuthentication(arguments);
 
-        var switchesAndValues = CollectSwitchesAndValuesFromArguments(commandLineArguments, out var firstArgumentIsSwitch);
+        // Set default output
+        arguments.Output.Add(OutputType.Json);
 
-        for (var i = 0; i < switchesAndValues.AllKeys.Length; i++)
+        // Parse positional argument (target path)
+        var pathValue = parseResult.GetValue(pathArgument);
+        var targetPathValue = parseResult.GetValue(targetPathOption);
+
+        if (targetPathValue != null)
         {
-            ParseSwitchArguments(arguments, switchesAndValues, i);
+            arguments.TargetPath = targetPathValue;
+        }
+        else if (pathValue != null)
+        {
+            arguments.TargetPath = pathValue;
+        }
+        else
+        {
+            arguments.TargetPath = SysEnv.CurrentDirectory;
         }
 
-        if (arguments.Output.Count == 0)
+        arguments.TargetPath = arguments.TargetPath.TrimEnd('/', '\\');
+
+        // Parse all other options
+        arguments.Diag = parseResult.GetValue(diagOption);
+        arguments.NoCache = parseResult.GetValue(noCacheOption);
+        arguments.NoNormalize = parseResult.GetValue(noNormalizeOption);
+        arguments.AllowShallow = parseResult.GetValue(allowShallowOption);
+        arguments.NoFetch = parseResult.GetValue(noFetchOption) || this.buildAgent.PreventFetch();
+
+        // Output options
+        var outputs = parseResult.GetValue(outputOption);
+        if (outputs != null && outputs.Any())
         {
-            arguments.Output.Add(OutputType.Json);
+            arguments.Output.Clear();
+            foreach (var output in outputs)
+            {
+                arguments.Output.Add(output);
+            }
         }
 
+        arguments.OutputFile = parseResult.GetValue(outputFileOption);
         if (arguments.Output.Contains(OutputType.File) && arguments.OutputFile == null)
         {
             arguments.OutputFile = defaultOutputFileName;
         }
 
-        // If the first argument is a switch, it should already have been consumed in the above loop,
-        // or else a WarningException should have been thrown and we wouldn't end up here.
-        arguments.TargetPath ??= firstArgumentIsSwitch
-            ? SysEnv.CurrentDirectory
-            : firstArgument;
+        // Variable and format options
+        var showVariable = parseResult.GetValue(showVariableOption);
+        if (showVariable != null)
+        {
+            arguments.ShowVariable = ValidateVariableName(showVariable);
+        }
 
-        arguments.TargetPath = arguments.TargetPath.TrimEnd('/', '\\');
+        var format = parseResult.GetValue(formatOption);
+        if (format != null)
+        {
+            arguments.Format = ValidateFormatString(format);
+        }
 
-        if (!arguments.EnsureAssemblyInfo) arguments.UpdateAssemblyInfoFileName = ResolveFiles(arguments.TargetPath, arguments.UpdateAssemblyInfoFileName).ToHashSet();
-        arguments.NoFetch = arguments.NoFetch || this.buildAgent.PreventFetch();
+        arguments.LogFilePath = parseResult.GetValue(logFileOption);
+        arguments.ConfigurationFile = parseResult.GetValue(configOption);
+        arguments.ShowConfiguration = parseResult.GetValue(showConfigOption);
 
+        // Override config
+        var overrideConfigs = parseResult.GetValue(overrideConfigOption);
+        if (overrideConfigs != null && overrideConfigs.Any())
+        {
+            arguments.OverrideConfiguration = ParseOverrideConfiguration(overrideConfigs);
+        }
+
+        arguments.Verbosity = parseResult.GetValue(verbosityOption);
+
+        // Assembly info options
+        var updateAssemblyInfo = parseResult.GetValue(updateAssemblyInfoOption);
+        if (updateAssemblyInfo != null && updateAssemblyInfo.Any())
+        {
+            arguments.UpdateAssemblyInfo = true;
+            foreach (var file in updateAssemblyInfo)
+            {
+                arguments.UpdateAssemblyInfoFileName.Add(file);
+            }
+        }
+
+        var updateProjectFiles = parseResult.GetValue(updateProjectFilesOption);
+        if (updateProjectFiles != null && updateProjectFiles.Any())
+        {
+            arguments.UpdateProjectFiles = true;
+            foreach (var file in updateProjectFiles)
+            {
+                arguments.UpdateAssemblyInfoFileName.Add(file);
+            }
+        }
+
+        arguments.EnsureAssemblyInfo = parseResult.GetValue(ensureAssemblyInfoOption);
+        arguments.UpdateWixVersionFile = parseResult.GetValue(updateWixVersionFileOption);
+
+        // Remote repository options
+        arguments.TargetUrl = parseResult.GetValue(urlOption);
+        arguments.TargetBranch = parseResult.GetValue(branchOption);
+        arguments.Authentication.Username = parseResult.GetValue(usernameOption);
+        arguments.Authentication.Password = parseResult.GetValue(passwordOption);
+        arguments.CommitId = parseResult.GetValue(commitOption);
+        arguments.ClonePath = parseResult.GetValue(dynamicRepoLocationOption);
+
+        // Validate configuration file
         ValidateConfigurationFile(arguments);
+
+        // Resolve assembly info files
+        if (!arguments.EnsureAssemblyInfo)
+        {
+            arguments.UpdateAssemblyInfoFileName = ResolveFiles(arguments.TargetPath, arguments.UpdateAssemblyInfoFileName).ToHashSet();
+        }
+
+        // Validation checks
+        if (arguments.UpdateProjectFiles && arguments.UpdateAssemblyInfo)
+        {
+            throw new WarningException("Cannot specify both updateprojectfiles and updateassemblyinfo in the same run. Please rerun GitVersion with only one parameter");
+        }
+
+        if (arguments.UpdateProjectFiles && arguments.EnsureAssemblyInfo)
+        {
+            throw new WarningException("Cannot specify --ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it");
+        }
+
+        if (arguments.UpdateAssemblyInfoFileName.Count > 1 && arguments.EnsureAssemblyInfo)
+        {
+            throw new WarningException("Can't specify multiple assembly info files when using --ensureassemblyinfo switch, either use a single assembly info file or do not specify --ensureassemblyinfo and create assembly info files manually");
+        }
 
         return arguments;
     }
@@ -110,26 +286,21 @@ internal class ArgumentParser(IEnvironment environment,
 
         if (FileSystemHelper.Path.IsPathRooted(arguments.ConfigurationFile))
         {
-            if (!this.fileSystem.File.Exists(arguments.ConfigurationFile)) throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
+            if (!this.fileSystem.File.Exists(arguments.ConfigurationFile))
+            {
+                throw new WarningException($"Could not find config file at '{arguments.ConfigurationFile}'");
+            }
             arguments.ConfigurationFile = FileSystemHelper.Path.GetFullPath(arguments.ConfigurationFile);
         }
         else
         {
             var configFilePath = FileSystemHelper.Path.GetFullPath(FileSystemHelper.Path.Combine(arguments.TargetPath, arguments.ConfigurationFile));
-            if (!this.fileSystem.File.Exists(configFilePath)) throw new WarningException($"Could not find config file at '{configFilePath}'");
+            if (!this.fileSystem.File.Exists(configFilePath))
+            {
+                throw new WarningException($"Could not find config file at '{configFilePath}'");
+            }
             arguments.ConfigurationFile = configFilePath;
         }
-    }
-
-    private void ParseSwitchArguments(Arguments arguments, NameValueCollection switchesAndValues, int i)
-    {
-        var name = switchesAndValues.AllKeys[i];
-        var values = switchesAndValues.GetValues(name);
-        var value = values?.FirstOrDefault();
-
-        if (ParseSwitches(arguments, name, values, value)) return;
-
-        ParseTargetPath(arguments, name, values, value, i == 0);
     }
 
     private void AddAuthentication(Arguments arguments)
@@ -160,445 +331,54 @@ internal class ArgumentParser(IEnvironment environment,
         }
     }
 
-    private void ParseTargetPath(Arguments arguments, string? name, IReadOnlyList<string>? values, string? value, bool parseEnded)
+    private string ValidateVariableName(string variableName)
     {
-        if (name.IsSwitch("targetpath"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.TargetPath = value;
-            if (string.IsNullOrWhiteSpace(value) || !this.fileSystem.Directory.Exists(value))
-            {
-                this.console.WriteLine($"The working directory '{value}' does not exist.");
-            }
-
-            return;
-        }
-
-        var couldNotParseMessage = $"Could not parse command line parameter '{name}'.";
-
-        // If we've reached through all argument switches without a match, we can relatively safely assume that the first argument isn't a switch, but the target path.
-        if (!parseEnded) throw new WarningException(couldNotParseMessage);
-        if (name?.StartsWith('/') == true)
-        {
-            if (FileSystemHelper.Path.DirectorySeparatorChar == '/' && name.IsValidPath())
-            {
-                arguments.TargetPath = name;
-                return;
-            }
-        }
-        else if (!name.IsSwitchArgument())
-        {
-            arguments.TargetPath = name;
-            return;
-        }
-
-        couldNotParseMessage += " If it is the target path, make sure it exists.";
-
-        throw new WarningException(couldNotParseMessage);
-    }
-
-    private static bool ParseSwitches(Arguments arguments, string? name, IReadOnlyList<string>? values, string? value)
-    {
-        if (name.IsSwitch("l"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.LogFilePath = value;
-            return true;
-        }
-
-        if (ParseConfigArguments(arguments, name, values, value)) return true;
-
-        if (ParseRemoteArguments(arguments, name, values, value)) return true;
-
-        if (name.IsSwitch("diag"))
-        {
-            if (value?.IsTrue() != false)
-            {
-                arguments.Diag = true;
-            }
-
-            return true;
-        }
-
-        if (name.IsSwitch("updateprojectfiles"))
-        {
-            ParseUpdateProjectInfo(arguments, value, values);
-            return true;
-        }
-
-        if (name.IsSwitch("updateAssemblyInfo"))
-        {
-            ParseUpdateAssemblyInfo(arguments, value, values);
-            return true;
-        }
-
-        if (name.IsSwitch("ensureassemblyinfo"))
-        {
-            ParseEnsureAssemblyInfo(arguments, value);
-            return true;
-        }
-
-        if (name.IsSwitch("v") || name.IsSwitch("showvariable"))
-        {
-            ParseShowVariable(arguments, value, name);
-            return true;
-        }
-
-        if (name.IsSwitch("format"))
-        {
-            ParseFormat(arguments, value);
-            return true;
-        }
-
-        if (name.IsSwitch("output"))
-        {
-            ParseOutput(arguments, values);
-            return true;
-        }
-
-        if (name.IsSwitch("outputfile"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.OutputFile = value;
-            return true;
-        }
-
-        if (name.IsSwitch("nofetch"))
-        {
-            arguments.NoFetch = true;
-            return true;
-        }
-
-        if (name.IsSwitch("nonormalize"))
-        {
-            arguments.NoNormalize = true;
-            return true;
-        }
-
-        if (name.IsSwitch("nocache"))
-        {
-            arguments.NoCache = true;
-            return true;
-        }
-
-        if (name.IsSwitch("allowshallow"))
-        {
-            arguments.AllowShallow = true;
-            return true;
-        }
-
-        if (name.IsSwitch("verbosity"))
-        {
-            ParseVerbosity(arguments, value);
-            return true;
-        }
-
-        if (!name.IsSwitch("updatewixversionfile")) return false;
-        arguments.UpdateWixVersionFile = true;
-        return true;
-    }
-
-    private static bool ParseConfigArguments(Arguments arguments, string? name, IReadOnlyList<string>? values, string? value)
-    {
-        if (name.IsSwitch("config"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.ConfigurationFile = value;
-            return true;
-        }
-
-        if (name.IsSwitch("overrideconfig"))
-        {
-            ParseOverrideConfig(arguments, values);
-            return true;
-        }
-
-        if (!name.IsSwitch("showConfig"))
-            return false;
-
-        arguments.ShowConfiguration = value.IsTrue() || !value.IsFalse();
-        return true;
-    }
-
-    private static bool ParseRemoteArguments(Arguments arguments, string? name, IReadOnlyList<string>? values, string? value)
-    {
-        if (name.IsSwitch("dynamicRepoLocation"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.ClonePath = value;
-            return true;
-        }
-
-        if (name.IsSwitch("url"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.TargetUrl = value;
-            return true;
-        }
-
-        if (name.IsSwitch("u"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.Authentication.Username = value;
-            return true;
-        }
-
-        if (name.IsSwitch("p"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.Authentication.Password = value;
-            return true;
-        }
-
-        if (name.IsSwitch("c"))
-        {
-            EnsureArgumentValueCount(values);
-            arguments.CommitId = value;
-            return true;
-        }
-
-        if (!name.IsSwitch("b")) return false;
-        EnsureArgumentValueCount(values);
-        arguments.TargetBranch = value;
-        return true;
-    }
-
-    private static void ParseShowVariable(Arguments arguments, string? value, string? name)
-    {
-        string? versionVariable = null;
-
-        if (!value.IsNullOrWhiteSpace())
-        {
-            versionVariable = availableVariables.SingleOrDefault(av => av.Equals(value.Replace("'", ""), StringComparison.CurrentCultureIgnoreCase));
-        }
-
+        var versionVariable = availableVariables.SingleOrDefault(av => av.Equals(variableName.Replace("'", ""), StringComparison.CurrentCultureIgnoreCase));
         if (versionVariable == null)
         {
-            var message = $"{name} requires a valid version variable. Available variables are:{FileSystemHelper.Path.NewLine}" +
+            var message = $"--showvariable requires a valid version variable. Available variables are:{System.Environment.NewLine}" +
                           string.Join(", ", availableVariables.Select(x => $"'{x}'"));
             throw new WarningException(message);
         }
-
-        arguments.ShowVariable = versionVariable;
+        return versionVariable;
     }
 
-    private static void ParseFormat(Arguments arguments, string? value)
+    private string ValidateFormatString(string format)
     {
-        if (value.IsNullOrWhiteSpace())
+        if (format.IsNullOrWhiteSpace())
         {
             throw new WarningException("Format requires a valid format string. Available variables are: " + string.Join(", ", availableVariables));
         }
 
-        var foundVariable = availableVariables.Any(variable => value.Contains(variable, StringComparison.CurrentCultureIgnoreCase));
-
+        var foundVariable = availableVariables.Any(variable => format.Contains(variable, StringComparison.CurrentCultureIgnoreCase));
         if (!foundVariable)
         {
             throw new WarningException("Format requires a valid format string. Available variables are: " + string.Join(", ", availableVariables));
         }
 
-        arguments.Format = value;
+        return format;
     }
 
-    private static void ParseEnsureAssemblyInfo(Arguments arguments, string? value)
+    private IReadOnlyDictionary<object, object?> ParseOverrideConfiguration(List<string> overrideConfigs)
     {
-        arguments.EnsureAssemblyInfo = true;
-        if (value.IsFalse())
-        {
-            arguments.EnsureAssemblyInfo = false;
-        }
-
-        if (arguments.UpdateProjectFiles)
-        {
-            throw new WarningException("Cannot specify -ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it");
-        }
-
-        if (arguments.UpdateAssemblyInfoFileName.Count > 1 && arguments.EnsureAssemblyInfo)
-        {
-            throw new WarningException("Can't specify multiple assembly info files when using /ensureassemblyinfo switch, either use a single assembly info file or do not specify /ensureassemblyinfo and create assembly info files manually");
-        }
-    }
-
-    private static void ParseOutput(Arguments arguments, IEnumerable<string>? values)
-    {
-        if (values == null)
-            return;
-
-        foreach (var v in values)
-        {
-            if (!Enum.TryParse(v, true, out OutputType outputType))
-            {
-                throw new WarningException($"Value '{v}' cannot be parsed as output type, please use 'json', 'file', 'buildserver' or 'dotenv'");
-            }
-
-            arguments.Output.Add(outputType);
-        }
-    }
-
-    private static void ParseVerbosity(Arguments arguments, string? value)
-    {
-        if (!Enum.TryParse(value, true, out arguments.Verbosity))
-        {
-            throw new WarningException($"Could not parse Verbosity value '{value}'");
-        }
-    }
-
-    private static void ParseOverrideConfig(Arguments arguments, IReadOnlyCollection<string>? values)
-    {
-        if (values == null || values.Count == 0)
-            return;
-
         var parser = new OverrideConfigurationOptionParser();
 
-        // key=value
-        foreach (var keyValueOption in values)
+        foreach (var keyValueOption in overrideConfigs)
         {
             var keyAndValue = QuotedStringHelpers.SplitUnquoted(keyValueOption, '=');
             if (keyAndValue.Length != 2)
             {
-                throw new WarningException($"Could not parse /overrideconfig option: {keyValueOption}. Ensure it is in format 'key=value'.");
+                throw new WarningException($"Could not parse --overrideconfig option: {keyValueOption}. Ensure it is in format 'key=value'.");
             }
 
             var optionKey = keyAndValue[0].ToLowerInvariant();
             if (!OverrideConfigurationOptionParser.SupportedProperties.Contains(optionKey))
             {
-                throw new WarningException($"Could not parse /overrideconfig option: {keyValueOption}. Unsupported 'key'.");
+                throw new WarningException($"Could not parse --overrideconfig option: {keyValueOption}. Unsupported 'key'.");
             }
             parser.SetValue(optionKey, keyAndValue[1]);
         }
-        arguments.OverrideConfiguration = parser.GetOverrideConfiguration();
-    }
 
-    private static void ParseUpdateAssemblyInfo(Arguments arguments, string? value, IReadOnlyCollection<string>? values)
-    {
-        if (value.IsTrue())
-        {
-            arguments.UpdateAssemblyInfo = true;
-        }
-        else if (value.IsFalse())
-        {
-            arguments.UpdateAssemblyInfo = false;
-        }
-        else if (values is { Count: > 1 })
-        {
-            arguments.UpdateAssemblyInfo = true;
-            foreach (var v in values)
-            {
-                arguments.UpdateAssemblyInfoFileName.Add(v);
-            }
-        }
-        else if (!value.IsSwitchArgument())
-        {
-            arguments.UpdateAssemblyInfo = true;
-            if (value != null)
-            {
-                arguments.UpdateAssemblyInfoFileName.Add(value);
-            }
-        }
-        else
-        {
-            arguments.UpdateAssemblyInfo = true;
-        }
-
-        if (arguments.UpdateProjectFiles)
-        {
-            throw new WarningException("Cannot specify both updateprojectfiles and updateassemblyinfo in the same run. Please rerun GitVersion with only one parameter");
-        }
-        if (arguments.UpdateAssemblyInfoFileName.Count > 1 && arguments.EnsureAssemblyInfo)
-        {
-            throw new WarningException("Can't specify multiple assembly info files when using -ensureassemblyinfo switch, either use a single assembly info file or do not specify -ensureassemblyinfo and create assembly info files manually");
-        }
-    }
-
-    private static void ParseUpdateProjectInfo(Arguments arguments, string? value, IReadOnlyCollection<string>? values)
-    {
-        if (value.IsTrue())
-        {
-            arguments.UpdateProjectFiles = true;
-        }
-        else if (value.IsFalse())
-        {
-            arguments.UpdateProjectFiles = false;
-        }
-        else if (values is { Count: > 1 })
-        {
-            arguments.UpdateProjectFiles = true;
-            foreach (var v in values)
-            {
-                arguments.UpdateAssemblyInfoFileName.Add(v);
-            }
-        }
-        else if (!value.IsSwitchArgument())
-        {
-            arguments.UpdateProjectFiles = true;
-            if (value != null)
-            {
-                arguments.UpdateAssemblyInfoFileName.Add(value);
-            }
-        }
-        else
-        {
-            arguments.UpdateProjectFiles = true;
-        }
-
-        if (arguments.UpdateAssemblyInfo)
-        {
-            throw new WarningException("Cannot specify both updateassemblyinfo and updateprojectfiles in the same run. Please rerun GitVersion with only one parameter");
-        }
-        if (arguments.EnsureAssemblyInfo)
-        {
-            throw new WarningException("Cannot specify -ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it");
-        }
-    }
-
-    private static void EnsureArgumentValueCount(IReadOnlyList<string>? values)
-    {
-        if (values is { Count: > 1 })
-        {
-            throw new WarningException($"Could not parse command line parameter '{values[1]}'.");
-        }
-    }
-
-    private static NameValueCollection CollectSwitchesAndValuesFromArguments(string[] namedArguments, out bool firstArgumentIsSwitch)
-    {
-        firstArgumentIsSwitch = true;
-        var switchesAndValues = new NameValueCollection();
-        string? currentKey = null;
-        var argumentRequiresValue = false;
-
-        for (var i = 0; i < namedArguments.Length; ++i)
-        {
-            var arg = namedArguments[i];
-
-            // If the current (previous) argument doesn't require a value parameter and this is a switch, create new name/value entry for it, with a null value.
-            if (!argumentRequiresValue && arg.IsSwitchArgument())
-            {
-                currentKey = arg;
-                argumentRequiresValue = arg.ArgumentRequiresValue(i);
-                switchesAndValues.Add(currentKey, null);
-            }
-            // If this is a value (not a switch)
-            else if (currentKey != null)
-            {
-                // And if the current switch does not have a value yet and the value is not itself a switch, set its value to this argument.
-                if (switchesAndValues[currentKey].IsNullOrEmpty())
-                {
-                    switchesAndValues[currentKey] = arg;
-                }
-                // Otherwise add the value under the same switch.
-                else
-                {
-                    switchesAndValues.Add(currentKey, arg);
-                }
-
-                // Reset the boolean argument flag so the next argument won't be ignored.
-                argumentRequiresValue = false;
-            }
-            else if (i == 0)
-            {
-                firstArgumentIsSwitch = false;
-            }
-        }
-
-        return switchesAndValues;
+        return parser.GetOverrideConfiguration();
     }
 }
