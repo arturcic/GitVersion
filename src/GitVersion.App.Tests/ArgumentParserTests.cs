@@ -100,7 +100,7 @@ public class ArgumentParserTests : TestBase
     {
         var exception = Assert.Throws<WarningException>(() => this.argumentParser.ParseArguments("targetDirectoryPath -output invalid_value"));
         exception.ShouldNotBeNull();
-        exception.Message.ShouldBe("Value 'invalid_value' cannot be parsed as output type, please use 'json', 'file', 'buildserver' or 'dotenv'");
+        exception.Message.ShouldStartWith("Cannot parse argument 'invalid_value' for option '-output'");
     }
 
     [Test]
@@ -216,7 +216,7 @@ public class ArgumentParserTests : TestBase
     {
         var exception = Assert.Throws<WarningException>(() => this.argumentParser.ParseArguments("targetDirectoryPath -l logFilePath extraArg"));
         exception.ShouldNotBeNull();
-        exception.Message.ShouldBe("Could not parse command line parameter 'extraArg'.");
+        exception.Message.ShouldStartWith("Unrecognized command or argument");
     }
 
     [TestCase("targetDirectoryPath -x logFilePath")]
@@ -225,7 +225,14 @@ public class ArgumentParserTests : TestBase
     {
         var exception = Assert.Throws<WarningException>(() => this.argumentParser.ParseArguments(arguments));
         exception.ShouldNotBeNull();
-        exception.Message.ShouldStartWith("Could not parse command line parameter");
+        if (arguments.Contains("/"))
+        {
+            exception.Message.ShouldStartWith("Could not parse command line parameter");
+        }
+        else
+        {
+            exception.Message.ShouldStartWith("Unrecognized command or argument");
+        }
     }
 
     [TestCase("-updateAssemblyInfo true")]
@@ -264,7 +271,7 @@ public class ArgumentParserTests : TestBase
     {
         var exception = Assert.Throws<WarningException>(() => this.argumentParser.ParseArguments(command));
         exception.ShouldNotBeNull();
-        exception.Message.ShouldBe("Can't specify multiple assembly info files when using /ensureassemblyinfo switch, either use a single assembly info file or do not specify /ensureassemblyinfo and create assembly info files manually");
+        exception.Message.ShouldBe("Can't specify multiple assembly info files when using --ensureassemblyinfo switch, either use a single assembly info file or do not specify --ensureassemblyinfo and create assembly info files manually");
     }
 
     [TestCase("-updateProjectFiles Assembly.csproj -ensureassemblyinfo")]
@@ -272,7 +279,7 @@ public class ArgumentParserTests : TestBase
     {
         var exception = Assert.Throws<WarningException>(() => this.argumentParser.ParseArguments(command));
         exception.ShouldNotBeNull();
-        exception.Message.ShouldBe("Cannot specify -ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it");
+        exception.Message.ShouldBe("Cannot specify --ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it");
     }
 
     [Test]
@@ -583,21 +590,21 @@ public class ArgumentParserTests : TestBase
     [Test]
     public void EnsureAssemblyInfoTrueWhenFound()
     {
-        var arguments = this.argumentParser.ParseArguments("-ensureAssemblyInfo");
+        var arguments = this.argumentParser.ParseArguments("-ensureassemblyinfo");
         arguments.EnsureAssemblyInfo.ShouldBe(true);
     }
 
     [Test]
     public void EnsureAssemblyInfoTrue()
     {
-        var arguments = this.argumentParser.ParseArguments("-ensureAssemblyInfo true");
+        var arguments = this.argumentParser.ParseArguments("-ensureassemblyinfo true");
         arguments.EnsureAssemblyInfo.ShouldBe(true);
     }
 
     [Test]
     public void EnsureAssemblyInfoFalse()
     {
-        var arguments = this.argumentParser.ParseArguments("-ensureAssemblyInfo false");
+        var arguments = this.argumentParser.ParseArguments("-ensureassemblyinfo false");
         arguments.EnsureAssemblyInfo.ShouldBe(false);
     }
 
