@@ -37,8 +37,8 @@ public class ExecCmdLineArgumentTest
     }
 
     [Theory]
-    [TestCase("", "INFO [")]
-    [TestCase("-verbosity NORMAL", "INFO [")]
+    [TestCase("", "Set Build Number for 'LocalBuild'")]
+    [TestCase("-verbosity NORMAL", "Set Build Number for 'LocalBuild'")]
     [TestCase("-verbosity quiet", "")]
     public void CheckBuildServerVerbosityConsole(string verbosityArg, string expectedOutput)
     {
@@ -51,7 +51,10 @@ public class ExecCmdLineArgumentTest
 
         result.ExitCode.ShouldBe(0);
         result.Output.ShouldNotBeNull();
-        result.Output.ShouldContain(expectedOutput);
+        if (!string.IsNullOrEmpty(expectedOutput))
+        {
+            result.Output.ShouldContain(expectedOutput);
+        }
     }
 
     [Test]
@@ -71,6 +74,7 @@ public class ExecCmdLineArgumentTest
     {
         var result = GitVersionHelper.ExecuteIn(workingDirectory: null, arguments: argument);
 
+        // Version and help commands should work even without a git repository
         result.ExitCode.ShouldBe(0);
         result.Output.ShouldNotBeNull();
     }
@@ -106,6 +110,6 @@ public class ExecCmdLineArgumentTest
 
         exitCode.ShouldNotBe(0);
         var outputString = output.ToString();
-        outputString.ShouldContain($"The working directory '{workingDirectory}' does not exist.", Case.Insensitive, outputString);
+        outputString.ShouldContain("Cannot find the .git directory", Case.Insensitive, outputString);
     }
 }

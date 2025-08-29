@@ -127,7 +127,7 @@ internal class ArgumentParser(IEnvironment environment,
         var parseResult = rootCommand.Parse(commandLineArguments);
 
         // Check for help before parsing errors
-        if (parseResult.GetValue(helpOption) || commandLineArguments.Contains("-h") || commandLineArguments.Contains("--help") || commandLineArguments.Contains("-?"))
+        if (parseResult.GetValue(helpOption) || commandLineArguments.Contains("-h") || commandLineArguments.Contains("--help") || commandLineArguments.Contains("-help") || commandLineArguments.Contains("-?"))
         {
             var helpArgs = new Arguments { IsHelp = true };
             helpArgs.TargetPath = null;

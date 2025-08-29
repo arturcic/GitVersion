@@ -63,6 +63,12 @@ public class GitRepositoryInfo : IGitRepositoryInfo
 
     private string? GetDotGitDirectory()
     {
+        // For help and version commands, we don't need to access the git repository
+        if (gitVersionOptions.IsHelp || gitVersionOptions.IsVersion)
+        {
+            return null;
+        }
+
         var gitDirectory = !DynamicGitRepositoryPath.IsNullOrWhiteSpace()
             ? DynamicGitRepositoryPath
             : Repository.Discover(gitVersionOptions.WorkingDirectory);
@@ -79,6 +85,12 @@ public class GitRepositoryInfo : IGitRepositoryInfo
 
     private string GetProjectRootDirectory()
     {
+        // For help and version commands, we don't need to access the git repository
+        if (gitVersionOptions.IsHelp || gitVersionOptions.IsVersion)
+        {
+            return gitVersionOptions.WorkingDirectory;
+        }
+
         if (!DynamicGitRepositoryPath.IsNullOrWhiteSpace())
         {
             return gitVersionOptions.WorkingDirectory;
