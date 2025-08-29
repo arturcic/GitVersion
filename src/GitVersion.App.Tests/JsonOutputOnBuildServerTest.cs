@@ -51,7 +51,9 @@ public class JsonOutputOnBuildServerTest
 
         var env = new KeyValuePair<string, string?>(TeamCity.EnvironmentVariableName, "8.0.0");
 
-        var result = GitVersionHelper.ExecuteIn(fixture.LocalRepositoryFixture.RepositoryPath, arguments: $" /output json /output buildserver /output file /outputfile {outputFile}", environments: env);
+        // When outputFile is empty, provide a default filename for the /outputfile option
+        var outputFileArg = string.IsNullOrEmpty(outputFile) ? "GitVersion.json" : outputFile;
+        var result = GitVersionHelper.ExecuteIn(fixture.LocalRepositoryFixture.RepositoryPath, arguments: $" /output json /output buildserver /output file /outputfile {outputFileArg}", environments: env);
 
         result.ExitCode.ShouldBe(0);
         const string expectedVersion = "0.0.1-5";
