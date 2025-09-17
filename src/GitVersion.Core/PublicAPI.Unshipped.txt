@@ -1,1 +1,2 @@
 #nullable enable
+GitVersion.IGitVersionContextFactory.Create() -> GitVersion.GitVersionContext!
