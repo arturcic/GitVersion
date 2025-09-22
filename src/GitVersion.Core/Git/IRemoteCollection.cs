@@ -1,6 +1,6 @@
 namespace GitVersion.Git;
 
-public interface IRemoteCollection : IEnumerable<IRemote>
+public interface IRemoteCollection : IEnumerable<IRemote>, IDisposable
 {
     IRemote? this[string name] { get; }
     void Remove(string remoteName);

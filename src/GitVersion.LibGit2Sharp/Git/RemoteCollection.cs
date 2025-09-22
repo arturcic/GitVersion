@@ -37,4 +37,13 @@ internal sealed class RemoteCollection : IRemoteCollection
         this.innerCollection.Update(remoteName, r => r.FetchRefSpecs.Add(refSpec));
         this.remotes = null;
     }
+
+    public void Dispose()
+    {
+        if (this.remotes == null) return;
+        foreach (var remote in this.remotes)
+        {
+            remote.Dispose();
+        }
+    }
 }

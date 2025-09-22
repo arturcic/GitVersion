@@ -34,4 +34,10 @@ internal sealed class Branch : IBranch
     public override int GetHashCode() => equalityHelper.GetHashCode(this);
     public override string ToString() => Name.ToString();
     public static implicit operator LibGit2Sharp.Branch(Branch d) => d.innerBranch;
+
+    public void Dispose()
+    {
+        Tip?.Dispose();
+        Commits.Dispose();
+    }
 }

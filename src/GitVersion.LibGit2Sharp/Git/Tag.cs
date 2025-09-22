@@ -41,4 +41,6 @@ internal sealed class Tag : ITag
     public override bool Equals(object? obj) => Equals(obj as ITag);
     public override int GetHashCode() => equalityHelper.GetHashCode(this);
     public override string ToString() => Name.ToString();
+
+    public void Dispose() => this.commitLazy.Value?.Dispose();
 }

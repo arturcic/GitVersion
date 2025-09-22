@@ -1,6 +1,6 @@
 namespace GitVersion.Git;
 
-public interface IRemote : IEquatable<IRemote?>, IComparable<IRemote>
+public interface IRemote : IEquatable<IRemote?>, IComparable<IRemote>, IDisposable
 {
     string Name { get; }
     string Url { get; }

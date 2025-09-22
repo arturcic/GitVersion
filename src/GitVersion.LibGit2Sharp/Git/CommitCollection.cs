@@ -46,4 +46,12 @@ internal sealed class CommitCollection : ICommitCollection
                 _ => null
             };
     }
+
+    public void Dispose()
+    {
+        foreach (var commit in this.commits.Value)
+        {
+            commit.Dispose();
+        }
+    }
 }

@@ -44,4 +44,12 @@ internal sealed class Commit : GitObject, ICommit
     public override string ToString() => $"'{Id.ToString(7)}' - {this.innerCommit.MessageShort}";
     public static implicit operator LibGit2Sharp.Commit(Commit d) => d.innerCommit;
     private TreeChanges CommitChanges => new(this.repoDiff.Compare<LibGit2Sharp.TreeChanges>(this.innerCommit.Tree, this.innerCommit.Parents.FirstOrDefault()?.Tree));
+
+    public void Dispose()
+    {
+        foreach (var parent in Parents)
+        {
+            parent.Dispose();
+        }
+    }
 }

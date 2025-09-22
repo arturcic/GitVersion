@@ -1,6 +1,6 @@
 namespace GitVersion.Git;
 
-public interface IReferenceCollection : IEnumerable<IReference>
+public interface IReferenceCollection : IEnumerable<IReference>, IDisposable
 {
     IReference? Head { get; }
     IReference? this[string name] { get; }

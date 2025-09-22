@@ -1,6 +1,6 @@
 namespace GitVersion.Git;
 
-public interface ICommit : IEquatable<ICommit?>, IComparable<ICommit>, IGitObject
+public interface ICommit : IEquatable<ICommit?>, IComparable<ICommit>, IGitObject, IDisposable
 {
     IReadOnlyList<ICommit> Parents { get; }
 

@@ -207,5 +207,7 @@ public class MergeMessageBaseVersionStrategyTests : TestBase
         public IReadOnlyList<string> DiffPaths => throw new NotImplementedException();
         public DateTimeOffset When => throw new NotImplementedException();
         public string Message => throw new NotImplementedException();
+
+        public void Dispose() { }
     }
 }

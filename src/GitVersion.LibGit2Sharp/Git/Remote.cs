@@ -33,4 +33,8 @@ internal sealed class Remote : IRemote
     public override bool Equals(object? obj) => Equals(obj as IRemote);
     public override int GetHashCode() => equalityHelper.GetHashCode(this);
     public override string ToString() => Name;
+
+    public void Dispose()
+    {
+    }
 }

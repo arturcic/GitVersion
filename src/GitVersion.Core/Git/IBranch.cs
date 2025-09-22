@@ -1,6 +1,6 @@
 namespace GitVersion.Git;
 
-public interface IBranch : IEquatable<IBranch?>, IComparable<IBranch>, INamedReference
+public interface IBranch : IEquatable<IBranch?>, IComparable<IBranch>, INamedReference, IDisposable
 {
     ICommit? Tip { get; }
     bool IsRemote { get; }

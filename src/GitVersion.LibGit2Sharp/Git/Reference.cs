@@ -29,5 +29,9 @@ namespace GitVersion.Git
         public string TargetIdentifier => this.innerReference.TargetIdentifier;
         public static implicit operator LibGit2Sharp.Reference(Reference d)
             => d.NotNull().innerReference;
+
+        public void Dispose()
+        {
+        }
     }
 }
