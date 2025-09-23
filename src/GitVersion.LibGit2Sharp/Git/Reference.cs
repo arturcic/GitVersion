@@ -8,10 +8,12 @@ namespace GitVersion.Git
     {
         private static readonly LambdaEqualityHelper<IReference> equalityHelper = new(x => x.Name.Canonical);
         private static readonly LambdaKeyComparer<IReference, string> comparerHelper = new(x => x.Name.Canonical);
+        private readonly IRepository repositoryInstance;
         internal readonly LibGit2Sharp.Reference innerReference;
 
-        internal Reference(LibGit2Sharp.Reference reference)
+        internal Reference(IRepository repositoryInstance, LibGit2Sharp.Reference reference)
         {
+            this.repositoryInstance = repositoryInstance.NotNull();
             this.innerReference = reference.NotNull();
             Name = new ReferenceName(reference.CanonicalName);
 

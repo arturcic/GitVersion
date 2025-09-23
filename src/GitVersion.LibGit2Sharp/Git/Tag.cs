@@ -8,12 +8,14 @@ internal sealed class Tag : ITag
 {
     private static readonly LambdaEqualityHelper<ITag> equalityHelper = new(x => x.Name.Canonical);
     private static readonly LambdaKeyComparer<ITag, string> comparerHelper = new(x => x.Name.Canonical);
+    private readonly IRepository repositoryInstance;
     private readonly LibGit2Sharp.Tag innerTag;
     private readonly Diff diff;
     private readonly Lazy<ICommit?> commitLazy;
 
-    internal Tag(LibGit2Sharp.Tag tag, Diff diff)
+    internal Tag(IRepository repositoryInstance, LibGit2Sharp.Tag tag, Diff diff)
     {
+        this.repositoryInstance = repositoryInstance;
         this.innerTag = tag.NotNull();
         this.commitLazy = new(PeeledTargetCommit);
         this.diff = diff.NotNull();
@@ -35,7 +37,7 @@ internal sealed class Tag : ITag
             target = annotation.Target;
         }
 
-        return target is LibGit2Sharp.Commit commit ? new Commit(commit, this.diff) : null;
+        return target is LibGit2Sharp.Commit commit ? new Commit(this.repositoryInstance, commit, this.diff) : null;
     }
 
     public override bool Equals(object? obj) => Equals(obj as ITag);

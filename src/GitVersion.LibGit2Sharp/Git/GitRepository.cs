@@ -20,13 +20,13 @@ internal sealed partial class GitRepository
     public string WorkingDirectory => RepositoryInstance.Info.WorkingDirectory;
     public bool IsHeadDetached => RepositoryInstance.Info.IsHeadDetached;
     public bool IsShallow => RepositoryInstance.Info.IsShallow;
-    public IBranch Head => new Branch(RepositoryInstance.Head, RepositoryInstance.Diff);
+    public IBranch Head => new Branch(RepositoryInstance, RepositoryInstance.Head, RepositoryInstance.Diff);
 
-    public ITagCollection Tags => new TagCollection(RepositoryInstance.Tags, RepositoryInstance.Diff);
-    public IReferenceCollection Refs => new ReferenceCollection(RepositoryInstance.Refs);
-    public IBranchCollection Branches => new BranchCollection(RepositoryInstance.Branches, RepositoryInstance.Diff);
-    public ICommitCollection Commits => new CommitCollection(RepositoryInstance.Commits, RepositoryInstance.Diff);
-    public IRemoteCollection Remotes => new RemoteCollection(RepositoryInstance.Network.Remotes);
+    public ITagCollection Tags => new TagCollection(RepositoryInstance, RepositoryInstance.Tags, RepositoryInstance.Diff);
+    public IReferenceCollection Refs => new ReferenceCollection(RepositoryInstance, RepositoryInstance.Refs);
+    public IBranchCollection Branches => new BranchCollection(RepositoryInstance, RepositoryInstance.Branches, RepositoryInstance.Diff);
+    public ICommitCollection Commits => new CommitCollection(RepositoryInstance, RepositoryInstance.Commits, RepositoryInstance.Diff);
+    public IRemoteCollection Remotes => new RemoteCollection(RepositoryInstance, RepositoryInstance.Network.Remotes);
 
     public void DiscoverRepository(string? gitDirectory)
     {
@@ -48,7 +48,7 @@ internal sealed partial class GitRepository
             var first = (Commit)commit;
             var second = (Commit)otherCommit;
             var mergeBase = RepositoryInstance.ObjectDatabase.FindMergeBase(first, second);
-            return mergeBase == null ? null : new Commit(mergeBase, RepositoryInstance.Diff);
+            return mergeBase == null ? null : new Commit(RepositoryInstance, mergeBase, RepositoryInstance.Diff);
         });
     }
 

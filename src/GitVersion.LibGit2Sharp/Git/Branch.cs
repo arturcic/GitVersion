@@ -1,5 +1,6 @@
 using GitVersion.Extensions;
 using GitVersion.Helpers;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
@@ -10,16 +11,16 @@ internal sealed class Branch : IBranch
 
     private readonly LibGit2Sharp.Branch innerBranch;
 
-    internal Branch(LibGit2Sharp.Branch branch, LibGit2Sharp.Diff diff)
+    internal Branch(IRepository repository, LibGit2Sharp.Branch branch, Diff diff)
     {
         this.innerBranch = branch.NotNull();
         Name = new(branch.CanonicalName);
 
         var commit = this.innerBranch.Tip;
-        Tip = commit is null ? null : new Commit(commit, diff);
+        Tip = commit is null ? null : new Commit(repository, commit, diff);
 
         var commits = this.innerBranch.Commits;
-        Commits = new CommitCollection(commits, diff);
+        Commits = new CommitCollection(repository, commits, diff);
     }
 
     public ReferenceName Name { get; }

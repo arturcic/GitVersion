@@ -1,17 +1,23 @@
 using GitVersion.Extensions;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
 internal sealed class ReferenceCollection : IReferenceCollection
 {
+    private readonly IRepository repositoryInstance;
     private readonly LibGit2Sharp.ReferenceCollection innerCollection;
     private IReadOnlyCollection<IReference>? references;
 
-    internal ReferenceCollection(LibGit2Sharp.ReferenceCollection collection) => this.innerCollection = collection.NotNull();
+    internal ReferenceCollection(IRepository repositoryInstance, LibGit2Sharp.ReferenceCollection collection)
+    {
+        this.repositoryInstance = repositoryInstance.NotNull();
+        this.innerCollection = collection.NotNull();
+    }
 
     public IEnumerator<IReference> GetEnumerator()
     {
-        this.references ??= [.. this.innerCollection.Select(reference => new Reference(reference))];
+        this.references ??= [.. this.innerCollection.Select(reference => new Reference(this.repositoryInstance, reference))];
         return this.references.GetEnumerator();
     }
 
@@ -30,7 +36,7 @@ internal sealed class ReferenceCollection : IReferenceCollection
         get
         {
             var reference = this.innerCollection[name];
-            return reference is null ? null : new Reference(reference);
+            return reference is null ? null : new Reference(this.repositoryInstance, reference);
         }
     }
 
@@ -38,7 +44,7 @@ internal sealed class ReferenceCollection : IReferenceCollection
 
     public IReference? Head => this["HEAD"];
 
-    public IEnumerable<IReference> FromGlob(string prefix) => this.innerCollection.FromGlob(prefix).Select(reference => new Reference(reference));
+    public IEnumerable<IReference> FromGlob(string prefix) => this.innerCollection.FromGlob(prefix).Select(reference => new Reference(this.repositoryInstance, reference));
 
     public void Dispose()
     {

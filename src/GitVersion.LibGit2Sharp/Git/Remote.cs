@@ -1,5 +1,6 @@
 using GitVersion.Extensions;
 using GitVersion.Helpers;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
@@ -8,9 +9,14 @@ internal sealed class Remote : IRemote
     private static readonly LambdaEqualityHelper<IRemote> equalityHelper = new(x => x.Name);
     private static readonly LambdaKeyComparer<IRemote, string> comparerHelper = new(x => x.Name);
 
+    private readonly IRepository repositoryInstance;
     private readonly LibGit2Sharp.Remote innerRemote;
 
-    internal Remote(LibGit2Sharp.Remote remote) => this.innerRemote = remote.NotNull();
+    internal Remote(IRepository repositoryInstance, LibGit2Sharp.Remote remote)
+    {
+        this.repositoryInstance = repositoryInstance.NotNull();
+        this.innerRemote = remote.NotNull();
+    }
 
     public int CompareTo(IRemote? other) => comparerHelper.Compare(this, other);
     public bool Equals(IRemote? other) => equalityHelper.Equals(this, other);
@@ -24,7 +30,7 @@ internal sealed class Remote : IRemote
             var refSpecs = this.innerRemote.RefSpecs;
             return refSpecs is null
                 ? []
-                : new RefSpecCollection((LibGit2Sharp.RefSpecCollection)refSpecs);
+                : new RefSpecCollection(repositoryInstance, (LibGit2Sharp.RefSpecCollection)refSpecs);
         }
     }
 

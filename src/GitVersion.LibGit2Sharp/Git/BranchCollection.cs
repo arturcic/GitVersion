@@ -5,14 +5,16 @@ namespace GitVersion.Git;
 
 internal sealed class BranchCollection : IBranchCollection
 {
+    private readonly IRepository repositoryInstance;
     private readonly LibGit2Sharp.BranchCollection innerCollection;
     private readonly Lazy<IReadOnlyCollection<IBranch>> branches;
     private readonly Diff diff;
 
-    internal BranchCollection(LibGit2Sharp.BranchCollection collection, Diff diff)
+    internal BranchCollection(IRepository repositoryInstance, LibGit2Sharp.BranchCollection collection, Diff diff)
     {
+        this.repositoryInstance = repositoryInstance.NotNull();
         this.innerCollection = collection.NotNull();
-        this.branches = new Lazy<IReadOnlyCollection<IBranch>>(() => [.. this.innerCollection.Select(branch => new Branch(branch, diff))]);
+        this.branches = new Lazy<IReadOnlyCollection<IBranch>>(() => [.. this.innerCollection.Select(branch => new Branch(repositoryInstance, branch, diff))]);
         this.diff = diff.NotNull();
     }
 
@@ -27,7 +29,7 @@ internal sealed class BranchCollection : IBranchCollection
         {
             name = name.NotNull();
             var branch = this.innerCollection[name];
-            return branch is null ? null : new Branch(branch, this.diff);
+            return branch is null ? null : new Branch(this.repositoryInstance, branch, this.diff);
         }
     }
 

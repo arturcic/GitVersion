@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using GitVersion.Extensions;
 using GitVersion.Helpers;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
@@ -12,12 +13,12 @@ internal sealed class Commit : GitObject, ICommit
     private readonly Lazy<IReadOnlyList<ICommit>> parentsLazy;
 
     private readonly LibGit2Sharp.Commit innerCommit;
-    private readonly LibGit2Sharp.Diff repoDiff;
+    private readonly Diff repoDiff;
 
-    internal Commit(LibGit2Sharp.Commit innerCommit, LibGit2Sharp.Diff repoDiff) : base(innerCommit)
+    internal Commit(IRepository repositoryInstance, LibGit2Sharp.Commit innerCommit, Diff repoDiff) : base(repositoryInstance, innerCommit)
     {
         this.innerCommit = innerCommit.NotNull();
-        this.parentsLazy = new(() => innerCommit.Parents.Select(parent => new Commit(parent, repoDiff)).ToList());
+        this.parentsLazy = new(() => innerCommit.Parents.Select(parent => new Commit(repositoryInstance, parent, repoDiff)).ToList());
         When = innerCommit.Committer.When;
         this.repoDiff = repoDiff;
     }

@@ -1,5 +1,6 @@
 using GitVersion.Extensions;
 using GitVersion.Helpers;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
@@ -9,7 +10,7 @@ internal class RefSpec : IRefSpec
     private static readonly LambdaKeyComparer<IRefSpec, string> comparerHelper = new(x => x.Specification);
     private readonly LibGit2Sharp.RefSpec innerRefSpec;
 
-    internal RefSpec(LibGit2Sharp.RefSpec refSpec) => this.innerRefSpec = refSpec.NotNull();
+    internal RefSpec(IRepository repositoryInstance, LibGit2Sharp.RefSpec refSpec) => this.innerRefSpec = refSpec.NotNull();
     public int CompareTo(IRefSpec? other) => comparerHelper.Compare(this, other);
     public bool Equals(IRefSpec? other) => equalityHelper.Equals(this, other);
     public string Specification => this.innerRefSpec.Specification;

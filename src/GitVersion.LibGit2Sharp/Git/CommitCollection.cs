@@ -5,14 +5,16 @@ namespace GitVersion.Git;
 
 internal sealed class CommitCollection : ICommitCollection
 {
+    private readonly IRepository repositoryInstance;
     private readonly ICommitLog innerCollection;
     private readonly Lazy<IReadOnlyCollection<ICommit>> commits;
     private readonly Diff diff;
 
-    internal CommitCollection(ICommitLog collection, Diff diff)
+    internal CommitCollection(IRepository repositoryInstance, ICommitLog collection, Diff diff)
     {
+        this.repositoryInstance = repositoryInstance.NotNull();
         this.innerCollection = collection.NotNull();
-        this.commits = new Lazy<IReadOnlyCollection<ICommit>>(() => [.. this.innerCollection.Select(commit => new Commit(commit, diff))]);
+        this.commits = new Lazy<IReadOnlyCollection<ICommit>>(() => [.. this.innerCollection.Select(commit => new Commit(repositoryInstance, commit, diff))]);
         this.diff = diff.NotNull();
     }
 
@@ -36,7 +38,7 @@ internal sealed class CommitCollection : ICommitCollection
             SortBy = (LibGit2Sharp.CommitSortStrategies)commitFilter.SortBy
         };
         var commitLog = ((IQueryableCommitLog)this.innerCollection).QueryBy(filter);
-        return new CommitCollection(commitLog, this.diff);
+        return new CommitCollection(this.repositoryInstance, commitLog, this.diff);
 
         static object? GetReacheableFrom(object? item) =>
             item switch

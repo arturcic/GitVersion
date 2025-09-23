@@ -1,4 +1,5 @@
 using GitVersion.Extensions;
+using LibGit2Sharp;
 
 namespace GitVersion.Git;
 
@@ -6,10 +7,10 @@ internal sealed class TagCollection : ITagCollection
 {
     private readonly Lazy<IReadOnlyCollection<ITag>> tags;
 
-    internal TagCollection(LibGit2Sharp.TagCollection collection, LibGit2Sharp.Diff diff)
+    internal TagCollection(IRepository repositoryInstance, LibGit2Sharp.TagCollection collection, Diff diff)
     {
         collection = collection.NotNull();
-        this.tags = new Lazy<IReadOnlyCollection<ITag>>(() => [.. collection.Select(tag => new Tag(tag, diff))]);
+        this.tags = new Lazy<IReadOnlyCollection<ITag>>(() => [.. collection.Select(tag => new Tag(repositoryInstance, tag, diff))]);
     }
 
     public IEnumerator<ITag> GetEnumerator()
