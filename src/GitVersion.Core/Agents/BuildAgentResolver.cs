@@ -1,11 +1,11 @@
 using GitVersion.Extensions;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion.Agents;
 
-internal class BuildAgentResolver(IEnumerable<IBuildAgent> buildAgents, ILog log) : IBuildAgentResolver
+internal class BuildAgentResolver(IEnumerable<IBuildAgent> buildAgents, ILogger<BuildAgentResolver> logger) : IBuildAgentResolver
 {
-    private readonly ILog log = log.NotNull();
+    private readonly ILogger logger = logger.NotNull();
 
     public ICurrentBuildAgent Resolve() => new Lazy<ICurrentBuildAgent>(ResolveInternal).Value;
 
@@ -23,11 +23,11 @@ internal class BuildAgentResolver(IEnumerable<IBuildAgent> buildAgents, ILog log
             catch (Exception ex)
             {
                 var agentName = buildAgent.GetType().Name;
-                this.log.Warning($"Failed to check build agent '{agentName}': {ex.Message}");
+                this.logger.LogWarning(ex, "Failed to check build agent '{AgentName}'", agentName);
             }
         }
 
-        this.log.Info($"Applicable build agent found: '{instance.GetType().Name}'.");
+        this.logger.LogInformation("Applicable build agent found: '{AgentName}'", instance.GetType().Name);
         return instance;
     }
 }

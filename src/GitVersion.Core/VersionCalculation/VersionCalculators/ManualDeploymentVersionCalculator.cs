@@ -1,16 +1,17 @@
 using GitVersion.Common;
+using GitVersion.Extensions;
 using GitVersion.Git;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion.VersionCalculation;
 
 internal sealed class ManualDeploymentVersionCalculator(
-        ILog log, IRepositoryStore repositoryStore, Lazy<GitVersionContext> versionContext)
-    : VersionCalculatorBase(log, repositoryStore, versionContext), IDeploymentModeCalculator
+        ILogger<ManualDeploymentVersionCalculator> logger, IRepositoryStore repositoryStore, Lazy<GitVersionContext> versionContext)
+    : VersionCalculatorBase(logger, repositoryStore, versionContext), IDeploymentModeCalculator
 {
     public SemanticVersion Calculate(SemanticVersion semanticVersion, ICommit? baseVersionSource)
     {
-        using (this.log.IndentLog("Using manual deployment workflow to calculate the incremented version."))
+        using (this.logger.BeginTimedOperation("Using manual deployment workflow to calculate the incremented version"))
         {
             return CalculateInternal(semanticVersion, baseVersionSource);
         }

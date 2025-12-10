@@ -2,13 +2,13 @@ using GitVersion.Common;
 using GitVersion.Configuration;
 using GitVersion.Extensions;
 using GitVersion.Git;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion;
 
-internal class MergeCommitFinder(IRepositoryStore repositoryStore, IGitVersionConfiguration configuration, IEnumerable<IBranch> excludedBranches, ILog log)
+internal class MergeCommitFinder(IRepositoryStore repositoryStore, IGitVersionConfiguration configuration, IEnumerable<IBranch> excludedBranches, ILogger logger)
 {
-    private readonly ILog log = log.NotNull();
+    private readonly ILogger logger = logger.NotNull();
     private readonly IEnumerable<IBranch> branches = repositoryStore.ExcludingBranches(excludedBranches.NotNull());
     private readonly IRepositoryStore repositoryStore = repositoryStore.NotNull();
     private readonly IGitVersionConfiguration configuration = configuration.NotNull();
@@ -20,7 +20,7 @@ internal class MergeCommitFinder(IRepositoryStore repositoryStore, IGitVersionCo
 
         if (this.mergeBaseCommitsCache.TryGetValue(branch, out var mergeCommitsFor))
         {
-            this.log.Debug($"Cache hit for getting merge commits for branch {branch.Name.Canonical}.");
+            this.logger.LogDebug("Cache hit for getting merge commits for branch {BranchName}", branch.Name.Canonical);
             return mergeCommitsFor;
         }
 
@@ -42,7 +42,7 @@ internal class MergeCommitFinder(IRepositoryStore repositoryStore, IGitVersionCo
         {
             if (sourceBranch.Tip == null)
             {
-                this.log.Warning($"{sourceBranch} has no tip.");
+                this.logger.LogWarning("{SourceBranch} has no tip", sourceBranch);
                 continue;
             }
 
