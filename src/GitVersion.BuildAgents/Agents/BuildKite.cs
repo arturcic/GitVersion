@@ -1,10 +1,10 @@
 using System.IO.Abstractions;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
 
-internal class BuildKite(IEnvironment environment, ILog log, IFileSystem fileSystem) : BuildAgentBase(environment, log, fileSystem)
+internal class BuildKite(IEnvironment environment, ILogger<BuildKite> logger, IFileSystem fileSystem) : BuildAgentBase(environment, logger, fileSystem)
 {
     public const string EnvironmentVariableName = "BUILDKITE";
 

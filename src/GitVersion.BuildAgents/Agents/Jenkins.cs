@@ -1,6 +1,6 @@
 using System.IO.Abstractions;
 using GitVersion.Extensions;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 using GitVersion.OutputVariables;
 
 namespace GitVersion.Agents;
@@ -11,7 +11,7 @@ internal class Jenkins : BuildAgentBase
     private string? file;
     protected override string EnvironmentVariable => EnvironmentVariableName;
 
-    public Jenkins(IEnvironment environment, ILog log, IFileSystem fileSystem) : base(environment, log, fileSystem) => WithPropertyFile("gitversion.properties");
+    public Jenkins(IEnvironment environment, ILogger<Jenkins> logger, IFileSystem fileSystem) : base(environment, logger, fileSystem) => WithPropertyFile("gitversion.properties");
 
     public void WithPropertyFile(string propertiesFileName) => this.file = propertiesFileName;
 
