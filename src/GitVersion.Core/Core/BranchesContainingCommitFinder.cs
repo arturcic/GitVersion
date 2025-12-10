@@ -1,13 +1,13 @@
 using GitVersion.Common;
 using GitVersion.Extensions;
 using GitVersion.Git;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion;
 
-internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, ILog log)
+internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, ILogger<BranchesContainingCommitFinder> logger)
 {
-    private readonly ILog log = log.NotNull();
+    private readonly ILogger logger = logger.NotNull();
     private readonly IRepositoryStore repositoryStore = repositoryStore.NotNull();
 
     public IEnumerable<IBranch> GetBranchesContainingCommit(ICommit commit, IEnumerable<IBranch>? branches = null, bool onlyTrackedBranches = false)
@@ -23,40 +23,38 @@ internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, 
 
     private IEnumerable<IBranch> InnerGetBranchesContainingCommit(ICommit commit, IEnumerable<IBranch> branches, bool onlyTrackedBranches)
     {
-        using (log.IndentLog($"Getting branches containing the commit '{commit.Id}'."))
+        logger.LogInformation("Getting branches containing the commit '{CommitId}'", commit.Id);
+        var directBranchHasBeenFound = false;
+        logger.LogInformation("Trying to find direct branches.");
+        // TODO: It looks wasteful looping through the branches twice. Can't these loops be merged somehow? @asbjornu
+        var branchList = branches.ToList();
+        foreach (var branch in branchList.Where(branch => BranchTipIsNullOrCommit(branch, commit) && !IncludeTrackedBranches(branch, onlyTrackedBranches)))
         {
-            var directBranchHasBeenFound = false;
-            log.Info("Trying to find direct branches.");
-            // TODO: It looks wasteful looping through the branches twice. Can't these loops be merged somehow? @asbjornu
-            var branchList = branches.ToList();
-            foreach (var branch in branchList.Where(branch => BranchTipIsNullOrCommit(branch, commit) && !IncludeTrackedBranches(branch, onlyTrackedBranches)))
+            directBranchHasBeenFound = true;
+            logger.LogInformation("Direct branch found: '{Branch}'", branch);
+            yield return branch;
+        }
+
+        if (directBranchHasBeenFound)
+        {
+            yield break;
+        }
+
+        logger.LogInformation("No direct branches found, searching through {BranchType} branches", onlyTrackedBranches ? "tracked" : "all");
+        foreach (var branch in branchList.Where(b => IncludeTrackedBranches(b, onlyTrackedBranches)))
+        {
+            logger.LogInformation("Searching for commits reachable from '{Branch}'", branch);
+
+            var commits = this.repositoryStore.GetCommitsReacheableFrom(commit, branch);
+
+            if (!commits.Any())
             {
-                directBranchHasBeenFound = true;
-                log.Info($"Direct branch found: '{branch}'.");
-                yield return branch;
+                logger.LogInformation("The branch '{Branch}' has no matching commits", branch);
+                continue;
             }
 
-            if (directBranchHasBeenFound)
-            {
-                yield break;
-            }
-
-            log.Info($"No direct branches found, searching through {(onlyTrackedBranches ? "tracked" : "all")} branches.");
-            foreach (var branch in branchList.Where(b => IncludeTrackedBranches(b, onlyTrackedBranches)))
-            {
-                log.Info($"Searching for commits reachable from '{branch}'.");
-
-                var commits = this.repositoryStore.GetCommitsReacheableFrom(commit, branch);
-
-                if (!commits.Any())
-                {
-                    log.Info($"The branch '{branch}' has no matching commits.");
-                    continue;
-                }
-
-                log.Info($"The branch '{branch}' has a matching commit.");
-                yield return branch;
-            }
+            logger.LogInformation("The branch '{Branch}' has a matching commit", branch);
+            yield return branch;
         }
     }
 

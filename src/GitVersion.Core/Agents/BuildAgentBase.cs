@@ -1,13 +1,13 @@
 using System.IO.Abstractions;
 using GitVersion.Extensions;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion.Agents;
 
-internal abstract class BuildAgentBase(IEnvironment environment, ILog log, IFileSystem fileSystem) : ICurrentBuildAgent
+internal abstract class BuildAgentBase(IEnvironment environment, ILogger logger, IFileSystem fileSystem) : ICurrentBuildAgent
 {
-    protected readonly ILog Log = log.NotNull();
+    protected readonly ILogger Log = logger.NotNull();
     protected readonly IEnvironment Environment = environment.NotNull();
     protected readonly IFileSystem FileSystem = fileSystem.NotNull();
 
