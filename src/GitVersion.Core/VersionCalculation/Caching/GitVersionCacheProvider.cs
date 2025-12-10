@@ -2,15 +2,15 @@ using System.IO.Abstractions;
 using GitVersion.Extensions;
 using GitVersion.Git;
 using GitVersion.Helpers;
-using GitVersion.Logging;
 using GitVersion.OutputVariables;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace GitVersion.VersionCalculation.Caching;
 
 internal class GitVersionCacheProvider(
     IFileSystem fileSystem,
-    ILog log,
+    ILogger<GitVersionCacheProvider> logger,
     IOptions<GitVersionOptions> options,
     IVersionVariableSerializer serializer,
     IGitVersionCacheKeyFactory cacheKeyFactory,
@@ -18,7 +18,7 @@ internal class GitVersionCacheProvider(
     : IGitVersionCacheProvider
 {
     private readonly IFileSystem fileSystem = fileSystem.NotNull();
-    private readonly ILog log = log.NotNull();
+    private readonly ILogger logger = logger.NotNull();
     private readonly IOptions<GitVersionOptions> options = options.NotNull();
     private readonly IVersionVariableSerializer serializer = serializer.NotNull();
     private readonly IGitVersionCacheKeyFactory cacheKeyFactory = cacheKeyFactory.NotNull();
@@ -28,16 +28,15 @@ internal class GitVersionCacheProvider(
     {
         var cacheKey = GetCacheKey();
         var cacheFileName = GetCacheFileName(cacheKey);
-        using (this.log.IndentLog($"Write version variables to cache file {cacheFileName}"))
+        this.logger.LogInformation("Write version variables to cache file {CacheFileName}", cacheFileName);
+
+        try
         {
-            try
-            {
-                serializer.ToFile(versionVariables, cacheFileName);
-            }
-            catch (Exception ex)
-            {
-                this.log.Error($"Unable to write cache file {cacheFileName}. Got {ex.GetType().FullName} exception.");
-            }
+            serializer.ToFile(versionVariables, cacheFileName);
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "Unable to write cache file {CacheFileName}", cacheFileName);
         }
     }
 
@@ -45,34 +44,32 @@ internal class GitVersionCacheProvider(
     {
         var cacheKey = GetCacheKey();
         var cacheFileName = GetCacheFileName(cacheKey);
-        using (this.log.IndentLog($"Loading version variables from disk cache file {cacheFileName}"))
-        {
-            if (!this.fileSystem.File.Exists(cacheFileName))
-            {
-                this.log.Info($"Cache file {cacheFileName} not found.");
-                return null;
-            }
+        this.logger.LogInformation("Loading version variables from disk cache file {CacheFileName}", cacheFileName);
 
+        if (!this.fileSystem.File.Exists(cacheFileName))
+        {
+            this.logger.LogInformation("Cache file {CacheFileName} not found", cacheFileName);
+            return null;
+        }
+
+        try
+        {
+            var loadedVariables = serializer.FromFile(cacheFileName);
+            return loadedVariables;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogWarning(ex, "Unable to read cache file {CacheFileName}, deleting it", cacheFileName);
             try
             {
-                var loadedVariables = serializer.FromFile(cacheFileName);
-                return loadedVariables;
+                this.fileSystem.File.Delete(cacheFileName);
             }
-            catch (Exception ex)
+            catch (Exception deleteEx)
             {
-                this.log.Warning($"Unable to read cache file {cacheFileName}, deleting it.");
-                this.log.Info(ex.ToString());
-                try
-                {
-                    this.fileSystem.File.Delete(cacheFileName);
-                }
-                catch (Exception deleteEx)
-                {
-                    this.log.Warning($"Unable to delete corrupted version cache file {cacheFileName}. Got {deleteEx.GetType().FullName} exception.");
-                }
-
-                return null;
+                this.logger.LogWarning(deleteEx, "Unable to delete corrupted version cache file {CacheFileName}", cacheFileName);
             }
+
+            return null;
         }
     }
 

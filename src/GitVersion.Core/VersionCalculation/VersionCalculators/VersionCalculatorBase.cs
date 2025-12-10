@@ -23,7 +23,7 @@ internal abstract class VersionCalculatorBase(
         );
 
         var commitsSinceTag = commitLogs.Count;
-        this.logger.LogInformation("{CommitCount} commits found between {BaseVersion} and {CurrentCommit}", 
+        this.logger.LogInformation("{CommitCount} commits found between {BaseVersion} and {CurrentCommit}",
             commitsSinceTag, baseVersionSource, Context.CurrentCommit);
 
         var shortSha = Context.CurrentCommit.Id.ToString(7);

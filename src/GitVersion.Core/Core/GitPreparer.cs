@@ -173,7 +173,7 @@ internal class GitPreparer(
                 var newExpectedSha = this.repository.Head.Tip?.Sha;
                 var newExpectedBranchName = this.repository.Head.Name.Canonical;
 
-                this.logger.LogInformation("Head has moved from '{OldBranch} | {OldSha}' => '{NewBranch} | {NewSha}', allowed since this is a dynamic repository", 
+                this.logger.LogInformation("Head has moved from '{OldBranch} | {OldSha}' => '{NewBranch} | {NewSha}', allowed since this is a dynamic repository",
                     expectedBranchName, expectedSha, newExpectedBranchName, newExpectedSha);
 
                 expectedSha = newExpectedSha;
@@ -274,7 +274,7 @@ internal class GitPreparer(
             if (branchesWithoutSeparators.Count == 1)
             {
                 var branchWithoutSeparator = branchesWithoutSeparators[0];
-                this.logger.LogWarning("Choosing {BranchName} as it is the only branch without / or - in it. {Message}", 
+                this.logger.LogWarning("Choosing {BranchName} as it is the only branch without / or - in it. {Message}",
                     branchWithoutSeparator.Name.Canonical, moveBranchMsg);
                 Checkout(branchWithoutSeparator.Name.Canonical);
             }
@@ -345,21 +345,21 @@ internal class GitPreparer(
             {
                 if (localRef.TargetIdentifier == remoteTrackingReference.TargetIdentifier)
                 {
-                    this.logger.LogInformation("Skipping update of '{RemoteTrackingReferenceName}' as it already matches the remote ref", 
+                    this.logger.LogInformation("Skipping update of '{RemoteTrackingReferenceName}' as it already matches the remote ref",
                         remoteTrackingReference.Name.Canonical);
                     continue;
                 }
                 var remoteRefTipId = remoteTrackingReference.ReferenceTargetId;
                 if (remoteRefTipId != null)
                 {
-                    this.logger.LogInformation("Updating local ref '{LocalRefName}' to point at {RemoteRefTipId}", 
+                    this.logger.LogInformation("Updating local ref '{LocalRefName}' to point at {RemoteRefTipId}",
                         localRef.Name.Canonical, remoteRefTipId);
                     this.retryAction.Execute(() => this.repository.References.UpdateTarget(localRef, remoteRefTipId));
                 }
                 continue;
             }
 
-            this.logger.LogInformation("Creating local branch from remote tracking '{RemoteTrackingReferenceName}'", 
+            this.logger.LogInformation("Creating local branch from remote tracking '{RemoteTrackingReferenceName}'",
                 remoteTrackingReference.Name.Canonical);
             this.repository.References.Add(localReferenceName.Canonical, remoteTrackingReference.TargetIdentifier, true);
 

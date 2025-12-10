@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GitVersion;
 
-internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, ILogger<BranchesContainingCommitFinder> logger)
+internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, ILogger logger)
 {
     private readonly ILogger logger = logger.NotNull();
     private readonly IRepositoryStore repositoryStore = repositoryStore.NotNull();

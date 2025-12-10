@@ -1,7 +1,7 @@
 using GitVersion.Common;
 using GitVersion.Configuration;
 using GitVersion.Extensions;
-using GitVersion.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace GitVersion.VersionCalculation;
 
@@ -10,11 +10,11 @@ namespace GitVersion.VersionCalculation;
 /// BaseVersionSource is the commit where the message was found.
 /// Increments if PreventIncrementOfMergedBranchVersion (from the branch configuration) is false.
 /// </summary>
-internal sealed class MergeMessageVersionStrategy(ILog log, Lazy<GitVersionContext> contextLazy,
+internal sealed class MergeMessageVersionStrategy(ILogger logger, Lazy<GitVersionContext> contextLazy,
     IRepositoryStore repositoryStore, IIncrementStrategyFinder incrementStrategyFinder)
     : IVersionStrategy
 {
-    private readonly ILog log = log.NotNull();
+    private readonly ILogger logger = logger.NotNull();
     private readonly Lazy<GitVersionContext> contextLazy = contextLazy.NotNull();
     private readonly IRepositoryStore repositoryStore = repositoryStore.NotNull();
     private readonly IIncrementStrategyFinder incrementStrategyFinder = incrementStrategyFinder.NotNull();
@@ -43,7 +43,7 @@ internal sealed class MergeMessageVersionStrategy(ILog log, Lazy<GitVersionConte
                 continue;
             }
 
-            this.log.Info($"Found commit [{commit}] matching merge message format: {mergeMessage.FormatName}");
+            this.logger.LogInformation($"Found commit [{commit}] matching merge message format: {mergeMessage.FormatName}");
 
             var baseVersionSource = commit;
             if (commit.IsMergeCommit)
