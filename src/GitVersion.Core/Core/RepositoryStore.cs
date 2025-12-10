@@ -175,25 +175,27 @@ internal class RepositoryStore(ILogger<RepositoryStore> logger, IGitRepository r
     {
         branch = branch.NotNull();
 
-        this.logger.LogInformation("Finding branch source of '{Branch}'", branch);
-        if (branch.Tip == null)
+        using (this.logger.BeginTimedOperation($"Finding branch source of '{branch}'"))
         {
-            this.logger.LogWarning("{Branch} has no tip", branch);
-            return BranchCommit.Empty;
+            if (branch.Tip == null)
+            {
+                this.logger.LogWarning("{Branch} has no tip", branch);
+                return BranchCommit.Empty;
+            }
+
+            var possibleBranches =
+                new MergeCommitFinder(this, configuration, excludedBranches, this.logger)
+                    .FindMergeCommitsFor(branch)
+                    .ToList();
+
+            if (possibleBranches.Count <= 1)
+                return possibleBranches.SingleOrDefault();
+
+            var first = possibleBranches[0];
+            this.logger.LogInformation("Multiple source branches have been found, picking the first one ({FirstBranch}).{NewLine}This may result in incorrect commit counting.{NewLine}Options were:{NewLine}{Options}",
+                first.Branch, FileSystemHelper.Path.NewLine, FileSystemHelper.Path.NewLine, FileSystemHelper.Path.NewLine, string.Join(", ", possibleBranches.Select(b => b.Branch.ToString())));
+            return first;
         }
-
-        var possibleBranches =
-            new MergeCommitFinder(this, configuration, excludedBranches, this.logger)
-                .FindMergeCommitsFor(branch)
-                .ToList();
-
-        if (possibleBranches.Count <= 1)
-            return possibleBranches.SingleOrDefault();
-
-        var first = possibleBranches[0];
-        this.logger.LogInformation("Multiple source branches have been found, picking the first one ({FirstBranch}).{NewLine}This may result in incorrect commit counting.{NewLine}Options were:{NewLine}{Options}",
-            first.Branch, FileSystemHelper.Path.NewLine, FileSystemHelper.Path.NewLine, FileSystemHelper.Path.NewLine, string.Join(", ", possibleBranches.Select(b => b.Branch.ToString())));
-        return first;
     }
 
     public IEnumerable<BranchCommit> FindCommitBranchesBranchedFrom(
@@ -264,9 +266,11 @@ internal class RepositoryStore(ILogger<RepositoryStore> logger, IGitRepository r
     private List<BranchCommit> FindCommitBranchesBranchedFrom(
         IBranch branch, IGitVersionConfiguration configuration, IEnumerable<IBranch> excludedBranches)
     {
-        this.logger.LogInformation("Finding branches source of '{Branch}'", branch);
-        if (branch.Tip != null) return [.. new MergeCommitFinder(this, configuration, excludedBranches, this.logger).FindMergeCommitsFor(branch)];
-        this.logger.LogWarning("{Branch} has no tip", branch);
-        return [];
+        using (this.logger.BeginTimedOperation($"Finding branches source of '{branch}'"))
+        {
+            if (branch.Tip != null) return [.. new MergeCommitFinder(this, configuration, excludedBranches, this.logger).FindMergeCommitsFor(branch)];
+            this.logger.LogWarning("{Branch} has no tip", branch);
+            return [];
+        }
     }
 }

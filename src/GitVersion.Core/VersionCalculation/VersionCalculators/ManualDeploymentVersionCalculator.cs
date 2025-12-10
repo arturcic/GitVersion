@@ -1,4 +1,5 @@
 using GitVersion.Common;
+using GitVersion.Extensions;
 using GitVersion.Git;
 using Microsoft.Extensions.Logging;
 
@@ -10,8 +11,10 @@ internal sealed class ManualDeploymentVersionCalculator(
 {
     public SemanticVersion Calculate(SemanticVersion semanticVersion, ICommit? baseVersionSource)
     {
-        this.logger.LogInformation("Using manual deployment workflow to calculate the incremented version");
-        return CalculateInternal(semanticVersion, baseVersionSource);
+        using (this.logger.BeginTimedOperation("Using manual deployment workflow to calculate the incremented version"))
+        {
+            return CalculateInternal(semanticVersion, baseVersionSource);
+        }
     }
 
     private SemanticVersion CalculateInternal(SemanticVersion semanticVersion, ICommit? baseVersionSource)

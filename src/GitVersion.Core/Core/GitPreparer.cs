@@ -111,34 +111,40 @@ internal class GitPreparer(
 
         var gitDirectory = this.repositoryInfo.DynamicGitRepositoryPath;
 
-        this.logger.LogInformation("Creating dynamic repository at '{GitDirectory}'", gitDirectory);
-        var gitVersionOptions = this.options.Value;
-        var authentication = gitVersionOptions.AuthenticationInfo;
-        if (string.IsNullOrWhiteSpace(gitDirectory))
+        using (this.logger.BeginTimedOperation($"Creating dynamic repository at '{gitDirectory}'"))
         {
-            throw new("Dynamic Git repositories should have a path specified");
-        }
-        if (!this.fileSystem.Directory.Exists(gitDirectory))
-        {
-            CloneRepository(gitVersionOptions.RepositoryInfo.TargetUrl, gitDirectory, authentication);
-        }
-        else
-        {
-            this.logger.LogInformation("Git repository already exists");
+            var gitVersionOptions = this.options.Value;
+            var authentication = gitVersionOptions.AuthenticationInfo;
+            if (string.IsNullOrWhiteSpace(gitDirectory))
+            {
+                throw new("Dynamic Git repositories should have a path specified");
+            }
+            if (!this.fileSystem.Directory.Exists(gitDirectory))
+            {
+                CloneRepository(gitVersionOptions.RepositoryInfo.TargetUrl, gitDirectory, authentication);
+            }
+            else
+            {
+                this.logger.LogInformation("Git repository already exists");
+            }
         }
     }
 
     private void NormalizeGitDirectory(string? targetBranch, bool isDynamicRepository)
     {
-        this.logger.LogInformation("Normalizing git directory for branch '{TargetBranch}'", targetBranch);
-        // Normalize (download branches) before using the branch
-        NormalizeGitDirectory(this.options.Value.Settings.NoFetch, targetBranch, isDynamicRepository);
+        using (this.logger.BeginTimedOperation($"Normalizing git directory for branch '{targetBranch}'"))
+        {
+            // Normalize (download branches) before using the branch
+            NormalizeGitDirectory(this.options.Value.Settings.NoFetch, targetBranch, isDynamicRepository);
+        }
     }
 
     private void CloneRepository(string? repositoryUrl, string? gitDirectory, AuthenticationInfo auth)
     {
-        this.logger.LogInformation("Cloning repository from url '{RepositoryUrl}'", repositoryUrl);
-        this.retryAction.Execute(() => this.repository.Clone(repositoryUrl, gitDirectory, auth));
+        using (this.logger.BeginTimedOperation($"Cloning repository from url '{repositoryUrl}'"))
+        {
+            this.retryAction.Execute(() => this.repository.Clone(repositoryUrl, gitDirectory, auth));
+        }
     }
 
     /// <summary>

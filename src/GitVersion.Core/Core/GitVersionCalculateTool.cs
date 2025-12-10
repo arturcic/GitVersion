@@ -1,6 +1,5 @@
 using GitVersion.Configuration;
 using GitVersion.Extensions;
-using GitVersion.Helpers;
 using GitVersion.OutputVariables;
 using GitVersion.VersionCalculation;
 using GitVersion.VersionCalculation.Caching;

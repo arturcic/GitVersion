@@ -229,21 +229,22 @@ internal class NextVersionCalculator(
 
     private List<NextVersion> GetNextVersions(IBranch branch, IGitVersionConfiguration configuration)
     {
-        logger.LogInformation("Fetching the base versions for version calculation...");
+        using (logger.BeginTimedOperation("Fetching the base versions for version calculation..."))
+        {
+            if (branch.Tip == null)
+                throw new GitVersionException("No commits found on the current branch.");
 
-        if (branch.Tip == null)
-            throw new GitVersionException("No commits found on the current branch.");
-
-        return [.. GetNextVersionsInternal()];
+            return [.. GetNextVersionsInternal()];
+        }
 
         IEnumerable<NextVersion> GetNextVersionsInternal()
         {
             var effectiveBranchConfigurations = this.effectiveBranchConfigurationFinder.GetConfigurations(branch, configuration).ToArray();
             foreach (var effectiveBranchConfiguration in effectiveBranchConfigurations)
             {
-                this.logger.LogInformation("Calculating base versions for '{BranchName}'", effectiveBranchConfiguration.Branch.Name);
-
-                var strategies = this.versionStrategies.ToList();
+                using (this.logger.BeginTimedOperation($"Calculating base versions for '{effectiveBranchConfiguration.Branch.Name}'"))
+                {
+                    var strategies = this.versionStrategies.ToList();
                     var fallbackVersionStrategy = strategies.Find(element => element is FallbackVersionStrategy);
                     if (fallbackVersionStrategy is not null)
                     {
@@ -256,21 +257,23 @@ internal class NextVersionCalculator(
                     {
                         if (atLeastOneBaseVersionReturned && versionStrategy is FallbackVersionStrategy) continue;
 
-                        this.logger.LogInformation("[Using '{Strategy}' strategy]", versionStrategy.GetType().Name);
-
-                        foreach (var baseVersion in versionStrategy.GetBaseVersions(effectiveBranchConfiguration))
+                        using (this.logger.BeginTimedOperation($"[Using '{versionStrategy.GetType().Name}' strategy]"))
                         {
-                            logger.LogInformation(baseVersion.ToString());
-                            if (!IncludeVersion(baseVersion, configuration.Ignore)) continue;
-                            atLeastOneBaseVersionReturned = true;
+                            foreach (var baseVersion in versionStrategy.GetBaseVersions(effectiveBranchConfiguration))
+                            {
+                                logger.LogInformation(baseVersion.ToString());
+                                if (!IncludeVersion(baseVersion, configuration.Ignore)) continue;
+                                atLeastOneBaseVersionReturned = true;
 
-                            yield return new NextVersion(
-                                incrementedVersion: baseVersion.GetIncrementedVersion(),
-                                baseVersion: baseVersion,
-                                configuration: effectiveBranchConfiguration
-                            );
+                                yield return new NextVersion(
+                                    incrementedVersion: baseVersion.GetIncrementedVersion(),
+                                    baseVersion: baseVersion,
+                                    configuration: effectiveBranchConfiguration
+                                );
+                            }
                         }
                     }
+                }
             }
         }
     }

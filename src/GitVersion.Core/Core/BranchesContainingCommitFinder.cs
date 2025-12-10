@@ -23,38 +23,40 @@ internal class BranchesContainingCommitFinder(IRepositoryStore repositoryStore, 
 
     private IEnumerable<IBranch> InnerGetBranchesContainingCommit(ICommit commit, IEnumerable<IBranch> branches, bool onlyTrackedBranches)
     {
-        logger.LogInformation("Getting branches containing the commit '{CommitId}'", commit.Id);
-        var directBranchHasBeenFound = false;
-        logger.LogInformation("Trying to find direct branches.");
-        // TODO: It looks wasteful looping through the branches twice. Can't these loops be merged somehow? @asbjornu
-        var branchList = branches.ToList();
-        foreach (var branch in branchList.Where(branch => BranchTipIsNullOrCommit(branch, commit) && !IncludeTrackedBranches(branch, onlyTrackedBranches)))
+        using (logger.BeginTimedOperation($"Getting branches containing the commit '{commit.Id}'"))
         {
-            directBranchHasBeenFound = true;
-            logger.LogInformation("Direct branch found: '{Branch}'", branch);
-            yield return branch;
-        }
-
-        if (directBranchHasBeenFound)
-        {
-            yield break;
-        }
-
-        logger.LogInformation("No direct branches found, searching through {BranchType} branches", onlyTrackedBranches ? "tracked" : "all");
-        foreach (var branch in branchList.Where(b => IncludeTrackedBranches(b, onlyTrackedBranches)))
-        {
-            logger.LogInformation("Searching for commits reachable from '{Branch}'", branch);
-
-            var commits = this.repositoryStore.GetCommitsReacheableFrom(commit, branch);
-
-            if (!commits.Any())
+            var directBranchHasBeenFound = false;
+            logger.LogInformation("Trying to find direct branches.");
+            // TODO: It looks wasteful looping through the branches twice. Can't these loops be merged somehow? @asbjornu
+            var branchList = branches.ToList();
+            foreach (var branch in branchList.Where(branch => BranchTipIsNullOrCommit(branch, commit) && !IncludeTrackedBranches(branch, onlyTrackedBranches)))
             {
-                logger.LogInformation("The branch '{Branch}' has no matching commits", branch);
-                continue;
+                directBranchHasBeenFound = true;
+                logger.LogInformation("Direct branch found: '{Branch}'", branch);
+                yield return branch;
             }
 
-            logger.LogInformation("The branch '{Branch}' has a matching commit", branch);
-            yield return branch;
+            if (directBranchHasBeenFound)
+            {
+                yield break;
+            }
+
+            logger.LogInformation("No direct branches found, searching through {BranchType} branches", onlyTrackedBranches ? "tracked" : "all");
+            foreach (var branch in branchList.Where(b => IncludeTrackedBranches(b, onlyTrackedBranches)))
+            {
+                logger.LogInformation("Searching for commits reachable from '{Branch}'", branch);
+
+                var commits = this.repositoryStore.GetCommitsReacheableFrom(commit, branch);
+
+                if (!commits.Any())
+                {
+                    logger.LogInformation("The branch '{Branch}' has no matching commits", branch);
+                    continue;
+                }
+
+                logger.LogInformation("The branch '{Branch}' has a matching commit", branch);
+                yield return branch;
+            }
         }
     }
 

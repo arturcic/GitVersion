@@ -1,1 +1,3 @@
 #nullable enable
+GitVersion.Extensions.LoggerExtensions
+static GitVersion.Extensions.LoggerExtensions.BeginTimedOperation(this Microsoft.Extensions.Logging.ILogger! logger, string! operationDescription) -> System.IDisposable!

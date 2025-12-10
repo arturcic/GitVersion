@@ -28,15 +28,16 @@ internal class GitVersionCacheProvider(
     {
         var cacheKey = GetCacheKey();
         var cacheFileName = GetCacheFileName(cacheKey);
-        this.logger.LogInformation("Write version variables to cache file {CacheFileName}", cacheFileName);
-
-        try
+        using (this.logger.BeginTimedOperation($"Write version variables to cache file {cacheFileName}"))
         {
-            serializer.ToFile(versionVariables, cacheFileName);
-        }
-        catch (Exception ex)
-        {
-            this.logger.LogError(ex, "Unable to write cache file {CacheFileName}", cacheFileName);
+            try
+            {
+                serializer.ToFile(versionVariables, cacheFileName);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "Unable to write cache file {CacheFileName}", cacheFileName);
+            }
         }
     }
 
@@ -44,32 +45,33 @@ internal class GitVersionCacheProvider(
     {
         var cacheKey = GetCacheKey();
         var cacheFileName = GetCacheFileName(cacheKey);
-        this.logger.LogInformation("Loading version variables from disk cache file {CacheFileName}", cacheFileName);
+        using (this.logger.BeginTimedOperation($"Loading version variables from disk cache file {cacheFileName}"))
+        {
+            if (!this.fileSystem.File.Exists(cacheFileName))
+            {
+                this.logger.LogInformation("Cache file {CacheFileName} not found", cacheFileName);
+                return null;
+            }
 
-        if (!this.fileSystem.File.Exists(cacheFileName))
-        {
-            this.logger.LogInformation("Cache file {CacheFileName} not found", cacheFileName);
-            return null;
-        }
-
-        try
-        {
-            var loadedVariables = serializer.FromFile(cacheFileName);
-            return loadedVariables;
-        }
-        catch (Exception ex)
-        {
-            this.logger.LogWarning(ex, "Unable to read cache file {CacheFileName}, deleting it", cacheFileName);
             try
             {
-                this.fileSystem.File.Delete(cacheFileName);
+                var loadedVariables = serializer.FromFile(cacheFileName);
+                return loadedVariables;
             }
-            catch (Exception deleteEx)
+            catch (Exception ex)
             {
-                this.logger.LogWarning(deleteEx, "Unable to delete corrupted version cache file {CacheFileName}", cacheFileName);
-            }
+                this.logger.LogWarning(ex, "Unable to read cache file {CacheFileName}, deleting it", cacheFileName);
+                try
+                {
+                    this.fileSystem.File.Delete(cacheFileName);
+                }
+                catch (Exception deleteEx)
+                {
+                    this.logger.LogWarning(deleteEx, "Unable to delete corrupted version cache file {CacheFileName}", cacheFileName);
+                }
 
-            return null;
+                return null;
+            }
         }
     }
 

@@ -1,4 +1,5 @@
 using GitVersion.Common;
+using GitVersion.Extensions;
 using GitVersion.Git;
 using Microsoft.Extensions.Logging;
 
@@ -10,14 +11,16 @@ internal sealed class ContinuousDeliveryVersionCalculator(
 {
     public SemanticVersion Calculate(SemanticVersion semanticVersion, ICommit? baseVersionSource)
     {
-        this.logger.LogInformation("Using continuous delivery workflow to calculate the incremented version");
-        var preReleaseTag = semanticVersion.PreReleaseTag;
-        if (!preReleaseTag.HasTag() || !preReleaseTag.Number.HasValue)
+        using (this.logger.BeginTimedOperation("Using continuous delivery workflow to calculate the incremented version"))
         {
-            throw new WarningException("Continuous delivery requires a pre-release tag.");
-        }
+            var preReleaseTag = semanticVersion.PreReleaseTag;
+            if (!preReleaseTag.HasTag() || !preReleaseTag.Number.HasValue)
+            {
+                throw new WarningException("Continuous delivery requires a pre-release tag.");
+            }
 
-        return CalculateInternal(semanticVersion, baseVersionSource);
+            return CalculateInternal(semanticVersion, baseVersionSource);
+        }
     }
 
     private SemanticVersion CalculateInternal(SemanticVersion semanticVersion, ICommit? baseVersionSource)

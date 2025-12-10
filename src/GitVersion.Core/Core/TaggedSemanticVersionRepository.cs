@@ -42,16 +42,16 @@ internal sealed class TaggedSemanticVersionRepository(ILogger<TaggedSemanticVers
 
         IEnumerable<SemanticVersionWithTag> GetElements()
         {
-            this.logger.LogInformation("Getting tagged semantic versions on branch '{BranchName}'. TagPrefix: {TagPrefix} and Format: {Format}",
-                branch.Name.Canonical, tagPrefix, format);
-
-            var semanticVersions = GetTaggedSemanticVersions(tagPrefix, format, ignore);
-
-            foreach (var commit in ignore.Filter(branch.Commits.ToArray()))
+            using (this.logger.BeginTimedOperation($"Getting tagged semantic versions on branch '{branch.Name.Canonical}'. TagPrefix: {tagPrefix} and Format: {format}"))
             {
-                foreach (var semanticVersion in semanticVersions[commit])
+                var semanticVersions = GetTaggedSemanticVersions(tagPrefix, format, ignore);
+
+                foreach (var commit in ignore.Filter(branch.Commits.ToArray()))
                 {
-                    yield return semanticVersion;
+                    foreach (var semanticVersion in semanticVersions[commit])
+                    {
+                        yield return semanticVersion;
+                    }
                 }
             }
         }
@@ -80,16 +80,16 @@ internal sealed class TaggedSemanticVersionRepository(ILogger<TaggedSemanticVers
 
         IEnumerable<(ICommit Key, SemanticVersionWithTag Value)> GetElements()
         {
-            this.logger.LogInformation("Getting tagged semantic versions by track merge target '{BranchName}'. TagPrefix: {TagPrefix} and Format: {Format}",
-                branch.Name.Canonical, tagPrefix, format);
-
-            var shaHashSet = new HashSet<string>(ignore.Filter(branch.Commits.ToArray()).Select(element => element.Id.Sha));
-
-            foreach (var semanticVersion in GetTaggedSemanticVersions(tagPrefix, format, ignore).SelectMany(v => v))
+            using (this.logger.BeginTimedOperation($"Getting tagged semantic versions by track merge target '{branch.Name.Canonical}'. TagPrefix: {tagPrefix} and Format: {format}"))
             {
-                foreach (var commit in semanticVersion.Tag.Commit.Parents.Where(element => shaHashSet.Contains(element.Id.Sha)))
+                var shaHashSet = new HashSet<string>(ignore.Filter(branch.Commits.ToArray()).Select(element => element.Id.Sha));
+
+                foreach (var semanticVersion in GetTaggedSemanticVersions(tagPrefix, format, ignore).SelectMany(v => v))
                 {
-                    yield return new(commit, semanticVersion);
+                    foreach (var commit in semanticVersion.Tag.Commit.Parents.Where(element => shaHashSet.Contains(element.Id.Sha)))
+                    {
+                        yield return new(commit, semanticVersion);
+                    }
                 }
             }
         }

@@ -24,35 +24,37 @@ internal class MergeBaseFinder(IRepositoryStore repositoryStore, ILogger logger)
             return mergeBase;
         }
 
-        this.logger.LogInformation("Finding merge base between '{FirstBranch}' and '{SecondBranch}'", first, second);
-        // Other branch tip is a forward merge
-        var commitToFindCommonBase = second.Tip;
-        var commit = first.Tip;
-
-        if (commit == null)
-            return null;
-
-        if (commitToFindCommonBase?.Parents.Contains(commit) == true)
+        using (this.logger.BeginTimedOperation($"Finding merge base between '{first}' and '{second}'"))
         {
-            commitToFindCommonBase = commitToFindCommonBase.Parents[0];
+            // Other branch tip is a forward merge
+            var commitToFindCommonBase = second.Tip;
+            var commit = first.Tip;
+
+            if (commit == null)
+                return null;
+
+            if (commitToFindCommonBase?.Parents.Contains(commit) == true)
+            {
+                commitToFindCommonBase = commitToFindCommonBase.Parents[0];
+            }
+
+            if (commitToFindCommonBase == null)
+                return null;
+
+            var findMergeBase = FindMergeBase(commit, commitToFindCommonBase);
+
+            if (findMergeBase == null)
+            {
+                this.logger.LogInformation("No merge base of '{FirstBranch}' and '{SecondBranch}' could be found", first, second);
+                return null;
+            }
+
+            // Store in cache.
+            this.mergeBaseCache.Add(key, findMergeBase);
+
+            this.logger.LogInformation("Merge base of '{FirstBranch}' and '{SecondBranch}' is '{MergeBase}'", first, second, findMergeBase);
+            return findMergeBase;
         }
-
-        if (commitToFindCommonBase == null)
-            return null;
-
-        var findMergeBase = FindMergeBase(commit, commitToFindCommonBase);
-
-        if (findMergeBase == null)
-        {
-            this.logger.LogInformation("No merge base of '{FirstBranch}' and '{SecondBranch}' could be found", first, second);
-            return null;
-        }
-
-        // Store in cache.
-        this.mergeBaseCache.Add(key, findMergeBase);
-
-        this.logger.LogInformation("Merge base of '{FirstBranch}' and '{SecondBranch}' is '{MergeBase}'", first, second, findMergeBase);
-        return findMergeBase;
     }
 
     private ICommit? FindMergeBase(ICommit commit, ICommit commitToFindCommonBase)
