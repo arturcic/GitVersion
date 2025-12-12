@@ -345,6 +345,7 @@ public class GenerateGitVersionInformationTest : TestTaskBase
     {
         var assemblyFileLocation = typeof(GitVersionTaskBase).Assembly.Location;
         return project.UsingTaskAssemblyFile(taskName, assemblyFileLocation)
+            .Property("DisableApiAnalyzers", "true")
             .Property("ManagePackageVersionsCentrally", "false")
             .Property("GenerateAssemblyInfo", "false")
             .Property("Language", language)
