@@ -97,6 +97,7 @@ public class GetVersionTaskTests : TestTaskBase
     {
         var assemblyFileLocation = typeof(GitVersionTaskBase).Assembly.Location;
         project.UsingTaskAssemblyFile(taskName, assemblyFileLocation)
+            .Property("DisableApiAnalyzers", "true")
             .Property("GenerateAssemblyInfo", "false")
             .Target(targetToRun, beforeTargets: "CoreCompile;GetAssemblyVersion;GenerateNuspec")
             .Task(taskName, parameters: new Dictionary<string, string?>
