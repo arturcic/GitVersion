@@ -2,7 +2,6 @@ using GitVersion.VersionCalculation;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace GitVersion.Configuration;
 
@@ -21,20 +20,26 @@ internal class VersionStrategiesConverter : IYamlTypeConverter
             while (!parser.TryConsume<SequenceEnd>(out _))
             {
                 var data = parser.Consume<Scalar>().Value;
-
-                var strategy = Enum.Parse<VersionStrategies>(data);
-                strategies.Add(strategy);
+                strategies.Add(Enum.Parse<VersionStrategies>(data));
             }
         }
         else
         {
-            var data = parser.Consume<Scalar>().Value;
-
-            var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                .Build();
-
-            strategies = deserializer.Deserialize<List<VersionStrategies>>(data);
+            // Handle legacy JSON array format: ["Fallback", "ConfiguredNextVersion", ...]
+            var data = parser.Consume<Scalar>().Value.Trim();
+            if (data.StartsWith('[') && data.EndsWith(']'))
+            {
+                foreach (var item in data[1..^1].Split(','))
+                {
+                    var val = item.Trim().Trim('"');
+                    if (!string.IsNullOrWhiteSpace(val))
+                        strategies.Add(Enum.Parse<VersionStrategies>(val));
+                }
+            }
+            else
+            {
+                strategies.Add(Enum.Parse<VersionStrategies>(data));
+            }
         }
 
         return strategies.ToArray();
@@ -44,11 +49,9 @@ internal class VersionStrategiesConverter : IYamlTypeConverter
     {
         var strategies = (VersionStrategies[])value!;
 
-        var s = new SerializerBuilder()
-            .JsonCompatible()
-            .Build();
-        var data = s.Serialize(strategies);
-
-        emitter.Emit(new Scalar(data));
+        emitter.Emit(new SequenceStart(null, null, false, SequenceStyle.Block));
+        foreach (var strategy in strategies)
+            emitter.Emit(new Scalar(strategy.ToString()));
+        emitter.Emit(new SequenceEnd());
     }
 }
