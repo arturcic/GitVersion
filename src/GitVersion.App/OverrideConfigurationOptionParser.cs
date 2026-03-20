@@ -1,5 +1,4 @@
 using GitVersion.Configuration;
-using GitVersion.VersionCalculation;
 
 namespace GitVersion;
 
@@ -37,7 +36,7 @@ internal class OverrideConfigurationOptionParser
     /// is supported as a part of command line '/overrideconfig' option.
     /// </summary>
     /// <param name="propertyType">Type we want to check.</param>
-    /// <returns>True, if type is supported.</returns>
+    /// <returns>True, if the type is supported.</returns>
     /// <remarks>Only simple types are supported</remarks>
     private static bool IsSupportedPropertyType(Type propertyType)
     {
@@ -46,8 +45,7 @@ internal class OverrideConfigurationOptionParser
         return unwrappedType == typeof(string)
                || unwrappedType.IsEnum
                || unwrappedType == typeof(int)
-               || unwrappedType == typeof(bool)
-               || unwrappedType == typeof(VersionStrategies[]);
+               || unwrappedType == typeof(bool);
     }
 
     internal void SetValue(string key, string value) => overrideConfiguration[key] = QuotedStringHelpers.UnquoteText(value);

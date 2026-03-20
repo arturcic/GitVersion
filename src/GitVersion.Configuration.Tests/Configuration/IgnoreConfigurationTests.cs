@@ -74,9 +74,9 @@ public class IgnoreConfigurationTests : TestBase
     }
 
     [Test]
-    public void ShouldSupportScalarVersionStrategiesOverrideFormat()
+    public void ShouldSupportArrayVersionStrategiesFormat()
     {
-        const string yaml = "strategies: ConfiguredNextVersion, TaggedCommit";
+        const string yaml = "strategies: [ConfiguredNextVersion, TaggedCommit]";
 
         var configuration = serializer.ReadConfiguration(yaml);
 

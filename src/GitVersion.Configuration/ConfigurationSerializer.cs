@@ -10,7 +10,6 @@ internal class ConfigurationSerializer : IConfigurationSerializer
     {
         PropertyNamingPolicy = HyphenatedJsonNamingPolicy.Instance,
         DefaultIgnoreCondition = YamlIgnoreCondition.WhenWritingNull,
-        Converters = [VersionStrategiesConverter.Instance]
     };
 
     public T Deserialize<T>(string input)

@@ -3,9 +3,7 @@ using SharpYaml.Serialization;
 
 namespace GitVersion.Configuration;
 
-[YamlSourceGenerationOptions(
-    DefaultIgnoreCondition = YamlIgnoreCondition.WhenWritingNull,
-    Converters = [typeof(VersionStrategiesConverter)])]
+[YamlSourceGenerationOptions(DefaultIgnoreCondition = YamlIgnoreCondition.WhenWritingNull)]
 [YamlSerializable(typeof(GitVersionConfiguration))]
 [YamlSerializable(typeof(BranchConfiguration))]
 [YamlSerializable(typeof(PreventIncrementConfiguration))]

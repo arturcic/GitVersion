@@ -530,13 +530,6 @@ public class ArgumentParserTests : TestBase
                 UpdateBuildNumber = true
             }
         );
-        yield return new TestCaseData(
-            "strategies=[\"None\",\"Mainline\"]",
-            new GitVersionConfiguration
-            {
-                VersionStrategies = [VersionStrategies.None, VersionStrategies.Mainline]
-            }
-        );
     }
 
     [TestCaseSource(nameof(OverrideConfigWithMultipleOptionsTestData))]
