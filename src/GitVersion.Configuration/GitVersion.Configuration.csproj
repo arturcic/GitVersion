@@ -29,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="System.Collections.Immutable" />
       <Folder Include="Workflows\*\" />
       <EmbeddedResource Include="..\..\docs\input\docs\workflows\**\*.yml" Link="Workflows\%(RecursiveDir)\%(Filename)%(Extension)" />
     </ItemGroup>
