@@ -44,4 +44,8 @@
         <None Include="$(ExePublishPath)/net10.0/publish/**/*;$(BinPath)/net10.0/GitVersion.MsBuild.*" Pack="true" PackagePath="tools/net10.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageVersion Update="Microsoft.Build.Utilities.Core" Version="18.4.0" />
+    </ItemGroup>
+
 </Project>
