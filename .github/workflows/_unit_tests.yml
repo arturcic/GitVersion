@@ -41,7 +41,7 @@ jobs:
           command: 'dotnet run/build.dll --target=UnitTest --dotnet_version=${{ matrix.dotnet_version }}'
 
       - name: Test Summary
-        uses: test-summary/action@v2.4
+        uses: test-summary/action@v2.6
         if: always() && matrix.dotnet_version == '10.0'
         with:
           paths: artifacts/test-results/**/results.xml
