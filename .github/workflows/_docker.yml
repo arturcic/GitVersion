@@ -60,63 +60,29 @@ jobs:
 
       # Build & test every .NET version for this distro concurrently. Versions of the
       # same distro share base-image layers, so later builds reuse the docker cache.
+      # Each step is a single plain `dotnet run` command: the DockerTest Cake target
+      # owns the two-registry loop and the retry, so no JS action is invoked here
+      # (concurrent parallel steps must not reuse the same action — that races).
       # NOTE: versions are hardcoded because `parallel:` is static YAML and cannot
       # iterate inputs.dotnet_versions — keep this list in sync with Constants.DotnetVersions.
-      # Run the build/test directly as `run:` steps (not via the nick-fields/retry
-      # JS action) so the parallel steps don't race on shared action staging.
-      # The two-registry + 3-attempt retry behaviour of the docker-test composite
-      # is reproduced inline.
       - parallel:
           - name: 'Docker Test (net10.0)'
             if: inputs.publish_images == false
             shell: pwsh
             timeout-minutes: 30
-            run: |
-              foreach ($registry in @('dockerhub', 'github')) {
-                $ok = $false
-                for ($i = 1; $i -le 3; $i++) {
-                  dotnet run/docker.dll --target=DockerTest `
-                    --arch=${{ inputs.arch }} --dotnet_version=10.0 `
-                    --docker_distro=${{ matrix.docker_distro }} --docker_registry $registry --verbosity=diagnostic
-                  if ($LASTEXITCODE -eq 0) { $ok = $true; break }
-                  Write-Host "::warning::Docker Test ($registry net10.0) attempt $i failed (exit $LASTEXITCODE)"
-                }
-                if (-not $ok) { exit 1 }
-              }
+            run: dotnet run/docker.dll --target=DockerTest --arch=${{ inputs.arch }} --dotnet_version=10.0 --docker_distro=${{ matrix.docker_distro }} --verbosity=diagnostic
 
           - name: 'Docker Test (net9.0)'
             if: inputs.publish_images == false
             shell: pwsh
             timeout-minutes: 30
-            run: |
-              foreach ($registry in @('dockerhub', 'github')) {
-                $ok = $false
-                for ($i = 1; $i -le 3; $i++) {
-                  dotnet run/docker.dll --target=DockerTest `
-                    --arch=${{ inputs.arch }} --dotnet_version=9.0 `
-                    --docker_distro=${{ matrix.docker_distro }} --docker_registry $registry --verbosity=diagnostic
-                  if ($LASTEXITCODE -eq 0) { $ok = $true; break }
-                  Write-Host "::warning::Docker Test ($registry net9.0) attempt $i failed (exit $LASTEXITCODE)"
-                }
-                if (-not $ok) { exit 1 }
-              }
+            run: dotnet run/docker.dll --target=DockerTest --arch=${{ inputs.arch }} --dotnet_version=9.0 --docker_distro=${{ matrix.docker_distro }} --verbosity=diagnostic
 
           - name: 'Docker Test (net8.0)'
             if: inputs.publish_images == false
             shell: pwsh
             timeout-minutes: 30
-            run: |
-              foreach ($registry in @('dockerhub', 'github')) {
-                $ok = $false
-                for ($i = 1; $i -le 3; $i++) {
-                  dotnet run/docker.dll --target=DockerTest `
-                    --arch=${{ inputs.arch }} --dotnet_version=8.0 `
-                    --docker_distro=${{ matrix.docker_distro }} --docker_registry $registry --verbosity=diagnostic
-                  if ($LASTEXITCODE -eq 0) { $ok = $true; break }
-                  Write-Host "::warning::Docker Test ($registry net8.0) attempt $i failed (exit $LASTEXITCODE)"
-                }
-                if (-not $ok) { exit 1 }
-              }
+            run: dotnet run/docker.dll --target=DockerTest --arch=${{ inputs.arch }} --dotnet_version=8.0 --docker_distro=${{ matrix.docker_distro }} --verbosity=diagnostic
 
       - name: Load DockerHub credentials
         id: dockerhub-creds

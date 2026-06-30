@@ -19,6 +19,8 @@ public class DockerTest : FrostingTask<BuildContext>
         return shouldRun;
     }
 
+    private const int MaxAttempts = 3;
+
     public override void Run(BuildContext context)
     {
         foreach (var dockerImage in context.Images)
@@ -28,7 +30,18 @@ public class DockerTest : FrostingTask<BuildContext>
                 continue;
             }
 
-            context.DockerTestImage(dockerImage);
+            for (var attempt = 1; ; attempt++)
+            {
+                try
+                {
+                    context.DockerTestImage(dockerImage);
+                    break;
+                }
+                catch (Exception ex) when (attempt < MaxAttempts)
+                {
+                    context.Warning($"Testing image {dockerImage} failed on attempt {attempt}/{MaxAttempts}: {ex.Message}. Retrying...");
+                }
+            }
         }
     }
 }

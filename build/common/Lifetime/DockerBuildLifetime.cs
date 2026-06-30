@@ -19,7 +19,11 @@ public abstract class DockerBuildLifetime<TContext> : BuildLifetimeBase<TContext
 
         context.IsDockerOnLinux = context.DockerCustomCommand("info --format '{{.OSType}}'").First().Replace("'", string.Empty) == "linux";
 
-        var dockerRegistry = context.Argument(Arguments.DockerRegistry, DockerRegistry.DockerHub);
+        // When no specific registry is requested (e.g. DockerTest in CI) cover both
+        // registries in one invocation; publish/manifest always pass one explicitly.
+        DockerRegistry[] registries = context.HasArgument(Arguments.DockerRegistry)
+            ? [.. context.Arguments<DockerRegistry>(Arguments.DockerRegistry)]
+            : [DockerRegistry.DockerHub, DockerRegistry.GitHub];
         var dotnetVersion = context.Argument(Arguments.DotnetVersion, string.Empty).ToLower();
         var dockerDistro = context.Argument(Arguments.DockerDistro, string.Empty).ToLower();
 
@@ -42,14 +46,15 @@ public abstract class DockerBuildLifetime<TContext> : BuildLifetimeBase<TContext
             : Constants.ArchToBuild;
         var platformArch = context.IsRunningOnAmd64() ? Architecture.Amd64 : Architecture.Arm64;
 
-        var registry = dockerRegistry == DockerRegistry.DockerHub ? Constants.DockerHubRegistry : Constants.GitHubContainerRegistry;
-
-        context.DockerRegistry = dockerRegistry;
+        context.DockerRegistry = registries[0];
         context.Architectures = architectures;
         context.Images = from version in versions
                          from distro in distros
                          from arch in architectures
-                         select new DockerImage(distro, version, arch, registry, UseBaseImage);
+                         from registry in registries
+                         select new DockerImage(distro, version, arch,
+                             registry == DockerRegistry.DockerHub ? Constants.DockerHubRegistry : Constants.GitHubContainerRegistry,
+                             UseBaseImage);
 
         context.StartGroup("Build Setup");
 
