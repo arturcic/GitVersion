@@ -1,0 +1,11 @@
+# actionlint configuration.
+#
+# The docker workflows use the GitHub Actions step-parallelism feature
+# (the `parallel:` keyword, announced 2026-06-25). actionlint <= 1.7.12 does
+# not yet recognise it and reports a false "step must run script ..." syntax
+# error. Ignore that single message for those files until actionlint adds
+# support; every other rule stays enforced.
+paths:
+  .github/workflows/_docker*.yml:
+    ignore:
+      - 'step must run script with "run" section or run action with "uses" section'
