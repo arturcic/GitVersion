@@ -7,13 +7,8 @@ env:
 
 jobs:
   artifacts:
-    name: ${{ matrix.package }}
+    name: Windows
     runs-on: windows-2025-vs2026
-    strategy:
-      fail-fast: false
-      matrix:
-        package: [ Executable, MsBuildFull ]
-
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -25,20 +20,32 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore State
-        uses: ./.github/actions/cache-restore
+      - parallel:
+          - name: Restore State
+            uses: ./.github/actions/cache-restore
 
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        name: Download nuget packages
-        with:
-          name: nuget
-          path: ${{ github.workspace }}/artifacts/packages/nuget
+          - name: Download nuget packages
+            uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+            with:
+              name: nuget
+              path: ${{ github.workspace }}/artifacts/packages/nuget
 
-      - name: '[Test Artifacts]'
-        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
-        with:
-          shell: pwsh
-          timeout_minutes: 30
-          max_attempts: 3
-          retry_on: error
-          command: dotnet run/artifacts.dll --target=Artifacts${{ matrix.package }}Test
+      # The Executable and MsBuild artifact tests are independent → run concurrently.
+      - parallel:
+          - name: '[Test Artifacts] (Executable)'
+            uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
+            with:
+              shell: pwsh
+              timeout_minutes: 30
+              max_attempts: 3
+              retry_on: error
+              command: dotnet run/artifacts.dll --target=ArtifactsExecutableTest
+
+          - name: '[Test Artifacts] (MsBuildFull)'
+            uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
+            with:
+              shell: pwsh
+              timeout_minutes: 30
+              max_attempts: 3
+              retry_on: error
+              command: dotnet run/artifacts.dll --target=ArtifactsMsBuildFullTest
