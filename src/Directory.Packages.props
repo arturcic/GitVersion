@@ -7,6 +7,7 @@
     <MicrosoftCodeAnalysisVersion>5.9.0</MicrosoftCodeAnalysisVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="Microsoft.Testing.Extensions.GitHubActionsReport" Version="2.4.1" />
     <!-- common packages -->
     <PackageVersion Include="coverlet.MTP" Version="10.0.1" />
     <PackageVersion Include="JsonSchema.Net" Version="7.3.4" />

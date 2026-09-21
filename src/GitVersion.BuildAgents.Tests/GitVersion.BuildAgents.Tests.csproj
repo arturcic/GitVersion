@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup Condition="'$(MTP_REPORTING_PILOT)' == 'true'">
+        <PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" PrivateAssets="all" />
+    </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\GitVersion.BuildAgents\GitVersion.BuildAgents.csproj" />
         <ProjectReference Include="..\GitVersion.Core.Tests\GitVersion.Core.Tests.csproj" />

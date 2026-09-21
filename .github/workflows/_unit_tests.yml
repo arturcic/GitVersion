@@ -15,6 +15,69 @@ permissions:
   contents: read
 
 jobs:
+  reporter_pilot:
+    name: MTP pilot - ubuntu-24.04 - net10.0 - managed - BuildAgents
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      MTP_REPORTING_PROOF: 'true'
+      MTP_REPORTING_PILOT: 'true'
+      GITVERSION_GIT_BACKEND: managed
+      TEST_RESULTS: ${{ github.workspace }}/artifacts/test-results/pilot/GitVersion.BuildAgents.Tests/net10.0/managed/attempt-${{ github.run_attempt }}
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Restore State
+        uses: $/.github/actions/cache-restore # NOSONAR -- $/ resolves to the running commit.
+
+      # Do not retry: earlier failure annotations survive a later passing run.
+      - name: Test BuildAgents with MTP reporting
+        id: pilot_tests
+        shell: bash
+        run: |
+          # Explicit bash uses pipefail, preserving a test failure through tee.
+          mkdir -p "$TEST_RESULTS"
+          dotnet run/build.dll --target=UnitTestReport --test_results="$TEST_RESULTS" \
+            2>&1 | tee "$TEST_RESULTS/test.log"
+
+      - name: Pilot test totals
+        uses: test-summary/action@37b508cfee6d4d080eedd00b5bb240a6a784a6a5 # v2.6
+        if: always() && hashFiles('artifacts/test-results/pilot/**/results.xml') != ''
+        with:
+          paths: artifacts/test-results/pilot/**/results.xml
+
+      - name: Explain incomplete or failed pilot
+        if: always() && steps.pilot_tests.outcome != 'success'
+        shell: bash
+        env:
+          TEST_OUTCOME: ${{ steps.pilot_tests.outcome }}
+        run: |
+          {
+            echo '### MTP pilot — BuildAgents / net10.0 / managed'
+            printf 'Test step outcome: **%s**.\n\n' "$TEST_OUTCOME"
+            echo 'The run may be incomplete. Missing reports do not mean that tests passed.'
+            echo 'See the test-step log and the pilot artifact, if produced, for available JUnit and coverage evidence.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Preserve pilot reports and log
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: mtp-pilot-ubuntu-24.04-net10.0-managed-BuildAgents-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/test-results/pilot/
+          if-no-files-found: warn
+          retention-days: 7
+
   unit_test:
     name: ${{ matrix.os }} - net${{ matrix.dotnet_version }} - ${{ matrix.git_backend }}
     permissions:
