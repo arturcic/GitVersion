@@ -11,6 +11,7 @@ on:
       - 'fix/*'
       - 'feature/*'
       - 'poc/*'
+      - 'codex/main-reporting-proof'
       - 'support/*'
       - 'next/*'
     paths:

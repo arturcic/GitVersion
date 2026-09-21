@@ -46,6 +46,7 @@ jobs:
         uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
         env:
           GITVERSION_GIT_BACKEND: ${{ matrix.git_backend }}
+          MTP_REPORTING_PROOF: ${{ matrix.os == 'ubuntu-24.04' && matrix.dotnet_version == '10.0' && matrix.git_backend == 'managed' }}
         with:
           shell: pwsh
           timeout_minutes: 30
