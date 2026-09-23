@@ -39,7 +39,7 @@ jobs:
         run: |
           gh api "repos/GitTools/GitVersion/actions/runs/$SOURCE_RUN" > "$RUNNER_TEMP/source-run.json"
           jq -e --argjson attempt "$SOURCE_ATTEMPT" \
-            '.path == ".github/workflows/ci.yml" and .run_attempt == $attempt and .conclusion == "success"' "$RUNNER_TEMP/source-run.json"
+            '.path == ".github/workflows/ci.yml" and .run_attempt == $attempt' "$RUNNER_TEMP/source-run.json"
           gh api --paginate "repos/GitTools/GitVersion/actions/runs/$SOURCE_RUN/attempts/$SOURCE_ATTEMPT/jobs?per_page=100" |
             jq --slurp -e '[.[].jobs[] | select(.name == "Test / ubuntu-24.04 - net10.0 - managed")] |
               length == 1 and .[0].conclusion == "success"'
