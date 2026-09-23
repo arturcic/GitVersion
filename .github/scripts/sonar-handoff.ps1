@@ -79,7 +79,7 @@ Require ($manifest.scanner -eq '11.3.0' -and $manifest.workspace -ceq $Workspace
 if ($Mode -eq 'Install') {
     $fresh = Get-Fingerprint
     Require ($fresh.Count -eq $manifest.fingerprint.Count) 'Analyzer configuration changed'
-    foreach ($key in $fresh.Keys) { Require ($manifest.fingerprint[$key] -ceq $fresh[$key]) 'Analyzer configuration changed; rerun CI' }
+    foreach ($key in $fresh.Keys) { Require ($manifest.fingerprint[$key] -ceq $fresh[$key]) "Analyzer configuration changed: $key; rerun CI" }
     foreach ($folder in 'out', 'conf') {
         [IO.Directory]::CreateDirectory("$Workspace/.sonarqube/$folder") | Out-Null
         Get-ChildItem -LiteralPath "$Staging/$folder" | Copy-Item -Destination "$Workspace/.sonarqube/$folder" -Recurse -Force
