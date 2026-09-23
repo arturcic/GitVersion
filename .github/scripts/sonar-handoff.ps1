@@ -193,9 +193,9 @@ foreach ($report in $reports) {
     $sources = @($xml.SelectNodes('/coverage/sources/source') | ForEach-Object { $_.InnerText } | Where-Object { [IO.Path]::IsPathFullyQualified($_) })
     $owned = 0
     foreach ($item in @($xml.SelectNodes('//class'))) {
-        $matches = @($sources | ForEach-Object { [IO.Path]::GetFullPath([IO.Path]::Combine($_, $item.GetAttribute('filename'))) } | Where-Object { $_.StartsWith($Workspace + '/', [StringComparison]::Ordinal) })
-        if ($matches.Count -eq 0) { [void]$item.ParentNode.RemoveChild($item); continue }
-        [void](Get-Owned $matches[0]); $item.SetAttribute('filename', $matches[0]); $owned++
+        $sourceMatches = @($sources | ForEach-Object { [IO.Path]::GetFullPath([IO.Path]::Combine($_, $item.GetAttribute('filename'))) } | Where-Object { $_.StartsWith($Workspace + '/', [StringComparison]::Ordinal) })
+        if ($sourceMatches.Count -eq 0) { [void]$item.ParentNode.RemoveChild($item); continue }
+        [void](Get-Owned $sourceMatches[0]); $item.SetAttribute('filename', $sourceMatches[0]); $owned++
     }
     Require ($owned -gt 0) 'Coverage report has no repository sources'
     foreach ($source in $xml.SelectNodes('/coverage/sources/source')) { $source.InnerText = '/' }
