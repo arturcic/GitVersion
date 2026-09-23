@@ -46,7 +46,8 @@ jobs:
           head=$(jq -r '.head_sha' "$RUNNER_TEMP/source-run.json")
           if [[ $(jq -r '.event' "$RUNNER_TEMP/source-run.json") == pull_request ]]; then
             repository=$(jq -r '.head_repository.full_name' "$RUNNER_TEMP/source-run.json")
-            gh api "repos/GitTools/GitVersion/commits/$head/pulls" |
+            branch=$(jq -r '.head_branch' "$RUNNER_TEMP/source-run.json")
+            gh api -X GET "repos/GitTools/GitVersion/pulls" -f state=open -f "head=${repository%%/*}:$branch" -f per_page=100 |
               jq -e --arg head "$head" --arg repository "$repository" \
                 '[.[] | select(.state == "open" and .head.sha == $head and .head.repo.full_name == $repository and .base.repo.full_name == "GitTools/GitVersion")] |
                 if length == 1 then .[0] else error("No unique current PR") end' > "$RUNNER_TEMP/source-pr.json"
