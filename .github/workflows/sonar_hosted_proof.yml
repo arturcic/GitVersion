@@ -94,11 +94,6 @@ jobs:
       - name: Install trusted scanner outside the source checkout
         working-directory: ${{ runner.temp }}
         run: dotnet tool install dotnet-sonarscanner --version 11.3.0 --tool-path "$RUNNER_TEMP/sonar-tool"
-      - name: Compare anonymous scanner preparation
-        shell: bash
-        run: |
-          "$RUNNER_TEMP/sonar-tool/dotnet-sonarscanner" begin /install:false /k:GitTools_GitVersion /o:gittools /d:sonar.host.url=https://sonarcloud.io
-          cp .sonarqube/conf/cs/SonarLint.xml "$RUNNER_TEMP/anonymous-rules.xml"
       - name: Temporarily select CI analysis
         id: mode
         env:
@@ -124,16 +119,6 @@ jobs:
           } else { $arguments += "/d:sonar.branch.name=$env:SOURCE_BRANCH" }
           & "$env:RUNNER_TEMP/sonar-tool/dotnet-sonarscanner" @arguments
           if ($LASTEXITCODE -ne 0) { throw 'Scanner preparation failed' }
-          [xml]$anonymous = Get-Content "$env:RUNNER_TEMP/anonymous-rules.xml"
-          [xml]$authenticated = Get-Content '.sonarqube/conf/cs/SonarLint.xml'
-          foreach ($category in 'Settings', 'Rules') {
-            $before = @{}; $after = @{}
-            foreach ($node in $anonymous.AnalysisInput.$category.ChildNodes) { $before[$node.Key] = $node.OuterXml }
-            foreach ($node in $authenticated.AnalysisInput.$category.ChildNodes) { $after[$node.Key] = $node.OuterXml }
-            foreach ($key in @($before.Keys) + @($after.Keys) | Sort-Object -Unique) {
-              if ($before[$key] -ne $after[$key]) { Write-Host "Changed $category key: $key" }
-            }
-          }
           & "$env:RUNNER_TEMP/sonar-handoff.ps1" -Mode Install -Workspace $env:GITHUB_WORKSPACE -Bundle "$env:RUNNER_TEMP/sonar-bundle" -Staging "$env:RUNNER_TEMP/sonar-staged" -Revision $env:ANALYZED_SHA
           if ($env:PR) {
             $current = Invoke-RestMethod "https://api.github.com/repos/GitTools/GitVersion/pulls/$env:PR"

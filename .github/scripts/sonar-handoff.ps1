@@ -55,7 +55,12 @@ function Get-Fingerprint {
     $conf = "$Workspace/.sonarqube/conf"
     $result = [ordered]@{}
     Get-ChildItem -LiteralPath $conf -Recurse -File | Where-Object { $_.Extension -eq '.ruleset' -or $_.Name -eq 'SonarLint.xml' } | Sort-Object FullName | ForEach-Object {
-        $result[[IO.Path]::GetRelativePath($conf, $_.FullName)] = Get-XmlFingerprint (Read-Xml $_.FullName).DocumentElement
+        $document = Read-Xml $_.FullName
+        # This trusted publisher input is not a compiler rule or analyzer parameter.
+        foreach ($setting in @($document.SelectNodes('/AnalysisInput/Settings/Setting[Key="sonar.cs.cobertura.reportsPaths"]'))) {
+            [void]$setting.ParentNode.RemoveChild($setting)
+        }
+        $result[[IO.Path]::GetRelativePath($conf, $_.FullName)] = Get-XmlFingerprint $document.DocumentElement
     }
     $xml = Read-Xml "$conf/SonarQubeAnalysisConfig.xml"
     foreach ($plugin in $xml.SelectNodes("//*[local-name()='AnalyzerPlugin']")) {
