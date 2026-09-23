@@ -42,11 +42,19 @@ function Copy-Data([string]$Source, [string]$Target) {
     [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($Target)) | Out-Null
     Copy-Item -LiteralPath $Source -Destination $Target
 }
+function Get-XmlFingerprint([Xml.XmlNode]$Node) {
+    # Rules/settings are unordered collections. Preserve all names, attributes and values.
+    $attributes = @($Node.Attributes | ForEach-Object { $_.Name + '=' + $_.Value } | Sort-Object)
+    $children = @($Node.ChildNodes | Where-Object { $_ -is [Xml.XmlElement] } | ForEach-Object { Get-XmlFingerprint $_ } | Sort-Object)
+    $value = if ($children.Count) { '' } else { $Node.InnerText }
+    $canonical = @($Node.Name, $attributes, $value, $children) | ConvertTo-Json -Depth 10 -Compress
+    return [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($canonical)))
+}
 function Get-Fingerprint {
     $conf = "$Workspace/.sonarqube/conf"
     $result = [ordered]@{}
     Get-ChildItem -LiteralPath $conf -Recurse -File | Where-Object { $_.Extension -eq '.ruleset' -or $_.Name -eq 'SonarLint.xml' } | Sort-Object FullName | ForEach-Object {
-        $result[[IO.Path]::GetRelativePath($conf, $_.FullName)] = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash
+        $result[[IO.Path]::GetRelativePath($conf, $_.FullName)] = Get-XmlFingerprint (Read-Xml $_.FullName).DocumentElement
     }
     $xml = Read-Xml "$conf/SonarQubeAnalysisConfig.xml"
     foreach ($plugin in $xml.SelectNodes("//*[local-name()='AnalyzerPlugin']")) {
@@ -69,13 +77,13 @@ if ($Mode -eq 'Pack') {
     }
     $commit = & git -C $Workspace rev-parse HEAD
     Require ($LASTEXITCODE -eq 0) 'Cannot resolve source revision'
-    @{ scanner = '11.3.0'; workspace = $Workspace; revision = $commit; fingerprint = (Get-Fingerprint) } |
+    @{ fingerprintFormat = 2; scanner = '11.3.0'; workspace = $Workspace; revision = $commit; fingerprint = (Get-Fingerprint) } |
         ConvertTo-Json -Depth 8 | Set-Content "$Bundle/manifest.json"
     exit
 }
 Require ((Get-Item -LiteralPath "$Bundle/manifest.json").Length -le 1048576) 'Oversized manifest'
 $manifest = Get-Content -Raw -LiteralPath "$Bundle/manifest.json" | ConvertFrom-Json -AsHashtable
-Require ($manifest.scanner -eq '11.3.0' -and $manifest.workspace -ceq $Workspace -and $manifest.revision -ceq $Revision) 'Scanner, workspace or source revision mismatch'
+Require ($manifest.fingerprintFormat -eq 2 -and $manifest.scanner -eq '11.3.0' -and $manifest.workspace -ceq $Workspace -and $manifest.revision -ceq $Revision) 'Scanner, workspace or source revision mismatch'
 if ($Mode -eq 'Install') {
     $fresh = Get-Fingerprint
     Require ($fresh.Count -eq $manifest.fingerprint.Count) 'Analyzer configuration changed'
