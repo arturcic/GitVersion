@@ -45,7 +45,8 @@ function Copy-Data([string]$Source, [string]$Target) {
 function Get-XmlFingerprint([Xml.XmlNode]$Node) {
     # Rules/settings are unordered collections. Preserve all names, attributes and values.
     $attributes = @($Node.Attributes | ForEach-Object { $_.Name + '=' + $_.Value } | Sort-Object)
-    $children = @($Node.ChildNodes | Where-Object { $_ -is [Xml.XmlElement] } | ForEach-Object { Get-XmlFingerprint $_ } | Sort-Object)
+    $children = @($Node.ChildNodes | Where-Object { $_ -is [Xml.XmlElement] } | ForEach-Object { Get-XmlFingerprint $_ })
+    if (-not $Node.SelectSingleNode("Include")) { $children = @($children | Sort-Object) }
     $value = if ($children.Count) { '' } else { $Node.InnerText }
     $canonical = @($Node.Name, $attributes, $value, $children) | ConvertTo-Json -Depth 10 -Compress
     return [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($canonical)))
@@ -136,8 +137,8 @@ foreach ($infoPath in Get-ChildItem "$Bundle/out/*/ProjectInfo.xml" | Sort-Objec
     $digest = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($project))).Substring(0,32)
     $guid = [Guid]::ParseExact($digest, 'N')
     Require ([Guid]$info.ProjectInfo.ProjectGuid -eq $guid) 'Unexpected project identifier'
-    # A solution can rebuild a shared project; retain its latest completed output.
-    if (-not $projects.Add($project)) { continue }
+    # Preserve every valid build output; the standard scanner handles shared projects.
+    [void]$projects.Add($project)
     $accepted = @(Get-Content -LiteralPath (Resolve-Child $Bundle "conf/$folder/FilesToAnalyze.txt") | Where-Object {
         $_.StartsWith($Workspace + '/', [StringComparison]::Ordinal) -and $tracked.Contains($_.Substring($Workspace.Length + 1))
     })
