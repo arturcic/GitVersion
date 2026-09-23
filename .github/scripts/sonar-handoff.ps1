@@ -118,16 +118,18 @@ foreach ($solution in 'src/GitVersion.slnx', 'new-cli/GitVersion.slnx', 'build/C
     }
 }
 $projects = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
-foreach ($infoPath in Get-ChildItem "$Bundle/out/*/ProjectInfo.xml") {
+foreach ($infoPath in Get-ChildItem "$Bundle/out/*/ProjectInfo.xml" | Sort-Object { [int]$_.Directory.Name } -Descending) {
     $folder = $infoPath.Directory.Name
     Require ($folder -match '^\d+$') 'Invalid project output directory'
     $info = Read-Xml $infoPath.FullName
     $project = Get-Owned $info.ProjectInfo.FullPath
-    Require ($expected.Contains($project) -and $projects.Add($project)) 'Unexpected or duplicate project'
+    Require ($expected.Contains($project)) "Unexpected project: $project"
     Require ($info.ProjectInfo.ProjectLanguage -eq 'C#' -and $info.ProjectInfo.IsExcluded -eq 'false') 'Unexpected project language or exclusion'
     $digest = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($project))).Substring(0,32)
     $guid = [Guid]::ParseExact($digest, 'N')
     Require ([Guid]$info.ProjectInfo.ProjectGuid -eq $guid) 'Unexpected project identifier'
+    # A solution can rebuild a shared project; retain its latest completed output.
+    if (-not $projects.Add($project)) { continue }
     $accepted = @(Get-Content -LiteralPath (Resolve-Child $Bundle "conf/$folder/FilesToAnalyze.txt") | Where-Object {
         $_.StartsWith($Workspace + '/', [StringComparison]::Ordinal) -and $tracked.Contains($_.Substring($Workspace.Length + 1))
     })
