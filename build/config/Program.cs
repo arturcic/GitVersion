@@ -6,7 +6,7 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("SetMatrix")
+Task(nameof(Config.Tasks.SetMatrix))
     .Does(() => new Config.Tasks.SetMatrix().Run(context));
 
 return BuildRunner.Run(context, () => RunTarget(Argument("target", "Default")));

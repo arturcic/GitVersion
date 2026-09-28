@@ -17,68 +17,68 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("Test")
+Task(nameof(Build.Tasks.Test))
     .Description("(CI only) Run the tests and publish the results")
-    .IsDependentOn("PublishCoverage");
+    .IsDependentOn(nameof(Build.Tasks.PublishCoverage));
 
-Task("Build")
+Task(nameof(Build.Tasks.Build))
     .Description("Builds the solution")
-    .IsDependentOn("Clean")
+    .IsDependentOn(nameof(Build.Tasks.Clean))
     .Does(() => new Build.Tasks.Build().Run(context));
 
-Task("Package")
+Task(nameof(Build.Tasks.Package))
     .Description("Creates the packages (nuget, chocolatey or tar.gz)")
-    .IsDependentOn("PackageChocolatey")
-    .IsDependentOn("PackageNuget")
-    .IsDependentOn("PackageArchive");
+    .IsDependentOn(nameof(Build.Tasks.PackageChocolatey))
+    .IsDependentOn(nameof(Build.Tasks.PackageNuget))
+    .IsDependentOn(nameof(Build.Tasks.PackageArchive));
 
-Task("Clean")
+Task(nameof(Build.Tasks.Clean))
     .Description("Cleans build artifacts")
     .Does(() => new Build.Tasks.Clean().Run(context));
 
-Task("CodeFormat")
+Task(nameof(Build.Tasks.CodeFormat))
     .Description("Formats the code")
     .Does(() => new Build.Tasks.CodeFormat().Run(context));
 
-Task("ValidateVersion")
+Task(nameof(Build.Tasks.ValidateVersion))
     .Description("Validates built assembly version")
-    .IsDependentOn("Build")
+    .IsDependentOn(nameof(Build.Tasks.Build))
     .Does(() => new Build.Tasks.ValidateVersion().Run(context));
 
-Task("BuildPrepare")
+Task(nameof(Build.Tasks.BuildPrepare))
     .Description("Builds the solution")
-    .IsDependentOn("Clean")
+    .IsDependentOn(nameof(Build.Tasks.Clean))
     .Does(() => new Build.Tasks.BuildPrepare().Run(context));
 
-Task("UnitTest")
+Task(nameof(Build.Tasks.UnitTest))
     .Description("Run the unit tests")
-    .IsDependentOn("Build")
+    .IsDependentOn(nameof(Build.Tasks.Build))
     .WithCriteria(() => new Build.Tasks.UnitTest().ShouldRun(context))
     .Does(() => new Build.Tasks.UnitTest().Run(context));
 
-Task("PublishCoverage")
+Task(nameof(Build.Tasks.PublishCoverage))
     .Description("Publishes the test coverage")
-    .IsDependentOn("UnitTest")
+    .IsDependentOn(nameof(Build.Tasks.UnitTest))
     .WithCriteria(() => new Build.Tasks.PublishCoverage().ShouldRun(context))
     .Does(() => new Build.Tasks.PublishCoverage().Run(context));
 
-Task("PackageChocolatey")
+Task(nameof(Build.Tasks.PackageChocolatey))
     .Description("Creates the chocolatey packages")
-    .IsDependentOn("PackagePrepare")
+    .IsDependentOn(nameof(Build.Tasks.PackagePrepare))
     .WithCriteria(() => new Build.Tasks.PackageChocolatey().ShouldRun(context))
     .Does(() => new Build.Tasks.PackageChocolatey().Run(context));
 
-Task("PackageArchive")
+Task(nameof(Build.Tasks.PackageArchive))
     .Description("Creates the tar.gz or zip packages")
-    .IsDependentOn("PackagePrepare")
+    .IsDependentOn(nameof(Build.Tasks.PackagePrepare))
     .Does(() => new Build.Tasks.PackageArchive().Run(context));
 
-Task("PackagePrepare")
+Task(nameof(Build.Tasks.PackagePrepare))
     .Description("Prepares for packaging")
-    .IsDependentOn("ValidateVersion")
+    .IsDependentOn(nameof(Build.Tasks.ValidateVersion))
     .Does(() => new Build.Tasks.PackagePrepare().Run(context));
 
-Task("PackageNuget")
+Task(nameof(Build.Tasks.PackageNuget))
     .Description("Creates the nuget packages")
     .Does(() => new Build.Tasks.PackageNuget().Run(context));
 

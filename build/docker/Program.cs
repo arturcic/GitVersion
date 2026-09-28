@@ -13,44 +13,44 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("DockerTest")
+Task(nameof(Docker.Tasks.DockerTest))
     .Description("Test the docker images containing the GitVersion Tool")
-    .IsDependentOn("DockerBuild")
+    .IsDependentOn(nameof(Docker.Tasks.DockerBuild))
     .WithCriteria(() => new Docker.Tasks.DockerTest().ShouldRun(context))
     .Does(() => new Docker.Tasks.DockerTest().Run(context));
 
-Task("DockerManifest")
+Task(nameof(Docker.Tasks.DockerManifest))
     .Description("Publish the docker manifest containing the images for amd64 and arm64")
-    .IsDependentOn("DockerManifestInternal")
+    .IsDependentOn(nameof(Docker.Tasks.DockerManifestInternal))
     .WithCriteria(() => new Docker.Tasks.DockerManifest().ShouldRun(context));
 
-Task("DockerManifestInternal")
+Task(nameof(Docker.Tasks.DockerManifestInternal))
     .Description("Publish the docker manifest containing the images for amd64 and arm64")
     .WithCriteria(() => new Docker.Tasks.DockerManifestInternal().ShouldRun(context))
     .Does(() => new Docker.Tasks.DockerManifestInternal().Run(context));
 
-Task("DockerBuild")
+Task(nameof(Docker.Tasks.DockerBuild))
     .Description("Build the docker images containing the GitVersion Tool")
     .WithCriteria(() => new Docker.Tasks.DockerBuild().ShouldRun(context))
     .Does(() => new Docker.Tasks.DockerBuild().Run(context));
 
-Task("DockerHubReadmePublish")
+Task(nameof(Docker.Tasks.DockerHubReadmePublish))
     .Description("Publish the DockerHub updated README.md")
-    .IsDependentOn("DockerHubReadmePublishInternal");
+    .IsDependentOn(nameof(Docker.Tasks.DockerHubReadmePublishInternal));
 
-Task("DockerHubReadmePublishInternal")
+Task(nameof(Docker.Tasks.DockerHubReadmePublishInternal))
     .Description("Publish the DockerHub updated README.md")
     .WithCriteria(() => new Docker.Tasks.DockerHubReadmePublishInternal().ShouldRun(context))
     .Does(() => new Docker.Tasks.DockerHubReadmePublishInternal().RunAsync(context));
 
-Task("DockerPublish")
+Task(nameof(Docker.Tasks.DockerPublish))
     .Description("Publish the docker images containing the GitVersion Tool")
-    .IsDependentOn("DockerPublishInternal")
+    .IsDependentOn(nameof(Docker.Tasks.DockerPublishInternal))
     .WithCriteria(() => new Docker.Tasks.DockerPublish().ShouldRun(context));
 
-Task("DockerPublishInternal")
+Task(nameof(Docker.Tasks.DockerPublishInternal))
     .Description("Publish the docker images containing the GitVersion Tool")
-    .IsDependentOn("DockerTest")
+    .IsDependentOn(nameof(Docker.Tasks.DockerTest))
     .WithCriteria(() => new Docker.Tasks.DockerPublishInternal().ShouldRun(context))
     .Does(() => new Docker.Tasks.DockerPublishInternal().Run(context));
 

@@ -13,20 +13,20 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("PublishChocolatey")
+Task(nameof(Publish.Tasks.PublishChocolatey))
     .Description("Publish chocolatey packages")
-    .IsDependentOn("PublishChocolateyInternal");
+    .IsDependentOn(nameof(Publish.Tasks.PublishChocolateyInternal));
 
-Task("PublishChocolateyInternal")
+Task(nameof(Publish.Tasks.PublishChocolateyInternal))
     .Description("Publish chocolatey packages")
     .WithCriteria(() => new Publish.Tasks.PublishChocolateyInternal().ShouldRun(context))
     .Does(() => new Publish.Tasks.PublishChocolateyInternal().RunAsync(context));
 
-Task("PublishNuget")
+Task(nameof(Publish.Tasks.PublishNuget))
     .Description("Publish nuget packages")
-    .IsDependentOn("PublishNugetInternal");
+    .IsDependentOn(nameof(Publish.Tasks.PublishNugetInternal));
 
-Task("PublishNugetInternal")
+Task(nameof(Publish.Tasks.PublishNugetInternal))
     .Description("Publish nuget packages")
     .WithCriteria(() => new Publish.Tasks.PublishNugetInternal().ShouldRun(context))
     .Does(() => new Publish.Tasks.PublishNugetInternal().RunAsync(context));

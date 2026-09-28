@@ -20,11 +20,11 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("PublishRelease")
+Task(nameof(Release.Tasks.PublishRelease))
     .Description("Publish release")
-    .IsDependentOn("PublishReleaseInternal");
+    .IsDependentOn(nameof(Release.Tasks.PublishReleaseInternal));
 
-Task("PublishReleaseInternal")
+Task(nameof(Release.Tasks.PublishReleaseInternal))
     .Description("Publish release")
     .WithCriteria(() => new Release.Tasks.PublishReleaseInternal().ShouldRun(context))
     .Does(() => new Release.Tasks.PublishReleaseInternal().Run(context));

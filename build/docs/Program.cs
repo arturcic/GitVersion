@@ -20,53 +20,53 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("GenerateMermaidSources")
+Task(nameof(Docs.Tasks.GenerateMermaidSources))
     .Description("Generates Mermaid documentation sources from integration tests")
     .Does(() => new Docs.Tasks.GenerateMermaidSources().Run(context));
 
-Task("BuildDocs")
+Task(nameof(Docs.Tasks.BuildDocs))
     .Description("Builds the docs to local path")
-    .IsDependentOn("Clean")
-    .IsDependentOn("PrepareDocsInputs")
-    .IsDependentOn("ValidateMermaidDiagrams")
+    .IsDependentOn(nameof(Docs.Tasks.Clean))
+    .IsDependentOn(nameof(Docs.Tasks.PrepareDocsInputs))
+    .IsDependentOn(nameof(Docs.Tasks.ValidateMermaidDiagrams))
     .WithCriteria(() => new Docs.Tasks.BuildDocs().ShouldRun(context))
     .Does(() => new Docs.Tasks.BuildDocs().Run(context));
 
-Task("InstallNodeDependencies")
+Task(nameof(Docs.Tasks.InstallNodeDependencies))
     .Description("Installs the pinned Node.js dependencies used by the documentation build")
     .Does(() => new Docs.Tasks.InstallNodeDependencies().Run(context));
 
-Task("PrepareDocsInputs")
+Task(nameof(Docs.Tasks.PrepareDocsInputs))
     .Description("Resolve documentation trains and cache their release inputs")
     .Does(() => new Docs.Tasks.PrepareDocsInputs().Run(context));
 
-Task("GenerateSchemas")
+Task(nameof(Docs.Tasks.GenerateSchemas))
     .Description("Generate schemas")
     .Does(() => new Docs.Tasks.GenerateSchemas().Run(context));
 
-Task("PreviewDocs")
+Task(nameof(Docs.Tasks.PreviewDocs))
     .Description("Run a local server with docs in preview")
-    .IsDependentOn("BuildDocs")
+    .IsDependentOn(nameof(Docs.Tasks.BuildDocs))
     .WithCriteria(() => new Docs.Tasks.PreviewDocs().ShouldRun(context))
     .Does(() => new Docs.Tasks.PreviewDocs().Run(context));
 
-Task("Clean")
+Task(nameof(Docs.Tasks.Clean))
     .Description("Cleans the temporary publish location")
     .Does(() => new Docs.Tasks.Clean().Run(context));
 
-Task("ValidateMermaidDiagrams")
+Task(nameof(Docs.Tasks.ValidateMermaidDiagrams))
     .Description("Verifies generated Mermaid sources and validates their syntax")
-    .IsDependentOn("InstallNodeDependencies")
+    .IsDependentOn(nameof(Docs.Tasks.InstallNodeDependencies))
     .Does(() => new Docs.Tasks.ValidateMermaidDiagrams().Run(context));
 
-Task("PublishDocs")
+Task(nameof(Docs.Tasks.PublishDocs))
     .Description("Published the docs changes to docs specific branch")
-    .IsDependentOn("PublishDocsInternal")
+    .IsDependentOn(nameof(Docs.Tasks.PublishDocsInternal))
     .WithCriteria(() => new Docs.Tasks.PublishDocs().ShouldRun(context));
 
-Task("PublishDocsInternal")
+Task(nameof(Docs.Tasks.PublishDocsInternal))
     .Description("Published the docs changes to docs specific branch")
-    .IsDependentOn("BuildDocs")
+    .IsDependentOn(nameof(Docs.Tasks.BuildDocs))
     .WithCriteria(() => new Docs.Tasks.PublishDocsInternal().ShouldRun(context))
     .Does(() => new Docs.Tasks.PublishDocsInternal().Run(context));
 
