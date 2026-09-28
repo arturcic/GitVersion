@@ -20,7 +20,9 @@ Task("Default")
     .Description("Shows this output")
     .Does(() => TaskHelp.Show(context, Tasks));
 
-Task("PublishRelease");
+Task("PublishRelease")
+    .Description("Publish release")
+    .IsDependentOn("PublishReleaseInternal");
 
 Task("PublishReleaseInternal")
     .Description("Publish release")
