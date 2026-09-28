@@ -1,10 +1,8 @@
-using Cake.Json;
-
 namespace Config.Tasks;
 
-public class SetMatrix : FrostingTask<BuildContext>
+public class SetMatrix
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (context.BuildSystem().IsRunningOnGitHubActions)
         {

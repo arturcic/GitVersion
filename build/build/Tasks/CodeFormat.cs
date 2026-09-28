@@ -1,13 +1,10 @@
-using Cake.Common.Tools.DotNet.Format;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(CodeFormat))]
-[TaskDescription("Formats the code")]
-public class CodeFormat : FrostingTask<BuildContext>
+public class CodeFormat
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.Information("Code format...");
         context.DotNetFormat(Paths.Build.FullPath);

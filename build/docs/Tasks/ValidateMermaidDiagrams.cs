@@ -2,12 +2,9 @@ using Docs.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(ValidateMermaidDiagrams))]
-[TaskDescription("Verifies generated Mermaid sources and validates their syntax")]
-[IsDependentOn(typeof(InstallNodeDependencies))]
-public sealed class ValidateMermaidDiagrams : FrostingTask<BuildContext>
+public sealed class ValidateMermaidDiagrams
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.GenerateMermaidSources(check: true);
         context.ValidateMermaidSyntax();

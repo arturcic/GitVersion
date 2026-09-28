@@ -4,9 +4,9 @@ using Common.Utilities;
 
 namespace Common.Lifetime;
 
-public class BuildLifetimeBase<T> : FrostingLifetime<T> where T : BuildContextBase
+public class BuildLifetimeBase<T> where T : BuildContextBase
 {
-    public override void Setup(T context, ISetupContext info)
+    public virtual void Setup(T context, ISetupContext info)
     {
         var buildSystem = context.BuildSystem();
         var isDebug = context.IsEnabled(EnvVars.ActionsRunnerDebug, false);
@@ -57,7 +57,7 @@ public class BuildLifetimeBase<T> : FrostingLifetime<T> where T : BuildContextBa
 
         context.Version = BuildVersion.Calculate(gitVersion);
     }
-    public override void Teardown(T context, ITeardownContext info)
+    public virtual void Teardown(T context, ITeardownContext info)
     {
         context.StartGroup("Build Teardown");
         try

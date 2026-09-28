@@ -1,14 +1,10 @@
-using Cake.Common.Tools.DotNet.Publish;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(PackagePrepare))]
-[TaskDescription("Prepares for packaging")]
-[IsDependentOn(typeof(ValidateVersion))]
-public class PackagePrepare : FrostingTask<BuildContext>
+public class PackagePrepare
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         PackPrepareNative(context);
 

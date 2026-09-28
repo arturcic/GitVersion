@@ -8,33 +8,8 @@ public static class Extensions
     private static readonly SearchValues<char> CharsRequiringQuoting = SearchValues.Create(' ', '"');
     private static readonly SearchValues<char> CharsRequiringEscaping = SearchValues.Create('\\', '"');
 
-    extension(Assembly assembly)
-    {
-        public IEnumerable<Type> FindAllDerivedTypes(Type baseType) =>
-            from type in assembly.GetExportedTypes()
-            let info = type.GetTypeInfo()
-            where baseType.IsAssignableFrom(type) && info.IsClass && !info.IsAbstract
-            select type;
-    }
-
     extension(Type task)
     {
-        public string GetTaskDescription()
-        {
-            ArgumentNullException.ThrowIfNull(task);
-
-            var attribute = task.GetCustomAttribute<TaskDescriptionAttribute>();
-            return attribute != null ? attribute.Description : string.Empty;
-        }
-
-        public string GetTaskName()
-        {
-            ArgumentNullException.ThrowIfNull(task);
-
-            var attribute = task.GetCustomAttribute<TaskNameAttribute>();
-            return attribute != null ? attribute.Name : task.Name;
-        }
-
         public string GetTaskArguments()
         {
             ArgumentNullException.ThrowIfNull(task);
@@ -52,9 +27,15 @@ public static class Extensions
     public static DirectoryPath GetRootDirectory()
     {
         var currentPath = DirectoryPath.FromString(Directory.GetCurrentDirectory());
-        while (!Directory.Exists(currentPath.Combine(".git").FullPath))
+        while (!Directory.Exists(currentPath.Combine(".git").FullPath)
+            && !File.Exists(currentPath.CombineWithFilePath(".git").FullPath))
         {
-            currentPath = currentPath.GetParent();
+            var parent = currentPath.GetParent();
+            if (parent is null || parent.Equals(currentPath))
+            {
+                throw new DirectoryNotFoundException("Could not locate the repository root.");
+            }
+            currentPath = parent;
         }
 
         return currentPath;

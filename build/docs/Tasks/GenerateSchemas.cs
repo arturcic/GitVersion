@@ -2,11 +2,9 @@ using Common.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(GenerateSchemas))]
-[TaskDescription("Generate schemas")]
-public sealed class GenerateSchemas : FrostingTask<BuildContext>
+public sealed class GenerateSchemas
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         ArgumentNullException.ThrowIfNull(context.Version);
         var schemaTool = context.GetSchemaDotnetToolLocation();

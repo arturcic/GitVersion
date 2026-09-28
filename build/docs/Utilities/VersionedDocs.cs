@@ -1,6 +1,4 @@
-using System.Text.Json;
 using AngleSharp.Html.Parser;
-using Cake.Wyam;
 using Path = System.IO.Path;
 
 namespace Docs.Utilities;

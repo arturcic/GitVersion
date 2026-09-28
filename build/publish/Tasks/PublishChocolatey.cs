@@ -1,19 +1,14 @@
-using Cake.Common.Tools.Chocolatey;
-using Cake.Common.Tools.Chocolatey.Push;
 using Common.Utilities;
+
+using Task = System.Threading.Tasks.Task;
 
 namespace Publish.Tasks;
 
-[TaskName(nameof(PublishChocolatey))]
-[TaskDescription("Publish chocolatey packages")]
-[IsDependentOn(typeof(PublishChocolateyInternal))]
-public class PublishChocolatey : FrostingTask<BuildContext>;
+public class PublishChocolatey;
 
-[TaskName(nameof(PublishChocolateyInternal))]
-[TaskDescription("Publish chocolatey packages")]
-public class PublishChocolateyInternal : AsyncFrostingTask<BuildContext>
+public class PublishChocolateyInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(PublishChocolatey)} works only on GitHub Actions.");
@@ -23,7 +18,7 @@ public class PublishChocolateyInternal : AsyncFrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override async Task RunAsync(BuildContext context)
+    public async Task RunAsync(BuildContext context)
     {
         var apiKey = context.Credentials?.Chocolatey?.ApiKey;
         if (string.IsNullOrEmpty(apiKey))

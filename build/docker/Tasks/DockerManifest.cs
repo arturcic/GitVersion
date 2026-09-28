@@ -2,15 +2,12 @@ using Common.Utilities;
 
 namespace Docker.Tasks;
 
-[TaskName(nameof(DockerManifest))]
-[TaskDescription("Publish the docker manifest containing the images for amd64 and arm64")]
 [DockerRegistryArgument]
 [DockerDotnetArgument]
 [DockerDistroArgument]
-[IsDependentOn(typeof(DockerManifestInternal))]
-public class DockerManifest : FrostingTask<BuildContext>
+public class DockerManifest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(DockerPublish)} works only on GitHub Actions.");
@@ -18,11 +15,9 @@ public class DockerManifest : FrostingTask<BuildContext>
     }
 }
 
-[TaskName(nameof(DockerManifestInternal))]
-[TaskDescription("Publish the docker manifest containing the images for amd64 and arm64")]
-public class DockerManifestInternal : FrostingTask<BuildContext>
+public class DockerManifestInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(DockerPublish)} works only on GitHub Actions.");
@@ -40,7 +35,7 @@ public class DockerManifestInternal : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         foreach (var group in context.Images.GroupBy(x => new { x.Distro, x.TargetFramework }))
         {

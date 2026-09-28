@@ -1,15 +1,11 @@
-using Cake.Git;
 using Common.Utilities;
 using Docs.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(PublishDocs))]
-[TaskDescription("Published the docs changes to docs specific branch")]
-[IsDependentOn(typeof(PublishDocsInternal))]
-public sealed class PublishDocs : FrostingTask<BuildContext>
+public sealed class PublishDocs
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.DirectoryExists(Paths.Docs), "Wyam documentation directory is missing");
@@ -18,12 +14,9 @@ public sealed class PublishDocs : FrostingTask<BuildContext>
     }
 }
 
-[TaskName(nameof(PublishDocsInternal))]
-[TaskDescription("Published the docs changes to docs specific branch")]
-[IsDependentOn(typeof(BuildDocs))]
-public sealed class PublishDocsInternal : FrostingTask<BuildContext>
+public sealed class PublishDocsInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.DirectoryExists(Paths.Docs), "Wyam documentation directory is missing");
@@ -32,7 +25,7 @@ public sealed class PublishDocsInternal : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (!context.ForcePublish)
         {

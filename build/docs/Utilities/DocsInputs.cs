@@ -2,9 +2,10 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using Path = System.IO.Path;
+
+using Task = System.Threading.Tasks.Task;
 
 namespace Docs.Utilities;
 

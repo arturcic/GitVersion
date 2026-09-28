@@ -69,12 +69,12 @@ jobs:
           languages: ${{ matrix.language }}
           tools: linked
 
-      - name: Cache cake frosting
+      - name: Cache Cake build
         id: cache-cake
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: run
-          key: run-${{ runner.os }}-${{ hashFiles('./build/**') }}
+          key: run-${{ runner.os }}-${{ hashFiles('./build/**', './global.json') }}
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0

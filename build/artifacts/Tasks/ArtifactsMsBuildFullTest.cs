@@ -2,11 +2,9 @@ using Common.Utilities;
 
 namespace Artifacts.Tasks;
 
-[TaskName(nameof(ArtifactsMsBuildFullTest))]
-[TaskDescription("Tests the msbuild package on windows")]
-public class ArtifactsMsBuildFullTest : FrostingTask<BuildContext>
+public class ArtifactsMsBuildFullTest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsOnWindows, $"{nameof(ArtifactsMsBuildFullTest)} works only on windows agents.");
@@ -14,7 +12,7 @@ public class ArtifactsMsBuildFullTest : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (context.Version == null)
         {

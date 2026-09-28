@@ -1,14 +1,10 @@
-using Cake.Codecov;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(PublishCoverage))]
-[TaskDescription("Publishes the test coverage")]
-[IsDependentOn(typeof(UnitTest))]
-public class PublishCoverage : FrostingTask<BuildContext>
+public class PublishCoverage
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsOnWindows, $"{nameof(PublishCoverage)} works only on Windows agents.");
@@ -17,7 +13,7 @@ public class PublishCoverage : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         var coverageFiles = context
             .GetFiles($"{Paths.Src}/**/coverage.*.xml")

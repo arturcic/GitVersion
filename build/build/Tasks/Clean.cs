@@ -2,11 +2,9 @@ using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(Clean))]
-[TaskDescription("Cleans build artifacts")]
-public sealed class Clean : FrostingTask<BuildContext>
+public sealed class Clean
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.Information("Cleaning directories...");
 

@@ -1,20 +1,13 @@
 using System.Net.Http.Headers;
-using System.Text.Json;
-using Cake.Common.Tools.DotNet.NuGet.Push;
 using Common.Utilities;
 
 namespace Publish.Tasks;
 
-[TaskName(nameof(PublishNuget))]
-[TaskDescription("Publish nuget packages")]
-[IsDependentOn(typeof(PublishNugetInternal))]
-public class PublishNuget : FrostingTask<BuildContext>;
+public class PublishNuget;
 
-[TaskName(nameof(PublishNugetInternal))]
-[TaskDescription("Publish nuget packages")]
-public class PublishNugetInternal : AsyncFrostingTask<BuildContext>
+public class PublishNugetInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(PublishNuget)} works only on GitHub Actions.");
@@ -23,7 +16,7 @@ public class PublishNugetInternal : AsyncFrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override async Task RunAsync(BuildContext context)
+    public async Task RunAsync(BuildContext context)
     {
         // publish to github packages for commits on main and on original repo
         if (context.IsInternalPreRelease)

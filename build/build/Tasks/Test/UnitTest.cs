@@ -1,18 +1,14 @@
-using Cake.Common.Tools.DotNet.Execute;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(UnitTest))]
-[TaskDescription("Run the unit tests")]
 [DotnetArgument]
 [TaskArgument(Arguments.TestResults)]
-[IsDependentOn(typeof(Build))]
-public class UnitTest : FrostingTask<BuildContext>
+public class UnitTest
 {
-    public override bool ShouldRun(BuildContext context) => context.EnabledUnitTests;
+    public bool ShouldRun(BuildContext context) => context.EnabledUnitTests;
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         var frameworks = GetFrameworks(context);
         var projects = context.GetFiles($"{Paths.Src}/**/*.Tests.csproj").OrderBy(project => project.FullPath).ToArray();

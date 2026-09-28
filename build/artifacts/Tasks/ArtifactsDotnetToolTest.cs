@@ -2,15 +2,12 @@ using Common.Utilities;
 
 namespace Artifacts.Tasks;
 
-[TaskName(nameof(ArtifactsDotnetToolTest))]
-[TaskDescription("Tests the dotnet global tool in docker container")]
 [DockerRegistryArgument]
 [DockerDotnetArgument]
 [DockerDistroArgument]
-[IsDependentOn(typeof(ArtifactsPrepare))]
-public class ArtifactsDotnetToolTest : FrostingTask<BuildContext>
+public class ArtifactsDotnetToolTest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsDockerOnLinux, $"{nameof(ArtifactsDotnetToolTest)} works only on Docker on Linux agents.");
@@ -18,7 +15,7 @@ public class ArtifactsDotnetToolTest : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (context.Version == null)
         {

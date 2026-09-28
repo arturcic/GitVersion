@@ -2,15 +2,12 @@ using Common.Utilities;
 
 namespace Artifacts.Tasks;
 
-[TaskName(nameof(ArtifactsNativeTest))]
-[TaskDescription("Tests the native executables in docker container")]
 [DockerRegistryArgument]
 [DockerDotnetArgument]
 [DockerDistroArgument]
-[IsDependentOn(typeof(ArtifactsPrepare))]
-public class ArtifactsNativeTest : FrostingTask<BuildContext>
+public class ArtifactsNativeTest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsDockerOnLinux, $"{nameof(ArtifactsNativeTest)} works only on Docker on Linux agents.");
@@ -18,7 +15,7 @@ public class ArtifactsNativeTest : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (context.Version?.SemVersion == null)
         {

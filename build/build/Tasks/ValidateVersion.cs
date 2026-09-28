@@ -2,12 +2,9 @@ using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(ValidateVersion))]
-[TaskDescription("Validates built assembly version")]
-[IsDependentOn(typeof(Build))]
-public class ValidateVersion : FrostingTask<BuildContext>
+public class ValidateVersion
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         ArgumentNullException.ThrowIfNull(context.Version);
         var gitVersionTool = context.GetGitVersionToolLocation();

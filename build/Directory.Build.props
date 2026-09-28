@@ -32,16 +32,23 @@
         <Using Include="Cake.Common.Tools.DotNet.MSBuild" />
         <Using Include="Cake.Common.Tools.MSBuild" />
         <Using Include="Cake.Docker" />
-        <Using Include="Cake.Frosting" />
     </ItemGroup>
     <ItemGroup>
         <Using Include="Common.Utilities.Constants" Alias="Constants"/>
+        <!-- Cake.Sdk imports generated aliases globally; keep existing build types unambiguous. -->
+        <Using Include="Common.Utilities.Arguments" Alias="Arguments"/>
+        <Using Include="Common.Utilities.Architecture" Alias="Architecture"/>
+        <Using Include="Common.Utilities.Extensions" Alias="Extensions"/>
+        <Using Include="System.IO.File" Alias="File"/>
+        <Using Include="System.IO.Directory" Alias="Directory"/>
+        <Using Include="Common.Addins.GitVersion.GitVersionSettings" Alias="GitVersionSettings"/>
+        <Using Include="Common.Addins.GitVersion.GitVersionOutput" Alias="GitVersionOutput"/>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Cake.Compression" />
-        <PackageReference Include="Cake.Frosting" />
+        <PackageReference Include="Cake.Core" />
+        <PackageReference Include="Cake.Common" />
         <PackageReference Include="Cake.Incubator" />
-        <PackageReference Include="Cake.DotNetLocalTools.Module"  />
 
         <PackageReference Include="Cake.Docker"  />
     </ItemGroup>

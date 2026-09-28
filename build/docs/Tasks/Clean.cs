@@ -2,11 +2,9 @@ using Common.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(Clean))]
-[TaskDescription("Cleans the temporary publish location")]
-public sealed class Clean : FrostingTask<BuildContext>
+public sealed class Clean
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.Information("Cleaning directories...");
 

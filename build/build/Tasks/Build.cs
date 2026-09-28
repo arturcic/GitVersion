@@ -1,14 +1,8 @@
-using Cake.Common.Tools.DotNet.Restore;
-
 namespace Build.Tasks;
 
-[TaskName(nameof(Build))]
-[TaskDescription("Builds the solution")]
-[IsDependentOn(typeof(Clean))]
-// [IsDependentOn(typeof(CodeFormat))]
-public sealed class Build : FrostingTask<BuildContext>
+public sealed class Build
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.Information("Builds solution...");
         const string sln = "./src/GitVersion.slnx";

@@ -4,19 +4,19 @@ description: 'Cache restore'
 runs:
   using: 'composite'
   steps:
-    - name: Use cached cake frosting
+    - name: Use cached Cake build
       id: cache-cake
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: run
-        key: run-${{ runner.os }}-${{ hashFiles('./build/**') }}
+        key: run-${{ runner.os }}-${{ hashFiles('./build/**', './global.json') }}
 
     - name: Use cached tools
       id: cache-tools
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: tools
-        key: tools-${{ runner.os }}-${{ hashFiles('./build/**', './.gitversion.yml') }}
+        key: tools-${{ runner.os }}-${{ hashFiles('./build/**', './global.json', './.gitversion.yml') }}
 
     - name: Cache NuGet packages
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0

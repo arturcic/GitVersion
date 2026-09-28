@@ -1,6 +1,6 @@
 namespace Common.Utilities;
 
-public class BuildContextBase : FrostingContext
+public class BuildContextBase : CakeContextAdapter
 {
     protected BuildContextBase(ICakeContext context) : base(context) => Platform = context.Environment.Platform.Family;
     public PlatformFamily Platform { get; set; }

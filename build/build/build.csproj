@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Cake.Sdk">
     <PropertyGroup>
         <AssemblyName>build</AssemblyName>
         <RootNamespace>Build</RootNamespace>

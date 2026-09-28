@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Cake.Sdk">
     <PropertyGroup>
         <AssemblyName>release</AssemblyName>
         <RootNamespace>Release</RootNamespace>

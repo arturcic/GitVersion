@@ -1,14 +1,10 @@
-using Cake.Compression;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(PackageArchive))]
-[TaskDescription("Creates the tar.gz or zip packages")]
-[IsDependentOn(typeof(PackagePrepare))]
-public class PackageArchive : FrostingTask<BuildContext>
+public class PackageArchive
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.EnsureDirectoryExists(Paths.Native);
 
@@ -35,7 +31,6 @@ public class PackageArchive : FrostingTask<BuildContext>
 
             context.Information($"Created {archive}");
         }
-        base.Run(context);
     }
     private static FilePath GetArchiveOutputPath(BuildContextBase context, string runtime, PlatformFamily platform, DirectoryPath targetDir)
     {

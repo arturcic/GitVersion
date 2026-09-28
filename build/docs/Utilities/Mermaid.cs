@@ -1,4 +1,3 @@
-using Cake.Common.Tools.DotNet.Test;
 using Common.Utilities;
 using IOPath = System.IO.Path;
 

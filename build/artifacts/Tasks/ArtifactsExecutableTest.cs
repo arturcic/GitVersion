@@ -1,14 +1,11 @@
-using Common.Addins.GitVersion;
 using Common.Utilities;
 using Xunit;
 
 namespace Artifacts.Tasks;
 
-[TaskName(nameof(ArtifactsExecutableTest))]
-[TaskDescription("Tests the cmdline and portable packages on windows")]
-public class ArtifactsExecutableTest : FrostingTask<BuildContext>
+public class ArtifactsExecutableTest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsOnWindows, $"{nameof(ArtifactsExecutableTest)} works only on Windows agents.");
@@ -16,7 +13,7 @@ public class ArtifactsExecutableTest : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         var packagesToTest = new[]
         {

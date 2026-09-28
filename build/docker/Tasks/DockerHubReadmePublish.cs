@@ -1,19 +1,12 @@
-using Cake.Http;
-using Cake.Json;
 using Common.Utilities;
 
 namespace Docker.Tasks;
 
-[TaskName(nameof(DockerHubReadmePublish))]
-[IsDependentOn(typeof(DockerHubReadmePublishInternal))]
-[TaskDescription("Publish the DockerHub updated README.md")]
-public class DockerHubReadmePublish : FrostingTask<BuildContext>;
+public class DockerHubReadmePublish;
 
-[TaskName(nameof(DockerHubReadmePublishInternal))]
-[TaskDescription("Publish the DockerHub updated README.md")]
-public class DockerHubReadmePublishInternal : AsyncFrostingTask<BuildContext>
+public class DockerHubReadmePublishInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         if (context.DockerRegistry == DockerRegistry.DockerHub)
@@ -24,7 +17,7 @@ public class DockerHubReadmePublishInternal : AsyncFrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override async Task RunAsync(BuildContext context)
+    public async Task RunAsync(BuildContext context)
     {
         ArgumentNullException.ThrowIfNull(context.Credentials?.DockerHub);
         var readme = GetReadmeContent(context);

@@ -1,15 +1,10 @@
-using Cake.Common.Tools.Chocolatey;
-using Cake.Common.Tools.Chocolatey.Pack;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(PackageChocolatey))]
-[TaskDescription("Creates the chocolatey packages")]
-[IsDependentOn(typeof(PackagePrepare))]
-public class PackageChocolatey : FrostingTask<BuildContext>
+public class PackageChocolatey
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsOnWindows, $"{nameof(PackageChocolatey)} works only on Windows agents.");
@@ -17,7 +12,7 @@ public class PackageChocolatey : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.EnsureDirectoryExists(Paths.Nuget);
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Cake.Sdk">
     <PropertyGroup>
         <AssemblyName>docs</AssemblyName>
         <RootNamespace>Docs</RootNamespace>
@@ -10,6 +10,7 @@
         <PackageReference Include="AngleSharp" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
         <PackageReference Include="Cake.Frosting.Git" />
+        <!-- This package supplies Cake.Git with NuGet dependencies, not the Frosting host. -->
         <PackageReference Include="Cake.Wyam" />
     </ItemGroup>
 </Project>

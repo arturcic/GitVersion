@@ -125,6 +125,19 @@ The last line is the most important. `AssertFullSemver` will run GitVersion and 
 
 Even better include the fix, but a failing test is a great start
 
+## Build scripts
+
+The seven build stages use Cake.Sdk, pinned in `global.json`. Build them with
+`dotnet build build/CI.slnx`, or use `./build.ps1 -Stage build -Target BuildPrepare`
+to bootstrap GitVersion. Stage assemblies remain in `run/`, so CI can also invoke
+`dotnet run/build.dll --target=BuildPrepare`.
+
+Each stage's `Program.cs` registers its tasks, dependencies, criteria and lifecycle
+callbacks. Task implementations and argument help attributes live under that stage's
+`Tasks/` directory; shared context and lifecycle code lives in `build/common/`.
+Keep publication criteria attached to the tasks that perform publication.
+The docs and release stages install the tools pinned in `.config/dotnet-tools.json`.
+
 ## Release Process
 
 We use Cake for our build and deployment process. The way the release process is setup is:

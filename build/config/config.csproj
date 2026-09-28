@@ -1,6 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Cake.Sdk">
     <PropertyGroup>
         <RootNamespace>Config</RootNamespace>
+        <AssemblyName>config</AssemblyName>
         <PackageId>config</PackageId>
     </PropertyGroup>
     <ItemGroup>

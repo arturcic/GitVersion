@@ -2,12 +2,9 @@ using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(BuildPrepare))]
-[TaskDescription("Builds the solution")]
-[IsDependentOn(typeof(Clean))]
-public sealed class BuildPrepare : FrostingTask<BuildContext>
+public sealed class BuildPrepare
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.Information("Builds solution...");
 

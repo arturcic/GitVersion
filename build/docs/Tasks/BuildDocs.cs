@@ -3,14 +3,9 @@ using Docs.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(BuildDocs))]
-[TaskDescription("Builds the docs to local path")]
-[IsDependentOn(typeof(Clean))]
-[IsDependentOn(typeof(PrepareDocsInputs))]
-[IsDependentOn(typeof(ValidateMermaidDiagrams))]
-public sealed class BuildDocs : FrostingTask<BuildContext>
+public sealed class BuildDocs
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.DirectoryExists(Paths.Docs), "Wyam documentation directory is missing");
@@ -18,5 +13,5 @@ public sealed class BuildDocs : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context) => VersionedDocs.Build(context);
+    public void Run(BuildContext context) => VersionedDocs.Build(context);
 }

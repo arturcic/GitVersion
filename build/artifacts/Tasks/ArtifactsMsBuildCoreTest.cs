@@ -2,22 +2,19 @@ using Common.Utilities;
 
 namespace Artifacts.Tasks;
 
-[TaskName(nameof(ArtifactsMsBuildCoreTest))]
-[TaskDescription("Tests the msbuild package in docker container")]
 [DockerRegistryArgument]
 [DockerDotnetArgument]
 [DockerDistroArgument]
-[IsDependentOn(typeof(ArtifactsPrepare))]
-public class ArtifactsMsBuildCoreTest : FrostingTask<BuildContext>
+public class ArtifactsMsBuildCoreTest
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsDockerOnLinux, $"{nameof(ArtifactsMsBuildCoreTest)} works only on Docker on Linux agents.");
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         if (context.Version == null)
         {

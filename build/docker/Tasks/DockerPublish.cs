@@ -2,16 +2,13 @@ using Common.Utilities;
 
 namespace Docker.Tasks;
 
-[TaskName(nameof(DockerPublish))]
-[TaskDescription("Publish the docker images containing the GitVersion Tool")]
 [DockerRegistryArgument]
 [DockerDotnetArgument]
 [DockerDistroArgument]
 [ArchitectureArgument]
-[IsDependentOn(typeof(DockerPublishInternal))]
-public class DockerPublish : FrostingTask<BuildContext>
+public class DockerPublish
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(DockerPublish)} works only on GitHub Actions.");
@@ -19,12 +16,9 @@ public class DockerPublish : FrostingTask<BuildContext>
     }
 }
 
-[TaskName(nameof(DockerPublishInternal))]
-[TaskDescription("Publish the docker images containing the GitVersion Tool")]
-[IsDependentOn(typeof(DockerTest))]
-public class DockerPublishInternal : FrostingTask<BuildContext>
+public class DockerPublishInternal
 {
-    public override bool ShouldRun(BuildContext context)
+    public bool ShouldRun(BuildContext context)
     {
         var shouldRun = true;
         shouldRun &= context.ShouldRun(context.IsGitHubActionsBuild, $"{nameof(DockerPublish)} works only on GitHub Actions.");
@@ -41,7 +35,7 @@ public class DockerPublishInternal : FrostingTask<BuildContext>
         return shouldRun;
     }
 
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         foreach (var dockerImage in context.Images)
         {

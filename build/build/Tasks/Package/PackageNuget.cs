@@ -1,14 +1,10 @@
-using Cake.Common.Tools.DotNet.Pack;
-using Cake.Common.Tools.DotNet.Publish;
 using Common.Utilities;
 
 namespace Build.Tasks;
 
-[TaskName(nameof(PackageNuget))]
-[TaskDescription("Creates the nuget packages")]
-public class PackageNuget : FrostingTask<BuildContext>
+public class PackageNuget
 {
-    public override void Run(BuildContext context)
+    public void Run(BuildContext context)
     {
         context.EnsureDirectoryExists(Paths.Nuget);
 

@@ -2,9 +2,7 @@ using Docs.Utilities;
 
 namespace Docs.Tasks;
 
-[TaskName(nameof(InstallNodeDependencies))]
-[TaskDescription("Installs the pinned Node.js dependencies used by the documentation build")]
-public sealed class InstallNodeDependencies : FrostingTask<BuildContext>
+public sealed class InstallNodeDependencies
 {
-    public override void Run(BuildContext context) => context.InstallNodeDependencies();
+    public void Run(BuildContext context) => context.InstallNodeDependencies();
 }
