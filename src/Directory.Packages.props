@@ -3,13 +3,13 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <PropertyGroup>
-    <MicrosoftBuildVersion>18.9.6</MicrosoftBuildVersion>
+    <MicrosoftBuildVersion>18.10.1</MicrosoftBuildVersion>
     <MicrosoftCodeAnalysisVersion>5.9.0</MicrosoftCodeAnalysisVersion>
   </PropertyGroup>
   <ItemGroup>
     <!-- common packages -->
     <PackageVersion Include="coverlet.MTP" Version="10.0.1" />
-    <PackageVersion Include="JsonSchema.Net" Version="7.3.4" />
+    <PackageVersion Include="JsonSchema.Net" Version="9.4.0" />
     <PackageVersion Include="LibGit2Sharp" Version="0.32.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="$(MicrosoftCodeAnalysisVersion)" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="$(MicrosoftCodeAnalysisVersion)" />
