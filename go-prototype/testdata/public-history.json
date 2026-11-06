@@ -1,0 +1,8 @@
+[
+  {"id":"actions-root","repository":"GitTools/actions","commit":"22027443c3d6ff2a64ff6d0d20e779f09a1a6b67","branch":"main","tags":{},"config":"workflow: GitHubFlow/v1\n"},
+  {"id":"actions-tagged-merge","repository":"GitTools/actions","commit":"97950ee2f4c2210bfa1df3daf899b65ed9588896","branch":"main","tags":{"v0.2.1":"97950ee2f4c2210bfa1df3daf899b65ed9588896"},"config":"workflow: GitHubFlow/v1\n"},
+  {"id":"actions-intermediate","repository":"GitTools/actions","commit":"bba2ce73bc05e2bf106702ad709eea6e19740276","branch":"main","tags":{"v0.2.1":"97950ee2f4c2210bfa1df3daf899b65ed9588896"},"config":"workflow: GitHubFlow/v1\n"},
+  {"id":"actions-feature-projection","repository":"GitTools/actions","commit":"6465152ce9c2229e7ae3b099930893b456246c2d","branch":"feature/public-replay","tags":{"v0.2.1":"97950ee2f4c2210bfa1df3daf899b65ed9588896","v0.3.1":"6465152ce9c2229e7ae3b099930893b456246c2d"},"config":"workflow: GitHubFlow/v1\n"},
+  {"id":"build-images-root","repository":"GitTools/build-images","commit":"095bff578e875e2b5f6bd82609a15e2e2a76c059","branch":"main","tags":{},"config":"workflow: GitHubFlow/v1\n"},
+  {"id":"build-images-linear","repository":"GitTools/build-images","commit":"7390e65d6d79f71d2cd92a10c0049835ec1d2f8a","branch":"main","tags":{},"config":"workflow: GitHubFlow/v1\n"}
+]

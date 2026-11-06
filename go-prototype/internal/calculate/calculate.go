@@ -1,0 +1,426 @@
+// Package calculate implements the frozen GitHubFlow/v1 subset independently.
+// It reads raw configuration and Git objects; no reference outputs are inputs.
+package calculate
+
+import (
+	"fmt"
+	"regexp"
+	"sort"
+	"strings"
+
+	"github.com/GitTools/GitVersion/go-prototype/internal/config"
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/output"
+	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
+)
+
+type Candidate struct {
+	Description string `json:"description"`
+	Base        string `json:"base"`
+	SHA         string `json:"sha"`
+	Increment   string `json:"increment"`
+	Version     string `json:"version"`
+}
+type Trace struct {
+	Branch         string      `json:"branch"`
+	Label          string      `json:"label"`
+	Mode           string      `json:"mode"`
+	Candidates     []Candidate `json:"candidates"`
+	SemanticSource string      `json:"semantic_source"`
+	SemanticSHA    string      `json:"semantic_sha"`
+	CountSHA       string      `json:"count_sha"`
+	Counted        []string    `json:"counted_commits"`
+}
+type tag struct {
+	v   semver.Version
+	ref gitrepo.Tag
+}
+type candidate struct {
+	base, version, semantic semver.Version
+	sha, semanticSHA        string
+	inc                     semver.Increment
+	description             string
+}
+
+var reset = regexp.MustCompile(`(?i)=semver:`)
+
+// .NET's \s includes Unicode separators and NEL; Go's \s is ASCII-only.
+const bumpPrefix = `(?i)[+=]semver:[\t\n\v\f\r\x{0085}\p{Z}]?`
+
+var bumps = []*regexp.Regexp{regexp.MustCompile(bumpPrefix + `(none|skip)`), regexp.MustCompile(bumpPrefix + `(fix|patch)`), regexp.MustCompile(bumpPrefix + `(feature|minor)`), regexp.MustCompile(bumpPrefix + `(breaking|major)`)}
+var releaseMerge = regexp.MustCompile(`(?i)\breleases?[/\\-]`)
+
+func Calculate(path string) (map[string]any, Trace, error) {
+	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
+	cfg, err := config.Load(path)
+	if err != nil {
+		return nil, trace, err
+	}
+	r, err := gitrepo.Open(path)
+	if err != nil {
+		return nil, trace, err
+	}
+	canonical, head := r.Head()
+	branch := strings.TrimPrefix(canonical, "refs/heads/")
+	main, _, err := config.Branch(branch)
+	if err != nil {
+		return nil, trace, err
+	}
+	effective, err := cfg.Effective(branch)
+	if err != nil {
+		return nil, trace, err
+	}
+	label := effective.Label
+	format := func(result output.Result) (map[string]any, error) {
+		result.Mode = effective.Mode
+		result.Weight = &effective.Weight
+		result.TagWeight = &effective.TagWeight
+		return output.Variables(result)
+	}
+	trace.Branch = branch
+	trace.Label = label
+	trace.Mode = string(effective.Mode)
+	refs, err := r.References()
+	if err != nil {
+		return nil, trace, err
+	}
+	mainTips := []string{}
+	for _, ref := range refs {
+		if !strings.HasPrefix(ref.Name, "refs/heads/") {
+			continue
+		}
+		isMain, _, err := config.Branch(strings.TrimPrefix(ref.Name, "refs/heads/"))
+		if err != nil {
+			return nil, trace, err
+		}
+		if isMain {
+			mainTips = append(mainTips, ref.SHA)
+		}
+	}
+	if len(mainTips) != 1 {
+		return nil, trace, fmt.Errorf("unsupported main-branch topology: require exactly one main/master branch")
+	}
+	history, err := r.Walk(gitrepo.WalkOptions{Include: head, Sort: gitrepo.Time})
+	if err != nil {
+		return nil, trace, err
+	}
+	// RepositoryStore.GetCurrentCommit takes the first branch-log entry. The
+	// pinned managed backend orders by time, even when an ancestor is newer
+	// than the physical tip. Keep the branch history for tag discovery, but
+	// calculate and report against this selected commit.
+	if len(history) == 0 {
+		return nil, trace, fmt.Errorf("no commits on current branch")
+	}
+	head = history[0]
+	commits := map[string]gitrepo.Commit{}
+	reachable := map[string]bool{}
+	load := func(id string) (gitrepo.Commit, error) {
+		if c, ok := commits[id]; ok {
+			return c, nil
+		}
+		c, err := r.Commit(id)
+		if err == nil {
+			commits[id] = c
+		}
+		return c, err
+	}
+	for _, id := range history {
+		reachable[id] = true
+		c, err := load(id)
+		if err != nil {
+			return nil, trace, err
+		}
+		if len(c.Parents) > 2 {
+			return nil, trace, fmt.Errorf("unsupported octopus merge")
+		}
+		if len(c.Parents) > 1 && releaseMerge.MatchString(c.Message) {
+			return nil, trace, fmt.Errorf("unsupported release merge message")
+		}
+	}
+	current := commits[head]
+	rawTags, err := r.Tags(refs)
+	if err != nil {
+		return nil, trace, err
+	}
+	allTags := []tag{}
+	byCommit := map[string][]tag{}
+	for _, raw := range rawTags {
+		v, recognized, err := semver.ParseTag(strings.TrimPrefix(raw.Name, "refs/tags/"))
+		if err != nil {
+			return nil, trace, err
+		}
+		if !recognized {
+			continue
+		}
+		if _, err = load(raw.Commit); err != nil {
+			return nil, trace, err
+		}
+		t := tag{v, raw}
+		allTags = append(allTags, t)
+		byCommit[raw.Commit] = append(byCommit[raw.Commit], t)
+	}
+	eligible := []tag{}
+	seen := map[string]bool{}
+	add := func(ids []string, dateLimit bool) {
+		for _, id := range ids {
+			for _, t := range byCommit[id] {
+				if seen[t.ref.Name] || (dateLimit && commits[id].When > current.When) {
+					continue
+				}
+				eligible = append(eligible, t)
+				seen[t.ref.Name] = true
+			}
+		}
+	}
+	add(history, true)
+	if !main {
+		ids, err := r.Walk(gitrepo.WalkOptions{Include: mainTips[0], Sort: gitrepo.Time})
+		if err != nil {
+			return nil, trace, err
+		}
+		add(ids, false)
+		// The final alternative-version check uses the branch that supplied
+		// inherited configuration (main), not Context.CurrentBranch (feature).
+		if effective.Inherit {
+			reachable = map[string]bool{}
+			for _, id := range ids {
+				reachable[id] = true
+			}
+		}
+	}
+	sort.SliceStable(eligible, func(i, j int) bool {
+		return commits[eligible[i].ref.Commit].When > commits[eligible[j].ref.Commit].When
+	})
+	// Tagged-HEAD policy can override normal deployment calculation.
+	if effective.PreventTagged {
+		var selected *tag
+		for i := range eligible {
+			t := &eligible[i]
+			if t.ref.Commit == head && t.v.Matches(label) && (selected == nil || t.v.Compare(selected.v) > 0) {
+				selected = t
+			}
+		}
+		if selected != nil {
+			v := selected.v
+			trace.SemanticSource = v.String()
+			trace.SemanticSHA = head
+			trace.CountSHA = head
+			if effective.Mode == config.Deployment {
+				v.Label = ""
+				v.Number = nil
+			}
+			values, err := format(output.Result{Version: v, SemanticSource: selected.v, SemanticSHA: head, LegacySource: selected.v, CountSHA: head, Branch: branch, SHA: head, CommitTime: current.When, Main: main, Tagged: true})
+			return values, trace, err
+		}
+	}
+	candidates := []candidate{}
+	if cfg.Next != nil {
+		v, err := cfg.Next.Bump(semver.None, label, false)
+		if err != nil {
+			return nil, trace, err
+		}
+		candidates = append(candidates, candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"})
+	}
+	var alternative *tag
+	threshold := semver.Version{}
+	for _, t := range eligible {
+		if !t.v.Matches(label) {
+			if alternative == nil || t.v.Compare(alternative.v) > 0 {
+				copy := t
+				alternative = &copy
+			}
+			continue
+		}
+		upper, err := t.v.Bump(semver.Major, "", true)
+		if err != nil {
+			return nil, trace, err
+		}
+		if alternative != nil && upper.CompareCore(alternative.v) < 0 {
+			upper = alternative.v
+		}
+		if upper.CompareCore(threshold) < 0 {
+			alternative = nil
+			continue
+		}
+		inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load)
+		if err != nil {
+			return nil, trace, err
+		}
+		threshold, err = t.v.Bump(inc, "", true)
+		if err != nil {
+			return nil, trace, err
+		}
+		v, err := t.v.Bump(inc, label, false)
+		if err != nil {
+			return nil, trace, err
+		}
+		c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
+		if alternative != nil && v.CompareCore(alternative.v) < 0 {
+			if inc == semver.None {
+				n := int64(1)
+				c.version.Number = &n
+			}
+			c.version.Major = alternative.v.Major
+			c.version.Minor = alternative.v.Minor
+			c.version.Patch = alternative.v.Patch
+			c.semantic = alternative.v
+			c.semanticSHA = alternative.ref.Commit
+			c.inc = semver.None
+		}
+		candidates = append(candidates, c)
+		alternative = nil
+	}
+	if len(candidates) == 0 {
+		inc, err := increment(r, head, "", label, effective.Increment, effective.Messages, allTags, load)
+		if err != nil {
+			return nil, trace, err
+		}
+		v, err := (semver.Version{}).Bump(inc, label, false)
+		if err != nil {
+			return nil, trace, err
+		}
+		candidates = append(candidates, candidate{version: v, inc: inc, description: "fallback"})
+	}
+	best := 0
+	for i, c := range candidates {
+		trace.Candidates = append(trace.Candidates, Candidate{c.description, c.base.String(), c.sha, c.inc.String(), c.version.String()})
+		if c.version.Compare(candidates[best].version) > 0 {
+			best = i
+		}
+	}
+	// Equal incremented versions prefer the latest nonexternal source. Counting
+	// selection is independent when configuration provides the winning version.
+	matches := []int{}
+	for i, c := range candidates {
+		if c.sha != "" && c.version.Compare(candidates[best].version) == 0 {
+			matches = append(matches, i)
+		}
+	}
+	anchor := ""
+	if len(matches) > 1 {
+		selected := matches[0]
+		for _, i := range matches[1:] {
+			if commits[candidates[i].sha].When > commits[candidates[selected].sha].When {
+				selected = i
+			}
+		}
+		best = selected
+		anchor = candidates[best].sha
+	} else {
+		selected := -1
+		for i, c := range candidates {
+			if c.sha == "" {
+				continue
+			}
+			if selected < 0 || c.version.Compare(candidates[selected].version) > 0 || (c.version.Compare(candidates[selected].version) == 0 && commits[c.sha].When > commits[candidates[selected].sha].When) {
+				selected = i
+			}
+		}
+		if selected >= 0 {
+			anchor = candidates[selected].sha
+		}
+	}
+	chosen := candidates[best]
+	counted, err := r.Walk(gitrepo.WalkOptions{Include: head, Exclude: anchor, Sort: gitrepo.Topological | gitrepo.Time})
+	if err != nil {
+		return nil, trace, err
+	}
+	distance := int64(len(counted))
+	v := chosen.version
+	if effective.Mode == config.Delivery {
+		if v.Number == nil {
+			return nil, trace, fmt.Errorf("continuous delivery requires numeric prerelease")
+		}
+		n := *v.Number + distance - 1
+		v.Number = &n
+	}
+	if effective.Mode == config.Deployment {
+		v.Label = ""
+		v.Number = nil
+	}
+	// A higher, mismatching prerelease on the configuration-source branch can
+	// raise the core version without changing the counting anchor or label.
+	var maxTag *tag
+	for i := range allTags {
+		t := &allTags[i]
+		if reachable[t.ref.Commit] && commits[t.ref.Commit].When <= current.When && (maxTag == nil || t.v.Compare(maxTag.v) > 0) {
+			maxTag = t
+		}
+	}
+	if maxTag != nil && v.CompareCore(maxTag.v) < 0 {
+		v.Major = maxTag.v.Major
+		v.Minor = maxTag.v.Minor
+		v.Patch = maxTag.v.Patch
+		chosen.semantic = maxTag.v
+		chosen.semanticSHA = maxTag.ref.Commit
+		chosen.inc = semver.None
+	}
+	trace.SemanticSource = chosen.semantic.String()
+	trace.SemanticSHA = chosen.semanticSHA
+	trace.CountSHA = anchor
+	trace.Counted = counted
+	values, err := format(output.Result{Version: v, SemanticSource: chosen.semantic, SemanticSHA: chosen.semanticSHA, Increment: chosen.inc, LegacySource: chosen.base, CountSHA: anchor, Distance: distance, Branch: branch, SHA: head, CommitTime: current.When, Main: main})
+	return values, trace, err
+}
+
+func increment(r *gitrepo.Repository, head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag, load func(string) (gitrepo.Commit, error)) (semver.Increment, error) {
+	if messages == "Disabled" {
+		return defaultIncrement, nil
+	}
+	ids, err := r.Walk(gitrepo.WalkOptions{Include: head, Exclude: base, Sort: gitrepo.Topological | gitrepo.Time})
+	if err != nil {
+		return semver.None, err
+	}
+	included := map[string]bool{}
+	for _, id := range ids {
+		included[id] = true
+	}
+	// Bump messages on commits already covered by a matching version tag do not
+	// contribute again, even when a different candidate is being evaluated.
+	for _, t := range tags {
+		if !t.v.Matches(label) || !included[t.ref.Target] {
+			continue
+		}
+		hidden, err := r.Walk(gitrepo.WalkOptions{Include: t.ref.Target, Sort: gitrepo.Time})
+		if err != nil {
+			return semver.None, err
+		}
+		for _, id := range hidden {
+			delete(included, id)
+		}
+	}
+	// Accumulate newest-to-oldest. A recognized reset ends the scan and can
+	// lower the configured increment floor; newer messages still contribute.
+	result := semver.None
+	for _, id := range ids {
+		if !included[id] {
+			continue
+		}
+		c, err := load(id)
+		if err != nil {
+			return result, err
+		}
+		if messages == "MergeMessageOnly" && len(c.Parents) < 2 {
+			continue
+		}
+		recognized := bumps[0].MatchString(c.Message)
+		if !recognized {
+			for _, inc := range []semver.Increment{semver.Major, semver.Minor, semver.Patch} {
+				if bumps[inc].MatchString(c.Message) {
+					recognized = true
+					if inc > result {
+						result = inc
+					}
+					break
+				}
+			}
+		}
+		if recognized && reset.MatchString(c.Message) {
+			return result, nil
+		}
+	}
+	if result < defaultIncrement {
+		result = defaultIncrement
+	}
+	return result, nil
+}

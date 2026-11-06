@@ -1,0 +1,81 @@
+[
+  {"id":"linear-main","description":"No tags, tagged HEAD, and two commits after a tag","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"checkpoint","id":"untagged"},
+    {"op":"tag","name":"1.2.0"},{"op":"checkpoint","id":"tagged","semver":"1.2.0"},
+    {"op":"commit","id":"one"},{"op":"checkpoint","id":"one-after"},
+    {"op":"commit","id":"two"},{"op":"checkpoint","id":"two-after"}]},
+  {"id":"annotated-tag","description":"Annotated stable tag and its descendant","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"2.0.0","annotated":true},{"op":"checkpoint","id":"tagged","semver":"2.0.0"},
+    {"op":"commit","id":"one"},{"op":"checkpoint","id":"after"}]},
+  {"id":"feature-history","description":"Feature at branch point and after one and two commits","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"checkpoint","id":"branch-point"},{"op":"commit","id":"one"},{"op":"checkpoint","id":"one"},
+    {"op":"commit","id":"two"},{"op":"checkpoint","id":"two"}]},
+  {"id":"feature-merge","description":"True two-parent feature merge, followed by a main commit","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"feature"},{"op":"checkpoint","id":"feature"},{"op":"checkout","name":"main"},
+    {"op":"merge","id":"merge","from":"feature/foo","message":"Merge branch 'feature/foo'"},{"op":"checkpoint","id":"merged"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"main-into-feature","description":"Main advances and is tagged before merging into feature","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"feature"},{"op":"checkout","name":"main"},{"op":"commit","id":"fix"},{"op":"tag","name":"1.2.1"},
+    {"op":"checkpoint","id":"main","semver":"1.2.1"},{"op":"checkout","name":"feature/foo"},
+    {"op":"merge","id":"merge","from":"main","message":"Merge branch 'main' into feature/foo"},{"op":"checkpoint","id":"feature"}]},
+  {"id":"main-minor-bump","description":"Minor bump message on main","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"minor","message":"Change\n\n+semver: minor"},{"op":"checkpoint","id":"bump"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"main-major-bump","description":"Major bump message on main","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"major","message":"Breaking change +semver: major"},{"op":"checkpoint","id":"bump"}]},
+  {"id":"main-patch-bump","description":"Explicit patch bump","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"patch","message":"Fix +semver: patch"},{"op":"checkpoint","id":"bump"}]},
+  {"id":"main-skip-bump","description":"Skip bump message does not remove the commit from history","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"skip","message":"Docs +semver: skip"},{"op":"checkpoint","id":"skip"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"feature-minor-bump","description":"Minor bump propagated on feature","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"minor","message":"Feature +semver: minor"},{"op":"checkpoint","id":"bump"}]},
+  {"id":"feature-major-bump","description":"Major bump propagated on feature","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"major","message":"Feature +semver: major"},{"op":"checkpoint","id":"bump"}]},
+  {"id":"prefixed-tag","description":"Conventional v-prefixed stable tag","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"v1.2.0"},{"op":"checkpoint","id":"tagged","semver":"1.2.0"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"multiple-tags","description":"Two stable versions on the same commit","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"tag","name":"2.0.0"},{"op":"checkpoint","id":"tagged","semver":"2.0.0"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"non-version-tag","description":"Unrelated tag must not become a semantic source","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"build"},{"op":"tag","name":"nightly-build"},{"op":"checkpoint","id":"build"}]},
+  {"id":"feature-prerelease","description":"Matching prerelease tag on a feature branch","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"one"},{"op":"tag","name":"2.0.0-foo.1"},{"op":"checkpoint","id":"tagged"},
+    {"op":"commit","id":"after"},{"op":"checkpoint","id":"after"}]},
+  {"id":"annotated-prerelease","description":"Annotated prerelease tag on a feature branch","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"one"},{"op":"tag","name":"2.0.0-foo.1","annotated":true},{"op":"checkpoint","id":"tagged"}]},
+  {"id":"unrelated-prerelease","description":"Tag whose prerelease label differs from the feature label","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"one"},{"op":"tag","name":"2.0.0-bar.1"},{"op":"checkpoint","id":"tagged"}]},
+  {"id":"numeric-feature","description":"Feature label containing a numeric issue identifier","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/123-fix"},{"op":"checkout","name":"feature/123-fix"},
+    {"op":"commit","id":"one"},{"op":"checkpoint","id":"feature"}]},
+  {"id":"nested-feature","description":"Feature name with nested slashes","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/team/fix"},{"op":"checkout","name":"feature/team/fix"},
+    {"op":"commit","id":"one"},{"op":"checkpoint","id":"feature"}]},
+  {"id":"unicode-feature","description":"Unicode branch name and commit message","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/café"},{"op":"checkout","name":"feature/café"},
+    {"op":"commit","id":"one","message":"Réparer le calcul"},{"op":"checkpoint","id":"feature"}]},
+  {"id":"configured-next-version","description":"Configured semantic baseline without a tag","config":"workflow: GitHubFlow/v1\ncalculation:\n  next-version: 3.0.0\n","steps":[
+    {"op":"commit","id":"root"},{"op":"checkpoint","id":"root"},{"op":"commit","id":"one"},{"op":"checkpoint","id":"after"}]},
+  {"id":"configured-main-minor","description":"Explicit main branch increment override","config":"workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"one"},{"op":"checkpoint","id":"after"}]},
+  {"id":"successive-tags","description":"A later stable tag replaces the original counting anchor","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"commit","id":"one"},{"op":"tag","name":"1.2.1"},
+    {"op":"checkpoint","id":"retagged","semver":"1.2.1"},{"op":"commit","id":"two"},{"op":"checkpoint","id":"after"}]},
+  {"id":"divergent-feature-tag","description":"A feature tag is visible but not reachable from main","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"feature"},{"op":"tag","name":"9.0.0"},{"op":"checkout","name":"main"},{"op":"commit","id":"one"},{"op":"checkpoint","id":"main"}]},
+  {"id":"merge-minor-message","description":"Minor bump carried by a merge commit message","config":"workflow: GitHubFlow/v1\n","steps":[
+    {"op":"commit","id":"root"},{"op":"tag","name":"1.2.0"},{"op":"branch","name":"feature/foo"},{"op":"checkout","name":"feature/foo"},
+    {"op":"commit","id":"feature"},{"op":"checkout","name":"main"},{"op":"commit","id":"main"},
+    {"op":"merge","id":"merge","from":"feature/foo","message":"Merge branch 'feature/foo' +semver: minor"},{"op":"checkpoint","id":"merged"}]}
+]

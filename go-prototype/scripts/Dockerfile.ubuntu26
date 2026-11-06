@@ -1,0 +1,11 @@
+# Local Linux parity environment. Both base images are immutable; the .NET
+# assemblies/runtime match the pinned reference. Tests run without networking.
+FROM mcr.microsoft.com/dotnet/runtime@sha256:4f1f30cf0bb4ab0c8b2daa84613051683456f8df4a9bf7c812e20d74962992ac AS runtime
+FROM ubuntu:26.04@sha256:6a06111c3b0a8600feadb270aec771dc239bf407b25625f93f44ab00e11f4d3c
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates libgcc-s1 libstdc++6 libssl3t64 zlib1g \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=runtime /usr/share/dotnet /usr/share/dotnet
+ENV DOTNET_ROOT=/usr/share/dotnet \
+    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
+    DOTNET_CLI_TELEMETRY_OPTOUT=1

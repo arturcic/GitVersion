@@ -1,0 +1,2666 @@
+{
+  "baseline_lock_sha256": "cfbc6c9fb49026cb16087eb1c53c8b8ec69b1da448aa1fdaf1f7b44c8791d79a",
+  "outputs": {
+    "clock-generated-0002--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.b4f9f6dd31c6b0bf91a0ebf4f48899fed6256e37",
+      "FullSemVer": "1.0.0-1",
+      "InformationalVersion": "1.0.0-1+Branch.main.Sha.b4f9f6dd31c6b0bf91a0ebf4f48899fed6256e37",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "1.0.0-1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "b4f9f6dd31c6b0bf91a0ebf4f48899fed6256e37",
+      "ShortSha": "b4f9f6d",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0008--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.a54f2bae9365502fa64a96b04ce574c5609f1892",
+      "FullSemVer": "0.1.0-1",
+      "InformationalVersion": "0.1.0-1+Branch.main.Sha.a54f2bae9365502fa64a96b04ce574c5609f1892",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.1.0-1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "a54f2bae9365502fa64a96b04ce574c5609f1892",
+      "ShortSha": "a54f2ba",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0010--head": {
+      "AssemblySemFileVer": "0.0.1.0",
+      "AssemblySemVer": "0.0.1.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.20d5ff24f08e6331f604c02503a4c2eb88d3c76e",
+      "FullSemVer": "0.0.1-1",
+      "InformationalVersion": "0.0.1-1+Branch.main.Sha.20d5ff24f08e6331f604c02503a4c2eb88d3c76e",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.1",
+      "Minor": 0,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.0.1-1",
+      "SemVerSourceIncrement": "Patch",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "20d5ff24f08e6331f604c02503a4c2eb88d3c76e",
+      "ShortSha": "20d5ff2",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0013--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.ca7fc867196cb381eb2d0c28ebfbd416fc882887",
+      "FullSemVer": "0.1.0-1",
+      "InformationalVersion": "0.1.0-1+Branch.main.Sha.ca7fc867196cb381eb2d0c28ebfbd416fc882887",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.1.0-1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "ca7fc867196cb381eb2d0c28ebfbd416fc882887",
+      "ShortSha": "ca7fc86",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0016--head": {
+      "AssemblySemFileVer": "0.0.0.0",
+      "AssemblySemVer": "0.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.564e4316a919158d52e69dd8e65ac008ef60b7df",
+      "FullSemVer": "0.0.0-1",
+      "InformationalVersion": "0.0.0-1+Branch.main.Sha.564e4316a919158d52e69dd8e65ac008ef60b7df",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.0.0-1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "564e4316a919158d52e69dd8e65ac008ef60b7df",
+      "ShortSha": "564e431",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0021--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.ef969cd8e47fef47637aa8f829b655b17e34bd69",
+      "FullSemVer": "0.1.0-1",
+      "InformationalVersion": "0.1.0-1+Branch.main.Sha.ef969cd8e47fef47637aa8f829b655b17e34bd69",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.1.0-1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "ef969cd8e47fef47637aa8f829b655b17e34bd69",
+      "ShortSha": "ef969cd",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0025--head": {
+      "AssemblySemFileVer": "0.0.1.0",
+      "AssemblySemVer": "0.0.1.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.635e52011727e922c14d2b3e75bbaf8c8ab606e3",
+      "FullSemVer": "0.0.1-1",
+      "InformationalVersion": "0.0.1-1+Branch.main.Sha.635e52011727e922c14d2b3e75bbaf8c8ab606e3",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.1",
+      "Minor": 0,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.0.1-1",
+      "SemVerSourceIncrement": "Patch",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "635e52011727e922c14d2b3e75bbaf8c8ab606e3",
+      "ShortSha": "635e520",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0038--head": {
+      "AssemblySemFileVer": "0.0.1.0",
+      "AssemblySemVer": "0.0.1.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.e81907ef15f7c111379863b34ad1bfa4cbc5d026",
+      "FullSemVer": "0.0.1-1",
+      "InformationalVersion": "0.0.1-1+Branch.main.Sha.e81907ef15f7c111379863b34ad1bfa4cbc5d026",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.1",
+      "Minor": 0,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.0.1-1",
+      "SemVerSourceIncrement": "Patch",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "e81907ef15f7c111379863b34ad1bfa4cbc5d026",
+      "ShortSha": "e81907e",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0041--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.6807184f51b851f25804ba795103dcd21ce00c29",
+      "FullSemVer": "1.0.0-1",
+      "InformationalVersion": "1.0.0-1+Branch.main.Sha.6807184f51b851f25804ba795103dcd21ce00c29",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "1.0.0-1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "6807184f51b851f25804ba795103dcd21ce00c29",
+      "ShortSha": "6807184",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0045--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.7d0f081c593e01f10b3e69f6981e5ac774b5ae27",
+      "FullSemVer": "0.1.0-1",
+      "InformationalVersion": "0.1.0-1+Branch.main.Sha.7d0f081c593e01f10b3e69f6981e5ac774b5ae27",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.1.0-1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "7d0f081c593e01f10b3e69f6981e5ac774b5ae27",
+      "ShortSha": "7d0f081",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0060--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.f1f34f02c83374207c526c7ba538e46ba896a07b",
+      "FullSemVer": "1.0.0-1",
+      "InformationalVersion": "1.0.0-1+Branch.main.Sha.f1f34f02c83374207c526c7ba538e46ba896a07b",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "1.0.0-1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "f1f34f02c83374207c526c7ba538e46ba896a07b",
+      "ShortSha": "f1f34f0",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "clock-generated-0061--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.564d255d544f242a78b24067a584c8572323d614",
+      "FullSemVer": "1.0.0-1",
+      "InformationalVersion": "1.0.0-1+Branch.main.Sha.564d255d544f242a78b24067a584c8572323d614",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "1.0.0-1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "564d255d544f242a78b24067a584c8572323d614",
+      "ShortSha": "564d255",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "inheritance-generated-0087--head": {
+      "AssemblySemFileVer": "0.0.1.0",
+      "AssemblySemVer": "0.0.1.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.ddfc4127ea50f22a445011444a9358cdd0a9503a",
+      "FullSemVer": "0.0.1-topic-1.1+2",
+      "InformationalVersion": "0.0.1-topic-1.1+2.Branch.feature-topic-1.Sha.ddfc4127ea50f22a445011444a9358cdd0a9503a",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.1",
+      "Minor": 0,
+      "Patch": 1,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "0.0.1-topic-1.1",
+      "SemVerSourceIncrement": "Patch",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "ddfc4127ea50f22a445011444a9358cdd0a9503a",
+      "ShortSha": "ddfc412",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0094--head": {
+      "AssemblySemFileVer": "1.5.1.0",
+      "AssemblySemVer": "1.5.1.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "1.Branch.feature-topic-1.Sha.b467ae318f99bf5ed3f6670d57d5bcfe8e618b49",
+      "FullSemVer": "1.5.1-topic-1.1+1",
+      "InformationalVersion": "1.5.1-topic-1.1+1.Branch.feature-topic-1.Sha.b467ae318f99bf5ed3f6670d57d5bcfe8e618b49",
+      "Major": 1,
+      "MajorMinorPatch": "1.5.1",
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "1.5.1-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "1.5.1-beta.7",
+      "SemVerSourceSha": "395664244cf3622e838b548b9e661c8458bebcef",
+      "Sha": "b467ae318f99bf5ed3f6670d57d5bcfe8e618b49",
+      "ShortSha": "b467ae3",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0116--head": {
+      "AssemblySemFileVer": "3.4.0.0",
+      "AssemblySemVer": "3.4.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "1.Branch.feature-topic-1.Sha.84b989360213a5d053cf6d2d6b60aca8ff1fa702",
+      "FullSemVer": "3.4.0-topic-1.1+1",
+      "InformationalVersion": "3.4.0-topic-1.1+1.Branch.feature-topic-1.Sha.84b989360213a5d053cf6d2d6b60aca8ff1fa702",
+      "Major": 3,
+      "MajorMinorPatch": "3.4.0",
+      "Minor": 4,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "3.4.0-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "3.4.0-beta.3",
+      "SemVerSourceSha": "47a482cda3d0218e0ef555a5cfb751ecd1643544",
+      "Sha": "84b989360213a5d053cf6d2d6b60aca8ff1fa702",
+      "ShortSha": "84b9893",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0122--head": {
+      "AssemblySemFileVer": "5.3.5.0",
+      "AssemblySemVer": "5.3.5.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.71d365742fd7bee6d1cf3dc0da48f6f560f9f5b2",
+      "FullSemVer": "5.3.5-topic-1.1+2",
+      "InformationalVersion": "5.3.5-topic-1.1+2.Branch.feature-topic-1.Sha.71d365742fd7bee6d1cf3dc0da48f6f560f9f5b2",
+      "Major": 5,
+      "MajorMinorPatch": "5.3.5",
+      "Minor": 3,
+      "Patch": 5,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "5.3.5-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.3.5",
+      "SemVerSourceSha": null,
+      "Sha": "71d365742fd7bee6d1cf3dc0da48f6f560f9f5b2",
+      "ShortSha": "71d3657",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "5.3.5",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0159--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.8204fba7160f80e5e7b62d1f2304167e31a4ae2d",
+      "FullSemVer": "0.1.0-topic-2.1+2",
+      "InformationalVersion": "0.1.0-topic-2.1+2.Branch.feature-topic-2.Sha.8204fba7160f80e5e7b62d1f2304167e31a4ae2d",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "0.1.0-topic-2.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "8204fba7160f80e5e7b62d1f2304167e31a4ae2d",
+      "ShortSha": "8204fba",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0188--head": {
+      "AssemblySemFileVer": "4.1.1.0",
+      "AssemblySemVer": "4.1.1.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "1.Branch.feature-topic-1.Sha.ed1fc4f11c8507a58c8f71fa38c504d7b45f1a87",
+      "FullSemVer": "4.1.1-topic-1.1+1",
+      "InformationalVersion": "4.1.1-topic-1.1+1.Branch.feature-topic-1.Sha.ed1fc4f11c8507a58c8f71fa38c504d7b45f1a87",
+      "Major": 4,
+      "MajorMinorPatch": "4.1.1",
+      "Minor": 1,
+      "Patch": 1,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "4.1.1-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "4.1.1-beta.9",
+      "SemVerSourceSha": "ad4989cbe52713e96bc3603d840025e388945c16",
+      "Sha": "ed1fc4f11c8507a58c8f71fa38c504d7b45f1a87",
+      "ShortSha": "ed1fc4f",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0189--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.d5f7ac4b4122da413e52a3033912435d18af889b",
+      "FullSemVer": "0.1.0-topic-2.1+2",
+      "InformationalVersion": "0.1.0-topic-2.1+2.Branch.feature-topic-2.Sha.d5f7ac4b4122da413e52a3033912435d18af889b",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "0.1.0-topic-2.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "d5f7ac4b4122da413e52a3033912435d18af889b",
+      "ShortSha": "d5f7ac4",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0238--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.b40752549cab19cb848e81b6758474140bc0615b",
+      "FullSemVer": "1.0.0-topic-1.1+2",
+      "InformationalVersion": "1.0.0-topic-1.1+2.Branch.feature-topic-1.Sha.b40752549cab19cb848e81b6758474140bc0615b",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "1.0.0-topic-1.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "b40752549cab19cb848e81b6758474140bc0615b",
+      "ShortSha": "b407525",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0244--head": {
+      "AssemblySemFileVer": "5.5.1.0",
+      "AssemblySemVer": "5.5.1.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.c8030306c3663f4698231d504cf76ff925cb4275",
+      "FullSemVer": "5.5.1-topic-1.1+2",
+      "InformationalVersion": "5.5.1-topic-1.1+2.Branch.feature-topic-1.Sha.c8030306c3663f4698231d504cf76ff925cb4275",
+      "Major": 5,
+      "MajorMinorPatch": "5.5.1",
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "5.5.1-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.5.1-beta.4",
+      "SemVerSourceSha": "3e5f84fdd5be7a0064bc0261b04da4ca5a3f079c",
+      "Sha": "c8030306c3663f4698231d504cf76ff925cb4275",
+      "ShortSha": "c803030",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0263--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.0a03cfef85b8aa39c39ab3003f1195056ec4e3b0",
+      "FullSemVer": "1.0.0-topic-1.1+2",
+      "InformationalVersion": "1.0.0-topic-1.1+2.Branch.feature-topic-1.Sha.0a03cfef85b8aa39c39ab3003f1195056ec4e3b0",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "1.0.0-topic-1.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "0a03cfef85b8aa39c39ab3003f1195056ec4e3b0",
+      "ShortSha": "0a03cfe",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0280--head": {
+      "AssemblySemFileVer": "5.1.5.0",
+      "AssemblySemVer": "5.1.5.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "1.Branch.feature-topic-3.Sha.494e0182fda055309c73b7522c7a635e71c7d72f",
+      "FullSemVer": "5.1.5-topic-3.1+1",
+      "InformationalVersion": "5.1.5-topic-3.1+1.Branch.feature-topic-3.Sha.494e0182fda055309c73b7522c7a635e71c7d72f",
+      "Major": 5,
+      "MajorMinorPatch": "5.1.5",
+      "Minor": 1,
+      "Patch": 5,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "5.1.5-topic-3.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.1.5-topic-2.1",
+      "SemVerSourceSha": "f5016a23f706348d702430310c0f390b386cf454",
+      "Sha": "494e0182fda055309c73b7522c7a635e71c7d72f",
+      "ShortSha": "494e018",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0284--head": {
+      "AssemblySemFileVer": "4.1.6.0",
+      "AssemblySemVer": "4.1.6.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "1.Branch.feature-topic-1.Sha.4e054c0eecad8a994415120f1959abddfd03fb9f",
+      "FullSemVer": "4.1.6-topic-1.1+1",
+      "InformationalVersion": "4.1.6-topic-1.1+1.Branch.feature-topic-1.Sha.4e054c0eecad8a994415120f1959abddfd03fb9f",
+      "Major": 4,
+      "MajorMinorPatch": "4.1.6",
+      "Minor": 1,
+      "Patch": 6,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "4.1.6-topic-1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "4.1.6-beta.3",
+      "SemVerSourceSha": "0dd1beff42d27f32fc09ee6585641786aecfa7ad",
+      "Sha": "4e054c0eecad8a994415120f1959abddfd03fb9f",
+      "ShortSha": "4e054c0",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0340--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.7994b04fedcc2c72166f6b0616e42a88f19d9bf4",
+      "FullSemVer": "0.1.0-topic-1.1+2",
+      "InformationalVersion": "0.1.0-topic-1.1+2.Branch.feature-topic-1.Sha.7994b04fedcc2c72166f6b0616e42a88f19d9bf4",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "0.1.0-topic-1.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "7994b04fedcc2c72166f6b0616e42a88f19d9bf4",
+      "ShortSha": "7994b04",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0395--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.991123d9a105003898d62c9e779219e773edce1c",
+      "FullSemVer": "1.0.0-topic-2.1+2",
+      "InformationalVersion": "1.0.0-topic-2.1+2.Branch.feature-topic-2.Sha.991123d9a105003898d62c9e779219e773edce1c",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "1.0.0-topic-2.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "991123d9a105003898d62c9e779219e773edce1c",
+      "ShortSha": "991123d",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0414--head": {
+      "AssemblySemFileVer": "0.0.0.0",
+      "AssemblySemVer": "0.0.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 1,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "1.Branch.feature-topic-2.Sha.3ce0a92e19ce288c960265eb28634e5678fbc2f3",
+      "FullSemVer": "0.0.0-topic-2.1+1",
+      "InformationalVersion": "0.0.0-topic-2.1+1.Branch.feature-topic-2.Sha.3ce0a92e19ce288c960265eb28634e5678fbc2f3",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "0.0.0-topic-2.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "3ce0a92e19ce288c960265eb28634e5678fbc2f3",
+      "ShortSha": "3ce0a92",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0421--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.41a5f06d032ecb8fc09482161354db670bdd78e1",
+      "FullSemVer": "1.0.0-topic-2.1+2",
+      "InformationalVersion": "1.0.0-topic-2.1+2.Branch.feature-topic-2.Sha.41a5f06d032ecb8fc09482161354db670bdd78e1",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "1.0.0-topic-2.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "41a5f06d032ecb8fc09482161354db670bdd78e1",
+      "ShortSha": "41a5f06",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0560--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "2.Branch.feature-topic-3.Sha.4821d057ff08d895d45fd925abe2c6020f79a823",
+      "FullSemVer": "1.0.0-topic-3.1+2",
+      "InformationalVersion": "1.0.0-topic-3.1+2.Branch.feature-topic-3.Sha.4821d057ff08d895d45fd925abe2c6020f79a823",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "1.0.0-topic-3.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "4821d057ff08d895d45fd925abe2c6020f79a823",
+      "ShortSha": "4821d05",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0604--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "2.Branch.feature-topic-3.Sha.288d22274cfb55716d7ed36c7ea72fb94df748e5",
+      "FullSemVer": "0.1.0-topic-3.1+2",
+      "InformationalVersion": "0.1.0-topic-3.1+2.Branch.feature-topic-3.Sha.288d22274cfb55716d7ed36c7ea72fb94df748e5",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "0.1.0-topic-3.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "288d22274cfb55716d7ed36c7ea72fb94df748e5",
+      "ShortSha": "288d222",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0727--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.ae4c40297bac0f8fd4f56491177134ce106d40ee",
+      "FullSemVer": "1.0.0-topic-1.1+2",
+      "InformationalVersion": "1.0.0-topic-1.1+2.Branch.feature-topic-1.Sha.ae4c40297bac0f8fd4f56491177134ce106d40ee",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "1.0.0-topic-1.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "ae4c40297bac0f8fd4f56491177134ce106d40ee",
+      "ShortSha": "ae4c402",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0782--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.5949c69976866b430b876792ca29e6ea007d3d5c",
+      "FullSemVer": "0.1.0-topic-2.1+2",
+      "InformationalVersion": "0.1.0-topic-2.1+2.Branch.feature-topic-2.Sha.5949c69976866b430b876792ca29e6ea007d3d5c",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "0.1.0-topic-2.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "5949c69976866b430b876792ca29e6ea007d3d5c",
+      "ShortSha": "5949c69",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0790--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "2.Branch.feature-topic-2.Sha.62da3bd8e9cce1839bd9ec6786383443216412c9",
+      "FullSemVer": "0.1.0-topic-2.1+2",
+      "InformationalVersion": "0.1.0-topic-2.1+2.Branch.feature-topic-2.Sha.62da3bd8e9cce1839bd9ec6786383443216412c9",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "0.1.0-topic-2.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "62da3bd8e9cce1839bd9ec6786383443216412c9",
+      "ShortSha": "62da3bd",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0816--head": {
+      "AssemblySemFileVer": "0.1.0.0",
+      "AssemblySemVer": "0.1.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "2.Branch.feature-topic-1.Sha.f9de16e3e86c8734a7cb2611c516461831989114",
+      "FullSemVer": "0.1.0-topic-1.1+2",
+      "InformationalVersion": "0.1.0-topic-1.1+2.Branch.feature-topic-1.Sha.f9de16e3e86c8734a7cb2611c516461831989114",
+      "Major": 0,
+      "MajorMinorPatch": "0.1.0",
+      "Minor": 1,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-1",
+      "PreReleaseLabelNameWithDash": "-topic-1",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-1.1",
+      "PreReleaseLabelWithDash": "-topic-1.1",
+      "SemVer": "0.1.0-topic-1.1",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "f9de16e3e86c8734a7cb2611c516461831989114",
+      "ShortSha": "f9de16e",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "inheritance-generated-0963--head": {
+      "AssemblySemFileVer": "1.0.0.0",
+      "AssemblySemVer": "1.0.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 2,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "2.Branch.feature-topic-3.Sha.2fcbbb228ae9888a49ff4bd436aeee3d0c2f1e2a",
+      "FullSemVer": "1.0.0-topic-3.1+2",
+      "InformationalVersion": "1.0.0-topic-3.1+2.Branch.feature-topic-3.Sha.2fcbbb228ae9888a49ff4bd436aeee3d0c2f1e2a",
+      "Major": 1,
+      "MajorMinorPatch": "1.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "1.0.0-topic-3.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "2fcbbb228ae9888a49ff4bd436aeee3d0c2f1e2a",
+      "ShortSha": "2fcbbb2",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    }
+  },
+  "recipes": [
+    {
+      "id": "clock-generated-0002",
+      "description": "seed 20261106 case 2",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Major\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: major",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: minor",
+          "seconds": 300
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0008",
+      "description": "seed 20261106 case 8",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "ordinary change",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: skip +semver: major",
+          "seconds": 420
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0010",
+      "description": "seed 20261106 case 10",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "ordinary change",
+          "seconds": 180
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0013",
+      "description": "seed 20261106 case 13",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: feature",
+          "seconds": 240
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0016",
+      "description": "seed 20261106 case 16",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: skip +semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-13",
+          "message": "+semver: minor",
+          "seconds": 540
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0021",
+      "description": "seed 20261106 case 21",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: minor",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: skip +semver: major",
+          "seconds": 420
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0025",
+      "description": "seed 20261106 case 25",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: feature",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0038",
+      "description": "seed 20261106 case 38",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "ordinary change",
+          "seconds": 420
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0041",
+      "description": "seed 20261106 case 41",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: minor",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0045",
+      "description": "seed 20261106 case 45",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: minor",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: patch",
+          "seconds": 240
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0060",
+      "description": "seed 20261106 case 60",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: feature",
+          "seconds": 480
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "clock-generated-0061",
+      "description": "seed 20261106 case 61",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: major",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: minor",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0087",
+      "description": "seed 20261106 case 87",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "v4.1.1-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0094",
+      "description": "seed 20261106 case 94",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "1.5.1-beta.7",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0116",
+      "description": "seed 20261106 case 116",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: feature",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.4.0-beta.3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0122",
+      "description": "seed 20261106 case 122",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n  next-version: 5.3.5\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "tag",
+          "name": "v5.4.0-beta.3"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0159",
+      "description": "seed 20261106 case 159",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "2.1.2-beta.1",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0188",
+      "description": "seed 20261106 case 188",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.1.1-beta.9"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0189",
+      "description": "seed 20261106 case 189",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: patch",
+          "seconds": 300
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "1.0.2-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0238",
+      "description": "seed 20261106 case 238",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "ordinary change",
+          "seconds": 420
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 480
+        },
+        {
+          "op": "tag",
+          "name": "v4.3.1-beta.7"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0244",
+      "description": "seed 20261106 case 244",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v5.5.1-beta.4",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: minor",
+          "seconds": 420
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0263",
+      "description": "seed 20261106 case 263",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Major\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "ordinary change",
+          "seconds": 180
+        },
+        {
+          "op": "tag",
+          "name": "5.3.0-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0280",
+      "description": "seed 20261106 case 280",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.1.5-topic-2.1",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0284",
+      "description": "seed 20261106 case 284",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.1.6-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0340",
+      "description": "seed 20261106 case 340",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: feature",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v5.5.1-beta.7"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0395",
+      "description": "seed 20261106 case 395",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v2.4.2-beta.6"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0414",
+      "description": "seed 20261106 case 414",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "ordinary change",
+          "seconds": 600
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "ordinary change",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "v5.4.2-beta.1",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0421",
+      "description": "seed 20261106 case 421",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Major\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: patch",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-14",
+          "message": "+semver: skip +semver: major",
+          "seconds": 840
+        },
+        {
+          "op": "tag",
+          "name": "v4.0.4-beta.4"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0560",
+      "description": "seed 20261106 case 560",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: skip +semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "5.5.2-topic-2.3"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0604",
+      "description": "seed 20261106 case 604",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: feature",
+          "seconds": 480
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "ordinary change",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "2.1.0-beta.8"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0727",
+      "description": "seed 20261106 case 727",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Major\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "2.4.0-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0782",
+      "description": "seed 20261106 case 782",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Minor\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: minor",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: feature",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "5.3.3-beta.4",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0790",
+      "description": "seed 20261106 case 790",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Patch\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: minor",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 300
+        },
+        {
+          "op": "tag",
+          "name": "2.4.3-topic-1.3"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0816",
+      "description": "seed 20261106 case 816",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: None\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: feature",
+          "seconds": 120
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: feature",
+          "seconds": 660
+        },
+        {
+          "op": "tag",
+          "name": "1.3.0-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "inheritance-generated-0963",
+      "description": "seed 20261106 case 963",
+      "config": "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main:\n      increment: Major\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.2.2-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    }
+  ],
+  "reductions": [
+    {
+      "case": "generated-0002--head",
+      "original_steps": 14,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 27,
+      "reduced": "clock-generated-0002",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0008--head",
+      "original_steps": 20,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 41,
+      "reduced": "clock-generated-0008",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0010--head",
+      "original_steps": 22,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 46,
+      "reduced": "clock-generated-0010",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0013--head",
+      "original_steps": 30,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 65,
+      "reduced": "clock-generated-0013",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0016--head",
+      "original_steps": 24,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 59,
+      "reduced": "clock-generated-0016",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0021--head",
+      "original_steps": 30,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 58,
+      "reduced": "clock-generated-0021",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0025--head",
+      "original_steps": 20,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 31,
+      "reduced": "clock-generated-0025",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0038--head",
+      "original_steps": 12,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 19,
+      "reduced": "clock-generated-0038",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0041--head",
+      "original_steps": 12,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 25,
+      "reduced": "clock-generated-0041",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0045--head",
+      "original_steps": 12,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 22,
+      "reduced": "clock-generated-0045",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0060--head",
+      "original_steps": 20,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 41,
+      "reduced": "clock-generated-0060",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0061--head",
+      "original_steps": 23,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 43,
+      "reduced": "clock-generated-0061",
+      "reduced_steps": 3,
+      "source": "run-2091460897"
+    },
+    {
+      "case": "generated-0087--head",
+      "original_steps": 9,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 18,
+      "reduced": "inheritance-generated-0087",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0094--head",
+      "original_steps": 13,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 34,
+      "reduced": "inheritance-generated-0094",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0116--head",
+      "original_steps": 22,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 82,
+      "reduced": "inheritance-generated-0116",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0122--head",
+      "original_steps": 10,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 30,
+      "reduced": "inheritance-generated-0122",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0159--head",
+      "original_steps": 25,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 63,
+      "reduced": "inheritance-generated-0159",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0188--head",
+      "original_steps": 22,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 63,
+      "reduced": "inheritance-generated-0188",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0189--head",
+      "original_steps": 16,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 25,
+      "reduced": "inheritance-generated-0189",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0238--head",
+      "original_steps": 16,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 54,
+      "reduced": "inheritance-generated-0238",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0244--head",
+      "original_steps": 15,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 31,
+      "reduced": "inheritance-generated-0244",
+      "reduced_steps": 7,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0263--head",
+      "original_steps": 9,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 16,
+      "reduced": "inheritance-generated-0263",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0280--head",
+      "original_steps": 32,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 121,
+      "reduced": "inheritance-generated-0280",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0284--head",
+      "original_steps": 28,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 87,
+      "reduced": "inheritance-generated-0284",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0340--head",
+      "original_steps": 19,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 77,
+      "reduced": "inheritance-generated-0340",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0395--head",
+      "original_steps": 16,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 41,
+      "reduced": "inheritance-generated-0395",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0414--head",
+      "original_steps": 26,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 75,
+      "reduced": "inheritance-generated-0414",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0421--head",
+      "original_steps": 31,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 102,
+      "reduced": "inheritance-generated-0421",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0560--head",
+      "original_steps": 18,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 48,
+      "reduced": "inheritance-generated-0560",
+      "reduced_steps": 8,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0604--head",
+      "original_steps": 23,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 56,
+      "reduced": "inheritance-generated-0604",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0727--head",
+      "original_steps": 9,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 10,
+      "reduced": "inheritance-generated-0727",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0782--head",
+      "original_steps": 20,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 47,
+      "reduced": "inheritance-generated-0782",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0790--head",
+      "original_steps": 18,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 48,
+      "reduced": "inheritance-generated-0790",
+      "reduced_steps": 8,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0816--head",
+      "original_steps": 14,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 40,
+      "reduced": "inheritance-generated-0816",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    },
+    {
+      "case": "generated-0963--head",
+      "original_steps": 17,
+      "predicate": "reconstructed old behavior versus current calculator; minimal case independently verified with pinned C#",
+      "predicate_calls": 29,
+      "reduced": "inheritance-generated-0963",
+      "reduced_steps": 6,
+      "source": "run-1071288346"
+    }
+  ],
+  "source_revision": "14d222235b7dabb7033473528a76fd18478a9217"
+}
