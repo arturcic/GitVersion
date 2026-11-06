@@ -1,0 +1,184 @@
+{
+  "date": "2026-11-07",
+  "implementation_commit": "6ce9921c65596f4a7199457753b7dbd00bec71b3",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "output_fields": 33,
+  "regular_tests_and_subtests": 1048,
+  "regular_test_packages": 9,
+  "regular_failures": 0,
+  "regular_skips": 0,
+  "cgo_enabled": false,
+  "git_library": "go-git v5.19.3",
+  "macos_candidate_sha256": "ade39741b8540f6843134a148cb81b158ab3b113961a04ecb674f64dbce1f4ca",
+  "ubuntu_candidate_sha256": "c84ae42845c4fa1179afe676ee769a7b362ce617f87cbaa0d4eba3183f884826",
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "exit_code": 0,
+    "mounts": [],
+    "network_mode": "none"
+  },
+  "gates": [
+    {
+      "platform": "darwin/arm64",
+      "suite": "original-curated",
+      "test": "TestPinnedGoCalculationParity",
+      "version_matches": 63,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/calculation-evidence/run-1062734462",
+      "report_sha256": "0269e012f295211671728510f077c02aab40276ae9b9e7bc533a6efd302761e1"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "generated-original",
+      "test": "TestGeneratedCalculationParity",
+      "version_matches": 1000,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/expansion-evidence/run-1978075679",
+      "report_sha256": "6d0621089df281e676851591871a891ee14ae03d71fd0d5ac7cd465cf1b101ea"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "generated-policies",
+      "test": "TestGeneratedPolicyParity",
+      "version_matches": 1000,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/expanded-generated-evidence/run-1595104750",
+      "report_sha256": "1febc9b2cbc29f1325508667d9e7a1062cfe7b4c3b9882ab54f2a3d4de613420"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "generated-workflows",
+      "test": "TestGeneratedWorkflowParity",
+      "version_matches": 999,
+      "matched_rejections": 1,
+      "failed": 0,
+      "evidence": ".local/workflow-generated-evidence/run-261441363",
+      "report_sha256": "79f7b86092ef00cc599f5c7e4883c6784712c41af9fdcea2743ac161f5ff0182"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "generated-resets",
+      "test": "TestGeneratedResetParity",
+      "version_matches": 1000,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/reset-generated-evidence/run-2998368911",
+      "report_sha256": "f5c84678630ef4944b8235d21054d27e5a329336aee597b451171b7d358f91eb"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "policies",
+      "test": "TestExpandedPolicyParity",
+      "version_matches": 250,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/policy-evidence/run-1091897742",
+      "report_sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "workflows",
+      "test": "TestWorkflowParity",
+      "version_matches": 166,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-evidence/run-4235390807",
+      "report_sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "resets",
+      "test": "TestResetPolicyParity",
+      "version_matches": 192,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/reset-evidence/run-4209902195",
+      "report_sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871"
+    },
+    {
+      "platform": "darwin/arm64",
+      "suite": "workflow-edges",
+      "test": "TestWorkflowEdgeParity",
+      "version_matches": 13,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-edge-evidence/run-1840756721",
+      "report_sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "curated",
+      "test": "TestPlatformCuratedParity",
+      "version_matches": 63,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1374849907",
+      "report_sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "policies",
+      "test": "TestPlatformPolicyParity",
+      "version_matches": 250,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1694546380",
+      "report_sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "workflows",
+      "test": "TestPlatformWorkflowParity",
+      "version_matches": 166,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-2829079192",
+      "report_sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "workflow-edges",
+      "test": "TestPlatformWorkflowEdgeParity",
+      "version_matches": 13,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3154974821",
+      "report_sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "resets",
+      "test": "TestPlatformResetParity",
+      "version_matches": 192,
+      "matched_rejections": 0,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3345911498",
+      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b"
+    },
+    {
+      "platform": "linux/arm64",
+      "suite": "workflow-generated",
+      "test": "TestPlatformGeneratedWorkflowParity",
+      "version_matches": 999,
+      "matched_rejections": 1,
+      "failed": 0,
+      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3735133865",
+      "report_sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d"
+    }
+  ],
+  "retry": {
+    "test": "TestWorkflowEdgeParity",
+    "failed_evidence": ".local/workflow-edge-evidence/run-1246037678",
+    "reason": "C# effective-configuration preflight exceeded the 30-second per-process timeout; no version comparison ran.",
+    "successful_evidence": ".local/workflow-edge-evidence/run-1840756721",
+    "timeout_unchanged": true
+  },
+  "limitations": [
+    "Declared workflow subset, not full replacement compatibility.",
+    "Known rejection matches exit and empty stdout; diagnostic wording remains a CLI gap.",
+    "Windows validation intentionally pending."
+  ]
+}

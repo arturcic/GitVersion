@@ -10,7 +10,7 @@ This local Milestone E expansion targets the established C# `src/` implementatio
 - Mainline commit-by-commit trunk increments, branch accumulation, recognized/unrecognized merges, nested merges, tagged boundaries, default reset directives, semantic provenance and independent commit-count anchors.
 - Existing deployment modes and accepted per-branch increment/message/label/weight/tag-prevention settings extend to the new preset families. Unknown settings continue to fail explicitly.
 
-This is a verified workflow subset, not completion of the full replacement contract. Custom source-branch lists/regex, the complete strategy-combination matrix, remaining track/prevent controls, arbitrary labels/formatting, multiple competing configuration sources, normalization and other repository layouts still require their own acceptance cases. CLI syntax/diagnostic equivalence, CI adapters, MSBuild and distribution remain separate open work. Windows stays last.
+This is a verified workflow subset, not completion of the full replacement contract. Custom source-branch lists/regex, the complete strategy-combination matrix, remaining track/prevent controls, arbitrary labels/formatting, multiple competing configuration sources, normalization and other repository layouts still require their own acceptance cases. Mainline merges between two main-classified branches (including main/support) remain rejected by the pinned strategy; supporting a support branch does not imply successful versions for those merges. CLI syntax/diagnostic equivalence, CI adapters, MSBuild and distribution remain separate open work. Windows stays last.
 
 ## Reference-first evidence
 
@@ -31,7 +31,21 @@ The 23 failing successful-reference histories (22 from the large run plus the pi
 
 ## Verification
 
-Final macOS and Ubuntu process runs are in progress. The regular suite currently passes 1,048 tests/subtests across nine packages; all 179 frozen workflow checkpoints pass. Final evidence paths, candidate hashes and exact counts will be recorded below after the runs finish.
+All final gates passed on macOS arm64 and Ubuntu 26.04.1 arm64:
+
+| Gate | macOS | Ubuntu |
+| --- | --- | --- |
+| Original curated / policies / resets | 63 / 250 / 192 | 63 / 250 / 192 |
+| New workflow / edge checkpoints | 166 / 13 | 166 / 13 |
+| Generated workflows: version JSON | 999 | 999 |
+| Generated workflows: pinned rejection | 1 | 1 |
+| Earlier generated calculation / policy / reset suites | 1,000 / 1,000 / 1,000 | Earlier generated suites not rerun in this batch |
+
+The regular suite passed **1,048 tests/subtests across nine packages**, zero failures or skips. Vet (including all acceptance tags), module verification, formatting and diff checks passed. Candidate dependencies contain no CGO packages. The versioned [evidence manifest](WORKFLOW-EVIDENCE.json) records exact test names, run directories, report hashes, source identity and binary hashes.
+
+The combined macOS command ended with one C# effective-configuration preflight timeout in `TestWorkflowEdgeParity`. It did not reach a version comparison. The failed run is retained; a focused fresh rerun passed all 13 cases with the same 30-second process timeout. Earlier gates were already green and were not repeated. This is a passing final gate set after a focused retry, not a claim that the initial combined command exited successfully.
+
+Linux evidence is copied under `.local/workflow-ubuntu-nativefs-evidence/`; the temporary container was removed after verifying all six reports (1,683 JSON matches plus one pinned rejection). The candidate hashes below apply to every recorded gate. Subsequent checkpoint changes are documentation, package comments and the portable dashboard snapshot only.
 
 All process comparisons run C# and Go separately against independent repository copies. Ubuntu uses the unchanged published C# assemblies, records its own runtime/host hashes, and compares fresh C# output with portable macOS reference outputs. The container is Ubuntu 26.04.1 arm64, image `sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb`, with runtime 10.0.14, and runs with `--network none`.
 
@@ -47,3 +61,14 @@ CGO_ENABLED=0 PARITY_DOTNET="$DOTNET_HOST" "$GO_HOST" test \
 ```
 
 For Ubuntu, cross-build the candidate and `go test -tags platform -c ./cmd/parity` with `GOOS=linux GOARCH=arm64 CGO_ENABLED=0`. The platform test executable runs from `cmd/parity`, with absolute `PARITY_DOTNET` and `PARITY_CANDIDATE` paths. Run `^TestPlatform(Curated|Policy|Reset|Workflow|WorkflowEdge|GeneratedWorkflow)Parity$`. The generated platform gate also requires `.local/workflow-generated-reference.json`, containing the 999 independently captured macOS C# outputs; the rejection is the separately pinned contract above. Evidence stays in `.local/platform-evidence/` and never enters Git.
+
+## Recorded implementation and binaries
+
+Implementation checkpoint: `6ce9921c6`; previous A–E checkpoint: `6f0ec4dda`. Tests record binary identity before and after every acceptance run. `.local/workflow-build-provenance.json` also records production-file hashes, baseline lock identity and the implementation checkpoint.
+
+| Candidate | SHA-256 |
+| --- | --- |
+| macOS arm64 | `ade39741b8540f6843134a148cb81b158ab3b113961a04ecb674f64dbce1f4ca` |
+| Ubuntu arm64 | `c84ae42845c4fa1179afe676ee769a7b362ce617f87cbaa0d4eba3183f884826` |
+
+The final Linux run uses the container's native filesystem. Earlier shared-mount runs passed their completed curated groups but were interrupted before the full matrix finished; they are not counted as final evidence. Source, images, binaries, process outputs and checkpoint commits remain local. No Windows validation, CodeRabbit review, push or publication was performed.

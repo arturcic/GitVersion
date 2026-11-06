@@ -1,4 +1,5 @@
-// Package config accepts only the frozen GitHubFlow/v1 prototype contract.
+// Package config accepts the declared GitHubFlow/v1 and GitFlow/v1 settings,
+// including explicit Mainline strategy selection.
 // Unknown configuration is an error, including unknown deeply nested fields.
 package config
 

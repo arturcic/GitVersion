@@ -1,4 +1,4 @@
-// gitversion-go calculates the frozen GitHubFlow subset and exposes observations.
+// gitversion-go calculates the declared workflow subset and exposes observations.
 package main
 
 import (

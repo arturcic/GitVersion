@@ -1,4 +1,5 @@
-// Package calculate implements the frozen GitHubFlow/v1 subset independently.
+// Package calculate independently implements the declared GitHub Flow, GitFlow
+// and Mainline version-calculation subset.
 // It reads raw configuration and Git objects; no reference outputs are inputs.
 package calculate
 

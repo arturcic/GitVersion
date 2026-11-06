@@ -8,8 +8,8 @@ Compatibility is an inventory of observable behaviors, not a percentage inferred
 | --- | --- | --- |
 | GitHub Flow main/feature calculation | Verified declared subset | Reset directives verified; all remaining strategies, unusual histories and version bounds |
 | Deployment modes and branch controls | First E batch verified | Inheritance across all branch families, remaining prevent/track controls |
-| GitFlow and branch families | Default-family subset implemented; platform gates running | Full custom/fallback branch policies, competing configuration sources and remaining merge interactions; see WORKFLOWS.md |
-| Mainline | Independent strategy implemented; platform gates running | Remaining strategy combinations and configuration interactions; exact diagnostic parity for baseline rejection |
+| GitFlow and branch families | Declared default-family subset verified on macOS/Ubuntu | Full custom/fallback branch policies, competing configuration sources and remaining merge interactions; see WORKFLOWS.md |
+| Mainline | Declared strategy subset verified on macOS/Ubuntu | Remaining strategy combinations and configuration interactions; exact diagnostic parity for baseline rejection |
 | Configuration | Partial, strict accepted subset | All v7 sections/defaults, source branches, custom regex/formatting, ignore paths/SHAs/dates, override precedence, lookup and diagnostics |
 | Semantic versions and output variables | 33 fields verified within subset | Loose format, build metadata, prerelease next-version, full bounds, custom/assembly/date formats |
 | Repository layouts and state | Complete clean attached local repositories | Worktrees, detached/shallow/bare/dirty repositories, remote refs, missing objects, normalization and supported failure behavior |
@@ -18,7 +18,7 @@ Compatibility is an inventory of observable behaviors, not a percentage inferred
 | MSBuild | Open | Task/property/target compatibility, generated GitVersionInformation, assembly updates, build-log output, multi-target and design-time build behavior |
 | Distribution and embedding | Open | Local native binaries, package layout/entry points, .NET task/API compatibility boundaries, reproducible packaging and consumer smoke tests |
 | macOS | Verified existing corpus on arm64 | Each new group; architecture matrix and filesystem edge cases |
-| Ubuntu 26.04 | Verified 505 curated checkpoints on arm64 | Each new group; architecture matrix and filesystem edge cases |
+| Ubuntu 26.04 | Verified 684 curated checkpoints + 999 generated JSON comparisons + one rejection on arm64 | Each new group; architecture matrix and filesystem edge cases |
 | Windows | Explicitly last; not executed | Portable handoff, platform-specific behavior, all declared groups and integrations |
 
 ## Source-backed inventory
@@ -33,8 +33,8 @@ The pinned source is extracted under `.local/source/`; do not use a moving branc
 
 ## Execution order
 
-1. Finish the existing Ubuntu 26.04 parity gates and retain image/runtime/package provenance.
-2. Expand calculation/configuration in reference-first batches. Reset-message semantics are now verified; next are additional workflow/branch strategies and configuration groups.
+1. Ubuntu 26.04 workflow gates are verified; retain image/runtime/package provenance for every new group.
+2. Expand calculation/configuration in reference-first batches. Reset-message and declared GitFlow/Mainline semantics are verified; next are remaining configuration, source-branch and strategy-combination groups.
 3. Implement the pinned CLI surface and all output formats, diagnostic/exit behavior and filesystem side effects.
 4. Implement build-server adapters and MSBuild/consumer compatibility with isolated local stand-ins. Real CI publication/network operations require separate authorization.
 5. Run the complete declared matrix on macOS and Ubuntu, including generated histories, public snapshots, repeatability, consumer builds and performance regressions.
