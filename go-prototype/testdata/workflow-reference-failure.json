@@ -1,0 +1,151 @@
+{
+  "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "id": "workflow-generated-0347--head",
+  "digest": "7f90375f590f4b174b2469d116f1b18047e47c3daa1bccd37dbe45a1a2d63d78",
+  "exit_code": 1,
+  "reason": "Pinned Mainline throws ArgumentOutOfRangeException when a tagged hotfix still has unresolved Inherit after a child traversal stops. The version calculation rejects this history; diagnostic text parity remains part of CLI work.",
+  "recipe": {
+    "id": "workflow-generated-0347",
+    "description": "workflow seed 20261106 case 347, variant 2",
+    "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Minor\n            label: preview\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            label: preview\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: false\n    next-version: 2.0.4\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 1\n        main:\n            pre-release-weight: 0\n    tag-pre-release-weight: 123\nworkflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-00",
+        "message": "+semver:\u00a0feature",
+        "seconds": 0
+      },
+      {
+        "op": "commit",
+        "id": "commit-01",
+        "message": "+semver:\u00a0feature",
+        "seconds": 60
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "commit-02",
+        "message": "ordinary change",
+        "seconds": 120
+      },
+      {
+        "op": "tag",
+        "name": "4.2.0-topic-1.1",
+        "annotated": true
+      },
+      {
+        "op": "commit",
+        "id": "commit-03",
+        "message": "+semver: patch",
+        "seconds": 180
+      },
+      {
+        "op": "commit",
+        "id": "commit-04",
+        "message": "+semver: major",
+        "seconds": 240
+      },
+      {
+        "op": "tag",
+        "name": "v5.1.1",
+        "annotated": true
+      },
+      {
+        "op": "branch",
+        "name": "release/2.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/2.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "commit-05",
+        "message": "+semver: patch",
+        "seconds": 300
+      },
+      {
+        "op": "tag",
+        "name": "3.4.2",
+        "annotated": true
+      },
+      {
+        "op": "checkout",
+        "name": "release/2.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "commit-06",
+        "message": "+semver: minor",
+        "seconds": 360
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "commit-07",
+        "message": "=semver: skip +semver: major",
+        "seconds": 420
+      },
+      {
+        "op": "tag",
+        "name": "2.4.3-beta.2"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/1.2.4"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/1.2.4"
+      },
+      {
+        "op": "commit",
+        "id": "commit-08",
+        "message": "+semver:\u00a0feature",
+        "seconds": 480
+      },
+      {
+        "op": "commit",
+        "id": "commit-09",
+        "message": "+semver:\u00a0feature",
+        "seconds": 540
+      },
+      {
+        "op": "merge",
+        "id": "commit-10",
+        "from": "develop",
+        "message": "Merge branch 'develop'\n\n+semver:\u00a0feature",
+        "seconds": 600
+      },
+      {
+        "op": "tag",
+        "name": "v3.1.4-topic-3.7",
+        "annotated": true
+      },
+      {
+        "op": "commit",
+        "id": "commit-11",
+        "message": "+semver: patch",
+        "seconds": 660
+      },
+      {
+        "op": "tag",
+        "name": "3.2.5"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  }
+}

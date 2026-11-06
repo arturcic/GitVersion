@@ -19,10 +19,13 @@ import (
 )
 
 type Config struct {
-	Next          *semver.Version
-	MainIncrement semver.Increment
-	Main, Feature Options
-	TagWeight     int64
+	Workflow               string
+	Mainline, MainlineNext bool
+	Extra                  map[string]Options
+	Next                   *semver.Version
+	MainIncrement          semver.Increment
+	Main, Feature          Options
+	TagWeight              int64
 }
 
 type Mode string
@@ -34,41 +37,66 @@ const (
 )
 
 type Options struct {
-	Mode          Mode
-	Label         string
-	Increment     *semver.Increment
-	Weight        int64
-	PreventTagged bool
-	Messages      *string
+	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage *bool
+	Mode                                                                                                    Mode
+	Label                                                                                                   string
+	Increment                                                                                               *semver.Increment
+	Weight                                                                                                  int64
+	PreventTagged                                                                                           bool
+	Messages                                                                                                *string
 }
 type Effective struct {
-	Mode                   Mode
-	Label                  string
-	Increment              semver.Increment
-	Weight, TagWeight      int64
-	PreventTagged, Inherit bool
-	Messages               string
+	Kind                                                                                                    string
+	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage bool
+	Mode                                                                                                    Mode
+	Label                                                                                                   string
+	Increment                                                                                               semver.Increment
+	Weight, TagWeight                                                                                       int64
+	PreventTagged, Inherit                                                                                  bool
+	Messages                                                                                                string
 }
 
-func (c Config) Effective(branch string) (Effective, error) {
-	main, capture, err := Branch(branch)
+func (c Config) Effective(branch string) (Effective, error) { return c.EffectiveFrom(branch, "main") }
+func (c Config) EffectiveFrom(branch, source string) (Effective, error) {
+	kind, capture, err := c.Branch(branch)
 	if err != nil {
 		return Effective{}, err
 	}
-	o := c.Feature
-	if main {
-		o = c.Main
+	o := c.Options(kind)
+	parentKind, _, err := c.Branch(source)
+	if err != nil {
+		return Effective{}, err
 	}
-	e := Effective{Mode: o.Mode, Label: Sanitize(strings.ReplaceAll(o.Label, "{BranchName}", capture), true), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: !main && o.Increment == nil, Messages: "Enabled"}
+	parent := c.Options(parentKind)
+	e := Effective{Kind: kind, Mode: o.Mode, Label: Sanitize(strings.ReplaceAll(strings.ReplaceAll(o.Label, "{BranchName}", capture), "{Number}", capture), true), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
+	if e.Inherit && parent.Increment != nil {
+		e.Increment = *parent.Increment
+	}
 	if o.Increment != nil {
 		e.Increment = *o.Increment
 	}
-	if e.Inherit && c.Main.Messages != nil {
-		e.Messages = *c.Main.Messages
+	if e.Inherit && parent.Messages != nil {
+		e.Messages = *parent.Messages
 	}
 	if o.Messages != nil {
 		e.Messages = *o.Messages
 	}
+	value := func(child, ancestor *bool, fallback bool) bool {
+		if child != nil {
+			return *child
+		}
+		if e.Inherit && ancestor != nil {
+			return *ancestor
+		}
+		return fallback
+	}
+	e.IsMain = value(o.IsMain, parent.IsMain, false)
+	e.IsRelease = value(o.IsRelease, parent.IsRelease, false)
+	e.TracksRelease = value(o.TracksRelease, parent.TracksRelease, false)
+	e.TrackMergeTarget = value(o.TrackMergeTarget, parent.TrackMergeTarget, false)
+	e.PreventMerged = value(o.PreventMerged, parent.PreventMerged, false)
+	e.PreventWhenMerged = value(o.PreventWhenMerged, parent.PreventWhenMerged, false)
+	e.TrackMergeMessage = value(o.TrackMergeMessage, parent.TrackMergeMessage, true)
 	return e, nil
 }
 
@@ -156,13 +184,42 @@ func Parse(data []byte) (Config, error) {
 	if err != nil {
 		return c, err
 	}
-	if workflow != "GitHubFlow/v1" {
+	if workflow != "GitHubFlow/v1" && workflow != "GitFlow/v1" {
 		return c, fmt.Errorf("unsupported workflow %q", workflow)
 	}
+	c.Workflow = workflow
+	c.initializeWorkflow()
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"next-version", "branches"})
+		calc, err := mapping(node, "calculation", []string{"next-version", "branches", "strategies"})
 		if err != nil {
 			return c, err
+		}
+		if n := calc["strategies"]; n != nil {
+			if n.Kind != yaml.SequenceNode || n.Anchor != "" || len(n.Content) == 0 {
+				return c, fmt.Errorf("strategies requires a nonempty list")
+			}
+			seen := map[string]bool{}
+			for _, v := range n.Content {
+				name, err := scalar(v, "strategy")
+				if err != nil {
+					return c, err
+				}
+				if seen[name] {
+					return c, fmt.Errorf("duplicate strategy")
+				}
+				seen[name] = true
+				switch name {
+				case "Mainline":
+					c.Mainline = true
+				case "ConfiguredNextVersion":
+					c.MainlineNext = true
+				default:
+					return c, fmt.Errorf("unsupported explicit strategy %q", name)
+				}
+			}
+			if !c.Mainline {
+				return c, fmt.Errorf("explicit strategy subset requires Mainline")
+			}
 		}
 		if n := calc["next-version"]; n != nil {
 			s, err := scalar(n, "next-version")
@@ -179,19 +236,17 @@ func Parse(data []byte) (Config, error) {
 			c.Next = &v
 		}
 		if n := calc["branches"]; n != nil {
-			bs, err := mapping(n, "branches", []string{"main", "feature"})
+			bs, err := mapping(n, "branches", c.Kinds())
 			if err != nil {
 				return c, err
 			}
-			for _, kind := range []string{"main", "feature"} {
+			for _, kind := range c.Kinds() {
 				if n := bs[kind]; n != nil {
-					o := &c.Feature
-					if kind == "main" {
-						o = &c.Main
-					}
-					if err := parseOptions(n, kind, o); err != nil {
+					o := c.Options(kind)
+					if err := parseOptions(n, kind, &o); err != nil {
 						return c, err
 					}
+					c.setOptions(kind, o)
 				}
 			}
 			if c.Main.Increment != nil {
@@ -211,11 +266,11 @@ func Parse(data []byte) (Config, error) {
 			}
 		}
 		if n := out["branches"]; n != nil {
-			bs, err := mapping(n, "output.branches", []string{"main", "feature"})
+			bs, err := mapping(n, "output.branches", c.Kinds())
 			if err != nil {
 				return c, err
 			}
-			for _, kind := range []string{"main", "feature"} {
+			for _, kind := range c.Kinds() {
 				if n := bs[kind]; n != nil {
 					b, err := mapping(n, "output.branches."+kind, []string{"pre-release-weight"})
 					if err != nil {
@@ -226,11 +281,9 @@ func Parse(data []byte) (Config, error) {
 						if err != nil {
 							return c, err
 						}
-						if kind == "main" {
-							c.Main.Weight = w
-						} else {
-							c.Feature.Weight = w
-						}
+						o := c.Options(kind)
+						o.Weight = w
+						c.setOptions(kind, o)
 					}
 				}
 			}
@@ -258,12 +311,15 @@ func parseOptions(n *yaml.Node, kind string, o *Options) error {
 				o.Mode = Mode(s)
 			case "label":
 				literal := strings.ReplaceAll(s, "{BranchName}", "")
-				if strings.ContainsAny(literal, "{}") || strings.Contains(s, "env:") || (kind == "main" && literal != s) {
+				if kind == "pull-request" {
+					literal = strings.ReplaceAll(literal, "{Number}", "")
+				}
+				if strings.ContainsAny(literal, "{}") || strings.Contains(s, "env:") || ((kind == "main" || kind == "develop") && literal != s) {
 					return fmt.Errorf("unsupported label template %q", s)
 				}
 				o.Label = s
 			case "increment":
-				if s == "Inherit" && kind == "feature" {
+				if s == "Inherit" && kind != "main" {
 					o.Increment = nil
 					continue
 				}

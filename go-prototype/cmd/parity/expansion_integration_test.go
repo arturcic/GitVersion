@@ -25,6 +25,8 @@ func TestGeneratedPolicyParity(t *testing.T) {
 	testGeneratedParity(t, "policies")
 }
 
+func TestGeneratedWorkflowParity(t *testing.T) { testGeneratedParity(t, "workflows") }
+
 func TestGeneratedResetParity(t *testing.T) {
 	testGeneratedParity(t, "resets")
 }
@@ -62,6 +64,9 @@ func testGeneratedParity(t *testing.T, suite string) {
 	if suite == "resets" {
 		recipes, err = fixtures.GeneratedResets(20261106, count)
 	}
+	if suite == "workflows" {
+		recipes, err = fixtures.GeneratedWorkflows(20261106, count)
+	}
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -71,6 +76,9 @@ func testGeneratedParity(t *testing.T, suite string) {
 	}
 	if suite == "resets" {
 		parent = filepath.Join(root, ".local/reset-generated-evidence")
+	}
+	if suite == "workflows" {
+		parent = filepath.Join(root, ".local/workflow-generated-evidence")
 	}
 	if err := os.MkdirAll(parent, 0755); err != nil {
 		t.Fatal(err)
@@ -92,6 +100,10 @@ func testGeneratedParity(t *testing.T, suite string) {
 	}
 	if err := parity.WriteJSON(filepath.Join(workspace, "checkpoints.json"), checkpoints); err != nil {
 		t.Fatal(err)
+	}
+	failure := workflowFailure{}
+	if suite == "workflows" {
+		failure = loadWorkflowFailure(t, root)
 	}
 	commands := []parity.Command{
 		{Executable: dotnet, Arguments: append([]string{"--fx-version", baseline.Spec.Runtime, filepath.Join(baseDir, "gitversion.dll")}, baseline.Spec.Arguments...)},
@@ -115,7 +127,12 @@ func testGeneratedParity(t *testing.T, suite string) {
 						err = saveResult(path, result)
 					}
 					if err == nil {
-						err = result.Validate()
+						if cp.ID == failure.ID {
+							err = failure.validate(cp, result)
+							item.ExpectedRejection = true
+						} else {
+							err = result.Validate()
+						}
 					}
 					if err != nil {
 						item.Error = fmt.Sprintf("calculator %d: %v", j, err)
@@ -123,7 +140,10 @@ func testGeneratedParity(t *testing.T, suite string) {
 					}
 					outputs[j] = result.Stdout
 				}
-				if item.Error == "" {
+				if item.Error == "" && item.ExpectedRejection {
+					item.Status = "passed"
+				}
+				if item.Error == "" && !item.ExpectedRejection {
 					differences, compareErr := parity.Compare(outputs[0], outputs[1])
 					item.Differences = differences
 					if compareErr != nil {

@@ -1,0 +1,3645 @@
+{
+  "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "recipes": [
+    {
+      "id": "workflow-generated-0028",
+      "description": "workflow seed 20261106 case 28, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: MergeMessageOnly\n            increment: None\n            label: rc.0\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 0\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 1\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "3.2.0-beta.2"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "merge",
+          "id": "commit-02",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: skip +semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 180
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "ordinary change",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "v4.3.1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 300
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver:\u00a0feature",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v1.3.2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "=semver: patch",
+          "seconds": 420
+        },
+        {
+          "op": "tag",
+          "name": "v3.3.3-beta.7",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "ordinary change",
+          "seconds": 480
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "feature/topic-2",
+          "message": "Merge branch 'feature/topic-2'\n\n+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: skip +semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: minor",
+          "seconds": 660
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: skip +semver: major",
+          "seconds": 720
+        },
+        {
+          "op": "merge",
+          "id": "commit-13",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\n+semver:\u00a0feature",
+          "seconds": 780
+        },
+        {
+          "op": "commit",
+          "id": "commit-14",
+          "message": "ordinary change",
+          "seconds": 840
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0064",
+      "description": "workflow seed 20261106 case 64, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Inherit\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: Patch\n            label: \"42\"\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    next-version: 6.2.4\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 0\n        main:\n            pre-release-weight: 42\n    tag-pre-release-weight: 123\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "=semver:\u00a0feature",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "v2.1.0"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-03",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver:\u00a0feature",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "5.4.1",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: minor",
+          "seconds": 540
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "ordinary change",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v5.3.2-beta.5"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: patch",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: patch",
+          "seconds": 480
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver:\u00a0feature",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: patch",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0074",
+      "description": "workflow seed 20261106 case 74, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Inherit\n            label: \"\"\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Major\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 42\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 0\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "4.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v1.3.1",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "checkout",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "=semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\nordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0136",
+      "description": "workflow seed 20261106 case 136, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Patch\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 123\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "4.5.0"
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.1.1",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "4.3.2-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "2.4.3",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0143",
+      "description": "workflow seed 20261106 case 143, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: None\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Minor\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 55000\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "=semver:\u00a0feature",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "5.5.0-beta.9",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "ordinary change",
+          "seconds": 240
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: minor",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "2.2.1",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 180
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver:\u00a0feature",
+          "seconds": 480
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "ordinary change",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "4.3.2"
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0154",
+      "description": "workflow seed 20261106 case 154, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Minor\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: Disabled\n            increment: Minor\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 42\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 123\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "=semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v5.5.0",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v5.3.1"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0167",
+      "description": "workflow seed 20261106 case 167, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Major\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Minor\n            label: rc.0\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 55000\n        main:\n            pre-release-weight: 55000\n    tag-pre-release-weight: 123\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.0.0",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 420
+        },
+        {
+          "op": "tag",
+          "name": "v3.4.1-beta.9",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 300
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: skip +semver: major",
+          "seconds": 660
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "branch",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "checkout",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: skip +semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "ordinary change",
+          "seconds": 600
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: skip +semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0340",
+      "description": "workflow seed 20261106 case 340, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Patch\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Disabled\n            increment: Patch\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 42\n        main:\n            pre-release-weight: 42\n    tag-pre-release-weight: 1\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "5.4.0-beta.2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver:\u00a0feature",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v5.5.1-beta.7"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: minor",
+          "seconds": 420
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 660
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "=semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver:\u00a0feature",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "ordinary change",
+          "seconds": 480
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0361",
+      "description": "workflow seed 20261106 case 361, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Major\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Disabled\n            increment: Major\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    next-version: 3.4.3\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 1\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 123\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.1.0",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "=semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.5.1"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "main",
+          "message": "Merge branch 'main'\n\nordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "=semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.4.2",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "feature/topic-1",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-13",
+          "message": "=semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-14",
+          "from": "feature/topic-3",
+          "message": "Merge branch 'feature/topic-3'\n\n+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0382",
+      "description": "workflow seed 20261106 case 382, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: None\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Major\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 55000\n        main:\n            pre-release-weight: 0\n    tag-pre-release-weight: 60000\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: minor",
+          "seconds": 600
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "=semver: major",
+          "seconds": 300
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: minor",
+          "seconds": 180
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\n+semver: skip +semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v2.4.0",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: major",
+          "seconds": 480
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "=semver:\u00a0feature",
+          "seconds": 420
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: minor",
+          "seconds": 300
+        },
+        {
+          "op": "tag",
+          "name": "v4.3.1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver:\u00a0feature",
+          "seconds": 240
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: patch",
+          "seconds": 300
+        },
+        {
+          "op": "merge",
+          "id": "commit-13",
+          "from": "feature/topic-2",
+          "message": "+semver:\u00a0feature",
+          "seconds": 300
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0398",
+      "description": "workflow seed 20261106 case 398, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: MergeMessageOnly\n            increment: None\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            label: preview\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 1\n        main:\n            pre-release-weight: 55000\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.1.0",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "3.0.1",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.3.2-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0431",
+      "description": "workflow seed 20261106 case 431, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Minor\n            label: build.{BranchName}\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: Minor\n            label: \"\"\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 0\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "4.5.0",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-02",
+          "from": "main",
+          "message": "Merge branch 'main'\n\nordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v3.4.1"
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "=semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "develop",
+          "message": "Merge branch 'develop'\n\n+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-06",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "4.0.2-beta.1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "develop",
+          "message": "Merge branch 'develop'\n\n+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "3.2.3-beta.4"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-12",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0468",
+      "description": "workflow seed 20261106 case 468, variant 0",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Inherit\n            label: preview\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Disabled\n            increment: Patch\n            label: \"42\"\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    next-version: 1.2.4\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: patch",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: patch",
+          "seconds": 480
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "=semver: minor",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "1.4.1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: minor",
+          "seconds": 600
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v2.5.2-beta.9"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver:\u00a0feature",
+          "seconds": 660
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 480
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0480",
+      "description": "workflow seed 20261106 case 480, variant 0",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Patch\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    next-version: 6.2.3\noutput:\n    branches:\n        feature:\n            pre-release-weight: 42\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "v1.2.0",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "=semver: skip +semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "ordinary change",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 540
+        },
+        {
+          "op": "tag",
+          "name": "v3.3.1-beta.9",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver:\u00a0feature",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: minor",
+          "seconds": 240
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "=semver:\u00a0feature",
+          "seconds": 480
+        },
+        {
+          "op": "tag",
+          "name": "1.5.2"
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: minor",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0523",
+      "description": "workflow seed 20261106 case 523, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: None\n            label: \"42\"\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            mode: ContinuousDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 0\n    tag-pre-release-weight: 60000\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: minor",
+          "seconds": 60
+        },
+        {
+          "op": "tag",
+          "name": "2.2.0-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: patch",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 180
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: minor",
+          "seconds": 360
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\n+semver: patch",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver:\u00a0feature",
+          "seconds": 120
+        },
+        {
+          "op": "merge",
+          "id": "commit-07",
+          "from": "feature/topic-1",
+          "message": "+semver: skip +semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "ordinary change",
+          "seconds": 60
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: patch",
+          "seconds": 60
+        },
+        {
+          "op": "tag",
+          "name": "v2.4.1",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver:\u00a0feature",
+          "seconds": 240
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "ordinary change",
+          "seconds": 420
+        },
+        {
+          "op": "commit",
+          "id": "commit-13",
+          "message": "+semver: patch",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "5.3.2",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0556",
+      "description": "workflow seed 20261106 case 556, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: MergeMessageOnly\n            increment: None\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    next-version: 6.0.3\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 42\n        main:\n            pre-release-weight: 55000\n    tag-pre-release-weight: 123\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver:\u00a0feature",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "3.0.0-beta.3",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 180
+        },
+        {
+          "op": "merge",
+          "id": "commit-02",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: skip +semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: skip +semver: major",
+          "seconds": 180
+        },
+        {
+          "op": "tag",
+          "name": "v1.1.1",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: patch",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: minor",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "=semver:\u00a0feature",
+          "seconds": 60
+        },
+        {
+          "op": "merge",
+          "id": "commit-08",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: major",
+          "seconds": 480
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: skip +semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-3"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "ordinary change",
+          "seconds": 480
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "ordinary change",
+          "seconds": 180
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0707",
+      "description": "workflow seed 20261106 case 707, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: Enabled\n            increment: Minor\n            label: \"42\"\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 0\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "ordinary change",
+          "seconds": 540
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: minor",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v1.5.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "=semver: minor",
+          "seconds": 240
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: minor",
+          "seconds": 120
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: patch",
+          "seconds": 180
+        },
+        {
+          "op": "merge",
+          "id": "commit-07",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver:\u00a0feature",
+          "seconds": 660
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: minor",
+          "seconds": 420
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 600
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: patch",
+          "seconds": 240
+        },
+        {
+          "op": "merge",
+          "id": "commit-11",
+          "from": "develop",
+          "message": "+semver:\u00a0feature",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "4.2.1"
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0731",
+      "description": "workflow seed 20261106 case 731, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: MergeMessageOnly\n            increment: None\n            label: build.{BranchName}\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Patch\n            label: \"\"\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 55000\n        main:\n            pre-release-weight: 1\n    tag-pre-release-weight: 1\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "1.0.0-beta.5",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "main",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v1.0.1"
+        },
+        {
+          "op": "branch",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "checkout",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-06",
+          "from": "main",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-08",
+          "from": "develop",
+          "message": "Merge branch 'develop'\n\n+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "1.5.2-beta.6",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0763",
+      "description": "workflow seed 20261106 case 763, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Inherit\n            label: \"42\"\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            label: preview\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: false\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 0\n        main:\n            pre-release-weight: 42\n    tag-pre-release-weight: 1\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "ordinary change",
+          "seconds": 660
+        },
+        {
+          "op": "tag",
+          "name": "v5.0.0",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 180
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "ordinary change",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "1.1.1"
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 360
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: major",
+          "seconds": 300
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: skip +semver: major",
+          "seconds": 600
+        },
+        {
+          "op": "merge",
+          "id": "commit-06",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-2"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver:\u00a0feature",
+          "seconds": 300
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: patch",
+          "seconds": 240
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: major",
+          "seconds": 300
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: patch",
+          "seconds": 120
+        },
+        {
+          "op": "merge",
+          "id": "commit-11",
+          "from": "feature/topic-2",
+          "message": "Merge branch 'feature/topic-2'\n\n+semver:\u00a0feature",
+          "seconds": 660
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "tag",
+          "name": "v3.5.2",
+          "annotated": true
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0801",
+      "description": "workflow seed 20261106 case 801, variant 0",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    next-version: 4.3.0\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 55000\n    tag-pre-release-weight: 0\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "3.5.0-beta.1",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.3.1-topic-1.8",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-03",
+          "from": "develop",
+          "message": "Merge branch 'develop'\n\n+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "develop",
+          "message": "Merge branch 'develop'\n\n+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.0.2"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "=semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v2.4.3",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.2.4-beta.7",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "main",
+          "message": "Merge branch 'main'\n\nordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v1.5.5-beta.5"
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0832",
+      "description": "workflow seed 20261106 case 832, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Patch\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: MergeMessageOnly\n            increment: None\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n    next-version: 8.4.4\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 30000\n    tag-pre-release-weight: 0\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.5.0",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "=semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\n+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-08",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\nordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "=semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "ordinary change",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0974",
+      "description": "workflow seed 20261106 case 974, variant 2",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Enabled\n            increment: Inherit\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n        main:\n            commit-message-incrementing: Disabled\n            increment: Major\n            label: \"\"\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 42\n    tag-pre-release-weight: 123\nworkflow: GitFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.1.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "develop"
+        },
+        {
+          "op": "checkout",
+          "name": "develop"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-04",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "branch",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-05",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-06",
+          "from": "main",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "3.4.1-topic-2.8",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "5.1.2"
+        },
+        {
+          "op": "checkout",
+          "name": "release/2.0.0"
+        },
+        {
+          "op": "commit",
+          "id": "commit-09",
+          "message": "+semver: skip +semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-10",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: minor",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-11",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "commit",
+          "id": "commit-12",
+          "message": "+semver: major",
+          "seconds": 0
+        },
+        {
+          "op": "tag",
+          "name": "v4.4.3"
+        },
+        {
+          "op": "branch",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "checkout",
+          "name": "hotfix/1.2.4"
+        },
+        {
+          "op": "commit",
+          "id": "commit-13",
+          "message": "+semver:\u00a0feature",
+          "seconds": 0
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    },
+    {
+      "id": "workflow-generated-0988",
+      "description": "workflow seed 20261106 case 988, variant 1",
+      "config": "calculation:\n    branches:\n        feature:\n            commit-message-incrementing: Disabled\n            increment: Minor\n            mode: ManualDeployment\n            prevent-increment:\n                when-current-commit-tagged: false\n        main:\n            commit-message-incrementing: Enabled\n            increment: None\n            mode: ContinuousDelivery\n            prevent-increment:\n                when-current-commit-tagged: true\n    strategies:\n        - Mainline\noutput:\n    branches:\n        feature:\n            pre-release-weight: 30000\n        main:\n            pre-release-weight: 55000\n    tag-pre-release-weight: 1\nworkflow: GitHubFlow/v1\n",
+      "steps": [
+        {
+          "op": "commit",
+          "id": "commit-00",
+          "message": "+semver: major",
+          "seconds": 240
+        },
+        {
+          "op": "tag",
+          "name": "v5.2.0-beta.4",
+          "annotated": true
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-01",
+          "message": "+semver: minor",
+          "seconds": 300
+        },
+        {
+          "op": "commit",
+          "id": "commit-02",
+          "message": "+semver: skip +semver: major",
+          "seconds": 120
+        },
+        {
+          "op": "tag",
+          "name": "4.1.1-beta.2",
+          "annotated": true
+        },
+        {
+          "op": "branch",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "checkout",
+          "name": "feature/topic-1"
+        },
+        {
+          "op": "commit",
+          "id": "commit-03",
+          "message": "+semver:\u00a0feature",
+          "seconds": 360
+        },
+        {
+          "op": "commit",
+          "id": "commit-04",
+          "message": "+semver: patch",
+          "seconds": 60
+        },
+        {
+          "op": "merge",
+          "id": "commit-05",
+          "from": "main",
+          "message": "Merge branch 'main'\n\n+semver: minor",
+          "seconds": 480
+        },
+        {
+          "op": "commit",
+          "id": "commit-06",
+          "message": "+semver: major",
+          "seconds": 420
+        },
+        {
+          "op": "checkout",
+          "name": "main"
+        },
+        {
+          "op": "commit",
+          "id": "commit-07",
+          "message": "=semver: patch",
+          "seconds": 360
+        },
+        {
+          "op": "tag",
+          "name": "v4.0.2-beta.1",
+          "annotated": true
+        },
+        {
+          "op": "commit",
+          "id": "commit-08",
+          "message": "+semver: patch",
+          "seconds": 0
+        },
+        {
+          "op": "merge",
+          "id": "commit-09",
+          "from": "feature/topic-1",
+          "message": "Merge branch 'feature/topic-1'\n\n+semver: major",
+          "seconds": 540
+        },
+        {
+          "op": "commit",
+          "id": "commit-10",
+          "message": "+semver: major",
+          "seconds": 60
+        },
+        {
+          "op": "checkpoint",
+          "id": "head"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "workflow-generated-0028--head": {
+      "AssemblySemFileVer": "4.3.1.0",
+      "AssemblySemVer": "4.3.1.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 1,
+      "CommitCountSourceSha": "52fb1d393a3820f51e53d5bd11a4366c6f3b6f66",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.1349966e2903e2f6adc77483ed0891cb72ae7a1f",
+      "FullSemVer": "4.3.1-2",
+      "InformationalVersion": "4.3.1-2+Branch.main.Sha.1349966e2903e2f6adc77483ed0891cb72ae7a1f",
+      "Major": 4,
+      "MajorMinorPatch": "4.3.1",
+      "Minor": 3,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 2,
+      "PreReleaseLabel": "2",
+      "PreReleaseLabelWithDash": "-2",
+      "SemVer": "4.3.1-2",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "4.3.1",
+      "SemVerSourceSha": "bb8a6d4c092b9c0cc99192af50928a37320b69b4",
+      "Sha": "1349966e2903e2f6adc77483ed0891cb72ae7a1f",
+      "ShortSha": "1349966",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 1,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "1.4.0-1",
+      "VersionSourceSha": "52fb1d393a3820f51e53d5bd11a4366c6f3b6f66",
+      "WeightedPreReleaseNumber": 30002
+    },
+    "workflow-generated-0064--head": {
+      "AssemblySemFileVer": "5.3.2.0",
+      "AssemblySemVer": "5.3.2.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 7,
+      "CommitCountSourceDistance": 7,
+      "CommitCountSourceSha": "5a0d8c2a0b83527361944454512774e2a0547401",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "7.Branch.feature-topic-2.Sha.bba724ba2e1cfe1a564839b33d95dea44ceab6da",
+      "FullSemVer": "5.3.2-topic-2.1+7",
+      "InformationalVersion": "5.3.2-topic-2.1+7.Branch.feature-topic-2.Sha.bba724ba2e1cfe1a564839b33d95dea44ceab6da",
+      "Major": 5,
+      "MajorMinorPatch": "5.3.2",
+      "Minor": 3,
+      "Patch": 2,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "5.3.2-topic-2.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.3.2-beta.5",
+      "SemVerSourceSha": "378fc0db58e9a001928a24885cb556f0c3e79dee",
+      "Sha": "bba724ba2e1cfe1a564839b33d95dea44ceab6da",
+      "ShortSha": "bba724b",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 7,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "2.1.0",
+      "VersionSourceSha": "5a0d8c2a0b83527361944454512774e2a0547401",
+      "WeightedPreReleaseNumber": 1
+    },
+    "workflow-generated-0074--head": {
+      "AssemblySemFileVer": "5.0.0.0",
+      "AssemblySemVer": "5.0.0.0",
+      "BranchName": "develop",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 8,
+      "CommitCountSourceSha": "0ef8a22b8e23e09350b984eacd4757ca0c96bb8a",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "develop",
+      "FullBuildMetaData": "Branch.develop.Sha.89471150f02162998aaf40d12d9c3c774912dfed",
+      "FullSemVer": "5.0.0-alpha.8",
+      "InformationalVersion": "5.0.0-alpha.8+Branch.develop.Sha.89471150f02162998aaf40d12d9c3c774912dfed",
+      "Major": 5,
+      "MajorMinorPatch": "5.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "alpha",
+      "PreReleaseLabelNameWithDash": "-alpha",
+      "PreReleaseNumber": 8,
+      "PreReleaseLabel": "alpha.8",
+      "PreReleaseLabelWithDash": "-alpha.8",
+      "SemVer": "5.0.0-alpha.8",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "4.0.0",
+      "SemVerSourceSha": "0ef8a22b8e23e09350b984eacd4757ca0c96bb8a",
+      "Sha": "89471150f02162998aaf40d12d9c3c774912dfed",
+      "ShortSha": "8947115",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 8,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "4.0.0",
+      "VersionSourceSha": "0ef8a22b8e23e09350b984eacd4757ca0c96bb8a",
+      "WeightedPreReleaseNumber": 8
+    },
+    "workflow-generated-0136--head": {
+      "AssemblySemFileVer": "5.1.1.0",
+      "AssemblySemVer": "5.1.1.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 3,
+      "CommitCountSourceSha": "82bade435c4f301af8c5a88eb9a3ecc6010672cd",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "Branch.feature-topic-3.Sha.926ed57c544c964c79c71fe71e2fecdcdf1933c9",
+      "FullSemVer": "5.1.1",
+      "InformationalVersion": "5.1.1+Branch.feature-topic-3.Sha.926ed57c544c964c79c71fe71e2fecdcdf1933c9",
+      "Major": 5,
+      "MajorMinorPatch": "5.1.1",
+      "Minor": 1,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": null,
+      "PreReleaseLabel": "",
+      "PreReleaseLabelWithDash": "",
+      "SemVer": "5.1.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.1.1",
+      "SemVerSourceSha": "22219cebe09c0b640448b2828242b4bbf2396a6a",
+      "Sha": "926ed57c544c964c79c71fe71e2fecdcdf1933c9",
+      "ShortSha": "926ed57",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 3,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "82bade435c4f301af8c5a88eb9a3ecc6010672cd",
+      "WeightedPreReleaseNumber": 123
+    },
+    "workflow-generated-0143--head": {
+      "AssemblySemFileVer": "5.5.0.0",
+      "AssemblySemVer": "5.5.0.0",
+      "BranchName": "release/2.0.0",
+      "BuildMetaData": 0,
+      "CommitCountSourceDistance": 0,
+      "CommitCountSourceSha": "12960bfaf4372b3f9c3e7e9aa1a6103bcb31aac2",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "release-2-0-0",
+      "FullBuildMetaData": "0.Branch.release-2.0.0.Sha.7a1546566a42961d5021eab08e30d6e9e3245731",
+      "FullSemVer": "5.5.0-beta.1+0",
+      "InformationalVersion": "5.5.0-beta.1+0.Branch.release-2.0.0.Sha.7a1546566a42961d5021eab08e30d6e9e3245731",
+      "Major": 5,
+      "MajorMinorPatch": "5.5.0",
+      "Minor": 5,
+      "Patch": 0,
+      "PreReleaseLabelName": "beta",
+      "PreReleaseLabelNameWithDash": "-beta",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "beta.1",
+      "PreReleaseLabelWithDash": "-beta.1",
+      "SemVer": "5.5.0-beta.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.5.0-beta.9",
+      "SemVerSourceSha": "210e43b9d4144b05ab46c0dfd606cd02d920f426",
+      "Sha": "7a1546566a42961d5021eab08e30d6e9e3245731",
+      "ShortSha": "7a15465",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 0,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "4.3.2",
+      "VersionSourceSha": "12960bfaf4372b3f9c3e7e9aa1a6103bcb31aac2",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "workflow-generated-0154--head": {
+      "AssemblySemFileVer": "5.5.0.0",
+      "AssemblySemVer": "5.5.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": "ab217c767876cb0c59fd08b172ec7b86ffb9935d",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "Branch.feature-topic-3.Sha.cc5f102dd2a514d1f5dbe8564bb653349dece2f3",
+      "FullSemVer": "5.5.0",
+      "InformationalVersion": "5.5.0+Branch.feature-topic-3.Sha.cc5f102dd2a514d1f5dbe8564bb653349dece2f3",
+      "Major": 5,
+      "MajorMinorPatch": "5.5.0",
+      "Minor": 5,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": null,
+      "PreReleaseLabel": "",
+      "PreReleaseLabelWithDash": "",
+      "SemVer": "5.5.0",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.5.0",
+      "SemVerSourceSha": "02068bb98f2c2fd90382951502c315766b38cc57",
+      "Sha": "cc5f102dd2a514d1f5dbe8564bb653349dece2f3",
+      "ShortSha": "cc5f102",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "ab217c767876cb0c59fd08b172ec7b86ffb9935d",
+      "WeightedPreReleaseNumber": 123
+    },
+    "workflow-generated-0167--head": {
+      "AssemblySemFileVer": "3.4.1.0",
+      "AssemblySemVer": "3.4.1.0",
+      "BranchName": "release/2.0.0",
+      "BuildMetaData": 4,
+      "CommitCountSourceDistance": 4,
+      "CommitCountSourceSha": "5b40b0075d0273e3ff877b37990b753024fdb9ac",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "release-2-0-0",
+      "FullBuildMetaData": "4.Branch.release-2.0.0.Sha.dcd11115ba5d94794a7b4953e569dfff41f7edfe",
+      "FullSemVer": "3.4.1-beta.10+4",
+      "InformationalVersion": "3.4.1-beta.10+4.Branch.release-2.0.0.Sha.dcd11115ba5d94794a7b4953e569dfff41f7edfe",
+      "Major": 3,
+      "MajorMinorPatch": "3.4.1",
+      "Minor": 4,
+      "Patch": 1,
+      "PreReleaseLabelName": "beta",
+      "PreReleaseLabelNameWithDash": "-beta",
+      "PreReleaseNumber": 10,
+      "PreReleaseLabel": "beta.10",
+      "PreReleaseLabelWithDash": "-beta.10",
+      "SemVer": "3.4.1-beta.10",
+      "SemVerSourceIncrement": "Minor",
+      "SemVerSourceSemVer": "3.4.1-beta.9",
+      "SemVerSourceSha": "5b40b0075d0273e3ff877b37990b753024fdb9ac",
+      "Sha": "dcd11115ba5d94794a7b4953e569dfff41f7edfe",
+      "ShortSha": "dcd1111",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 4,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "3.4.1-beta.9",
+      "VersionSourceSha": "5b40b0075d0273e3ff877b37990b753024fdb9ac",
+      "WeightedPreReleaseNumber": 30010
+    },
+    "workflow-generated-0340--head": {
+      "AssemblySemFileVer": "5.5.1.0",
+      "AssemblySemVer": "5.5.1.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 5,
+      "CommitCountSourceSha": "cca33299ea9fed42aa85fab331b38d56d0c0b2f0",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "Branch.feature-topic-3.Sha.02cc68d8f97987f1264b3b3418705e3ebbfc75cf",
+      "FullSemVer": "5.5.1",
+      "InformationalVersion": "5.5.1+Branch.feature-topic-3.Sha.02cc68d8f97987f1264b3b3418705e3ebbfc75cf",
+      "Major": 5,
+      "MajorMinorPatch": "5.5.1",
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": null,
+      "PreReleaseLabel": "",
+      "PreReleaseLabelWithDash": "",
+      "SemVer": "5.5.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.5.1-beta.7",
+      "SemVerSourceSha": "439a7981e1d826ee7765f0651460467fa4e9861e",
+      "Sha": "02cc68d8f97987f1264b3b3418705e3ebbfc75cf",
+      "ShortSha": "02cc68d",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 5,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.2-1",
+      "VersionSourceSha": "cca33299ea9fed42aa85fab331b38d56d0c0b2f0",
+      "WeightedPreReleaseNumber": 1
+    },
+    "workflow-generated-0361--head": {
+      "AssemblySemFileVer": "6.0.0.0",
+      "AssemblySemVer": "6.0.0.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": 14,
+      "CommitCountSourceDistance": 14,
+      "CommitCountSourceSha": "37514f6856570131dbb7ddb44a80bce3890c9335",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "14.Branch.feature-topic-2.Sha.2cecd5ba399936a2cfd2ed271ec91c607cc3c861",
+      "FullSemVer": "6.0.0-topic-2.1+14",
+      "InformationalVersion": "6.0.0-topic-2.1+14.Branch.feature-topic-2.Sha.2cecd5ba399936a2cfd2ed271ec91c607cc3c861",
+      "Major": 6,
+      "MajorMinorPatch": "6.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-2",
+      "PreReleaseLabelNameWithDash": "-topic-2",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-2.1",
+      "PreReleaseLabelWithDash": "-topic-2.1",
+      "SemVer": "6.0.0-topic-2.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "5.1.0",
+      "SemVerSourceSha": "37514f6856570131dbb7ddb44a80bce3890c9335",
+      "Sha": "2cecd5ba399936a2cfd2ed271ec91c607cc3c861",
+      "ShortSha": "2cecd5b",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 14,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "5.1.0",
+      "VersionSourceSha": "37514f6856570131dbb7ddb44a80bce3890c9335",
+      "WeightedPreReleaseNumber": 2
+    },
+    "workflow-generated-0382--head": {
+      "AssemblySemFileVer": "11.0.0.0",
+      "AssemblySemVer": "11.0.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 0,
+      "CommitCountSourceDistance": 0,
+      "CommitCountSourceSha": "006266e72dcfc63ab2853eeab92848dd9d9057bb",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "0.Branch.feature-topic-3.Sha.f65025f3acb9f879f106a281cbf44be01be5baa3",
+      "FullSemVer": "11.0.0-topic-3.1+0",
+      "InformationalVersion": "11.0.0-topic-3.1+0.Branch.feature-topic-3.Sha.f65025f3acb9f879f106a281cbf44be01be5baa3",
+      "Major": 11,
+      "MajorMinorPatch": "11.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "11.0.0-topic-3.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "11.0.0-1",
+      "SemVerSourceSha": "4053cf2cbfd9a0894c1ff52fe21c22d95f459ee4",
+      "Sha": "f65025f3acb9f879f106a281cbf44be01be5baa3",
+      "ShortSha": "f65025f",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 0,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "11.0.0-1",
+      "VersionSourceSha": "006266e72dcfc63ab2853eeab92848dd9d9057bb",
+      "WeightedPreReleaseNumber": 55001
+    },
+    "workflow-generated-0398--head": {
+      "AssemblySemFileVer": "4.0.0.0",
+      "AssemblySemVer": "4.0.0.0",
+      "BranchName": "develop",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 9,
+      "CommitCountSourceSha": "8a4c99919fe19b95cfddc084e4236ec79e098889",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "develop",
+      "FullBuildMetaData": "Branch.develop.Sha.f4e1a8d5b5ac7658c9587d68b25669d0a642535a",
+      "FullSemVer": "4.0.0-alpha.9",
+      "InformationalVersion": "4.0.0-alpha.9+Branch.develop.Sha.f4e1a8d5b5ac7658c9587d68b25669d0a642535a",
+      "Major": 4,
+      "MajorMinorPatch": "4.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "alpha",
+      "PreReleaseLabelNameWithDash": "-alpha",
+      "PreReleaseNumber": 9,
+      "PreReleaseLabel": "alpha.9",
+      "PreReleaseLabelWithDash": "-alpha.9",
+      "SemVer": "4.0.0-alpha.9",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "3.1.0",
+      "SemVerSourceSha": "8a4c99919fe19b95cfddc084e4236ec79e098889",
+      "Sha": "f4e1a8d5b5ac7658c9587d68b25669d0a642535a",
+      "ShortSha": "f4e1a8d",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 9,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "3.1.0",
+      "VersionSourceSha": "8a4c99919fe19b95cfddc084e4236ec79e098889",
+      "WeightedPreReleaseNumber": 9
+    },
+    "workflow-generated-0431--head": {
+      "AssemblySemFileVer": "4.5.0.0",
+      "AssemblySemVer": "4.5.0.0",
+      "BranchName": "release/2.0.0",
+      "BuildMetaData": 3,
+      "CommitCountSourceDistance": 3,
+      "CommitCountSourceSha": "37811b3d1a476346e3d49f31d023bb149a2eb3c2",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "release-2-0-0",
+      "FullBuildMetaData": "3.Branch.release-2.0.0.Sha.818c251a52422e9745e6f3a12d808f0b1d472250",
+      "FullSemVer": "4.5.0-beta.1+3",
+      "InformationalVersion": "4.5.0-beta.1+3.Branch.release-2.0.0.Sha.818c251a52422e9745e6f3a12d808f0b1d472250",
+      "Major": 4,
+      "MajorMinorPatch": "4.5.0",
+      "Minor": 5,
+      "Patch": 0,
+      "PreReleaseLabelName": "beta",
+      "PreReleaseLabelNameWithDash": "-beta",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "beta.1",
+      "PreReleaseLabelWithDash": "-beta.1",
+      "SemVer": "4.5.0-beta.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "4.5.0",
+      "SemVerSourceSha": "d37776514445c6ae030145e1b9a2eb528fa51f64",
+      "Sha": "818c251a52422e9745e6f3a12d808f0b1d472250",
+      "ShortSha": "818c251",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 3,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "37811b3d1a476346e3d49f31d023bb149a2eb3c2",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "workflow-generated-0468--head": {
+      "AssemblySemFileVer": "2.5.2.0",
+      "AssemblySemVer": "2.5.2.0",
+      "BranchName": "develop",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 5,
+      "CommitCountSourceSha": "d5af0f974065a93e2874515a37c991167fdfa290",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "develop",
+      "FullBuildMetaData": "Branch.develop.Sha.cfacb609f550390d4bf538921bdff6a7c4d97529",
+      "FullSemVer": "2.5.2-alpha.5",
+      "InformationalVersion": "2.5.2-alpha.5+Branch.develop.Sha.cfacb609f550390d4bf538921bdff6a7c4d97529",
+      "Major": 2,
+      "MajorMinorPatch": "2.5.2",
+      "Minor": 5,
+      "Patch": 2,
+      "PreReleaseLabelName": "alpha",
+      "PreReleaseLabelNameWithDash": "-alpha",
+      "PreReleaseNumber": 5,
+      "PreReleaseLabel": "alpha.5",
+      "PreReleaseLabelWithDash": "-alpha.5",
+      "SemVer": "2.5.2-alpha.5",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "2.5.2-beta.9",
+      "SemVerSourceSha": "d20ce0cc3a6da62a9f5bb415d11917350bb5e58e",
+      "Sha": "cfacb609f550390d4bf538921bdff6a7c4d97529",
+      "ShortSha": "cfacb60",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 5,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "2.0.0",
+      "VersionSourceSha": "d5af0f974065a93e2874515a37c991167fdfa290",
+      "WeightedPreReleaseNumber": 5
+    },
+    "workflow-generated-0480--head": {
+      "AssemblySemFileVer": "6.2.3.0",
+      "AssemblySemVer": "6.2.3.0",
+      "BranchName": "develop",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 4,
+      "CommitCountSourceSha": "92b6cc3655472cd75ff9417a61e86edbe508bc72",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "develop",
+      "FullBuildMetaData": "Branch.develop.Sha.34d48e110b04412a07718a14a01ff27f14f4bbc3",
+      "FullSemVer": "6.2.3-alpha.4",
+      "InformationalVersion": "6.2.3-alpha.4+Branch.develop.Sha.34d48e110b04412a07718a14a01ff27f14f4bbc3",
+      "Major": 6,
+      "MajorMinorPatch": "6.2.3",
+      "Minor": 2,
+      "Patch": 3,
+      "PreReleaseLabelName": "alpha",
+      "PreReleaseLabelNameWithDash": "-alpha",
+      "PreReleaseNumber": 4,
+      "PreReleaseLabel": "alpha.4",
+      "PreReleaseLabelWithDash": "-alpha.4",
+      "SemVer": "6.2.3-alpha.4",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "6.2.3",
+      "SemVerSourceSha": null,
+      "Sha": "34d48e110b04412a07718a14a01ff27f14f4bbc3",
+      "ShortSha": "34d48e1",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 4,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "6.2.3",
+      "VersionSourceSha": "92b6cc3655472cd75ff9417a61e86edbe508bc72",
+      "WeightedPreReleaseNumber": 4
+    },
+    "workflow-generated-0523--head": {
+      "AssemblySemFileVer": "5.3.2.0",
+      "AssemblySemVer": "5.3.2.0",
+      "BranchName": "feature/topic-2",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 2,
+      "CommitCountSourceSha": "cc86f113e411849dbb7ed6864b2a3d024c6a0e03",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-2",
+      "FullBuildMetaData": "Branch.feature-topic-2.Sha.b6a5594fa8c0af6c739850b4b08610e7c305548e",
+      "FullSemVer": "5.3.2",
+      "InformationalVersion": "5.3.2+Branch.feature-topic-2.Sha.b6a5594fa8c0af6c739850b4b08610e7c305548e",
+      "Major": 5,
+      "MajorMinorPatch": "5.3.2",
+      "Minor": 3,
+      "Patch": 2,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": null,
+      "PreReleaseLabel": "",
+      "PreReleaseLabelWithDash": "",
+      "SemVer": "5.3.2",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.3.2",
+      "SemVerSourceSha": "8b740e2466d289d6ce3a0c67fe888a1d9db250b0",
+      "Sha": "b6a5594fa8c0af6c739850b4b08610e7c305548e",
+      "ShortSha": "b6a5594",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 2,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "5.3.2",
+      "VersionSourceSha": "cc86f113e411849dbb7ed6864b2a3d024c6a0e03",
+      "WeightedPreReleaseNumber": 60000
+    },
+    "workflow-generated-0556--head": {
+      "AssemblySemFileVer": "3.0.0.0",
+      "AssemblySemVer": "3.0.0.0",
+      "BranchName": "feature/topic-3",
+      "BuildMetaData": 0,
+      "CommitCountSourceDistance": 0,
+      "CommitCountSourceSha": "97246dfa2fdaadab8806b11bc7d7350b2513e807",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-3",
+      "FullBuildMetaData": "0.Branch.feature-topic-3.Sha.0e7051f66ee22bc9e4e959dc739070444425d83a",
+      "FullSemVer": "3.0.0-topic-3.1+0",
+      "InformationalVersion": "3.0.0-topic-3.1+0.Branch.feature-topic-3.Sha.0e7051f66ee22bc9e4e959dc739070444425d83a",
+      "Major": 3,
+      "MajorMinorPatch": "3.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "topic-3",
+      "PreReleaseLabelNameWithDash": "-topic-3",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "topic-3.1",
+      "PreReleaseLabelWithDash": "-topic-3.1",
+      "SemVer": "3.0.0-topic-3.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "3.0.0-beta.3",
+      "SemVerSourceSha": "c1dc47f39de4d9b5fa1078a83aebbe0159e6e1a5",
+      "Sha": "0e7051f66ee22bc9e4e959dc739070444425d83a",
+      "ShortSha": "0e7051f",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 0,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "97246dfa2fdaadab8806b11bc7d7350b2513e807",
+      "WeightedPreReleaseNumber": 43
+    },
+    "workflow-generated-0707--head": {
+      "AssemblySemFileVer": "4.2.1.0",
+      "AssemblySemVer": "4.2.1.0",
+      "BranchName": "release/2.0.0",
+      "BuildMetaData": 5,
+      "CommitCountSourceDistance": 5,
+      "CommitCountSourceSha": "1ffed236463ea5f99ec316478dcbccd88a6308f1",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "release-2-0-0",
+      "FullBuildMetaData": "5.Branch.release-2.0.0.Sha.70f8b58212751e87f2157c0e892432dae7747b06",
+      "FullSemVer": "4.2.1-beta.1+5",
+      "InformationalVersion": "4.2.1-beta.1+5.Branch.release-2.0.0.Sha.70f8b58212751e87f2157c0e892432dae7747b06",
+      "Major": 4,
+      "MajorMinorPatch": "4.2.1",
+      "Minor": 2,
+      "Patch": 1,
+      "PreReleaseLabelName": "beta",
+      "PreReleaseLabelNameWithDash": "-beta",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "beta.1",
+      "PreReleaseLabelWithDash": "-beta.1",
+      "SemVer": "4.2.1-beta.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "4.2.1",
+      "SemVerSourceSha": "bd2d313eb21a9d16b3de33e94301f0009452ca9f",
+      "Sha": "70f8b58212751e87f2157c0e892432dae7747b06",
+      "ShortSha": "70f8b58",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 5,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "1.5.0",
+      "VersionSourceSha": "1ffed236463ea5f99ec316478dcbccd88a6308f1",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "workflow-generated-0731--head": {
+      "AssemblySemFileVer": "0.0.1.0",
+      "AssemblySemVer": "0.0.1.0",
+      "BranchName": "hotfix/1.2.4",
+      "BuildMetaData": 11,
+      "CommitCountSourceDistance": 11,
+      "CommitCountSourceSha": null,
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "hotfix-1-2-4",
+      "FullBuildMetaData": "11.Branch.hotfix-1.2.4.Sha.d085653ba5a295d406e75b1413502a25f358cbba",
+      "FullSemVer": "0.0.1-1+11",
+      "InformationalVersion": "0.0.1-1+11.Branch.hotfix-1.2.4.Sha.d085653ba5a295d406e75b1413502a25f358cbba",
+      "Major": 0,
+      "MajorMinorPatch": "0.0.1",
+      "Minor": 0,
+      "Patch": 1,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "1",
+      "PreReleaseLabelWithDash": "-1",
+      "SemVer": "0.0.1-1",
+      "SemVerSourceIncrement": "Patch",
+      "SemVerSourceSemVer": "0.0.0",
+      "SemVerSourceSha": null,
+      "Sha": "d085653ba5a295d406e75b1413502a25f358cbba",
+      "ShortSha": "d085653",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 11,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.0.0",
+      "VersionSourceSha": "",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "workflow-generated-0763--head": {
+      "AssemblySemFileVer": "5.0.0.0",
+      "AssemblySemVer": "5.0.0.0",
+      "BranchName": "feature/topic-1",
+      "BuildMetaData": 11,
+      "CommitCountSourceDistance": 11,
+      "CommitCountSourceSha": "ba1a710ef6aae98feab457c9c57371816f553708",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "feature-topic-1",
+      "FullBuildMetaData": "11.Branch.feature-topic-1.Sha.999509c7c2a1b7737303b7a99b6a61f3cf3d153a",
+      "FullSemVer": "5.0.0-42.1+11",
+      "InformationalVersion": "5.0.0-42.1+11.Branch.feature-topic-1.Sha.999509c7c2a1b7737303b7a99b6a61f3cf3d153a",
+      "Major": 5,
+      "MajorMinorPatch": "5.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "42",
+      "PreReleaseLabelNameWithDash": "-42",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "42.1",
+      "PreReleaseLabelWithDash": "-42.1",
+      "SemVer": "5.0.0-42.1",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.0.0",
+      "SemVerSourceSha": "ba1a710ef6aae98feab457c9c57371816f553708",
+      "Sha": "999509c7c2a1b7737303b7a99b6a61f3cf3d153a",
+      "ShortSha": "999509c",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 11,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "5.0.0",
+      "VersionSourceSha": "ba1a710ef6aae98feab457c9c57371816f553708",
+      "WeightedPreReleaseNumber": 1
+    },
+    "workflow-generated-0801--head": {
+      "AssemblySemFileVer": "5.3.1.0",
+      "AssemblySemVer": "5.3.1.0",
+      "BranchName": "develop",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 8,
+      "CommitCountSourceSha": "8fa63f0091f70df34a4d992d6ab1a6b57244d147",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "develop",
+      "FullBuildMetaData": "Branch.develop.Sha.1524fb46fcf83321065c29864a74958cab5468de",
+      "FullSemVer": "5.3.1-alpha.8",
+      "InformationalVersion": "5.3.1-alpha.8+Branch.develop.Sha.1524fb46fcf83321065c29864a74958cab5468de",
+      "Major": 5,
+      "MajorMinorPatch": "5.3.1",
+      "Minor": 3,
+      "Patch": 1,
+      "PreReleaseLabelName": "alpha",
+      "PreReleaseLabelNameWithDash": "-alpha",
+      "PreReleaseNumber": 8,
+      "PreReleaseLabel": "alpha.8",
+      "PreReleaseLabelWithDash": "-alpha.8",
+      "SemVer": "5.3.1-alpha.8",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.3.1-topic-1.8",
+      "SemVerSourceSha": "5ab321d5764894ece2820fb2e76897989c526264",
+      "Sha": "1524fb46fcf83321065c29864a74958cab5468de",
+      "ShortSha": "1524fb4",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 8,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "2.4.3",
+      "VersionSourceSha": "8fa63f0091f70df34a4d992d6ab1a6b57244d147",
+      "WeightedPreReleaseNumber": 8
+    },
+    "workflow-generated-0832--head": {
+      "AssemblySemFileVer": "5.5.0.0",
+      "AssemblySemVer": "5.5.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 9,
+      "CommitCountSourceSha": "dfc6cddb36da4778e097ac47e4927456e8b6f609",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.8fc08869fa85de740e8d2b3bf3b38c755b50130b",
+      "FullSemVer": "5.5.0-11",
+      "InformationalVersion": "5.5.0-11+Branch.main.Sha.8fc08869fa85de740e8d2b3bf3b38c755b50130b",
+      "Major": 5,
+      "MajorMinorPatch": "5.5.0",
+      "Minor": 5,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 11,
+      "PreReleaseLabel": "11",
+      "PreReleaseLabelWithDash": "-11",
+      "SemVer": "5.5.0-11",
+      "SemVerSourceIncrement": "None",
+      "SemVerSourceSemVer": "5.5.0",
+      "SemVerSourceSha": "cc46aaebbcdd567c2e37c0740c0228186ea7bfba",
+      "Sha": "8fc08869fa85de740e8d2b3bf3b38c755b50130b",
+      "ShortSha": "8fc0886",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 9,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "0.1.0-2",
+      "VersionSourceSha": "dfc6cddb36da4778e097ac47e4927456e8b6f609",
+      "WeightedPreReleaseNumber": 30011
+    },
+    "workflow-generated-0974--head": {
+      "AssemblySemFileVer": "5.0.0.0",
+      "AssemblySemVer": "5.0.0.0",
+      "BranchName": "hotfix/1.2.4",
+      "BuildMetaData": 13,
+      "CommitCountSourceDistance": 13,
+      "CommitCountSourceSha": "d863020a8356a4a37a7f864712e44bf7ea76b841",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "hotfix-1-2-4",
+      "FullBuildMetaData": "13.Branch.hotfix-1.2.4.Sha.eae12132e256482539196c31186dd8825c0ccc92",
+      "FullSemVer": "5.0.0-beta.1+13",
+      "InformationalVersion": "5.0.0-beta.1+13.Branch.hotfix-1.2.4.Sha.eae12132e256482539196c31186dd8825c0ccc92",
+      "Major": 5,
+      "MajorMinorPatch": "5.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "beta",
+      "PreReleaseLabelNameWithDash": "-beta",
+      "PreReleaseNumber": 1,
+      "PreReleaseLabel": "beta.1",
+      "PreReleaseLabelWithDash": "-beta.1",
+      "SemVer": "5.0.0-beta.1",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "4.1.0",
+      "SemVerSourceSha": "d863020a8356a4a37a7f864712e44bf7ea76b841",
+      "Sha": "eae12132e256482539196c31186dd8825c0ccc92",
+      "ShortSha": "eae1213",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 13,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "4.1.0",
+      "VersionSourceSha": "d863020a8356a4a37a7f864712e44bf7ea76b841",
+      "WeightedPreReleaseNumber": 30001
+    },
+    "workflow-generated-0988--head": {
+      "AssemblySemFileVer": "6.0.0.0",
+      "AssemblySemVer": "6.0.0.0",
+      "BranchName": "main",
+      "BuildMetaData": null,
+      "CommitCountSourceDistance": 6,
+      "CommitCountSourceSha": "35db520ed29628498c685131387fef8d332c0077",
+      "CommitDate": "2025-01-01",
+      "CustomVersion": "",
+      "EscapedBranchName": "main",
+      "FullBuildMetaData": "Branch.main.Sha.e72234edf96edce0506992f8b137fc98af6033f1",
+      "FullSemVer": "6.0.0-6",
+      "InformationalVersion": "6.0.0-6+Branch.main.Sha.e72234edf96edce0506992f8b137fc98af6033f1",
+      "Major": 6,
+      "MajorMinorPatch": "6.0.0",
+      "Minor": 0,
+      "Patch": 0,
+      "PreReleaseLabelName": "",
+      "PreReleaseLabelNameWithDash": "",
+      "PreReleaseNumber": 6,
+      "PreReleaseLabel": "6",
+      "PreReleaseLabelWithDash": "-6",
+      "SemVer": "6.0.0-6",
+      "SemVerSourceIncrement": "Major",
+      "SemVerSourceSemVer": "5.3.1-1",
+      "SemVerSourceSha": "98fc1a0c1fb26f3e1d28e123611d049c50c417aa",
+      "Sha": "e72234edf96edce0506992f8b137fc98af6033f1",
+      "ShortSha": "e72234e",
+      "UncommittedChanges": 0,
+      "VersionSourceDistance": 6,
+      "VersionSourceIncrement": "None",
+      "VersionSourceSemVer": "5.3.1-1",
+      "VersionSourceSha": "35db520ed29628498c685131387fef8d332c0077",
+      "WeightedPreReleaseNumber": 55006
+    }
+  }
+}

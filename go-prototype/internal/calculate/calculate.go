@@ -62,7 +62,8 @@ func Calculate(path string) (map[string]any, Trace, error) {
 	}
 	canonical, head := r.Head()
 	branch := strings.TrimPrefix(canonical, "refs/heads/")
-	main, _, err := config.Branch(branch)
+	kind, _, err := cfg.Branch(branch)
+	main := kind == "main"
 	if err != nil {
 		return nil, trace, err
 	}
@@ -85,21 +86,36 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		return nil, trace, err
 	}
 	mainTips := []string{}
+	branches := []branchRef{}
 	for _, ref := range refs {
 		if !strings.HasPrefix(ref.Name, "refs/heads/") {
 			continue
 		}
-		isMain, _, err := config.Branch(strings.TrimPrefix(ref.Name, "refs/heads/"))
+		name := strings.TrimPrefix(ref.Name, "refs/heads/")
+		refKind, _, err := cfg.Branch(name)
 		if err != nil {
 			return nil, trace, err
 		}
-		if isMain {
+		branches = append(branches, branchRef{name, ref.SHA, refKind})
+		if refKind == "main" {
 			mainTips = append(mainTips, ref.SHA)
 		}
 	}
 	if len(mainTips) != 1 {
 		return nil, trace, fmt.Errorf("unsupported main-branch topology: require exactly one main/master branch")
 	}
+	source, err := configurationSource(r, cfg, branch, branches, map[string]bool{})
+	if err != nil {
+		return nil, trace, err
+	}
+	effective, err = cfg.EffectiveFrom(branch, source)
+	if err != nil {
+		return nil, trace, err
+	}
+	label = effective.Label
+	main = effective.IsMain
+	trace.Label = label
+	trace.Mode = string(effective.Mode)
 	history, err := r.Walk(gitrepo.WalkOptions{Include: head, Sort: gitrepo.Time})
 	if err != nil {
 		return nil, trace, err
@@ -133,9 +149,6 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		if len(c.Parents) > 2 {
 			return nil, trace, fmt.Errorf("unsupported octopus merge")
 		}
-		if len(c.Parents) > 1 && releaseMerge.MatchString(c.Message) {
-			return nil, trace, fmt.Errorf("unsupported release merge message")
-		}
 	}
 	current := commits[head]
 	rawTags, err := r.Tags(refs)
@@ -159,38 +172,84 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		allTags = append(allTags, t)
 		byCommit[raw.Commit] = append(byCommit[raw.Commit], t)
 	}
-	eligible := []tag{}
-	seen := map[string]bool{}
+	// The C# service orders groups by their lookup commit, which can be a
+	// merge target's parent rather than the tagged commit itself. Flatten and
+	// deduplicate tags only after ordering those groups.
+	type tagGroup struct {
+		id   string
+		tags []tag
+	}
+	groups := []tagGroup{}
+	groupIndex := map[string]int{}
+	addTag := func(id string, t tag) {
+		i, ok := groupIndex[id]
+		if !ok {
+			i = len(groups)
+			groupIndex[id] = i
+			groups = append(groups, tagGroup{id: id})
+		}
+		for _, existing := range groups[i].tags {
+			if existing.ref.Name == t.ref.Name {
+				return
+			}
+		}
+		groups[i].tags = append(groups[i].tags, t)
+	}
 	add := func(ids []string, dateLimit bool) {
 		for _, id := range ids {
 			for _, t := range byCommit[id] {
-				if seen[t.ref.Name] || (dateLimit && commits[id].When > current.When) {
-					continue
+				if !dateLimit || commits[id].When <= current.When {
+					addTag(id, t)
 				}
+			}
+		}
+	}
+	add(history, true)
+	if effective.TrackMergeTarget {
+		for _, t := range allTags {
+			for _, parent := range commits[t.ref.Commit].Parents {
+				if reachable[parent] && commits[parent].When <= current.When {
+					addTag(parent, t)
+				}
+			}
+		}
+	}
+	for _, br := range branches {
+		o := cfg.Options(br.kind)
+		take := (!effective.IsMain && !effective.IsRelease && truth(o.IsMain)) || (effective.TracksRelease && truth(o.IsRelease))
+		if take && br.name != branch {
+			ids, err := r.Walk(gitrepo.WalkOptions{Include: br.sha, Sort: gitrepo.Time})
+			if err != nil {
+				return nil, trace, err
+			}
+			add(ids, false)
+		}
+	}
+	sort.SliceStable(groups, func(i, j int) bool { return commits[groups[i].id].When > commits[groups[j].id].When })
+	eligible := []tag{}
+	seen := map[string]bool{}
+	for _, group := range groups {
+		for _, t := range group.tags {
+			if !seen[t.ref.Name] {
 				eligible = append(eligible, t)
 				seen[t.ref.Name] = true
 			}
 		}
 	}
-	add(history, true)
-	if !main {
-		ids, err := r.Walk(gitrepo.WalkOptions{Include: mainTips[0], Sort: gitrepo.Time})
-		if err != nil {
-			return nil, trace, err
-		}
-		add(ids, false)
-		// The final alternative-version check uses the branch that supplied
-		// inherited configuration (main), not Context.CurrentBranch (feature).
-		if effective.Inherit {
-			reachable = map[string]bool{}
-			for _, id := range ids {
-				reachable[id] = true
+	if effective.Inherit {
+		for _, br := range branches {
+			if br.name == source {
+				ids, err := r.Walk(gitrepo.WalkOptions{Include: br.sha, Sort: gitrepo.Time})
+				if err != nil {
+					return nil, trace, err
+				}
+				reachable = map[string]bool{}
+				for _, id := range ids {
+					reachable[id] = true
+				}
 			}
 		}
 	}
-	sort.SliceStable(eligible, func(i, j int) bool {
-		return commits[eligible[i].ref.Commit].When > commits[eligible[j].ref.Commit].When
-	})
 	// Tagged-HEAD policy can override normal deployment calculation.
 	if effective.PreventTagged {
 		var selected *tag
@@ -214,61 +273,74 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		}
 	}
 	candidates := []candidate{}
-	if cfg.Next != nil {
+	if cfg.Next != nil && (!cfg.Mainline || cfg.MainlineNext) {
 		v, err := cfg.Next.Bump(semver.None, label, false)
 		if err != nil {
 			return nil, trace, err
 		}
 		candidates = append(candidates, candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"})
 	}
-	var alternative *tag
-	threshold := semver.Version{}
-	for _, t := range eligible {
-		if !t.v.Matches(label) {
-			if alternative == nil || t.v.Compare(alternative.v) > 0 {
-				copy := t
-				alternative = &copy
-			}
-			continue
-		}
-		upper, err := t.v.Bump(semver.Major, "", true)
+	if cfg.Mainline {
+		c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label)
 		if err != nil {
 			return nil, trace, err
-		}
-		if alternative != nil && upper.CompareCore(alternative.v) < 0 {
-			upper = alternative.v
-		}
-		if upper.CompareCore(threshold) < 0 {
-			alternative = nil
-			continue
-		}
-		inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load)
-		if err != nil {
-			return nil, trace, err
-		}
-		threshold, err = t.v.Bump(inc, "", true)
-		if err != nil {
-			return nil, trace, err
-		}
-		v, err := t.v.Bump(inc, label, false)
-		if err != nil {
-			return nil, trace, err
-		}
-		c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
-		if alternative != nil && v.CompareCore(alternative.v) < 0 {
-			if inc == semver.None {
-				n := int64(1)
-				c.version.Number = &n
-			}
-			c.version.Major = alternative.v.Major
-			c.version.Minor = alternative.v.Minor
-			c.version.Patch = alternative.v.Patch
-			c.semantic = alternative.v
-			c.semanticSHA = alternative.ref.Commit
-			c.inc = semver.None
 		}
 		candidates = append(candidates, c)
-		alternative = nil
+	} else {
+		var alternative *tag
+		threshold := semver.Version{}
+		for _, t := range eligible {
+			if !t.v.Matches(label) {
+				if alternative == nil || t.v.Compare(alternative.v) > 0 {
+					copy := t
+					alternative = &copy
+				}
+				continue
+			}
+			upper, err := t.v.Bump(semver.Major, "", true)
+			if err != nil {
+				return nil, trace, err
+			}
+			if alternative != nil && upper.CompareCore(alternative.v) < 0 {
+				upper = alternative.v
+			}
+			if upper.CompareCore(threshold) < 0 {
+				alternative = nil
+				continue
+			}
+			inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load)
+			if err != nil {
+				return nil, trace, err
+			}
+			threshold, err = t.v.Bump(inc, "", true)
+			if err != nil {
+				return nil, trace, err
+			}
+			v, err := t.v.Bump(inc, label, false)
+			if err != nil {
+				return nil, trace, err
+			}
+			c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
+			if alternative != nil && v.CompareCore(alternative.v) < 0 {
+				if inc == semver.None {
+					n := int64(1)
+					c.version.Number = &n
+				}
+				c.version.Major = alternative.v.Major
+				c.version.Minor = alternative.v.Minor
+				c.version.Patch = alternative.v.Patch
+				c.semantic = alternative.v
+				c.semanticSHA = alternative.ref.Commit
+				c.inc = semver.None
+			}
+			candidates = append(candidates, c)
+			alternative = nil
+		}
+		extra, err := workflowCandidates(r, cfg, effective, branch, source, head, branches, history, allTags, load)
+		if err != nil {
+			return nil, trace, err
+		}
+		candidates = append(candidates, extra...)
 	}
 	if len(candidates) == 0 {
 		inc, err := increment(r, head, "", label, effective.Increment, effective.Messages, allTags, load)
@@ -281,6 +353,7 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		}
 		candidates = append(candidates, candidate{version: v, inc: inc, description: "fallback"})
 	}
+	sort.SliceStable(candidates, func(i, j int) bool { return candidateOrder(candidates[i]) < candidateOrder(candidates[j]) })
 	best := 0
 	for i, c := range candidates {
 		trace.Candidates = append(trace.Candidates, Candidate{c.description, c.base.String(), c.sha, c.inc.String(), c.version.String()})

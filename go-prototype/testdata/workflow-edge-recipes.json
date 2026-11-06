@@ -1,0 +1,344 @@
+[
+  {
+    "id": "workflow-edge-release-own",
+    "config": "workflow: GitFlow/v1\n",
+    "description": "Release tag eligibility: own",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "dev"
+      },
+      {
+        "op": "branch",
+        "name": "release/next"
+      },
+      {
+        "op": "checkout",
+        "name": "release/next"
+      },
+      {
+        "op": "commit",
+        "id": "release"
+      },
+      {
+        "op": "tag",
+        "name": "2.0.0-beta.2",
+        "annotated": true
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-exists"
+      },
+      {
+        "op": "commit",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkpoint",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "release-merge",
+        "from": "release/next",
+        "message": "Merge branch 'release/next'"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "after-main-merge"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-release-inherited",
+    "config": "workflow: GitFlow/v1\n",
+    "description": "Release tag eligibility: inherited",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "4.0.0-beta.1"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "dev"
+      },
+      {
+        "op": "branch",
+        "name": "release/next"
+      },
+      {
+        "op": "checkout",
+        "name": "release/next"
+      },
+      {
+        "op": "commit",
+        "id": "release"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-exists"
+      },
+      {
+        "op": "commit",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkpoint",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "release-merge",
+        "from": "release/next",
+        "message": "Merge branch 'release/next'"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "after-main-merge"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-release-side",
+    "config": "workflow: GitFlow/v1\n",
+    "description": "Release tag eligibility: side",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "dev"
+      },
+      {
+        "op": "branch",
+        "name": "release/next"
+      },
+      {
+        "op": "checkout",
+        "name": "release/next"
+      },
+      {
+        "op": "branch",
+        "name": "feature/side"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/side"
+      },
+      {
+        "op": "commit",
+        "id": "side"
+      },
+      {
+        "op": "tag",
+        "name": "4.0.0-beta.1"
+      },
+      {
+        "op": "checkout",
+        "name": "release/next"
+      },
+      {
+        "op": "merge",
+        "id": "side-merge",
+        "from": "feature/side",
+        "message": "Merge branch 'feature/side'"
+      },
+      {
+        "op": "commit",
+        "id": "release"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-exists"
+      },
+      {
+        "op": "commit",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkpoint",
+        "id": "next-dev"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "release-merge",
+        "from": "release/next",
+        "message": "Merge branch 'release/next'"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "after-main-merge"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-floor-gitflow-false",
+    "description": "Configured next-version strategy selection",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 5.0.0\n  strategies: [Mainline]\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "commit",
+        "id": "plain"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-floor-gitflow-true",
+    "description": "Configured next-version strategy selection",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 5.0.0\n  strategies: [Mainline, ConfiguredNextVersion]\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "commit",
+        "id": "plain"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-floor-githubflow-false",
+    "description": "Configured next-version strategy selection",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  next-version: 5.0.0\n  strategies: [Mainline]\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "commit",
+        "id": "plain"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "workflow-edge-floor-githubflow-true",
+    "description": "Configured next-version strategy selection",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  next-version: 5.0.0\n  strategies: [Mainline, ConfiguredNextVersion]\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.3"
+      },
+      {
+        "op": "commit",
+        "id": "plain"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  }
+]

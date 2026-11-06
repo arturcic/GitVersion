@@ -24,10 +24,11 @@ type Corpus struct {
 	Outputs        map[string]string     `json:"outputs_sha256"`
 }
 type CaseResult struct {
-	ID          string              `json:"id"`
-	Status      string              `json:"status"`
-	Error       string              `json:"error,omitempty"`
-	Differences []parity.Difference `json:"differences,omitempty"`
+	ID                string              `json:"id"`
+	Status            string              `json:"status"`
+	ExpectedRejection bool                `json:"expected_rejection,omitempty"`
+	Error             string              `json:"error,omitempty"`
+	Differences       []parity.Difference `json:"differences,omitempty"`
 }
 type Report struct {
 	Mode       string       `json:"mode"`

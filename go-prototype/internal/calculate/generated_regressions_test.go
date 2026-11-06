@@ -10,15 +10,21 @@ import (
 )
 
 func TestMinimizedGeneratedRegressions(t *testing.T) {
+	testGeneratedRegressions(t, "generated-regressions.json", 35)
+}
+func TestWorkflowGeneratedRegressions(t *testing.T) {
+	testGeneratedRegressions(t, "workflow-generated-regressions.json", 23)
+}
+func testGeneratedRegressions(t *testing.T, name string, expected int) {
 	var reference struct {
 		Source  string                     `json:"source_revision"`
 		Recipes []fixtures.Recipe          `json:"recipes"`
 		Outputs map[string]json.RawMessage `json:"outputs"`
 	}
-	if err := parity.ReadJSON("../../testdata/generated-regressions.json", &reference); err != nil {
+	if err := parity.ReadJSON(filepath.Join("../../testdata", name), &reference); err != nil {
 		t.Fatal(err)
 	}
-	if reference.Source != "14d222235b7dabb7033473528a76fd18478a9217" || len(reference.Recipes) != 35 || len(reference.Outputs) != 35 {
+	if reference.Source != "14d222235b7dabb7033473528a76fd18478a9217" || len(reference.Recipes) != expected || len(reference.Outputs) != expected {
 		t.Fatal("regression provenance or inventory changed")
 	}
 	cps, err := fixtures.Generate(reference.Recipes, filepath.Join(t.TempDir(), "fixtures"))

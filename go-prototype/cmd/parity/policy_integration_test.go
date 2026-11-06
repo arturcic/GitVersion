@@ -18,6 +18,10 @@ func TestExpandedPolicyParity(t *testing.T) {
 	}
 	testPolicyParity(t, recipes, "policy-evidence", 250)
 }
+func TestWorkflowParity(t *testing.T) {
+	testPolicyParity(t, fixtures.WorkflowRecipes(), "workflow-evidence", 166)
+}
+
 func TestResetPolicyParity(t *testing.T) {
 	testPolicyParity(t, fixtures.ResetRecipes(), "reset-evidence", 192)
 }
@@ -84,4 +88,12 @@ func testPolicyParity(t *testing.T, recipes []fixtures.Recipe, directory string,
 		}
 		t.Fatalf("policy parity: %d/%d passed: %v", report.Passed, expected, runErr)
 	}
+}
+
+func TestWorkflowEdgeParity(t *testing.T) {
+	recipes, err := fixtures.Load("../../testdata/workflow-edge-recipes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	testPolicyParity(t, recipes, "workflow-edge-evidence", 13)
 }

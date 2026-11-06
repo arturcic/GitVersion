@@ -16,6 +16,10 @@ func TestExpandedPolicyFrozenReference(t *testing.T) {
 	testFrozenPolicies(t, "policy-reference.json", recipes, 250)
 }
 
+func TestWorkflowFrozenReference(t *testing.T) {
+	testFrozenPolicies(t, "workflow-reference.json", fixtures.WorkflowRecipes(), 166)
+}
+
 func TestResetPolicyFrozenReference(t *testing.T) {
 	testFrozenPolicies(t, "reset-reference.json", fixtures.ResetRecipes(), 192)
 }
@@ -70,4 +74,12 @@ func testFrozenPolicies(t *testing.T, name string, recipes []fixtures.Recipe, ex
 			}
 		})
 	}
+}
+
+func TestWorkflowEdgeFrozenReference(t *testing.T) {
+	recipes, err := fixtures.Load("../../testdata/workflow-edge-recipes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	testFrozenPolicies(t, "workflow-edge-reference.json", recipes, 13)
 }

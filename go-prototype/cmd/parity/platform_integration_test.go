@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -25,6 +26,10 @@ func TestPlatformCuratedParity(t *testing.T) {
 func TestPlatformPolicyParity(t *testing.T) {
 	testPlatformParity(t, "policies")
 }
+
+func TestPlatformWorkflowParity(t *testing.T)          { testPlatformParity(t, "workflows") }
+func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "workflow-edges") }
+func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
 func TestPlatformResetParity(t *testing.T) {
 	testPlatformParity(t, "resets")
@@ -101,6 +106,21 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes = fixtures.ResetRecipes()
 		expected = 192
 	}
+	if suite == "workflows" {
+		recipes = fixtures.WorkflowRecipes()
+		expected = 166
+	}
+	if suite == "workflow-edges" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/workflow-edge-recipes.json"))
+		expected = 13
+	}
+	if suite == "workflow-generated" {
+		recipes, err = fixtures.GeneratedWorkflows(20261106, 1000)
+		expected = 1000
+	}
+	if err != nil {
+		t.Fatal(err)
+	}
 	if err := parity.WriteJSON(filepath.Join(workspace, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
@@ -111,6 +131,10 @@ func testPlatformParity(t *testing.T, suite string) {
 	if len(cps) != expected {
 		t.Fatal("curated inventory changed")
 	}
+	failure := workflowFailure{}
+	if suite == "workflow-generated" {
+		failure = loadWorkflowFailure(t, root)
+	}
 	var golden Golden
 	goldenName := "reference.json"
 	if suite == "policies" {
@@ -119,15 +143,29 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "resets" {
 		goldenName = "reset-reference.json"
 	}
-	if err := parity.ReadJSON(filepath.Join(root, "testdata", goldenName), &golden); err != nil {
+	if suite == "workflows" {
+		goldenName = "workflow-reference.json"
+	}
+	if suite == "workflow-edges" {
+		goldenName = "workflow-edge-reference.json"
+	}
+	goldenPath := filepath.Join(root, "testdata", goldenName)
+	if suite == "workflow-generated" {
+		goldenPath = filepath.Join(root, ".local/workflow-generated-reference.json")
+	}
+	if err := parity.ReadJSON(goldenPath, &golden); err != nil {
 		t.Fatal(err)
 	}
 	if suite != "curated" {
-		if len(golden.Outputs) != expected {
+		goldenCount := expected
+		if failure.ID != "" {
+			goldenCount--
+		}
+		if len(golden.Outputs) != goldenCount {
 			t.Fatal("portable reference inventory changed")
 		}
 		for _, cp := range cps {
-			if _, ok := golden.Outputs[cp.ID]; !ok {
+			if _, ok := golden.Outputs[cp.ID]; !ok && cp.ID != failure.ID {
 				t.Fatalf("missing portable reference %s", cp.ID)
 			}
 		}
@@ -136,8 +174,8 @@ func testPlatformParity(t *testing.T, suite string) {
 		{Executable: dotnet, Arguments: append([]string{"--fx-version", baseline.Spec.Runtime, filepath.Join(baseDir, "gitversion.dll")}, baseline.Spec.Arguments...)},
 		{Executable: exe, Arguments: []string{"calculate", "--repository", "{repo}"}},
 	}
-	report := Report{Mode: "platform", Calculator: "external-candidate"}
-	for _, cp := range cps {
+	report := Report{Mode: "platform", Calculator: "external-candidate", Cases: make([]CaseResult, len(cps))}
+	execute := func(cp fixtures.Checkpoint) CaseResult {
 		item := CaseResult{ID: cp.ID, Status: "passed"}
 		var reference []byte
 		for j, command := range commands {
@@ -148,15 +186,27 @@ func testPlatformParity(t *testing.T, suite string) {
 			path := filepath.Join(workspace, cp.ID+"-"+name)
 			result, err := parity.Run(t.Context(), command, cp.Path, path, baseline.Spec.Environment, 30*time.Second)
 			if err != nil {
-				t.Fatal(err)
+				item.Status = "failed"
+				item.Error = err.Error()
+				return item
 			}
 			if err := saveResult(path, result); err != nil {
-				t.Fatal(err)
+				item.Status = "failed"
+				item.Error = err.Error()
+				return item
 			}
-			if err := result.Validate(); err != nil {
+			validationErr := result.Validate()
+			if cp.ID == failure.ID {
+				validationErr = failure.validate(cp, result)
+				item.ExpectedRejection = true
+			}
+			if err := validationErr; err != nil {
 				item.Status = "failed"
 				item.Error = name + ": " + err.Error()
 				break
+			}
+			if item.ExpectedRejection {
+				continue
 			}
 			if j == 0 {
 				reference = result.Stdout
@@ -180,13 +230,32 @@ func testPlatformParity(t *testing.T, suite string) {
 				}
 			}
 		}
+
+		return item
+	}
+	jobs := make(chan int)
+	var workers sync.WaitGroup
+	for w := 0; w < 4; w++ {
+		workers.Add(1)
+		go func() {
+			defer workers.Done()
+			for i := range jobs {
+				report.Cases[i] = execute(cps[i])
+			}
+		}()
+	}
+	for i := range cps {
+		jobs <- i
+	}
+	close(jobs)
+	workers.Wait()
+	for _, item := range report.Cases {
 		if item.Status == "passed" {
 			report.Passed++
 		} else {
 			report.Failed++
-			t.Errorf("%s: %s %+v", cp.ID, item.Error, item.Differences)
+			t.Errorf("%s: %s %+v", item.ID, item.Error, item.Differences)
 		}
-		report.Cases = append(report.Cases, item)
 	}
 	if err := parity.WriteJSON(filepath.Join(workspace, "report.json"), report); err != nil {
 		t.Fatal(err)
