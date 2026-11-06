@@ -85,11 +85,11 @@ func TestBaselineSpecRejectsUnpinnedIdentity(t *testing.T) {
 }
 
 func TestRuntimeDirectorySelectsExactVersion(t *testing.T) {
-	p, err := runtimeDirectory("Microsoft.NETCore.App 10.0.13 [/dotnet/shared/Microsoft.NETCore.App]\nMicrosoft.NETCore.App 10.0.14 [/dotnet/shared/Microsoft.NETCore.App]\n", "10.0.14")
+	p, err := RuntimeDirectory("Microsoft.NETCore.App 10.0.13 [/dotnet/shared/Microsoft.NETCore.App]\nMicrosoft.NETCore.App 10.0.14 [/dotnet/shared/Microsoft.NETCore.App]\n", "10.0.14")
 	if err != nil || p != filepath.Join("/dotnet/shared/Microsoft.NETCore.App", "10.0.14") {
 		t.Fatalf("%s %v", p, err)
 	}
-	if _, err = runtimeDirectory("Microsoft.NETCore.App 10.0.13 [/dotnet/shared/Microsoft.NETCore.App]", "10.0.14"); err == nil {
+	if _, err = RuntimeDirectory("Microsoft.NETCore.App 10.0.13 [/dotnet/shared/Microsoft.NETCore.App]", "10.0.14"); err == nil {
 		t.Fatal("silently rolled runtime")
 	}
 }
@@ -170,5 +170,12 @@ func TestVerifyBaselineRejectsSpecAndHostDrift(t *testing.T) {
 				t.Fatalf("want %s before executing host, got %v", want, err)
 			}
 		})
+	}
+}
+
+func TestRuntimeDirectoryPreservesSpaces(t *testing.T) {
+	got, err := RuntimeDirectory("Microsoft.NETCore.App 10.0.14 [/Applications/Shared Tools/dotnet]\r\n", "10.0.14")
+	if err != nil || got != "/Applications/Shared Tools/dotnet/10.0.14" {
+		t.Fatalf("runtime path %q: %v", got, err)
 	}
 }

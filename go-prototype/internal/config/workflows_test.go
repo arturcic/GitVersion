@@ -41,10 +41,10 @@ func TestWorkflowOverridesAndStrategyValidation(t *testing.T) {
 		t.Fatal(err)
 	}
 	e, err := c.Effective("develop")
-	if err != nil || !c.Mainline || !c.MainlineNext || e.Mode != Manual || e.Increment != semver.Patch || e.Label != "preview" || e.Weight != 17 || c.Feature.Weight != 30000 {
+	if err != nil || !c.Strategies["Mainline"] || !c.Strategies["ConfiguredNextVersion"] || e.Mode != Manual || e.Increment != semver.Patch || e.Label != "preview" || e.Weight != 17 || c.Feature.Weight != 30000 {
 		t.Fatalf("override isolation %+v, %v", e, err)
 	}
-	for _, value := range []string{"[]", "[Mainline, Mainline]", "Mainline", "[Other]", "[ConfiguredNextVersion]", "[null]"} {
+	for _, value := range []string{"Mainline", "[Other]", "[null]"} {
 		if _, err := Parse([]byte("workflow: GitFlow/v1\ncalculation: {strategies: " + value + "}\n")); err == nil {
 			t.Fatalf("invalid strategies accepted: %s", value)
 		}

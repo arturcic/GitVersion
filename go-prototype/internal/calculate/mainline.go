@@ -89,6 +89,7 @@ type mlEngine struct {
 	refs    []branchRef
 	tags    []tag
 	load    func(string) (gitrepo.Commit, error)
+	target  string
 	label   string
 	when    int64
 	visited map[string]bool
@@ -253,7 +254,9 @@ func (e *mlEngine) transitions(branch, exclude string) (map[string][]branchRef, 
 			return nil, err
 		}
 		if id != "" {
-			out[id] = append(out[id], b)
+			if len(out[id]) == 0 || truth(e.cfg.Options(b.kind).IsMain) {
+				out[id] = append(out[id], b)
+			}
 		}
 	}
 	for id := range out {
@@ -290,6 +293,17 @@ func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semv
 			kind, _, _ := e.cfg.Branch(state)
 			choice := choices[0]
 			if !(truth(e.cfg.Options(kind).IsMain) && !truth(e.cfg.Options(choice.kind).IsMain)) {
+				for _, option := range choices {
+					if option.name == e.target && option.name != choice.name {
+						dummy := &mlNode{branch: e.target, iteration: it}
+						if len(it.nodes) > 0 {
+							dummy.next = it.nodes[len(it.nodes)-1]
+							dummy.next.prev = dummy
+						}
+						it.nodes = append(it.nodes, dummy)
+						break
+					}
+				}
 				old := state
 				state = choice.name
 				trans, err = e.transitions(state, old)
@@ -325,7 +339,7 @@ func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semv
 		if err != nil {
 			return false, err
 		}
-		if len(c.Parents) != 2 {
+		if len(c.Parents) != 2 || (e.cfg.Options(kind).TrackMergeMessage != nil && !*e.cfg.Options(kind).TrackMergeMessage) {
 			continue
 		}
 		name := mergedBranch(c.Message)
@@ -417,9 +431,13 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 		if e.err != nil {
 			return result, e.err
 		}
-		commit, err := e.load(n.id)
-		if err != nil {
-			return result, err
+		commit := gitrepo.Commit{}
+		if n.id != "" {
+			var err error
+			commit, err = e.load(n.id)
+			if err != nil {
+				return result, err
+			}
 		}
 		ctx.semantic = nil
 		for _, v := range n.tags {
@@ -606,7 +624,7 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 	if err != nil {
 		return candidate{}, err
 	}
-	engine := mlEngine{r: r, cfg: cfg, refs: refs, tags: tags, load: load, label: label, when: c.When, visited: map[string]bool{}}
+	engine := mlEngine{r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
 	tip := head
 	for _, b := range refs {
 		if b.name == branch {

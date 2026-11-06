@@ -1,27 +1,30 @@
 package calculate
 
 import (
-	"fmt"
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
 	"regexp"
+	"sort"
 	"strings"
 )
 
 type branchRef struct{ name, sha, kind string }
 
-func configurationSource(r *gitrepo.Repository, cfg config.Config, branch string, refs []branchRef, visited map[string]bool) (string, error) {
+// configurationSources follows the pinned source finder: descending merge-base
+// time, remove older origins contained by a newer candidate, prefer a ref whose
+// tip is exactly the branch point, and retain competing origins at one point.
+func configurationSources(r *gitrepo.Repository, cfg config.Config, branch string, refs []branchRef, visited map[string]bool) ([]string, error) {
 	if visited[branch] {
-		return "", fmt.Errorf("cyclic branch inheritance")
+		return nil, nil
 	}
 	visited[branch] = true
 	kind, _, err := cfg.Branch(branch)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	if kind == "main" || cfg.Options(kind).Increment != nil {
-		return branch, nil
+		return []string{branch}, nil
 	}
 	var tip string
 	for _, b := range refs {
@@ -29,48 +32,126 @@ func configurationSource(r *gitrepo.Repository, cfg config.Config, branch string
 			tip = b.sha
 		}
 	}
-	allowed := cfg.SourceKinds(kind)
-	selected := ""
-	bestTime := int64(-1 << 63)
+	type origin struct {
+		branch  branchRef
+		base    string
+		when    int64
+		ignored bool
+	}
+	var origins []origin
+	history, err := r.Walk(gitrepo.WalkOptions{Include: tip})
+	if err != nil {
+		return nil, err
+	}
 	for _, b := range refs {
 		if visited[b.name] {
 			continue
 		}
-		ok := false
-		for _, k := range allowed {
+		allowed := false
+		for _, k := range cfg.SourceKinds(kind) {
 			if b.kind == k {
-				ok = true
+				allowed = true
 			}
 		}
-		if !ok {
+		if !allowed {
 			continue
 		}
 		base, err := branchMergeBase(r, tip, b.sha)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 		if base == "" {
 			continue
 		}
-		commit, err := r.Commit(base)
+		c, err := r.Commit(base)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
-		if selected == "" || commit.When > bestTime {
-			selected = b.name
-			bestTime = commit.When
+		o := origin{branch: b, base: base, when: c.When}
+		for _, id := range history {
+			v, err := r.Commit(id)
+			if err != nil {
+				return nil, err
+			}
+			if v.When > o.when && len(v.Parents) > 1 {
+				for _, p := range v.Parents {
+					if p == base {
+						o.ignored = true
+					}
+				}
+			}
+		}
+		origins = append(origins, o)
+	}
+	sort.SliceStable(origins, func(i, j int) bool { return origins[i].when > origins[j].when })
+	for i := len(origins) - 1; i > 0; i-- {
+		if origins[i].ignored {
+			continue
+		}
+		for j := 0; j < i; j++ {
+			if origins[i].base == origins[j].base {
+				break
+			}
+			ids, err := r.Walk(gitrepo.WalkOptions{Include: origins[j].branch.sha})
+			if err != nil {
+				return nil, err
+			}
+			found := false
+			for _, id := range ids {
+				if id == origins[i].base {
+					found = true
+					break
+				}
+			}
+			if found {
+				origins = append(origins[:i], origins[i+1:]...)
+				break
+			}
 		}
 	}
-	if selected == "" {
-		return "", fmt.Errorf("no supported source branch for %s", branch)
+	var out []string
+	seen := map[string]bool{}
+	for _, o := range origins {
+		exact := false
+		for _, other := range origins {
+			if other.base == o.base && other.branch.sha == o.base {
+				exact = true
+			}
+		}
+		if exact && o.branch.sha != o.base {
+			continue
+		}
+		sources, err := configurationSources(r, cfg, o.branch.name, refs, visited)
+		if err != nil {
+			return nil, err
+		}
+		for _, source := range sources {
+			if !seen[source] {
+				out = append(out, source)
+				seen[source] = true
+			}
+		}
 	}
-	return configurationSource(r, cfg, selected, refs, visited)
+	return out, nil
 }
 
-var branchVersion = regexp.MustCompile(`[vV]?([0-9]+)(?:\.([0-9]+))?(?:\.([0-9]+))?`)
+var branchVersion = regexp.MustCompile(`^[vV]?([0-9]+)(?:\.([0-9]+))?(?:\.([0-9]+))?`)
 
 func versionInBranch(name string) (semver.Version, bool) {
-	m := branchVersion.FindStringSubmatch(name)
+	separator := "/"
+	if !strings.Contains(name, "/") && strings.Contains(name, "-") {
+		separator = "-"
+	}
+	var m []string
+	for _, part := range strings.Split(name, separator) {
+		if part == "" {
+			return semver.Version{}, false
+		}
+		m = branchVersion.FindStringSubmatch(part)
+		if m != nil {
+			break
+		}
+	}
 	if m == nil {
 		return semver.Version{}, false
 	}
@@ -97,7 +178,7 @@ func mergedBranch(message string) string {
 }
 func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error)) ([]candidate, error) {
 	var out []candidate
-	if e.IsRelease {
+	if e.IsRelease && cfg.Strategies["VersionInBranchName"] {
 		for _, name := range []string{branch, source} {
 			if v, ok := versionInBranch(name); ok {
 				bumped, err := v.Bump(semver.None, e.Label, false)
@@ -109,7 +190,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			}
 		}
 	}
-	if e.TrackMergeMessage {
+	if e.TrackMergeMessage && cfg.Strategies["MergeMessage"] {
 		found := 0
 		for _, id := range history {
 			c, err := load(id)
@@ -154,7 +235,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			}
 		}
 	}
-	if e.TracksRelease {
+	if e.TracksRelease && cfg.Strategies["TrackReleaseBranches"] {
 		for _, b := range refs {
 			o := cfg.Options(b.kind)
 			if o.IsRelease == nil || !*o.IsRelease {

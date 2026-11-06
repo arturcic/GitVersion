@@ -173,7 +173,7 @@ func Pin(ctx context.Context, specPath, dotnet, dir, archive, goVersion string) 
 		return b, err
 	}
 	b.Runtimes = string(raw)
-	runtimeDir, err := runtimeDirectory(b.Runtimes, s.Runtime)
+	runtimeDir, err := RuntimeDirectory(b.Runtimes, s.Runtime)
 	if err != nil {
 		return b, err
 	}
@@ -234,7 +234,7 @@ func VerifyBaseline(b Baseline, specPath, dotnet, dir string) error {
 	if err != nil {
 		return err
 	}
-	runtimeDir, err := runtimeDirectory(string(raw), spec.Runtime)
+	runtimeDir, err := RuntimeDirectory(string(raw), spec.Runtime)
 	if err != nil {
 		return err
 	}
@@ -251,7 +251,8 @@ func VerifyBaseline(b Baseline, specPath, dotnet, dir string) error {
 	return nil
 }
 
-func runtimeDirectory(inventory, version string) (string, error) {
+// RuntimeDirectory selects the exact runtime version while preserving spaces in its installation path.
+func RuntimeDirectory(inventory, version string) (string, error) {
 	for _, line := range strings.Split(inventory, "\n") {
 		prefix := "Microsoft.NETCore.App " + version + " ["
 		if strings.HasPrefix(line, prefix) && strings.HasSuffix(strings.TrimSpace(line), "]") {

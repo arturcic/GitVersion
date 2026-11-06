@@ -60,7 +60,7 @@ func TestExpandedPolicyRejectsInvalidValues(t *testing.T) {
 		{"message-mode", "calculation: {branches: {feature: {commit-message-incrementing: Sometimes}}}"},
 		{"string-bool", "calculation: {branches: {main: {prevent-increment: {when-current-commit-tagged: 'false'}}}}"},
 		{"null-bool", "calculation: {branches: {main: {prevent-increment: {when-current-commit-tagged: null}}}}"},
-		{"unknown-prevent", "calculation: {branches: {main: {prevent-increment: {of-merged-branch: true}}}}"},
+		{"unknown-prevent", "calculation: {branches: {main: {prevent-increment: {unknown: true}}}}"},
 		{"main-capture", "calculation: {branches: {main: {label: '{BranchName}'}}}"},
 		{"unknown-placeholder", "calculation: {branches: {feature: {label: '{env:BRANCH}'}}}"},
 		{"number-label", "calculation: {branches: {feature: {label: 42}}}"},

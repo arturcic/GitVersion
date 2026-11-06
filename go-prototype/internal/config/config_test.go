@@ -34,7 +34,7 @@ func TestFrozenConfigurationRejectsUnsupportedInput(t *testing.T) {
 		{"missing-workflow", "{}"}, {"wrong-workflow", "workflow: UnknownFlow/v1"}, {"duplicate", "workflow: GitHubFlow/v1\nworkflow: GitHubFlow/v1"}, {"unknown-root", "workflow: GitHubFlow/v1\nunknown: {}"},
 		{"mode", "workflow: GitHubFlow/v1\ncalculation: {mode: Mainline}"}, {"unknown-branch", "workflow: GitHubFlow/v1\ncalculation: {branches: {unknown: {}}}"}, {"regex", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {regex: x}}}"},
 		{"null-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: null}}}"}, {"duplicate-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: Minor, increment: Patch}}}"},
-		{"sequence", "workflow: GitHubFlow/v1\ncalculation: []"}, {"anchor", "workflow: &flow GitHubFlow/v1"}, {"alias", "workflow: *flow"}, {"multiple-docs", "workflow: GitHubFlow/v1\n---\n{}"}, {"prerelease-next", "workflow: GitHubFlow/v1\ncalculation: {next-version: 1.0.0-rc.1}"}, {"bad-yaml", "workflow: ["},
+		{"sequence", "workflow: GitHubFlow/v1\ncalculation: []"}, {"anchor", "workflow: &flow GitHubFlow/v1"}, {"alias", "workflow: *flow"}, {"multiple-docs", "workflow: GitHubFlow/v1\n---\n{}"}, {"bad-yaml", "workflow: ["},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if _, err := Parse([]byte(tc.yaml)); err == nil {

@@ -7,7 +7,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
-	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -31,6 +30,9 @@ func TestPlatformWorkflowParity(t *testing.T)          { testPlatformParity(t, "
 func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "workflow-edges") }
 func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
+func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
+func TestPlatformConfigurationEdgeParity(t *testing.T) { testPlatformParity(t, "configuration-edge") }
+func TestPlatformConfigurationParity(t *testing.T)     { testPlatformParity(t, "configuration") }
 func TestPlatformResetParity(t *testing.T) {
 	testPlatformParity(t, "resets")
 }
@@ -58,15 +60,9 @@ func testPlatformParity(t *testing.T, suite string) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	var runtimeDir string
-	for _, line := range strings.Split(string(versions), "\n") {
-		fields := strings.Fields(line)
-		if len(fields) == 3 && fields[0] == "Microsoft.NETCore.App" && fields[1] == baseline.Spec.Runtime {
-			runtimeDir = filepath.Join(strings.Trim(fields[2], "[]"), fields[1])
-		}
-	}
-	if runtimeDir == "" {
-		t.Fatal("pinned runtime unavailable")
+	runtimeDir, err := parity.RuntimeDirectory(string(versions), baseline.Spec.Runtime)
+	if err != nil {
+		t.Fatal(err)
 	}
 	runtimeFiles, err := parity.FileSet(runtimeDir)
 	if err != nil {
@@ -118,6 +114,18 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes, err = fixtures.GeneratedWorkflows(20261106, 1000)
 		expected = 1000
 	}
+	if suite == "strategy" {
+		recipes = fixtures.StrategyRecipes()
+		expected = 768
+	}
+	if suite == "configuration-edge" {
+		recipes = fixtures.ConfigurationEdgeRecipes()
+		expected = 14
+	}
+	if suite == "configuration" {
+		recipes = fixtures.ConfigurationRecipes()
+		expected = 800
+	}
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -149,6 +157,9 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-edges" {
 		goldenName = "workflow-edge-reference.json"
 	}
+	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" {
+		goldenName = suite + "-reference.json"
+	}
 	goldenPath := filepath.Join(root, "testdata", goldenName)
 	if suite == "workflow-generated" {
 		goldenPath = filepath.Join(root, ".local/workflow-generated-reference.json")
@@ -157,7 +168,7 @@ func testPlatformParity(t *testing.T, suite string) {
 		t.Fatal(err)
 	}
 	if suite != "curated" {
-		goldenCount := expected
+		goldenCount := expected - len(golden.Rejections)
 		if failure.ID != "" {
 			goldenCount--
 		}
@@ -165,9 +176,17 @@ func testPlatformParity(t *testing.T, suite string) {
 			t.Fatal("portable reference inventory changed")
 		}
 		for _, cp := range cps {
-			if _, ok := golden.Outputs[cp.ID]; !ok && cp.ID != failure.ID {
+			if _, ok := golden.Outputs[cp.ID]; !ok && cp.ID != failure.ID && golden.Rejections[cp.ID] == "" {
 				t.Fatalf("missing portable reference %s", cp.ID)
 			}
+		}
+	}
+	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" {
+		if golden.Schema != 1 || golden.SpecSHA256 != specHash {
+			t.Fatal("reference provenance differs")
+		}
+		if err := matchCases(golden.Cases, cps); err != nil {
+			t.Fatal(err)
 		}
 	}
 	commands := []parity.Command{
@@ -198,6 +217,10 @@ func testPlatformParity(t *testing.T, suite string) {
 			validationErr := result.Validate()
 			if cp.ID == failure.ID {
 				validationErr = failure.validate(cp, result)
+				item.ExpectedRejection = true
+			}
+			if digest, ok := golden.Rejections[cp.ID]; ok {
+				validationErr = parity.ValidateRejection(cp, digest, result)
 				item.ExpectedRejection = true
 			}
 			if err := validationErr; err != nil {

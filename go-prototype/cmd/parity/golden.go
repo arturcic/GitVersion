@@ -13,6 +13,7 @@ import (
 // Golden is a portable, reviewable output set. Machine-specific build attestations
 // remain beside the original capture, linked by the baseline lock digest.
 type Golden struct {
+	Rejections            map[string]string          `json:"rejections,omitempty"`
 	Schema                int                        `json:"schema"`
 	SpecSHA256            string                     `json:"spec_sha256"`
 	RecipesSHA256         string                     `json:"recipes_sha256"`

@@ -20,13 +20,13 @@ import (
 )
 
 type Config struct {
-	Workflow               string
-	Mainline, MainlineNext bool
-	Extra                  map[string]Options
-	Next                   *semver.Version
-	MainIncrement          semver.Increment
-	Main, Feature          Options
-	TagWeight              int64
+	Workflow      string
+	Strategies    map[string]bool
+	Extra         map[string]Options
+	Next          *semver.Version
+	MainIncrement semver.Increment
+	Main, Feature Options
+	TagWeight     int64
 }
 
 type Mode string
@@ -161,7 +161,7 @@ func Load(repo string) (Config, error) {
 	return Parse(b)
 }
 func Parse(data []byte) (Config, error) {
-	c := Config{MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Mode: Delivery, Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
+	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Mode: Delivery, Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
 	if len(data) > 1<<20 {
 		return c, fmt.Errorf("configuration exceeds 1 MiB")
 	}
@@ -196,30 +196,21 @@ func Parse(data []byte) (Config, error) {
 			return c, err
 		}
 		if n := calc["strategies"]; n != nil {
-			if n.Kind != yaml.SequenceNode || n.Anchor != "" || len(n.Content) == 0 {
-				return c, fmt.Errorf("strategies requires a nonempty list")
+			if n.Kind != yaml.SequenceNode || n.Anchor != "" {
+				return c, fmt.Errorf("strategies requires a list")
 			}
-			seen := map[string]bool{}
+			c.Strategies = map[string]bool{}
 			for _, v := range n.Content {
 				name, err := scalar(v, "strategy")
 				if err != nil {
 					return c, err
 				}
-				if seen[name] {
-					return c, fmt.Errorf("duplicate strategy")
-				}
-				seen[name] = true
 				switch name {
-				case "Mainline":
-					c.Mainline = true
-				case "ConfiguredNextVersion":
-					c.MainlineNext = true
+				case "None", "Fallback", "ConfiguredNextVersion", "MergeMessage", "TaggedCommit", "TrackReleaseBranches", "VersionInBranchName", "Mainline":
+					c.Strategies[name] = true
 				default:
-					return c, fmt.Errorf("unsupported explicit strategy %q", name)
+					return c, fmt.Errorf("unknown strategy %q", name)
 				}
-			}
-			if !c.Mainline {
-				return c, fmt.Errorf("explicit strategy subset requires Mainline")
 			}
 		}
 		if n := calc["next-version"]; n != nil {
@@ -230,9 +221,6 @@ func Parse(data []byte) (Config, error) {
 			v, err := semver.Parse(s)
 			if err != nil {
 				return c, err
-			}
-			if v.IsPreRelease() {
-				return c, fmt.Errorf("unsupported prerelease next-version")
 			}
 			c.Next = &v
 		}
@@ -294,7 +282,7 @@ func Parse(data []byte) (Config, error) {
 }
 
 func parseOptions(n *yaml.Node, kind string, o *Options) error {
-	b, err := mapping(n, kind, []string{"mode", "label", "increment", "prevent-increment", "commit-message-incrementing"})
+	b, err := mapping(n, kind, []string{"mode", "label", "increment", "prevent-increment", "commit-message-incrementing", "is-main-branch", "is-release-branch", "tracks-release-branches", "track-merge-target", "track-merge-message"})
 	if err != nil {
 		return err
 	}
@@ -337,16 +325,31 @@ func parseOptions(n *yaml.Node, kind string, o *Options) error {
 			}
 		}
 	}
+	for key, target := range map[string]**bool{"is-main-branch": &o.IsMain, "is-release-branch": &o.IsRelease, "tracks-release-branches": &o.TracksRelease, "track-merge-target": &o.TrackMergeTarget, "track-merge-message": &o.TrackMergeMessage} {
+		if n := b[key]; n != nil {
+			v, err := boolean(n, key)
+			if err != nil {
+				return err
+			}
+			*target = &v
+		}
+	}
 	if n := b["prevent-increment"]; n != nil {
-		p, err := mapping(n, "prevent-increment", []string{"when-current-commit-tagged"})
+		p, err := mapping(n, "prevent-increment", []string{"when-current-commit-tagged", "of-merged-branch", "when-branch-merged"})
 		if err != nil {
 			return err
 		}
-		if n := p["when-current-commit-tagged"]; n != nil {
-			if n.Kind != yaml.ScalarNode || n.Tag != "!!bool" || n.Anchor != "" {
-				return fmt.Errorf("when-current-commit-tagged requires a boolean")
+		for key, target := range map[string]**bool{"of-merged-branch": &o.PreventMerged, "when-branch-merged": &o.PreventWhenMerged} {
+			if n := p[key]; n != nil {
+				v, err := boolean(n, key)
+				if err != nil {
+					return err
+				}
+				*target = &v
 			}
-			v, err := strconv.ParseBool(n.Value)
+		}
+		if n := p["when-current-commit-tagged"]; n != nil {
+			v, err := boolean(n, "when-current-commit-tagged")
 			if err != nil {
 				return err
 			}
@@ -400,4 +403,11 @@ func mapping(n *yaml.Node, path string, allowed []string) (map[string]*yaml.Node
 		result[k] = n.Content[i+1]
 	}
 	return result, nil
+}
+
+func boolean(n *yaml.Node, path string) (bool, error) {
+	if n.Kind != yaml.ScalarNode || n.Tag != "!!bool" || n.Anchor != "" {
+		return false, fmt.Errorf("%s requires a boolean", path)
+	}
+	return strconv.ParseBool(n.Value)
 }
