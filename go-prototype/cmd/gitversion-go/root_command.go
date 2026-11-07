@@ -72,7 +72,7 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if options.TargetURL != "" || options.TargetBranch != "" || options.CommitID != "" || options.ClonePath != "" {
 		return fmt.Errorf("remote, branch, and commit targeting are pending")
 	}
-	if options.UpdateAssemblyInfo || options.UpdateProjectFiles || options.UpdateWixVersionFile {
+	if options.UpdateProjectFiles || options.UpdateWixVersionFile {
 		return fmt.Errorf("the selected output or file updater is pending")
 	}
 	if options.AllowShallow || options.Diag {
@@ -82,6 +82,16 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if err != nil {
 		return err
 	}
+	if err := writeRootOutput(options, values, out); err != nil {
+		return err
+	}
+	if options.UpdateAssemblyInfo {
+		return updateAssemblyInfo(options.TargetPath, options.UpdateAssemblyInfoFileName, options.EnsureAssemblyInfo, values, diagnostics)
+	}
+	return nil
+}
+
+func writeRootOutput(options cliArguments, values map[string]any, out io.Writer) error {
 	if options.Output["buildserver"] {
 		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
 		update, err := updateBuildNumberSetting(options.TargetPath, options.ConfigurationFile, options.OverrideConfiguration)
@@ -117,7 +127,7 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		if value == nil {
 			value = ""
 		}
-		_, err = fmt.Fprintln(out, value)
+		_, err := fmt.Fprintln(out, value)
 		return err
 	}
 	if options.Format != "" {

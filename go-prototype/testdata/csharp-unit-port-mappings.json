@@ -52664,5 +52664,326 @@
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldCreateAssemblyInfoFileWhenNotExistsAndEnsureAssemblyInfo": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldCreateAssemblyInfoFileWhenNotExistsAndEnsureAssemblyInfo",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldCreateAssemblyInfoFileAtPathWhenNotExistsAndEnsureAssemblyInfo": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldCreateAssemblyInfoFileAtPathWhenNotExistsAndEnsureAssemblyInfo",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldCreateAssemblyInfoFilesAtPathWhenNotExistsAndEnsureAssemblyInfo": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldCreateAssemblyInfoFilesAtPathWhenNotExistsAndEnsureAssemblyInfo",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldNotCreateAssemblyInfoFileWhenNotExistsAndNotEnsureAssemblyInfo": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldNotCreateAssemblyInfoFileWhenNotExistsAndNotEnsureAssemblyInfo",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldStartSearchFromWorkingDirectory": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldStartSearchFromWorkingDirectory",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersion": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersion",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldNotReplaceAssemblyVersionWhenVersionSchemeIsNone": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldNotReplaceAssemblyVersionWhenVersionSchemeIsNone",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePath": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionInRelativePath",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithWhiteSpace": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionInRelativePathWithWhiteSpace",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWithStar": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionWithStar",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWithAttributeSuffix": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionWithAttributeSuffix",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldAddAssemblyVersionIfMissingFromInfoFile": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldAddAssemblyVersionIfMissingFromInfoFile",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAlreadySubstitutedValues": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAlreadySubstitutedValues",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWhenCreatingAssemblyVersionFileAndEnsureAssemblyInfo": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionWhenCreatingAssemblyVersionFileAndEnsureAssemblyInfo",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithVariables": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionInRelativePathWithVariables",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithVariablesAndWhiteSpace": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldReplaceAssemblyVersionInRelativePathWithVariablesAndWhiteSpace",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldAddAssemblyInformationalVersionWhenUpdatingAssemblyVersionFile": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldAddAssemblyInformationalVersionWhenUpdatingAssemblyVersionFile",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.Issue1183ShouldAddFSharpAssemblyInformationalVersionBesideOtherAttributes": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "Issue1183ShouldAddFSharpAssemblyInformationalVersionBesideOtherAttributes",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyInfoFileUpdaterTests.ShouldNotAddAssemblyInformationalVersionWhenVersionSchemeIsNone": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
+    "source_sha256": "0037415fcaff7f9cdcad06da2aab38ee1b646dac6f65904e957db2b8356e0f07",
+    "method": "ShouldNotAddAssemblyInformationalVersionWhenVersionSchemeIsNone",
+    "go_test": "TestCSharpAssemblyInfoUpdater",
+    "case_file": "testdata/csharp-assembly-info.json",
+    "case_file_sha256": "d9c590a97cfa817a6ec4f039c397a2d9020489e32b19df6406ba82fe68e3b13f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
