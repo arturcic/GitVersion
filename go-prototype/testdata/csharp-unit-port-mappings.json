@@ -52280,7 +52280,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.BranchesAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52295,7 +52295,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.TagsAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52310,7 +52310,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.CommitLogsAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52325,7 +52325,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.QueryBySequencesAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52340,7 +52340,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.MergeBasesAreIdenticalOnBothBackendsForAllCommitPairs": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52355,7 +52355,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.DiffPathsAreIdenticalOnBothBackendsForAllCommits": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52370,7 +52370,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.UncommittedChangesCountIsIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52385,7 +52385,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.EmptyRepositoryBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52400,7 +52400,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.DetachedHeadBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52415,7 +52415,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.RemotesAndRemoteBranchesAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52430,7 +52430,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.RepositoryPathsAreIdenticalOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52445,7 +52445,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.BareRepositoryHasNullProjectRootDirectoryOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52460,7 +52460,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.OctopusMergeBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52475,7 +52475,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.PackedAndLooseReferencesBehaveIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52490,7 +52490,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.LightweightAndAnnotatedTagOnTheSameCommitBehaveIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52505,7 +52505,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.ShallowCloneBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52520,7 +52520,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.WorktreeBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52535,7 +52535,7 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DualBackendParityTests.IndexVersionFourBehavesIdenticallyOnBothBackends": {
     "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
@@ -52550,6 +52550,6 @@
     "adaptations": [
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

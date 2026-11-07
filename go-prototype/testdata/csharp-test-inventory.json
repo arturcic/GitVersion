@@ -3,12 +3,12 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1206,
+  "mapped_declarations": 1225,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1168,
-      "verified": 1168
+      "mapped": 1187,
+      "verified": 1187
     },
     "integration": {
       "declarations": 662,
@@ -13618,9 +13618,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#BranchesAreIdenticalOnBothBackends",
@@ -13635,9 +13642,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#TagsAreIdenticalOnBothBackends",
@@ -13652,9 +13666,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#CommitLogsAreIdenticalOnBothBackends",
@@ -13669,9 +13690,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#QueryBySequencesAreIdenticalOnBothBackends",
@@ -13686,9 +13714,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#MergeBasesAreIdenticalOnBothBackendsForAllCommitPairs",
@@ -13703,9 +13738,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#DiffPathsAreIdenticalOnBothBackendsForAllCommits",
@@ -13720,9 +13762,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#UncommittedChangesCountIsIdenticalOnBothBackends",
@@ -13737,9 +13786,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#EmptyRepositoryBehavesIdenticallyOnBothBackends",
@@ -13754,9 +13810,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#DetachedHeadBehavesIdenticallyOnBothBackends",
@@ -13771,9 +13834,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#RemotesAndRemoteBranchesAreIdenticalOnBothBackends",
@@ -13788,9 +13858,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#RepositoryPathsAreIdenticalOnBothBackends",
@@ -13805,9 +13882,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#BareRepositoryHasNullProjectRootDirectoryOnBothBackends",
@@ -13822,9 +13906,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#OctopusMergeBehavesIdenticallyOnBothBackends",
@@ -13839,9 +13930,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#PackedAndLooseReferencesBehaveIdenticallyOnBothBackends",
@@ -13856,9 +13954,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#LightweightAndAnnotatedTagOnTheSameCommitBehaveIdenticallyOnBothBackends",
@@ -13873,9 +13978,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#ShallowCloneBehavesIdenticallyOnBothBackends",
@@ -13890,9 +14002,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#WorktreeBehavesIdenticallyOnBothBackends",
@@ -13907,9 +14026,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs#IndexVersionFourBehavesIdenticallyOnBothBackends",
@@ -13924,9 +14050,16 @@
       ],
       "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpDualBackendParity",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-dual-backend.json",
+      "adaptations": [
+        "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/DynamicRepositoryTests.cs#FindsVersionInDynamicRepo",
