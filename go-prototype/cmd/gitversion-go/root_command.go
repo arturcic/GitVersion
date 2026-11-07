@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -15,6 +14,7 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
 func runRootCLI(args []string, out, diagnostics io.Writer) error {
@@ -127,7 +127,7 @@ func writeRootOutput(options cliArguments, values map[string]any, out io.Writer)
 		return buildagent.WriteDotEnv(out, values)
 	}
 	if options.Output["file"] {
-		data, err := json.MarshalIndent(values, "", "  ")
+		data, err := output.MarshalVariables(values)
 		if err != nil {
 			return err
 		}
@@ -159,9 +159,12 @@ func writeRootOutput(options cliArguments, values map[string]any, out io.Writer)
 		_, err = fmt.Fprintln(out, text)
 		return err
 	}
-	encoder := json.NewEncoder(out)
-	encoder.SetIndent("", "  ")
-	return encoder.Encode(values)
+	data, err := output.MarshalVariables(values)
+	if err != nil {
+		return err
+	}
+	_, err = out.Write(append(data, '\n'))
+	return err
 }
 
 func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagnostics io.Writer, repoOptions gitrepo.OpenOptions) (map[string]any, calculate.Trace, error) {

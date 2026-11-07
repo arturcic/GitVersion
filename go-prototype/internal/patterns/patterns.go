@@ -160,3 +160,10 @@ func Builtin(name string) (*Pattern, error) {
 func (p *Pattern) Replace(input, replacement string, startAt, count int) (string, error) {
 	return p.re.Replace(input, replacement, startAt, count)
 }
+
+// ReplaceEach applies the replacement function to each match.
+func (p *Pattern) ReplaceEach(input string, replacement func(string) string) (string, error) {
+	return p.re.ReplaceFunc(input, func(match regexp2.Match) string {
+		return replacement(match.String())
+	}, -1, -1)
+}

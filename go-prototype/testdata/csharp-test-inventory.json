@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1316,
+  "mapped_declarations": 1353,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1278,
+      "mapped": 1315,
       "verified": 1278
     },
     "integration": {
@@ -208888,9 +208888,16 @@
       ],
       "source_sha256": "cdd8cfbd64f4a2631f911d6f876cf6986888996a7c21ad66841344d0d557951f",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionJSON",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/MainlineIterationTests.cs#ChildIsDeeperThanParent",
@@ -220752,9 +220759,19 @@
       ],
       "source_sha256": "6769c5a5d1a8acb055d6386b6d9442dc660e2734fadc71f51146feb7f3128565",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs#GetFileWriteInfoShouldCreateConstantNamedFileWhenIntermediateOutputPath",
@@ -220769,9 +220786,16 @@
       ],
       "source_sha256": "6769c5a5d1a8acb055d6386b6d9442dc660e2734fadc71f51146feb7f3128565",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs#GetFileWriteInfoShouldCreateRandomNamedFileWhenNoIntermediateOutputPath",
@@ -220786,9 +220810,16 @@
       ],
       "source_sha256": "6769c5a5d1a8acb055d6386b6d9442dc660e2734fadc71f51146feb7f3128565",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyIgnoreNonAssemblyInfoFile",
@@ -220803,9 +220834,16 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyAttributeFoundCSharp",
@@ -220820,9 +220858,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyUnformattedAttributeFoundCSharp",
@@ -220837,9 +220885,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWorksCSharp",
@@ -220854,9 +220912,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWithNoNewLineAtEndWorksCSharp",
@@ -220871,9 +220938,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyStringWorksCSharp",
@@ -220888,9 +220964,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyIdentifierWorksCSharp",
@@ -220905,9 +220990,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyAttributeFoundVisualBasic",
@@ -220922,9 +221016,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyUnformattedAttributeFoundVisualBasic",
@@ -220939,9 +221043,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWorksVisualBasic",
@@ -220956,9 +221070,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWithNoNewLineAtEndWorksVisualBasic",
@@ -220973,9 +221096,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyStringWorksVisualBasic",
@@ -220990,9 +221122,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyIdentifierWorksVisualBasic",
@@ -221007,9 +221148,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyAttributeFoundFSharp",
@@ -221024,9 +221174,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyUnformattedAttributeFoundFSharp",
@@ -221041,9 +221201,19 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWorksFSharp",
@@ -221058,9 +221228,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyCommentWithNoNewLineAtEndWorksFSharp",
@@ -221075,9 +221254,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyStringWorksFSharp",
@@ -221092,9 +221280,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs#VerifyIdentifierWorksFSharp",
@@ -221109,9 +221306,18 @@
       ],
       "source_sha256": "a6344506a4cfc05a54227ab0827f645557fa3dc630daa17ecfdfc19a13897714",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/TargetFrameworkSelectionTests.cs#SelectsCompatibleToolsForConsumer",
@@ -221192,9 +221398,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileInBuildServer",
@@ -221209,9 +221424,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuild",
@@ -221226,9 +221450,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildInBuildServer",
@@ -221243,9 +221476,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExist",
@@ -221260,9 +221502,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileInBuildServerWhenIntermediateOutputPathDoesNotExist",
@@ -221277,9 +221528,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExist",
@@ -221294,9 +221554,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExistInBuildServer",
@@ -221311,9 +221580,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndUseProjectNamespaceIsSpecifiedAndRootNamespaceIsSet",
@@ -221328,9 +221606,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndUseProjectNamespaceIsSpecifiedAndRootNamespaceIsNotSet",
@@ -221345,9 +221632,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWithUseProjectNamespaceSetAndRootNamespaceUnSet",
@@ -221362,9 +221658,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs#GenerateGitVersionInformationTaskShouldCreateFileWithUseProjectNamespaceSetAndRootNamespaceIsSet",
@@ -221379,9 +221684,18 @@
       ],
       "source_sha256": "58363d4e46fbb5291a13ad39200d6b7bf0936bc1a042f84e7302642437f3adf2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs#OutputsShouldMatchVariableProvider",
@@ -222760,9 +223074,18 @@
       ],
       "source_sha256": "736258e30984df2313f3c7ef279fe37bd49063e973953562526c1e3efddf2d38",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/GitVersionInfoGeneratorTests.cs#ShouldProperlyOutputNamespaceDeclaration",
@@ -222785,9 +223108,18 @@
       ],
       "source_sha256": "736258e30984df2313f3c7ef279fe37bd49063e973953562526c1e3efddf2d38",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-output.json",
+      "adaptations": [
+        "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/InformationalVersionBuilderTests.cs#ValidateInformationalVersionBuilder",

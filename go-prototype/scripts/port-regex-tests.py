@@ -77,5 +77,7 @@ raw=subprocess.check_output(['git','show',revision+':'+source],cwd=root.parent)
 corpus={'revision':revision,'source':source,'source_sha256':hashlib.sha256(raw).hexdigest(),'pattern_source':pattern_source,'pattern_source_sha256':hashlib.sha256(subprocess.check_output(['git','show',revision+':'+pattern_source],cwd=root.parent)).hexdigest(),'methods':methods}
 (root/'testdata/csharp-regex-patterns.json').write_text(json.dumps(corpus,indent=2)+'\n')
 p=root/'internal/patterns';p.mkdir(exist_ok=True)
+for name in ('AssemblyVersion.VisualBasic.TriviaRegex', 'AssemblyVersion.VisualBasic.AttributeRegex'):
+    builtins[name] = get_pattern(name)
 (p/'builtins.json').write_text(json.dumps(builtins,indent=2)+'\n')
 print(len(methods),'methods;',sum(map(len,methods.values())),'cases;',len(builtins),'patterns')

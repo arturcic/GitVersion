@@ -101,7 +101,7 @@ func Variables(r Result) (map[string]any, error) {
 type VariableInput struct {
 	Version                           semver.Version
 	SemanticSource, LegacySource      *semver.Version
-	Increment                         semver.Increment
+	Increment, LegacyIncrement        semver.Increment
 	SemanticSHA, CountSHA             string
 	Branch, SHA, ShortSHA             string
 	Date                              *time.Time
@@ -165,7 +165,7 @@ func FromSemanticVersion(input VariableInput, settings config.OutputSettings, en
 		"Major": v.Major, "MajorMinorPatch": v.Core(), "Minor": v.Minor, "Patch": v.Patch,
 		"PreReleaseLabelName": v.Label, "PreReleaseLabelNameWithDash": prefix(v.Label), "PreReleaseNumber": number, "PreReleaseLabel": pre, "PreReleaseLabelWithDash": prefix(pre), "SemVer": v.String(),
 		"SemVerSourceIncrement": input.Increment.String(), "SemVerSourceSemVer": semanticSource, "SemVerSourceSha": nullable(input.SemanticSHA), "Sha": input.SHA, "ShortSha": input.ShortSHA, "UncommittedChanges": 0,
-		"VersionSourceIncrement": "None", "VersionSourceSemVer": legacySource, "VersionSourceSha": input.CountSHA, "WeightedPreReleaseNumber": weight,
+		"VersionSourceIncrement": input.LegacyIncrement.String(), "VersionSourceSemVer": legacySource, "VersionSourceSha": input.CountSHA, "WeightedPreReleaseNumber": weight,
 	}
 	setSourceDistance(values, input.Distance)
 	formats := []struct{ key, property, template string }{

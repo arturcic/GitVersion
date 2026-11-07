@@ -14,6 +14,9 @@ func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
+	if len(args) > 0 && args[0] == "msbuild" {
+		return runMSBuild(args[1:], out, diagnostics)
+	}
 	if flags, directory, ok := migrationInvocation(args); ok {
 		return runConfigMigration(flags, directory, out, diagnostics)
 	}

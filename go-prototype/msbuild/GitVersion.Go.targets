@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <GitVersionGoExecutable Condition="'$(GitVersionGoExecutable)' == ''">gitversion-go</GitVersionGoExecutable>
+    <GitVersionGoLanguage Condition="'$(GitVersionGoLanguage)' == ''">$(Language)</GitVersionGoLanguage>
+    <GitVersionGoLanguage Condition="'$(GitVersionGoLanguage)' == ''">C#</GitVersionGoLanguage>
+    <UseProjectNamespaceForGitVersionInformation Condition="'$(UseProjectNamespaceForGitVersionInformation)' == ''">false</UseProjectNamespaceForGitVersionInformation>
+  </PropertyGroup>
+  <Target Name="GenerateGitVersionGoInformation">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          ConsoleToMSBuild="true"
+          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_LANGUAGE=$(GitVersionGoLanguage);GITVERSION_GO_INTERMEDIATE=$(IntermediateOutputPath);GITVERSION_GO_NAMESPACE=$(RootNamespace);GITVERSION_GO_USE_NAMESPACE=$(UseProjectNamespaceForGitVersionInformation)"
+          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild generate-version-info --project-file &quot;$GITVERSION_GO_PROJECT&quot; --language &quot;$GITVERSION_GO_LANGUAGE&quot; --intermediate-output-path &quot;$GITVERSION_GO_INTERMEDIATE&quot; --use-project-namespace=&quot;$GITVERSION_GO_USE_NAMESPACE&quot; --root-namespace &quot;$GITVERSION_GO_NAMESPACE&quot;">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitVersionInformationFilePath" />
+    </Exec>
+    <Message Text="GitVersionInformationFilePath: $(GitVersionInformationFilePath)" Importance="High" />
+  </Target>
+</Project>

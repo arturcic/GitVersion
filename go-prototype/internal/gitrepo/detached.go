@@ -26,13 +26,27 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 		}
 	}
 	var local []ReferenceName
+	localNames := map[string]bool{}
 	for _, ref := range refs {
 		name := NewReferenceName(ref.Name)
-		if ref.SHA == r.head && name.IsLocalBranch {
-			if name.EquivalentTo(&options.BuildBranch) {
-				return name.Canonical, nil
+		if name.IsLocalBranch {
+			localNames[name.Friendly] = true
+			if ref.SHA == r.head {
+				local = append(local, name)
 			}
-			local = append(local, name)
+		}
+	}
+	for _, ref := range refs {
+		name := NewReferenceName(ref.Name)
+		if ref.SHA == r.head && name.IsRemoteBranch && !name.IsPullRequest &&
+			strings.HasPrefix(name.Friendly, "origin/") && name.WithoutRemote != "HEAD" &&
+			!localNames[name.WithoutRemote] {
+			local = append(local, NewReferenceName("refs/heads/"+name.WithoutRemote))
+		}
+	}
+	for _, name := range local {
+		if name.EquivalentTo(&options.BuildBranch) {
+			return name.Canonical, nil
 		}
 	}
 	if len(local) == 1 {
