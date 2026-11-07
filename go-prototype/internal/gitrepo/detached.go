@@ -14,7 +14,12 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 	if err != nil {
 		return "", err
 	}
-	refs, err = r.NormalizedReferences(refs, options.IgnoreBranch)
+	remoteName := options.NormalizationRemote
+	if remoteName == "" {
+		// MSBuild resolves detached checkouts from existing tracking refs.
+		remoteName = "origin"
+	}
+	refs, err = r.normalizedReferences(refs, remoteName, options.IgnoreBranch)
 	if err != nil {
 		return "", err
 	}
@@ -29,14 +34,14 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 			}
 		}
 	}
-	remoteName := options.NormalizationRemote
-	if remoteName == "" {
-		remoteName = "origin"
-	}
 	var local []ReferenceName
 	for _, ref := range refs {
 		if ref.SHA == r.head && strings.HasPrefix(ref.Name, "refs/heads/") {
-			local = append(local, NewReferenceName(ref.Name))
+			name := NewReferenceName(ref.Name)
+			if name.EquivalentTo(&options.BuildBranch) {
+				return name.Canonical, nil
+			}
+			local = append(local, name)
 		}
 	}
 	if len(local) == 1 {
@@ -69,13 +74,6 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 		return "", fmt.Errorf("Failed to try and guess branch to use. Move one of the branches along a commit to remove warning")
 	}
 
-	if options.BuildTag != "" {
-		for _, tag := range tags {
-			if tag.Name == options.BuildTag && tag.Commit == r.head {
-				return "(no branch)", nil
-			}
-		}
-	}
 	remote, err := r.git.Remote(remoteName)
 	if err != nil && options.NormalizationRemote == "" {
 		remote, err = normalizationRemote(r.git, false)

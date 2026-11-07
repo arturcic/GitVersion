@@ -8,7 +8,10 @@ import (
 // NormalizedReferences projects the CI remote as local branches for version
 // calculation. Existing checkout and target branches keep their selected tips.
 func (repo *Repository) NormalizedReferences(refs []Reference, ignoredBranch func(string) (bool, error)) ([]Reference, error) {
-	remote := repo.NormalizationRemote()
+	return repo.normalizedReferences(refs, repo.NormalizationRemote(), ignoredBranch)
+}
+
+func (repo *Repository) normalizedReferences(refs []Reference, remote string, ignoredBranch func(string) (bool, error)) ([]Reference, error) {
 	if remote == "" {
 		return refs, nil
 	}
