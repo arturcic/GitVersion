@@ -53741,7 +53741,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CalculateVersionVariables_TwoBranchHasSameCommitHeadDetachedAndTagged_ReturnSemver": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53756,7 +53756,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CalculateVersionVariables_ShallowFetch_ThrowException": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53771,7 +53771,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CalculateVersionVariables_ShallowFetch_WithAllowShallow_ShouldNotThrowException": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53786,7 +53786,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CalculateVersionVariables_WithLimitedCloneDepth_AndAllowShallowTrue_ShouldCalculateVersionCorrectly": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53801,7 +53801,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyAzurePipelinesPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53820,7 +53820,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyCodeBuildPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53839,7 +53839,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyContinuaCIPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53858,7 +53858,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyDronePullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53877,7 +53877,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyGitHubActionsPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53896,7 +53896,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyGitLabCIPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53912,7 +53912,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyJenkinsPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53931,7 +53931,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyMyGetPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53950,7 +53950,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyTeamCityPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53969,7 +53969,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyTravisCIPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -53988,7 +53988,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyBitBucketPipelinesPullRequest": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -54007,7 +54007,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PullRequestInBuildAgentTest.VerifyPullRequestInput": {
     "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
@@ -54025,7 +54025,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagCheckoutInBuildAgentTests.VerifyTagCheckoutOnAzurePipelines": {
     "source": "src/GitVersion.App.Tests/TagCheckoutInBuildAgentTests.cs",
@@ -54040,7 +54040,7 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagCheckoutInBuildAgentTests.VerifyTagCheckoutOnGitHubActions": {
     "source": "src/GitVersion.App.Tests/TagCheckoutInBuildAgentTests.cs",
@@ -54055,6 +54055,6 @@
     "adaptations": [
       "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

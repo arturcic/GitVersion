@@ -77,7 +77,7 @@ CGO_ENABLED=0 "$GO_HOST" build -o .local/gitversion-go ./cmd/gitversion-go
 .local/gitversion-go observe --repository /absolute/path/to/clean/repository
 ```
 
-The current adapter accepts complete, clean repositories with a normal `.git` directory or linked worktree, attached local HEAD, local branches, and commit-targeting tags. It rejects bare/empty/shallow/dirty/detached repositories, remote or other reference namespaces, symbolic refs other than HEAD, and tags targeting non-commits. Missing reachable objects fail instead of truncating history. This is a deliberate prototype boundary, not full repository-state support. Instances are read-only and not safe for concurrent use or external repository mutation.
+The current adapter accepts complete, clean repositories with a normal `.git` directory or linked worktree, attached local HEAD, local branches, and commit-targeting tags. Its default policy rejects bare, empty, shallow, dirty, and detached repositories, remote or other reference namespaces, symbolic refs other than HEAD, and tags targeting non-commits. Missing reachable objects fail instead of truncating history. This is a deliberate prototype boundary, not full repository-state support. Instances are read-only and not safe for concurrent use or external repository mutation.
 
 The observation contract includes raw references in loose-then-packed C# ordinal order, branch identity, one-level tag targets and recursively peeled commits, commit parents/messages/timestamps, first-parent changed paths, all eight sort-flag combinations with and without first-parent traversal, each branch as an exclusion root, and merge bases in both argument directions. Equal-time ordering uses explicit compatibility heap behavior rather than go-git's default log order.
 
@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1297 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1316 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,259 verified unit/component methods out of 1,516 separately from integration ports.
+1,278 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -341,3 +341,15 @@ commit selection, discovery and failure cases, and validation JSON byte checks.
 The [repository execution evidence](CSHARP-REPOSITORY-EXECUTION-EVIDENCE.json)
 records forward-merge bases, the 25 original equal-timestamp graph seeds,
 worktree calculation and TeamCity JSON and file output.
+
+Pass `--allow-shallow` to opt into calculation with the available history.
+The calculator respects the stored shallow boundary. In supported CI
+detached checkouts, the root CLI can resolve branch, tag, and pull request
+context using existing references and a local remote. It leaves HEAD and the
+working tree untouched. Non-local remote ref discovery remains pending.
+
+The [shallow and CI evidence](CSHARP-SHALLOW-CI-EVIDENCE.json) records the 63
+original cases and 14 live comparisons per platform. macOS uses the pinned
+managed C# backend. Ubuntu uses it for shallow cases and uses the same C#
+binary's bundled native backend for detached cases because the image lacks
+the Git CLI needed by C#'s managed checkout path. Go uses go-git throughout.
