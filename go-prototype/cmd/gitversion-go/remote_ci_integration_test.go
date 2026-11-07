@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/base64"
+	"encoding/pem"
 	"errors"
 	"maps"
 	"net/http"
@@ -200,12 +201,15 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 	cases := []struct {
 		name, mode, failure string
 		status              int
+		tls                 bool
 	}{
 		{name: "authenticated-clone", mode: "clone"},
+		{name: "authenticated-https-clone", mode: "clone", tls: true},
 		{name: "incorrect-credentials", mode: "clone", status: 401, failure: "Unauthorized: Incorrect username/password"},
 		{name: "forbidden-remote", mode: "clone", status: 403, failure: "Forbidden: Possibly Incorrect username/password"},
 		{name: "missing-remote", mode: "clone", status: 404, failure: "Not found: The repository was not found"},
 		{name: "authenticated-fetch", mode: "fetch"},
+		{name: "authenticated-https-fetch", mode: "fetch", tls: true},
 		{name: "unauthorized-fetch", mode: "fetch", status: 401, failure: "Unauthorized: Incorrect username/password"},
 		{name: "shallow-fetch", mode: "shallow"},
 		{name: "shallow-fetch-rejected", mode: "shallow", failure: "Repository is a shallow clone. Git repositories must contain the full history."},
@@ -215,6 +219,7 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 		{name: "missing-ci-remote", mode: "no-remote", failure: "0 remote(s) have been detected."},
 		{name: "github-detached-provider-pr", mode: "provider"},
 		{name: "detached-advertised-pr", mode: "advertised"},
+		{name: "detached-advertised-https-pr", mode: "advertised", tls: true},
 		{name: "detached-advertised-annotated-tag", mode: "tag"},
 		{name: "detached-local-annotated-tag", mode: "local-tag"},
 		{name: "detached-stale-local-branch", mode: "stale"},
@@ -236,7 +241,7 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 			handler := &cgi.Handler{Path: h.git, Args: []string{"http-backend"}, Env: []string{
 				"GIT_PROJECT_ROOT=" + scratch, "GIT_HTTP_EXPORT_ALL=1", "PATH=" + os.Getenv("PATH"),
 			}}
-			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			serve := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 				requests.Add(1)
 				user, password, ok := r.BasicAuth()
 				if !ok || user != fixtureUser || password != fixturePassword {
@@ -250,7 +255,20 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 					return
 				}
 				handler.ServeHTTP(w, r)
-			}))
+			})
+			var server *httptest.Server
+			var caPath string
+			if tc.tls {
+				server = httptest.NewTLSServer(serve)
+				caPath = filepath.Join(scratch, "fixture-ca.pem")
+				pemData := pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: server.Certificate().Raw})
+				if err := os.WriteFile(caPath, pemData, 0600); err != nil {
+					server.Close()
+					t.Fatal(err)
+				}
+			} else {
+				server = httptest.NewServer(serve)
+			}
 			defer server.Close()
 			url := server.URL + "/upstream.git"
 			outputs := map[string][]byte{}
@@ -374,6 +392,9 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 				if tc.mode == "local-tag" {
 					invokingDirectory = scratch
 					args = append(args, "--target-path", checkout)
+				}
+				if caPath != "" {
+					env["GIT_SSL_CAINFO"] = caPath
 				}
 				outputs[implementation] = h.run(t, implementation, invokingDirectory, env, args, tc.failure)
 				if tc.mode == "fetch" && tc.failure != "" {

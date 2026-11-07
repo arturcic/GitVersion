@@ -46,14 +46,21 @@ func (localRepositoryLoader) Load(endpoint *transport.Endpoint) (storer.Storer, 
 // Credentials are supplied to the transport without writing them to Git config.
 type Credentials struct{ Username, Password string }
 
-func (c Credentials) auth(source string) transport.AuthMethod {
-	if strings.TrimSpace(c.Username) == "" {
-		return nil
+func connectionOptions(source string, credentials Credentials) (auth transport.AuthMethod, caBundle []byte, err error) {
+	endpoint, parseErr := transport.NewEndpoint(source)
+	if parseErr != nil || (endpoint.Protocol != "http" && endpoint.Protocol != "https") {
+		return nil, nil, nil
 	}
-	if endpoint, err := transport.NewEndpoint(source); err == nil && (endpoint.Protocol == "http" || endpoint.Protocol == "https") {
-		return &http.BasicAuth{Username: c.Username, Password: c.Password}
+	if strings.TrimSpace(credentials.Username) != "" {
+		auth = &http.BasicAuth{Username: credentials.Username, Password: credentials.Password}
 	}
-	return nil
+	if caPath := os.Getenv("GIT_SSL_CAINFO"); endpoint.Protocol == "https" && caPath != "" {
+		caBundle, err = os.ReadFile(caPath)
+		if err != nil {
+			return nil, nil, fmt.Errorf("read Git HTTPS CA bundle: %w", err)
+		}
+	}
+	return auth, caBundle, nil
 }
 
 // PrepareClone reuses a checkout with the requested origin or publishes a
@@ -107,8 +114,12 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 				return "", err
 			}
 			defer os.RemoveAll(staging)
+			auth, caBundle, err := connectionOptions(source, credentials)
+			if err != nil {
+				return "", err
+			}
 			if _, err := git.PlainCloneContext(ctx, filepath.Join(staging, ".git"), false, &git.CloneOptions{
-				URL: source, NoCheckout: noCheckout, Auth: credentials.auth(source),
+				URL: source, NoCheckout: noCheckout, Auth: auth, CABundle: caBundle,
 			}); err != nil {
 				return "", transportFailure("clone", err)
 			}
@@ -179,8 +190,11 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 		if !hasBranches {
 			specs = append(specs, gitconfig.RefSpec("+refs/heads/*:refs/remotes/"+cfg.Name+"/*"))
 		}
-		auth := remoteAuth(remote, credentials)
-		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: auth}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
+		auth, caBundle, err := remoteConnectionOptions(remote, credentials)
+		if err != nil {
+			return "", err
+		}
+		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: auth, CABundle: caBundle}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
 			return "", transportFailure("fetch", err)
 		}
 	}
@@ -223,15 +237,19 @@ func resolveFileRemote(repo *git.Repository, remote *git.Remote, directory strin
 	return git.NewRemote(repo.Storer, &resolved)
 }
 
-func remoteAuth(remote *git.Remote, credentials Credentials) transport.AuthMethod {
+func remoteConnectionOptions(remote *git.Remote, credentials Credentials) (transport.AuthMethod, []byte, error) {
 	if urls := remote.Config().URLs; len(urls) > 0 {
-		return credentials.auth(urls[0])
+		return connectionOptions(urls[0], credentials)
 	}
-	return nil
+	return nil, nil, nil
 }
 
 func advertisedTips(ctx context.Context, remote *git.Remote, head plumbing.Hash, credentials Credentials) ([]string, error) {
-	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: remoteAuth(remote, credentials), PeelingOption: git.AppendPeeled})
+	auth, caBundle, err := remoteConnectionOptions(remote, credentials)
+	if err != nil {
+		return nil, err
+	}
+	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: auth, CABundle: caBundle, PeelingOption: git.AppendPeeled})
 	if err != nil {
 		return nil, transportFailure("list remote references for", err)
 	}
