@@ -1,0 +1,87 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/MinDateVersionFilterTests.cs",
+  "source_sha256": "271f1d803a3e1bbc806eb7f61b2036d1e9967638b21411576f47b81c7b4e8435",
+  "methods": {
+    "VerifyNullGuard": [
+      {
+        "id": "case-000",
+        "filter": "MinDateVersionFilter",
+        "commit": null,
+        "minimum": "2026-01-01T00:00:01Z",
+        "prefixes": [
+          "mismatched"
+        ],
+        "paths": [
+          "/path"
+        ],
+        "null_version": true,
+        "error": true,
+        "excluded": false,
+        "reason_nonempty": false
+      }
+    ],
+    "WhenCommitShouldExcludeWithReason": [
+      {
+        "id": "case-000",
+        "filter": "MinDateVersionFilter",
+        "commit": {
+          "sha": "0123456789abcdef0123456789abcdef01234567",
+          "when": "2026-01-01T00:00:00Z",
+          "paths": []
+        },
+        "minimum": "2027-01-01T00:00:00Z",
+        "prefixes": [
+          "0123456789abcdef0123456789abcdef01234567"
+        ],
+        "paths": [
+          "/path"
+        ],
+        "null_version": false,
+        "error": false,
+        "excluded": true,
+        "reason_nonempty": true
+      }
+    ],
+    "WhenShaMismatchShouldNotExclude": [
+      {
+        "id": "case-000",
+        "filter": "MinDateVersionFilter",
+        "commit": {
+          "sha": "0123456789abcdef0123456789abcdef01234567",
+          "when": "2026-01-01T00:00:00Z",
+          "paths": []
+        },
+        "minimum": "2025-01-01T00:00:00Z",
+        "prefixes": [
+          "mismatched"
+        ],
+        "paths": [
+          "/another_path"
+        ],
+        "null_version": false,
+        "error": false,
+        "excluded": false,
+        "reason_nonempty": false
+      }
+    ],
+    "ExcludeShouldAcceptVersionWithNullCommit": [
+      {
+        "id": "case-000",
+        "filter": "MinDateVersionFilter",
+        "commit": null,
+        "minimum": "2027-01-01T00:00:00Z",
+        "prefixes": [
+          "mismatched"
+        ],
+        "paths": [
+          "/path"
+        ],
+        "null_version": false,
+        "error": false,
+        "excluded": false,
+        "reason_nonempty": false
+      }
+    ]
+  }
+}

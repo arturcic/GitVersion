@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 602,
+  "mapped_declarations": 614,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 564,
+      "mapped": 576,
       "verified": 564
     },
     "integration": {
@@ -204824,9 +204824,18 @@
       ],
       "source_sha256": "271f1d803a3e1bbc806eb7f61b2036d1e9967638b21411576f47b81c7b4e8435",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-min-date-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/MinDateVersionFilterTests.cs#WhenCommitShouldExcludeWithReason",
@@ -204841,9 +204850,18 @@
       ],
       "source_sha256": "271f1d803a3e1bbc806eb7f61b2036d1e9967638b21411576f47b81c7b4e8435",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-min-date-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/MinDateVersionFilterTests.cs#WhenShaMismatchShouldNotExclude",
@@ -204858,9 +204876,18 @@
       ],
       "source_sha256": "271f1d803a3e1bbc806eb7f61b2036d1e9967638b21411576f47b81c7b4e8435",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-min-date-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/MinDateVersionFilterTests.cs#ExcludeShouldAcceptVersionWithNullCommit",
@@ -204875,9 +204902,18 @@
       ],
       "source_sha256": "271f1d803a3e1bbc806eb7f61b2036d1e9967638b21411576f47b81c7b4e8435",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-min-date-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#ShouldIncrementVersionBasedOnConfig",
@@ -205130,9 +205166,18 @@
       ],
       "source_sha256": "f3da6245842e94a266ae4a384408ded78bcbcafd83b632eb3238866b1a71b0b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-path-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/PathFilterTests.cs#WhenPathMatchShouldExcludeWithReason",
@@ -205147,9 +205192,18 @@
       ],
       "source_sha256": "f3da6245842e94a266ae4a384408ded78bcbcafd83b632eb3238866b1a71b0b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-path-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/PathFilterTests.cs#WhenPathMismatchShouldNotExclude",
@@ -205164,9 +205218,18 @@
       ],
       "source_sha256": "f3da6245842e94a266ae4a384408ded78bcbcafd83b632eb3238866b1a71b0b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-path-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/PathFilterTests.cs#ExcludeShouldAcceptVersionWithNullCommit",
@@ -205181,9 +205244,18 @@
       ],
       "source_sha256": "f3da6245842e94a266ae4a384408ded78bcbcafd83b632eb3238866b1a71b0b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-path-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs#ValidateVersionParsing",
@@ -211610,9 +211682,18 @@
       ],
       "source_sha256": "e5f4755f1374a80f7c619be6bcb08e4ba7d2a9f6be4c159bc2d9397de3839509",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-sha-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/ShaVersionFilterTests.cs#WhenShaMatchShouldExcludeWithReason",
@@ -211627,9 +211708,18 @@
       ],
       "source_sha256": "e5f4755f1374a80f7c619be6bcb08e4ba7d2a9f6be4c159bc2d9397de3839509",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-sha-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/ShaVersionFilterTests.cs#WhenShaMismatchShouldNotExclude",
@@ -211644,9 +211734,18 @@
       ],
       "source_sha256": "e5f4755f1374a80f7c619be6bcb08e4ba7d2a9f6be4c159bc2d9397de3839509",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-sha-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/ShaVersionFilterTests.cs#ExcludeShouldAcceptVersionWithNullCommit",
@@ -211661,9 +211760,18 @@
       ],
       "source_sha256": "e5f4755f1374a80f7c619be6bcb08e4ba7d2a9f6be4c159bc2d9397de3839509",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionFilters",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-sha-version-filter.json",
+      "adaptations": [
+        "Original relative UtcNow/commit mock uses a fixed UTC commit instant and fixed past/future years.",
+        "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
+        "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs#ReturnsNullWhenNoNextVersionIsInConfig",
