@@ -73,6 +73,7 @@ func TestPlatformCSharpCLISchema(t *testing.T) {
 					}
 					caseDir := filepath.Join(report, method, test.ID)
 					schemaByImplementation := map[string][]byte{}
+					var candidateVersion string
 					for _, implementation := range []string{"csharp", "go"} {
 						runDir := filepath.Join(caseDir, implementation)
 						work := filepath.Join(runDir, "work")
@@ -124,6 +125,13 @@ func TestPlatformCSharpCLISchema(t *testing.T) {
 							t.Fatalf("%s root schema failed: %d, %q", implementation, expected.ExitCode, expected.Stderr)
 						}
 						schemaByImplementation[implementation] = []byte(expected.Stdout)
+						if implementation == "go" {
+							version := run("version", "--version")
+							if version.ExitCode != 0 || version.Stderr != "" || strings.TrimSpace(version.Stdout) == "" {
+								t.Fatalf("Go executable did not report a version: %+v", version)
+							}
+							candidateVersion = strings.TrimSpace(version.Stdout)
+						}
 						document := parseAndValidateCLISchema(t, corpus, []byte(expected.Stdout))
 						assertCLISchemaCommand(t, document)
 						compareOutput := func(label, arguments string) {
@@ -173,7 +181,7 @@ func TestPlatformCSharpCLISchema(t *testing.T) {
 							t.Fatal(err)
 						}
 						goInfo, csharpInfo := actual["info"].(map[string]any), ref["info"].(map[string]any)
-						if goInfo["version"] != informationalVersion || !strings.HasSuffix(csharpInfo["version"].(string), baseline.Spec.Revision) {
+						if goInfo["version"] != candidateVersion || !strings.HasSuffix(csharpInfo["version"].(string), baseline.Spec.Revision) {
 							t.Fatalf("incorrect binary version metadata: %v / %v", goInfo, csharpInfo)
 						}
 						goInfo["version"] = csharpInfo["version"]
