@@ -1,0 +1,232 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "RepositoryStoreTests": {
+      "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
+      "sha256": "0c669e277cf1c465ed10fccca3c9be26a4b358611df584518c39cc5f426d876a",
+      "go_test": "TestCSharpRepositoryExecution",
+      "methods": {
+        "FindsCorrectMergeBaseForForwardMerge": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_release_base": "initial",
+              "expected_develop_base": "release-2"
+            }
+          ]
+        },
+        "FindsCorrectMergeBaseForForwardMergeMovesOn": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_release_base": "initial",
+              "expected_develop_base": "release-2"
+            }
+          ]
+        },
+        "FindsCorrectMergeBaseForMultipleForwardMerges": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_release_base": "initial",
+              "expected_develop_base": "release-5"
+            }
+          ]
+        }
+      }
+    },
+    "RepositoryStoreEqualTimestampTests": {
+      "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreEqualTimestampTests.cs",
+      "sha256": "50008175e99ef02c67c306e7512832638a37429cac2547c3531c50d19bd65894",
+      "go_test": "TestCSharpRepositoryExecution",
+      "methods": {
+        "DerivedCommitLogReturnsTheSameCommitsWhenTimestampsAreEqual": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "seeds": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24
+              ]
+            }
+          ]
+        },
+        "DerivedCommitLogIsAValidTopologicalOrderWhenTimestampsAreEqual": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "seeds": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "GitVersionExecutorTests": {
+      "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+      "sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+      "go_test": "TestCSharpRepositoryExecutor",
+      "methods": {
+        "CustomVersionUsesBranchSpecificFormat": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": [
+                "feature-"
+              ]
+            }
+          ]
+        },
+        "WorkingDirectoryWithoutGit": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": [
+                "Cannot find the .git directory"
+              ]
+            }
+          ]
+        },
+        "WorkingDirectoryWithoutCommits": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": [
+                "No commits found on the current branch."
+              ]
+            }
+          ]
+        },
+        "GetDotGitDirectoryNoWorktree": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetDotGitDirectoryWorktree": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CalculateVersionFromWorktreeHead": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": [
+                "1.0.0",
+                "1.0.0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "JsonOutputOnBuildServerTest": {
+      "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
+      "sha256": "86a8229a8a2178eee432cb452d1459f452f4b55ac57780ea73ff14a42d865a1c",
+      "go_test": "TestCSharpBuildServerJSON",
+      "methods": {
+        "BeingOnBuildServerDoesntOverrideOutputJson": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": "0.0.1-5"
+            }
+          ]
+        },
+        "BeingOnBuildServerWithOutputJsonDoesNotFail": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected": "0.0.1-5"
+            }
+          ]
+        },
+        "BeingOnBuildServerWithOutputJsonAndOutputFileDoesNotFail": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "",
+                "GitVersion.json"
+              ],
+              "expected": "0.0.1-5"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "version.json",
+                "version.json"
+              ],
+              "expected": "0.0.1-5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

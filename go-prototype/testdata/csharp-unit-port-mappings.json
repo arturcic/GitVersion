@@ -53516,5 +53516,216 @@
       "Use the Go validation envelope and retain the original byte-level assertion."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "RepositoryStoreTests.FindsCorrectMergeBaseForForwardMerge": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
+    "source_sha256": "0c669e277cf1c465ed10fccca3c9be26a4b358611df584518c39cc5f426d876a",
+    "method": "FindsCorrectMergeBaseForForwardMerge",
+    "go_test": "TestCSharpRepositoryExecution",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreTests.FindsCorrectMergeBaseForForwardMergeMovesOn": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
+    "source_sha256": "0c669e277cf1c465ed10fccca3c9be26a4b358611df584518c39cc5f426d876a",
+    "method": "FindsCorrectMergeBaseForForwardMergeMovesOn",
+    "go_test": "TestCSharpRepositoryExecution",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreTests.FindsCorrectMergeBaseForMultipleForwardMerges": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
+    "source_sha256": "0c669e277cf1c465ed10fccca3c9be26a4b358611df584518c39cc5f426d876a",
+    "method": "FindsCorrectMergeBaseForMultipleForwardMerges",
+    "go_test": "TestCSharpRepositoryExecution",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreEqualTimestampTests.DerivedCommitLogReturnsTheSameCommitsWhenTimestampsAreEqual": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreEqualTimestampTests.cs",
+    "source_sha256": "50008175e99ef02c67c306e7512832638a37429cac2547c3531c50d19bd65894",
+    "method": "DerivedCommitLogReturnsTheSameCommitsWhenTimestampsAreEqual",
+    "go_test": "TestCSharpRepositoryExecution",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use all 25 original generator seeds and parent choices, with a fixed common timestamp. Check the entire set or every parent/child position for each base."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreEqualTimestampTests.DerivedCommitLogIsAValidTopologicalOrderWhenTimestampsAreEqual": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreEqualTimestampTests.cs",
+    "source_sha256": "50008175e99ef02c67c306e7512832638a37429cac2547c3531c50d19bd65894",
+    "method": "DerivedCommitLogIsAValidTopologicalOrderWhenTimestampsAreEqual",
+    "go_test": "TestCSharpRepositoryExecution",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use all 25 original generator seeds and parent choices, with a fixed common timestamp. Check the entire set or every parent/child position for each base."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.CustomVersionUsesBranchSpecificFormat": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "CustomVersionUsesBranchSpecificFormat",
+    "go_test": "TestCSharpRepositoryExecutor",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.WorkingDirectoryWithoutGit": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "WorkingDirectoryWithoutGit",
+    "go_test": "TestCSharpRepositoryExecutor",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.WorkingDirectoryWithoutCommits": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "WorkingDirectoryWithoutCommits",
+    "go_test": "TestCSharpRepositoryExecutor",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.GetDotGitDirectoryNoWorktree": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "GetDotGitDirectoryNoWorktree",
+    "go_test": "TestCSharpRepositoryExecutorLayout",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.GetDotGitDirectoryWorktree": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "GetDotGitDirectoryWorktree",
+    "go_test": "TestCSharpRepositoryExecutorLayout",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorTests.CalculateVersionFromWorktreeHead": {
+    "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+    "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+    "method": "CalculateVersionFromWorktreeHead",
+    "go_test": "TestCSharpRepositoryExecutor",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "JsonOutputOnBuildServerTest.BeingOnBuildServerDoesntOverrideOutputJson": {
+    "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
+    "source_sha256": "86a8229a8a2178eee432cb452d1459f452f4b55ac57780ea73ff14a42d865a1c",
+    "method": "BeingOnBuildServerDoesntOverrideOutputJson",
+    "go_test": "TestCSharpBuildServerJSON",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "JsonOutputOnBuildServerTest.BeingOnBuildServerWithOutputJsonDoesNotFail": {
+    "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
+    "source_sha256": "86a8229a8a2178eee432cb452d1459f452f4b55ac57780ea73ff14a42d865a1c",
+    "method": "BeingOnBuildServerWithOutputJsonDoesNotFail",
+    "go_test": "TestCSharpBuildServerJSON",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "JsonOutputOnBuildServerTest.BeingOnBuildServerWithOutputJsonAndOutputFileDoesNotFail": {
+    "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
+    "source_sha256": "86a8229a8a2178eee432cb452d1459f452f4b55ac57780ea73ff14a42d865a1c",
+    "method": "BeingOnBuildServerWithOutputJsonAndOutputFileDoesNotFail",
+    "go_test": "TestCSharpBuildServerJSON",
+    "case_file": "testdata/csharp-repository-execution.json",
+    "case_file_sha256": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
