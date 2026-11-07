@@ -65,6 +65,9 @@ func (f ShaVersionFilter) ExcludeCommit(c *FilterCommit) (bool, *string, error) 
 type PathFilter struct{ expressions []*patterns.Pattern }
 
 func NewPathFilter(paths []string) (PathFilter, error) {
+	if paths == nil {
+		return PathFilter{}, fmt.Errorf("paths cannot be null")
+	}
 	out := PathFilter{}
 	for _, path := range paths {
 		p, err := patterns.Compile(path, patterns.IgnoreCase)

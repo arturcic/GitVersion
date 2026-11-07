@@ -142,6 +142,12 @@ func TestVersionFilterBoundaries(t *testing.T) {
 			}
 		})
 	}
+	t.Run("null-pattern-list", func(t *testing.T) {
+		if _, err := NewPathFilter(nil); err == nil {
+			t.Fatal("accepted nil path list")
+		}
+	})
+
 	t.Run("invalid-pattern", func(t *testing.T) {
 		if _, err := NewPathFilter([]string{"["}); err == nil {
 			t.Fatal("accepted invalid pattern")
