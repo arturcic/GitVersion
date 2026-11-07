@@ -450,5 +450,23 @@ The SSH transport verifies the server against known hosts. Use
 
 The C# oracle uses OpenSSH on macOS and a test-only SSH client called by Git
 on offline Ubuntu. The Go candidate uses its embedded SSH transport on both.
-The tests cover SSH public keys and host key checks. They do not cover SSH
-password authentication, jump hosts, or external Git services.
+That checkpoint covers SSH public keys and host key checks. The password and
+jump host checkpoint below extends it.
+
+The [SSH password and jump evidence](CSHARP-SSH-JUMP-EVIDENCE.json) records
+9 loopback comparisons. Set `GITVERSION_SSH_PASSWORD` to supply the
+destination password without putting it in the remote URL. The Go CLI also
+accepts `--password`, which takes precedence over the environment variable.
+URLs containing an SSH password are rejected before clone setup.
+
+Configure `ProxyJump` in `~/.ssh/config` for a destination. Use a host alias
+or a `[user@]host[:port]` entry, with commas for a chain. The Go client uses
+SSH forwarding and checks each host key against known hosts. Jump hosts can
+use configured keys or the SSH agent. `GITVERSION_SSH_JUMP_PASSWORD` supplies
+one password shared by password-authenticated hops in the chain, independently
+of the destination password.
+
+The managed C# oracle uses OpenSSH and an askpass fixture on macOS. On offline
+Ubuntu it uses a test-only SSH client through Git. These fixtures cover
+password auth and SSH forwarding. Interactive prompts and arbitrary
+`ProxyCommand` commands are outside the verified scope.

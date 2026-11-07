@@ -1,0 +1,336 @@
+{
+  "source_checkpoint": "a75ebcc8f7ecbda6114f0b7532bcb4684366f338",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "pinned_sources": {
+    "src/GitVersion.Core/Core/GitPreparer.cs": "57b2790f9aac40d8ddacd182e4c520f31495b636947bf4fd650a5a1fb6f12fa1",
+    "src/GitVersion.Git.Managed/CommandLine/GitCliMutator.cs": "98c811c83a505483224d2f8767520e636e8ada56e9e7fe3f4d37e20d314e7f75",
+    "src/GitVersion.Git.Managed/CommandLine/PullRequestBranchOperations.cs": "dd19d55d8992608080246f262ec0e46d8c7ca7e15cf227bae29cbd03a195c577",
+    "src/GitVersion.Core/Core/BranchResolver.cs": "4004f3a9f140057679d1e671e6b017392cdc0d1e6244aa5c20e3c5575268aaf7"
+  },
+  "remote_ci_comparisons": 25,
+  "remote_ci_json_comparisons": 15,
+  "remote_ci_rejection_comparisons": 10,
+  "json_fields_per_comparison": 33,
+  "argument_scope": "v7 POSIX only; v6 configuration stays supported",
+  "preparation_oracle": {
+    "macos": "managed",
+    "ubuntu26": "managed"
+  },
+  "ubuntu_oracle_git": {
+    "version": "2.43.0",
+    "source": "existing local dotnet SDK image",
+    "binary_sha256": "aa6540695d076182256dd6e96c8b302e4d56381e3000bbfd5c71bbdfe94a4942"
+  },
+  "ssh_jump_comparisons": 9,
+  "ssh_jump_json_comparisons": 5,
+  "ssh_jump_rejection_comparisons": 4,
+  "oracle_ssh_client": {
+    "macos": "OpenSSH",
+    "ubuntu26": "fixture SSH client invoked by the oracle's Git"
+  },
+  "observed_differences": [
+    "Go projects CI branch changes in memory",
+    "HTTP 401 wording may differ by C# oracle Git client"
+  ],
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40407,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "ssh_jump_comparisons": 9,
+      "ssh_public_key_regression_comparisons": 9,
+      "remote_ci_regression_comparisons": 25,
+      "repository_preparation_regression_comparisons": 7,
+      "branch_selection_regression_comparisons": 8,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 20,
+      "cli_schema_regression_cases": 12,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 6
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40407,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "ssh_jump_comparisons": 9,
+      "ssh_public_key_regression_comparisons": 9,
+      "remote_ci_regression_comparisons": 25,
+      "repository_preparation_regression_comparisons": 7,
+      "branch_selection_regression_comparisons": 8,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 20,
+      "cli_schema_regression_cases": 12,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 6
+    }
+  },
+  "candidate_sha256": {
+    "macos": "70c3e4e952eeb398454578b492ae520a2d71e6bedcb44ee887c12f6923abe804",
+    "ubuntu26": "a0754c1e8eb6bf3a31d4805d7373a61efba466690ab120e2a233bc406e62f1a2"
+  },
+  "process_reports": {
+    "macos": {
+      "branch_selection": {
+        "report": ".local/ssh-jump/macos/branch-selection-3663247309/report.json",
+        "sha256": "0a85fd5dc0defb8d272fff21ffc85dde212b89430be020105cfe44968504af62",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "cli_execution_regression": {
+        "report": ".local/ssh-jump/macos/cli-execution-1015677584/report.json",
+        "sha256": "5009e22e540b8f231a5d442dff9ab56ed1e51bfd7c604530dae794ff1274b7f0",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "cli_schema": {
+        "report": ".local/ssh-jump/macos/cli-schema-690439836/report.json",
+        "sha256": "c78dc7d4d41ea182fa9cd18b1616aba376ad53842563aa81ca0568fabd76b968",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "executor_cache": {
+        "report": ".local/ssh-jump/macos/executor-cache-3261778967/report.json",
+        "sha256": "330f8ffc75d9f5d5926df2b37667f1d038b087cab4f8d41bff55b3147132fe88",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "executor_routing": {
+        "report": ".local/ssh-jump/macos/executor-routing-748773997/report.json",
+        "sha256": "0a85fd5dc0defb8d272fff21ffc85dde212b89430be020105cfe44968504af62",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/ssh-jump/macos/msbuild-output-3436289022/report.json",
+        "sha256": "1585f54644c9b282dbdf87bb27b9554567d0dde3f5291651bd7f644797d1c464",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "msbuild_tasks": {
+        "report": ".local/ssh-jump/macos/msbuild-tasks-3211405153/report.json",
+        "sha256": "7a41a11cbe6a1c790f8986644a0d52f8b2f2a211b6a8d1b468cf04f94ea61a4b",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "repository_preparation": {
+        "report": ".local/ssh-jump/macos/repository-preparation-3343347996/report.json",
+        "sha256": "dda125541bdce3858ed4284cf98533ef42eb61776a7449e2d0aa04b541b6e4ba",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "remote_ci": {
+        "report": ".local/ssh-jump/macos/remote-ci-2189526733/report.json",
+        "sha256": "7f645138be511b2d37fa9d5512183799724016e7404cdde26351d12fe7fd3948",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "repository_execution_regression": {
+        "report": ".local/ssh-jump/macos/repository-execution-1301347047/report.json",
+        "sha256": "e1452141589960093574f091c4abac891fe6a015d067fd5bd0e593dcce4e46c9",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "ssh": {
+        "report": ".local/ssh-jump/macos/ssh-parity-2655616724/report.json",
+        "sha256": "af1ffd50296c595411ddf2bdc1794b120b9966ab33b82eb084ba0cdf9d2ed447",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      },
+      "ssh_jump": {
+        "report": ".local/ssh-jump/macos/ssh-jump-1130621997/report.json",
+        "sha256": "a9942c62c02b49b485d5cd6c4ceb5da258d3d46fd477d4f2be424ae87141604c",
+        "log_sha256": "37bf834226e553c2259185459f331b40ea6999d66ae88b01bdaa9b288455712a"
+      }
+    },
+    "ubuntu26": {
+      "branch_selection": {
+        "report": ".local/ssh-jump/linux/branch-selection-3084602314/report.json",
+        "sha256": "923abe1c85467236aafcdc20e49971f48de8e7b4e2e830335f3cbb2d4beadfae",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "cli_execution_regression": {
+        "report": ".local/ssh-jump/linux/cli-execution-166242036/report.json",
+        "sha256": "8aeaee69589cd436c85f8fd135a7e7766576009386c52ba31b8d2021d3d30388",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "cli_schema": {
+        "report": ".local/ssh-jump/linux/cli-schema-682688207/report.json",
+        "sha256": "244ec93cd1c854fe5680f48183fd54e949af4a4f0e9b4baea0ae9a8d8b902a30",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "executor_cache": {
+        "report": ".local/ssh-jump/linux/executor-cache-1888248547/report.json",
+        "sha256": "b77f35f33c15470f5aa45d4a1a8442e4be5df7eab6d3d49dea44e3d88edb378b",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "executor_routing": {
+        "report": ".local/ssh-jump/linux/executor-routing-1844867130/report.json",
+        "sha256": "923abe1c85467236aafcdc20e49971f48de8e7b4e2e830335f3cbb2d4beadfae",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/ssh-jump/linux/msbuild-output-2795588392/report.json",
+        "sha256": "cda124b4ce25ab2573b2081675287b05bd8e1595c221333885342b0c52330bb6",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "msbuild_tasks": {
+        "report": ".local/ssh-jump/linux/msbuild-tasks-1145685561/report.json",
+        "sha256": "08855148af2544fcdcc4046fc8d57649366f611f11d49f75f667f27f554f43e1",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "repository_preparation": {
+        "report": ".local/ssh-jump/linux/repository-preparation-1034558378/report.json",
+        "sha256": "9940d1e0440f53ee000c6e83add1f2dbdcf24f1394e5ee679aa4fcf322e0bbc1",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "remote_ci": {
+        "report": ".local/ssh-jump/linux/remote-ci-2443419342/report.json",
+        "sha256": "4fd1661de39851ad86558dd79223c2d67919443d5f98a27aa2a4478af4a04632",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "repository_execution_regression": {
+        "report": ".local/ssh-jump/linux/repository-execution-414195122/report.json",
+        "sha256": "79c7aa6325c393849a07b3ce7a81ed45f62db8834b227822385e6f4bc62909fc",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "ssh": {
+        "report": ".local/ssh-jump/linux/ssh-parity-4190799114/report.json",
+        "sha256": "0123d002d6dd6f39d188e11c71d8bc0facc833baeb77877b5f08ef83e65a6e2c",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      },
+      "ssh_jump": {
+        "report": ".local/ssh-jump/linux/ssh-jump-2405983920/report.json",
+        "sha256": "dec66101b65c407565da5367e592f38b269024bc7e72a8ca763cca2d9893528b",
+        "log_sha256": "85ba4b0cbbd884cc8475cd3221a71b9ba4161e99050b71b2b3d603005a555162"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "96fb30d5b59e5b87be395a5db184a77c9fadf03ac5efddff89c5e14d747e068c",
+    "macos_path": ".local/ssh-jump/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/ssh-jump/linux/unit/internal-config.log": "7ba4a8ef973e1edd14c605dbd3af87c3711ecacccd60c4cb31381f65294ff9b3",
+      ".local/ssh-jump/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+      ".local/ssh-jump/linux/unit/internal-gitrepo.log": "3ab1b4f5f34a9f20e3deffbfd685ac4c557537eaaf533cc30824d0ede317099b",
+      ".local/ssh-jump/linux/unit/internal-fixtures.log": "5933bd728af6c1de19c2bc220be3b3d1943eb62c1a55e08dc089aee7a7ac49aa",
+      ".local/ssh-jump/linux/unit/internal-calculate.log": "bff5b14f380ad0c47e4e02535268959401d0fd2e9f7890842b80aeeb0167d74d",
+      ".local/ssh-jump/linux/unit/internal-output.log": "f0a5a7508168e76598446a056968077916a13d3ad41af58b67483ba589245ab3",
+      ".local/ssh-jump/linux/unit/internal-parity.log": "68fc938101d15a691880693108cb3096dce4e8d602116b806a3be638074b6268",
+      ".local/ssh-jump/linux/unit/cmd-gitversion-go.log": "d4016e2ea1df29c66b1e419b01c16175b058f6942b557c47ea58a2a3c504f5fc",
+      ".local/ssh-jump/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+      ".local/ssh-jump/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/ssh-jump/linux/unit/cmd-parity.log": "4158b366665bb4fbc36fe905094fbed93317808dad9d1f386f52f3c79eaaac22",
+      ".local/ssh-jump/linux/unit/internal-buildagent.log": "bef4ae7f480f33839bec6b87cb31447904a840b3a52df18fd215579e350fdd30",
+      ".local/ssh-jump/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95"
+    }
+  },
+  "dependency_list_sha256": "ae41415646630599f922dc40f51cc41ac178b43e17487420ead78dad0c8858e0",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/ssh_fixture_client_test.go": "566ebe04d2590e1f716749374161686f8510dba1d649b9d0ebe2aa87f0b8b2ee",
+    "cmd/gitversion-go/ssh_integration_test.go": "1f014ea0bde348786e353f3ff359881455125e6357d655cc0235b8e94379912f",
+    "cmd/gitversion-go/ssh_jump_integration_test.go": "dbd6fe40fc9f464a361ca98b0545d6c7448f73ca77540d24843294d2b7bbb82a",
+    "go.mod": "249175376e8bb43bb9502105db3f95cfd58823998fe0f4d53f67ee825267c920",
+    "internal/gitrepo/preparation.go": "d16896114ea92b4b159e17d1648b193d20563444c35f033ffa610eb5d43c3826",
+    "internal/gitrepo/preparation_test.go": "1bca3fe1f2ddf02968e9b9d3f875753f433c46b03d8085ad1ad27026258c83c0",
+    "internal/gitrepo/ssh_auth.go": "8e53b62dee119b70c8dfb7aa1080b959c94636acbb49a36fe690479e86c63cc1",
+    "internal/gitrepo/ssh_jump.go": "621910a139e160135a05557ad9109c2e17102a2f238c616ee7ff48c04ead9aff"
+  },
+  "reused_linux_unit_binary_hashes": {
+    ".local/msbuild-output-ports/linux-bin/internal-patterns.test": "d562529c06240976d7fbae6e50df9d1daafc170c0e5d9918f4cb2fab8ec8d915",
+    ".local/msbuild-output-ports/linux-bin/cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    ".local/msbuild-output-ports/linux-bin/internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    ".local/msbuild-output-ports/linux-bin/internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    ".local/msbuild-output-ports/linux-bin/internal-formatting.test": "bf0069ded21cad563627999ca29bb9fd0878d2b016b0ff11180a738b65fbb6e7",
+    ".local/executor-cache-ports/linux-bin/internal-semver.test": "2eacd401ba6d4b80eeb69b6377bf4b47edd9c4dad7c3cfcdf76f370fdbf1614a"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/ssh-jump/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/ssh-jump/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/ssh-jump/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/ssh-jump/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T12:03:58.573401214Z",
+      "FinishedAt": "2026-11-07T12:05:38.630629344Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/ssh-jump/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/executor-cache-ports/linux-bin",
+        "Destination": "/cache-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/remote-ci/oracle-git",
+        "Destination": "/oracle-git",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-output-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/Library/Application Support/dotnetup/dotnet/sdk/10.0.403",
+        "Destination": "/sdk",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}
