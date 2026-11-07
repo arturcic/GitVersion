@@ -294,12 +294,40 @@ func checkRepositoryLayout(t *testing.T, method string) {
 	case "DetectsShallowClones", "DiscoversABareRepository":
 		bare := method == "DiscoversABareRepository"
 		path := filepath.Join(root, "clone")
-		options := &git.CloneOptions{URL: repo}
-		if !bare {
-			options.Depth = 1
-		}
-		if _, err := git.PlainClone(path, bare, options); err != nil {
+		source, err := git.PlainOpen(repo)
+		if err != nil {
 			t.Fatal(err)
+		}
+		clone, err := git.PlainInitWithOptions(path, &git.PlainInitOptions{
+			Bare: bare, InitOptions: git.InitOptions{DefaultBranch: plumbing.NewBranchReferenceName("main")},
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		tip := plumbing.NewHash(sha)
+		objects, err := source.Storer.IterEncodedObjects(plumbing.AnyObject)
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer objects.Close()
+		if err := objects.ForEach(func(o plumbing.EncodedObject) error {
+			// A depth-one clone has the tip commit and its tree, without
+			// the parent commit object referenced by the tip.
+			if !bare && o.Type() == plumbing.CommitObject && o.Hash() != tip {
+				return nil
+			}
+			_, err := clone.Storer.SetEncodedObject(o)
+			return err
+		}); err != nil {
+			t.Fatal(err)
+		}
+		if err := clone.Storer.SetReference(plumbing.NewHashReference(plumbing.NewBranchReferenceName("main"), tip)); err != nil {
+			t.Fatal(err)
+		}
+		if !bare {
+			if err := clone.Storer.SetShallow([]plumbing.Hash{tip}); err != nil {
+				t.Fatal(err)
+			}
 		}
 		got, err := discoverLayout(path)
 		if err != nil {
