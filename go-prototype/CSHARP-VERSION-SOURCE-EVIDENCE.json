@@ -1,0 +1,229 @@
+{
+  "implementation_checkpoint": "3a24a027a99b3cf3581b0aaf55e3c7b129343118",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "new_unit_methods": 19,
+  "original_unit_cases": 27,
+  "original_source_files": 1,
+  "mapped_methods": 633,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 595,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 37789,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_global_mode_json_matches": 88,
+      "fresh_repository_compatibility_json_matches": 57,
+      "actual_repository_fields_matching": 33
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 37789,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_global_mode_json_matches": 88,
+      "fresh_repository_compatibility_json_matches": 57,
+      "actual_repository_fields_matching": 33
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-155844369",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "global-mode-json",
+      "path": ".local/global-mode-parity-2631994236",
+      "report_sha256": "ab6f990542b47dbbe895c139bf32d986cc305530659c680d202c45951bf5edae",
+      "passed": 88
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-1599300576",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "macos",
+      "kind": "repository-compatibility-json",
+      "path": ".local/repository-compatibility-2158318747",
+      "report_sha256": "9b60064e54834890ca8654dde28c86e05baced3cf8c4e25a3354736bd2c9d1b5",
+      "passed": 57
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/csharp-sources-linux-evidence/csharp-config-ports-1646186568",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "global-mode-json",
+      "path": ".local/csharp-sources-linux-evidence/global-mode-parity-1684432308",
+      "report_sha256": "8f9cab1ca23832259c424750c12c2c8ce71ec1d7a949515a19d6c5f1340e673c",
+      "passed": 88
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/csharp-sources-linux-evidence/run-3690757690",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "repository-compatibility-json",
+      "path": ".local/csharp-sources-linux-evidence/repository-compatibility-1656209928",
+      "report_sha256": "7d83a70004d6dba0552c14b223fa04c17d58eda0c3e05b5cc0c4a53d4177c9e9",
+      "passed": 57
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/main.go": "f322f3def2afb153c1b04ad2e1ac520a62d40e2eef936f83ff0b853a9c709c89",
+    "internal/calculate/calculate.go": "7d5cbc0849ad9188d36cce274b149a86008c3716e10a4a0d5b482a9003d742ed",
+    "internal/calculate/ignore.go": "6d141327b47f4eb3de9bb10abc79d8736bd76fa7037857a1c14c5fb9c09d4952",
+    "internal/calculate/mainline.go": "33845f1cc530d98c25103ebcff891380165aed1b086f7bcc308dfcaf6645fc85",
+    "internal/calculate/merge_message.go": "541aeef98969be2eae0b5a6e3f3eb27d034e4f4cd64e450e6930b5aff71118e1",
+    "internal/calculate/version_filters.go": "3be6f5c9f6529208a1313e7649af7c561193fc579e207ad4bba9bdbb17009228",
+    "internal/calculate/workflows.go": "e25b56a59b8d624e307c1bf4dddcfc36a58e6f924ed5f4e7cf9ea16c485fa0e1",
+    "internal/config/config.go": "38de7e439e08f767f27e8b00afb88db454c4ddf936896255e8bb30229b551249",
+    "internal/config/ignore.go": "dc863c4578e7e70ee3826e4310d480262214b97229b0c9bfc105b86f7dc3e849",
+    "internal/config/labels.go": "50d9a37d9ee55faf1822546e44d5cc5d939035c8ecc70fbc8a6ef29ee47e4a4e",
+    "internal/config/workflows.go": "70d547bf55c4ea381e72fa45b44b4a8905a3db42d92c0f5c748c61c363ece534",
+    "internal/gitrepo/config_storage.go": "de64f333e0b977a72ea2686349ec76d76d8feadd65cd3a61efdd435ea60e6e01",
+    "internal/gitrepo/ignore.go": "0fa35a35ccf59bac55ee76afc6586f7deeb385337b8d2ad48363e493b69c957e",
+    "internal/gitrepo/repository.go": "9fcd9208caae6c2dcdfe30167496b2a94c24a3fe6c767d0d28a04d24e1565a8b",
+    "internal/gitrepo/walk.go": "c404252bb932e571dd435d7fd61aaeb3dacb3e7beb314f855b37264bbbc83bd9",
+    "internal/output/output.go": "3b7b5b9f77eeb309bb953bb5f73d2a2e6b34de59c7edd6ec5b9948312b322078",
+    "internal/semver/full.go": "17935171844be5bb88bf91a419aad52e00aa359327152f48855569118802d1e8",
+    "internal/semver/version.go": "745fc5530cb7dd950ab5cceb9440f295a30c2c2b1c570a6b10a736c76afa7e80",
+    "internal/patterns/patterns.go": "09bd7e9f41abad535d5021bc5e934a2c7798d2cc5b4b6f328987e990813cabc0",
+    "internal/formatting/dates.go": "53d03270fcc2199372cf5976e96e7b021f0927b1784583b707773d077782c2c5",
+    "internal/formatting/decimal.go": "32013abc97d79c9684ebc374847fc8369d5011f5f2ce5ad386cb11490f561fe7",
+    "internal/formatting/dispatch.go": "4b7e9727b07e9b65ef0e9c7fcef3676d97f8e9bd6a1bd9484dbe681cb1b215b3",
+    "internal/formatting/sanitizer.go": "6b80d1a0ac760d38e612b490b7b9e118d9c99da1e3a4d86cfbbb16eefd735264",
+    "internal/formatting/template.go": "340471c586667fe1b266d10671e89fa73155baeb2e108f71b9abb5c1080dedf7",
+    "internal/formatting/tokenizer.go": "5f4e68d9d68fbdb37b48ab182c31014e288edec9b6ebe7f82535767bf3eeca90",
+    "internal/formatting/values.go": "556011a1f5b49bd2a42f802b65b4217643e52f6f949e729747b5ab7f95dc13b2",
+    "go.mod": "265b5e37b2d6f4a754e8f050c7169aee3e224961536d7bddf2d7b89a05198fad",
+    "go.sum": "135718341e900ee1d8d3b14c324bbacc21f93d9db265ce10a4bad4fbb1515252",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8"
+  },
+  "candidate_sha256": {
+    "macos": "384392ea88ac6d25c0cd10bf3e5eed1c05d7ad7b6929da18ee52cb809ce239d9",
+    "ubuntu26": "4ab30781e83826dd5689ae41b2dc0b177508882d52cd3d4b5cdc0e9537a039a3"
+  },
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T02:04:58.51925196Z",
+      "FinishedAt": "2026-11-07T02:07:23.10485693Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/csharp-sources-linux-evidence/csharp-config-ports-1646186568.tar.gz",
+      "sha256": "2e6df4a1094465a391cbdeed74b84bdcbbcdf9afa45f8c8d06db5cbe6fff77a5",
+      "bytes": 30928
+    },
+    {
+      "path": ".local/csharp-sources-linux-evidence/global-mode-parity-1684432308.tar.gz",
+      "sha256": "7497b8a493db5499f708b9f52a0dd70557d06e1fcb74da152c021152a5eaef8a",
+      "bytes": 672548
+    },
+    {
+      "path": ".local/csharp-sources-linux-evidence/run-3690757690.tar.gz",
+      "sha256": "8ec48584bb88cc3b15e20926e22ff19d6774b2f1199f6abb54dd4dbf01b4e96a",
+      "bytes": 566064
+    },
+    {
+      "path": ".local/csharp-sources-linux-evidence/repository-compatibility-1656209928.tar.gz",
+      "sha256": "f12ee432355ac05ffcc74620bf39e138095d78ca86dbbc957973c82f601e342c",
+      "bytes": 578162
+    }
+  ],
+  "actual_repository": {
+    "snapshot": {
+      "source": "/Users/artur/projects/oss/gittools/gitversion",
+      "state": {
+        "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+        "references": "refs/heads/codex/4057-support-main d7181f936148d1fd51f7e6eb3f681b3defaa505f \nrefs/heads/codex/csharp-15-skill 0d894d5cbfa5c1f93114d3fee7b7d2344f4c9e18 \nrefs/heads/codex/docker-test-retries-and-setup 965d49413567c787f84117d86a6f2aaeb8219393 \nrefs/heads/codex/go-prototype-milestone-a 3a24a027a99b3cf3581b0aaf55e3c7b129343118 \nrefs/heads/codex/nativeaot-before-5040-rebase-20261021 025d0190738b35c7ae0b45c0a22cc24134dfe3f6 \nrefs/heads/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/heads/codex/research-5210-nativeaot 14abf574811004768bff7a76468356448dbfa1e3 \nrefs/heads/codex/runtime-performance-comparison a4ac907dfe60e6c9ced8b229f99f885351cf8d47 \nrefs/heads/feature/docker-parallel-steps 386a722cd5ca5104d39507c46fb9878e38eb7a9d \nrefs/heads/feature/new-cli-tests e8861e9af6df225830120213460258e7634ecc26 \nrefs/heads/fix/schemastore-auth-and-diff 83d29e5f80f3b1b71d548a9b470b9fa78ea2f4f4 \nrefs/heads/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/heads/poc/ci-5391-full-20261021 696d13c8b0f16f066f40dc61420cddc81f64fd50 \nrefs/heads/poc/ci-5391-nonroot-20261021 6917c127d456dd24a3c02c75f5fa28edb6db2c82 \nrefs/remotes/9swampy/ConvertRegexesReinstated 46cde7cae84bd0d2f2df0844de75dc7556a0c06d \nrefs/remotes/9swampy/ExtendGitFlowComplexExampleToPostMergeAndRebaseBehaviour 2f23dd0aad5d0cc6e2549cef92950b4e48d36b19 \nrefs/remotes/9swampy/FixDirectoryBuildProps 1dbd5e9ab09e23ba4731e183e5592965c37bb4c2 \nrefs/remotes/9swampy/HEAD 0ba0a351e5cf97c00188649060cd7c27f28cf7be refs/remotes/9swampy/main\nrefs/remotes/9swampy/MoreRegexesForCache eed9c50d3d91d1ce5b021a74383d07606372a6a2 \nrefs/remotes/9swampy/SanitizeParticipantOrphaned 1e95ca3df60a681f5d921673f8c4bc7fdbc07a54 \nrefs/remotes/9swampy/SupportFormatStringsInConfig 5f509d8721f3c801e4e8472a78c21bb64ca399ca \nrefs/remotes/9swampy/issue/4534-AzurePipelinesPreReleaseLabel a450cdaa1eec3ce2ebf088344122428fb75ddaf2 \nrefs/remotes/9swampy/main 0ba0a351e5cf97c00188649060cd7c27f28cf7be \nrefs/remotes/arturcic/HEAD 9b63978c52ee9f634c46c6795d867920ae97f528 refs/remotes/arturcic/main\nrefs/remotes/arturcic/codex/3954-review-followup fc18bd6a0c24261d12056719b7ee8a09831c2f3a \nrefs/remotes/arturcic/codex/4057-support-main 0e0e0a387512c3a9dd5e9bb61e6d3391d210b40f \nrefs/remotes/arturcic/codex/cake-sdk-migration 19b427ce409e9e1168ec484412216b2aeae14be9 \nrefs/remotes/arturcic/codex/main-reporting-proof 6d4ae6f98dd3d55516835d6b883cf03b59d02da7 \nrefs/remotes/arturcic/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/remotes/arturcic/codex/research-5210-nativeaot 14abf574811004768bff7a76468356448dbfa1e3 \nrefs/remotes/arturcic/codex/runtime-performance-comparison a4ac907dfe60e6c9ced8b229f99f885351cf8d47 \nrefs/remotes/arturcic/dependabot/dotnet_sdk/dotnet-sdk-11.0.100-rc.3.26522.148 1e19a6fde75a5ea3c4d35993abcd8f983738baf7 \nrefs/remotes/arturcic/dependabot/nuget/build/nuget-338e4bae72 666cb9229f1cd72fcfb2bc5e8a5c1c78176ffb73 \nrefs/remotes/arturcic/dependabot/nuget/new-cli/nuget-221580962b 6a1596d32275ecc71f1bae0be71a7bc5e2cec8a8 \nrefs/remotes/arturcic/dependabot/nuget/src/nuget-992d6ad3fb aecb42ec929466cea7cad1be9dc0d5e609b663b6 \nrefs/remotes/arturcic/feature/docker-parallel-steps 386a722cd5ca5104d39507c46fb9878e38eb7a9d \nrefs/remotes/arturcic/feature/override-config 8c1461db6ae19cf08bfa911647e2286d3316a30f \nrefs/remotes/arturcic/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/remotes/arturcic/support-5.x-schemas f318a2c0fd4e8f37372730b767e2162c75568ff2 \nrefs/remotes/origin/HEAD 9b63978c52ee9f634c46c6795d867920ae97f528 refs/remotes/origin/main\nrefs/remotes/origin/anonymize b96dabd4dad0ecc426d756c87e203a546b89189f \nrefs/remotes/origin/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/remotes/origin/feature/ossar 3b7361f4a8e29f75f5a07313ed1847b272d656b2 \nrefs/remotes/origin/fix/schemastore-auth-and-diff 83d29e5f80f3b1b71d548a9b470b9fa78ea2f4f4 \nrefs/remotes/origin/gh-pages 6016e6ce88360bd76e7de90bb13fb24356a2066d \nrefs/remotes/origin/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/remotes/origin/poc/ci-5391-nonroot-20261021 6917c127d456dd24a3c02c75f5fa28edb6db2c82 \nrefs/remotes/origin/support/5.x 3f75764963eb3d7956dcd5a40488c074dd9faf9e \nrefs/tags/1.0.0 0d72bbfad34be683e8131ed7ad365e7a99302ae3 \nrefs/tags/1.1.0 a813c97828a543b4fa2a8b43f52646bb52497ed7 \nrefs/tags/1.1.1 a4b40aaec5a7bc1f9bb668fed5c4879dc36f8099 \nrefs/tags/1.2.0 9b1eafbf9499c486ce1a3b9851695c5581e4be44 \nrefs/tags/1.2.1 dff80ea8efcc0482a0708cbfd6d487230f59a383 \nrefs/tags/1.3.1 51bf5727b90c1c1796a317378f26a16529da35a3 \nrefs/tags/1.3.2 d5e9b71532da0c84929ebaadda90864b0bd2261a \nrefs/tags/1.3.3 59f2254f7f89c1d0bf6e4bc384fd691b7436be3d \nrefs/tags/2.0.0 50d6f03171a3aae8487bf88ccfdd7fd273546b99 \nrefs/tags/2.0.1 95c7428a9284e2230fc79f93453bf6c69b8e5525 \nrefs/tags/3.0.0-Beta1 f7b096f4585709be43b5d13a2de9f3cd44b7e97e \nrefs/tags/3.0.0-Beta2 fe1063fbb5fada6555c4ade59055f10a910e851f \nrefs/tags/3.0.0-Beta3 24fa6b525655eddf64272b11f43ac27da34ab15e \nrefs/tags/3.1.2 4249f044c5aeb082314c9e552b412cdfd4c5d0a4 \nrefs/tags/5.0.0 9fb34b0eba870923a9c628a4f3581dbec055ccd6 \nrefs/tags/5.0.0-alpha.1 cf2ccfa2db2f4628259fc170cfba8de0f040c551 \nrefs/tags/5.0.0-beta.1 1222c51b3c473f2aef216cfa5aba6f10333b412e \nrefs/tags/5.0.0-beta.2 4448cb52e9a83ff4cf9450bfffd2b77dac3b59e8 \nrefs/tags/5.0.0-beta.3 cd2eee7eeffdc4eeec0431fd982d66ecfb880b93 \nrefs/tags/5.0.0-beta.4 893d6e4d5d97c04e15d8b03d8689b3a993f93baa \nrefs/tags/5.0.1 c71b8fc9f6d7b6adffe82fef588e717beb864e91 \nrefs/tags/5.1.0 16ae98ee3b9a1d6216723a78b95ed7f5c0faf5fe \nrefs/tags/5.1.1 5d79a7475c182b8b9e75090fd40fdd3c1157e302 \nrefs/tags/5.1.2 4eb164e8b5ddc27b736a11fd9979c7760c7a2b0f \nrefs/tags/5.1.3 bef8ebc0b62b3ddd0cdafe09b66d68bbfcaf90d5 \nrefs/tags/5.10.0 3892733000b5a4baefa00ef00ef9cd763b5dfcae \nrefs/tags/5.10.1 b17d33e3aef55c573f03d95d975557b5fcaf6591 \nrefs/tags/5.10.2 dd1fccbe5ac603c6ba46dc0bd47aeceff5f5dcfb \nrefs/tags/5.10.3 bc9c9d003e655385e3dd1ba3bd013e04062d2f9b \nrefs/tags/5.11.0 9969dabeff99e9b3362bc0c79a3170355380a4e2 \nrefs/tags/5.11.1 82cbf2c587897ed9906624f3b55f200ac99f084e \nrefs/tags/5.12.0 3f75764963eb3d7956dcd5a40488c074dd9faf9e \nrefs/tags/5.2.0 f1cd29a77c4b27a2812a6d78699bd0ea0ad54bb9 \nrefs/tags/5.2.1 101dea6a51398d663dc148a95b212119b425417c \nrefs/tags/5.2.2 409a287c57117f1cc36632ba67f1cdfa80103e68 \nrefs/tags/5.2.3 ff3494673a1bcf17e8b40cae64ae4efd62812d79 \nrefs/tags/5.2.4 643ba1fc16fad3d5659fead16c335fb6288ade7a \nrefs/tags/5.3.0 6b342b8666a9d4ddfdbbd30632c42ea149c6ba94 \nrefs/tags/5.3.1 f2de85e5729937732f8b275bb06330a67d2bc0e4 \nrefs/tags/5.3.2 438d45004092e2f6b9aa4d12b07c64becfff4031 \nrefs/tags/5.3.3 08a43ede0b292c8ce2178b3d305587f151a2bdf4 \nrefs/tags/5.3.4 be48ce3ac7f048c869fe80b8c8e648ebf4a7e360 \nrefs/tags/5.3.5 c35e84cec5f3440e0d932ca003c030b6fe0356ed \nrefs/tags/5.3.6 c73300b5aa053e9a086a5972e875890ecd7e13dc \nrefs/tags/5.3.7 b22e8726683a0997484b53c5efd54394e93b5306 \nrefs/tags/5.5.0 afbb8a4f81f3ed24dcfbec6e0b7d6b0c0561d682 \nrefs/tags/5.5.1 26def753db54e1cf430f0651d5800e5e0e607147 \nrefs/tags/5.6.0 09c7e34f17486b0623b961e2089e86f9bc1f7c88 \nrefs/tags/5.6.1 b91002132cfe8fbccc4f8e140b431ec06644e5ec \nrefs/tags/5.6.10 e9013533474e8e46b6a0ca60d20d02f3680b5980 \nrefs/tags/5.6.11 1680a89918cb1b3b15cd37ccf78079e1fc3bfdff \nrefs/tags/5.6.2 116588a2c28572b5625c7e5472716e5b1927c020 \nrefs/tags/5.6.3 aaaed5ed55cd3fe58335635dbe4695554781652b \nrefs/tags/5.6.4 519916b13047f32e6b336da644a6e6ec1659ee97 \nrefs/tags/5.6.5 ddba821eb9d2b75aa81d22dc4cea1199052e1b69 \nrefs/tags/5.6.6 80adc3f3b8919b655adca7b796b273fb10478c3f \nrefs/tags/5.6.7 e991fcfe958eb104c37f4a0fd021ac1d1e0dce49 \nrefs/tags/5.6.8 557e96abb8e3ad51cb63d637855ae5b20f0888e1 \nrefs/tags/5.6.9 ecf7f70a3d2fc18be561baeaff4eac1d930f8781 \nrefs/tags/5.7.0 8d177c6d666c8eeb1c6a6a2c71fd4b78741137d2 \nrefs/tags/5.8.0 9acbfb1d6a83c490453ae2a6948c15e0fa81b9fd \nrefs/tags/5.8.1 5c21ee61e344c142c7d18342d0a8ac4422636569 \nrefs/tags/5.8.2 90dc2bedb08ac54498bddcc279cde5c4596a18d3 \nrefs/tags/5.8.3 19462e12a0628f6281f0eef53cb418c886176fa8 \nrefs/tags/5.9.0 5078f28d3b8c694f6d0352396aa9500d19985d76 \nrefs/tags/6.0.0 d5d903370f6545aa6cd03c4d4729788df52efb5a \nrefs/tags/6.0.0-alpha.1 fc5b3ff045ea0e0f59c9bf27096af9094ca17f0e \nrefs/tags/6.0.0-beta.1 31034c8441c1d4660d5a7ecc9cc2a8ef5305caea \nrefs/tags/6.0.0-beta.2 8caa9d2e3a740997e8c2d10c69a168d7f47e20bd \nrefs/tags/6.0.0-beta.3 0560e18868afad70aac0bc8bda02885134070022 \nrefs/tags/6.0.0-beta.4 c704b65c52e3abfc2e2aabec900781e7a2218b15 \nrefs/tags/6.0.0-beta.5 8f2c17485283afb2122eaee3957c78adcad79833 \nrefs/tags/6.0.0-beta.6 a176d712d8a01412bd79369d0c52e620f0e94d8a \nrefs/tags/6.0.0-beta.7 08f03666990b43dadae6870de2a08691b973714a \nrefs/tags/6.0.0-rc.1 0452c2e74f50ec6c68abafcd589690394a383153 \nrefs/tags/6.0.0-rc.2 1fa430438688711fc2353a6e6f14b9e489b8efdc \nrefs/tags/6.0.1 0fd23d1af997a7b7c6f22f27310443270a91fb18 \nrefs/tags/6.0.2 30211316bc16e481dc440baae39ff904c4fa4966 \nrefs/tags/6.0.3 4255a15370760f01c8cc01717fdf2c123633252f \nrefs/tags/6.0.4 84f2e38075a6d36f8e033d42451f714658061218 \nrefs/tags/6.0.5 c78e7a3f34e0afe6ca0a3b4a03218f1b1280d434 \nrefs/tags/6.1.0 8856e3041dbb768118a55a31ad4e465ae70c6767 \nrefs/tags/6.2.0 c2bc09f9ee048c6bdce6ec494fa48cb74420f608 \nrefs/tags/6.3.0 74ac886dbb8f9bf037a0a7cc19f5f04f03e691c9 \nrefs/tags/6.4.0 ae43e30e8c4b9d91703b0b05577434afc0d62a6f \nrefs/tags/6.5.0 3a7e6557d2bf6dd18eca1c3bd7cd20fd792f0c3f \nrefs/tags/6.5.1 01c42647ce3d6db32caf7a0e0ed615a645de7b9a \nrefs/tags/6.6.0 4520b977bd0615ad69fe83f04743e110be0b9f66 \nrefs/tags/6.6.1 9caca985ff0816907c124ff7b7c47551f5411507 \nrefs/tags/6.6.2 74f0b7611b15be8c8e33184c98125d92b59545aa \nrefs/tags/6.7.0 00e59b5f45fe97e2e610a480a860b3a009db9602 \nrefs/tags/6.8.0 cf6a76c393a467678f773cab4bc8eb924f6076b7 \nrefs/tags/6.8.1 7929c98d84d35e1850d2430ea22e080f51e6bdfc \nrefs/tags/6.8.2 555d0ee7445119b3dee9ae94933a503ea35c6d1c \nrefs/tags/codex/version-calculation-docs-preview-assets 28243d5a024756a3e75e0c1a40872d2d030a484b \nrefs/tags/v3.0.0 8c6ab509306099157d722449e0dbff55fa80347b \nrefs/tags/v3.0.0-beta.4 bec5eb5c626a93d97b5673deda6ec50d1191e267 \nrefs/tags/v3.0.1 93ad627f16a1a714ce5d9deda9714ca180d453c7 \nrefs/tags/v3.0.2 0cb1c22881997b61e5a0cb22e21ca05dc95d6a8c \nrefs/tags/v3.1.0 c894b3da5edb4a9e52039403987e242ccc7a4cda \nrefs/tags/v3.1.1 93e36a9e4bb97ae59f4a13b5ba0eff1f26ef500b \nrefs/tags/v3.2.0 fd774251e3e44c555e72c64cb4aae23570c2747f \nrefs/tags/v3.3.0 90b8744cab37c9d72c3cb8e08e5b10454bc5e080 \nrefs/tags/v3.4.0 baec6d1a00dc7153b0c0dd11b33f6274abdd2158 \nrefs/tags/v3.4.1 2bbe5bbd1fe4b5c09a4bc8ae5d551a8d7e28df64 \nrefs/tags/v3.5.0 f1b9e4cd12c993231858a354a80c6799c8d00593 \nrefs/tags/v3.5.1 12c4e9a570aa11c3862f0157cae8dcb5718f60ed \nrefs/tags/v3.5.2 7b5318722fe60f1d7631b2e7b3796bd38f825b9f \nrefs/tags/v3.5.3 df452f0e722467433ea33cfb2f7ea2a1c471c318 \nrefs/tags/v3.5.4 28b15724fd90833ad9f05774157c5a87865360c5 \nrefs/tags/v3.6.0 2a6448d4c9731b1378afd029d0c02484cc9c91d5 \nrefs/tags/v3.6.1 35c696aa910548165b120fe293c8ee09249b4440 \nrefs/tags/v3.6.2 9756b9dbb94868608f89fe73acdf8e24d0e8d8c6 \nrefs/tags/v3.6.3 b525f21801f90aadd00b531d931f2428be036ecc \nrefs/tags/v3.6.4 8fce1c6ea5592f4660db5e3f62c82589a145a338 \nrefs/tags/v3.6.5 15ef651d24091f7530fda847c9373774754d8ec1 \nrefs/tags/v4.0.0 e715eb5dd515037d90a257f527e62442cae8c1c5 \nrefs/tags/v4.0.0-beta.1 22e03422d0dd854a7b10fd2359e4574c58d38761 \nrefs/tags/v4.0.0-beta.10 93d0e0187ed3a09dc71da4364b3cf2761baa6c88 \nrefs/tags/v4.0.0-beta.11 cc28b2dbff86fee677cc9dbbc57b13f217288e87 \nrefs/tags/v4.0.0-beta.12 9c70946f68973b3b31b2861913c247fbe6c3f0ec \nrefs/tags/v4.0.0-beta.13 0f7e7b3d845cd5ebd39bdb7f5459d34fb84e8b3d \nrefs/tags/v4.0.0-beta.14 08f23f662edd0f5161814a1948fd973dd8ae563f \nrefs/tags/v4.0.0-beta.2 72ef1cd310a064345ff4ecc4bad3bc532d153b33 \nrefs/tags/v4.0.0-beta.3 b48a69cac429839417747419fffcd5e9f292470f \nrefs/tags/v4.0.0-beta.4 0a5661188144373be0e49a4b553033037dcdfbad \nrefs/tags/v4.0.0-beta.5 ae26b81593a5728438390e0da18d494b7398a218 \nrefs/tags/v4.0.0-beta.6+1106.build.1025 e7de24c0e34728a05c9187b8d0b041d932863e3a \nrefs/tags/v4.0.0-beta.7 067d3c437a8f3bda2ffd47cec4285fd610aea995 \nrefs/tags/v4.0.0-beta.8 a88e863313734cbc94f9bb11b855b1733eb6a8c5 \nrefs/tags/v4.0.0-beta.9 d4801d79000b2888b94b4e225dc454503a8a2475 \n",
+        "configuration_sha256": "8cd32a84a90cb814e7dc5c6a203e083e5b9ba66fe7f814b5df8fa3caa5f95f41",
+        "git_config_sha256": "dce331a5f8c1bd4846ccfb0581a85cc641641f85c3ac3f60b1ca39d864cafa6c"
+      },
+      "tracked_files": 1391,
+      "archive_sha256": "60f2632224090b52f7dea35d95ad927e89cec2e84abeffaf016afb9b02bbfcaf",
+      "candidate_sha256": "4ab30781e83826dd5689ae41b2dc0b177508882d52cd3d4b5cdc0e9537a039a3"
+    },
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "json_sha256": {
+      ".local/real-macos-csharp.json": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19",
+      ".local/real-macos-go.json": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7",
+      ".local/csharp-sources-linux-evidence/real-linux-csharp.json": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19",
+      ".local/csharp-sources-linux-evidence/real-linux-go.json": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+    },
+    "comparison": "All 33 values and JSON types equal across both executables on both OS. Linux uses identical Git objects/refs, tracked files and config; ignored host build outputs excluded from snapshot and covered separately in fresh fixtures."
+  },
+  "unit_reference": "Original C# expected literal values and all parameter cases; NUnit runner not executed.",
+  "filter_integration": "SHA/date/path rules wired to calculation and CLI; 32 new fresh process comparisons cover both workflows, normal/Mainline and eight settings. Branch/tag ignore patterns remain unsupported.",
+  "regression_scope": "Full regular/frozen suites and four fresh C# process probe groups on both OS. Full replacement and Windows compatibility remain pending.",
+  "evidence_hashes": {
+    ".local/csharp-sources-unit-macos-final.jsonl": "a9a4b1400534ed64f28254b3ebc28ab4af7385ed05f04ce365c702bdc7b1d0e1",
+    ".local/sources-macos-parity-final.log": "01153875688560a4f04dbb8346b4b83e9a055e35089a07131cfeca3948be3d60",
+    ".local/csharp-sources-linux-evidence/repository-linux-parity.log": "2ede98f5c34ea15369733ea369118b09429898bcbe4acd570401ee33c740ad9e",
+    ".local/csharp-sources-linux-evidence/repository-linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/csharp-sources-linux-evidence/archive-index.json": "da9d68bdc1cdce975dab24c6d17cf3c363d98a7d9940138e4b883b92ae266d2c",
+    "testdata/csharp-version-sources.json": "897834c8a10d74700b8ecdb584bd7499dbc87c5b3c21945f2828922aaccc15b7",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/cmd-gitversion-go.log": "e4816e0a77d91ff3f422f5faa5b17d26d7f654da1fe6f9a0be3c00edfffed5f5",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/cmd-parity.log": "3b7c4a1e30c8a29361c8ec6c28f7930a1f3dbe09ee5405247fd885288ffbdc65",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-calculate.log": "85312b53601b12bb337cc814038cd3e6b5666c6a006cca49553d6b46de32f4ea",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-config.log": "00c460de9ad21c12b22bde302352071b9ca26a5c4e0d4d816edfc4a7e0d368d2",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-fixtures.log": "c5558afba3691dfeda775f164e75460f36684eaaecbc13f3fc49b5145ca5250e",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-gitrepo.log": "5113f9df76553fed9708ffed9ba0aa1e42a373b3eb51f4d1a29dc8e9caec7c09",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-output.log": "03b9d7b1ab9ab4b1bc6548f9214fb4e47a8b927f6216207d75daac3484570908",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-parity.log": "f3eceff2d6bcfaf8a48faf2d93a0940c3681d396c8c65cb95e2060fceaea9c72",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+    ".local/csharp-sources-linux-evidence/linux-unit-logs/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1"
+  },
+  "linux_input_archives": {
+    ".local/csharp-sources-linux-evidence/input-module.tar.gz": {
+      "sha256": "c90075b8ce20d7c31208c3bd8b68f361905aa21f50e7e57346358b57714d2d34",
+      "bytes": 114024953
+    },
+    ".local/csharp-sources-linux-evidence/actual-repository.tar.gz": {
+      "sha256": "60f2632224090b52f7dea35d95ad927e89cec2e84abeffaf016afb9b02bbfcaf",
+      "bytes": 84102578
+    }
+  }
+}

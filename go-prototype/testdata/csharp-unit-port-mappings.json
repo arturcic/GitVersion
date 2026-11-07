@@ -42581,7 +42581,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.BranchNameKeepsExternalSemanticSource": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42599,7 +42599,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.TrackedReleaseKeepsSemanticOriginSeparateFromMergeBase": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42618,7 +42618,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.ExternalOnlySourceCountsReachableHistory": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42636,7 +42636,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.OrdinaryTagRetainsSelectedIncrement": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42654,7 +42654,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.TaggedHeadUsesTagForBothSources": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42673,7 +42673,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.DeploymentModesPreserveSourceMetadata": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42693,7 +42693,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.IgnoredCommitInMergeGraphIsExcludedFromDistance": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42711,7 +42711,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.ReleaseBranchPresenceDoesNotChangeLatestSource": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42730,7 +42730,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.AlternativeTagFloorReplacesSemanticSourceWithoutResettingCount": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42748,7 +42748,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.MainlineFoldKeepsExternalOriginWhenOperatorChangesCountAnchor": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42766,7 +42766,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.OperatorAlternativeFloorUsesSupplyingSourceOnlyWhenItWins": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42785,7 +42785,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.MainlineRepeatedIncrementsKeepTagOrigin": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42803,7 +42803,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.MainlineMergeKeepsChildSemanticOrigin": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42821,7 +42821,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.MergeMessageKeepsSupplyingCommitSeparateFromOlderTag": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42840,7 +42840,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.StableWinnerExcludesPreReleaseCandidateFromCountingSelection": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42858,7 +42858,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.VersionSourceSha": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42876,7 +42876,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.VersionSourceShaOneCommit": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42894,7 +42894,7 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionSourceTests.VersionSourceShaUsingTag": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
@@ -42912,6 +42912,6 @@
       "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

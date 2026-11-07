@@ -33,7 +33,23 @@ The fresh process matrix adds 32 histories: two workflows × normal/Mainline ×
 eight ignore settings. It covers full/prefix SHA exclusions, ignored bump messages,
 date boundaries, ignored paths/current commits and empty rules. Configuration is
 committed after the referenced SHA exists, using go-git and fixed metadata.
-The 57-case repository matrix includes the previous 25 compatibility histories.
+The 57-case repository matrix includes the previous 25 compatibility checkpoints.
 
-Platform gates are pending. All 19 source mappings remain unverified until the
-full macOS and Ubuntu checks pass. Windows stays pending.
+Implementation checkpoint: `3a24a027a`. macOS arm64 and Ubuntu 26.04.1 arm64
+each passed **37,789 regular tests/subtests in 11 packages**, with no failures or
+skips. All 27 source cases and configuration checks ran on both OS.
+
+Fresh executable comparisons passed 57 repository/ignore JSON cases, 88 global-mode
+JSON cases, 87 prior calculation JSON cases and six configuration checks per OS.
+All 33 real-repository JSON fields/types also match: **7.0.0-alpha.1+739**.
+`CSHARP-VERSION-SOURCE-EVIDENCE.json` records source/binary/report/corpus hashes,
+verified against the implementation checkpoint and the actual Linux input bundle.
+Complete Linux inputs, fixtures, process results and logs are archived locally.
+The container used no network or host mounts. Source extraction is deterministic;
+`go vet ./...` and whitespace checks pass. Windows remains pending.
+
+Verified unit/component total: **595 / 1,516 (39.25%)**, with **770 more methods**
+required to reach 1,365 (90%). Integration ports remain 38 / 662; overall mapping
+is 633 / 2,178 (29.06%). These percentages measure source-method ports, not line
+coverage or full replacement compatibility. Branch/tag-name ignore expressions,
+legacy configuration loading and remaining CLI/integration contracts stay pending.

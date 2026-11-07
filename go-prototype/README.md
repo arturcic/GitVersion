@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 614 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 633 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-576 verified unit/component methods out of 1,516 separately from integration ports.
+595 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -234,4 +234,7 @@ Passing these gates does not establish full replacement compatibility.
 methods / 49 cases and connect the parser to version calculation.
 
 [Version-source filter ports](CSHARP-VERSION-FILTER-PORTS.md) add all 12 original
-filter methods. Reusable filter APIs are verified; CLI ignore wiring remains pending.
+filter methods. Reusable filter APIs are verified; SHA/date/path ignore wiring is now available.
+
+[Version-source metadata and ignore wiring](CSHARP-VERSION-SOURCE-PORTS.md) add all
+19 original methods / 27 cases and 32 fresh ignore combinations on both OS.

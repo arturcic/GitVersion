@@ -36,3 +36,6 @@ Verified unit/component methods: **576 / 1,516 (37.99%)**, with **789 more**
 required to reach 1,365 (90%). Integration remains 38 / 662; overall mapping
 is 614 / 2,178 (28.19%). These are source-method ports, not statement coverage or
 full replacement compatibility. CLI ignore wiring and Windows remain pending.
+
+The later [version-source checkpoint](CSHARP-VERSION-SOURCE-PORTS.md) completes
+SHA/date/path configuration wiring and supersedes the historical wiring limit above.
