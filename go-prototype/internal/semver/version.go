@@ -150,12 +150,46 @@ func (v Version) Compare(w Version) int {
 	}
 	return cmp.Compare(*v.Number, *w.Number)
 }
+
+type IncrementMode int
+
+const (
+	Standard IncrementMode = iota
+	Force
+	EnsureIntegrity
+)
+
+// Bump keeps the calculation API's explicit-label contract.
 func (v Version) Bump(i Increment, label string, force bool) (Version, error) {
+	mode := Standard
+	if force {
+		mode = Force
+	}
+	return v.BumpWithMode(i, &label, mode)
+}
+
+// BumpWithMode preserves the current label when label is nil. An explicit empty
+// label clears it. EnsureIntegrity keeps an existing prerelease core only when
+// that core already expresses the requested increment (for example 1.2.0-beta
+// for a minor increment, but not 1.2.3-beta).
+func (v Version) BumpWithMode(i Increment, label *string, mode IncrementMode) (Version, error) {
 	if i < None || i > Major {
 		return Version{}, fmt.Errorf("invalid increment")
 	}
+	if mode < Standard || mode > EnsureIntegrity {
+		return Version{}, fmt.Errorf("invalid increment mode")
+	}
+	integrity := false
+	switch i {
+	case Patch:
+		integrity = v.Patch != 0
+	case Minor:
+		integrity = v.Minor != 0 && v.Patch == 0
+	case Major:
+		integrity = v.Major != 0 && v.Minor == 0 && v.Patch == 0
+	}
 	out := v
-	if i == None || (v.IsPreRelease() && !force) {
+	if i == None || (v.IsPreRelease() && (mode == Standard || (mode == EnsureIntegrity && integrity))) {
 		if v.Number != nil {
 			n := *v.Number + 1
 			out.Number = &n
@@ -177,10 +211,15 @@ func (v Version) Bump(i Increment, label string, force bool) (Version, error) {
 			out.Number = &n
 		}
 	}
-	if !v.IsPreRelease() || out.Label != label {
+	if !v.IsPreRelease() {
 		n := int64(1)
 		out.Number = &n
-		out.Label = label
+		out.Label = ""
+	}
+	if label != nil && out.Label != *label {
+		n := int64(1)
+		out.Number = &n
+		out.Label = *label
 	}
 	if out.Major > math.MaxInt32 || out.Minor > math.MaxInt32 || out.Patch > math.MaxInt32 || (out.Number != nil && *out.Number > math.MaxInt32-60000) {
 		return Version{}, fmt.Errorf("unsupported incremented version range")

@@ -1,0 +1,44 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+  "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+  "methods": {
+    "ValidateInvalidVersionParsing": [
+      {
+        "id": "text",
+        "value": "someText",
+        "tag_prefix": null
+      },
+      {
+        "id": "hyphenated",
+        "value": "some-T-ext",
+        "tag_prefix": null
+      },
+      {
+        "id": "prefixed-invalid",
+        "value": "v.1.2.3",
+        "tag_prefix": "[vV]?"
+      }
+    ],
+    "VersionSorting": [
+      {
+        "id": "stable-after-beta",
+        "left": "1.0.0",
+        "right": "1.0.0-beta",
+        "sign": 1
+      },
+      {
+        "id": "higher-prerelease",
+        "left": "1.0.0-beta.2",
+        "right": "1.0.0-beta.1",
+        "sign": 1
+      },
+      {
+        "id": "lower-prerelease",
+        "left": "1.0.0-beta.1",
+        "right": "1.0.0-beta.2",
+        "sign": -1
+      }
+    ]
+  }
+}

@@ -94,6 +94,26 @@ for row in rows:
 assert found_ports == set(ports), 'A port source method is absent from the pin'
 assert used_recipes == set(recipe_by_id) and used_configs == set(config_cases), 'Unmapped port cases'
 found.update(found_ports)
+unit_ports = json.loads((root / 'testdata/csharp-unit-port-mappings.json').read_text())
+found_units = set()
+for row in rows:
+    key = Path(row['source']).stem + '.' + row['method']
+    if key not in unit_ports:
+        continue
+    port = unit_ports[key]
+    assert row['category'] == 'unit-or-component' and row['source'] == port['source'], key
+    assert row['source_sha256'] == port['source_sha256'], key
+    data = (root / port['case_file']).read_bytes()
+    assert hashlib.sha256(data).hexdigest() == port['case_file_sha256'], key
+    corpus = json.loads(data)
+    assert corpus['revision'] == revision and corpus['source_sha256'] == row['source_sha256'], key
+    assert [case['id'] for case in corpus['methods'][row['method']]] == port['case_ids'], key
+    assert len(port['case_ids']) == len(set(port['case_ids'])) and port['case_ids'], key
+    row.update(status=port['status'], go_test=port['go_test'], port_cases=port['case_ids'],
+               case_file=port['case_file'], adaptations=port['adaptations'])
+    found_units.add(key)
+assert found_units == set(unit_ports), 'Missing unit test declaration'
+found.update(found_units)
 out = {'schema': 1, 'source_revision': revision,
        'kind': 'static attributed method inventory; not expanded NUnit discovery',
        'declarations': len(rows), 'mapped_declarations': len(found),
