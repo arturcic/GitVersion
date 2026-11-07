@@ -20,6 +20,14 @@ import (
 // The Ubuntu parity image has no OpenSSH executable. This test-only client
 // implements the part of Git's external SSH interface needed by the fixture.
 func TestMain(m *testing.M) {
+	if len(os.Args) > 2 && os.Args[1] == "--fixture-askpass" {
+		name := "GITVERSION_SSH_PASSWORD"
+		if strings.Contains(os.Args[2], "jump@") {
+			name = "GITVERSION_SSH_JUMP_PASSWORD"
+		}
+		fmt.Println(os.Getenv(name))
+		os.Exit(0)
+	}
 	if len(os.Args) > 1 && os.Args[1] == "--fixture-ssh" {
 		if err := runFixtureSSHClient(os.Args[2:]); err != nil {
 			fmt.Fprintln(os.Stderr, err)
@@ -49,7 +57,7 @@ func runFixtureSSHClient(args []string) error {
 		return fmt.Errorf("fixture SSH expected destination and command")
 	}
 	user, host, ok := strings.Cut(args[0], "@")
-	if !ok || host != "127.0.0.1" {
+	if !ok || (host != "127.0.0.1" && host != "fixture-destination.invalid") {
 		return fmt.Errorf("fixture SSH accepts only loopback destinations")
 	}
 	trust, err := knownhosts.New(os.Getenv("SSH_KNOWN_HOSTS"))
@@ -91,21 +99,55 @@ func runFixtureSSHClient(args []string) error {
 		}
 	}
 
-	client, err := ssh.Dial("tcp", net.JoinHostPort(host, port), &ssh.ClientConfig{
-		User: user, Auth: []ssh.AuthMethod{ssh.PublicKeys(signers...)}, HostKeyCallback: trust, Timeout: 5 * time.Second,
-	})
-	if err != nil {
-		var hostError *knownhosts.KeyError
-		switch {
-		case errors.As(err, &hostError):
-			return fmt.Errorf("Host key verification failed")
-		case strings.Contains(err.Error(), "unable to authenticate"):
-			return fmt.Errorf("Permission denied (publickey)")
-		default:
+	address := net.JoinHostPort(host, port)
+	if override := os.Getenv("GITVERSION_FIXTURE_DESTINATION"); override != "" {
+		address = override
+	}
+	dial := func(address string) (net.Conn, error) { return net.DialTimeout("tcp", address, 5*time.Second) }
+	connect := func(address, user, password string, keys []ssh.Signer) (*ssh.Client, error) {
+		host, _, err := net.SplitHostPort(address)
+		if err != nil || host != "127.0.0.1" {
+			return nil, fmt.Errorf("fixture SSH accepts only loopback addresses")
+		}
+		conn, err := dial(address)
+		if err != nil {
+			return nil, err
+		}
+		auth := []ssh.AuthMethod{ssh.PublicKeys(keys...)}
+		if password != "" {
+			auth = append(auth, ssh.Password(password))
+		}
+		c, chans, reqs, err := ssh.NewClientConn(conn, address, &ssh.ClientConfig{User: user, Auth: auth, HostKeyCallback: trust})
+		if err != nil {
+			_ = conn.Close()
+			var hostError *knownhosts.KeyError
+			switch {
+			case errors.As(err, &hostError):
+				return nil, fmt.Errorf("Host key verification failed")
+			case strings.Contains(err.Error(), "unable to authenticate"):
+				return nil, fmt.Errorf("Permission denied")
+			}
+			return nil, err
+		}
+		return ssh.NewClient(c, chans, reqs), nil
+	}
+	for _, address := range strings.Split(os.Getenv("GITVERSION_FIXTURE_JUMPS"), ",") {
+		if address == "" {
+			continue
+		}
+		hop, err := connect(address, "jump", os.Getenv("GITVERSION_SSH_JUMP_PASSWORD"), nil)
+		if err != nil {
 			return err
 		}
+		defer hop.Close()
+		dial = func(address string) (net.Conn, error) { return hop.Dial("tcp", address) }
+	}
+	client, err := connect(address, user, os.Getenv("GITVERSION_SSH_PASSWORD"), signers)
+	if err != nil {
+		return err
 	}
 	defer client.Close()
+
 	session, err := client.NewSession()
 	if err != nil {
 		return err

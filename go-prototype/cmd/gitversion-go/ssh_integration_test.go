@@ -99,16 +99,21 @@ func sshFixtureAgent(t *testing.T, key ed25519.PrivateKey) string {
 
 func sshFixtureServer(t *testing.T, gitPath, repository string, host ssh.Signer, allowed ssh.PublicKey) (string, *atomic.Int32) {
 	t.Helper()
-	listener, err := net.Listen("tcp4", "127.0.0.1:0")
-	if err != nil {
-		t.Fatal(err)
-	}
 	server := &ssh.ServerConfig{PublicKeyCallback: func(conn ssh.ConnMetadata, key ssh.PublicKey) (*ssh.Permissions, error) {
 		if conn.User() != "git" || !bytes.Equal(key.Marshal(), allowed.Marshal()) {
 			return nil, fmt.Errorf("fixture rejected client key")
 		}
 		return nil, nil
 	}}
+	return sshFixtureUploadServer(t, gitPath, repository, host, server)
+}
+
+func sshFixtureUploadServer(t *testing.T, gitPath, repository string, host ssh.Signer, server *ssh.ServerConfig) (string, *atomic.Int32) {
+	t.Helper()
+	listener, err := net.Listen("tcp4", "127.0.0.1:0")
+	if err != nil {
+		t.Fatal(err)
+	}
 	server.AddHostKey(host)
 	var uploads atomic.Int32
 	sshFixtureListener(t, listener, func(conn net.Conn) {

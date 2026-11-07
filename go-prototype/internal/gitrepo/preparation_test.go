@@ -1,6 +1,7 @@
 package gitrepo
 
 import (
+	"errors"
 	"os"
 	"path/filepath"
 	"testing"
@@ -57,5 +58,15 @@ func TestDynamicCloneReusesMatchingRemoteAndPreservesCollision(t *testing.T) {
 	}
 	if entries, err := os.ReadDir(base); err != nil || len(entries) != 2 {
 		t.Fatalf("unexpected clone locations: %v (%v)", entries, err)
+	}
+}
+
+func TestSSHPasswordInURLIsRejectedBeforeClone(t *testing.T) {
+	base := filepath.Join(t.TempDir(), "clones")
+	if _, err := PrepareClone(t.Context(), "ssh://git:fixture-secret@127.0.0.1/example.git", base, false, Credentials{}); !errors.Is(err, errSSHPasswordInURL) {
+		t.Fatalf("expected URL password rejection, got %v", err)
+	}
+	if _, err := os.Stat(base); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("clone path was created: %v", err)
 	}
 }

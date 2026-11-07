@@ -49,12 +49,17 @@ func (localRepositoryLoader) Load(endpoint *transport.Endpoint) (storer.Storer, 
 type Credentials struct{ Username, Password string }
 
 type connection struct {
-	auth     transport.AuthMethod
-	caBundle []byte
-	socket   net.Conn
+	auth       transport.AuthMethod
+	caBundle   []byte
+	socket     net.Conn
+	proxy      transport.ProxyOptions
+	closeRoute func()
 }
 
 func (c connection) close() {
+	if c.closeRoute != nil {
+		c.closeRoute()
+	}
 	if c.socket != nil {
 		_ = c.socket.Close()
 	}
@@ -66,7 +71,7 @@ func connectionOptions(ctx context.Context, source string, credentials Credentia
 		return connection{}, nil
 	}
 	if endpoint.Protocol == "ssh" {
-		return sshConnectionOptions(ctx, endpoint)
+		return sshConnectionOptions(ctx, endpoint, credentials)
 	}
 	var options connection
 	if endpoint.Protocol != "http" && endpoint.Protocol != "https" {
@@ -90,6 +95,9 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 	endpoint, err := transport.NewEndpoint(source)
 	if err != nil {
 		return "", errors.New("Invalid dynamic repository URL.")
+	}
+	if endpoint.Protocol == "ssh" && endpoint.Password != "" {
+		return "", errSSHPasswordInURL
 	}
 	if endpoint.Protocol == "file" && !strings.Contains(source, "://") {
 		source = endpoint.Path
@@ -141,7 +149,7 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 			}
 			defer options.close()
 			if _, err := git.PlainCloneContext(ctx, filepath.Join(staging, ".git"), false, &git.CloneOptions{
-				URL: source, NoCheckout: noCheckout, Auth: options.auth, CABundle: options.caBundle,
+				URL: source, NoCheckout: noCheckout, Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy,
 			}); err != nil {
 				return "", transportFailure("clone", err)
 			}
@@ -217,7 +225,7 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 			return "", err
 		}
 		defer options.close()
-		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: options.auth, CABundle: options.caBundle}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
+		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
 			return "", transportFailure("fetch", err)
 		}
 	}
@@ -282,7 +290,7 @@ func advertisedTips(ctx context.Context, remote *git.Remote, head plumbing.Hash,
 		return nil, err
 	}
 	defer options.close()
-	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: options.auth, CABundle: options.caBundle, PeelingOption: git.AppendPeeled})
+	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy, PeelingOption: git.AppendPeeled})
 	if err != nil {
 		return nil, transportFailure("list remote references for", err)
 	}
