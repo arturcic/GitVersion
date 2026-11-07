@@ -14,7 +14,7 @@ The module uses **go-git v5.19.3** and requires Go 1.26 or newer. Fixture constr
 
 `baseline.json` pins the established `src/` C# implementation at `14d222235b7dabb7033473528a76fd18478a9217`, its SDK, Release/net10.0 build, runtime 10.0.14, v7 configuration/parser, managed Git backend, and invocation. The prototype intentionally does not use the experimental `new-cli/` tree or published v6 behavior.
 
-The C# oracle is an unmodified historical build. That source still references and publishes its legacy libgit2 fallback; the harness explicitly selects its **managed** backend. Those historical C# packages are confined to the ignored oracle build and are not Go dependencies. Eliminating the historical fallback from C# packaging is outside this prototype.
+The C# oracle is an unmodified historical build. That source still references and publishes its legacy libgit2 fallback; the harness normally selects its **managed** backend. Repository preparation uses the pinned native C# backend on offline Ubuntu because the managed clone and fetch require a system Git executable. Those historical C# packages are confined to the ignored oracle build and are not Go dependencies. Eliminating the historical fallback from C# packaging is outside this prototype.
 
 `scripts/build-baseline.sh` extracts exactly the pinned commit with `git archive`, builds the extracted source, captures help/schema/version, and writes `.local/baseline.lock.json`. The lock includes the source-archive SHA256, baseline-spec SHA256, every published file's SHA256, the dotnet-host SHA256, and every file in the explicitly selected .NET runtime. It also records SDK, toolchain, platform and runtime inventory. Runs verify the spec, executable directory, host and pinned runtime against this lock before executing. This detects drift; it is local build provenance, not a signed supply-chain attestation.
 
@@ -264,8 +264,9 @@ for a JSON scalar or `gitversion-go --show-config` for the effective YAML.
 cover 36 original methods and 60 cases. Use `gitversion-go config migrate --config PATH`
 to preview migrated YAML. `--output PATH` writes a new file and `--in-place` replaces the input.
 
-[POSIX and legacy argument ports](CSHARP-ARGUMENT-PARSER-PORTS.md) cover 146
-original methods and 251 cases. For a local calculation, run
+[The historical argument port batch](CSHARP-ARGUMENT-PARSER-PORTS.md) covered
+146 original methods and 251 cases. The active Go CLI uses POSIX arguments
+only. For a local calculation, run
 `gitversion-go /path/to/repository --show-variable FullSemVer`.
 
 [Build-agent output ports](CSHARP-BUILD-AGENT-PORTS.md) cover all 79 original
@@ -332,7 +333,7 @@ Pass `--update-wix-version-file` to the root CLI to generate or replace
 [WiX and version output evidence](CSHARP-WIX-AND-OUTPUT-EVIDENCE.json) records
 the original cases and live byte comparisons on macOS and Ubuntu.
 
-The root CLI supports `--commit <sha>` and the legacy `-c <sha>` option.
+The root CLI supports `--commit <sha>`. The short option `-c` selects a configuration file.
 It selects history on the current branch by the requested commit's timestamp.
 The root CLI maintains a persistent calculation cache. The
 [CLI execution evidence](CSHARP-CLI-EXECUTION-EVIDENCE.json) records live
@@ -395,10 +396,29 @@ pinned C# inventory to 1,365 passing Go method paths and 35,300 original case
 paths on macOS and offline Ubuntu 26. Integration declarations and Go statement
 coverage are tracked separately.
 
-The root CLI supports `--branch NAME` and legacy `-b NAME` for local branches
+The root CLI supports `--branch NAME` and its short alias `-b NAME` for local branches
 and existing remote-tracking refs. `GIT_BRANCH` and `Git_Branch` supply a
 calculation context at the checked-out commit, with the uppercase name
 taking priority. An explicit target takes precedence over both aliases.
 Branch selection preserves the checkout and the Git refs. The
 [branch selection evidence](CSHARP-BRANCH-SELECTION-EVIDENCE.json)
 records live JSON and repository-state comparisons on both platforms.
+
+The root CLI accepts `--url URL --branch NAME` to calculate against a dynamic
+clone. Set `--dynamic-repo-location DIRECTORY` to choose where the clone is
+stored, or let it use the system temporary directory. In CI, the branch context
+can supply the name. Configuration and output are resolved in the invoking
+working directory. Repeated runs can reuse a clone with the matching URL.
+
+In recognized CI environments the root CLI fetches into remote-tracking refs
+unless `--no-fetch` or a provider rule prevents it. `--no-normalize` skips CI
+preparation for an existing checkout. The Go calculation can use normalized
+branch tips in memory; it does not move HEAD, rewrite local branch tips, or
+remove remote configurations. Local paths and `file://` URLs use go-git in
+process without a system Git executable.
+
+The [repository preparation evidence](CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json)
+records seven live comparisons of all 33 version fields on macOS and offline
+Ubuntu 26. External authentication services and broader CI topologies are
+outside this evidence. Legacy argument syntax and the parser selector are out
+of scope; v6 YAML loading and configuration migration remain supported.

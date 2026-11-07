@@ -4,6 +4,12 @@ User target: port 90% of the original C# unit tests to Go, keeping all work loca
 prioritizing calculation/configuration and validating macOS and Ubuntu 26.
 Windows validation stays last.
 
+The totals below describe the historical checkpoint at `1f4d6b5fb`. The
+current Go contract excludes legacy argument syntax. Legacy-only parser tests
+and the legacy variants of shared CLI tests are no longer in the active Go
+suite. The original mappings and evidence are retained for audit. POSIX argument
+tests and v6 YAML loading and migration remain in scope.
+
 The pinned static inventory has **1,516 unit-or-component test declarations**
 outside the explicit IntegrationTests directories and **662 integration declarations**.
 Using this conservative existing classification, the target is **at least 1,365
