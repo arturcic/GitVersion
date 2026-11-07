@@ -53358,7 +53358,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.LogPathContainsForwardSlash": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53373,7 +53373,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.CheckBuildServerVerbosityConsole": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53393,7 +53393,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.VerboseVerbosityIncludesDebugOutput": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53409,7 +53409,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53424,7 +53424,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.WorkingDirectoryWithoutGitFolderDoesNotFailForVersionAndHelp": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53440,7 +53440,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.WorkingDirectoryWithoutCommitsFailsWithInformativeMessage": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53455,7 +53455,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.WorkingDirectoryDoesNotExistFailsWithInformativeMessage": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -53470,7 +53470,7 @@
     "adaptations": [
       "Use the Go CLI and equivalent temporary files or go-git histories."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationValidationJsonTests.ValidationEnvelopePreservesFieldNamesNullsAndDiagnosticDetails": {
     "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
@@ -53485,7 +53485,7 @@
     "adaptations": [
       "Use the Go validation envelope and retain the original byte-level assertion."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationValidationJsonTests.SuccessfulValidationPreservesEmptyDiagnostics": {
     "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
@@ -53500,7 +53500,7 @@
     "adaptations": [
       "Use the Go validation envelope and retain the original byte-level assertion."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationValidationJsonTests.YamlDiagnosticPreservesNumericLocationAndEscapedUnicodePath": {
     "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
@@ -53515,6 +53515,6 @@
     "adaptations": [
       "Use the Go validation envelope and retain the original byte-level assertion."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

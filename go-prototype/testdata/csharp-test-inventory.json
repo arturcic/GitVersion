@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 1245,
-      "verified": 1234
+      "verified": 1245
     },
     "integration": {
       "declarations": 662,
@@ -3829,7 +3829,7 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpValidationJSON",
       "fixtures": [],
       "port_cases": [
@@ -3853,7 +3853,7 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpValidationJSON",
       "fixtures": [],
       "port_cases": [
@@ -3877,7 +3877,7 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpValidationJSON",
       "fixtures": [],
       "port_cases": [
@@ -4349,7 +4349,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4373,7 +4373,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4438,7 +4438,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4471,7 +4471,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4496,7 +4496,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4524,7 +4524,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4549,7 +4549,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
@@ -4573,7 +4573,7 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCLIExecution",
       "fixtures": [],
       "port_cases": [
