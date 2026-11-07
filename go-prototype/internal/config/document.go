@@ -72,7 +72,7 @@ func normalizeDocument(node *yaml.Node, version, source string) (*yaml.Node, err
 		return nil, fmt.Errorf("%s combines v7 sections with unsupported root-level properties", source)
 	case "V6":
 		if version == "v7" {
-			return nil, fmt.Errorf("%s uses the legacy v6 configuration structure, but v7 is selected", source)
+			return nil, fmt.Errorf("%s uses the legacy v6 configuration structure, but v7 is selected. Run 'gitversion config migrate'", source)
 		}
 	case "V7":
 		if version == "v6" {

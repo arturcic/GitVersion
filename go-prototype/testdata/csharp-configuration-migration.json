@@ -1,0 +1,541 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "ConfigurationMigrationServiceTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
+      "sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
+      "methods": {
+        "MigrationPreservesCommitLabelTemplateUnderCalculationBranches": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "ci.{ShortSha}"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "{BranchName}.{Sha}"
+              ]
+            }
+          ]
+        },
+        "MigratesFlatConfigurationToCalculationAndOutputSections": {
+          "document": "workflow: GitFlow/v1\ntag-prefix: custom-\nupdate-build-number: false\nbranches:\n  main:\n    increment: Major\n    pre-release-weight: 42",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "AcceptsNestedConfigurationAndProducesDeterministicOutput": {
+          "document": "output:\n  update-build-number: false\nworkflow: GitHubFlow/v1\ncalculation:\n  tag-prefix: custom-",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "MigratesWorkflowOnlyConfigurationAtRoot": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "GitFlow/v1"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitHubFlow/v1"
+              ]
+            }
+          ]
+        },
+        "MigratesDraftCalculationWorkflowToRootWithoutChangingOverrides": {
+          "document": "calculation:\n  workflow: GitHubFlow/v1\n  tag-prefix: custom-\noutput:\n  update-build-number: false",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RejectsDuplicateRootAndCalculationWorkflowsEvenWhenEqual": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitFlow/v1"
+              ]
+            }
+          ]
+        },
+        "RejectsOutputWorkflow": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "output:\n  workflow: GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "workflow: GitHubFlow/v1\noutput:\n  workflow: GitHubFlow/v1"
+              ]
+            }
+          ]
+        },
+        "MigratesConfiguredValuesWithoutAddingDefaults": {
+          "document": "workflow: GitHubFlow/v1\nmode: ContinuousDeployment\nupdate-build-number: false\nbranches:\n  main:\n    increment: Minor\n    pre-release-weight: 42",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RejectsMixedConfiguration": {
+          "document": "calculation: {}\ntag-prefix: custom-",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RejectsMalformedYaml": {
+          "document": "branches: [",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RejectsInvalidSettings": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "update-build-number: not-a-boolean"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "output:\n  update-build-number: not-a-boolean"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "branches:\n  main:\n    increment: Invalid"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation:\n  branches:\n    main:\n      increment: Invalid"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "unknown-setting: true"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "calculation:\n  unknown-setting: true"
+              ]
+            }
+          ]
+        },
+        "RejectsInvalidNestedStructure": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "output:\n  increment: Major",
+                "calculation.increment"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "calculation:\n  branches:\n    main:\n      pre-release-weight: 42",
+                "output.branches.<branch>.pre-release-weight"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "output: []",
+                "must be a mapping"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation:\n  branches: []",
+                "must be a mapping"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationMigrationExecutorTests": {
+      "source": "src/GitVersion.App.Tests/ConfigurationMigrationExecutorTests.cs",
+      "sha256": "d52062d7304650eac63493d3c7d16839403fbf269d3a048a9afe1ba5c2ff66c9",
+      "methods": {
+        "InPlaceMigrationWarnsThatCommentsCannotBePreserved": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "InPlaceMigrationWritesWorkflowAtRootAndIsIdempotent": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "workflow: GitHubFlow/v1\nnext-version: 2.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "calculation:\n  workflow: GitHubFlow/v1\n  next-version: 2.0.0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationVersionIntegrationTests": {
+      "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
+      "sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
+      "methods": {
+        "V6V7AndMigratedConfigurationCalculateCurrentCommitLabel": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "ShortSha"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "Sha"
+              ]
+            }
+          ]
+        },
+        "ConfigMigrateWritesMigratedConfigurationToStandardOutput": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateDoesNotOverwriteOutputWithoutForce": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateDiscoversRootConfigurationUnlessWorkingDirectoryHasOne": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "ConfigMigrateLeavesNoTemporaryFileAfterWritingOutput": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateRejectsInvalidInputWithoutReplacingFile": {
+          "document": "output:\n  increment: Major",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateInPlaceMigratesExplicitConfigurationOutsideGitRepository": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateInPlaceUsesPositionalTargetPath": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateDoesNotEmitLegacyFallbackWarning": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "V6AndV7ConfigurationCalculateTheSameVersion": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ExplicitV6WarningUsesStandardErrorOnceWithoutContaminatingJson": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "CalculatesVersionWithSharedRootConfiguration": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6",
+                ""
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7",
+                ""
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "v6",
+                "workflow: GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "v7",
+                "workflow: GitHubFlow/v1"
+              ]
+            }
+          ]
+        },
+        "RootWorkflowAppliesDefaultsToBothSectionsAndPreservesOverrides": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "ExplicitV6WithoutUserConfigurationDoesNotWarnOnStandardError": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShowConfigUsesSelectedConfigurationStructure": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6",
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7",
+                true
+              ]
+            }
+          ]
+        },
+        "DefaultCalculationDisplaysConfigurationVersionMismatchOnStandardError": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "InvalidConfigurationVersionDisplaysDiagnosticOnStandardError": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ArgumentParserTests": {
+      "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+      "sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+      "methods": {
+        "ConfigMigrateParsesItsInputAndOutputOptions": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "config migrate --config GitVersion.yml"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "config migrate -c GitVersion.yml"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--config GitVersion.yml config migrate"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "-c GitVersion.yml config migrate"
+              ]
+            }
+          ]
+        },
+        "ConfigMigrateUsesPositionalTargetPath": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigMigrateRejectsOutputAndInPlaceTogether": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigRequiresASubcommand": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "LegacyArgumentParserTests": {
+      "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+      "sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+      "methods": {
+        "ConfigMigrateIsRejectedAsASubcommand": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}

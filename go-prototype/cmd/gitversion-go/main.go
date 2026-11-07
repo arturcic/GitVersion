@@ -10,12 +10,20 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"io"
 	"os"
+	"path/filepath"
+	"strings"
 )
 
 func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
+	if flags, directory, ok := migrationInvocation(args); ok {
+		return runConfigMigration(flags, directory, out, diagnostics)
+	}
+	if len(args) == 1 && args[0] == "config" {
+		return fmt.Errorf("The 'config' command requires a subcommand. Use 'gitversion config get', 'gitversion config validate' or 'gitversion config migrate'.")
+	}
 	if flags, directory, ok := configInvocation(args, "validate"); ok {
 		return runConfigValidate(flags, directory, out, diagnostics)
 	}
@@ -40,20 +48,49 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	format := f.String("output", "json", "output format")
 	custom := f.String("config", "", "configuration file path")
 	trace := f.Bool("trace", false, "emit calculation trace on stderr")
+	logFile := f.String("log-file", "", "write calculation diagnostics")
 	if err := f.Parse(args[1:]); err != nil {
 		return fmt.Errorf("%s: %w", usage, err)
 	}
-	if *path == "" || f.NArg() != 0 || *format != "json" || ((*trace || *custom != "") && args[0] != "calculate") {
+	if *path == "" || f.NArg() != 0 || *format != "json" || ((*trace || *custom != "" || *logFile != "") && args[0] != "calculate") {
 		return fmt.Errorf("%s", usage)
 	}
 	if args[0] == "calculate" {
-		cfg, err := config.LoadNamed(*path, *custom)
-		if err != nil {
+		if _, err := selectedConfigurationVersion(); err != nil {
 			return err
+		}
+		var warning string
+		cfg, err := config.LoadNamedWithWarning(*path, *custom, func(message string) { warning = message })
+		if err != nil {
+			if strings.Contains(err.Error(), "uses the legacy v6 configuration structure") {
+				return fmt.Errorf("An error occurred:\n%w", err)
+			}
+			return err
+		}
+		if warning != "" {
+			fmt.Fprintln(diagnostics, warning)
 		}
 		values, detail, err := calculate.CalculateWithConfig(*path, cfg)
 		if err != nil {
 			return err
+		}
+		if warning != "" && *logFile != "" && *logFile != "console" {
+			name := *logFile
+			if !filepath.IsAbs(name) {
+				name = filepath.Join(*path, name)
+			}
+			file, err := os.OpenFile(name, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
+			if err != nil {
+				return err
+			}
+			_, err = fmt.Fprintln(file, warning)
+			closeErr := file.Close()
+			if err != nil {
+				return err
+			}
+			if closeErr != nil {
+				return closeErr
+			}
 		}
 		if *trace {
 			if err = json.NewEncoder(diagnostics).Encode(detail); err != nil {

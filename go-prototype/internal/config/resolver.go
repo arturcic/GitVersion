@@ -284,7 +284,11 @@ func (c ResolvedConfiguration) Serialize(version string) ([]byte, error) {
 			return nil, err
 		}
 	}
-	orderConfiguration(node, false)
+	return serializeConfigurationNode(node, true)
+}
+
+func serializeConfigurationNode(node *yaml.Node, omitNull bool) ([]byte, error) {
+	orderConfiguration(node, false, omitNull)
 	var out bytes.Buffer
 	encoder := yaml.NewEncoder(&out)
 	encoder.SetIndent(2)
@@ -292,7 +296,7 @@ func (c ResolvedConfiguration) Serialize(version string) ([]byte, error) {
 	return out.Bytes(), err
 }
 
-func orderConfiguration(node *yaml.Node, preserve bool) {
+func orderConfiguration(node *yaml.Node, preserve, omitNull bool) {
 	if node.Kind != yaml.MappingNode {
 		if node.Kind == yaml.SequenceNode {
 			node.Style = 0
@@ -304,11 +308,11 @@ func orderConfiguration(node *yaml.Node, preserve bool) {
 	var entries []pair
 	for i := 0; i < len(node.Content); i += 2 {
 		key, value := node.Content[i], node.Content[i+1]
-		if value.Tag == "!!null" {
+		if omitNull && value.Tag == "!!null" {
 			continue
 		}
 		key.Style = 0
-		orderConfiguration(value, key.Value == "branches" || key.Value == "merge-message-formats")
+		orderConfiguration(value, key.Value == "branches" || key.Value == "merge-message-formats", omitNull)
 		entries = append(entries, pair{key, value})
 	}
 	if !preserve {

@@ -221,6 +221,10 @@ func (l FileLocator) ProvideForDirectory(directory *string, version string) (Con
 	return ParseProvided(data, version)
 }
 func LoadNamed(repo, custom string) (Config, error) {
+	return LoadNamedWithWarning(repo, custom, nil)
+}
+
+func LoadNamedWithWarning(repo, custom string, warn func(string)) (Config, error) {
 	var name *string
 	if custom != "" {
 		name = &custom
@@ -232,5 +236,21 @@ func LoadNamed(repo, custom string) (Config, error) {
 			return Config{}, fmt.Errorf("Could not find config file at '%s'", path)
 		}
 	}
-	return locator.ProvideForDirectory(&repo, os.Getenv("GITVERSION_CONFIGURATION_VERSION"))
+	version := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
+	file, err := locator.Get(&repo)
+	if err != nil {
+		return Config{}, err
+	}
+	if file == nil {
+		return ParseProvided(nil, version)
+	}
+	data, err := locator.fs().ReadFile(*file)
+	if err != nil {
+		return Config{}, err
+	}
+	configuration, err := ParseProvided(data, version)
+	if err == nil && warn != nil && IsExplicitV6(&version) {
+		warn(LegacyConfigurationWarning(*file))
+	}
+	return configuration, err
 }

@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 759,
+  "mapped_declarations": 795,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 721,
+      "mapped": 757,
       "verified": 721
     },
     "integration": {
@@ -373,9 +373,19 @@
       ],
       "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ArgumentParserTests.cs#ConfigMigrateUsesPositionalTargetPath",
@@ -390,9 +400,16 @@
       ],
       "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ArgumentParserTests.cs#ConfigMigrateRejectsOutputAndInPlaceTogether",
@@ -407,9 +424,16 @@
       ],
       "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ArgumentParserTests.cs#ConfigRequiresASubcommand",
@@ -424,9 +448,16 @@
       ],
       "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ArgumentParserTests.cs#TargetPathAllowsDirectoryNamedConfig",
@@ -2122,9 +2153,16 @@
       ],
       "source_sha256": "d52062d7304650eac63493d3c7d16839403fbf269d3a048a9afe1ba5c2ff66c9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationMigrationExecutorTests.cs#InPlaceMigrationWritesWorkflowAtRootAndIsIdempotent",
@@ -2143,9 +2181,17 @@
       ],
       "source_sha256": "d52062d7304650eac63493d3c7d16839403fbf269d3a048a9afe1ba5c2ff66c9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryUsesDefaultAndWorkflowConfiguration",
@@ -3068,9 +3114,17 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateWritesMigratedConfigurationToStandardOutput",
@@ -3085,9 +3139,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateDoesNotOverwriteOutputWithoutForce",
@@ -3102,9 +3163,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateDiscoversRootConfigurationUnlessWorkingDirectoryHasOne",
@@ -3123,9 +3191,17 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateLeavesNoTemporaryFileAfterWritingOutput",
@@ -3140,9 +3216,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateRejectsInvalidInputWithoutReplacingFile",
@@ -3157,9 +3240,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateInPlaceMigratesExplicitConfigurationOutsideGitRepository",
@@ -3174,9 +3264,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateInPlaceUsesPositionalTargetPath",
@@ -3191,9 +3288,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ConfigMigrateDoesNotEmitLegacyFallbackWarning",
@@ -3208,9 +3312,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#V6AndV7ConfigurationCalculateTheSameVersion",
@@ -3225,9 +3336,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ExplicitV6WarningUsesStandardErrorOnceWithoutContaminatingJson",
@@ -3246,9 +3364,17 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#CalculatesVersionWithSharedRootConfiguration",
@@ -3275,9 +3401,19 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#RootWorkflowAppliesDefaultsToBothSectionsAndPreservesOverrides",
@@ -3296,9 +3432,17 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ExplicitV6WithoutUserConfigurationDoesNotWarnOnStandardError",
@@ -3313,9 +3457,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#ShowConfigUsesSelectedConfigurationStructure",
@@ -3334,9 +3485,17 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#DefaultCalculationDisplaysConfigurationVersionMismatchOnStandardError",
@@ -3351,9 +3510,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#InvalidConfigurationVersionDisplaysDiagnosticOnStandardError",
@@ -3368,9 +3534,16 @@
       ],
       "source_sha256": "0c2537828fd88f96893b3796b7db7815330b88e6058108fb93b8b742b79f1285",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#InvalidArgumentsExitCodeShouldNotBeZero",
@@ -3994,9 +4167,16 @@
       ],
       "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigrationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs#EmptyMeansUseCurrentDirectory",
@@ -8682,9 +8862,17 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#MigratesFlatConfigurationToCalculationAndOutputSections",
@@ -8699,9 +8887,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#AcceptsNestedConfigurationAndProducesDeterministicOutput",
@@ -8716,9 +8911,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#MigratesWorkflowOnlyConfigurationAtRoot",
@@ -8737,9 +8939,17 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#MigratesDraftCalculationWorkflowToRootWithoutChangingOverrides",
@@ -8754,9 +8964,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsDuplicateRootAndCalculationWorkflowsEvenWhenEqual",
@@ -8775,9 +8992,17 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsOutputWorkflow",
@@ -8796,9 +9021,17 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#MigratesConfiguredValuesWithoutAddingDefaults",
@@ -8813,9 +9046,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsMixedConfiguration",
@@ -8830,9 +9070,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsMalformedYaml",
@@ -8847,9 +9094,16 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsInvalidSettings",
@@ -8884,9 +9138,21 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs#RejectsInvalidNestedStructure",
@@ -8913,9 +9179,19 @@
       ],
       "source_sha256": "30356e7a0493ef06c90acad99043b7a73669d352e8a91d0dbd02dd3da897c3fc",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationMigration",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-migration.json",
+      "adaptations": [
+        "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#PreservesStringTypeAndContents",

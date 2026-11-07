@@ -41,9 +41,9 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 		return fmt.Errorf("Could not parse command line parameter")
 	}
 	requested := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
-	version, err := config.SelectConfigurationVersion(&requested)
+	version, err := selectedConfigurationVersion()
 	if err != nil {
-		return fmt.Errorf("An error occurred:\nUnrecognized GITVERSION_CONFIGURATION_VERSION value '%s'. Valid values are 'v6' and 'v7'.", requested)
+		return err
 	}
 	if !show && version != "v7" {
 		return fmt.Errorf("An error occurred:\n%s", config.RequireV7Query)
@@ -128,4 +128,13 @@ func configurationDisplayInvocation(args []string) ([]string, string, bool) {
 		return args[2:], args[0], true
 	}
 	return nil, "", false
+}
+
+func selectedConfigurationVersion() (string, error) {
+	requested := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
+	version, err := config.SelectConfigurationVersion(&requested)
+	if err != nil {
+		return "", fmt.Errorf("An error occurred:\nUnrecognized GITVERSION_CONFIGURATION_VERSION value '%s'. Valid values are 'v6' and 'v7'.", requested)
+	}
+	return version, nil
 }

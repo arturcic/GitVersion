@@ -88,7 +88,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	if err != nil {
 		return nil, trace, err
 	}
-	effective, err := cfg.Effective(branch)
+	effective, err := cfg.EffectiveAt(branch, "main", head)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -144,7 +144,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 		return nil, trace, fmt.Errorf("no base versions determined from source branches")
 	}
 	source := sources[0]
-	effective, err = cfg.EffectiveFrom(branch, source)
+	effective, err = cfg.EffectiveAt(branch, source, head)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -329,7 +329,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	}
 	candidates := []candidate{}
 	for _, source := range sources {
-		effective, err := cfg.EffectiveFrom(branch, source)
+		effective, err := cfg.EffectiveAt(branch, source, head)
 		if err != nil {
 			return nil, trace, err
 		}

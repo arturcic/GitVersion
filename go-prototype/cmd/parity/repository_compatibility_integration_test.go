@@ -15,6 +15,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/fixtures"
 	"github.com/GitTools/GitVersion/go-prototype/internal/parity"
 )
@@ -197,6 +198,27 @@ custom-version-format: "{SemVer}-legacy"
 		}
 		steps = append(steps, fixtures.Step{Op: "commit", ID: "after"}, fixtures.Step{Op: "checkpoint", ID: "head"})
 		recipes = append(recipes, fixtures.Recipe{ID: setting.id, Description: "Configured version variable rendering", Config: setting.configuration, Steps: steps})
+	}
+
+	for _, placeholder := range []string{"ShortSha", "Sha"} {
+		label := "ci.{" + placeholder + "}"
+		legacy := "next-version: 2.0.0\nbranches:\n  feature: {label: '" + label + "'}"
+		migrated, err := config.MigrateConfiguration([]byte(legacy))
+		if err != nil {
+			t.Fatal(err)
+		}
+		for _, setting := range []struct{ id, document string }{
+			{"legacy", legacy},
+			{"nested", "calculation:\n  next-version: 2.0.0\n  branches:\n    feature: {label: '" + label + "'}\noutput: {}"},
+			{"migrated", string(migrated)},
+		} {
+			recipes = append(recipes, fixtures.Recipe{
+				ID:          setting.id + "-commit-label-" + strings.ToLower(placeholder),
+				Description: "Commit label across legacy and nested configuration",
+				Config:      setting.document,
+				Steps:       []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "branch", Name: "feature/topic"}, {Op: "checkout", Name: "feature/topic"}, {Op: "commit", ID: "feature"}, {Op: "checkpoint", ID: "head"}},
+			})
+		}
 	}
 
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {

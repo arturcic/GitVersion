@@ -39,8 +39,12 @@ func (p *Provider) ProvideFrom(directory, root *string, overrides []byte) (Resol
 	result, err := ResolveConfiguration(data, overrides, p.Version)
 	if err == nil && file != nil && IsExplicitV6(&p.Version) {
 		p.legacyWarning.Do(func() {
-			p.Locator.log(fmt.Sprintf("Configuration file '%s' uses the temporary v6 compatibility mode. Legacy configuration loading is removed in GitVersion 7.1. Run 'gitversion config migrate' and validate with GITVERSION_CONFIGURATION_VERSION=v7.", *file))
+			p.Locator.log(LegacyConfigurationWarning(*file))
 		})
 	}
 	return result, err
+}
+
+func LegacyConfigurationWarning(file string) string {
+	return fmt.Sprintf("Configuration file '%s' uses the temporary v6 compatibility mode. Legacy configuration loading is removed in GitVersion 7.1. Run 'gitversion config migrate' and validate with GITVERSION_CONFIGURATION_VERSION=v7.", file)
 }

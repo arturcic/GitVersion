@@ -64,6 +64,10 @@ type Effective struct {
 
 func (c Config) Effective(branch string) (Effective, error) { return c.EffectiveFrom(branch, "main") }
 func (c Config) EffectiveFrom(branch, source string) (Effective, error) {
+	return c.EffectiveAt(branch, source, "")
+}
+
+func (c Config) EffectiveAt(branch, source, sha string) (Effective, error) {
 	kind, capture, err := c.Branch(branch)
 	if err != nil {
 		return Effective{}, err
@@ -74,10 +78,19 @@ func (c Config) EffectiveFrom(branch, source string) (Effective, error) {
 		return Effective{}, err
 	}
 	parent := c.Options(parentKind)
-	e := Effective{NullLabel: o.NullLabel, Kind: kind, Mode: o.Mode, Label: Sanitize(strings.ReplaceAll(strings.ReplaceAll(o.Label, "{BranchName}", capture), "{Number}", capture), true), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
+	shortSHA := sha
+	if len(shortSHA) > 7 {
+		shortSHA = shortSHA[:7]
+	}
+	expandLabel := func(template string) string {
+		label := strings.ReplaceAll(strings.ReplaceAll(template, "{BranchName}", capture), "{Number}", capture)
+		label = strings.ReplaceAll(strings.ReplaceAll(label, "{Sha}", sha), "{ShortSha}", shortSHA)
+		return Sanitize(label, true)
+	}
+	e := Effective{NullLabel: o.NullLabel, Kind: kind, Mode: o.Mode, Label: expandLabel(o.Label), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
 	if e.Inherit && o.NullLabel {
 		e.NullLabel = parent.NullLabel
-		e.Label = Sanitize(strings.ReplaceAll(strings.ReplaceAll(parent.Label, "{BranchName}", capture), "{Number}", capture), true)
+		e.Label = expandLabel(parent.Label)
 	}
 	if e.Inherit && parent.Increment != nil {
 		e.Increment = *parent.Increment
@@ -315,11 +328,12 @@ func parseOptions(n *yaml.Node, kind string, o *Options) error {
 				}
 				o.Mode = Mode(s)
 			case "label":
-				literal := strings.ReplaceAll(s, "{BranchName}", "")
+				literal := strings.NewReplacer("{Sha}", "", "{ShortSha}", "").Replace(s)
+				branchLiteral := strings.ReplaceAll(literal, "{BranchName}", "")
 				if kind == "pull-request" {
-					literal = strings.ReplaceAll(literal, "{Number}", "")
+					branchLiteral = strings.ReplaceAll(branchLiteral, "{Number}", "")
 				}
-				if strings.ContainsAny(literal, "{}") || strings.Contains(s, "env:") || ((kind == "main" || kind == "develop") && literal != s) {
+				if strings.ContainsAny(branchLiteral, "{}") || strings.Contains(s, "env:") || ((kind == "main" || kind == "develop") && branchLiteral != literal) {
 					return fmt.Errorf("unsupported label template %q", s)
 				}
 				o.Label = s

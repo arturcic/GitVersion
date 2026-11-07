@@ -118,7 +118,7 @@ func (e *mlEngine) effective(n *mlNode) config.Effective {
 	}
 	kind, _, _ := e.cfg.Branch(n.branch)
 	o := e.cfg.Options(kind)
-	v, _ := e.cfg.EffectiveFrom(n.branch, n.branch)
+	v, _ := e.cfg.EffectiveAt(n.branch, n.branch, n.id)
 	if kind != "main" && o.Increment == nil {
 		var parent *mlNode
 		for p := n.prev; p != nil; p = p.prev {
@@ -168,7 +168,7 @@ func (e *mlEngine) effective(n *mlNode) config.Effective {
 }
 func (e *mlEngine) iterationEffective(it *mlIteration) config.Effective {
 	if len(it.nodes) > 0 {
-		n := &mlNode{branch: it.branch, iteration: it, prev: it.nodes[0]}
+		n := &mlNode{id: it.nodes[0].id, branch: it.branch, iteration: it, prev: it.nodes[0]}
 		return e.effective(n)
 	}
 	v, _ := e.cfg.Effective(it.branch)
@@ -362,7 +362,7 @@ func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semv
 		known := kind == "main" || e.cfg.Options(kind).Increment != nil
 		matchLabel, matchNull := e.label, e.labelNull
 		if matchNull {
-			stateEffective, _ := e.cfg.EffectiveFrom(state, state)
+			stateEffective, _ := e.cfg.EffectiveAt(state, state, id)
 			matchLabel, matchNull = stateEffective.Label, stateEffective.NullLabel
 		}
 		for _, v := range n.tags {
@@ -682,7 +682,7 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 	if err != nil {
 		return candidate{}, err
 	}
-	effective, err := cfg.EffectiveFrom(branch, source)
+	effective, err := cfg.EffectiveAt(branch, source, head)
 	if err != nil {
 		return candidate{}, err
 	}

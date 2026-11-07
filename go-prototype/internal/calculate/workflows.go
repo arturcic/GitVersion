@@ -373,7 +373,7 @@ func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRe
 			own[id] = true
 		}
 	}
-	effective, err := cfg.Effective(branch.name)
+	effective, err := cfg.EffectiveAt(branch.name, "main", branch.sha)
 	if err != nil {
 		return semver.Version{}, "", false, err
 	}
