@@ -11,6 +11,41 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 )
 
+func runConfigGetInvocation(args []string, stdout, stderr io.Writer) (bool, error) {
+	for i := 0; i+1 < len(args); i++ {
+		if args[i] != "config" || args[i+1] != "get" {
+			continue
+		}
+		if i > 0 && (args[0] == "calculate" || args[0] == "observe" || args[0] == "config") {
+			return false, nil
+		}
+		root, workdir, err := parseOptionTokens(args[:i], false)
+		if err != nil {
+			return true, err
+		}
+		if workdir == "" {
+			workdir = "."
+		}
+		if i+2 == len(args) {
+			return true, fmt.Errorf("Could not parse command line parameter")
+		}
+		for _, name := range validationUnsupportedRootOptions {
+			if _, exists := root[name]; exists && name != "log-file" && name != "verbosity" {
+				return true, fmt.Errorf("Option '--%s' cannot be used with 'config get'.", name)
+			}
+		}
+		flags := []string{args[i+2]}
+		for _, name := range []string{"config", "target-path", "override-config", "telemetry-opt-out", "log-file", "verbosity"} {
+			for _, value := range root[name] {
+				flags = append(flags, "--"+name+"="+value)
+			}
+		}
+		flags = append(flags, args[i+3:]...)
+		return true, runConfigQuery(flags, workdir, false, stdout, stderr)
+	}
+	return false, nil
+}
+
 func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.Writer) error {
 	if !show && strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
 		return fmt.Errorf("Could not parse command line parameter")

@@ -23,17 +23,13 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	if handled, err := runValidationInvocation(args, out, diagnostics); handled {
 		return err
 	}
-	if flags, directory, ok := configInvocation(args, "get"); ok {
-		return runConfigQuery(flags, directory, false, out, diagnostics)
+	if handled, err := runConfigGetInvocation(args, out, diagnostics); handled {
+		return err
 	}
 	if flags, directory, ok := configurationDisplayInvocation(args); ok {
 		return runConfigQuery(flags, directory, true, out, diagnostics)
 	}
-	for i, arg := range args {
-		if arg == "--update-wix-version-file" && i+2 < len(args) && args[i+1] == "config" && args[i+2] == "get" {
-			return fmt.Errorf("Option --update-wix-version-file cannot be used with 'config get'")
-		}
-	}
+
 	if len(args) == 0 || (args[0] != "observe" && args[0] != "calculate") {
 		return runRootCLI(args, out, diagnostics)
 	}
