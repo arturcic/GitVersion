@@ -50319,7 +50319,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.EnumerationMatchesGitForEachRef": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50334,7 +50334,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.EnumerationSkipsTransientLockFiles": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50349,7 +50349,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.ReadsPackedRefsIncludingPeeledTargets": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50364,7 +50364,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.LooseReferencesWinOverPackedReferences": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50379,7 +50379,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.HeadIsSymbolicWhenABranchIsCheckedOut": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50394,7 +50394,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.HeadIsDirectWhenDetached": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50409,7 +50409,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.HeadOfAnUnbornBranchResolvesToNull": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50424,7 +50424,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.FollowsChainsOfSymbolicReferences": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50439,7 +50439,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.ReturnsNullForAMissingReference": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50454,7 +50454,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.EnumerationCanBeFilteredByPrefix": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50469,7 +50469,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitReferenceStoreTests.ResolvedHeadCanBeReadFromTheObjectStore": {
     "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
@@ -50484,7 +50484,7 @@
     "adaptations": [
       "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.ACleanWorkingDirectoryHasNoChanges": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50499,7 +50499,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.CountsModifiedStagedDeletedAndUntrackedPathsOnce": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50514,7 +50514,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.ContentRestoredToTheCommittedStateIsClean": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50529,7 +50529,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.RespectsGitIgnoreRules": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50544,7 +50544,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.TreatsNonBoundaryConsecutiveAsterisksAsSlashExcluding": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50559,7 +50559,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.RespectsInfoExclude": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50574,7 +50574,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.HonorsCoreIgnoreCaseForIgnorePatterns": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50589,7 +50589,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.MatchesIgnorePatternsCaseSensitivelyWhenIgnoreCaseIsOff": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50604,7 +50604,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.CountsExecutableBitChanges": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50619,7 +50619,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.CountsAnUntrackedDirectorySymbolicLinkAsASingleEntry": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50634,7 +50634,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.CountsUntrackedFilesInAnEmptyRepository": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50649,7 +50649,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitStatusCalculatorTests.WorksAgainstAnIndexInVersion4Format": {
     "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
@@ -50664,7 +50664,7 @@
     "adaptations": [
       "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.ChangedPathsMatchLibGit2ForEveryCommit": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50679,7 +50679,7 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.ChangedPathsMatchLibGit2WhenAFileBecomesADirectory": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50694,7 +50694,7 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.ChangedPathsOfMergeCommitsUseTheFirstParent": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50709,7 +50709,7 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.ChangedPathsAlignEntriesByRawByteOrderNotUtf16Order": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50724,7 +50724,7 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.IdenticalTreesProduceNoChangedPaths": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50739,7 +50739,7 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitTreeDiffTests.FlattenTreeListsAllBlobPaths": {
     "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
@@ -50754,6 +50754,6 @@
     "adaptations": [
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
