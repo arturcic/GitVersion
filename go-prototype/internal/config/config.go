@@ -191,9 +191,26 @@ func Parse(data []byte) (Config, error) {
 	c.Workflow = workflow
 	c.initializeWorkflow()
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"next-version", "branches", "strategies"})
+		calc, err := mapping(node, "calculation", []string{"mode", "next-version", "branches", "strategies"})
 		if err != nil {
 			return c, err
+		}
+		if n := calc["mode"]; n != nil {
+			s, err := scalar(n, "calculation.mode")
+			if err != nil {
+				return c, err
+			}
+			if s != string(Manual) && s != string(Delivery) && s != string(Deployment) {
+				return c, fmt.Errorf("unsupported deployment mode %q", s)
+			}
+			// These workflow branches inherit the global mode. Other branch
+			// types have an explicit workflow mode, which takes precedence.
+			c.Main.Mode = Mode(s)
+			if c.Workflow == "GitFlow/v1" {
+				o := c.Options("support")
+				o.Mode = Mode(s)
+				c.setOptions("support", o)
+			}
 		}
 		if n := calc["strategies"]; n != nil {
 			if n.Kind != yaml.SequenceNode || n.Anchor != "" {
