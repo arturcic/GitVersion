@@ -45,5 +45,22 @@ retain unset/empty/case/whitespace selection, explicit-v6 detection and all asse
 unknown-value diagnostics. `TestCSharpConfigurationVersionSelector` calls the same
 selector used by configuration loading with an explicit nullable input.
 
-Platform gates are pending. The 21 mappings remain unverified until macOS and
-Ubuntu complete. Full legacy configuration/CLI coverage and Windows stay pending.
+Implementation checkpoint: `02b431db0`. macOS arm64 and Ubuntu 26.04.1 arm64
+each passed **37,867 regular tests/subtests in 11 packages**, with no failures or
+skips. All 35 original cases and the supplementary boundaries ran on both OS.
+Fresh process checks passed 91 repository/configuration JSON comparisons, 88
+global-mode JSON comparisons, 87 prior calculation JSON comparisons and six
+configuration checks per OS. All 33 actual-repository fields/types still match
+C#: **7.0.0-alpha.1+739**.
+
+`CSHARP-IGNORE-CONFIGURATION-EVIDENCE.json` records source, binary, corpus, report,
+log and archive hashes, verified against the implementation checkpoint and Linux
+input bundle. Complete Linux inputs and process outputs are retained locally.
+The container had no network or host mounts. Source extraction is deterministic;
+`go vet ./...` and whitespace checks pass. Original NUnit is not executed.
+
+Verified unit/component total: **616 / 1,516 (40.63%)**; **749 more methods** are
+required to reach 1,365 (90%). Integration remains 38 / 662; total mapping is
+654 / 2,178 (30.03%). Full legacy fields, other CLI/integration contracts and
+Windows remain pending. These percentages count source-method ports, not full
+replacement compatibility or statement coverage.

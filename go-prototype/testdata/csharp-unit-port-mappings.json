@@ -42930,7 +42930,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.ShouldSupportsOtherSequenceFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -42948,7 +42948,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.CanDeserializeCompactBranchesSequence": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -42966,7 +42966,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.CanDeserializeCompactTagsSequence": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -42984,7 +42984,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.CanDeserializeMultilineBranchesAndTagsSequences": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43002,7 +43002,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.CanDeserializeMultilineTagsSequence": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43020,7 +43020,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.WhenNotInConfigShouldHaveDefaults": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43038,7 +43038,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.IsEmpty_WhenBranchPatternIsConfigured_ReturnsFalse": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43056,7 +43056,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.IsEmpty_WhenTagPatternIsConfigured_ReturnsFalse": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43074,7 +43074,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.InvalidIgnoreBranchExpression_ThrowsConfigurationExceptionWithoutPattern": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43092,7 +43092,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.InvalidIgnoreTagExpression_ThrowsConfigurationExceptionWithoutPattern": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43110,7 +43110,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.Serialize_IgnoreBranchPatterns_UsesBranchesPropertyName": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43128,7 +43128,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.Serialize_IgnoreTagPatterns_UsesTagsPropertyName": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43146,7 +43146,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.IgnoreConfigurationBuilder_WithBranches_PreservesCollection": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43164,7 +43164,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.IgnoreConfigurationBuilder_WithTags_PreservesCollection": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43182,7 +43182,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.WhenBadDateFormatShouldFail": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43200,7 +43200,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.ShouldSupportScalarVersionStrategiesOverrideFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43218,7 +43218,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "IgnoreConfigurationTests.NewInstanceShouldBeEmpty": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
@@ -43236,7 +43236,7 @@
       "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
       "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionSelectorTests.ResolvesKnownValues": {
     "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
@@ -43260,7 +43260,7 @@
       "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
       "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionSelectorTests.IdentifiesExplicitV6Selection": {
     "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
@@ -43279,7 +43279,7 @@
       "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
       "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionSelectorTests.FailsFastOnUnknownValues": {
     "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
@@ -43298,6 +43298,6 @@
       "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
       "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

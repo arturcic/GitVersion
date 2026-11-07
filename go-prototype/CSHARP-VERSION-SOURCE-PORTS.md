@@ -53,3 +53,7 @@ required to reach 1,365 (90%). Integration ports remain 38 / 662; overall mappin
 is 633 / 2,178 (29.06%). These percentages measure source-method ports, not line
 coverage or full replacement compatibility. Branch/tag-name ignore expressions,
 legacy configuration loading and remaining CLI/integration contracts stay pending.
+
+The later [ignore configuration checkpoint](CSHARP-IGNORE-CONFIGURATION-PORTS.md)
+supersedes the branch/tag name filter limit above and adds selected v6 loading
+for implemented fields. Other legacy fields and CLI coverage remain pending.
