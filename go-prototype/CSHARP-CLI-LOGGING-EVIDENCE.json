@@ -58,10 +58,40 @@
     "Elapsed scope times"
   ],
   "remaining": [
-    "Full nested strategy diagnostics in untagged calculations.",
-    "Dynamic clone, fetch and CI normalization messages.",
-    "C# exception stack traces and backend-specific failure text.",
-    "Cache filenames, cache event ordering and other implementation-specific messages.",
+    "Detailed strategy-specific records in complex histories, including cached tagged-version and Mainline traversal diagnostics.",
+    "C# can rewrite checkout refs during CI normalization. Go projects refs for calculation and can reuse a matching local clone when the oracle selects a new destination.",
+    "Go keeps its own cache keys and atomically replaces corrupt entries after calculation. C# deletes corrupt entries before recalculating.",
+    "Go uses native transport and parsing diagnostics. Managed Git command output and .NET exception stack frames differ.",
     "Windows runtime verification."
-  ]
+  ],
+  "trace_checkpoint": {
+    "implementation": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+    "test": "TestPlatformCLITraceParity",
+    "normalized_complete_transcript": [
+      "fallback",
+      "configured-next",
+      "tagged-strategy",
+      "cache-miss",
+      "cache-hit",
+      "clone-no-sink-exception"
+    ],
+    "ordered_records": [
+      "mainline",
+      "cache-corrupt",
+      "clone",
+      "clone-repeat",
+      "clone-exception",
+      "clone-quiet-exception",
+      "ci-skip",
+      "ci-fetch"
+    ],
+    "normalization": [
+      "Wall clock timestamps",
+      "Elapsed scope times",
+      "Per-process fixture directory",
+      "Independent cache keys"
+    ],
+    "regression_suites": 8,
+    "remote_ci_regression_cases": 25
+  }
 }
