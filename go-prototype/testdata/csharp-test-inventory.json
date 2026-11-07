@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1085,
+  "mapped_declarations": 1115,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1047,
+      "mapped": 1077,
       "verified": 1047
     },
     "integration": {
@@ -217569,9 +217569,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#EnumerationMatchesGitForEachRef",
@@ -217586,9 +217593,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#EnumerationSkipsTransientLockFiles",
@@ -217603,9 +217617,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#ReadsPackedRefsIncludingPeeledTargets",
@@ -217620,9 +217641,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#LooseReferencesWinOverPackedReferences",
@@ -217637,9 +217665,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#HeadIsSymbolicWhenABranchIsCheckedOut",
@@ -217654,9 +217689,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#HeadIsDirectWhenDetached",
@@ -217671,9 +217713,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#HeadOfAnUnbornBranchResolvesToNull",
@@ -217688,9 +217737,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#FollowsChainsOfSymbolicReferences",
@@ -217705,9 +217761,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#ReturnsNullForAMissingReference",
@@ -217722,9 +217785,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#EnumerationCanBeFilteredByPrefix",
@@ -217739,9 +217809,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs#ResolvedHeadCanBeReadFromTheObjectStore",
@@ -217756,9 +217833,16 @@
       ],
       "source_sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The same go-git reference access used by the calculator exposes direct, symbolic, and packed state. Git for-each-ref and rev-parse expectations are captured from the deterministic fixtures."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#DiscoversARepositoryFromItsRootAndFromANestedDirectory",
@@ -218241,9 +218325,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#CountsModifiedStagedDeletedAndUntrackedPathsOnce",
@@ -218258,9 +218349,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#ContentRestoredToTheCommittedStateIsClean",
@@ -218275,9 +218373,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#RespectsGitIgnoreRules",
@@ -218292,9 +218397,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#TreatsNonBoundaryConsecutiveAsterisksAsSlashExcluding",
@@ -218309,9 +218421,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#RespectsInfoExclude",
@@ -218326,9 +218445,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#HonorsCoreIgnoreCaseForIgnorePatterns",
@@ -218343,9 +218469,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#MatchesIgnorePatternsCaseSensitivelyWhenIgnoreCaseIsOff",
@@ -218360,9 +218493,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#CountsExecutableBitChanges",
@@ -218377,9 +218517,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#CountsAnUntrackedDirectorySymbolicLinkAsASingleEntry",
@@ -218394,9 +218541,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#CountsUntrackedFilesInAnEmptyRepository",
@@ -218411,9 +218565,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs#WorksAgainstAnIndexInVersion4Format",
@@ -218428,9 +218589,16 @@
       ],
       "source_sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "Deterministic go-git commits and staged state preserve the original edits, including the v4 index and symlinks. Exact original counts and the independent pinned LibGit2Sharp status results are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#ChangedPathsMatchLibGit2ForEveryCommit",
@@ -218445,9 +218613,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#ChangedPathsMatchLibGit2WhenAFileBecomesADirectory",
@@ -218462,9 +218637,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#ChangedPathsOfMergeCommitsUseTheFirstParent",
@@ -218479,9 +218661,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#ChangedPathsAlignEntriesByRawByteOrderNotUtf16Order",
@@ -218496,9 +218685,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#IdenticalTreesProduceNoChangedPaths",
@@ -218513,9 +218709,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs#FlattenTreeListsAllBlobPaths",
@@ -218530,9 +218733,16 @@
       ],
       "source_sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpRepositoryContracts",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-repository-contracts.json",
+      "adaptations": [
+        "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs#DecompressesAStreamWithASmallerWindowSize",

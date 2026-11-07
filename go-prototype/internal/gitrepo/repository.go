@@ -10,7 +10,6 @@ import (
 	"slices"
 	"sort"
 	"strings"
-	"unicode/utf16"
 
 	git "github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
@@ -94,26 +93,20 @@ func Open(path string) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	head, err := g.Reference(plumbing.HEAD, false)
+	store := referenceStore{git: g, commonDirectory: layout.commonDirectory}
+	head, err := store.lookup(plumbing.HEAD)
 	if err != nil {
 		return nil, err
 	}
 	if head.Type() != plumbing.SymbolicReference || !head.Target().IsBranch() {
 		return nil, fmt.Errorf("unsupported detached HEAD")
 	}
-	tip, err := g.Head()
+	tip, err := store.resolve(plumbing.HEAD)
 	if err != nil {
 		return nil, fmt.Errorf("unsupported empty or broken HEAD: %w", err)
 	}
-	wt, err := g.Worktree()
+	status, err := workingTreeStatus(layout, g)
 	if err != nil {
-		return nil, err
-	}
-	status, err := wt.Status()
-	if err != nil {
-		return nil, err
-	}
-	if err := reconcileUntracked(layout.workingDirectory, layout.commonDirectory, g, status); err != nil {
 		return nil, err
 	}
 	if !status.IsClean() {
@@ -144,33 +137,25 @@ func (r *Repository) load(id string) (*object.Commit, error) {
 
 func (r *Repository) References() ([]Reference, error) {
 	refs := []Reference{}
-	it, err := r.git.References()
+	store := referenceStore{git: r.git, commonDirectory: r.dir}
+	entries, err := store.list("refs/")
 	if err != nil {
 		return nil, err
 	}
-	defer it.Close()
-	err = it.ForEach(func(ref *plumbing.Reference) error {
-		if !strings.HasPrefix(ref.Name().String(), "refs/") {
-			return nil
-		}
+	for _, ref := range entries {
 		if !ref.Name().IsBranch() && !ref.Name().IsTag() && !ref.Name().IsRemote() {
-			// The reference branch/tag services do not consume private ref namespaces.
-			return nil
+			// The version calculator uses local and remote branches and tags.
+			continue
 		}
-
-		resolved, err := r.git.Reference(ref.Name(), true)
+		resolved, err := store.resolve(ref.Name())
 		if err != nil {
-			return err
+			return nil, err
 		}
 		target := ref.Hash().String()
 		if ref.Type() == plumbing.SymbolicReference {
 			target = ref.Target().String()
 		}
 		refs = append(refs, Reference{ref.Name().String(), target, resolved.Hash().String()})
-		return nil
-	})
-	if err != nil {
-		return nil, err
 	}
 	// The reference backend enumerates loose refs first, then unshadowed packed refs.
 	loose := map[string]bool{}
@@ -181,13 +166,7 @@ func (r *Repository) References() ([]Reference, error) {
 		}
 		loose[ref.Name] = err == nil
 	}
-	sort.Slice(refs, func(i, j int) bool {
-		if loose[refs[i].Name] != loose[refs[j].Name] {
-			return loose[refs[i].Name]
-		}
-		// StringComparer.Ordinal compares UTF-16 code units, not UTF-8 bytes.
-		return slices.Compare(utf16.Encode([]rune(refs[i].Name)), utf16.Encode([]rune(refs[j].Name))) < 0
-	})
+	sort.SliceStable(refs, func(i, j int) bool { return loose[refs[i].Name] && !loose[refs[j].Name] })
 	return refs, nil
 }
 
@@ -251,24 +230,8 @@ func (r *Repository) commitInfo(id string) (Commit, error) {
 			return out, err
 		}
 	}
-	changes, err := object.DiffTree(parent, tree)
-	if err != nil {
-		return out, err
-	}
-	paths := map[string]bool{}
-	for _, change := range changes {
-		if change.From.Name != "" {
-			paths[change.From.Name] = true
-		}
-		if change.To.Name != "" {
-			paths[change.To.Name] = true
-		}
-	}
-	for p := range paths {
-		out.DiffPaths = append(out.DiffPaths, p)
-	}
-	sort.Strings(out.DiffPaths)
-	return out, nil
+	out.DiffPaths, err = changedTreePaths(parent, tree)
+	return out, err
 }
 
 // Observe exercises the contract used by Milestone B, including every supported

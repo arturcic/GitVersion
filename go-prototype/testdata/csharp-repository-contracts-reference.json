@@ -1,0 +1,85 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "cases": {
+    "ACleanWorkingDirectoryHasNoChanges": 0,
+    "ChangedPathsAlignEntriesByRawByteOrderNotUtf16Order": {
+      "delete the private-use file": [
+        "\uE000.txt"
+      ],
+      "both files": [
+        "\uE000.txt",
+        "\uD83D\uDE00.txt"
+      ]
+    },
+    "ChangedPathsMatchLibGit2ForEveryCommit": {
+      "exec bit and new file": [
+        "a.txt",
+        "d.txt"
+      ],
+      "delete nested file": [
+        "sub/b.txt"
+      ],
+      "modify and add": [
+        "a.txt",
+        "sub/new.txt"
+      ],
+      "root commit": [
+        "a.txt",
+        "sub/b.txt",
+        "sub/deep/c.txt"
+      ]
+    },
+    "ChangedPathsMatchLibGit2WhenAFileBecomesADirectory": {
+      "becomes a file again": [
+        "thing",
+        "thing/inner.txt",
+        "thing/other.txt"
+      ],
+      "becomes a directory": [
+        "thing",
+        "thing/inner.txt",
+        "thing/other.txt"
+      ],
+      "file": [
+        "thing",
+        "z.txt"
+      ]
+    },
+    "ChangedPathsOfMergeCommitsUseTheFirstParent": {
+      "Merge branch \u0027feature\u0027": [
+        "feature.txt"
+      ],
+      "main 1": [
+        "main.txt"
+      ],
+      "feature 1": [
+        "feature.txt"
+      ],
+      "main 0": [
+        "main.txt"
+      ]
+    },
+    "ContentRestoredToTheCommittedStateIsClean": 0,
+    "CountsAnUntrackedDirectorySymbolicLinkAsASingleEntry": 2,
+    "CountsExecutableBitChanges": 1,
+    "CountsModifiedStagedDeletedAndUntrackedPathsOnce": 7,
+    "CountsUntrackedFilesInAnEmptyRepository": 2,
+    "EnumerationMatchesGitForEachRef": [
+      "refs/heads/feature/a a9c6afb0716c3d65041ebceba8903e8e0fc79498",
+      "refs/heads/main e4773d3b613c888fd451204ac45e30d9bf127634",
+      "refs/tags/lightweight a9c6afb0716c3d65041ebceba8903e8e0fc79498",
+      "refs/tags/v1.0.0 321cd4b1ad26beb50bbb9c40505c94531452536e"
+    ],
+    "FlattenTreeListsAllBlobPaths": "5626abf0f72e58d7a153368ba57db4c673c0e171",
+    "HonorsCoreIgnoreCaseForIgnorePatterns": 1,
+    "MatchesIgnorePatternsCaseSensitivelyWhenIgnoreCaseIsOff": 3,
+    "ReadsPackedRefsIncludingPeeledTargets": [
+      "ee3f11f284bf39dd6f742f2fa06132abb8e1d035",
+      "7f6764fd224068e1b1b32ab7ec99d640347d9408"
+    ],
+    "RespectsGitIgnoreRules": 3,
+    "RespectsInfoExclude": 1,
+    "TreatsNonBoundaryConsecutiveAsterisksAsSlashExcluding": 1,
+    "WorksAgainstAnIndexInVersion4Format": 2
+  }
+}

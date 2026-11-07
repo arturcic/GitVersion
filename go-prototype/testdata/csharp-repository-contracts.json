@@ -1,0 +1,277 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "GitReferenceStoreTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitReferenceStoreTests.cs",
+      "sha256": "9d1a208979582a7128ce2865d5402bd73b6735cbcc4f1344cdcdad3c7df302b3",
+      "methods": {
+        "ResolvesALooseBranchToItsCommit": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EnumerationMatchesGitForEachRef": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EnumerationSkipsTransientLockFiles": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ReadsPackedRefsIncludingPeeledTargets": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "LooseReferencesWinOverPackedReferences": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "HeadIsSymbolicWhenABranchIsCheckedOut": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "HeadIsDirectWhenDetached": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "HeadOfAnUnbornBranchResolvesToNull": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "FollowsChainsOfSymbolicReferences": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ReturnsNullForAMissingReference": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EnumerationCanBeFilteredByPrefix": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ResolvedHeadCanBeReadFromTheObjectStore": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "GitStatusCalculatorTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitStatusCalculatorTests.cs",
+      "sha256": "70e16a7e7f2c12afa17b4167da4cc305b27812e0ebf4eb9a591de97640688352",
+      "methods": {
+        "ACleanWorkingDirectoryHasNoChanges": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 0
+            }
+          ]
+        },
+        "CountsModifiedStagedDeletedAndUntrackedPathsOnce": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 7
+            }
+          ]
+        },
+        "ContentRestoredToTheCommittedStateIsClean": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 0
+            }
+          ]
+        },
+        "RespectsGitIgnoreRules": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 3
+            }
+          ]
+        },
+        "TreatsNonBoundaryConsecutiveAsterisksAsSlashExcluding": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 1
+            }
+          ]
+        },
+        "RespectsInfoExclude": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 1
+            }
+          ]
+        },
+        "HonorsCoreIgnoreCaseForIgnorePatterns": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 1
+            }
+          ]
+        },
+        "MatchesIgnorePatternsCaseSensitivelyWhenIgnoreCaseIsOff": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 3
+            }
+          ]
+        },
+        "CountsExecutableBitChanges": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 1
+            }
+          ]
+        },
+        "CountsAnUntrackedDirectorySymbolicLinkAsASingleEntry": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 2
+            }
+          ]
+        },
+        "CountsUntrackedFilesInAnEmptyRepository": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 2
+            }
+          ]
+        },
+        "WorksAgainstAnIndexInVersion4Format": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "expected_count": 2
+            }
+          ]
+        }
+      }
+    },
+    "GitTreeDiffTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitTreeDiffTests.cs",
+      "sha256": "e2037ada812be51c04dd913194d9822d14805772e7a0da2c16df94a2ba3d43d5",
+      "methods": {
+        "ChangedPathsMatchLibGit2ForEveryCommit": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ChangedPathsMatchLibGit2WhenAFileBecomesADirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ChangedPathsOfMergeCommitsUseTheFirstParent": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ChangedPathsAlignEntriesByRawByteOrderNotUtf16Order": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "IdenticalTreesProduceNoChangedPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "FlattenTreeListsAllBlobPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "reference": "testdata/csharp-repository-contracts-reference.json",
+  "reference_sha256": "9563e76400f1817b50010647fc4d91545203337faec88a3c62e89feae1a567c2"
+}
