@@ -9,6 +9,13 @@ import (
 	"testing"
 )
 
+func TestCSharpCalculationPortsFrozenReference(t *testing.T) {
+	recipes, err := fixtures.Load("../../testdata/csharp-calculation-ports.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	testConfigurationReference(t, "csharp-ports", recipes, 87, 0)
+}
 func TestMergeControlFrozenReference(t *testing.T) {
 	testConfigurationReference(t, "merge-control", fixtures.MergeControlRecipes(), 384, 0)
 }

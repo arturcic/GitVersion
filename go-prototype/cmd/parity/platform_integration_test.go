@@ -30,6 +30,7 @@ func TestPlatformWorkflowParity(t *testing.T)          { testPlatformParity(t, "
 func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "workflow-edges") }
 func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
+func TestPlatformCSharpPortsParity(t *testing.T)       { testPlatformParity(t, "csharp-ports") }
 func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
 func TestPlatformMergeControlParity(t *testing.T)      { testPlatformParity(t, "merge-control") }
 func TestPlatformConfigurationEdgeParity(t *testing.T) { testPlatformParity(t, "configuration-edge") }
@@ -115,6 +116,10 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes, err = fixtures.GeneratedWorkflows(20261106, 1000)
 		expected = 1000
 	}
+	if suite == "csharp-ports" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/csharp-calculation-ports.json"))
+		expected = 87
+	}
 	if suite == "strategy" {
 		recipes = fixtures.StrategyRecipes()
 		expected = 768
@@ -162,7 +167,7 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-edges" {
 		goldenName = "workflow-edge-reference.json"
 	}
-	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
+	if suite == "csharp-ports" || suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
 		goldenName = suite + "-reference.json"
 	}
 	goldenPath := filepath.Join(root, "testdata", goldenName)
@@ -186,7 +191,7 @@ func testPlatformParity(t *testing.T, suite string) {
 			}
 		}
 	}
-	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
+	if suite == "csharp-ports" || suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
 		if golden.Schema != 1 || golden.SpecSHA256 != specHash {
 			t.Fatal("reference provenance differs")
 		}

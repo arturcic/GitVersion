@@ -1,0 +1,1508 @@
+[
+  {
+    "id": "port-main-manualdeployment",
+    "description": "MainScenarios.CanHandleManualDeployment",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches: {main: {mode: ManualDeployment, label: \"\"}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "commit",
+        "id": "two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.1-1+2"
+      }
+    ]
+  },
+  {
+    "id": "port-main-continuousdelivery",
+    "description": "MainScenarios.CanHandleContinuousDelivery",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches: {main: {mode: ContinuousDelivery, label: \"ci\"}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "commit",
+        "id": "two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.1-ci.2"
+      }
+    ]
+  },
+  {
+    "id": "port-main-continuousdeployment",
+    "description": "MainScenarios.CanHandleContinuousDeployment",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches: {main: {mode: ContinuousDeployment, label: \"ci\"}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "commit",
+        "id": "two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.1"
+      }
+    ]
+  },
+  {
+    "id": "port-main-no-tag",
+    "description": "MainScenarios.GivenARepositoryWithCommitsButNoTagsVersionShouldBe01",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "commit",
+        "id": "two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.1-3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-bad-tag",
+    "description": "MainScenarios.GivenARepositoryWithCommitsButBadTagsVersionShouldBe01",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "BadTag"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "commit",
+        "id": "two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.1-3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-higher",
+    "description": "MainScenarios.GivenARepositoryWithTagAndNextVersionInConfigVersionShouldMatchVersionTxtFile",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.1.0\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "commit",
+        "id": "c1"
+      },
+      {
+        "op": "commit",
+        "id": "c2"
+      },
+      {
+        "op": "commit",
+        "id": "c3"
+      },
+      {
+        "op": "commit",
+        "id": "c4"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.1.0-5"
+      }
+    ]
+  },
+  {
+    "id": "port-main-patch",
+    "description": "MainScenarios.GivenARepositoryWithTagAndNoNextVersionTxtFileVersionShouldBeTagWithBumpedPatch",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "commit",
+        "id": "c1"
+      },
+      {
+        "op": "commit",
+        "id": "c2"
+      },
+      {
+        "op": "commit",
+        "id": "c3"
+      },
+      {
+        "op": "commit",
+        "id": "c4"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.4-5"
+      }
+    ]
+  },
+  {
+    "id": "port-main-tag",
+    "description": "MainScenarios.GivenARepositoryWithTagAndNoNextVersionTxtFileAndNoCommitsVersionShouldBeTag",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-old-next",
+    "description": "MainScenarios.GivenARepositoryWithTagAndOldNextVersionConfigVersionShouldBeTagWithBumpedPatch",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.0\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0"
+      },
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "commit",
+        "id": "c1"
+      },
+      {
+        "op": "commit",
+        "id": "c2"
+      },
+      {
+        "op": "commit",
+        "id": "c3"
+      },
+      {
+        "op": "commit",
+        "id": "c4"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.1.1-5"
+      }
+    ]
+  },
+  {
+    "id": "port-main-old-next-tag",
+    "description": "MainScenarios.GivenARepositoryWithTagAndOldNextVersionConfigAndNoCommitsVersionShouldBeTag",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.0\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.1.0"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag1-default",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag1-configured",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.1.0\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag2-default",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag2",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.4-1"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag2-configured",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag2",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.1.0\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.1.0-1"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag3-default",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag3",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag3-configured",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag3",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.2\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.3"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag4-default",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag4",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.4-1"
+      }
+    ]
+  },
+  {
+    "id": "port-main-next-tag4-configured",
+    "description": "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag4",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.4\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.3"
+      },
+      {
+        "op": "commit",
+        "id": "one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.4-1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-branch-none",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMainWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: None}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-branch-patch",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMainWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: Patch}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.1-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-branch-minor",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMainWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: Minor}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.1.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-branch-major",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMainWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: Major}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-message-none",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMessageWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: None}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root",
+        "message": "+semver: None"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-message-patch",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMessageWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: None}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root",
+        "message": "+semver: Patch"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.1-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-message-minor",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMessageWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: None}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root",
+        "message": "+semver: Minor"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.1.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-fallback-message-major",
+    "description": "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMessageWillBeUsed",
+    "config": "workflow: GitHubFlow/v1\ncalculation:\n  strategies: [Fallback]\n  branches: {main: {mode: ManualDeployment, increment: None}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root",
+        "message": "+semver: Major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-1+1"
+      }
+    ]
+  },
+  {
+    "id": "port-branch-tag-0-1-0-alpha-1",
+    "description": "BranchWithoutCommitScenarios.BranchVersionHavePrecedenceOverTagVersionIfVersionGreaterThanTag",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "0.1.0-alpha.1"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-beta.1+2"
+      }
+    ]
+  },
+  {
+    "id": "port-branch-tag-1-0-0-alpha-1",
+    "description": "BranchWithoutCommitScenarios.BranchVersionHavePrecedenceOverTagVersionIfVersionGreaterThanTag",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0-alpha.1"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-beta.1+2"
+      }
+    ]
+  },
+  {
+    "id": "port-branch-tag-1-0-1-alpha-1",
+    "description": "BranchWithoutCommitScenarios.BranchVersionHavePrecedenceOverTagVersionIfVersionGreaterThanTag",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.1-alpha.1"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.1-beta.1+2"
+      }
+    ]
+  },
+  {
+    "id": "port-bump-prerelease",
+    "description": "VersionBumpingScenarios.AppliedPreReleaseLabelCausesBump",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches: {main: {label: pre}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0-pre.1"
+      },
+      {
+        "op": "commit",
+        "id": "next"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-pre.2"
+      }
+    ]
+  },
+  {
+    "id": "port-bump-messages",
+    "description": "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersion",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "minor",
+        "message": "+semver:minor"
+      },
+      {
+        "op": "checkpoint",
+        "id": "minor",
+        "semver": "1.1.0-1"
+      },
+      {
+        "op": "commit",
+        "id": "major",
+        "message": "+semver:major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "major",
+        "semver": "2.0.0-2"
+      }
+    ]
+  },
+  {
+    "id": "port-bump-tag-wins",
+    "description": "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersion_TagTakesPriority",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "major",
+        "message": "+semver:major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "major",
+        "semver": "2.0.0-1"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "tag",
+        "semver": "1.1.0"
+      },
+      {
+        "op": "commit",
+        "id": "next"
+      },
+      {
+        "op": "checkpoint",
+        "id": "next",
+        "semver": "1.1.1-1"
+      }
+    ]
+  },
+  {
+    "id": "port-bump-source-tag",
+    "description": "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersionBaseVersionTagIsAppliedToSameCommit",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "commit",
+        "id": "tagged"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "minor",
+        "message": "+semver:minor"
+      },
+      {
+        "op": "checkpoint",
+        "id": "minor",
+        "semver": "1.1.0-1"
+      },
+      {
+        "op": "tag",
+        "name": "2.0.0"
+      },
+      {
+        "op": "commit",
+        "id": "next",
+        "message": "Hello"
+      },
+      {
+        "op": "checkpoint",
+        "id": "next",
+        "semver": "2.0.1-1"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-fallback-main",
+    "description": "ContinuousDeliveryTestScenarios.ShouldUseTheFallbackVersionOnMainWhenNoVersionsAreAvailable",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.0.1-ci.1"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-fallback-develop",
+    "description": "ContinuousDeliveryTestScenarios.ShouldUseTheFallbackVersionOnDevelopWhenNoVersionsAreAvailable",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.1.0-alpha.1"
+      }
+    ],
+    "initial_branch": "develop"
+  },
+  {
+    "id": "port-delivery-next",
+    "description": "ContinuousDeliveryTestScenarios.ShouldUseConfiguredNextVersionOnMainWhenNoHigherVersionsAvailable",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.0\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-ci.1"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-tag-1-0-0",
+    "description": "ContinuousDeliveryTestScenarios.ShouldNotMatterWhenConfiguredNextVersionIsEqualsToTheTaggedVersion",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.0\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-tag-1-1-0",
+    "description": "ContinuousDeliveryTestScenarios.ShouldUseTaggedVersionWhenGreaterThanConfiguredNextVersion",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 1.0.0\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.1.0"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-merge-main",
+    "description": "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromMainToFeatureBranch",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source",
+        "semver": "0.0.1-ci.1"
+      },
+      {
+        "op": "branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-start",
+        "semver": "0.0.1-just-a-test.1"
+      },
+      {
+        "op": "commit",
+        "id": "feature"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-commit",
+        "semver": "0.0.1-just-a-test.2"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source-again",
+        "semver": "0.0.1-ci.1"
+      },
+      {
+        "op": "merge",
+        "id": "merge",
+        "from": "feature/just-a-test",
+        "message": "Merge branch 'feature/just-a-test'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged",
+        "semver": "0.0.1-ci.3"
+      },
+      {
+        "op": "delete-branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "deleted",
+        "semver": "0.0.1-ci.3"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-merge-develop",
+    "description": "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromDevelopToFeatureBranch",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source",
+        "semver": "0.1.0-alpha.1"
+      },
+      {
+        "op": "branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-start",
+        "semver": "0.1.0-just-a-test.1"
+      },
+      {
+        "op": "commit",
+        "id": "feature"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-commit",
+        "semver": "0.1.0-just-a-test.2"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source-again",
+        "semver": "0.1.0-alpha.1"
+      },
+      {
+        "op": "merge",
+        "id": "merge",
+        "from": "feature/just-a-test",
+        "message": "Merge branch 'feature/just-a-test'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged",
+        "semver": "0.1.0-alpha.3"
+      },
+      {
+        "op": "delete-branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "deleted",
+        "semver": "0.1.0-alpha.3"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-merge-release",
+    "description": "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromReleaseToFeatureBranch",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {mode: ContinuousDelivery, label: ci}\n    develop: {mode: ContinuousDelivery}\n    feature: {mode: ContinuousDelivery}\n    release: {mode: ContinuousDelivery}\n    hotfix: {mode: ContinuousDelivery}\n    support: {mode: ContinuousDelivery}\n    pull-request: {mode: ContinuousDelivery}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source",
+        "semver": "1.0.0-beta.1"
+      },
+      {
+        "op": "branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-start",
+        "semver": "1.0.0-just-a-test.1"
+      },
+      {
+        "op": "commit",
+        "id": "feature"
+      },
+      {
+        "op": "checkpoint",
+        "id": "feature-commit",
+        "semver": "1.0.0-just-a-test.2"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "source-again",
+        "semver": "1.0.0-beta.1"
+      },
+      {
+        "op": "merge",
+        "id": "merge",
+        "from": "feature/just-a-test",
+        "message": "Merge branch 'feature/just-a-test'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged",
+        "semver": "1.0.0-beta.3"
+      },
+      {
+        "op": "delete-branch",
+        "name": "feature/just-a-test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "deleted",
+        "semver": "1.0.0-beta.3"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-cancel-release",
+    "description": "ContinuousDeliveryTestScenarios.ShouldFallbackToTheVersionOnDevelopLikeTheReleaseWasNeverCreatedWhenReleaseHasBeenCanceled",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {label: ci, mode: ContinuousDelivery, track-merge-target: false}\n    develop: {track-merge-target: false}\n    release: {track-merge-target: false}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "main",
+        "semver": "0.0.1-ci.1"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "develop",
+        "semver": "0.1.0-alpha.1"
+      },
+      {
+        "op": "commit",
+        "id": "dev"
+      },
+      {
+        "op": "checkpoint",
+        "id": "dev-commit",
+        "semver": "0.1.0-alpha.2"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release",
+        "semver": "1.0.0-beta.1+2"
+      },
+      {
+        "op": "commit",
+        "id": "release-one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-one",
+        "semver": "1.0.0-beta.1+3"
+      },
+      {
+        "op": "commit",
+        "id": "release-two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-two",
+        "semver": "1.0.0-beta.1+4"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "back-develop",
+        "semver": "1.1.0-alpha.0"
+      },
+      {
+        "op": "commit",
+        "id": "dev-next"
+      },
+      {
+        "op": "checkpoint",
+        "id": "dev-next",
+        "semver": "1.1.0-alpha.1"
+      },
+      {
+        "op": "merge",
+        "id": "merge",
+        "from": "release/1.0.0",
+        "message": "Merge branch 'release/1.0.0'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged",
+        "semver": "1.1.0-alpha.4"
+      },
+      {
+        "op": "delete-branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "cancelled",
+        "semver": "1.1.0-alpha.6"
+      }
+    ]
+  },
+  {
+    "id": "port-delivery-finish-release",
+    "description": "ContinuousDeliveryTestScenarios.ShouldConsiderTheMergeCommitFromMainToDevelopWhenReleaseHasBeenMergedAndTaggedOnMain",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  branches:\n    main: {label: ci, mode: ContinuousDelivery, track-merge-target: false}\n    develop: {track-merge-target: false}\n    release: {track-merge-target: false}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "main",
+        "semver": "0.0.1-ci.1"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "develop",
+        "semver": "0.1.0-alpha.1"
+      },
+      {
+        "op": "commit",
+        "id": "dev"
+      },
+      {
+        "op": "checkpoint",
+        "id": "dev-commit",
+        "semver": "0.1.0-alpha.2"
+      },
+      {
+        "op": "branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release",
+        "semver": "1.0.0-beta.1+2"
+      },
+      {
+        "op": "commit",
+        "id": "release-one"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-one",
+        "semver": "1.0.0-beta.1+3"
+      },
+      {
+        "op": "commit",
+        "id": "release-two"
+      },
+      {
+        "op": "checkpoint",
+        "id": "release-two",
+        "semver": "1.0.0-beta.1+4"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "back-develop",
+        "semver": "1.1.0-alpha.0"
+      },
+      {
+        "op": "commit",
+        "id": "dev-next"
+      },
+      {
+        "op": "checkpoint",
+        "id": "dev-next",
+        "semver": "1.1.0-alpha.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge",
+        "from": "release/1.0.0",
+        "message": "Merge branch 'release/1.0.0'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged-main",
+        "semver": "1.0.0-ci.5"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "tagged",
+        "semver": "1.0.0"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "checkpoint",
+        "id": "back-dev",
+        "semver": "1.1.0-alpha.1"
+      },
+      {
+        "op": "merge",
+        "id": "merge-main",
+        "from": "main",
+        "message": "Merge branch 'main'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "merged-dev",
+        "semver": "1.1.0-alpha.2"
+      },
+      {
+        "op": "delete-branch",
+        "name": "release/1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "deleted",
+        "semver": "1.1.0-alpha.2"
+      }
+    ]
+  },
+  {
+    "id": "port-develop-next-1-default",
+    "description": "MainScenarios.NextVersionShouldBeConsideredOnTheDevelopmentBranch",
+    "initial_branch": "develop",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.1.0-alpha.1"
+      }
+    ]
+  },
+  {
+    "id": "port-develop-next-1-configured",
+    "description": "MainScenarios.NextVersionShouldBeConsideredOnTheDevelopmentBranch",
+    "initial_branch": "develop",
+    "config": "workflow: GitFlow/v1\ncalculation: {next-version: 1.0.0}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-alpha.1"
+      }
+    ]
+  },
+  {
+    "id": "port-develop-next-2-default",
+    "description": "MainScenarios.NextVersionShouldBeConsideredOnTheDevelopmentBranch",
+    "initial_branch": "develop",
+    "config": "workflow: GitFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "commit",
+        "id": "c1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "0.1.0-alpha.2"
+      }
+    ]
+  },
+  {
+    "id": "port-develop-next-2-configured",
+    "description": "MainScenarios.NextVersionShouldBeConsideredOnTheDevelopmentBranch",
+    "initial_branch": "develop",
+    "config": "workflow: GitFlow/v1\ncalculation: {next-version: 1.0.0}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "c0"
+      },
+      {
+        "op": "commit",
+        "id": "c1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head",
+        "semver": "1.0.0-alpha.2"
+      }
+    ]
+  }
+]

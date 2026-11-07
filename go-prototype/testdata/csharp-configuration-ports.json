@@ -1,0 +1,59 @@
+[
+  {
+    "id": "OverwritesDefaultsWithProvidedConfig",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 2.0.0\n  branches: {develop: {increment: Major, mode: ContinuousDelivery, label: dev}}\n",
+    "expected": {
+      "calculation.next-version": "2.0.0",
+      "calculation.branches.develop.increment": "Major",
+      "calculation.branches.develop.mode": "ContinuousDelivery",
+      "calculation.branches.develop.label": "dev"
+    }
+  },
+  {
+    "id": "CombineVersionStrategyConfigNextAndTaggedCommit",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  strategies: [ConfiguredNextVersion, TaggedCommit]\n",
+    "expected": {
+      "calculation.strategies": [
+        "ConfiguredNextVersion",
+        "TaggedCommit"
+      ]
+    }
+  },
+  {
+    "id": "CanRemoveLabel",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 2.0.0\n  branches: {release: {label: \"\"}}\n",
+    "expected": {
+      "calculation.next-version": "2.0.0",
+      "calculation.branches.release.label": ""
+    }
+  },
+  {
+    "id": "NextVersionCanHavePatch",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 2.12.654651698\n",
+    "expected": {
+      "calculation.next-version": "2.12.654651698"
+    }
+  },
+  {
+    "id": "ShouldUseDefaultSourceBranchesWhenNotSpecifiedForDevelop",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 2.0.0\n  branches: {develop: {mode: ContinuousDeployment, label: dev}}\n",
+    "expected": {
+      "calculation.branches.develop.source-branches": [
+        "main"
+      ]
+    }
+  },
+  {
+    "id": "ShouldUseDefaultSourceBranchesWhenNotSpecifiedForFeature",
+    "config": "workflow: GitFlow/v1\ncalculation:\n  next-version: 2.0.0\n  branches: {feature: {mode: ContinuousDeployment, label: dev}}\n",
+    "expected": {
+      "calculation.branches.feature.source-branches": [
+        "develop",
+        "main",
+        "release",
+        "support",
+        "hotfix"
+      ]
+    }
+  }
+]

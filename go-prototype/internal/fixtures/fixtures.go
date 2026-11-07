@@ -30,10 +30,11 @@ type Step struct {
 	Seconds   *int64 `json:"seconds,omitempty"`
 }
 type Recipe struct {
-	ID          string `json:"id"`
-	Description string `json:"description"`
-	Config      string `json:"config"`
-	Steps       []Step `json:"steps"`
+	InitialBranch string `json:"initial_branch,omitempty"`
+	ID            string `json:"id"`
+	Description   string `json:"description"`
+	Config        string `json:"config"`
+	Steps         []Step `json:"steps"`
 }
 type Checkpoint struct {
 	ID     string `json:"id"`
@@ -97,11 +98,17 @@ func build(recipe Recipe, dest string) ([]Checkpoint, error) {
 		return nil, err
 	}
 	defer os.RemoveAll(source)
-	repo, err := git.PlainInitWithOptions(source, &git.PlainInitOptions{InitOptions: git.InitOptions{DefaultBranch: plumbing.NewBranchReferenceName("main")}})
+	branch := recipe.InitialBranch
+	if branch == "" {
+		branch = "main"
+	}
+	if err := plumbing.NewBranchReferenceName(branch).Validate(); err != nil {
+		return nil, err
+	}
+	repo, err := git.PlainInitWithOptions(source, &git.PlainInitOptions{InitOptions: git.InitOptions{DefaultBranch: plumbing.NewBranchReferenceName(branch)}})
 	if err != nil {
 		return nil, err
 	}
-	branch := "main"
 	heads := map[string]plumbing.Hash{}
 	trees := map[plumbing.Hash]map[string]string{}
 	ids := map[string]bool{}
@@ -211,6 +218,14 @@ func build(recipe Recipe, dest string) ([]Checkpoint, error) {
 			if err = repo.Storer.SetReference(plumbing.NewHashReference(ref, h)); err != nil {
 				return nil, err
 			}
+		case "delete-branch":
+			if _, ok := heads[s.Name]; !ok || s.Name == branch {
+				return nil, fmt.Errorf("cannot delete missing or current branch %q", s.Name)
+			}
+			if err := repo.Storer.RemoveReference(plumbing.NewBranchReferenceName(s.Name)); err != nil {
+				return nil, err
+			}
+			delete(heads, s.Name)
 		case "checkout":
 			if _, ok := heads[s.Name]; !ok {
 				return nil, fmt.Errorf("unknown branch %q", s.Name)

@@ -17,6 +17,13 @@ import (
 
 // Explicit capture mode only writes a new ignored evidence directory. Promotion
 // to a frozen reference is a separate, reviewed operation; tests never refresh it.
+func TestCaptureCSharpPortsReference(t *testing.T) {
+	recipes, err := fixtures.Load("../../testdata/csharp-calculation-ports.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	captureConfigurationReference(t, "csharp-ports", recipes)
+}
 func TestCaptureStrategyReference(t *testing.T) {
 	captureConfigurationReference(t, "strategy", fixtures.StrategyRecipes())
 }
@@ -97,6 +104,15 @@ func captureConfigurationReference(t *testing.T, suite string, recipes []fixture
 		if r.Validate() != nil {
 			failures[cps[i].ID] = r
 		} else {
+			if suite == "csharp-ports" {
+				var actual map[string]any
+				if err := json.Unmarshal(r.Stdout, &actual); err != nil {
+					t.Fatal(err)
+				}
+				if cps[i].SemVer == "" || actual["FullSemVer"] != cps[i].SemVer {
+					t.Errorf("original C# assertion %s: want %s, got %v", cps[i].ID, cps[i].SemVer, actual["FullSemVer"])
+				}
+			}
 			golden.Outputs[cps[i].ID] = r.Stdout
 		}
 	}

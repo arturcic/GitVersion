@@ -3,7 +3,7 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 6,
+  "mapped_declarations": 44,
   "tests": [
     {
       "id": "new-cli/GitVersion.Cli.Generator.Tests/SystemCommandlineGeneratorTests.cs#ValidateGeneratedCommandImplementationForCSharp14Net10Consumer",
@@ -8808,9 +8808,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "OverwritesDefaultsWithProvidedConfig"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#CombineVersionStrategyConfigNextAndTaggedCommit",
@@ -8825,9 +8834,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "CombineVersionStrategyConfigNextAndTaggedCommit"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#CanRemoveLabel",
@@ -8842,9 +8860,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "CanRemoveLabel"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#RegexIsRequired",
@@ -8986,9 +9013,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "NextVersionCanHavePatch"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#CanWriteOutEffectiveConfiguration",
@@ -9245,9 +9281,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "ShouldUseDefaultSourceBranchesWhenNotSpecifiedForDevelop"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#ShouldUseSpecifiedSourceBranchesForFeature",
@@ -9279,9 +9324,18 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationPorts",
+      "fixtures": [],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "configuration": "ShouldUseDefaultSourceBranchesWhenNotSpecifiedForFeature"
+        }
+      ],
+      "adaptations": [
+        "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#ShouldNotOverrideAnythingWhenOverrideConfigIsEmpty",
@@ -25773,9 +25827,39 @@
       ],
       "source_sha256": "69bded1c633edc27d5cdc408a656aa5439b0a2ae181c13f520911cbc48192c48",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-branch-tag-0-1-0-alpha-1--head",
+        "port-branch-tag-1-0-0-alpha-1--head",
+        "port-branch-tag-1-0-1-alpha-1--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "0.1.0-alpha.1",
+          "recipe": "port-branch-tag-0-1-0-alpha-1",
+          "checkpoints": [
+            "port-branch-tag-0-1-0-alpha-1--head"
+          ]
+        },
+        {
+          "parameter": "1.0.0-alpha.1",
+          "recipe": "port-branch-tag-1-0-0-alpha-1",
+          "checkpoints": [
+            "port-branch-tag-1-0-0-alpha-1--head"
+          ]
+        },
+        {
+          "parameter": "1.0.1-alpha.1",
+          "recipe": "port-branch-tag-1-0-1-alpha-1",
+          "checkpoints": [
+            "port-branch-tag-1-0-1-alpha-1--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureFeature",
@@ -26509,9 +26593,24 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-fallback-main--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-fallback-main",
+          "checkpoints": [
+            "port-delivery-fallback-main--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldUseTheFallbackVersionOnDevelopWhenNoVersionsAreAvailable",
@@ -26526,9 +26625,24 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-fallback-develop--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-fallback-develop",
+          "checkpoints": [
+            "port-delivery-fallback-develop--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldUseConfiguredNextVersionOnMainWhenNoHigherVersionsAvailable",
@@ -26543,9 +26657,24 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-next--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-next",
+          "checkpoints": [
+            "port-delivery-next--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldNotMatterWhenConfiguredNextVersionIsEqualsToTheTaggedVersion",
@@ -26560,9 +26689,24 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-tag-1-0-0--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-tag-1-0-0",
+          "checkpoints": [
+            "port-delivery-tag-1-0-0--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldUseTaggedVersionWhenGreaterThanConfiguredNextVersion",
@@ -26577,9 +26721,24 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-tag-1-1-0--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-tag-1-1-0",
+          "checkpoints": [
+            "port-delivery-tag-1-1-0--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldCalculateTheCorrectVersionWhenMergingFromMainToFeatureBranch",
@@ -26594,9 +26753,34 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-merge-main--source",
+        "port-delivery-merge-main--feature-start",
+        "port-delivery-merge-main--feature-commit",
+        "port-delivery-merge-main--source-again",
+        "port-delivery-merge-main--merged",
+        "port-delivery-merge-main--deleted"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-merge-main",
+          "checkpoints": [
+            "port-delivery-merge-main--source",
+            "port-delivery-merge-main--feature-start",
+            "port-delivery-merge-main--feature-commit",
+            "port-delivery-merge-main--source-again",
+            "port-delivery-merge-main--merged",
+            "port-delivery-merge-main--deleted"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldCalculateTheCorrectVersionWhenMergingFromDevelopToFeatureBranch",
@@ -26611,9 +26795,34 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-merge-develop--source",
+        "port-delivery-merge-develop--feature-start",
+        "port-delivery-merge-develop--feature-commit",
+        "port-delivery-merge-develop--source-again",
+        "port-delivery-merge-develop--merged",
+        "port-delivery-merge-develop--deleted"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-merge-develop",
+          "checkpoints": [
+            "port-delivery-merge-develop--source",
+            "port-delivery-merge-develop--feature-start",
+            "port-delivery-merge-develop--feature-commit",
+            "port-delivery-merge-develop--source-again",
+            "port-delivery-merge-develop--merged",
+            "port-delivery-merge-develop--deleted"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldCalculateTheCorrectVersionWhenMergingFromReleaseToFeatureBranch",
@@ -26628,9 +26837,34 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-merge-release--source",
+        "port-delivery-merge-release--feature-start",
+        "port-delivery-merge-release--feature-commit",
+        "port-delivery-merge-release--source-again",
+        "port-delivery-merge-release--merged",
+        "port-delivery-merge-release--deleted"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-merge-release",
+          "checkpoints": [
+            "port-delivery-merge-release--source",
+            "port-delivery-merge-release--feature-start",
+            "port-delivery-merge-release--feature-commit",
+            "port-delivery-merge-release--source-again",
+            "port-delivery-merge-release--merged",
+            "port-delivery-merge-release--deleted"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldFallbackToTheVersionOnDevelopLikeTheReleaseWasNeverCreatedWhenReleaseHasBeenCanceled",
@@ -26645,9 +26879,42 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-cancel-release--main",
+        "port-delivery-cancel-release--develop",
+        "port-delivery-cancel-release--dev-commit",
+        "port-delivery-cancel-release--release",
+        "port-delivery-cancel-release--release-one",
+        "port-delivery-cancel-release--release-two",
+        "port-delivery-cancel-release--back-develop",
+        "port-delivery-cancel-release--dev-next",
+        "port-delivery-cancel-release--merged",
+        "port-delivery-cancel-release--cancelled"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-cancel-release",
+          "checkpoints": [
+            "port-delivery-cancel-release--main",
+            "port-delivery-cancel-release--develop",
+            "port-delivery-cancel-release--dev-commit",
+            "port-delivery-cancel-release--release",
+            "port-delivery-cancel-release--release-one",
+            "port-delivery-cancel-release--release-two",
+            "port-delivery-cancel-release--back-develop",
+            "port-delivery-cancel-release--dev-next",
+            "port-delivery-cancel-release--merged",
+            "port-delivery-cancel-release--cancelled"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs#ShouldConsiderTheMergeCommitFromMainToDevelopWhenReleaseHasBeenMergedAndTaggedOnMain",
@@ -26662,9 +26929,48 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-delivery-finish-release--main",
+        "port-delivery-finish-release--develop",
+        "port-delivery-finish-release--dev-commit",
+        "port-delivery-finish-release--release",
+        "port-delivery-finish-release--release-one",
+        "port-delivery-finish-release--release-two",
+        "port-delivery-finish-release--back-develop",
+        "port-delivery-finish-release--dev-next",
+        "port-delivery-finish-release--merged-main",
+        "port-delivery-finish-release--tagged",
+        "port-delivery-finish-release--back-dev",
+        "port-delivery-finish-release--merged-dev",
+        "port-delivery-finish-release--deleted"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-delivery-finish-release",
+          "checkpoints": [
+            "port-delivery-finish-release--main",
+            "port-delivery-finish-release--develop",
+            "port-delivery-finish-release--dev-commit",
+            "port-delivery-finish-release--release",
+            "port-delivery-finish-release--release-one",
+            "port-delivery-finish-release--release-two",
+            "port-delivery-finish-release--back-develop",
+            "port-delivery-finish-release--dev-next",
+            "port-delivery-finish-release--merged-main",
+            "port-delivery-finish-release--tagged",
+            "port-delivery-finish-release--back-dev",
+            "port-delivery-finish-release--merged-dev",
+            "port-delivery-finish-release--deleted"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits.",
+        "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/CreatingAFeatureBranchFromAReleaseBranchScenario.cs#ShouldTreatTheFeatureBranchLikeTheFirstReleaseBranchWhenItHasBeenBranchedFromMainAndFirstReleaseBranchButNotFromTheSecondReleaseBranch",
@@ -28061,9 +28367,47 @@
       ],
       "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-fallback-branch-none--head",
+        "port-fallback-branch-patch--head",
+        "port-fallback-branch-minor--head",
+        "port-fallback-branch-major--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "None",
+          "recipe": "port-fallback-branch-none",
+          "checkpoints": [
+            "port-fallback-branch-none--head"
+          ]
+        },
+        {
+          "parameter": "Patch",
+          "recipe": "port-fallback-branch-patch",
+          "checkpoints": [
+            "port-fallback-branch-patch--head"
+          ]
+        },
+        {
+          "parameter": "Minor",
+          "recipe": "port-fallback-branch-minor",
+          "checkpoints": [
+            "port-fallback-branch-minor--head"
+          ]
+        },
+        {
+          "parameter": "Major",
+          "recipe": "port-fallback-branch-major",
+          "checkpoints": [
+            "port-fallback-branch-major--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/FallbackVersionStrategyScenarios.cs#EnsureVersionIncrementOnMessageWillBeUsed",
@@ -28090,9 +28434,47 @@
       ],
       "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-fallback-message-none--head",
+        "port-fallback-message-patch--head",
+        "port-fallback-message-minor--head",
+        "port-fallback-message-major--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "None",
+          "recipe": "port-fallback-message-none",
+          "checkpoints": [
+            "port-fallback-message-none--head"
+          ]
+        },
+        {
+          "parameter": "Patch",
+          "recipe": "port-fallback-message-patch",
+          "checkpoints": [
+            "port-fallback-message-patch--head"
+          ]
+        },
+        {
+          "parameter": "Minor",
+          "recipe": "port-fallback-message-minor",
+          "checkpoints": [
+            "port-fallback-message-minor--head"
+          ]
+        },
+        {
+          "parameter": "Major",
+          "recipe": "port-fallback-message-major",
+          "checkpoints": [
+            "port-fallback-message-major--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/FallbackVersionStrategyScenarios.cs#TakeTheLatestCommitAsBaseVersion",
@@ -29170,9 +29552,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-manualdeployment--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-manualdeployment",
+          "checkpoints": [
+            "port-main-manualdeployment--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#CanHandleContinuousDelivery",
@@ -29187,9 +29583,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-continuousdelivery--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-continuousdelivery",
+          "checkpoints": [
+            "port-main-continuousdelivery--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#CanHandleContinuousDeployment",
@@ -29204,9 +29614,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-continuousdeployment--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-continuousdeployment",
+          "checkpoints": [
+            "port-main-continuousdeployment--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithCommitsButNoTagsVersionShouldBe01",
@@ -29221,9 +29645,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-no-tag--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-no-tag",
+          "checkpoints": [
+            "port-main-no-tag--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithCommitsButBadTagsVersionShouldBe01",
@@ -29238,9 +29676,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-bad-tag--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-bad-tag",
+          "checkpoints": [
+            "port-main-bad-tag--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithCommitsButNoTagsWithDetachedHeadVersionShouldBe01",
@@ -29272,9 +29724,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-next-higher--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-next-higher",
+          "checkpoints": [
+            "port-main-next-higher--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag",
@@ -29289,9 +29755,31 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-next-tag1-default--head",
+        "port-main-next-tag1-configured--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-next-tag1-default",
+          "checkpoints": [
+            "port-main-next-tag1-default--head"
+          ]
+        },
+        {
+          "parameter": "configured",
+          "recipe": "port-main-next-tag1-configured",
+          "checkpoints": [
+            "port-main-next-tag1-configured--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag2",
@@ -29306,9 +29794,31 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-next-tag2-default--head",
+        "port-main-next-tag2-configured--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-next-tag2-default",
+          "checkpoints": [
+            "port-main-next-tag2-default--head"
+          ]
+        },
+        {
+          "parameter": "configured",
+          "recipe": "port-main-next-tag2-configured",
+          "checkpoints": [
+            "port-main-next-tag2-configured--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag3",
@@ -29323,9 +29833,31 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-next-tag3-default--head",
+        "port-main-next-tag3-configured--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-next-tag3-default",
+          "checkpoints": [
+            "port-main-next-tag3-default--head"
+          ]
+        },
+        {
+          "parameter": "configured",
+          "recipe": "port-main-next-tag3-configured",
+          "checkpoints": [
+            "port-main-next-tag3-configured--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag4",
@@ -29340,9 +29872,31 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-next-tag4-default--head",
+        "port-main-next-tag4-configured--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-next-tag4-default",
+          "checkpoints": [
+            "port-main-next-tag4-default--head"
+          ]
+        },
+        {
+          "parameter": "configured",
+          "recipe": "port-main-next-tag4-configured",
+          "checkpoints": [
+            "port-main-next-tag4-configured--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndNoNextVersionTxtFileVersionShouldBeTagWithBumpedPatch",
@@ -29357,9 +29911,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-patch--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-patch",
+          "checkpoints": [
+            "port-main-patch--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndNoNextVersionTxtFileAndNoCommitsVersionShouldBeTag",
@@ -29374,9 +29942,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-tag--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-tag",
+          "checkpoints": [
+            "port-main-tag--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndOldNextVersionConfigVersionShouldBeTagWithBumpedPatch",
@@ -29391,9 +29973,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-old-next--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-old-next",
+          "checkpoints": [
+            "port-main-old-next--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#GivenARepositoryWithTagAndOldNextVersionConfigAndNoCommitsVersionShouldBeTag",
@@ -29408,9 +30004,23 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-main-old-next-tag--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-main-old-next-tag",
+          "checkpoints": [
+            "port-main-old-next-tag--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#CanSpecifyTagPrefixes",
@@ -29493,9 +30103,47 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-develop-next-1-default--head",
+        "port-develop-next-1-configured--head",
+        "port-develop-next-2-default--head",
+        "port-develop-next-2-configured--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "1 commit(s), default",
+          "recipe": "port-develop-next-1-default",
+          "checkpoints": [
+            "port-develop-next-1-default--head"
+          ]
+        },
+        {
+          "parameter": "1 commit(s), configured",
+          "recipe": "port-develop-next-1-configured",
+          "checkpoints": [
+            "port-develop-next-1-configured--head"
+          ]
+        },
+        {
+          "parameter": "2 commit(s), default",
+          "recipe": "port-develop-next-2-default",
+          "checkpoints": [
+            "port-develop-next-2-default--head"
+          ]
+        },
+        {
+          "parameter": "2 commit(s), configured",
+          "recipe": "port-develop-next-2-configured",
+          "checkpoints": [
+            "port-develop-next-2-configured--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Four original configuration/commit checkpoints use independent deterministic fixtures; explicit v7 YAML."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs#PreventDecrementationOfVersionsOnTheDevelopmentBranch",
@@ -32844,9 +33492,23 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-bump-prerelease--head"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-bump-prerelease",
+          "checkpoints": [
+            "port-bump-prerelease--head"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs#CanUseCommitMessagesToBumpVersion",
@@ -32861,9 +33523,25 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-bump-messages--minor",
+        "port-bump-messages--major"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-bump-messages",
+          "checkpoints": [
+            "port-bump-messages--minor",
+            "port-bump-messages--major"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs#CanUseCommitMessagesToBumpVersion_TagTakesPriority",
@@ -32878,9 +33556,27 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-bump-tag-wins--major",
+        "port-bump-tag-wins--tag",
+        "port-bump-tag-wins--next"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-bump-tag-wins",
+          "checkpoints": [
+            "port-bump-tag-wins--major",
+            "port-bump-tag-wins--tag",
+            "port-bump-tag-wins--next"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs#CanUseConventionalCommitsToBumpVersion",
@@ -32996,9 +33692,25 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCalculationPortsFrozenReference",
+      "fixtures": [
+        "port-bump-source-tag--minor",
+        "port-bump-source-tag--next"
+      ],
+      "port_cases": [
+        {
+          "parameter": "default",
+          "recipe": "port-bump-source-tag",
+          "checkpoints": [
+            "port-bump-source-tag--minor",
+            "port-bump-source-tag--next"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/VersionInCurrentBranchNameScenarios.cs#TakesVersionFromNameOfReleaseBranch",

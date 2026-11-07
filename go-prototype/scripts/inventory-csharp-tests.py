@@ -61,8 +61,41 @@ for row in rows:
         row.update(status='verified-macos-ubuntu', go_test='TestConfigurationEdgeFrozenReference', fixtures=mappings[key])
         found.add(key)
 assert found == set(mappings), 'A mapped C# test is absent from the pin'
+# New ports carry explicit parameter/checkpoint inventories and source hashes.
+ports = json.loads((root / 'testdata/csharp-port-mappings.json').read_text())
+recipes = json.loads((root / 'testdata/csharp-calculation-ports.json').read_text())
+recipe_by_id = {r['id']: r for r in recipes}
+config_cases = {c['id']: c for c in json.loads((root / 'testdata/csharp-configuration-ports.json').read_text())}
+used_recipes, used_configs, found_ports = set(), set(), set()
+for row in rows:
+    key = Path(row['source']).stem + '.' + row['method']
+    if key not in ports:
+        continue
+    port = ports[key]
+    assert row['source'] == port['source'] and row['source_sha256'] == port['source_sha256'], key
+    assert port['cases'] and port['adaptations'], key
+    checkpoints = []
+    for case in port['cases']:
+        if 'recipe' in case:
+            recipe = recipe_by_id[case['recipe']]
+            assert recipe['description'] == key, key
+            expected = [recipe['id'] + '--' + step['id'] for step in recipe['steps'] if step['op'] == 'checkpoint']
+            assert expected == case['checkpoints'] and all(step.get('semver') for step in recipe['steps'] if step['op'] == 'checkpoint'), key
+            assert recipe['id'] not in used_recipes, key
+            used_recipes.add(recipe['id']); checkpoints.extend(expected)
+        else:
+            assert case['configuration'] in config_cases, key
+            assert config_cases[case['configuration']]['expected'], key
+            assert case['configuration'] not in used_configs, key
+            used_configs.add(case['configuration'])
+    row.update(status=port['status'], go_test=port['go_test'], fixtures=checkpoints,
+               port_cases=port['cases'], adaptations=port['adaptations'])
+    found_ports.add(key)
+assert found_ports == set(ports), 'A port source method is absent from the pin'
+assert used_recipes == set(recipe_by_id) and used_configs == set(config_cases), 'Unmapped port cases'
+found.update(found_ports)
 out = {'schema': 1, 'source_revision': revision,
        'kind': 'static attributed method inventory; not expanded NUnit discovery',
        'declarations': len(rows), 'mapped_declarations': len(found), 'tests': rows}
 (root / 'testdata/csharp-test-inventory.json').write_text(json.dumps(out, indent=2) + '\n')
-print(f'{len(rows)} attributed declarations; {len(found)} mapped to seven fixtures')
+print(f'{len(rows)} attributed declarations; {len(found)} mapped methods; {len(used_recipes)} new recipes and {len(used_configs)} configuration cases')

@@ -104,7 +104,10 @@ func Calculate(path string) (map[string]any, Trace, error) {
 			mainTips = append(mainTips, ref.SHA)
 		}
 	}
-	if len(mainTips) != 1 {
+	// Non-Mainline strategies can calculate an explicitly configured branch
+	// without a main ref (for example a repository initialized on develop).
+	// Inherited branches still require a source through configurationSources.
+	if len(mainTips) > 1 || (len(mainTips) == 0 && cfg.Strategies["Mainline"]) {
 		return nil, trace, fmt.Errorf("unsupported main-branch topology: require exactly one main/master branch")
 	}
 	sources, err := configurationSources(r, cfg, branch, branches, map[string]bool{})
