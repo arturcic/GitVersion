@@ -55043,7 +55043,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.PreservesUnmatchedAndPositionalDiagnostics": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55064,7 +55064,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.TokenConsumedAsStringValueDoesNotRequestSchema": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55079,7 +55079,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.ReportsExpectedOutputFailure": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55094,7 +55094,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.HostSkipsExecutorsAndFeatureLogging": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55109,7 +55109,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.ProcessExportsSameDocumentWithoutRepositoryOrFiles": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55127,7 +55127,7 @@
     "adaptations": [
       "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.ProcessRejectsInvalidSyntaxAndLegacyParser": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55143,7 +55143,7 @@
     "adaptations": [
       "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.ProcessEmitsOnlySchemaWhenCombinedWithHelpOrVersion": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55163,7 +55163,7 @@
     "adaptations": [
       "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaTests.ProcessIgnoresBuildServerOutputAndPreservesExistingConfiguration": {
     "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
@@ -55178,7 +55178,7 @@
     "adaptations": [
       "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaExporterTests.ExportsLiveTreeIncludingHiddenSymbolsAndLocalOptions": {
     "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
@@ -55193,7 +55193,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaExporterTests.DoesNotRunDefaultsValidatorsParsersOrCompletionSources": {
     "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
@@ -55208,7 +55208,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaExporterTests.OutputIsStableAcrossCulturesAndRepeatedExports": {
     "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
@@ -55223,7 +55223,7 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CliSchemaExporterTests.PreservesFiniteAndUnboundedArgumentArity": {
     "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
@@ -55243,6 +55243,6 @@
     "adaptations": [
       "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
