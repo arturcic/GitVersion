@@ -14,6 +14,7 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/calculate"
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 )
 
 func runRootCLI(args []string, out, diagnostics io.Writer) error {
@@ -69,14 +70,17 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		_, err = out.Write(append(data, '\n'))
 		return err
 	}
-	if options.TargetURL != "" || options.TargetBranch != "" || options.CommitID != "" || options.ClonePath != "" {
-		return fmt.Errorf("remote, branch, and commit targeting are pending")
+	if options.TargetURL != "" || options.TargetBranch != "" || options.ClonePath != "" {
+		return fmt.Errorf("remote and branch targeting are pending")
 	}
 	if options.AllowShallow || options.Diag {
 		return fmt.Errorf("shallow history and diagnostic mode are pending")
 	}
-	values, _, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.OverrideConfiguration, diagnostics)
+	values, trace, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.CommitID, options.OverrideConfiguration, diagnostics)
 	if err != nil {
+		return err
+	}
+	if err := writeCalculationLog(options, trace, values, diagnostics); err != nil {
 		return err
 	}
 	if err := writeRootOutput(options, values, out); err != nil {
@@ -144,15 +148,39 @@ func writeRootOutput(options cliArguments, values map[string]any, out io.Writer)
 		_, err = fmt.Fprintln(out, text)
 		return err
 	}
-	return json.NewEncoder(out).Encode(values)
+	encoder := json.NewEncoder(out)
+	encoder.SetIndent("", "  ")
+	return encoder.Encode(values)
 }
 
-func calculateCLI(path, custom, logFile string, overrides []byte, diagnostics io.Writer) (map[string]any, calculate.Trace, error) {
+func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagnostics io.Writer) (map[string]any, calculate.Trace, error) {
 	if _, err := selectedConfigurationVersion(); err != nil {
 		return nil, calculate.Trace{}, err
 	}
+	info, err := os.Stat(path)
+	if os.IsNotExist(err) || (err == nil && !info.IsDir()) {
+		return nil, calculate.Trace{}, fmt.Errorf("The working directory '%s' does not exist.", path)
+	}
+	if err != nil {
+		return nil, calculate.Trace{}, err
+	}
+	repository, err := gitrepo.WorkingTreeRoot(path)
+	if err != nil {
+		return nil, calculate.Trace{}, err
+	}
+	configDirectory := path
+	if custom == "" {
+		locator := config.FileLocator{}
+		file, err := locator.Get(&path)
+		if err != nil {
+			return nil, calculate.Trace{}, err
+		}
+		if file == nil {
+			configDirectory = repository
+		}
+	}
 	var warning string
-	cfg, err := config.LoadNamedWithOverrides(path, custom, overrides, func(message string) { warning = message })
+	cfg, err := config.LoadNamedWithOverrides(configDirectory, custom, overrides, func(message string) { warning = message })
 	if err != nil {
 		if strings.Contains(err.Error(), "uses the legacy v6 configuration structure") {
 			err = fmt.Errorf("An error occurred:\n%w", err)
@@ -162,7 +190,7 @@ func calculateCLI(path, custom, logFile string, overrides []byte, diagnostics io
 	if warning != "" {
 		fmt.Fprintln(diagnostics, warning)
 	}
-	values, trace, err := calculate.CalculateWithConfig(path, cfg)
+	values, trace, err := calculate.CalculateAtCommit(repository, cfg, commit)
 	if err != nil {
 		return nil, trace, err
 	}

@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1272,
+  "mapped_declarations": 1283,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1234,
+      "mapped": 1245,
       "verified": 1234
     },
     "integration": {
@@ -3829,9 +3829,16 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpValidationJSON",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go validation envelope and retain the original byte-level assertion."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs#SuccessfulValidationPreservesEmptyDiagnostics",
@@ -3846,9 +3853,16 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpValidationJSON",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go validation envelope and retain the original byte-level assertion."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs#YamlDiagnosticPreservesNumericLocationAndEscapedUnicodePath",
@@ -3863,9 +3877,16 @@
       ],
       "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpValidationJSON",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go validation envelope and retain the original byte-level assertion."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs#V6V7AndMigratedConfigurationCalculateCurrentCommitLabel",
@@ -4328,9 +4349,16 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#LogPathContainsForwardSlash",
@@ -4345,9 +4373,16 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#CommitArgumentUsesRequestedCommitWhenCacheExists",
@@ -4403,9 +4438,21 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#VerboseVerbosityIncludesDebugOutput",
@@ -4424,9 +4471,17 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage",
@@ -4441,9 +4496,16 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#WorkingDirectoryWithoutGitFolderDoesNotFailForVersionAndHelp",
@@ -4462,9 +4524,17 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#WorkingDirectoryWithoutCommitsFailsWithInformativeMessage",
@@ -4479,9 +4549,16 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#WorkingDirectoryDoesNotExistFailsWithInformativeMessage",
@@ -4496,9 +4573,16 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCLIExecution",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-cli-execution.json",
+      "adaptations": [
+        "Use the Go CLI and equivalent temporary files or go-git histories."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecFeatureSelectorTests.cs#SelectorCombinationsCalculateAndLogWithoutPollutingOutput",

@@ -1,0 +1,198 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "ExecCmdLineArgumentTest": {
+      "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+      "sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+      "go_test": "TestCSharpCLIExecution",
+      "methods": {
+        "InvalidArgumentsExitCodeShouldNotBeZero": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "contains": "Could not parse command line parameter '--invalid-argument'"
+            }
+          ]
+        },
+        "LogPathContainsForwardSlash": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CommitArgumentUsesRequestedCommitWhenCacheExists": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "CheckBuildServerVerbosityConsole": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false,
+                "",
+                true
+              ],
+              "contains": "INFO"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                false,
+                "--verbosity NORMAL",
+                true
+              ],
+              "contains": "INFO"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                false,
+                "--verbosity quiet",
+                false
+              ],
+              "contains": "INFO"
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                true,
+                "",
+                true
+              ],
+              "contains": "INFO"
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                true,
+                "/verbosity NORMAL",
+                true
+              ],
+              "contains": "INFO"
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                true,
+                "/verbosity quiet",
+                false
+              ],
+              "contains": "INFO"
+            }
+          ]
+        },
+        "VerboseVerbosityIncludesDebugOutput": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ],
+              "contains": "DBUG"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ],
+              "contains": "DBUG"
+            }
+          ]
+        },
+        "WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "contains": "Cannot find the .git directory"
+            }
+          ]
+        },
+        "WorkingDirectoryWithoutGitFolderDoesNotFailForVersionAndHelp": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                " --help"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                " --version"
+              ]
+            }
+          ]
+        },
+        "WorkingDirectoryWithoutCommitsFailsWithInformativeMessage": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "contains": "No commits found on the current branch."
+            }
+          ]
+        },
+        "WorkingDirectoryDoesNotExistFailsWithInformativeMessage": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "contains": "The working directory '{workingDirectory}' does not exist."
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationValidationJsonTests": {
+      "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
+      "sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
+      "go_test": "TestCSharpValidationJSON",
+      "methods": {
+        "ValidationEnvelopePreservesFieldNamesNullsAndDiagnosticDetails": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "approved": "{\"schemaVersion\":1,\"valid\":false,\"configurationVersion\":null,\"file\":null,\"diagnostics\":[{\"code\":\"GVCONFIG_FILE\",\"severity\":\"error\",\"path\":\"\",\"message\":\"file \\u0022missing\\u0022\\n\",\"line\":null,\"column\":null}]}"
+            }
+          ]
+        },
+        "SuccessfulValidationPreservesEmptyDiagnostics": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "approved": "{\"schemaVersion\":1,\"valid\":true,\"configurationVersion\":\"v7\",\"file\":\"/repo/candidate.yml\",\"diagnostics\":[]}"
+            }
+          ]
+        },
+        "YamlDiagnosticPreservesNumericLocationAndEscapedUnicodePath": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "approved": "{\"schemaVersion\":1,\"valid\":false,\"configurationVersion\":\"v7\",\"file\":\"/repo/config \\u00E9 \\u0022quoted\\u0022.yml\",\"diagnostics\":[{\"code\":\"GVCONFIG_YAML\",\"severity\":\"error\",\"path\":\"calculation\",\"message\":\"Invalid YAML.\",\"line\":12,\"column\":34}]}"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

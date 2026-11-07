@@ -4,6 +4,7 @@
 package gitrepo
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -104,6 +105,9 @@ func Open(path string) (*Repository, error) {
 	}
 	tip, err := store.resolve(plumbing.HEAD)
 	if err != nil {
+		if errors.Is(err, plumbing.ErrReferenceNotFound) {
+			return nil, errors.New("No commits found on the current branch.")
+		}
 		return nil, fmt.Errorf("unsupported empty or broken HEAD: %w", err)
 	}
 	status, err := workingTreeStatus(layout, g)

@@ -75,6 +75,21 @@ func discoverLayout(path string) (repositoryLayout, error) {
 	}
 }
 
+// WorkingTreeRoot locates the checkout containing path without opening Git objects.
+func WorkingTreeRoot(path string) (string, error) {
+	layout, err := discoverLayout(path)
+	if errors.Is(err, errRepositoryNotFound) {
+		return "", errors.New("Cannot find the .git directory")
+	}
+	if err != nil {
+		return "", err
+	}
+	if layout.workingDirectory == "" {
+		return "", fmt.Errorf("unsupported bare repository")
+	}
+	return layout.workingDirectory, nil
+}
+
 func openLayout(path string) (repositoryLayout, error) {
 	abs, err := filepath.Abs(path)
 	if err != nil {

@@ -52,7 +52,7 @@ func execute(args []string, out, diagnostics io.Writer) error {
 		return fmt.Errorf("%s", usage)
 	}
 	if args[0] == "calculate" {
-		values, detail, err := calculateCLI(*path, *custom, *logFile, nil, diagnostics)
+		values, detail, err := calculateCLI(*path, *custom, *logFile, "", nil, diagnostics)
 		if err != nil {
 			return err
 		}

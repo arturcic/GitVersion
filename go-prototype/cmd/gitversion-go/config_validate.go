@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -160,7 +159,11 @@ func runConfigValidate(args []string, workdir, problem string, discover func(str
 		fmt.Fprintf(stderr, "Configuration is invalid. %s\n", label)
 	}
 	if format == "json" {
-		if err := json.NewEncoder(stdout).Encode(result); err != nil {
+		data, err := marshalValidationEnvelope(result)
+		if err != nil {
+			return err
+		}
+		if _, err := stdout.Write(append(data, '\n')); err != nil {
 			return err
 		}
 	}

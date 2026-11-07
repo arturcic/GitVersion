@@ -68,10 +68,19 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 	return calculateWithStrategy(path, cfg, nil)
 }
 
+// CalculateAtCommit applies the requested commit's date cutoff to the current branch.
+func CalculateAtCommit(path string, cfg config.Config, commit string) (map[string]any, Trace, error) {
+	return calculateAtCommit(path, cfg, commit, nil)
+}
+
 // versionStrategy permits a source strategy to supply candidates to the shared pipeline.
 type versionStrategy func() ([]candidate, error)
 
 func calculateWithStrategy(path string, cfg config.Config, strategy versionStrategy) (map[string]any, Trace, error) {
+	return calculateAtCommit(path, cfg, "", strategy)
+}
+
+func calculateAtCommit(path string, cfg config.Config, requestedCommit string, strategy versionStrategy) (map[string]any, Trace, error) {
 	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	r, err := gitrepo.Open(path)
 	if err != nil {
@@ -146,16 +155,43 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 			return "", false, nil
 		},
 	}
+	history, err := r.Walk(gitrepo.WalkOptions{Include: head, Sort: gitrepo.Time})
+	if err != nil {
+		return nil, trace, err
+	}
+	if strings.TrimSpace(requestedCommit) != "" {
+		// The managed C# adapter searches the current HEAD history and then
+		// skips commits newer than the requested commit's timestamp.
+		for _, id := range history {
+			if !strings.EqualFold(id, requestedCommit) {
+				continue
+			}
+			commit, err := r.CommitMetadata(id)
+			if err != nil {
+				return nil, trace, err
+			}
+			for len(history) > 0 {
+				first, err := r.CommitMetadata(history[0])
+				if err != nil {
+					return nil, trace, err
+				}
+				if first.When <= commit.When {
+					break
+				}
+				history = history[1:]
+			}
+			if len(history) > 0 {
+				head = history[0]
+			}
+			break
+		}
+	}
 	configurations, err := finder.configurations(branch, head)
 	if err != nil {
 		return nil, trace, err
 	}
 	if len(configurations) == 0 {
 		return nil, trace, fmt.Errorf("no base versions determined from source branches")
-	}
-	history, err := r.Walk(gitrepo.WalkOptions{Include: head, Sort: gitrepo.Time})
-	if err != nil {
-		return nil, trace, err
 	}
 	history, err = ignored.ids(history)
 	if err != nil {
@@ -166,7 +202,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	// than the physical tip. Keep the branch history for tag discovery, but
 	// calculate and report against this selected commit.
 	if len(history) == 0 {
-		return nil, trace, fmt.Errorf("no commits on current branch")
+		return nil, trace, fmt.Errorf("No commits found on the current branch.")
 	}
 	head = history[0]
 	effective, err = cfg.EffectiveOptions(branch, head, configurations[0].options, configurations[0].value.Inherit)

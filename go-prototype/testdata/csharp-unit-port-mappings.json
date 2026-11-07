@@ -53344,5 +53344,177 @@
       "Match the original canonical local and remote names with the Go ignore matcher."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ExecCmdLineArgumentTest.InvalidArgumentsExitCodeShouldNotBeZero": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "InvalidArgumentsExitCodeShouldNotBeZero",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.LogPathContainsForwardSlash": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "LogPathContainsForwardSlash",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.CheckBuildServerVerbosityConsole": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "CheckBuildServerVerbosityConsole",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.VerboseVerbosityIncludesDebugOutput": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "VerboseVerbosityIncludesDebugOutput",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "WorkingDirectoryWithoutGitFolderFailsWithInformativeMessage",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.WorkingDirectoryWithoutGitFolderDoesNotFailForVersionAndHelp": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "WorkingDirectoryWithoutGitFolderDoesNotFailForVersionAndHelp",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.WorkingDirectoryWithoutCommitsFailsWithInformativeMessage": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "WorkingDirectoryWithoutCommitsFailsWithInformativeMessage",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ExecCmdLineArgumentTest.WorkingDirectoryDoesNotExistFailsWithInformativeMessage": {
+    "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+    "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+    "method": "WorkingDirectoryDoesNotExistFailsWithInformativeMessage",
+    "go_test": "TestCSharpCLIExecution",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go CLI and equivalent temporary files or go-git histories."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationJsonTests.ValidationEnvelopePreservesFieldNamesNullsAndDiagnosticDetails": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
+    "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
+    "method": "ValidationEnvelopePreservesFieldNamesNullsAndDiagnosticDetails",
+    "go_test": "TestCSharpValidationJSON",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go validation envelope and retain the original byte-level assertion."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationJsonTests.SuccessfulValidationPreservesEmptyDiagnostics": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
+    "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
+    "method": "SuccessfulValidationPreservesEmptyDiagnostics",
+    "go_test": "TestCSharpValidationJSON",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go validation envelope and retain the original byte-level assertion."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationJsonTests.YamlDiagnosticPreservesNumericLocationAndEscapedUnicodePath": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs",
+    "source_sha256": "19bdd22d64d1af2eae799e485e9e12097eff3f6cd12077c698a97bed8d0f759a",
+    "method": "YamlDiagnosticPreservesNumericLocationAndEscapedUnicodePath",
+    "go_test": "TestCSharpValidationJSON",
+    "case_file": "testdata/csharp-cli-execution.json",
+    "case_file_sha256": "afc2bdfde2f925b8602dd0d53e6b223f0e7f5e7eae8b03fca4adb992a9ba61d1",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go validation envelope and retain the original byte-level assertion."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
