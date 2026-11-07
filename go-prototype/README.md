@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1316 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1353 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,278 verified unit/component methods out of 1,516 separately from integration ports.
+1,315 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -353,3 +353,20 @@ original cases and 14 live comparisons per platform. macOS uses the pinned
 managed C# backend. Ubuntu uses it for shallow cases and uses the same C#
 binary's bundled native backend for detached cases because the image lacks
 the Git CLI needed by C#'s managed checkout path. Go uses go-git throughout.
+
+The Go CLI can generate a C#, F#, or Visual Basic version information file
+and check a list of compile items for conflicting assembly version attributes.
+
+```bash
+gitversion-go msbuild generate-version-info --project-file App.csproj --language C# --intermediate-output-path obj
+gitversion-go msbuild check-assembly-info --project-file App.csproj Properties/AssemblyInfo.cs
+```
+
+Import `msbuild/GitVersion.Go.targets` to invoke the generator from MSBuild.
+Run the `GenerateGitVersionGoInformation` target with the Go executable on
+`PATH` or set `GitVersionGoExecutable`. The target exposes
+`GitVersionInformationFilePath`. It supports the project's language,
+intermediate directory, and optional root namespace.
+
+The [MSBuild output evidence](CSHARP-MSBUILD-OUTPUT-EVIDENCE.json) records the
+original source approvals and the cases run through MSBuild on both platforms.

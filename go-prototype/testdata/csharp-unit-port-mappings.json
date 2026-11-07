@@ -54070,7 +54070,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyAttributeFoundCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54088,7 +54088,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyUnformattedAttributeFoundCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54106,7 +54106,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWorksCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54123,7 +54123,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWithNoNewLineAtEndWorksCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54140,7 +54140,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyStringWorksCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54157,7 +54157,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyIdentifierWorksCSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54174,7 +54174,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyAttributeFoundVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54192,7 +54192,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyUnformattedAttributeFoundVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54210,7 +54210,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWorksVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54227,7 +54227,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWithNoNewLineAtEndWorksVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54244,7 +54244,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyStringWorksVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54261,7 +54261,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyIdentifierWorksVisualBasic": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54278,7 +54278,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyAttributeFoundFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54296,7 +54296,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyUnformattedAttributeFoundFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54314,7 +54314,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWorksFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54331,7 +54331,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyCommentWithNoNewLineAtEndWorksFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54348,7 +54348,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyStringWorksFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54365,7 +54365,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InvalidFileCheckerTests.VerifyIdentifierWorksFSharp": {
     "source": "src/GitVersion.MsBuild.Tests/InvalidFileCheckerTests.cs",
@@ -54382,7 +54382,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileHelperTests.GetFileExtensionShouldReturnCorrectExtension": {
     "source": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs",
@@ -54400,7 +54400,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileHelperTests.GetFileWriteInfoShouldCreateConstantNamedFileWhenIntermediateOutputPath": {
     "source": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs",
@@ -54415,7 +54415,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileHelperTests.GetFileWriteInfoShouldCreateRandomNamedFileWhenNoIntermediateOutputPath": {
     "source": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs",
@@ -54430,7 +54430,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFile": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54447,7 +54447,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54464,7 +54464,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuild": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54481,7 +54481,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54498,7 +54498,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExist": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54515,7 +54515,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileInBuildServerWhenIntermediateOutputPathDoesNotExist": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54532,7 +54532,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExist": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54549,7 +54549,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExistInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54566,7 +54566,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndUseProjectNamespaceIsSpecifiedAndRootNamespaceIsSet": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54583,7 +54583,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWhenRunWithMsBuildAndUseProjectNamespaceIsSpecifiedAndRootNamespaceIsNotSet": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54600,7 +54600,7 @@
     "adaptations": [
       "Run the actual MSBuild engine with the imported Go target. The target invokes the Go CLI and exposes the generated path."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWithUseProjectNamespaceSetAndRootNamespaceUnSet": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54617,7 +54617,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GenerateGitVersionInformationTest.GenerateGitVersionInformationTaskShouldCreateFileWithUseProjectNamespaceSetAndRootNamespaceIsSet": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GenerateGitVersionInformationTest.cs",
@@ -54634,7 +54634,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionInfoGeneratorTests.ShouldCreateFile": {
     "source": "src/GitVersion.Output.Tests/Output/GitVersionInfoGeneratorTests.cs",
@@ -54651,7 +54651,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionInfoGeneratorTests.ShouldProperlyOutputNamespaceDeclaration": {
     "source": "src/GitVersion.Output.Tests/Output/GitVersionInfoGeneratorTests.cs",
@@ -54668,7 +54668,7 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JsonVersionBuilderTests.Json": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/JsonVersionBuilderTests.cs",
@@ -54683,6 +54683,6 @@
     "adaptations": [
       "Use equivalent go-git histories and temporary source files. Retain the original output and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
