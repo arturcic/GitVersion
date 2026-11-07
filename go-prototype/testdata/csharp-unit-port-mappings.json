@@ -2027,5 +2027,375 @@
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
     "status": "verified-macos-ubuntu"
+  },
+  "LabelTokenizerTests.ParseTokens_ValidLiterals_ReturnsValid": {
+    "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
+    "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
+    "method": "ParseTokens_ValidLiterals_ReturnsValid",
+    "go_test": "TestCSharpLabelTokens",
+    "case_file": "testdata/csharp-label-tokenizer.json",
+    "case_file_sha256": "a07164e97b72c79f259a427ed2427b6bde59359e3897da2da456494b95c66d08",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LabelTokenizerTests.ParseTokens_InvalidLiterals_Throws": {
+    "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
+    "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
+    "method": "ParseTokens_InvalidLiterals_Throws",
+    "go_test": "TestCSharpLabelTokens",
+    "case_file": "testdata/csharp-label-tokenizer.json",
+    "case_file_sha256": "a07164e97b72c79f259a427ed2427b6bde59359e3897da2da456494b95c66d08",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LabelTokenizerTests.ParseTokens_ValidIdentifiers_ReturnsValid": {
+    "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
+    "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
+    "method": "ParseTokens_ValidIdentifiers_ReturnsValid",
+    "go_test": "TestCSharpLabelTokens",
+    "case_file": "testdata/csharp-label-tokenizer.json",
+    "case_file_sha256": "a07164e97b72c79f259a427ed2427b6bde59359e3897da2da456494b95c66d08",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LabelTokenizerTests.ParseTokens_MalformedIdentifiers_Throws": {
+    "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
+    "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
+    "method": "ParseTokens_MalformedIdentifiers_Throws",
+    "go_test": "TestCSharpLabelTokens",
+    "case_file": "testdata/csharp-label-tokenizer.json",
+    "case_file_sha256": "a07164e97b72c79f259a427ed2427b6bde59359e3897da2da456494b95c66d08",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithValidName_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithValidName_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithEmptyOrWhitespace_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithEmptyOrWhitespace_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithTooLongName_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithTooLongName_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithMaxValidLength_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithMaxValidLength_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithInvalidCharacters_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithInvalidCharacters_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithValidNames_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+    "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+    "method": "SanitizeEnvVarName_WithValidNames_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-env-var-name.json",
+    "case_file_sha256": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithValidFormat_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithValidFormat_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithEmptyOrWhitespace_ThrowsFormatException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithEmptyOrWhitespace_ThrowsFormatException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithTooLongFormat_ThrowsFormatException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithTooLongFormat_ThrowsFormatException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithMaxValidLength_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithMaxValidLength_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithControlCharacters_ThrowsFormatException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithControlCharacters_ThrowsFormatException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithTabCharacter_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithTabCharacter_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeFormatTests.SanitizeFormat_WithValidFormats_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+    "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+    "method": "SanitizeFormat_WithValidFormats_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-format.json",
+    "case_file_sha256": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithValidName_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithValidName_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithEmptyOrWhitespace_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithEmptyOrWhitespace_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithTooLongName_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithTooLongName_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithMaxValidLength_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithMaxValidLength_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithInvalidCharacters_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithInvalidCharacters_ThrowsArgumentException",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithValidNames_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithValidNames_ReturnsInput",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SanitizeMemberNameTests.SanitizeMemberName_WithDottedNames_HandledByRegex": {
+    "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+    "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+    "method": "SanitizeMemberName_WithDottedNames_HandledByRegex",
+    "go_test": "TestCSharpInputSanitizers",
+    "case_file": "testdata/csharp-sanitize-member-name.json",
+    "case_file_sha256": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
+    "status": "ported-awaiting-platform-verification"
   }
 }

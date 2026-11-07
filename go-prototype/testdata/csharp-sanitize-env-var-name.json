@@ -1,0 +1,110 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
+  "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
+  "methods": {
+    "SanitizeEnvVarName_WithValidName_ReturnsInput": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "VALID_ENV_VAR",
+        "error": false,
+        "expected": "VALID_ENV_VAR",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeEnvVarName_WithEmptyOrWhitespace_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "",
+        "error": true,
+        "expected": "Environment variable name cannot be null or empty.",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": " ",
+        "error": true,
+        "expected": "Environment variable name cannot be null or empty.",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "\t",
+        "error": true,
+        "expected": "Environment variable name cannot be null or empty.",
+        "id": "case-002"
+      }
+    ],
+    "SanitizeEnvVarName_WithTooLongName_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "error": true,
+        "expected": "Environment variable name too long: 'AAAAAAAAAAAAAAAAAAAA...'",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeEnvVarName_WithMaxValidLength_ReturnsInput": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "error": false,
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeEnvVarName_WithInvalidCharacters_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "INVALID@NAME",
+        "error": true,
+        "expected": "Environment variable name contains disallowed characters: 'INVALID@NAME'",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeEnvVarName_WithValidNames_ReturnsInput": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "PATH",
+        "error": false,
+        "expected": "PATH",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "HOME",
+        "error": false,
+        "expected": "HOME",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "USER_NAME",
+        "error": false,
+        "expected": "USER_NAME",
+        "id": "case-002"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "MY_VAR_123",
+        "error": false,
+        "expected": "MY_VAR_123",
+        "id": "case-003"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "_PRIVATE_VAR",
+        "error": false,
+        "expected": "_PRIVATE_VAR",
+        "id": "case-004"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "VAR123",
+        "error": false,
+        "expected": "VAR123",
+        "id": "case-005"
+      }
+    ]
+  }
+}

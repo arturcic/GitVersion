@@ -1,0 +1,298 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
+  "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
+  "methods": {
+    "ParseTokens_ValidLiterals_ReturnsValid": [
+      {
+        "input": "Pattern",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern"
+        ],
+        "id": "case-000"
+      },
+      {
+        "input": "Pattern  ",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern"
+        ],
+        "id": "case-001"
+      },
+      {
+        "input": "  Pattern",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern"
+        ],
+        "id": "case-002"
+      },
+      {
+        "input": "  Pattern  ",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern"
+        ],
+        "id": "case-003"
+      },
+      {
+        "input": "Pat\\\"tern",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pat\"tern"
+        ],
+        "id": "case-004"
+      },
+      {
+        "input": "\"Pattern\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern"
+        ],
+        "id": "case-005"
+      },
+      {
+        "input": "\"Pat?tern\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pat?tern"
+        ],
+        "id": "case-006"
+      },
+      {
+        "input": "\"Pat tern\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pat tern"
+        ],
+        "id": "case-007"
+      },
+      {
+        "input": "\" Pattern\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          " Pattern"
+        ],
+        "id": "case-008"
+      },
+      {
+        "input": "\"Pattern \"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pattern "
+        ],
+        "id": "case-009"
+      },
+      {
+        "input": "\"Pat\\\"tern\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Pat\"tern"
+        ],
+        "id": "case-010"
+      }
+    ],
+    "ParseTokens_InvalidLiterals_Throws": [
+      {
+        "input": "Pat?tern",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-000"
+      },
+      {
+        "input": "\"Pattern",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-001"
+      },
+      {
+        "input": "Pattern\"",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-002"
+      },
+      {
+        "input": "Pat\"tern",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-003"
+      }
+    ],
+    "ParseTokens_ValidIdentifiers_ReturnsValid": [
+      {
+        "input": "Prop1 ?? Prop2",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2"
+        ],
+        "id": "case-000"
+      },
+      {
+        "input": "Prop1??Prop2",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2"
+        ],
+        "id": "case-001"
+      },
+      {
+        "input": "Prop1??Prop2??42",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "42"
+        ],
+        "id": "case-002"
+      },
+      {
+        "input": "Prop1??Prop2??\"42\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "42"
+        ],
+        "id": "case-003"
+      },
+      {
+        "input": "Prop1 ?? Prop2 ?? \"fallback\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "fallback"
+        ],
+        "id": "case-004"
+      },
+      {
+        "input": "Prop1 ??Prop2?? \"fallback\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "fallback"
+        ],
+        "id": "case-005"
+      },
+      {
+        "input": "Prop1 ?? Prop2 ?? 42",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "42"
+        ],
+        "id": "case-006"
+      },
+      {
+        "input": "Prop1:format ?? Prop2 ?? \"fallback\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Prop1",
+          "Prop2",
+          "fallback"
+        ],
+        "id": "case-007"
+      },
+      {
+        "input": "env:Env1 ?? Prop2 ?? \"fallback\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Env1",
+          "Prop2",
+          "fallback"
+        ],
+        "id": "case-008"
+      },
+      {
+        "input": "env:Env1:format ?? \"literal\" ?? \"fallback\"",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Env1",
+          "literal",
+          "fallback"
+        ],
+        "id": "case-009"
+      },
+      {
+        "input": "env:Env1 ?? 42",
+        "operation": "tokens",
+        "error": false,
+        "expected_tokens": [
+          "Env1",
+          "42"
+        ],
+        "id": "case-010"
+      }
+    ],
+    "ParseTokens_MalformedIdentifiers_Throws": [
+      {
+        "input": "Prop ??? literal",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-000"
+      },
+      {
+        "input": "Prop literal",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-001"
+      },
+      {
+        "input": "Prop ?? literal ?? ? fallback",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-002"
+      },
+      {
+        "input": "Prop ? fallback",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-003"
+      },
+      {
+        "input": "Prop ?? fall?back",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-004"
+      },
+      {
+        "input": "Prop ?? fallback ??",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-005"
+      },
+      {
+        "input": "Prop ?? fallback ??   ",
+        "operation": "tokens",
+        "error": true,
+        "id": "case-006"
+      }
+    ]
+  }
+}

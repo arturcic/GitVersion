@@ -1,0 +1,133 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
+  "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
+  "methods": {
+    "SanitizeMemberName_WithValidName_ReturnsInput": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "ValidMemberName",
+        "error": false,
+        "expected": "ValidMemberName",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeMemberName_WithEmptyOrWhitespace_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "",
+        "error": true,
+        "expected": "Member name cannot be empty.",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": " ",
+        "error": true,
+        "expected": "Member name cannot be empty.",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "\t",
+        "error": true,
+        "expected": "Member name cannot be empty.",
+        "id": "case-002"
+      }
+    ],
+    "SanitizeMemberName_WithTooLongName_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "error": true,
+        "expected": "Member name too long: 'AAAAAAAAAAAAAAAAAAAA...'",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeMemberName_WithMaxValidLength_ReturnsInput": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "error": false,
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeMemberName_WithInvalidCharacters_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "Invalid@Member",
+        "error": true,
+        "expected": "Member name contains disallowed characters: 'Invalid@Member'",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeMemberName_WithValidNames_ReturnsInput": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "PropertyName",
+        "error": false,
+        "expected": "PropertyName",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "FieldName",
+        "error": false,
+        "expected": "FieldName",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "Member123",
+        "error": false,
+        "expected": "Member123",
+        "id": "case-002"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "_privateMember",
+        "error": false,
+        "expected": "_privateMember",
+        "id": "case-003"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "CamelCaseName",
+        "error": false,
+        "expected": "CamelCaseName",
+        "id": "case-004"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "PascalCaseName",
+        "error": false,
+        "expected": "PascalCaseName",
+        "id": "case-005"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "member_with_underscores",
+        "error": false,
+        "expected": "member_with_underscores",
+        "id": "case-006"
+      }
+    ],
+    "SanitizeMemberName_WithDottedNames_HandledByRegex": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "member.nested",
+        "error": false,
+        "expected": "member.nested",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "Parent.Child.GrandChild",
+        "error": false,
+        "expected": "Parent.Child.GrandChild",
+        "id": "case-001"
+      }
+    ]
+  }
+}

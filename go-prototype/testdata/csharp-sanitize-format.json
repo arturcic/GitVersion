@@ -1,0 +1,161 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
+  "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
+  "methods": {
+    "SanitizeFormat_WithValidFormat_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "yyyy-MM-dd",
+        "error": false,
+        "expected": "yyyy-MM-dd",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeFormat_WithEmptyOrWhitespace_ThrowsFormatException": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "",
+        "error": true,
+        "expected": "Format string cannot be empty.",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": " ",
+        "error": true,
+        "expected": "Format string cannot be empty.",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "\t",
+        "error": true,
+        "expected": "Format string cannot be empty.",
+        "id": "case-002"
+      }
+    ],
+    "SanitizeFormat_WithTooLongFormat_ThrowsFormatException": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "error": true,
+        "expected": "Format string too long: 'xxxxxxxxxxxxxxxxxxxx...'",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeFormat_WithMaxValidLength_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "error": false,
+        "expected": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeFormat_WithControlCharacters_ThrowsFormatException": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "valid\rformat",
+        "error": true,
+        "expected": "Format string contains invalid control characters",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "valid\nformat",
+        "error": true,
+        "expected": "Format string contains invalid control characters",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "valid\u0000format",
+        "error": true,
+        "expected": "Format string contains invalid control characters",
+        "id": "case-002"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "valid\u0001format",
+        "error": true,
+        "expected": "Format string contains invalid control characters",
+        "id": "case-003"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "valid\u001fformat",
+        "error": true,
+        "expected": "Format string contains invalid control characters",
+        "id": "case-004"
+      }
+    ],
+    "SanitizeFormat_WithTabCharacter_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "format\twith\ttab",
+        "error": false,
+        "expected": "format\twith\ttab",
+        "id": "case-000"
+      }
+    ],
+    "SanitizeFormat_WithValidFormats_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "yyyy-MM-dd",
+        "error": false,
+        "expected": "yyyy-MM-dd",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "HH:mm:ss",
+        "error": false,
+        "expected": "HH:mm:ss",
+        "id": "case-001"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "0.00",
+        "error": false,
+        "expected": "0.00",
+        "id": "case-002"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "C2",
+        "error": false,
+        "expected": "C2",
+        "id": "case-003"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "X8",
+        "error": false,
+        "expected": "X8",
+        "id": "case-004"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "format with spaces",
+        "error": false,
+        "expected": "format with spaces",
+        "id": "case-005"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "format-with-dashes",
+        "error": false,
+        "expected": "format-with-dashes",
+        "id": "case-006"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "format_with_underscores",
+        "error": false,
+        "expected": "format_with_underscores",
+        "id": "case-007"
+      }
+    ]
+  }
+}
