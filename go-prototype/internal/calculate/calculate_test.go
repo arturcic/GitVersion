@@ -116,9 +116,9 @@ func TestInheritedBranchControlsAlternativeVersion(t *testing.T) {
 }
 
 func TestCalculationRejectsUnsupportedPolicies(t *testing.T) {
-	for _, tc := range []struct{ name, config, branch, message, tag string }{
-		{"workflow", "workflow: UnknownFlow/v1\n", "", "", ""},
-		{"custom-format", "workflow: GitHubFlow/v1\noutput: {custom-version-format: foo}\n", "", "", ""},
+	for _, tc := range []struct{ name, config, branch, message, tag, diagnostic string }{
+		{"workflow", "workflow: UnknownFlow/v1\n", "", "", "", "unsupported workflow"},
+		{"custom-format", "workflow: GitHubFlow/v1\noutput: {custom-version-format: \"{UnknownVersionProperty}\"}\n", "", "", "", "Unable to format CustomVersionFormat"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			steps := []fixtures.Step{{Op: "commit", ID: "root"}}
@@ -134,7 +134,7 @@ func TestCalculationRejectsUnsupportedPolicies(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			if values, _, err := Calculate(cps[0].Path); err == nil || values != nil {
+			if values, _, err := Calculate(cps[0].Path); err == nil || values != nil || !strings.Contains(err.Error(), tc.diagnostic) {
 				t.Fatalf("unsupported state emitted version: %+v %v", values, err)
 			}
 		})
