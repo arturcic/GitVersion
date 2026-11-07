@@ -39,13 +39,13 @@ func (f *managedObjectFixture) currentDate() time.Time {
 	return time.Date(2023, 6, 1, 10, f.commits, 0, 0, time.FixedZone("+0200", 2*60*60))
 }
 
-func (f *managedObjectFixture) addCommit(message string) plumbing.Hash {
+func (f *managedObjectFixture) addCommit(message string, parents ...plumbing.Hash) plumbing.Hash {
 	f.t.Helper()
 	f.stage(".")
 	f.commits++
 	author := &object.Signature{Name: managedAuthor, Email: managedAuthorID, When: f.currentDate()}
 	committer := &object.Signature{Name: managedCommitter, Email: managedCommitID, When: f.currentDate()}
-	hash, err := f.worktree.Commit(message+"\n", &git.CommitOptions{Author: author, Committer: committer})
+	hash, err := f.worktree.Commit(message+"\n", &git.CommitOptions{Author: author, Committer: committer, Parents: parents})
 	if err != nil {
 		f.t.Fatal(err)
 	}

@@ -1,0 +1,104 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Core/DualBackendParityTests.cs",
+  "source_sha256": "d2ce65b4890d0a282d28b5f84257b43f85a90c6380f545fabea22e07ce25d654",
+  "methods": {
+    "ReferencesAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "BranchesAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "TagsAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "CommitLogsAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "QueryBySequencesAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "MergeBasesAreIdenticalOnBothBackendsForAllCommitPairs": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "DiffPathsAreIdenticalOnBothBackendsForAllCommits": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "UncommittedChangesCountIsIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "EmptyRepositoryBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "DetachedHeadBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "RemotesAndRemoteBranchesAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "RepositoryPathsAreIdenticalOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "BareRepositoryHasNullProjectRootDirectoryOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "OctopusMergeBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "PackedAndLooseReferencesBehaveIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "LightweightAndAnnotatedTagOnTheSameCommitBehaveIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "ShallowCloneBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "WorktreeBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ],
+    "IndexVersionFourBehavesIdenticallyOnBothBackends": [
+      {
+        "id": "case-000"
+      }
+    ]
+  },
+  "reference": "testdata/csharp-dual-backend-reference.json",
+  "reference_sha256": "859ebd3171fbc3fd53e39ecdd906f9555516489a7e08f04a860a5589a7241d65"
+}
