@@ -8,25 +8,32 @@ import (
 	"fmt"
 	"io"
 	"math"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
 	"unicode/utf16"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/patterns"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
 	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
-	Output        OutputSettings
-	Ignore        IgnoreSettings
-	Workflow      string
-	Strategies    map[string]bool
-	Extra         map[string]Options
-	Next          *semver.Version
-	MainIncrement semver.Increment
-	Main, Feature Options
-	TagWeight     int64
+	Output         OutputSettings
+	Ignore         IgnoreSettings
+	Workflow       string
+	Strategies     map[string]bool
+	Extra          map[string]Options
+	Next           *semver.Version
+	MainIncrement  semver.Increment
+	Main, Feature  Options
+	DefaultMode    Mode
+	TagWeight      int64
+	branchOrder    []string
+	branchRegex    map[string]string
+	branchPatterns map[string]*patterns.Pattern
+	branchSources  map[string][]string
 }
 
 type Mode string
@@ -42,6 +49,7 @@ type Options struct {
 	// NullLabel retains an explicit null from programmatic builders. YAML parsing
 	// currently accepts explicit string labels only.
 	NullLabel                                                                                               bool
+	InheritPreventTagged                                                                                    bool
 	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage *bool
 	Mode                                                                                                    Mode
 	Label                                                                                                   string
@@ -87,7 +95,26 @@ func (c Config) EffectiveAt(branch, source, sha string) (Effective, error) {
 		label = strings.ReplaceAll(strings.ReplaceAll(label, "{Sha}", sha), "{ShortSha}", shortSHA)
 		return Sanitize(label, true)
 	}
+	if expression, ok := c.branchRegex[kind]; ok && !o.NullLabel {
+		resolved, err := (LabelConfiguration{Label: &o.Label, Regex: &expression}).resolve(ptrBranch(normalizedBranchName(branch)), nil, os.LookupEnv, &LabelCommit{SHA: sha, ShortSHA: shortSHA}, c.branchPatterns[kind])
+		if err != nil {
+			return Effective{}, err
+		}
+		expandLabel = func(string) string { return *resolved }
+	}
 	e := Effective{NullLabel: o.NullLabel, Kind: kind, Mode: o.Mode, Label: expandLabel(o.Label), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
+	if e.Mode == "" {
+		e.Mode = c.DefaultMode
+		if e.Mode == "" {
+			e.Mode = Delivery
+		}
+		if e.Inherit && parent.Mode != "" {
+			e.Mode = parent.Mode
+		}
+	}
+	if e.Inherit && o.InheritPreventTagged {
+		e.PreventTagged = parent.PreventTagged
+	}
 	if e.Inherit && o.NullLabel {
 		e.NullLabel = parent.NullLabel
 		e.Label = expandLabel(parent.Label)
@@ -181,11 +208,15 @@ func Parse(data []byte) (Config, error) {
 	if err != nil {
 		return c, err
 	}
-	if workflow != "GitHubFlow/v1" && workflow != "GitFlow/v1" {
+	if workflow != "GitHubFlow/v1" && workflow != "GitFlow/v1" && workflow != "TrunkBased/preview1" {
 		return c, fmt.Errorf("unsupported workflow %q", workflow)
 	}
 	c.Workflow = workflow
+	c.DefaultMode = Delivery
 	c.initializeWorkflow()
+	if err := c.initializeBranchRules(); err != nil {
+		return c, err
+	}
 	if node := root["calculation"]; node != nil {
 		calc, err := mapping(node, "calculation", []string{"mode", "next-version", "branches", "strategies", "ignore"})
 		if err != nil {
@@ -205,9 +236,17 @@ func Parse(data []byte) (Config, error) {
 			if s != string(Manual) && s != string(Delivery) && s != string(Deployment) {
 				return c, fmt.Errorf("unsupported deployment mode %q", s)
 			}
+			c.DefaultMode = Mode(s)
 			// These workflow branches inherit the global mode. Other branch
 			// types have an explicit workflow mode, which takes precedence.
-			c.Main.Mode = Mode(s)
+			if c.Workflow != "TrunkBased/preview1" {
+				c.Main.Mode = Mode(s)
+			}
+			if c.Workflow == "TrunkBased/preview1" {
+				o := c.Options("unknown")
+				o.Mode = Mode(s)
+				c.setOptions("unknown", o)
+			}
 			if c.Workflow == "GitFlow/v1" {
 				o := c.Options("support")
 				o.Mode = Mode(s)
@@ -244,14 +283,22 @@ func Parse(data []byte) (Config, error) {
 			c.Next = &v
 		}
 		if n := calc["branches"]; n != nil {
-			bs, err := mapping(n, "branches", c.Kinds())
+			bs, err := mapping(n, "branches", nil)
 			if err != nil {
 				return c, err
 			}
-			for _, kind := range c.Kinds() {
+			for i := 0; i < len(n.Content); i += 2 {
+				kind := n.Content[i].Value
 				if n := bs[kind]; n != nil {
 					o := c.Options(kind)
-					if err := parseOptions(n, kind, &o); err != nil {
+					if _, exists := c.branchRegex[kind]; !exists {
+						o = Options{Label: "{BranchName}", PreventTagged: true, InheritPreventTagged: true}
+						c.branchOrder = append(c.branchOrder, kind)
+					}
+					if err := c.parseBranchRules(n, kind); err != nil {
+						return c, err
+					}
+					if err := parseOptions(n, kind, c.branchRegex[kind], &o); err != nil {
 						return c, err
 					}
 					c.setOptions(kind, o)
@@ -259,6 +306,13 @@ func Parse(data []byte) (Config, error) {
 			}
 			if c.Main.Increment != nil {
 				c.MainIncrement = *c.Main.Increment
+			}
+		}
+	}
+	for kind, sources := range c.branchSources {
+		for _, source := range sources {
+			if _, exists := c.branchRegex[source]; !exists {
+				return c, fmt.Errorf("branches.%s.source-branches: referenced branch configuration %q does not exist", kind, source)
 			}
 		}
 	}
@@ -315,8 +369,8 @@ func Parse(data []byte) (Config, error) {
 	return c, nil
 }
 
-func parseOptions(n *yaml.Node, kind string, o *Options) error {
-	b, err := mapping(n, kind, []string{"mode", "label", "increment", "prevent-increment", "commit-message-incrementing", "is-main-branch", "is-release-branch", "tracks-release-branches", "track-merge-target", "track-merge-message"})
+func parseOptions(n *yaml.Node, kind, expression string, o *Options) error {
+	b, err := mapping(n, kind, []string{"mode", "label", "increment", "prevent-increment", "commit-message-incrementing", "is-main-branch", "is-release-branch", "tracks-release-branches", "track-merge-target", "track-merge-message", "regex", "source-branches"})
 	if err != nil {
 		return err
 	}
@@ -334,11 +388,14 @@ func parseOptions(n *yaml.Node, kind string, o *Options) error {
 				o.Mode = Mode(s)
 			case "label":
 				literal := strings.NewReplacer("{Sha}", "", "{ShortSha}", "").Replace(s)
-				branchLiteral := strings.ReplaceAll(literal, "{BranchName}", "")
-				if kind == "pull-request" {
-					branchLiteral = strings.ReplaceAll(branchLiteral, "{Number}", "")
+				pattern, err := patterns.Compile(expression, patterns.IgnoreCase)
+				if err != nil {
+					return err
 				}
-				if strings.ContainsAny(branchLiteral, "{}") || strings.Contains(s, "env:") || ((kind == "main" || kind == "develop") && branchLiteral != literal) {
+				for _, name := range pattern.GroupNames() {
+					literal = strings.ReplaceAll(literal, "{"+name+"}", "")
+				}
+				if strings.ContainsAny(literal, "{}") || strings.Contains(s, "env:") {
 					return fmt.Errorf("unsupported label template %q", s)
 				}
 				o.Label = s
@@ -389,6 +446,7 @@ func parseOptions(n *yaml.Node, kind string, o *Options) error {
 				return err
 			}
 			o.PreventTagged = v
+			o.InheritPreventTagged = false
 		}
 	}
 	return nil

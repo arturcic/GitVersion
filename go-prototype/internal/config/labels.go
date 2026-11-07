@@ -15,6 +15,10 @@ type LabelConfiguration struct{ Label, Regex *string }
 type LabelCommit struct{ SHA, ShortSHA string }
 
 func (c LabelConfiguration) Resolve(branch, override *string, environment formatting.EnvironmentLookup, commit *LabelCommit) (*string, error) {
+	return c.resolve(branch, override, environment, commit, nil)
+}
+
+func (c LabelConfiguration) resolve(branch, override *string, environment formatting.EnvironmentLookup, commit *LabelCommit, regex *patterns.Pattern) (*string, error) {
 	if environment == nil {
 		return nil, fmt.Errorf("environment cannot be null")
 	}
@@ -30,9 +34,12 @@ func (c LabelConfiguration) Resolve(branch, override *string, environment format
 	}
 	placeholders := map[string]any{}
 	if c.Regex != nil && strings.TrimSpace(*c.Regex) != "" && effective != nil && *effective != "" {
-		regex, err := patterns.Compile(*c.Regex, patterns.IgnoreCase)
-		if err != nil {
-			return nil, err
+		if regex == nil {
+			var err error
+			regex, err = patterns.Compile(*c.Regex, patterns.IgnoreCase)
+			if err != nil {
+				return nil, err
+			}
 		}
 		match, err := regex.Find(*effective)
 		if err != nil {

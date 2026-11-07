@@ -1,0 +1,504 @@
+[
+  {
+    "id": "branch-rule-case-insensitive",
+    "description": "case-insensitive",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"None\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "CUSTOM/Foo"
+      },
+      {
+        "op": "checkout",
+        "name": "CUSTOM/Foo"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-main-regex",
+    "description": "main-regex",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"regex\": \"^trunk$\", \"label\": \"alpha\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ],
+    "initial_branch": "trunk"
+  },
+  {
+    "id": "branch-rule-specific-first",
+    "description": "specific-first",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"specific\": {\"regex\": \"^custom/stable$\", \"label\": \"stable\", \"increment\": \"None\"}, \"broad\": {\"regex\": \"^custom/\", \"label\": \"broad\", \"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/stable"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/stable"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-broad-first",
+    "description": "broad-first",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"broad\": {\"regex\": \"^custom/\", \"label\": \"broad\", \"increment\": \"Minor\"}, \"specific\": {\"regex\": \"^custom/stable$\", \"label\": \"stable\", \"increment\": \"None\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/stable"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/stable"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-named-captures",
+    "description": "named-captures",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"custom\": {\"regex\": \"^custom/(?<Stage>[^/]+)/(?<BranchName>.+)\", \"label\": \"{Stage}.{BranchName}\", \"increment\": \"None\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/preview/Foo.😀"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/preview/Foo.😀"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-sha-capture",
+    "description": "sha-capture",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"custom\": {\"regex\": \"^custom/(?<Sha>.+)\", \"label\": \"{Sha}\", \"increment\": \"None\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-source-inherit",
+    "description": "source-inherit",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"main\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-inline-case-sensitive",
+    "description": "inline-case-sensitive",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"custom\": {\"regex\": \"(?-i)^custom/(?<BranchName>.+)\", \"label\": \"matched\", \"increment\": \"None\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "CUSTOM/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "CUSTOM/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-08",
+    "description": "ManualDeployment on main",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ManualDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-09",
+    "description": "ManualDeployment on feature/topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ManualDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "feature/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-10",
+    "description": "ManualDeployment on topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ManualDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "topic"
+      },
+      {
+        "op": "checkout",
+        "name": "topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-11",
+    "description": "ContinuousDelivery on main",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDelivery\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-12",
+    "description": "ContinuousDelivery on feature/topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDelivery\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "feature/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-13",
+    "description": "ContinuousDelivery on topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDelivery\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "topic"
+      },
+      {
+        "op": "checkout",
+        "name": "topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-14",
+    "description": "ContinuousDeployment on main",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-15",
+    "description": "ContinuousDeployment on feature/topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "feature/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-trunk-global-16",
+    "description": "ContinuousDeployment on topic",
+    "config": "{\"workflow\": \"TrunkBased/preview1\", \"calculation\": {\"mode\": \"ContinuousDeployment\"}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "topic"
+      },
+      {
+        "op": "checkout",
+        "name": "topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-inherited-main",
+    "description": "Inherit nullable mode and tagged-commit behavior from main",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"mode\": \"ManualDeployment\", \"increment\": \"Minor\", \"prevent-increment\": {\"when-current-commit-tagged\": false}}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"main\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.0-topic.1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "tagged"
+      },
+      {
+        "op": "commit",
+        "id": "after"
+      },
+      {
+        "op": "checkpoint",
+        "id": "after"
+      }
+    ]
+  },
+  {
+    "id": "branch-rule-inherited-develop",
+    "description": "Inherit nullable mode and tagged-commit behavior from develop",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"develop\": {\"mode\": \"ManualDeployment\", \"increment\": \"Minor\", \"prevent-increment\": {\"when-current-commit-tagged\": false}}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"develop\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "development"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "work"
+      },
+      {
+        "op": "tag",
+        "name": "1.2.0-topic.1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "tagged"
+      },
+      {
+        "op": "commit",
+        "id": "after"
+      },
+      {
+        "op": "checkpoint",
+        "id": "after"
+      }
+    ]
+  }
+]

@@ -3,6 +3,7 @@
 package main
 
 import (
+	"encoding/json"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -31,6 +32,8 @@ func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "
 func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
 func TestPlatformCSharpPortsParity(t *testing.T)       { testPlatformParity(t, "csharp-ports") }
+func TestPlatformNextVersionParity(t *testing.T)       { testPlatformParity(t, "next-version") }
+func TestPlatformBranchRuleParity(t *testing.T)        { testPlatformParity(t, "branch-rules") }
 func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
 func TestPlatformMergeControlParity(t *testing.T)      { testPlatformParity(t, "merge-control") }
 func TestPlatformConfigurationEdgeParity(t *testing.T) { testPlatformParity(t, "configuration-edge") }
@@ -120,6 +123,14 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes, err = fixtures.Load(filepath.Join(root, "testdata/csharp-calculation-ports.json"))
 		expected = 87
 	}
+	if suite == "next-version" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/csharp-next-version-recipes.json"))
+		expected = 23
+	}
+	if suite == "branch-rules" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/branch-rule-recipes.json"))
+		expected = 21
+	}
 	if suite == "strategy" {
 		recipes = fixtures.StrategyRecipes()
 		expected = 768
@@ -174,10 +185,12 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-generated" {
 		goldenPath = filepath.Join(root, ".local/workflow-generated-reference.json")
 	}
-	if err := parity.ReadJSON(goldenPath, &golden); err != nil {
-		t.Fatal(err)
+	if suite != "next-version" && suite != "branch-rules" {
+		if err := parity.ReadJSON(goldenPath, &golden); err != nil {
+			t.Fatal(err)
+		}
 	}
-	if suite != "curated" {
+	if suite != "curated" && suite != "next-version" && suite != "branch-rules" {
 		goldenCount := expected - len(golden.Rejections)
 		if failure.ID != "" {
 			goldenCount--
@@ -243,6 +256,14 @@ func testPlatformParity(t *testing.T, suite string) {
 			}
 			if j == 0 {
 				reference = result.Stdout
+				if suite == "next-version" {
+					var values map[string]any
+					if err := json.Unmarshal(reference, &values); err != nil || values["FullSemVer"] != cp.SemVer {
+						item.Status = "failed"
+						item.Error = "C# differs from original version assertion"
+						break
+					}
+				}
 				if expected, ok := golden.Outputs[cp.ID]; ok {
 					diff, err := parity.Compare(expected, reference)
 					if err != nil || len(diff) > 0 {

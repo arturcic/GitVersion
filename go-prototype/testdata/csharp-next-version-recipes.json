@@ -1,0 +1,549 @@
+[
+  {
+    "id": "csharp-next-version-03",
+    "description": "PreReleaseLabelCanUseBranchName",
+    "config": "{\"workflow\":\"GitFlow/v1\",\"calculation\":{\"next-version\":\"1.0.0\",\"branches\":{\"custom\":{\"regex\":\"^custom?[\\\\/-](?<BranchName>.+)\",\"label\":\"{BranchName}\",\"increment\":\"None\",\"source-branches\":[]}}}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "commit-003"
+      },
+      {
+        "op": "branch",
+        "name": "custom/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-006"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0-foo.3"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-04",
+    "description": "PreReleaseVersionMainline",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "commit",
+        "id": "commit-001"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-004"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "0.1.0-foo.1"
+      },
+      {
+        "op": "branch",
+        "name": "bar"
+      },
+      {
+        "op": "checkout",
+        "name": "bar"
+      },
+      {
+        "op": "commit",
+        "id": "commit-008"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "0.0.3-bar.2"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-05",
+    "description": "MergeIntoMainline",
+    "config": "{\"workflow\":\"TrunkBased/preview1\",\"calculation\":{\"next-version\":\"1.0.0\"}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "branch",
+        "name": "foo"
+      },
+      {
+        "op": "checkout",
+        "name": "foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-003"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-005",
+        "from": "foo",
+        "message": "Merge branch 'foo'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-06",
+    "description": "MergeSelfIntoMainline",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "branch",
+        "name": "foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-002"
+      },
+      {
+        "op": "checkout",
+        "name": "foo"
+      },
+      {
+        "op": "merge",
+        "id": "merge-004",
+        "from": "main",
+        "message": "Merge branch 'main'"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "fast-forward",
+        "from": "foo"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "0.0.3"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-07",
+    "description": "MergeFeatureIntoMainline",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-005"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "1.1.0-foo.1"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0-foo.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-009",
+        "from": "feature/foo",
+        "message": "Merge branch 'feature/foo'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-002",
+        "semver": "1.1.0"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-08",
+    "description": "MergeHotfixIntoMainline",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-005"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "1.0.1-foo.1"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.1-foo.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-009",
+        "from": "hotfix/foo",
+        "message": "Merge branch 'hotfix/foo'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-002",
+        "semver": "1.0.1"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-09",
+    "description": "MergeFeatureIntoMainlineWithMinorIncrement",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-005"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "1.1.0-foo.1"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0-foo.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-009",
+        "from": "feature/foo",
+        "message": "Merge branch 'feature/foo'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-002",
+        "semver": "1.1.0"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-10",
+    "description": "MergeFeatureIntoMainlineWithMinorIncrementAndThenMergeHotfix",
+    "config": "{\"workflow\":\"TrunkBased/preview1\"}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-005"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "1.1.0-foo.1"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0-foo.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-009",
+        "from": "feature/foo",
+        "message": "Merge branch 'feature/foo'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-002",
+        "semver": "1.1.0"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.0"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/bar"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/bar"
+      },
+      {
+        "op": "commit",
+        "id": "commit-014"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-003",
+        "semver": "1.1.1-bar.1"
+      },
+      {
+        "op": "tag",
+        "name": "1.1.1-bar.1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "merge",
+        "id": "merge-018",
+        "from": "hotfix/bar",
+        "message": "Merge branch 'hotfix/bar'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-004",
+        "semver": "1.1.1"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-11",
+    "description": "PreReleaseLabelCanUseBranchNameVariable",
+    "config": "{\"workflow\":\"GitFlow/v1\",\"calculation\":{\"next-version\":\"1.0.0\",\"branches\":{\"custom\":{\"regex\":\"^custom?[\\\\/-](?<BranchName>.+)\",\"label\":\"alpha.{BranchName}\",\"increment\":\"None\",\"source-branches\":[],\"mode\":\"ManualDeployment\"}}}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "branch",
+        "name": "develop"
+      },
+      {
+        "op": "checkout",
+        "name": "develop"
+      },
+      {
+        "op": "commit",
+        "id": "commit-003"
+      },
+      {
+        "op": "branch",
+        "name": "custom/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-006"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0-alpha.foo.1+3"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-12",
+    "description": "PreReleaseNumberShouldBeScopeToPreReleaseLabelInManualDeployment",
+    "config": "{\"workflow\":\"GitFlow/v1\",\"calculation\":{\"branches\":{\"main\":{\"label\":\"beta\",\"mode\":\"ManualDeployment\"},\"feature\":{\"mode\":\"ManualDeployment\"}}}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000"
+      },
+      {
+        "op": "branch",
+        "name": "feature/test"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/test"
+      },
+      {
+        "op": "commit",
+        "id": "commit-003"
+      },
+      {
+        "op": "tag",
+        "name": "0.1.0-test.1"
+      },
+      {
+        "op": "commit",
+        "id": "commit-005"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "0.1.0-test.2+1"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "fast-forward",
+        "from": "feature/test"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-001",
+        "semver": "0.1.0-beta.1+3"
+      }
+    ]
+  },
+  {
+    "id": "csharp-next-version-13",
+    "description": "GetNextVersionOnNonMainlineBranchWithoutCommitsShouldWorkNormally",
+    "config": "{\"workflow\":\"TrunkBased/preview1\",\"calculation\":{\"next-version\":\"1.0.0\"}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-000",
+        "message": "initial commit"
+      },
+      {
+        "op": "branch",
+        "name": "feature/f1"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/f1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "assert-000",
+        "semver": "1.0.0-f1.0"
+      }
+    ]
+  }
+]

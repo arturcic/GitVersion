@@ -27,6 +27,9 @@ const (
 )
 
 type Pattern struct{ re *regexp2.Regexp }
+
+func (p *Pattern) GroupNames() []string { return p.re.GetGroupNames() }
+
 type Group struct {
 	Value    string
 	Captures []string

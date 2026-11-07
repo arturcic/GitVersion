@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1020,
+  "mapped_declarations": 1031,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 982,
+      "mapped": 993,
       "verified": 982
     },
     "integration": {
@@ -208042,9 +208042,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#PreReleaseVersionMainline",
@@ -208059,9 +208068,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeIntoMainline",
@@ -208076,9 +208094,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeSelfIntoMainline",
@@ -208093,9 +208120,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeFeatureIntoMainline",
@@ -208110,9 +208146,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeHotfixIntoMainline",
@@ -208127,9 +208172,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeFeatureIntoMainlineWithMinorIncrement",
@@ -208144,9 +208198,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#MergeFeatureIntoMainlineWithMinorIncrementAndThenMergeHotfix",
@@ -208161,9 +208224,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#PreReleaseLabelCanUseBranchNameVariable",
@@ -208178,9 +208250,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#PreReleaseNumberShouldBeScopeToPreReleaseLabelInManualDeployment",
@@ -208195,9 +208276,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs#GetNextVersionOnNonMainlineBranchWithoutCommitsShouldWorkNormally",
@@ -208212,9 +208302,18 @@
       ],
       "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpNextVersionCalculator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-next-version.json",
+      "adaptations": [
+        "Deterministic go-git histories preserve every original branch, tag, parent and assertion checkpoint. Commits modify separate fixture files instead of the original random content.",
+        "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
+        "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/PathFilterTests.cs#VerifyNullGuard",

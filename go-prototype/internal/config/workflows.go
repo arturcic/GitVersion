@@ -10,6 +10,9 @@ import (
 func boolp(v bool) *bool                        { return &v }
 func incp(v semver.Increment) *semver.Increment { return &v }
 func (c Config) Kinds() []string {
+	if len(c.branchOrder) > 0 {
+		return append([]string(nil), c.branchOrder...)
+	}
 	kinds := []string{"main", "feature", "release", "pull-request", "unknown"}
 	if c.Workflow == "GitFlow/v1" {
 		kinds = append(kinds, "develop", "hotfix", "support")
@@ -60,6 +63,14 @@ func (c *Config) initializeWorkflow() {
 	}
 	c.Extra["release"] = Options{Mode: Manual, Label: "beta", Increment: incp(releaseInc), Weight: 30000, IsMain: boolp(false), IsRelease: boolp(true), PreventMerged: boolp(true)}
 	c.Extra["pull-request"] = Options{Mode: Delivery, Label: "PullRequest{Number}", Weight: 30000, PreventMerged: boolp(true)}
+	if c.Workflow == "TrunkBased/preview1" {
+		c.Strategies = map[string]bool{"ConfiguredNextVersion": true, "Mainline": true}
+		c.Main.Mode = Deployment
+		c.Feature.Mode = Delivery
+		c.Feature.Increment = incp(semver.Minor)
+		c.Extra["hotfix"] = Options{Mode: Delivery, Label: "{BranchName}", Increment: incp(semver.Patch), Weight: 30000, IsMain: boolp(false), IsRelease: boolp(true)}
+		c.Extra["unknown"] = Options{Mode: Delivery, Label: "{BranchName}", Increment: incp(semver.Patch), Weight: 30000}
+	}
 	if c.Workflow == "GitFlow/v1" {
 		c.Extra["develop"] = Options{Mode: Delivery, Label: "alpha", Increment: incp(semver.Minor), IsMain: boolp(false), IsRelease: boolp(false), TracksRelease: boolp(true), TrackMergeTarget: boolp(true)}
 		c.Extra["hotfix"] = Options{Mode: Manual, Label: "beta", Weight: 30000, IsMain: boolp(false), IsRelease: boolp(true)}
@@ -76,6 +87,10 @@ var workflowPatterns = map[string]*regexp.Regexp{
 }
 
 func (c Config) Branch(name string) (kind, capture string, err error) {
+	name = normalizedBranchName(name)
+	if len(c.branchOrder) > 0 {
+		return c.matchBranchRule(name)
+	}
 	if strings.HasPrefix(name, "refs/remotes/") {
 		name = strings.TrimPrefix(name, "refs/remotes/")
 		name = strings.TrimPrefix(name, "origin/")
@@ -103,6 +118,9 @@ func (c Config) Branch(name string) (kind, capture string, err error) {
 	return "unknown", Sanitize(name, false), nil
 }
 func (c Config) SourceKinds(kind string) []string {
+	if c.branchSources != nil {
+		return append([]string(nil), c.branchSources[kind]...)
+	}
 	switch kind {
 	case "unknown":
 		kinds := c.Kinds()

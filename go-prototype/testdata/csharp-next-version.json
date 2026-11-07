@@ -1,0 +1,120 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
+  "source_sha256": "d83098acc38135635335f690dcaac78483ab1d47771614d0c52efe60b701b06d",
+  "methods": {
+    "PreReleaseLabelCanUseBranchName": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-03",
+        "assertions": [
+          "1.0.0-foo.3"
+        ]
+      }
+    ],
+    "PreReleaseVersionMainline": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-04",
+        "assertions": [
+          "0.1.0-foo.1",
+          "0.0.3-bar.2"
+        ]
+      }
+    ],
+    "MergeIntoMainline": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-05",
+        "assertions": [
+          "1.0.0"
+        ]
+      }
+    ],
+    "MergeSelfIntoMainline": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-06",
+        "assertions": [
+          "0.0.3"
+        ]
+      }
+    ],
+    "MergeFeatureIntoMainline": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-07",
+        "assertions": [
+          "1.0.0",
+          "1.1.0-foo.1",
+          "1.1.0"
+        ]
+      }
+    ],
+    "MergeHotfixIntoMainline": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-08",
+        "assertions": [
+          "1.0.0",
+          "1.0.1-foo.1",
+          "1.0.1"
+        ]
+      }
+    ],
+    "MergeFeatureIntoMainlineWithMinorIncrement": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-09",
+        "assertions": [
+          "1.0.0",
+          "1.1.0-foo.1",
+          "1.1.0"
+        ]
+      }
+    ],
+    "MergeFeatureIntoMainlineWithMinorIncrementAndThenMergeHotfix": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-10",
+        "assertions": [
+          "1.0.0",
+          "1.1.0-foo.1",
+          "1.1.0",
+          "1.1.1-bar.1",
+          "1.1.1"
+        ]
+      }
+    ],
+    "PreReleaseLabelCanUseBranchNameVariable": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-11",
+        "assertions": [
+          "1.0.0-alpha.foo.1+3"
+        ]
+      }
+    ],
+    "PreReleaseNumberShouldBeScopeToPreReleaseLabelInManualDeployment": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-12",
+        "assertions": [
+          "0.1.0-test.2+1",
+          "0.1.0-beta.1+3"
+        ]
+      }
+    ],
+    "GetNextVersionOnNonMainlineBranchWithoutCommitsShouldWorkNormally": [
+      {
+        "id": "case-000",
+        "recipe_id": "csharp-next-version-13",
+        "assertions": [
+          "1.0.0-f1.0"
+        ]
+      }
+    ]
+  },
+  "recipes": "testdata/csharp-next-version-recipes.json",
+  "recipes_sha256": "3abde50092878fd555233b1f1745f0d395f72986237759042a631c7f5d8e0410"
+}

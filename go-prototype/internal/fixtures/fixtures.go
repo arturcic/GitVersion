@@ -229,6 +229,27 @@ func build(recipe Recipe, dest string) ([]Checkpoint, error) {
 				return nil, err
 			}
 			delete(heads, s.Name)
+		case "fast-forward":
+			from, ok := heads[s.From]
+			if !ok {
+				return nil, fmt.Errorf("unknown fast-forward source %q", s.From)
+			}
+			current, err := repo.CommitObject(heads[branch])
+			if err != nil {
+				return nil, err
+			}
+			target, err := repo.CommitObject(from)
+			if err != nil {
+				return nil, err
+			}
+			ancestor, err := current.IsAncestor(target)
+			if err != nil || !ancestor {
+				return nil, fmt.Errorf("invalid fast-forward from %q: %v", s.From, err)
+			}
+			heads[branch] = from
+			if err := repo.Storer.SetReference(plumbing.NewHashReference(plumbing.NewBranchReferenceName(branch), from)); err != nil {
+				return nil, err
+			}
 		case "checkout":
 			if _, ok := heads[s.Name]; !ok {
 				return nil, fmt.Errorf("unknown branch %q", s.Name)

@@ -32,7 +32,7 @@ func TestFrozenConfigurationDefaultsAndOverrides(t *testing.T) {
 func TestFrozenConfigurationRejectsUnsupportedInput(t *testing.T) {
 	for _, tc := range []struct{ name, yaml string }{
 		{"missing-workflow", "{}"}, {"wrong-workflow", "workflow: UnknownFlow/v1"}, {"duplicate", "workflow: GitHubFlow/v1\nworkflow: GitHubFlow/v1"}, {"unknown-root", "workflow: GitHubFlow/v1\nunknown: {}"},
-		{"mode", "workflow: GitHubFlow/v1\ncalculation: {mode: Mainline}"}, {"unknown-branch", "workflow: GitHubFlow/v1\ncalculation: {branches: {unrecognized-config-key: {}}}"}, {"regex", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {regex: x}}}"},
+		{"mode", "workflow: GitHubFlow/v1\ncalculation: {mode: Mainline}"}, {"unknown-branch", "workflow: GitHubFlow/v1\ncalculation: {branches: {unrecognized-config-key: {}}}"}, {"regex", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {regex: '('}}}"},
 		{"null-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: null}}}"}, {"duplicate-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: Minor, increment: Patch}}}"},
 		{"sequence", "workflow: GitHubFlow/v1\ncalculation: []"}, {"anchor", "workflow: &flow GitHubFlow/v1"}, {"alias", "workflow: *flow"}, {"multiple-docs", "workflow: GitHubFlow/v1\n---\n{}"}, {"bad-yaml", "workflow: ["},
 	} {
