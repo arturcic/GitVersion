@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 174 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 207 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-136 verified unit/component methods out of 1,516 separately from integration ports.
+169 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -221,3 +221,9 @@ resolution. Both priority platforms are verified.
 [Placeholder and formatter ports](CSHARP-TEMPLATE-FORMATTING-PORTS.md) add 50
 complete methods / 89 original cases, including missing/null distinctions,
 recursive object lookup, environment fallbacks and invariant formatting.
+
+[Formatter dispatch and configuration labels](CSHARP-DISPATCH-LABELS-PORTS.md)
+add 33 methods / 64 original cases. Global `calculation.mode` now supplies the
+main/support default while preserving workflow-specific and explicit branch modes.
+The real GitVersion checkout still encounters go-git's `worktreeconfig` extension
+rejection; passing fixture parity does not make arbitrary existing clones supported.

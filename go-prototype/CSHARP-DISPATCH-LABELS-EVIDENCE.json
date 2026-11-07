@@ -1,0 +1,171 @@
+{
+  "implementation_checkpoint": "209a145bd8c34b1364004ad3a0fec4021c32b542",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "new_unit_methods": 33,
+  "original_unit_cases": 64,
+  "mapped_methods": 207,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 169,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 5059,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_global_mode_json_matches": 88
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 5059,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_global_mode_json_matches": 88
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-4149670598",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-483786762",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "macos",
+      "kind": "global-mode-json",
+      "path": ".local/global-mode-parity-3288626358",
+      "report_sha256": "54d4e51f95710c47f40f090dc5af976d95b96d1b527af528358b9cb03517297c",
+      "passed": 88
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/csharp-dispatch-labels-linux-evidence/csharp-config-ports-3976120230",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "global-mode-json",
+      "path": ".local/csharp-dispatch-labels-linux-evidence/global-mode-parity-3989890645",
+      "report_sha256": "c5715a53ab3815db4093c9f6cde7cfd216eb28838c06f4f011a746a21846ad04",
+      "passed": 88
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/csharp-dispatch-labels-linux-evidence/run-3680029056",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/main.go": "f322f3def2afb153c1b04ad2e1ac520a62d40e2eef936f83ff0b853a9c709c89",
+    "internal/calculate/calculate.go": "e744f802258233da6c2bc14fd7dd70d1e12ced04ead76ffdf4a3eb0f38a1337d",
+    "internal/calculate/mainline.go": "cd572d2e2dbb899ff61b822551dfcf3dc2782d156e9204760042ecd49686f47c",
+    "internal/calculate/workflows.go": "d187f8a4ad07d6a5a67fbe51e17985bc525b511aee75c8cd2bd7fd6547e9a7e8",
+    "internal/config/config.go": "5d862fd8ee15460bc987714dacb2f8d7499db021e0df768044dbd4026883e119",
+    "internal/config/labels.go": "50d9a37d9ee55faf1822546e44d5cc5d939035c8ecc70fbc8a6ef29ee47e4a4e",
+    "internal/config/workflows.go": "a435864fd2ab853e734fc9049fa26b0ee9553c37002d12001be3b5d3ff53a98c",
+    "internal/gitrepo/repository.go": "26f5aee50242fc0e777253260789d46611a675dac1a892fef4775a991bdd6a93",
+    "internal/gitrepo/walk.go": "c404252bb932e571dd435d7fd61aaeb3dacb3e7beb314f855b37264bbbc83bd9",
+    "internal/output/output.go": "3b7b5b9f77eeb309bb953bb5f73d2a2e6b34de59c7edd6ec5b9948312b322078",
+    "internal/semver/full.go": "17935171844be5bb88bf91a419aad52e00aa359327152f48855569118802d1e8",
+    "internal/semver/version.go": "5efc3881aa9164014d38321434282c39c1e00c2167cbb67205ed9c737ea459be",
+    "internal/patterns/patterns.go": "09bd7e9f41abad535d5021bc5e934a2c7798d2cc5b4b6f328987e990813cabc0",
+    "internal/formatting/dates.go": "53d03270fcc2199372cf5976e96e7b021f0927b1784583b707773d077782c2c5",
+    "internal/formatting/decimal.go": "32013abc97d79c9684ebc374847fc8369d5011f5f2ce5ad386cb11490f561fe7",
+    "internal/formatting/dispatch.go": "4b7e9727b07e9b65ef0e9c7fcef3676d97f8e9bd6a1bd9484dbe681cb1b215b3",
+    "internal/formatting/sanitizer.go": "6b80d1a0ac760d38e612b490b7b9e118d9c99da1e3a4d86cfbbb16eefd735264",
+    "internal/formatting/template.go": "340471c586667fe1b266d10671e89fa73155baeb2e108f71b9abb5c1080dedf7",
+    "internal/formatting/tokenizer.go": "5f4e68d9d68fbdb37b48ab182c31014e288edec9b6ebe7f82535767bf3eeca90",
+    "internal/formatting/values.go": "556011a1f5b49bd2a42f802b65b4217643e52f6f949e729747b5ab7f95dc13b2",
+    "go.mod": "8b0442dd0cdab323d02b77df2ac36b894ff56c4e2465df083b430ed022e641aa",
+    "go.sum": "135718341e900ee1d8d3b14c324bbacc21f93d9db265ce10a4bad4fbb1515252",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8"
+  },
+  "candidate_sha256": {
+    "macos": "a1b69427ec1f70861196604ce198802324ac7c03c0106d5124f2892d37e8dd0e",
+    "ubuntu26": "0009e37aaf4e9becac160a938553a3a8a80c70054eb57f580f1f1b71f697ef92"
+  },
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T01:12:12.923696084Z",
+      "FinishedAt": "2026-11-07T01:13:55.966381465Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/csharp-dispatch-labels-linux-evidence/csharp-config-ports-3976120230.tar.gz",
+      "sha256": "166a97bed2cd242a4646fdc2e22a63e746e8e7525725ec99350041bda15e36c7",
+      "bytes": 30795
+    },
+    {
+      "path": ".local/csharp-dispatch-labels-linux-evidence/global-mode-parity-3989890645.tar.gz",
+      "sha256": "22a88d5d9ec6da4e1d8d820e4527f0aff98a4692c6b19f2fec4e2288fa1d8ca1",
+      "bytes": 672017
+    },
+    {
+      "path": ".local/csharp-dispatch-labels-linux-evidence/run-3680029056.tar.gz",
+      "sha256": "7c593b08d80f3a8dca7664adeef4df1a62428f677dd9c25970e291eda9a3aa2a",
+      "bytes": 565869
+    }
+  ],
+  "evidence_hashes": {
+    ".local/csharp-dispatch-labels-unit-macos-final.jsonl": "0e6b21c9b49fb6e354a8ac0c589b6cdd159caeb3b867cc9eafa97f3e42215884",
+    ".local/csharp-dispatch-labels-platform-macos-final.log": "e0d1555ea8f2d85718fec6c6b328457131710a9897aed1b6a6e405d9c389c9f7",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-platform.log": "f61ad11148468b2ed2e390b7a6515a54c36402151c069244e037a75d20871ead",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/csharp-dispatch-labels-linux-evidence/archive-index.json": "0fcb6665a1718024eab332fc4c02edcff28e91958ce814802119f396c305321b",
+    ".local/global-mode-parity-macos.log": "7595f1c6d6b461eed763e00449fac2474efab428ad2b68dc163d0f7c90008828",
+    "testdata/csharp-formattable-formatter.json": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "testdata/csharp-date-formatter.json": "8f01bb09e71998763da0f15a4c48d59cdc228b620c8bc91ebe3e5d66e5ceca83",
+    "testdata/csharp-value-formatter.json": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "testdata/csharp-configuration-labels.json": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/cmd-gitversion-go.log": "9416eac20bd23cc590eb4311406c21e33a33bc3f9368646e6b0939d0f85cbbc7",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/cmd-parity.log": "100ae429f8bfa9cb26570cc7947678e569fcb3cb01685a6fa6e13c7decfb4c2f",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-calculate.log": "3faae34a2f68230fbecb5de0d6e3d505bdb086793842985c8bf9b48b667bbc8a",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-config.log": "5a9046f5621d3e8c8d655727bebde004c661ae996859f2a82b7bdfd0b39fc280",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-fixtures.log": "631bd2b7cf1c078ab7785832367bb9514e27e520c114125f5308e67b738d826e",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-gitrepo.log": "d4bbde2329797b005cbbed7d6500dee69fa41599dbeec96e765c93f86575ef8e",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-output.log": "03b9d7b1ab9ab4b1bc6548f9214fb4e47a8b927f6216207d75daac3484570908",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-parity.log": "f3eceff2d6bcfaf8a48faf2d93a0940c3681d396c8c65cb95e2060fceaea9c72",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+    ".local/csharp-dispatch-labels-linux-evidence/linux-unit-logs/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1"
+  },
+  "unit_reference": "Literal expected values and assertions from pinned C# source. Original NUnit runner not executed by this harness.",
+  "regression_scope": "Full regular/frozen suites on both OS; fresh first-batch calculation/configuration and global deployment mode process probes. Previous full strategy matrix remains historical evidence. Global mode macOS probe used a separately hashed binary built from the same production inputs before the checkpoint commit."
+}

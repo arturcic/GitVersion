@@ -3098,7 +3098,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DateFormatterTests.TryFormat_NullValue_ReturnsFalse": {
     "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
@@ -3111,7 +3111,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DateFormatterTests.TryFormat_ValidDateFormats_ReturnsExpectedResult": {
     "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
@@ -3125,7 +3125,7 @@
       "case-001"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormattableFormatterTests.Priority_ShouldBe2": {
     "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
@@ -3138,7 +3138,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormattableFormatterTests.TryFormat_NullValue_ReturnsFalse": {
     "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
@@ -3151,7 +3151,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormattableFormatterTests.TryFormat_ValidFormats_ReturnsExpectedResult": {
     "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
@@ -3168,7 +3168,7 @@
       "case-004"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormattableFormatterTests.TryFormat_UnsupportedFormat_ReturnsFalse": {
     "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
@@ -3181,7 +3181,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormattableFormatterTests.ZeroFormatting": {
     "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
@@ -3197,7 +3197,7 @@
       "case-003"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_NullValue_ReturnsFalse": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3210,7 +3210,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_String_UsesStringFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3223,7 +3223,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_Number_UsesNumericFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3236,7 +3236,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_Date_UsesDateFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3249,7 +3249,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_FormattableObject_UsesFormattableFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3262,7 +3262,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.TryFormat_InvalidFormat_ReturnsFalse": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3275,7 +3275,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.RegisterFormatter_AddsNewFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3288,7 +3288,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.RemoveFormatter_RemovesExistingFormatter": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3301,7 +3301,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ValueFormatterTests.Formatters_ExecuteInPriorityOrder": {
     "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
@@ -3314,7 +3314,7 @@
       "case-000"
     ],
     "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.CommitLabelPlaceholdersComposeWithCapturesAndFallbacks": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3335,7 +3335,7 @@
       "case-008"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.CommitLabelPlaceholdersDoNotRequireMatchingBranchRegex": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3353,7 +3353,7 @@
       "case-005"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.NamedCapturesTakePrecedenceOverCommitPlaceholders": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3369,7 +3369,7 @@
       "case-003"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.BranchOverrideChangesCaptureButKeepsCurrentCommitHash": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3382,7 +3382,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnvironmentValuesComposeWithCommitPlaceholdersAndAreSanitized": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3395,7 +3395,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.CommitPlaceholdersDoNotSuppressUnknownPlaceholderErrors": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3411,7 +3411,7 @@
       "case-003"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.CommitPlaceholdersPreserveMalformedFallbackErrors": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3424,7 +3424,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.LabelResolutionRequiresExplicitCurrentCommit": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3438,7 +3438,7 @@
       "case-001"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelWorksAsExpected": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3452,7 +3452,7 @@
       "case-001"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariables": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3465,7 +3465,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesWithFallback": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3478,7 +3478,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesAndRegexPlaceholders": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3491,7 +3491,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelWorksWithoutEnvironmentWhenNoEnvPlaceholders": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3504,7 +3504,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelThrowsWhenEnvVarMissing": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3517,7 +3517,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelThrowsWhenBranchNamePropertyMissing": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3530,7 +3530,7 @@
       "case-000"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelReturnsValidLabelForEnvironmentVariables": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
@@ -3545,6 +3545,6 @@
       "case-002"
     ],
     "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
