@@ -10,7 +10,7 @@ import (
 func TestMissingMainDoesNotBypassSourceRequirements(t *testing.T) {
 	for _, tc := range []struct{ name, branch, extra, want string }{
 		{"inherited-orphan", "feature/orphan", "", "no base versions determined from source branches"},
-		{"mainline-pending", "develop", "calculation: {strategies: [Mainline]}\n", "unsupported main-branch topology"},
+		{"mainline-inherited-orphan", "feature/orphan", "calculation: {strategies: [Mainline]}\n", "no base versions determined from source branches"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			r := fixtures.Recipe{ID: tc.name, InitialBranch: tc.branch, Config: "workflow: GitFlow/v1\n" + tc.extra, Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "checkpoint", ID: "head"}}}

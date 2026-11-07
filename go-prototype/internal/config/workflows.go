@@ -9,7 +9,7 @@ import (
 func boolp(v bool) *bool                        { return &v }
 func incp(v semver.Increment) *semver.Increment { return &v }
 func (c Config) Kinds() []string {
-	kinds := []string{"main", "feature", "release", "pull-request"}
+	kinds := []string{"main", "feature", "release", "pull-request", "unknown"}
 	if c.Workflow == "GitFlow/v1" {
 		kinds = append(kinds, "develop", "hotfix", "support")
 	}
@@ -43,6 +43,16 @@ func (c *Config) initializeWorkflow() {
 	c.Main.TracksRelease = boolp(false)
 	c.Main.TrackMergeTarget = boolp(false)
 	c.Feature.IsMain = boolp(false)
+	c.Extra["unknown"] = Options{Mode: Manual, Label: "{BranchName}", IsMain: boolp(false)}
+	if c.Workflow == "GitFlow/v1" {
+		o := c.Extra["unknown"]
+		o.PreventTagged = true
+		c.Extra["unknown"] = o
+	} else {
+		o := c.Extra["unknown"]
+		o.TrackMergeMessage = boolp(false)
+		c.Extra["unknown"] = o
+	}
 	releaseInc := semver.Patch
 	if c.Workflow == "GitFlow/v1" {
 		releaseInc = semver.Minor
@@ -82,10 +92,22 @@ func (c Config) Branch(name string) (kind, capture string, err error) {
 			}
 		}
 	}
-	return "", "", fmt.Errorf("unsupported branch %q for %s", name, c.Workflow)
+	if name == "" {
+		return "", "", fmt.Errorf("empty branch name")
+	}
+	return "unknown", Sanitize(name, false), nil
 }
 func (c Config) SourceKinds(kind string) []string {
 	switch kind {
+	case "unknown":
+		kinds := c.Kinds()
+		out := make([]string, 0, len(kinds)-1)
+		for _, k := range kinds {
+			if k != "unknown" {
+				out = append(out, k)
+			}
+		}
+		return out
 	case "main":
 		return nil
 	case "develop", "support":

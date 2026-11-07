@@ -32,7 +32,7 @@ func TestFrozenConfigurationDefaultsAndOverrides(t *testing.T) {
 func TestFrozenConfigurationRejectsUnsupportedInput(t *testing.T) {
 	for _, tc := range []struct{ name, yaml string }{
 		{"missing-workflow", "{}"}, {"wrong-workflow", "workflow: UnknownFlow/v1"}, {"duplicate", "workflow: GitHubFlow/v1\nworkflow: GitHubFlow/v1"}, {"unknown-root", "workflow: GitHubFlow/v1\nunknown: {}"},
-		{"mode", "workflow: GitHubFlow/v1\ncalculation: {mode: Mainline}"}, {"unknown-branch", "workflow: GitHubFlow/v1\ncalculation: {branches: {unknown: {}}}"}, {"regex", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {regex: x}}}"},
+		{"mode", "workflow: GitHubFlow/v1\ncalculation: {mode: Mainline}"}, {"unknown-branch", "workflow: GitHubFlow/v1\ncalculation: {branches: {unrecognized-config-key: {}}}"}, {"regex", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {regex: x}}}"},
 		{"null-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: null}}}"}, {"duplicate-increment", "workflow: GitHubFlow/v1\ncalculation: {branches: {main: {increment: Minor, increment: Patch}}}"},
 		{"sequence", "workflow: GitHubFlow/v1\ncalculation: []"}, {"anchor", "workflow: &flow GitHubFlow/v1"}, {"alias", "workflow: *flow"}, {"multiple-docs", "workflow: GitHubFlow/v1\n---\n{}"}, {"bad-yaml", "workflow: ["},
 	} {
@@ -44,7 +44,7 @@ func TestFrozenConfigurationRejectsUnsupportedInput(t *testing.T) {
 	}
 }
 func TestConfigurationFileDiscovery(t *testing.T) {
-	for _, name := range []string{"GitVersion.yml", "GitVersion.yaml", ".GitVersion.yml", ".GitVersion.yaml"} {
+	for _, name := range []string{"GitVersion.yml", "GitVersion.yaml", ".GitVersion.yml", ".GitVersion.yaml", ".gitversion.yml", "gitVERSION.YAML"} {
 		t.Run(name, func(t *testing.T) {
 			dir := t.TempDir()
 			if err := os.WriteFile(filepath.Join(dir, name), []byte("workflow: GitHubFlow/v1\n"), 0644); err != nil {
@@ -64,8 +64,11 @@ func TestConfigurationFileDiscovery(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	if _, err := Load(dir); err == nil {
-		t.Fatal("ambiguous config accepted")
+	if err := os.WriteFile(filepath.Join(dir, "GitVersion.yaml"), []byte("invalid YAML: ["), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := Load(dir); err != nil {
+		t.Fatal("preferred .yml was not selected", err)
 	}
 }
 func TestBranchLabelsAndUTF16Sanitization(t *testing.T) {

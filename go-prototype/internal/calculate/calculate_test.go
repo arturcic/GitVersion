@@ -119,8 +119,6 @@ func TestCalculationRejectsUnsupportedPolicies(t *testing.T) {
 	for _, tc := range []struct{ name, config, branch, message, tag string }{
 		{"workflow", "workflow: UnknownFlow/v1\n", "", "", ""},
 		{"custom-format", "workflow: GitHubFlow/v1\noutput: {custom-version-format: foo}\n", "", "", ""},
-		{"release-branch", "workflow: GitHubFlow/v1\n", "unknown/7.0.0", "", ""},
-		{"tag-metadata", "workflow: GitHubFlow/v1\n", "", "", "1.0.0+build"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			steps := []fixtures.Step{{Op: "commit", ID: "root"}}

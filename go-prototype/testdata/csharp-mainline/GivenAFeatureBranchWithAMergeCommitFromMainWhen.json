@@ -1,0 +1,904 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithAMergeCommitFromMainWhen.cs",
+  "source_sha256": "e9cbe621f9a6d4c24a4a2b332ba913e38d629c05381513d81ccfd823bd2640d5",
+  "recipe": {
+    "id": "csharp-mainline-01",
+    "description": "GivenAFeatureBranchWithAMergeCommitFromMainWhen",
+    "initial_branch": "main",
+    "config": "workflow: GitHubFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-0",
+        "message": "A"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "commit",
+        "id": "commit-3",
+        "message": "B"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "commit-5",
+        "message": "C"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "merge",
+        "id": "merge-6",
+        "from": "main",
+        "message": "Merge branch 'main'"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  "methods": {
+    "GetVersionWithNoLabelOnMain": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          "None"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "None",
+          "Patch"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.1-foo.1+2"
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "None",
+          "Minor"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "None",
+          "Major"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          "Inherit"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Patch",
+          "None"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.2-foo.1+2"
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Patch",
+          "Patch"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Patch",
+          "Minor"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "Patch",
+          "Major"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Patch",
+          "Inherit"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "None"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.2.0-foo.1+2"
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Minor",
+          "Patch"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.2.1-foo.1+2"
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "Minor",
+          "Minor"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Minor",
+          "Major"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "Inherit"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Major",
+          "None"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "2.0.0-foo.1+2"
+      },
+      {
+        "id": "case-016",
+        "arguments": [
+          "Major",
+          "Patch"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "2.0.1-foo.1+2"
+      },
+      {
+        "id": "case-017",
+        "arguments": [
+          "Major",
+          "Minor"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "2.1.0-foo.1+2"
+      },
+      {
+        "id": "case-018",
+        "arguments": [
+          "Major",
+          "Major"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      },
+      {
+        "id": "case-019",
+        "arguments": [
+          "Major",
+          "Inherit"
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      }
+    ],
+    "GetVersionWithEmptyLabelOnMain": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "None",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.1-foo.1+2"
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "None",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "None",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Patch",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.2-foo.1+2"
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Patch",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Patch",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "Patch",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Patch",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.2.0-foo.1+2"
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Minor",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.2.1-foo.1+2"
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "Minor",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Minor",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Major",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "2.0.0-foo.1+2"
+      },
+      {
+        "id": "case-016",
+        "arguments": [
+          "Major",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "2.0.1-foo.1+2"
+      },
+      {
+        "id": "case-017",
+        "arguments": [
+          "Major",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "2.1.0-foo.1+2"
+      },
+      {
+        "id": "case-018",
+        "arguments": [
+          "Major",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      },
+      {
+        "id": "case-019",
+        "arguments": [
+          "Major",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      }
+    ],
+    "GetVersionWithLabelFooOnMain": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.0-foo.3+2"
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "None",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.1-foo.1+2"
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "None",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "None",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.0-foo.3+2"
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Patch",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.2-foo.2+2"
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Patch",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Patch",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "Patch",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Patch",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.2.0-foo.2+2"
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Minor",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.2.1-foo.1+2"
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "Minor",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Minor",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Major",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "2.0.0-foo.2+2"
+      },
+      {
+        "id": "case-016",
+        "arguments": [
+          "Major",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "2.0.1-foo.1+2"
+      },
+      {
+        "id": "case-017",
+        "arguments": [
+          "Major",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "2.1.0-foo.1+2"
+      },
+      {
+        "id": "case-018",
+        "arguments": [
+          "Major",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      },
+      {
+        "id": "case-019",
+        "arguments": [
+          "Major",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      }
+    ],
+    "GetVersionWithLabelBarOnMain": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "None",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.1-foo.1+2"
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "None",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "None",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.0-foo.1+2"
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Patch",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.0.2-foo.1+2"
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Patch",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Patch",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.1.0-foo.1+2"
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "Patch",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Patch",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.0.3-foo.1+2"
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "0.2.0-foo.1+2"
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Minor",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "0.2.1-foo.1+2"
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "Minor",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Minor",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "1.0.0-foo.1+2"
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "0.3.0-foo.1+2"
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Major",
+          "None"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"None\"}}}}",
+        "expected": "2.0.0-foo.1+2"
+      },
+      {
+        "id": "case-016",
+        "arguments": [
+          "Major",
+          "Patch"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Patch\"}}}}",
+        "expected": "2.0.1-foo.1+2"
+      },
+      {
+        "id": "case-017",
+        "arguments": [
+          "Major",
+          "Minor"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Minor\"}}}}",
+        "expected": "2.1.0-foo.1+2"
+      },
+      {
+        "id": "case-018",
+        "arguments": [
+          "Major",
+          "Major"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Major\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      },
+      {
+        "id": "case-019",
+        "arguments": [
+          "Major",
+          "Inherit"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"},\"feature\":{\"mode\":\"ManualDeployment\",\"prevent-increment\":{\"when-current-commit-tagged\":true},\"increment\":\"Inherit\"}}}}",
+        "expected": "3.0.0-foo.1+2"
+      }
+    ]
+  }
+}

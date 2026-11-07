@@ -14,7 +14,7 @@ func TestSemanticVersionParsingAndFormatting(t *testing.T) {
 			}
 		})
 	}
-	for _, s := range []string{"1.2", "01.2.3", "1.2.3-01", "1.2.3-a..b", "1.2.3+build", "2147483648.0.0", "1.0.0-a.2147483648"} {
+	for _, s := range []string{"1.2", "01.2.3", "1.2.3-01", "1.2.3-a..b", "2147483648.0.0", "1.0.0-a.2147483648"} {
 		if _, err := Parse(s); err == nil {
 			t.Errorf("unsupported or invalid version accepted: %q", s)
 		}
@@ -31,8 +31,8 @@ func TestSemanticVersionParsingAndFormatting(t *testing.T) {
 			t.Fatalf("non-version tag %q", s)
 		}
 	}
-	if _, ok, err := ParseTag("1.2.3+build"); !ok || err == nil {
-		t.Fatal("recognized unsupported tag silently ignored")
+	if v, ok, err := ParseTag("1.2.3+build"); !ok || err != nil || v.Metadata.Other == nil || *v.Metadata.Other != "build" {
+		t.Fatal("tag metadata was not retained", v, ok, err)
 	}
 }
 func TestSemanticVersionIncrementAndOrder(t *testing.T) {

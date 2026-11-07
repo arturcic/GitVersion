@@ -1,7 +1,6 @@
 package gitrepo
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -420,20 +419,35 @@ func TestPackedReferenceOrdering(t *testing.T) {
 	}
 }
 
-func TestUnsupportedReferencesFailClosed(t *testing.T) {
-	for _, symbolic := range []bool{false, true} {
-		t.Run(fmt.Sprintf("symbolic-%t", symbolic), func(t *testing.T) {
-			f := diamond(t, false)
-			ref := plumbing.NewHashReference("refs/remotes/origin/main", plumbing.NewHash(f.ids["merge"]))
-			if symbolic {
-				ref = plumbing.NewSymbolicReference("refs/heads/alias", "refs/heads/main")
-			}
-			if err := f.git.Storer.SetReference(ref); err != nil {
-				t.Fatal(err)
-			}
-			if _, err := openGraph(t, f).Observe(); err == nil {
-				t.Fatal("unsupported reference accepted")
-			}
-		})
+func TestBranchReferencesResolveAndPrivateReferencesAreIgnored(t *testing.T) {
+	f := diamond(t, false)
+	for _, ref := range []*plumbing.Reference{
+		plumbing.NewHashReference("refs/remotes/origin/main", plumbing.NewHash(f.ids["merge"])),
+		plumbing.NewSymbolicReference("refs/remotes/origin/HEAD", "refs/remotes/origin/main"),
+		plumbing.NewSymbolicReference("refs/heads/alias", "refs/heads/main"),
+		plumbing.NewHashReference("refs/codex/private", plumbing.NewHash(f.ids["root"])),
+	} {
+		if err := f.git.Storer.SetReference(ref); err != nil {
+			t.Fatal(err)
+		}
+	}
+	refs, err := openGraph(t, f).References()
+	if err != nil {
+		t.Fatal(err)
+	}
+	found := map[string]Reference{}
+	for _, ref := range refs {
+		found[ref.Name] = ref
+	}
+	for _, name := range []string{"refs/remotes/origin/main", "refs/remotes/origin/HEAD", "refs/heads/alias"} {
+		if found[name].SHA != f.ids["merge"] {
+			t.Fatal("reference resolution", name, found[name])
+		}
+	}
+	if found["refs/remotes/origin/HEAD"].Target != "refs/remotes/origin/main" {
+		t.Fatal("symbolic target discarded")
+	}
+	if _, ok := found["refs/codex/private"]; ok {
+		t.Fatal("private reference leaked into branch/tag namespace")
 	}
 }

@@ -54,11 +54,18 @@ var bumps = []*regexp.Regexp{regexp.MustCompile(bumpPrefix + `(none|skip)`), reg
 var releaseMerge = regexp.MustCompile(`(?i)\breleases?[/\\-]`)
 
 func Calculate(path string) (map[string]any, Trace, error) {
-	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	cfg, err := config.Load(path)
 	if err != nil {
-		return nil, trace, err
+		return nil, Trace{Candidates: []Candidate{}, Counted: []string{}}, err
 	}
+	return CalculateWithConfig(path, cfg)
+}
+
+// CalculateWithConfig evaluates a repository using an already parsed configuration.
+// Callers must obtain cfg from config.Parse or config.Load. The repository and
+// its configuration file are not modified by the supplied configuration.
+func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace, error) {
+	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	r, err := gitrepo.Open(path)
 	if err != nil {
 		return nil, trace, err
@@ -107,8 +114,8 @@ func Calculate(path string) (map[string]any, Trace, error) {
 	// Non-Mainline strategies can calculate an explicitly configured branch
 	// without a main ref (for example a repository initialized on develop).
 	// Inherited branches still require a source through configurationSources.
-	if len(mainTips) > 1 || (len(mainTips) == 0 && cfg.Strategies["Mainline"]) {
-		return nil, trace, fmt.Errorf("unsupported main-branch topology: require exactly one main/master branch")
+	if len(mainTips) > 1 {
+		return nil, trace, fmt.Errorf("unsupported main-branch topology: require at most one main/master branch")
 	}
 	sources, err := configurationSources(r, cfg, branch, branches, map[string]bool{})
 	if err != nil {
@@ -144,7 +151,7 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		if c, ok := commits[id]; ok {
 			return c, nil
 		}
-		c, err := r.Commit(id)
+		c, err := r.CommitMetadata(id)
 		if err == nil {
 			commits[id] = c
 		}
@@ -259,7 +266,7 @@ func Calculate(path string) (map[string]any, Trace, error) {
 		var selected *tag
 		for i := range eligible {
 			t := &eligible[i]
-			if t.ref.Commit == head && t.v.Matches(label) && (selected == nil || t.v.Compare(selected.v) > 0) {
+			if t.ref.Commit == head && (effective.NullLabel || t.v.Matches(label)) && (selected == nil || t.v.Compare(selected.v) > 0) {
 				selected = t
 			}
 		}

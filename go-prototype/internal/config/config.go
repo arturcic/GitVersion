@@ -38,6 +38,9 @@ const (
 )
 
 type Options struct {
+	// NullLabel retains an explicit null from programmatic builders. YAML parsing
+	// currently accepts explicit string labels only.
+	NullLabel                                                                                               bool
 	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage *bool
 	Mode                                                                                                    Mode
 	Label                                                                                                   string
@@ -47,6 +50,7 @@ type Options struct {
 	Messages                                                                                                *string
 }
 type Effective struct {
+	NullLabel                                                                                               bool
 	Kind                                                                                                    string
 	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage bool
 	Mode                                                                                                    Mode
@@ -69,7 +73,11 @@ func (c Config) EffectiveFrom(branch, source string) (Effective, error) {
 		return Effective{}, err
 	}
 	parent := c.Options(parentKind)
-	e := Effective{Kind: kind, Mode: o.Mode, Label: Sanitize(strings.ReplaceAll(strings.ReplaceAll(o.Label, "{BranchName}", capture), "{Number}", capture), true), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
+	e := Effective{NullLabel: o.NullLabel, Kind: kind, Mode: o.Mode, Label: Sanitize(strings.ReplaceAll(strings.ReplaceAll(o.Label, "{BranchName}", capture), "{Number}", capture), true), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
+	if e.Inherit && o.NullLabel {
+		e.NullLabel = parent.NullLabel
+		e.Label = Sanitize(strings.ReplaceAll(strings.ReplaceAll(parent.Label, "{BranchName}", capture), "{Number}", capture), true)
+	}
 	if e.Inherit && parent.Increment != nil {
 		e.Increment = *parent.Increment
 	}
@@ -131,25 +139,32 @@ func Sanitize(s string, dots bool) string {
 }
 func Load(repo string) (Config, error) {
 	var path string
+	entries, err := os.ReadDir(repo)
+	if err != nil {
+		return Config{}, err
+	}
+	// Match the C# locator's filename priority and case-insensitive comparison.
+	// ReadDir supplies the same ordinal order for these ASCII filename variants.
+search:
 	for _, name := range []string{"GitVersion.yml", "GitVersion.yaml", ".GitVersion.yml", ".GitVersion.yaml"} {
-		p := filepath.Join(repo, name)
-		info, err := os.Lstat(p)
-		if os.IsNotExist(err) {
-			continue
+		for _, entry := range entries {
+			if entry.IsDir() || !strings.EqualFold(entry.Name(), name) {
+				continue
+			}
+			p := filepath.Join(repo, entry.Name())
+			info, err := os.Lstat(p)
+			if err != nil {
+				return Config{}, err
+			}
+			if !info.Mode().IsRegular() {
+				return Config{}, fmt.Errorf("unsupported nonregular config %s", entry.Name())
+			}
+			if info.Size() > 1<<20 {
+				return Config{}, fmt.Errorf("configuration exceeds 1 MiB")
+			}
+			path = p
+			break search
 		}
-		if err != nil {
-			return Config{}, err
-		}
-		if !info.Mode().IsRegular() {
-			return Config{}, fmt.Errorf("unsupported nonregular config %s", name)
-		}
-		if path != "" {
-			return Config{}, fmt.Errorf("ambiguous configuration files")
-		}
-		if info.Size() > 1<<20 {
-			return Config{}, fmt.Errorf("configuration exceeds 1 MiB")
-		}
-		path = p
 	}
 	if path == "" {
 		return Config{}, fmt.Errorf("explicit GitHubFlow/v1 configuration required")

@@ -1,0 +1,481 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "scenarios": [
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithAMergeCommitFromMainMergedBackToMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithAMergeCommitFromMainMergedBackToMainWhen.cs",
+      "methods": 2,
+      "cases": 160
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithAMergeCommitFromMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithAMergeCommitFromMainWhen.cs",
+      "methods": 4,
+      "cases": 80
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhen.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessageMajor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessageMinor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitAHasBumpMessagePatch.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreRelease.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreReleaseBar.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsPreReleaseFoo.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitATaggedAsStable.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessageMajor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessageMinor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBHasBumpMessagePatch.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreRelease.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreReleaseBar.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsPreReleaseFoo.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitBranchedFromMainWhenCommitBTaggedAsStable.cs",
+      "methods": 8,
+      "cases": 720
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWhen.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreRelease.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreReleaseBar.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsPreReleaseFoo.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWhenCommitBTaggedAsStable.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitMergedToMainWithOneCommitBranchedToFeatureWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitMergedToMainWithOneCommitBranchedToFeatureWhen.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhen.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessageMajor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessageMinor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitHasBumpMessagePatch.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreRelease.cs",
+      "methods": 2,
+      "cases": 32
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreReleaseBar.cs",
+      "methods": 2,
+      "cases": 32
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 2,
+      "cases": 32
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithOneCommitWhenCommitTaggedAsStable.cs",
+      "methods": 2,
+      "cases": 32
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithThreeCommitsBranchedFromMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithThreeCommitsBranchedFromMainWhen.cs",
+      "methods": 3,
+      "cases": 240
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithThreeCommitsMergedToMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithThreeCommitsMergedToMainWhen.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithThreeCommitsWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithThreeCommitsWhen.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithTwoCommitsBranchedFromMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithTwoCommitsBranchedFromMainWhen.cs",
+      "methods": 3,
+      "cases": 240
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithTwoCommitsMergedToMainWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithTwoCommitsMergedToMainWhen.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreRelease.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAFeatureBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhen.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessageMajor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessageMinor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitHasBumpMessagePatch.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreRelease.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreReleaseBar.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitBranchedToFeatureWhenCommitTaggedAsStable.cs",
+      "methods": 8,
+      "cases": 800
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhen.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitHasBumpMessageMajor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitHasBumpMessageMinor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitHasBumpMessagePatch.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreRelease.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreReleaseBar.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithOneCommitWhenCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithOneCommitWhenCommitTaggedAsStable.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithThreeCommitsWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithThreeCommitsWhen.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhen.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessageMajor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessageMinor.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitHasBumpMessagePatch.cs",
+      "methods": 12,
+      "cases": 1200
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreRelease.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreReleaseBar.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsBranchedToFeatureWhenFirstCommitTaggedAsStable.cs",
+      "methods": 4,
+      "cases": 400
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhen.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhen.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessageMajor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessageMinor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitHasBumpMessagePatch.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreRelease.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsStable.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessageMajor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessageMajor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessageMinor.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessageMinor.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessagePatch.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitHasBumpMessagePatch.cs",
+      "methods": 3,
+      "cases": 48
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreRelease.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreRelease.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreReleaseBar.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreReleaseBar.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreReleaseFoo.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsPreReleaseFoo.cs",
+      "methods": 1,
+      "cases": 16
+    },
+    {
+      "file": "testdata/csharp-mainline/GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsStable.json",
+      "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenSecondCommitTaggedAsStable.cs",
+      "methods": 1,
+      "cases": 16
+    }
+  ],
+  "methods": 380,
+  "cases": 32064
+}

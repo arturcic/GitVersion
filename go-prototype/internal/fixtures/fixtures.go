@@ -13,10 +13,13 @@ import (
 	"sort"
 	"time"
 
+	"github.com/go-git/go-billy/v5/osfs"
 	git "github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
+	"github.com/go-git/go-git/v5/plumbing/cache"
 	"github.com/go-git/go-git/v5/plumbing/filemode"
 	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/go-git/go-git/v5/storage/filesystem"
 )
 
 type Step struct {
@@ -360,11 +363,10 @@ func State(root string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	repo, err := git.PlainOpen(root)
-	if err != nil {
-		return "", err
-	}
-	idx, err := repo.Storer.Index()
+	// Reading the logical index does not require opening a repository. Avoid
+	// applying go-git extension validation to an independent mutation audit.
+	st := filesystem.NewStorage(osfs.New(filepath.Join(root, ".git")), cache.NewObjectLRUDefault())
+	idx, err := st.Index()
 	if err != nil {
 		return "", err
 	}

@@ -52,17 +52,18 @@ type Version struct {
 var strict = regexp.MustCompile(`^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$`)
 var suffix = regexp.MustCompile(`^(.*?)\.?([0-9]+)?$`)
 
-// Parse accepts strict three-component versions. Metadata-bearing semantic tags
-// are recognized but rejected explicitly until their formatting is supported.
+// Parse accepts strict three-component versions and retains tag build metadata.
+// Calculation output replaces metadata with repository-derived provenance.
 func Parse(s string) (Version, error) {
 	m := strict.FindStringSubmatch(s)
 	if m == nil {
 		return Version{}, fmt.Errorf("invalid semantic version %q", s)
 	}
-	if m[5] != "" {
-		return Version{}, fmt.Errorf("unsupported build metadata in semantic version %q", s)
+	metadata, err := parseMetadata(m[5])
+	if err != nil {
+		return Version{}, err
 	}
-	v := Version{}
+	v := Version{Metadata: metadata}
 	for i, p := range []*int64{&v.Major, &v.Minor, &v.Patch} {
 		n, err := strconv.ParseInt(m[i+1], 10, 64)
 		if err != nil || n > math.MaxInt32 {

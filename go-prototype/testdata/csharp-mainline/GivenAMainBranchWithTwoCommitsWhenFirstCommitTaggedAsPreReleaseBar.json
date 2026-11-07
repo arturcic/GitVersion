@@ -1,0 +1,203 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Mainline/MainlineScenariosWithAGitHubFlow+GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar.cs",
+  "source_sha256": "b754d3e3db7a488d1a43e768e49bdcbf9b79d2c283bbca754f558a95f1900172",
+  "recipe": {
+    "id": "csharp-mainline-69",
+    "description": "GivenAMainBranchWithTwoCommitsWhenFirstCommitTaggedAsPreReleaseBar",
+    "initial_branch": "main",
+    "config": "workflow: GitHubFlow/v1\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "commit-0",
+        "message": "A"
+      },
+      {
+        "op": "tag",
+        "name": "0.0.3-bar"
+      },
+      {
+        "op": "commit",
+        "id": "commit-2",
+        "message": "B"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  "methods": {
+    "GetVersion": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          null
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"}}}}",
+        "expected": "0.0.3-bar+1"
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Patch",
+          null
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"}}}}",
+        "expected": "0.0.4-bar+1"
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Minor",
+          null
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"}}}}",
+        "expected": "0.1.0-bar+1"
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "Major",
+          null
+        ],
+        "null_labels": [
+          "main"
+        ],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"}}}}",
+        "expected": "1.0.0-bar+1"
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          ""
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"\"}}}}",
+        "expected": "0.0.3-2+1"
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Patch",
+          ""
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"\"}}}}",
+        "expected": "0.0.4-1+1"
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Minor",
+          ""
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"\"}}}}",
+        "expected": "0.2.0-1+1"
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Major",
+          ""
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"\"}}}}",
+        "expected": "2.0.0-1+1"
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "None",
+          "foo"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"foo\"}}}}",
+        "expected": "0.0.3-foo.2+1"
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Patch",
+          "foo"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"foo\"}}}}",
+        "expected": "0.0.4-foo.1+1"
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "foo"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"foo\"}}}}",
+        "expected": "0.2.0-foo.1+1"
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Major",
+          "foo"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"foo\"}}}}",
+        "expected": "2.0.0-foo.1+1"
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "None",
+          "bar"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"None\",\"label\":\"bar\"}}}}",
+        "expected": "0.0.3-bar+1"
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Patch",
+          "bar"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Patch\",\"label\":\"bar\"}}}}",
+        "expected": "0.0.4-bar+1"
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "bar"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Minor\",\"label\":\"bar\"}}}}",
+        "expected": "0.1.0-bar+1"
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Major",
+          "bar"
+        ],
+        "null_labels": [],
+        "config": "{\"workflow\":\"GitHubFlow/v1\",\"calculation\":{\"strategies\":[\"Mainline\"],\"branches\":{\"main\":{\"mode\":\"ManualDeployment\",\"increment\":\"Major\",\"label\":\"bar\"}}}}",
+        "expected": "1.0.0-bar+1"
+      }
+    ]
+  }
+}

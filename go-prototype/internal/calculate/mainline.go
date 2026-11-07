@@ -13,11 +13,25 @@ type mlOrigin struct {
 	sha     string
 }
 type mlOperator struct {
+	labelNull     bool
 	inc           semver.Increment
 	label, anchor string
 	force         bool
 	alt           *mlOrigin
 }
+
+func (op mlOperator) bump(v semver.Version) (semver.Version, error) {
+	mode := semver.Standard
+	if op.force {
+		mode = semver.Force
+	}
+	var label *string
+	if !op.labelNull {
+		label = &op.label
+	}
+	return v.BumpWithMode(op.inc, label, mode)
+}
+
 type mlBase struct {
 	value          semver.Version
 	origin, anchor string
@@ -28,7 +42,7 @@ func (b mlBase) version() (semver.Version, error) {
 	if b.op == nil {
 		return b.value, nil
 	}
-	v, err := b.value.Bump(b.op.inc, b.op.label, b.op.force)
+	v, err := b.op.bump(b.value)
 	if err != nil {
 		return v, err
 	}
@@ -47,7 +61,7 @@ func (b mlBase) semantic() (semver.Version, string, semver.Increment) {
 	inc := semver.None
 	if b.op != nil {
 		inc = b.op.inc
-		v, err := b.value.Bump(b.op.inc, b.op.label, b.op.force)
+		v, err := b.op.bump(b.value)
 		if err == nil && b.op.alt != nil && v.CompareCore(b.op.alt.version) < 0 {
 			return b.op.alt.version, b.op.alt.sha, semver.None
 		}
@@ -84,16 +98,17 @@ type mlIteration struct {
 	parent *mlNode
 }
 type mlEngine struct {
-	r       *gitrepo.Repository
-	cfg     config.Config
-	refs    []branchRef
-	tags    []tag
-	load    func(string) (gitrepo.Commit, error)
-	target  string
-	label   string
-	when    int64
-	visited map[string]bool
-	err     error
+	labelNull bool
+	r         *gitrepo.Repository
+	cfg       config.Config
+	refs      []branchRef
+	tags      []tag
+	load      func(string) (gitrepo.Commit, error)
+	target    string
+	label     string
+	when      int64
+	visited   map[string]bool
+	err       error
 }
 
 func (e *mlEngine) effective(n *mlNode) config.Effective {
@@ -120,6 +135,10 @@ func (e *mlEngine) effective(n *mlNode) config.Effective {
 		if parent != nil {
 			p := e.effective(parent)
 			v.Increment = p.Increment
+			if o.NullLabel {
+				v.Label = p.Label
+				v.NullLabel = p.NullLabel
+			}
 			if o.IsMain == nil {
 				v.IsMain = p.IsMain
 			}
@@ -324,8 +343,13 @@ func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semv
 		it.nodes = append(it.nodes, n)
 		kind, _, _ := e.cfg.Branch(state)
 		known := kind == "main" || e.cfg.Options(kind).Increment != nil
+		matchLabel, matchNull := e.label, e.labelNull
+		if matchNull {
+			stateEffective, _ := e.cfg.EffectiveFrom(state, state)
+			matchLabel, matchNull = stateEffective.Label, stateEffective.NullLabel
+		}
 		for _, v := range n.tags {
-			if v.Matches(e.label) {
+			if matchNull || v.Matches(matchLabel) {
 				if known {
 					return true, nil
 				}
@@ -409,7 +433,7 @@ func (c *mlContext) addAlt(v mlOrigin) {
 	}
 }
 func (c *mlContext) operator() mlOperator {
-	return mlOperator{inc: c.increment, label: c.label, anchor: c.anchor, force: c.force, alt: c.alt}
+	return mlOperator{labelNull: !c.labelSet, inc: c.increment, label: c.label, anchor: c.anchor, force: c.force, alt: c.alt}
 }
 func commitBump(message string) (semver.Increment, bool) {
 	if bumps[0].MatchString(message) {
@@ -440,8 +464,15 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 			}
 		}
 		ctx.semantic = nil
+		matchLabel, matchNull := e.label, e.labelNull
+		if matchNull {
+			matchLabel, matchNull = iterationEffective.Label, iterationEffective.NullLabel
+		}
+		if matchNull {
+			matchLabel, matchNull = eff.Label, eff.NullLabel
+		}
 		for _, v := range n.tags {
-			if v.Matches(e.label) {
+			if matchNull || v.Matches(matchLabel) {
 				if ctx.semantic == nil || v.Compare(ctx.semantic.version) > 0 {
 					ctx.semantic = &mlOrigin{v, n.id}
 				}
@@ -467,7 +498,7 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 		}
 		if !ctx.labelSet {
 			ctx.label = eff.Label
-			ctx.labelSet = true
+			ctx.labelSet = !eff.NullLabel
 		}
 		if eff.IsMain {
 			ctx.anchor = ""
@@ -487,19 +518,20 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 				if !eff.IsMain {
 					ctx.increment = eff.Increment
 					ctx.label = eff.Label
-					ctx.labelSet = true
+					ctx.labelSet = !eff.NullLabel
 					if ctx.semantic.version.IsPreRelease() {
 						ctx.force = false
 					}
 				}
 				if eff.IsMain && !ctx.semantic.version.IsPreRelease() {
 					ctx.label = eff.Label
-					ctx.labelSet = true
+					ctx.labelSet = !eff.NullLabel
 				}
 				if n.next == nil && (!eff.IsMain || iterationEffective.IsMain) {
 					if ctx.semantic.version.IsPreRelease() {
 						ctx.increment = eff.Increment
 						ctx.label = eff.Label
+						ctx.labelSet = !eff.NullLabel
 						ctx.force = false
 					} else {
 						ctx.force = true
@@ -532,6 +564,10 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 			child, err := e.reduce(n.child)
 			if err != nil {
 				return result, err
+			}
+			if !ctx.labelSet && child.op != nil {
+				ctx.label = child.op.label
+				ctx.labelSet = !child.op.labelNull
 			}
 			childInc := semver.None
 			if child.op != nil {
@@ -578,7 +614,10 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 				}
 				ctx.anchor = n.id
 			} else if n.next == nil {
-				ctx.label = e.label
+				if !e.labelNull {
+					ctx.label = e.label
+					ctx.labelSet = true
+				}
 				if err := apply(); err != nil {
 					return result, err
 				}
@@ -587,8 +626,10 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 		// A branch with no own commit still needs its own final operator/label.
 		if n.next == nil && n.branch != it.branch {
 			ctx.anchor = n.id
-			ctx.label = iterationEffective.Label
-			ctx.labelSet = true
+			if !iterationEffective.NullLabel {
+				ctx.label = iterationEffective.Label
+				ctx.labelSet = true
+			}
 			ctx.force = true
 			if eff.IsMain {
 				ctx.increment = iterationEffective.Increment
@@ -624,7 +665,11 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 	if err != nil {
 		return candidate{}, err
 	}
-	engine := mlEngine{r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
+	effective, err := cfg.EffectiveFrom(branch, source)
+	if err != nil {
+		return candidate{}, err
+	}
+	engine := mlEngine{labelNull: effective.NullLabel, r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
 	tip := head
 	for _, b := range refs {
 		if b.name == branch {

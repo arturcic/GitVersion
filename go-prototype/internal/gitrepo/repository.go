@@ -14,7 +14,6 @@ import (
 
 	git "github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/format/gitignore"
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
@@ -31,6 +30,20 @@ func (r *Repository) Head() (branch, sha string) { return r.branch, r.head }
 
 // Commit returns value data for a commit, including first-parent changed paths.
 func (r *Repository) Commit(id string) (Commit, error) { return r.commitInfo(id) }
+
+// CommitMetadata reads parents, message and time without diffing trees. Version
+// calculation uses this view; callers needing changed paths use Commit instead.
+func (r *Repository) CommitMetadata(id string) (Commit, error) {
+	c, err := r.load(id)
+	if err != nil {
+		return Commit{}, err
+	}
+	out := Commit{Parents: []string{}, Message: c.Message, When: c.Committer.When.Unix()}
+	for _, p := range c.ParentHashes {
+		out.Parents = append(out.Parents, p.String())
+	}
+	return out, nil
+}
 
 type Reference struct {
 	Name   string `json:"name"`
@@ -68,7 +81,7 @@ func Open(path string) (*Repository, error) {
 	if err != nil || !info.IsDir() {
 		return nil, fmt.Errorf("unsupported repository: require a normal non-bare .git directory")
 	}
-	g, err := git.PlainOpen(path)
+	g, err := openCommonConfigRepository(path)
 	if err != nil {
 		return nil, err
 	}
@@ -98,32 +111,8 @@ func Open(path string) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	// go-git's protected worktree filesystem refuses .git paths, so its
-	// automatic ignore scan cannot read info/exclude. Read it through the
-	// known Git directory, below .gitignore in precedence. Never hide tracked
-	// changes, including files newly added to the index.
-	excludes, err := os.ReadFile(filepath.Join(dir, "info", "exclude"))
-	if err != nil && !os.IsNotExist(err) {
+	if err := reconcileUntracked(path, dir, g, status); err != nil {
 		return nil, err
-	}
-	if len(excludes) > 0 {
-		patterns := []gitignore.Pattern{}
-		for _, line := range strings.Split(string(excludes), "\n") {
-			line = strings.TrimSuffix(line, "\r")
-			if strings.TrimSpace(line) != "" && !strings.HasPrefix(line, "#") {
-				patterns = append(patterns, gitignore.ParsePattern(line, nil))
-			}
-		}
-		local, err := gitignore.ReadPatterns(wt.Filesystem, nil)
-		if err != nil {
-			return nil, err
-		}
-		matcher := gitignore.NewMatcher(append(patterns, local...))
-		for name, s := range status {
-			if s.Staging == git.Untracked && s.Worktree == git.Untracked && matcher.Match(strings.Split(filepath.ToSlash(name), "/"), false) {
-				delete(status, name)
-			}
-		}
 	}
 	if !status.IsClean() {
 		return nil, fmt.Errorf("unsupported dirty repository")
@@ -161,17 +150,20 @@ func (r *Repository) References() ([]Reference, error) {
 		if !strings.HasPrefix(ref.Name().String(), "refs/") {
 			return nil
 		}
-		if !ref.Name().IsBranch() && !ref.Name().IsTag() {
-			return fmt.Errorf("unsupported reference %s", ref.Name())
+		if !ref.Name().IsBranch() && !ref.Name().IsTag() && !ref.Name().IsRemote() {
+			// The reference branch/tag services do not consume private ref namespaces.
+			return nil
 		}
-		if ref.Type() == plumbing.SymbolicReference {
-			return fmt.Errorf("unsupported symbolic reference %s", ref.Name())
-		}
+
 		resolved, err := r.git.Reference(ref.Name(), true)
 		if err != nil {
 			return err
 		}
-		refs = append(refs, Reference{ref.Name().String(), ref.Hash().String(), resolved.Hash().String()})
+		target := ref.Hash().String()
+		if ref.Type() == plumbing.SymbolicReference {
+			target = ref.Target().String()
+		}
+		refs = append(refs, Reference{ref.Name().String(), target, resolved.Hash().String()})
 		return nil
 	})
 	if err != nil {

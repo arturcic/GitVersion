@@ -63,13 +63,13 @@ func configurationSources(r *gitrepo.Repository, cfg config.Config, branch strin
 		if base == "" {
 			continue
 		}
-		c, err := r.Commit(base)
+		c, err := r.CommitMetadata(base)
 		if err != nil {
 			return nil, err
 		}
 		o := origin{branch: b, base: base, when: c.When}
 		for _, id := range history {
-			v, err := r.Commit(id)
+			v, err := r.CommitMetadata(id)
 			if err != nil {
 				return nil, err
 			}
@@ -142,26 +142,20 @@ func versionInBranch(name string) (semver.Version, bool) {
 	if !strings.Contains(name, "/") && strings.Contains(name, "-") {
 		separator = "-"
 	}
-	var m []string
 	for _, part := range strings.Split(name, separator) {
 		if part == "" {
 			return semver.Version{}, false
 		}
-		m = branchVersion.FindStringSubmatch(part)
-		if m != nil {
-			break
+		m := branchVersion.FindStringSubmatch(part)
+		if m == nil || m[2] == "" || m[3] == "" {
+			continue
+		}
+		v, err := semver.Parse(strings.Join(m[1:4], "."))
+		if err == nil {
+			return v, true
 		}
 	}
-	if m == nil {
-		return semver.Version{}, false
-	}
-	for i := 2; i <= 3; i++ {
-		if m[i] == "" {
-			m[i] = "0"
-		}
-	}
-	v, err := semver.Parse(strings.Join(m[1:4], "."))
-	return v, err == nil
+	return semver.Version{}, false
 }
 
 var mergeBranchPattern = regexp.MustCompile(`(?i)Merge (?:remote-tracking )?branch ['"]([^'"]+)['"]`)
@@ -305,7 +299,7 @@ func candidateOrder(c candidate) int {
 
 // Match the pinned branch-aware merge-base finder, excluding forward merges.
 func branchMergeBase(r *gitrepo.Repository, tip, other string) (string, error) {
-	c, err := r.Commit(other)
+	c, err := r.CommitMetadata(other)
 	if err != nil {
 		return "", err
 	}
@@ -326,7 +320,7 @@ func branchMergeBase(r *gitrepo.Repository, tip, other string) (string, error) {
 		}
 		forward := ""
 		for _, id := range ids {
-			c, err := r.Commit(id)
+			c, err := r.CommitMetadata(id)
 			if err != nil {
 				return "", err
 			}
