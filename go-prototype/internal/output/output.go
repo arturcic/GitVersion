@@ -26,6 +26,7 @@ type Result struct {
 	Distance          int64
 	Branch, SHA       string
 	CommitTime        int64
+	Uncommitted       int
 	Main, Tagged      bool
 	Mode              config.Mode
 	Weight, TagWeight *int64
@@ -93,7 +94,7 @@ func Variables(r Result) (map[string]any, error) {
 		Version: v, SemanticSource: &r.SemanticSource, LegacySource: &r.LegacySource,
 		Increment: r.Increment, SemanticSHA: r.SemanticSHA, CountSHA: r.CountSHA,
 		Branch: r.Branch, SHA: r.SHA, ShortSHA: r.SHA[:7], Date: &date,
-		Distance: r.Distance, BranchWeight: branchWeight, TagWeight: tagWeight, Build: build,
+		Distance: r.Distance, BranchWeight: branchWeight, TagWeight: tagWeight, Build: build, Uncommitted: r.Uncommitted,
 	}, r.Output, os.LookupEnv)
 }
 
@@ -107,6 +108,7 @@ type VariableInput struct {
 	Date                              *time.Time
 	Distance, BranchWeight, TagWeight int64
 	Build                             *int64
+	Uncommitted                       int
 }
 
 // FromSemanticVersion projects semantic values through the configured output formats.
@@ -164,7 +166,7 @@ func FromSemanticVersion(input VariableInput, settings config.OutputSettings, en
 		"EscapedBranchName": config.Sanitize(input.Branch, false), "FullBuildMetaData": fullMeta, "FullSemVer": full, "InformationalVersion": informational,
 		"Major": v.Major, "MajorMinorPatch": v.Core(), "Minor": v.Minor, "Patch": v.Patch,
 		"PreReleaseLabelName": v.Label, "PreReleaseLabelNameWithDash": prefix(v.Label), "PreReleaseNumber": number, "PreReleaseLabel": pre, "PreReleaseLabelWithDash": prefix(pre), "SemVer": v.String(),
-		"SemVerSourceIncrement": input.Increment.String(), "SemVerSourceSemVer": semanticSource, "SemVerSourceSha": nullable(input.SemanticSHA), "Sha": input.SHA, "ShortSha": input.ShortSHA, "UncommittedChanges": 0,
+		"SemVerSourceIncrement": input.Increment.String(), "SemVerSourceSemVer": semanticSource, "SemVerSourceSha": nullable(input.SemanticSHA), "Sha": input.SHA, "ShortSha": input.ShortSHA, "UncommittedChanges": input.Uncommitted,
 		"VersionSourceIncrement": input.LegacyIncrement.String(), "VersionSourceSemVer": legacySource, "VersionSourceSha": input.CountSHA, "WeightedPreReleaseNumber": weight,
 	}
 	setSourceDistance(values, input.Distance)

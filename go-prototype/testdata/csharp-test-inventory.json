@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1386,
+  "mapped_declarations": 1396,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1348,
+      "mapped": 1358,
       "verified": 1348
     },
     "integration": {
@@ -4526,9 +4526,17 @@
       ],
       "source_sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs#CheckBuildServerVerbosityConsole",
@@ -14923,9 +14931,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#ResolvedConfiguration_IsCreatedOncePerExecution",
@@ -14940,9 +14955,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Record the Go configuration loader call and assert that calculation and build-number output use the single resolved configuration."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CacheKeySameAfterReNormalizing",
@@ -15008,9 +15030,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CacheFileExistsOnDiskWhenOverrideConfigIsSpecifiedVersionShouldBeDynamicallyCalculatedWithoutSavingInCache",
@@ -15025,9 +15054,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CustomVersionUsesBranchSpecificFormat",
@@ -15066,9 +15102,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#ConfigChangeInvalidatesCache",
@@ -15095,9 +15138,19 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#NoCacheBypassesCache",
@@ -15112,9 +15165,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#WorkingDirectoryWithoutGit",
@@ -15177,9 +15237,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Run go-git repository discovery on ordinary and linked checkout paths. The original supplies a URL but performs no remote preparation or access."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#GetProjectRootDirectoryNoWorktree",
@@ -15194,9 +15261,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpExecutorCache",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-executor-cache.json",
+      "adaptations": [
+        "Run go-git repository discovery on ordinary and linked checkout paths. The original supplies a URL but performs no remote preparation or access."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#GetDotGitDirectoryNoWorktree",

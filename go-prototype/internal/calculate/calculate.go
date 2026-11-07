@@ -12,6 +12,7 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
+	"github.com/GitTools/GitVersion/go-prototype/internal/patterns"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
 )
 
@@ -81,11 +82,20 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 }
 
 func calculateAtCommit(path string, cfg config.Config, requestedCommit string, options gitrepo.OpenOptions, strategy versionStrategy) (map[string]any, Trace, error) {
-	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	r, err := gitrepo.OpenForCalculation(path, options)
 	if err != nil {
-		return nil, trace, err
+		return nil, Trace{Candidates: []Candidate{}, Counted: []string{}}, err
 	}
+	return calculatePrepared(r, cfg, requestedCommit, strategy)
+}
+
+// CalculatePrepared evaluates an already opened repository snapshot.
+func CalculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string) (map[string]any, Trace, error) {
+	return calculatePrepared(r, cfg, requestedCommit, nil)
+}
+
+func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string, strategy versionStrategy) (map[string]any, Trace, error) {
+	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	ignored, err := newCommitFilter(r, cfg.Ignore)
 	if err != nil {
 		return nil, trace, err
@@ -99,6 +109,7 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, o
 	var effective config.Effective
 	format := func(result output.Result) (map[string]any, error) {
 		result.Mode = effective.Mode
+		result.Uncommitted = r.UncommittedChanges()
 		// The variables provider uses the original branch's configured weight.
 		weight := cfg.Options(kind).Weight
 		result.Weight = &weight
@@ -246,7 +257,7 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, o
 	if err != nil {
 		return nil, trace, err
 	}
-	allTags, err := readSemanticTags(rawTags, cfg.Ignore, ignored, load)
+	allTags, err := readSemanticTags(rawTags, cfg.Ignore, cfg.TagPrefix, ignored, load)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -653,7 +664,7 @@ func (l *commitLog) increment(head, base, label string, defaultIncrement semver.
 
 // readSemanticTags preserves reference order while applying the configured
 // name and commit filters before parsing semantic versions.
-func readSemanticTags(rawTags []gitrepo.Tag, settings config.IgnoreSettings, ignored *commitFilter, load func(string) (gitrepo.Commit, error)) ([]tag, error) {
+func readSemanticTags(rawTags []gitrepo.Tag, settings config.IgnoreSettings, prefix *patterns.Pattern, ignored *commitFilter, load func(string) (gitrepo.Commit, error)) ([]tag, error) {
 	allTags := []tag{}
 	for _, raw := range rawTags {
 		skip, err := settings.TagIgnored(strings.TrimPrefix(raw.Name, "refs/tags/"))
@@ -670,7 +681,7 @@ func readSemanticTags(rawTags []gitrepo.Tag, settings config.IgnoreSettings, ign
 		if !allowed {
 			continue
 		}
-		v, recognized, err := semver.ParseTag(strings.TrimPrefix(raw.Name, "refs/tags/"))
+		v, recognized, err := semver.ParseTagWithPrefix(strings.TrimPrefix(raw.Name, "refs/tags/"), prefix)
 		if err != nil {
 			return nil, err
 		}

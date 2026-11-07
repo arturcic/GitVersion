@@ -37,7 +37,7 @@ func ReadLegacyDocument(data []byte) (LegacyDocument, error) {
 	if err != nil {
 		return out, err
 	}
-	keys := append([]string{"mode", "next-version", "semantic-version-format", "branches", "strategies", "ignore", "tag-pre-release-weight", "update-build-number"}, outputSettingNames...)
+	keys := append([]string{"mode", "tag-prefix", "next-version", "semantic-version-format", "branches", "strategies", "ignore", "tag-pre-release-weight", "update-build-number"}, outputSettingNames...)
 	fields, err := mapping(flat, "legacy", append([]string{"workflow"}, keys...))
 	if err != nil {
 		return out, err

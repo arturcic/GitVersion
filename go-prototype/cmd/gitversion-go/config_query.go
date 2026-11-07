@@ -166,7 +166,10 @@ func configurationDisplayInvocation(args []string) ([]string, string, bool) {
 }
 
 func selectedConfigurationVersion() (string, error) {
-	requested := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
+	return resolveConfigurationVersion(os.Getenv("GITVERSION_CONFIGURATION_VERSION"))
+}
+
+func resolveConfigurationVersion(requested string) (string, error) {
 	version, err := config.SelectConfigurationVersion(&requested)
 	if err != nil {
 		return "", fmt.Errorf("An error occurred:\nUnrecognized GITVERSION_CONFIGURATION_VERSION value '%s'. Valid values are 'v6' and 'v7'.", requested)

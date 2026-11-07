@@ -21,6 +21,7 @@ import (
 
 type Config struct {
 	Output            OutputSettings
+	UpdateBuildNumber bool
 	Ignore            IgnoreSettings
 	Workflow          string
 	Strategies        map[string]bool
@@ -31,6 +32,7 @@ type Config struct {
 	Main, Feature     Options
 	DefaultMode       Mode
 	TagWeight         int64
+	TagPrefix         *patterns.Pattern
 	branchOrder       []string
 	branchRegex       map[string]string
 	branchPatterns    map[string]*patterns.Pattern
@@ -173,7 +175,7 @@ func Sanitize(s string, dots bool) string {
 func Load(repo string) (Config, error) { return LoadNamed(repo, "") }
 
 func Parse(data []byte) (Config, error) {
-	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
+	c := Config{UpdateBuildNumber: true, Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
 	if len(data) > 1<<20 {
 		return c, fmt.Errorf("configuration exceeds 1 MiB")
 	}
@@ -210,9 +212,19 @@ func Parse(data []byte) (Config, error) {
 		return c, err
 	}
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"mode", "increment", "next-version", "semantic-version-format", "branches", "strategies", "ignore"})
+		calc, err := mapping(node, "calculation", []string{"mode", "increment", "tag-prefix", "next-version", "semantic-version-format", "branches", "strategies", "ignore"})
 		if err != nil {
 			return c, err
+		}
+		if n := calc["tag-prefix"]; n != nil && n.Tag != "!!null" {
+			expression, err := scalar(n, "calculation.tag-prefix")
+			if err != nil {
+				return c, err
+			}
+			c.TagPrefix, err = patterns.Compile("^("+expression+")(?<version>.*)$", patterns.IgnoreCase)
+			if err != nil {
+				return c, fmt.Errorf("calculation.tag-prefix: %w", err)
+			}
 		}
 		if n := calc["ignore"]; n != nil {
 			c.Ignore, err = parseIgnore(n)
@@ -334,7 +346,7 @@ func Parse(data []byte) (Config, error) {
 			return c, err
 		}
 		if setting := out["update-build-number"]; setting != nil {
-			if _, err := boolean(setting, "output.update-build-number"); err != nil {
+			if c.UpdateBuildNumber, err = boolean(setting, "output.update-build-number"); err != nil {
 				return c, err
 			}
 		}

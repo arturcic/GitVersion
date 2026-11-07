@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/GitTools/GitVersion/go-prototype/internal/patterns"
 )
 
 type Increment int
@@ -90,7 +92,18 @@ func Parse(s string) (Version, error) {
 // ParseTag separates irrelevant non-version tags from recognized but unsupported
 // semantic versions; the latter must never silently disappear from calculation.
 func ParseTag(s string) (Version, bool, error) {
-	if strings.HasPrefix(s, "v") || strings.HasPrefix(s, "V") {
+	return ParseTagWithPrefix(s, nil)
+}
+
+// ParseTagWithPrefix uses the configured version capture when a prefix is supplied.
+func ParseTagWithPrefix(s string, prefix *patterns.Pattern) (Version, bool, error) {
+	if prefix != nil {
+		match, err := prefix.Find(s)
+		if err != nil || match == nil {
+			return Version{}, false, err
+		}
+		s, _ = match.Group("version")
+	} else if strings.HasPrefix(s, "v") || strings.HasPrefix(s, "V") {
 		s = s[1:]
 	}
 	if !strict.MatchString(s) {

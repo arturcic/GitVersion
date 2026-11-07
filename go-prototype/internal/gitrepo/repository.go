@@ -20,6 +20,8 @@ import (
 type Repository struct {
 	git     *git.Repository
 	dir     string
+	gitDir  string
+	dirty   int
 	head    string
 	branch  string
 	commits map[string]*object.Commit
@@ -28,6 +30,21 @@ type Repository struct {
 
 // Head identifies the attached local branch and its commit in this snapshot.
 func (r *Repository) Head() (branch, sha string) { return r.branch, r.head }
+
+// GitDirectory is this checkout's metadata directory, including linked worktrees.
+func (r *Repository) GitDirectory() string { return r.gitDir }
+
+func (r *Repository) UncommittedChanges() int { return r.dirty }
+
+// ShallowCommits returns the sorted shallow boundaries visible in this snapshot.
+func (r *Repository) ShallowCommits() []string {
+	ids := make([]string, 0, len(r.shallow))
+	for id := range r.shallow {
+		ids = append(ids, id.String())
+	}
+	slices.Sort(ids)
+	return ids
+}
 
 // Commit returns value data for a commit, including first-parent changed paths.
 func (r *Repository) Commit(id string) (Commit, error) { return r.commitInfo(id) }
@@ -81,8 +98,8 @@ func Open(path string) (*Repository, error) {
 }
 
 type OpenOptions struct {
-	AllowShallow, NormalizeDetached bool
-	BuildBranch, BuildTag           string
+	AllowShallow, NormalizeDetached, AllowDirty bool
+	BuildBranch, BuildTag                       string
 }
 
 // OpenForCalculation opens a clean worktree using explicitly selected policies.
@@ -125,10 +142,15 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	if !status.IsClean() {
+	if !options.AllowDirty && !status.IsClean() {
 		return nil, fmt.Errorf("unsupported dirty repository")
 	}
 	r := newCommitRepository(layout, g, shallow)
+	for _, change := range status {
+		if change.Staging != git.Unmodified || change.Worktree != git.Unmodified {
+			r.dirty++
+		}
+	}
 	r.head = tip.Hash().String()
 	r.branch = head.Target().String()
 	if detached {
@@ -146,7 +168,7 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 // newCommitRepository applies storage-level shallow boundaries to every history
 // consumer. Open separately checks whether a repository can be used to calculate.
 func newCommitRepository(layout repositoryLayout, g *git.Repository, shallow []ObjectID) *Repository {
-	r := &Repository{git: g, dir: layout.commonDirectory, commits: map[string]*object.Commit{}}
+	r := &Repository{git: g, dir: layout.commonDirectory, gitDir: layout.gitDirectory, commits: map[string]*object.Commit{}}
 	if len(shallow) > 0 {
 		r.shallow = make(map[ObjectID]struct{}, len(shallow))
 		for _, id := range shallow {

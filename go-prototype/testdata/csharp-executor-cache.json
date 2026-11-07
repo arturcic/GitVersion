@@ -1,0 +1,197 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "locator_source": "src/GitVersion.Configuration/ConfigurationFileLocator.cs",
+  "locator_source_sha256": "5b33069d0fa9bb8b8b0c6e043260dd7e7492bdd8e114ba35d36699792f5de164",
+  "cache_payload": {
+    "AssemblySemFileVer": "4.10.3.0",
+    "AssemblySemVer": "4.10.3.0",
+    "BranchName": "feature/test",
+    "BuildMetaData": null,
+    "CommitDate": "2015-11-10T00:00:00.000Z",
+    "CustomVersion": "4.10.3-test.19",
+    "EscapedBranchName": "feature-test",
+    "FullBuildMetaData": "Branch.feature/test.Sha.dd2a29aff0c948e1bdf3dabbe13e1576e70d5f9f",
+    "FullSemVer": "4.10.3-test.19",
+    "InformationalVersion": "4.10.3-test.19+Branch.feature/test.Sha.dd2a29aff0c948e1bdf3dabbe13e1576e70d5f9f",
+    "Major": 4,
+    "MajorMinorPatch": "4.10.3",
+    "Minor": 10,
+    "Patch": 3,
+    "PreReleaseLabel": "test.19",
+    "PreReleaseLabelName": "test",
+    "PreReleaseLabelNameWithDash": "-test",
+    "PreReleaseLabelWithDash": "-test.19",
+    "PreReleaseNumber": 19,
+    "SemVer": "4.10.3-test.19",
+    "Sha": "dd2a29aff0c948e1bdf3dabbe13e1576e70d5f9f",
+    "ShortSha": "dd2a29af",
+    "UncommittedChanges": 0,
+    "VersionSourceDistance": 19,
+    "VersionSourceIncrement": "Patch",
+    "VersionSourceSemVer": "4.10.2",
+    "VersionSourceSha": "4.10.2",
+    "WeightedPreReleaseNumber": 19
+  },
+  "suites": {
+    "GitVersionExecutorTests": {
+      "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+      "sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+      "methods": {
+        "ConfigurationVersionChangeInvalidatesCache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": []
+            }
+          ]
+        },
+        "ResolvedConfiguration_IsCreatedOncePerExecution": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": []
+            }
+          ]
+        },
+        "CacheFileExistsOnDisk": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0"
+              ]
+            }
+          ]
+        },
+        "CacheFileExistsOnDiskWhenOverrideConfigIsSpecifiedVersionShouldBeDynamicallyCalculatedWithoutSavingInCache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": [
+                "0.0.1.0",
+                "0.0.1.0"
+              ]
+            }
+          ]
+        },
+        "CacheFileIsMissing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": []
+            }
+          ]
+        },
+        "ConfigChangeInvalidatesCache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "GitVersion.yml"
+              ],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0",
+                "5.0.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitVersion.yaml"
+              ],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0",
+                "5.0.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                ".GitVersion.yml"
+              ],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0",
+                "5.0.0.0"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                ".GitVersion.yaml"
+              ],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0",
+                "5.0.0.0"
+              ]
+            }
+          ]
+        },
+        "NoCacheBypassesCache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": [
+                "0.0.1.0",
+                "4.10.3.0",
+                "0.0.1.0"
+              ]
+            }
+          ]
+        },
+        "GetProjectRootDirectoryWorkingDirectoryWithWorktree": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": []
+            }
+          ]
+        },
+        "GetProjectRootDirectoryNoWorktree": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "assemblies": []
+            }
+          ]
+        }
+      }
+    },
+    "ExecCmdLineArgumentTest": {
+      "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
+      "sha256": "8359ebdfbb7662e23c168b4cbd5b7350bd271266b4032a9580830d6194b4ba8e",
+      "methods": {
+        "CommitArgumentUsesRequestedCommitWhenCacheExists": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ],
+              "assemblies": []
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ],
+              "assemblies": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}

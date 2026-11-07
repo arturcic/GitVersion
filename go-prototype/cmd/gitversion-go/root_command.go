@@ -84,7 +84,7 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if options.Diag {
 		return fmt.Errorf("diagnostic mode is pending")
 	}
-	repoOptions := gitrepo.OpenOptions{AllowShallow: options.AllowShallow}
+	repoOptions := gitrepo.OpenOptions{AllowShallow: options.AllowShallow, AllowDirty: true}
 	if !options.NoNormalize {
 		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
 		repoOptions.NormalizeDetached = agent.Name != "LocalBuild"
@@ -95,14 +95,15 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 			repoOptions.BuildTag = *tag
 		}
 	}
-	values, trace, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.CommitID, options.OverrideConfiguration, diagnostics, repoOptions)
+	result, err := executeCalculation(options, diagnostics, repoOptions, !options.NoCache, config.LoadCalculationConfig)
 	if err != nil {
 		return err
 	}
-	if err := writeCalculationLog(options, trace, values, diagnostics); err != nil {
+	if err := writeCalculationLog(options, result, diagnostics); err != nil {
 		return err
 	}
-	if err := writeRootOutput(options, values, out); err != nil {
+	values := result.values
+	if err := writeRootOutput(options, values, result.updateBuildNumber, out); err != nil {
 		return err
 	}
 	switch {
@@ -120,14 +121,10 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	return nil
 }
 
-func writeRootOutput(options cliArguments, values map[string]any, out io.Writer) error {
+func writeRootOutput(options cliArguments, values map[string]any, updateBuildNumber bool, out io.Writer) error {
 	if options.Output["buildserver"] {
 		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
-		update, err := updateBuildNumberSetting(options.TargetPath, options.ConfigurationFile, options.OverrideConfiguration)
-		if err != nil {
-			return err
-		}
-		if err := agent.WriteIntegration(context.Background(), out, values, update); err != nil {
+		if err := agent.WriteIntegration(context.Background(), out, values, updateBuildNumber); err != nil {
 			return err
 		}
 	}
@@ -175,58 +172,115 @@ func writeRootOutput(options cliArguments, values map[string]any, out io.Writer)
 	return err
 }
 
+type calculationExecution struct {
+	values            map[string]any
+	trace             calculate.Trace
+	updateBuildNumber bool
+	cacheMessages     []string
+	cacheHit          bool
+}
+
 func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagnostics io.Writer, repoOptions gitrepo.OpenOptions) (map[string]any, calculate.Trace, error) {
-	if _, err := selectedConfigurationVersion(); err != nil {
-		return nil, calculate.Trace{}, err
+	options := cliArguments{
+		TargetPath: path, ConfigurationFile: custom, LogFilePath: logFile,
+		CommitID: commit, OverrideConfiguration: overrides,
 	}
+	result, err := executeCalculation(options, diagnostics, repoOptions, false, config.LoadCalculationConfig)
+	return result.values, result.trace, err
+}
+
+func executeCalculation(options cliArguments, diagnostics io.Writer, repoOptions gitrepo.OpenOptions, cache bool,
+	loadConfig func(string, string, []byte, string, func(string)) (config.Config, []byte, error),
+) (calculationExecution, error) {
+	var result calculationExecution
+	rawVersion := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
+	version, err := resolveConfigurationVersion(rawVersion)
+	if err != nil {
+		return result, err
+	}
+	path, custom := options.TargetPath, options.ConfigurationFile
 	info, err := os.Stat(path)
 	if os.IsNotExist(err) || (err == nil && !info.IsDir()) {
-		return nil, calculate.Trace{}, fmt.Errorf("The working directory '%s' does not exist.", path)
+		return result, fmt.Errorf("The working directory '%s' does not exist.", path)
 	}
 	if err != nil {
-		return nil, calculate.Trace{}, err
+		return result, err
 	}
-	repository, err := gitrepo.WorkingTreeRoot(path)
+	root, err := gitrepo.WorkingTreeRoot(path)
 	if err != nil {
-		return nil, calculate.Trace{}, err
+		return result, err
 	}
 	configDirectory := path
 	if custom == "" {
 		locator := config.FileLocator{}
 		file, err := locator.Get(&path)
 		if err != nil {
-			return nil, calculate.Trace{}, err
+			return result, err
 		}
 		if file == nil {
-			configDirectory = repository
+			configDirectory = root
 		}
 	}
 	var warning string
-	cfg, err := config.LoadNamedWithOverrides(configDirectory, custom, overrides, func(message string) { warning = message })
+	cfg, configuration, err := loadConfig(configDirectory, custom, options.OverrideConfiguration, rawVersion,
+		func(message string) { warning = message })
 	if err != nil {
 		if strings.Contains(err.Error(), "uses the legacy v6 configuration structure") {
 			err = fmt.Errorf("An error occurred:\n%w", err)
 		}
-		return nil, calculate.Trace{}, err
+		return result, err
 	}
 	if warning != "" {
 		fmt.Fprintln(diagnostics, warning)
 	}
-	values, trace, err := calculate.CalculateAtCommit(repository, cfg, commit, repoOptions)
+	result.updateBuildNumber = cfg.UpdateBuildNumber
+	repo, err := gitrepo.OpenForCalculation(root, repoOptions)
 	if err != nil {
-		return nil, trace, err
+		return result, err
 	}
+	var cachePath string
+	if cache && len(options.OverrideConfiguration) == 0 {
+		cachePath, err = calculationCachePath(repo, version, options.CommitID, configuration)
+		if err == nil {
+			result.cacheMessages = append(result.cacheMessages, "Loading version variables from disk cache file "+cachePath)
+			result.values, err = loadCalculationCache(cachePath)
+			switch {
+			case err == nil:
+				result.cacheHit = true
+			case os.IsNotExist(err):
+				result.cacheMessages = append(result.cacheMessages, "Cache file "+cachePath+" not found.")
+			default:
+				result.cacheMessages = append(result.cacheMessages, "Unable to read cache file "+cachePath+".")
+			}
+		}
+	}
+	if !result.cacheHit {
+		result.values, result.trace, err = calculate.CalculatePrepared(repo, cfg, options.CommitID)
+		if err != nil {
+			return result, err
+		}
+		if cachePath != "" {
+			// Publish only while the repository reference view still matches the key.
+			current, err := calculationCachePath(repo, version, options.CommitID, configuration)
+			if err == nil && current == cachePath {
+				if err := storeCalculationCache(cachePath, result.values); err != nil {
+					result.cacheMessages = append(result.cacheMessages, "Unable to write cache file "+cachePath+".")
+				}
+			}
+		}
+	}
+	logFile := options.LogFilePath
 	if warning != "" && logFile != "" && logFile != "console" {
 		file, err := os.OpenFile(resolveMigrationPath(path, logFile), os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
 		if err != nil {
-			return nil, trace, err
+			return result, err
 		}
 		_, err = fmt.Fprintln(file, warning)
 		if err := errors.Join(err, file.Close()); err != nil {
-			return nil, trace, err
+			return result, err
 		}
 	}
-	return values, trace, nil
+	return result, nil
 }
 
 func updateBuildNumberSetting(directory, custom string, overrides []byte) (bool, error) {

@@ -229,6 +229,12 @@ func LoadNamedWithWarning(repo, custom string, warn func(string)) (Config, error
 }
 
 func LoadNamedWithOverrides(repo, custom string, overrides []byte, warn func(string)) (Config, error) {
+	configuration, _, err := LoadCalculationConfig(repo, custom, overrides, os.Getenv("GITVERSION_CONFIGURATION_VERSION"), warn)
+	return configuration, err
+}
+
+// LoadCalculationConfig returns the exact file bytes used to resolve the configuration.
+func LoadCalculationConfig(repo, custom string, overrides []byte, version string, warn func(string)) (Config, []byte, error) {
 	var name *string
 	if custom != "" {
 		name = &custom
@@ -237,32 +243,32 @@ func LoadNamedWithOverrides(repo, custom string, overrides []byte, warn func(str
 	if name != nil {
 		path := configPath(repo, custom)
 		if !locator.fs().FileExists(path) {
-			return Config{}, fmt.Errorf("Could not find config file at '%s'", path)
+			return Config{}, nil, fmt.Errorf("Could not find config file at '%s'", path)
 		}
 	}
-	version := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
 	file, err := locator.Get(&repo)
 	if err != nil {
-		return Config{}, err
+		return Config{}, nil, err
 	}
 	var data []byte
 	if file != nil {
 		data, err = locator.fs().ReadFile(*file)
 		if err != nil {
-			return Config{}, err
+			return Config{}, nil, err
 		}
 	}
+	fileData := data
 	if len(overrides) != 0 {
 		data, err = mergeCalculatorOverrides(data, overrides, version)
 		if err != nil {
-			return Config{}, err
+			return Config{}, nil, err
 		}
 	}
 	configuration, err := ParseProvided(data, version)
 	if err == nil && file != nil && warn != nil && IsExplicitV6(&version) {
 		warn(LegacyConfigurationWarning(*file))
 	}
-	return configuration, err
+	return configuration, fileData, err
 }
 
 func mergeCalculatorOverrides(data, overrides []byte, version string) ([]byte, error) {

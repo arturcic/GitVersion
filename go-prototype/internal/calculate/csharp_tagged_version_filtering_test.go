@@ -57,7 +57,7 @@ func TestCSharpTaggedVersionFiltering(t *testing.T) {
 					if err != nil {
 						t.Fatal(err)
 					}
-					tags, err := readSemanticTags(raw, settings, filter, repo.CommitMetadata)
+					tags, err := readSemanticTags(raw, settings, nil, filter, repo.CommitMetadata)
 					if err != nil {
 						t.Fatal(err)
 					}
