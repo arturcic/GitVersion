@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -9,6 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/buildagent"
 	"github.com/GitTools/GitVersion/go-prototype/internal/calculate"
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
@@ -70,7 +72,7 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if options.TargetURL != "" || options.TargetBranch != "" || options.CommitID != "" || options.ClonePath != "" {
 		return fmt.Errorf("remote, branch, and commit targeting are pending")
 	}
-	if options.Output["buildserver"] || options.Output["dotenv"] || options.UpdateAssemblyInfo || options.UpdateProjectFiles || options.UpdateWixVersionFile {
+	if options.UpdateAssemblyInfo || options.UpdateProjectFiles || options.UpdateWixVersionFile {
 		return fmt.Errorf("the selected output or file updater is pending")
 	}
 	if options.AllowShallow || options.Diag {
@@ -79,6 +81,19 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	values, _, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.OverrideConfiguration, diagnostics)
 	if err != nil {
 		return err
+	}
+	if options.Output["buildserver"] {
+		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
+		update, err := updateBuildNumberSetting(options.TargetPath, options.ConfigurationFile, options.OverrideConfiguration)
+		if err != nil {
+			return err
+		}
+		if err := agent.WriteIntegration(context.Background(), out, values, update); err != nil {
+			return err
+		}
+	}
+	if options.Output["dotenv"] {
+		return buildagent.WriteDotEnv(out, values)
 	}
 	if options.Output["file"] {
 		data, err := json.MarshalIndent(values, "", "  ")
@@ -146,4 +161,25 @@ func calculateCLI(path, custom, logFile string, overrides []byte, diagnostics io
 		}
 	}
 	return values, trace, nil
+}
+
+func updateBuildNumberSetting(directory, custom string, overrides []byte) (bool, error) {
+	version, err := selectedConfigurationVersion()
+	if err != nil {
+		return false, err
+	}
+	locator := config.FileLocator{}
+	if custom != "" {
+		locator.Custom = &custom
+	}
+	provider := config.Provider{Locator: locator, Version: version}
+	resolved, err := provider.Provide(&directory, overrides)
+	if err != nil {
+		return false, err
+	}
+	value, err := resolved.SerializeProperty("output.update-build-number", "v7")
+	if err != nil {
+		return false, err
+	}
+	return string(value) == "true", nil
 }

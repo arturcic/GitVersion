@@ -151,3 +151,9 @@ func Builtin(name string) (*Pattern, error) {
 	}
 	return p, nil
 }
+
+// Replace applies the underlying .NET-style replacement syntax. Callers use
+// ASCII token patterns, while surrounding Unicode text stays intact.
+func (p *Pattern) Replace(input, replacement string, startAt, count int) (string, error) {
+	return p.re.Replace(input, replacement, startAt, count)
+}

@@ -89,42 +89,44 @@ func Variables(r Result) (map[string]any, error) {
 		build = &r.Distance
 	}
 	date := time.Unix(r.CommitTime, 0).UTC()
-	return renderVariables(variableInput{
-		version: v, semanticSource: &r.SemanticSource, legacySource: &r.LegacySource,
-		increment: r.Increment, semanticSHA: r.SemanticSHA, countSHA: r.CountSHA,
-		branch: r.Branch, sha: r.SHA, shortSHA: r.SHA[:7], date: &date,
-		distance: r.Distance, branchWeight: branchWeight, tagWeight: tagWeight, build: build,
+	return FromSemanticVersion(VariableInput{
+		Version: v, SemanticSource: &r.SemanticSource, LegacySource: &r.LegacySource,
+		Increment: r.Increment, SemanticSHA: r.SemanticSHA, CountSHA: r.CountSHA,
+		Branch: r.Branch, SHA: r.SHA, ShortSHA: r.SHA[:7], Date: &date,
+		Distance: r.Distance, BranchWeight: branchWeight, TagWeight: tagWeight, Build: build,
 	}, r.Output, os.LookupEnv)
 }
 
-type variableInput struct {
-	version                           semver.Version
-	semanticSource, legacySource      *semver.Version
-	increment                         semver.Increment
-	semanticSHA, countSHA             string
-	branch, sha, shortSHA             string
-	date                              *time.Time
-	distance, branchWeight, tagWeight int64
-	build                             *int64
+// VariableInput separates semantic metadata from repository input validation.
+type VariableInput struct {
+	Version                           semver.Version
+	SemanticSource, LegacySource      *semver.Version
+	Increment                         semver.Increment
+	SemanticSHA, CountSHA             string
+	Branch, SHA, ShortSHA             string
+	Date                              *time.Time
+	Distance, BranchWeight, TagWeight int64
+	Build                             *int64
 }
 
-func renderVariables(input variableInput, settings config.OutputSettings, environment formatting.EnvironmentLookup) (map[string]any, error) {
-	v := input.version
+// FromSemanticVersion projects semantic values through the configured output formats.
+func FromSemanticVersion(input VariableInput, settings config.OutputSettings, environment formatting.EnvironmentLookup) (map[string]any, error) {
+	v := input.Version
 	var number, build, semanticSource, commitDate any
-	weight := input.tagWeight
+	weight := input.TagWeight
 	if v.Number != nil {
 		number = *v.Number
-		weight = input.branchWeight + *v.Number
+		weight = input.BranchWeight + *v.Number
 	}
-	if input.semanticSource != nil {
-		semanticSource = input.semanticSource.String()
+	if input.SemanticSource != nil {
+		semanticSource = input.SemanticSource.String()
 	}
 	legacySource := ""
-	if input.legacySource != nil {
-		legacySource = input.legacySource.String()
+	if input.LegacySource != nil {
+		legacySource = input.LegacySource.String()
 	}
-	if input.date != nil {
-		date := input.date.UTC()
+	if input.Date != nil {
+		date := input.Date.UTC()
 		commitDate = date.Format("2006-01-02")
 		if settings.CommitDateFormat != nil {
 			text, _, err := (formatting.DateFormatter{}).TryFormat(date, *settings.CommitDateFormat)
@@ -136,17 +138,17 @@ func renderVariables(input variableInput, settings config.OutputSettings, enviro
 	}
 	var metadata []string
 	full := v.String()
-	if input.build != nil {
-		build = *input.build
-		n := strconv.FormatInt(*input.build, 10)
+	if input.Build != nil {
+		build = *input.Build
+		n := strconv.FormatInt(*input.Build, 10)
 		full += "+" + n
 		metadata = append(metadata, n)
 	}
-	if input.branch != "" {
-		metadata = append(metadata, "Branch", config.Sanitize(input.branch, true))
+	if input.Branch != "" {
+		metadata = append(metadata, "Branch", config.Sanitize(input.Branch, true))
 	}
-	if input.sha != "" {
-		metadata = append(metadata, "Sha", input.sha)
+	if input.SHA != "" {
+		metadata = append(metadata, "Sha", input.SHA)
 	}
 	fullMeta := strings.Join(metadata, ".")
 	informational := v.String()
@@ -157,15 +159,15 @@ func renderVariables(input variableInput, settings config.OutputSettings, enviro
 	assemblyVersion := assembly(v, settings.AssemblyScheme)
 	assemblyFileVersion := assembly(v, settings.AssemblyFileScheme)
 	values := map[string]any{
-		"AssemblySemFileVer": assemblyFileVersion, "AssemblySemVer": assemblyVersion, "BranchName": input.branch, "BuildMetaData": build,
-		"CommitCountSourceSha": nullable(input.countSHA), "CommitDate": commitDate, "CustomVersion": "",
-		"EscapedBranchName": config.Sanitize(input.branch, false), "FullBuildMetaData": fullMeta, "FullSemVer": full, "InformationalVersion": informational,
+		"AssemblySemFileVer": assemblyFileVersion, "AssemblySemVer": assemblyVersion, "BranchName": input.Branch, "BuildMetaData": build,
+		"CommitCountSourceSha": nullable(input.CountSHA), "CommitDate": commitDate, "CustomVersion": "",
+		"EscapedBranchName": config.Sanitize(input.Branch, false), "FullBuildMetaData": fullMeta, "FullSemVer": full, "InformationalVersion": informational,
 		"Major": v.Major, "MajorMinorPatch": v.Core(), "Minor": v.Minor, "Patch": v.Patch,
 		"PreReleaseLabelName": v.Label, "PreReleaseLabelNameWithDash": prefix(v.Label), "PreReleaseNumber": number, "PreReleaseLabel": pre, "PreReleaseLabelWithDash": prefix(pre), "SemVer": v.String(),
-		"SemVerSourceIncrement": input.increment.String(), "SemVerSourceSemVer": semanticSource, "SemVerSourceSha": nullable(input.semanticSHA), "Sha": input.sha, "ShortSha": input.shortSHA, "UncommittedChanges": 0,
-		"VersionSourceIncrement": "None", "VersionSourceSemVer": legacySource, "VersionSourceSha": input.countSHA, "WeightedPreReleaseNumber": weight,
+		"SemVerSourceIncrement": input.Increment.String(), "SemVerSourceSemVer": semanticSource, "SemVerSourceSha": nullable(input.SemanticSHA), "Sha": input.SHA, "ShortSha": input.ShortSHA, "UncommittedChanges": 0,
+		"VersionSourceIncrement": "None", "VersionSourceSemVer": legacySource, "VersionSourceSha": input.CountSHA, "WeightedPreReleaseNumber": weight,
 	}
-	setSourceDistance(values, input.distance)
+	setSourceDistance(values, input.Distance)
 	formats := []struct{ key, property, template string }{
 		{"InformationalVersion", "AssemblyInformationalVersion", settings.InformationalFormat},
 		{"CustomVersion", "CustomVersionFormat", settings.CustomFormat},

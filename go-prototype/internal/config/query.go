@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
-	"unicode/utf16"
+
+	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
 )
 
 const RequireV7Query = "Configuration property queries require v7 configuration. Set GITVERSION_CONFIGURATION_VERSION=v7."
@@ -75,37 +76,8 @@ func (c ResolvedConfiguration) SerializeProperty(path, version string) ([]byte, 
 				}
 				return json.Marshal(scalar)
 			}
-			return configurationJSONString(value.Value), nil
+			return formatting.JSONString(value.Value), nil
 		}
 	}
 	return unknown()
-}
-
-func configurationJSONString(value string) []byte {
-	var result strings.Builder
-	result.WriteByte('"')
-	for _, unit := range utf16.Encode([]rune(value)) {
-		switch unit {
-		case '\b':
-			result.WriteString(`\b`)
-		case '\f':
-			result.WriteString(`\f`)
-		case '\n':
-			result.WriteString(`\n`)
-		case '\r':
-			result.WriteString(`\r`)
-		case '\t':
-			result.WriteString(`\t`)
-		case '\\':
-			result.WriteString(`\\`)
-		default:
-			if unit < 0x20 || unit > 0x7e || strings.ContainsRune("\"'&+<>`", rune(unit)) {
-				fmt.Fprintf(&result, "\\u%04X", unit)
-			} else {
-				result.WriteByte(byte(unit))
-			}
-		}
-	}
-	result.WriteByte('"')
-	return []byte(result.String())
 }

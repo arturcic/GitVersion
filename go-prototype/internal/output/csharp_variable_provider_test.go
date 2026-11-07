@@ -51,30 +51,30 @@ func testVariableProviderCase(t *testing.T, method string, args []json.RawMessag
 	five, nine := int64(5), int64(9)
 	date := time.Date(2014, 3, 6, 23, 59, 59, 0, time.UTC)
 	v := semver.Version{Major: 1, Minor: 2, Patch: 3}
-	metadata := variableInput{version: v, branch: "develop", sha: "commitSha", shortSHA: "commitShortSha",
-		countSHA: "versionSourceSha", date: &date, distance: five, tagWeight: 60000}
+	metadata := VariableInput{Version: v, Branch: "develop", SHA: "commitSha", ShortSHA: "commitShortSha",
+		CountSHA: "versionSourceSha", Date: &date, Distance: five, TagWeight: 60000}
 	settings := config.OutputSettings{}
 	if len(approved) > 0 {
 		switch method {
 		case "ProvidesVariablesInContinuousDeliveryModeForPreRelease":
-			metadata.version = releaseVersion(v, "unstable", 4)
-			metadata.build = &five
+			metadata.Version = releaseVersion(v, "unstable", 4)
+			metadata.Build = &five
 		case "ProvidesVariablesInContinuousDeploymentModeForPreRelease":
-			metadata.version = releaseVersion(v, "unstable", 8)
+			metadata.Version = releaseVersion(v, "unstable", 8)
 		case "ProvidesVariablesInContinuousDeliveryModeForStable":
-			metadata.build, metadata.tagWeight = &five, 0
+			metadata.Build, metadata.TagWeight = &five, 0
 		case "ProvidesVariablesInContinuousDeploymentModeForStable":
-			metadata.version = releaseVersion(v, "ci", 5)
+			metadata.Version = releaseVersion(v, "ci", 5)
 		case "ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged":
-			metadata.branch, metadata.build, metadata.tagWeight = "", &five, 0
+			metadata.Branch, metadata.Build, metadata.TagWeight = "", &five, 0
 		case "ProvidesVariablesInContinuousDeliveryModeForFeatureBranch":
-			metadata.branch, metadata.build, metadata.tagWeight = "feature/123", &five, 0
+			metadata.Branch, metadata.Build, metadata.TagWeight = "feature/123", &five, 0
 		case "ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat":
-			metadata.branch, metadata.build, metadata.tagWeight = "feature/123", &five, 0
+			metadata.Branch, metadata.Build, metadata.TagWeight = "feature/123", &five, 0
 			settings.InformationalFormat = "{Major}.{Minor}.{Patch}+{VersionSourceDistance}.Branch.{BranchName}.Sha.{ShortSha}"
 		case "ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel":
-			metadata.version.Number = &nine
-			metadata.branch, metadata.branchWeight = "main", 55000
+			metadata.Version.Number = &nine
+			metadata.Branch, metadata.BranchWeight = "main", 55000
 		default:
 			t.Fatalf("unhandled approval %s", method)
 		}
@@ -89,25 +89,25 @@ func testVariableProviderCase(t *testing.T, method string, args []json.RawMessag
 		return
 	}
 
-	empty := variableInput{version: v, tagWeight: 60000}
+	empty := VariableInput{Version: v, TagWeight: 60000}
 	switch method {
 	case "ProvidesVariablesInContinuousDeploymentModeWithTagNamePattern":
-		metadata.version = releaseVersion(v, "PullRequest2", 5)
-		metadata.branch, metadata.countSHA, metadata.distance = "pull/2/merge", "", 0
+		metadata.Version = releaseVersion(v, "PullRequest2", 5)
+		metadata.Branch, metadata.CountSHA, metadata.Distance = "pull/2/merge", "", 0
 		assertVariable(t, renderCase(t, metadata, settings), "FullSemVer", "1.2.3-PullRequest2.5")
 	case "ProvidesVariablesInContinuousDeploymentModeWithTagSetToBranchName":
-		metadata.version = releaseVersion(v, "feature", 5)
-		metadata.branch, metadata.countSHA, metadata.distance = "feature", "", 0
+		metadata.Version = releaseVersion(v, "feature", 5)
+		metadata.Branch, metadata.CountSHA, metadata.Distance = "feature", "", 0
 		assertVariable(t, renderCase(t, metadata, settings), "FullSemVer", "1.2.3-feature.5")
 	case "CustomVersionIsEmptyWhenFormatIsNotConfigured":
 		assertVariable(t, renderCase(t, empty, settings), "CustomVersion", "")
 	case "CustomVersionSupportsPep440FormatForIssue2065":
-		empty.version = releaseVersion(semver.Version{Minor: 6, Patch: 3}, "beta", 10)
+		empty.Version = releaseVersion(semver.Version{Minor: 6, Patch: 3}, "beta", 10)
 		settings.CustomFormat = "{Major}.{Minor}.{Patch}{PreReleaseLabelName:l}{PreReleaseNumber}"
 		assertVariable(t, renderCase(t, empty, settings), "CustomVersion", "0.6.3beta10")
 	case "ProvidesUnambiguousPreReleaseVariables":
-		readVariableArgument(t, args[0], &empty.version.Label)
-		readVariableArgument(t, args[1], &empty.version.Number)
+		readVariableArgument(t, args[0], &empty.Version.Label)
+		readVariableArgument(t, args[1], &empty.Version.Number)
 		got := renderCase(t, empty, settings)
 		roundTrip := roundTripVariables(t, got)
 		for i, key := range []string{"PreReleaseLabelName", "PreReleaseNumber", "PreReleaseLabel", "PreReleaseLabelNameWithDash", "PreReleaseLabelWithDash"} {
@@ -136,10 +136,10 @@ output:
 		}
 	case "CustomVersionSupportsMonotonicallyIncreasingIntegerFormatForIssue3340":
 		settings.CustomFormat = "{Major:00}{Minor:00}{Patch:000}"
-		empty.version = semver.Version{Patch: 123}
+		empty.Version = semver.Version{Patch: 123}
 		patch := renderCase(t, empty, settings)
 		assertVariable(t, patch, "CustomVersion", "0000123")
-		empty.version = semver.Version{Minor: 1}
+		empty.Version = semver.Version{Minor: 1}
 		minor := renderCase(t, empty, settings)
 		assertVariable(t, minor, "CustomVersion", "0001000")
 		patchCode, patchErr := strconv.ParseInt(patch["CustomVersion"].(string), 10, 64)
@@ -148,20 +148,20 @@ output:
 			t.Fatalf("minor code %d must exceed patch code %d", minorCode, patchCode)
 		}
 	case "Format_Allows_CSharp_FormatStrings":
-		metadata.version.Number = &nine
-		metadata.branch, metadata.distance = "main", 42
+		metadata.Version.Number = &nine
+		metadata.Branch, metadata.Distance = "main", 42
 		settings.InformationalFormat = "{Major}.{Minor}.{Patch}-{VersionSourceDistance:0000}"
 		assertVariable(t, renderCase(t, metadata, settings), "InformationalVersion", "1.2.3-0042")
 	case "SeparateSourcesSurviveFormattingEnumerationAndJson":
 		var source *string
 		readVariableArgument(t, args[0], &source)
-		empty.version = semver.Version{Major: 5}
-		empty.semanticSource = &empty.version
-		empty.legacySource = &semver.Version{Major: 1}
+		empty.Version = semver.Version{Major: 5}
+		empty.SemanticSource = &empty.Version
+		empty.LegacySource = &semver.Version{Major: 1}
 		if source != nil {
-			empty.semanticSHA = *source
+			empty.SemanticSHA = *source
 		}
-		empty.countSHA, empty.sha, empty.distance, empty.increment = "count-source-sha", "head-sha", 2, semver.Minor
+		empty.CountSHA, empty.SHA, empty.Distance, empty.Increment = "count-source-sha", "head-sha", 2, semver.Minor
 		settings.InformationalFormat = "{SemVerSourceSemVer}-{SemVerSourceIncrement}+{CommitCountSourceDistance:000}"
 		got := renderCase(t, empty, settings)
 		assertVariable(t, got, "InformationalVersion", "5.0.0-Minor+002")
@@ -180,7 +180,7 @@ output:
 			assertVariable(t, roundTrip, key, want)
 		}
 	case "CopyingEnumeratedVariablesDoesNotReuseOldSourceValues":
-		empty.version = semver.Version{Major: 1}
+		empty.Version = semver.Version{Major: 1}
 		original := renderCase(t, empty, settings)
 		if _, ok := original["SemVerSourceSha"]; !ok {
 			t.Fatal("original is missing SemVerSourceSha")
@@ -201,9 +201,9 @@ func releaseVersion(version semver.Version, label string, number int64) semver.V
 	return version
 }
 
-func renderCase(t *testing.T, input variableInput, settings config.OutputSettings) map[string]any {
+func renderCase(t *testing.T, input VariableInput, settings config.OutputSettings) map[string]any {
 	t.Helper()
-	got, err := renderVariables(input, settings, nil)
+	got, err := FromSemanticVersion(input, settings, nil)
 	if err != nil {
 		t.Fatal(err)
 	}

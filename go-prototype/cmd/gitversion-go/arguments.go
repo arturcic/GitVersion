@@ -9,6 +9,7 @@ import (
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/commandline"
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
+	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
 type cliArguments struct {
@@ -48,13 +49,6 @@ var argumentOptions = map[string]byte{
 	"dynamic-repo-location": 's', "verbosity": 's', "show-variable": 's', "format": 's',
 	"output": 'l', "update-project-files": 'l', "update-assembly-info": 'l', "override-config": 'o',
 }
-var cliVariableNames = strings.Fields(
-	"AssemblySemFileVer AssemblySemVer BranchName BuildMetaData CommitDate CommitCountSourceDistance CommitCountSourceSha " +
-		"CustomVersion EscapedBranchName FullBuildMetaData FullSemVer InformationalVersion Major MajorMinorPatch Minor Patch " +
-		"PreReleaseLabelName PreReleaseLabelNameWithDash PreReleaseNumber PreReleaseLabel PreReleaseLabelWithDash SemVer " +
-		"SemVerSourceIncrement SemVerSourceSemVer SemVerSourceSha Sha ShortSha UncommittedChanges VersionSourceDistance " +
-		"VersionSourceIncrement VersionSourceSemVer VersionSourceSha WeightedPreReleaseNumber",
-)
 
 func canonicalOption(token string, legacy bool) string {
 	if legacy {
@@ -209,7 +203,7 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 		result.OutputFile = "GitVersion.json"
 	}
 	if value := strings.ReplaceAll(last("show-variable"), "'", ""); value != "" {
-		for _, variable := range cliVariableNames {
+		for _, variable := range output.VariableNames {
 			if strings.EqualFold(variable, value) {
 				result.ShowVariable = variable
 				break
@@ -220,10 +214,10 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 		}
 	}
 	result.Format = last("format")
-	if result.Format != "" && !slices.ContainsFunc(cliVariableNames, func(name string) bool {
+	if result.Format != "" && !slices.ContainsFunc(output.VariableNames, func(name string) bool {
 		return strings.Contains(strings.ToLower(result.Format), strings.ToLower(name))
 	}) {
-		return result, fmt.Errorf("Format requires a valid format string. Available variables are: %s", strings.Join(cliVariableNames, ", "))
+		return result, fmt.Errorf("Format requires a valid format string. Available variables are: %s", strings.Join(output.VariableNames, ", "))
 	}
 	if err := mapAssemblyArguments(&result, options, legacy); err != nil {
 		return result, err

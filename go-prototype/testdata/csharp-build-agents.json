@@ -1,0 +1,1000 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "AppVeyorJsonTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/AppVeyorJsonTests.cs",
+      "sha256": "1af96bc4d9c836096a16dfae9f4bceea03cf378d529f740641c1c200445ef801",
+      "methods": {
+        "BuildNumberRequestPreservesWireNameAndVersion": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "VariableRequestPreservesWireNamesAndEscaping": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "",
+                "{\"name\":\"GitVersion_FullSemVer\",\"value\":\"\"}"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "1.2.3",
+                "{\"name\":\"GitVersion_FullSemVer\",\"value\":\"1.2.3\"}"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "quoted \"value\"\n",
+                "{\"name\":\"GitVersion_FullSemVer\",\"value\":\"quoted \\u0022value\\u0022\\n\"}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "AzurePipelinesTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
+      "sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
+      "methods": {
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "0.8.0-unstable568 Branch:'develop' Sha:'ee69bff1087ebc95c6b43aa2124bd58f5722e0cb'"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                null
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                ""
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "0"
+              ]
+            }
+          ]
+        },
+        "MissingEnvShouldNotBlowUp": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "AzurePipelinesBuildNumberWithFullSemVer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "$(GitVersion.FullSemVer)",
+                "1.0.0",
+                "1.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "$(GITVERSION_FULLSEMVER)",
+                "1.0.0",
+                "1.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "$(GitVersion.FullSemVer)-Build.1234",
+                "1.0.0",
+                "1.0.0-Build.1234"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "$(GITVERSION_FULLSEMVER)-Build.1234",
+                "1.0.0",
+                "1.0.0-Build.1234"
+              ]
+            }
+          ]
+        },
+        "AzurePipelinesBuildNumberWithSemVer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "$(GitVersion.SemVer)",
+                "1.0.0",
+                "1.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "$(GITVERSION_SEMVER)",
+                "1.0.0",
+                "1.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "$(GitVersion.SemVer)-Build.1234",
+                "1.0.0",
+                "1.0.0-Build.1234"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "$(GITVERSION_SEMVER)-Build.1234",
+                "1.0.0",
+                "1.0.0-Build.1234"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "$(GitVersion.SemVer)-$(GitVersion_SemVer)",
+                "1.0.0",
+                "1.0.0-1.0.0"
+              ]
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleTags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandlePullRequests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "BitBucketPipelinesTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
+      "sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
+      "methods": {
+        "CanNotApplyToCurrentContextWhenEnvironmentVariableNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CalculateVersionOnMainBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CalculateVersionOnDevelopBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CalculateVersionOnFeatureBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleTags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandlePullRequests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WriteAllVariablesToTheTextWriter": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "BuildKiteTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
+      "sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
+      "methods": {
+        "CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandlePullRequests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "BuildServerBaseTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildServerBaseTests.cs",
+      "sha256": "5115c3f8fb7a217511b249ecafd412221705d5dd0efd7078d8484c8ad0d0280d",
+      "methods": {
+        "BuildNumberIsFullSemVer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "CodeBuildTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
+      "sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
+      "methods": {
+        "CorrectlyIdentifiesCodeBuildPresenceFromSourceVersion": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "PicksUpBranchNameFromEnvironmentFromSourceVersion": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CorrectlyIdentifiesCodeBuildPresenceFromWebHook": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "PicksUpBranchNameFromEnvironmentFromWebHook": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WriteAllVariablesToTheTextWriter": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ContinuaCiTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/ContinuaCiTests.cs",
+      "sha256": "57aa56df9b22368feb92f8242f52f1df4d7884bd95ddcea99d7365ac3b023d66",
+      "methods": {
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "DroneTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
+      "sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
+      "methods": {
+        "CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldDroneBranchInCaseOfPush": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldUseDroneSourceBranchInCaseOfPullRequestAndNonEmptyDroneSourceBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldUseSourceBranchFromCiCommitRefSpecInCaseOfPullRequestAndEmptyDroneSourceBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndCiCommitRefSpec": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndInvalidFormatOfCiCommitRefSpec": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "EnvRunTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs",
+      "sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
+      "methods": {
+        "CanApplyToCurrentContext": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanApplyToCurrentContextEnvironmentVariableNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "1.2.3"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "1.2.3-rc4"
+              ]
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "Version",
+                "1.2.3",
+                "@@envrun[set name='GitVersion_Version' value='1.2.3']"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "Version",
+                "1.2.3-rc4",
+                "@@envrun[set name='GitVersion_Version' value='1.2.3-rc4']"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "GitHubActionsTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
+      "sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
+      "methods": {
+        "CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleTags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandlePullRequests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentTagOnlyReturnsAnExplicitTagReference": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "tag",
+                "refs/tags/1.0.0",
+                "refs/tags/1.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "TAG",
+                "refs/tags/1.0.0",
+                "refs/tags/1.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "branch",
+                "refs/heads/main",
+                null
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "branch",
+                "refs/pull/1/merge",
+                null
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                null,
+                "refs/tags/1.0.0",
+                null
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "tag",
+                null,
+                null
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "tag",
+                "refs/heads/main",
+                null
+              ]
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "SkipEmptyOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldWriteIntegration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldNotWriteIntegration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "GitLabCiTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
+      "sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
+      "methods": {
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentTagShouldUseCommitTagName": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null,
+                null
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "",
+                null
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "v1.2.3",
+                "refs/tags/v1.2.3"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "release/1.2.3",
+                "refs/tags/release/1.2.3"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "refs/tags/1.2.3",
+                "refs/tags/refs/tags/1.2.3"
+              ]
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "main",
+                "main"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "dev",
+                "dev"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "development",
+                "development"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "my_cool_feature",
+                "my_cool_feature"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "#3-change_projectname",
+                "#3-change_projectname"
+              ]
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleTags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "main",
+                "",
+                "main"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v1.0.0",
+                "v1.0.0",
+                null
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "development",
+                "",
+                "development"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "v1.2.1",
+                "v1.2.1",
+                null
+              ]
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleMergeRequestRefPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "refs/merge-requests/1/head",
+                "refs/merge-requests/1/head"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "refs/merge-requests/42/merge",
+                "refs/merge-requests/42/merge"
+              ]
+            }
+          ]
+        },
+        "GetCurrentBranchShouldPreferTagOverMergeRequestRefPath": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldFallBackToRefNameWhenMergeRequestRefPathIsEmpty": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WriteAllVariablesToTheTextWriter": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "JenkinsTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
+      "sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
+      "methods": {
+        "CanApplyCurrentContextWhenEnvironmentVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanNotApplyCurrentContextWhenEnvironmentVariableIsNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "JenkinsTakesLocalBranchNameNotRemoteName": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "JenkinsTakesBranchNameInPipelineAsCode": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WriteAllVariablesToTheTextWriter": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "MyGetTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/MyGetTests.cs",
+      "sha256": "786b494170ff31a18cb14d39c6c000cb3883580367d2f70da6e4af84e2cea143",
+      "methods": {
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "SpaceAutomationTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
+      "sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
+      "methods": {
+        "CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleBranches": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandleTags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "GetCurrentBranchShouldHandlePullRequests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "TeamCityTests": {
+      "source": "src/GitVersion.BuildAgents.Tests/Agents/TeamCityTests.cs",
+      "sha256": "fde1d0693a3fd2ee674f0ba054c0ff7838f58f99f0e008d45b542b9e68f2e4b1",
+      "methods": {
+        "ShouldSetBuildNumber": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldSetOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}

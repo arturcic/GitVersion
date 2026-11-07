@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 941,
+  "mapped_declarations": 1020,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 903,
+      "mapped": 982,
       "verified": 903
     },
     "integration": {
@@ -7112,9 +7112,16 @@
       ],
       "source_sha256": "1af96bc4d9c836096a16dfae9f4bceea03cf378d529f740641c1c200445ef801",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AppVeyorJsonTests.cs#VariableRequestPreservesWireNamesAndEscaping",
@@ -7137,9 +7144,18 @@
       ],
       "source_sha256": "1af96bc4d9c836096a16dfae9f4bceea03cf378d529f740641c1c200445ef801",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#ShouldSetBuildNumber",
@@ -7154,9 +7170,16 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#ShouldSetOutputVariables",
@@ -7183,9 +7206,19 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#MissingEnvShouldNotBlowUp",
@@ -7200,9 +7233,16 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#AzurePipelinesBuildNumberWithFullSemVer",
@@ -7229,9 +7269,19 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#AzurePipelinesBuildNumberWithSemVer",
@@ -7262,9 +7312,20 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -7279,9 +7340,16 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#GetCurrentBranchShouldHandleTags",
@@ -7296,9 +7364,16 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs#GetCurrentBranchShouldHandlePullRequests",
@@ -7313,9 +7388,16 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#CanNotApplyToCurrentContextWhenEnvironmentVariableNotSet",
@@ -7330,9 +7412,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#CalculateVersionOnMainBranch",
@@ -7347,9 +7436,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#CalculateVersionOnDevelopBranch",
@@ -7364,9 +7460,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#CalculateVersionOnFeatureBranch",
@@ -7381,9 +7484,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -7398,9 +7508,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#GetCurrentBranchShouldHandleTags",
@@ -7415,9 +7532,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#GetCurrentBranchShouldHandlePullRequests",
@@ -7432,9 +7556,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs#WriteAllVariablesToTheTextWriter",
@@ -7449,9 +7580,16 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet",
@@ -7466,9 +7604,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet",
@@ -7483,9 +7628,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -7500,9 +7652,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#GetCurrentBranchShouldHandlePullRequests",
@@ -7517,9 +7676,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#ShouldSetOutputVariables",
@@ -7534,9 +7700,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs#ShouldSetBuildNumber",
@@ -7551,9 +7724,16 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/BuildServerBaseTests.cs#BuildNumberIsFullSemVer",
@@ -7568,9 +7748,16 @@
       ],
       "source_sha256": "5115c3f8fb7a217511b249ecafd412221705d5dd0efd7078d8484c8ad0d0280d",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs#CorrectlyIdentifiesCodeBuildPresenceFromSourceVersion",
@@ -7585,9 +7772,16 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs#PicksUpBranchNameFromEnvironmentFromSourceVersion",
@@ -7602,9 +7796,16 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs#CorrectlyIdentifiesCodeBuildPresenceFromWebHook",
@@ -7619,9 +7820,16 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs#PicksUpBranchNameFromEnvironmentFromWebHook",
@@ -7636,9 +7844,16 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs#WriteAllVariablesToTheTextWriter",
@@ -7653,9 +7868,16 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/ContinuaCiTests.cs#ShouldSetBuildNumber",
@@ -7670,9 +7892,16 @@
       ],
       "source_sha256": "57aa56df9b22368feb92f8242f52f1df4d7884bd95ddcea99d7365ac3b023d66",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet",
@@ -7687,9 +7916,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet",
@@ -7704,9 +7940,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#GetCurrentBranchShouldDroneBranchInCaseOfPush",
@@ -7721,9 +7964,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#GetCurrentBranchShouldUseDroneSourceBranchInCaseOfPullRequestAndNonEmptyDroneSourceBranch",
@@ -7738,9 +7988,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#GetCurrentBranchShouldUseSourceBranchFromCiCommitRefSpecInCaseOfPullRequestAndEmptyDroneSourceBranch",
@@ -7755,9 +8012,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndCiCommitRefSpec",
@@ -7772,9 +8036,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs#GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndInvalidFormatOfCiCommitRefSpec",
@@ -7789,9 +8060,16 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs#CanApplyToCurrentContext",
@@ -7806,9 +8084,16 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs#CanApplyToCurrentContextEnvironmentVariableNotSet",
@@ -7823,9 +8108,16 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs#ShouldSetBuildNumber",
@@ -7844,9 +8136,17 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs#ShouldSetOutputVariables",
@@ -7865,9 +8165,17 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet",
@@ -7882,9 +8190,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet",
@@ -7899,9 +8214,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -7916,9 +8238,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#GetCurrentBranchShouldHandleTags",
@@ -7933,9 +8262,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#GetCurrentBranchShouldHandlePullRequests",
@@ -7950,9 +8286,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#GetCurrentTagOnlyReturnsAnExplicitTagReference",
@@ -7991,9 +8334,22 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#ShouldSetOutputVariables",
@@ -8008,9 +8364,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#SkipEmptyOutputVariables",
@@ -8025,9 +8388,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#ShouldWriteIntegration",
@@ -8042,9 +8412,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#ShouldNotWriteIntegration",
@@ -8059,9 +8436,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs#ShouldSetBuildNumber",
@@ -8076,9 +8460,16 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#ShouldSetBuildNumber",
@@ -8093,9 +8484,16 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentTagShouldUseCommitTagName",
@@ -8126,9 +8524,20 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#ShouldSetOutputVariables",
@@ -8143,9 +8552,16 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -8176,9 +8592,20 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentBranchShouldHandleTags",
@@ -8205,9 +8632,19 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentBranchShouldHandleMergeRequestRefPaths",
@@ -8226,9 +8663,17 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentBranchShouldPreferTagOverMergeRequestRefPath",
@@ -8243,9 +8688,16 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#GetCurrentBranchShouldFallBackToRefNameWhenMergeRequestRefPathIsEmpty",
@@ -8260,9 +8712,16 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs#WriteAllVariablesToTheTextWriter",
@@ -8277,9 +8736,16 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#CanApplyCurrentContextWhenEnvironmentVariableIsSet",
@@ -8294,9 +8760,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#CanNotApplyCurrentContextWhenEnvironmentVariableIsNotSet",
@@ -8311,9 +8784,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#JenkinsTakesLocalBranchNameNotRemoteName",
@@ -8328,9 +8808,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#JenkinsTakesBranchNameInPipelineAsCode",
@@ -8345,9 +8832,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#ShouldSetBuildNumber",
@@ -8362,9 +8856,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#ShouldSetOutputVariables",
@@ -8379,9 +8880,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs#WriteAllVariablesToTheTextWriter",
@@ -8396,9 +8904,16 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/MyGetTests.cs#ShouldSetBuildNumber",
@@ -8413,9 +8928,16 @@
       ],
       "source_sha256": "786b494170ff31a18cb14d39c6c000cb3883580367d2f70da6e4af84e2cea143",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/MyGetTests.cs#ShouldSetOutputVariables",
@@ -8430,9 +8952,16 @@
       ],
       "source_sha256": "786b494170ff31a18cb14d39c6c000cb3883580367d2f70da6e4af84e2cea143",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet",
@@ -8447,9 +8976,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet",
@@ -8464,9 +9000,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#GetCurrentBranchShouldHandleBranches",
@@ -8481,9 +9024,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#GetCurrentBranchShouldHandleTags",
@@ -8498,9 +9048,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#GetCurrentBranchShouldHandlePullRequests",
@@ -8515,9 +9072,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs#ShouldSetBuildNumber",
@@ -8532,9 +9096,16 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/TeamCityTests.cs#ShouldSetBuildNumber",
@@ -8549,9 +9120,16 @@
       ],
       "source_sha256": "fde1d0693a3fd2ee674f0ba054c0ff7838f58f99f0e008d45b542b9e68f2e4b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.BuildAgents.Tests/Agents/TeamCityTests.cs#ShouldSetOutputVariables",
@@ -8566,9 +9144,16 @@
       ],
       "source_sha256": "fde1d0693a3fd2ee674f0ba054c0ff7838f58f99f0e008d45b542b9e68f2e4b1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpBuildAgents",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-build-agents.json",
+      "adaptations": [
+        "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs#AssignsEverySerializedPropertyToRootOrExactlyOneV7Section",

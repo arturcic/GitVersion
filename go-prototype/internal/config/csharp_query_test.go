@@ -9,6 +9,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
+
 	"gopkg.in/yaml.v3"
 )
 
@@ -208,7 +210,7 @@ func checkQueryLeaves(t *testing.T, cfg ResolvedConfiguration, document *yaml.No
 			}
 			raw := queryProperty(t, cfg, path)
 			if text, ok := want.(string); ok {
-				if !bytes.Equal(raw, configurationJSONString(text)) {
+				if !bytes.Equal(raw, formatting.JSONString(text)) {
 					t.Fatalf("%s: %s != %q", path, raw, text)
 				}
 			} else {

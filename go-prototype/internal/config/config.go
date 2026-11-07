@@ -263,9 +263,14 @@ func Parse(data []byte) (Config, error) {
 		}
 	}
 	if n := root["output"]; n != nil {
-		out, err := mapping(n, "output", append([]string{"tag-pre-release-weight", "branches"}, outputSettingNames...))
+		out, err := mapping(n, "output", append([]string{"tag-pre-release-weight", "branches", "update-build-number"}, outputSettingNames...))
 		if err != nil {
 			return c, err
+		}
+		if setting := out["update-build-number"]; setting != nil {
+			if _, err := boolean(setting, "output.update-build-number"); err != nil {
+				return c, err
+			}
 		}
 		if err := parseOutputSettings(out, &c.Output); err != nil {
 			return c, err
