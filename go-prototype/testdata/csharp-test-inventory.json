@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 1234,
-      "verified": 1222
+      "verified": 1234
     },
     "integration": {
       "declarations": 662,
@@ -7185,7 +7185,7 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpWixOutput",
       "fixtures": [],
       "port_cases": [
@@ -7209,7 +7209,7 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpWixOutput",
       "fixtures": [],
       "port_cases": [
@@ -7233,7 +7233,7 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpWixOutput",
       "fixtures": [],
       "port_cases": [
@@ -13418,7 +13418,7 @@
       ],
       "source_sha256": "7336371333c18f2308d381d12aad443335277d3636d9691739d68b9bc4bc2c17",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpOutputProjections",
       "fixtures": [],
       "port_cases": [
@@ -13453,7 +13453,7 @@
       ],
       "source_sha256": "b0ed20cf463bb98776d557e351d14e7c9f6c8e859a27ca6b45f3d464c583302e",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCanonicalBranchIgnore",
       "fixtures": [],
       "port_cases": [
@@ -16754,7 +16754,7 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpTaggedVersionFiltering",
       "fixtures": [],
       "port_cases": [
@@ -16778,7 +16778,7 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpTaggedVersionFiltering",
       "fixtures": [],
       "port_cases": [
@@ -16806,7 +16806,7 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpTaggedVersionFiltering",
       "fixtures": [],
       "port_cases": [
@@ -221452,7 +221452,7 @@
       ],
       "source_sha256": "3f448269374202e8bed17e89f250065cedce69a4eda78b21a706a1f53ea3c64c",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpOutputProjections",
       "fixtures": [],
       "port_cases": [
@@ -222490,7 +222490,7 @@
       ],
       "source_sha256": "9329044f09b183b7f6a96c1576f90c7353b984f33a1ccf927840edd1c6e24eb5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpOutputProjections",
       "fixtures": [],
       "port_cases": [
@@ -222801,7 +222801,7 @@
       ],
       "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpWixOutput",
       "fixtures": [],
       "port_cases": [
@@ -222825,7 +222825,7 @@
       ],
       "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpWixOutput",
       "fixtures": [],
       "port_cases": [

@@ -1,0 +1,183 @@
+{
+  "source_checkpoint": "46e4a8e4db41f5d5e0a13b12a83c2217df364b40",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "ported_methods": 12,
+  "original_parameter_cases": 34,
+  "inventory": {
+    "verified_unit_component": 1234,
+    "total_unit_component": 1516,
+    "target": 1365,
+    "verified_integration": 38,
+    "total_integration": 662
+  },
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40125,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "wix_process_comparisons": 2,
+      "project_file_regression_comparisons": 7,
+      "assembly_info_regression_comparisons": 11,
+      "format_and_dotenv_regression_comparisons": 11
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40125,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "wix_process_comparisons": 2,
+      "project_file_regression_comparisons": 7,
+      "assembly_info_regression_comparisons": 11,
+      "format_and_dotenv_regression_comparisons": 11
+    }
+  },
+  "candidate_sha256": {
+    "macos": "aa34cf873195e0a538adc51376f0b6f5cf21ab72d5959cdfbc3cfdd063c1bef5",
+    "ubuntu26": "00133b8e49ccc752e2f71cc1600d4b75782fba2cb51fbded4abfaecd13adcc90"
+  },
+  "process_reports": {
+    "macos": {
+      "assembly_info": {
+        "report": ".local/wix-and-output-ports/macos/assembly-info-689147426/report.json",
+        "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+      },
+      "format_regression": {
+        "report": ".local/wix-and-output-ports/macos/format-arguments-368684162/report.json",
+        "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+      },
+      "project_file": {
+        "report": ".local/wix-and-output-ports/macos/project-file-998747754/report.json",
+        "sha256": "fae64ca57a6d30a175fd1b31826bdfe4b8215d1c3d20a2accb5c9368864c5e40",
+        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+      },
+      "wix_output": {
+        "report": ".local/wix-and-output-ports/macos/wix-output-1576545741/report.json",
+        "sha256": "d1d218cda68694920afc536d0636c96f32d1660f5c36777fdcceb12e8b721a68",
+        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+      }
+    },
+    "ubuntu26": {
+      "assembly_info": {
+        "report": ".local/wix-and-output-ports/linux/assembly-info-1998058851/report.json",
+        "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+      },
+      "format_regression": {
+        "report": ".local/wix-and-output-ports/linux/format-arguments-476381858/report.json",
+        "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+      },
+      "project_file": {
+        "report": ".local/wix-and-output-ports/linux/project-file-2272935504/report.json",
+        "sha256": "1cd1396ee8de76589ab88475b7a4637ee7cb7fd4175f04ce3946b4ef561046ca",
+        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+      },
+      "wix_output": {
+        "report": ".local/wix-and-output-ports/linux/wix-output-1118365468/report.json",
+        "sha256": "9eec75dee112dac7c0bcca434ec4d34a9aa5b061925f36de49a295c61d34151b",
+        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "276a92e2a50d1f1085a27255223afc9446ed7e84403eb90cad72728568982c9a",
+    "ubuntu26": {
+      ".local/wix-and-output-ports/linux/unit/internal-config.log": "f93a36626be9fda9a03c6e5d93adddff6b8db76ec0b40f2790dd94eb2279c2e6",
+      ".local/wix-and-output-ports/linux/unit/cmd-gitversion-go.log": "b8cb91af3901d839d71447c521f6fefb1fff828c9a9f7cc3084e179b5053f074",
+      ".local/wix-and-output-ports/linux/unit/internal-parity.log": "dd32e825c78f742851c3d68ff7b03612d06da03bb373d4884418066096971974",
+      ".local/wix-and-output-ports/linux/unit/cmd-parity.log": "f3230adcde12aaf6601500fc1278b99c4ab53029a8a099197144853ab4e4c6f4",
+      ".local/wix-and-output-ports/linux/unit/internal-output.log": "e82607a46d095955a4d4833b6cff4826f3b99ecddb11b4c88637bf472037a61b",
+      ".local/wix-and-output-ports/linux/unit/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+      ".local/wix-and-output-ports/linux/unit/internal-fixtures.log": "f470c1db9c491b133beb97b6ac3b987d7c43b9ec8f4ff1a303a9a6cf89dffeae",
+      ".local/wix-and-output-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/wix-and-output-ports/linux/unit/internal-buildagent.log": "736a5ef6fb6a389b474cf10530e04632ea4b06e95ffd49c0bea8ba8b784ffac3",
+      ".local/wix-and-output-ports/linux/unit/internal-calculate.log": "7988b99b178f676574931c47ea6965588456fcfdf27fd8057f4ce521994a954b",
+      ".local/wix-and-output-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+      ".local/wix-and-output-ports/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+      ".local/wix-and-output-ports/linux/unit/internal-gitrepo.log": "8be7dd4709d1cd0ee6388abe6c3a0a53071e977ee0300e81ce14f8ea60569882"
+    }
+  },
+  "dependency_list_sha256": "120d87d71910d57fb10ef5b6b9eeedeec3e2747dab986622be439affe4400130",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/csharp_wix_output_test.go": "547583115e08f10927d7caa089df53d315c58617b3927f62879996300d6af7b1",
+    "cmd/gitversion-go/file_updater_integration_test.go": "f2b95ff9ac1404f575a4019b77284e481f03e57769c62561a7a6506875f96068",
+    "cmd/gitversion-go/root_command.go": "2f5ff4352275c675dd81e2b845054bcde7bfe38445025c77aeb5dd4843570ee2",
+    "cmd/gitversion-go/wix_integration_test.go": "f8f3d9c0f7c952b02de1c4c20e92c8b2ffa6ee5690a5524461053856f70022da",
+    "cmd/gitversion-go/wix_version.go": "0e6f021b56499aec5055d5bfc7e15501c3074f28dc757568879c063059f1710b",
+    "internal/calculate/calculate.go": "599a97e4bddf5b55ef835fc9b33d0c8a83d924404ec266605f43a41a5166f9fe",
+    "internal/calculate/csharp_tagged_version_filtering_test.go": "46da49457dbd7b683864b6c016bd85d944aa7aff3c03c51fd1bf117467be5e7b",
+    "internal/config/csharp_canonical_branch_ignore_test.go": "0cafc9d14cc5c3ebbc1d536336a8486e7230118f31506f46a64694635d463878",
+    "internal/config/ignore.go": "7ba3ae644fd407938c0760f45d2e478d6501e74300fda6515a7c135038aab167",
+    "internal/output/csharp_output_projections_test.go": "48b5749a3cb50cac7348b43d25d9ef46f04436703afbcd3cf3c9fe5550ab29cc",
+    "scripts/port-wix-and-output-tests.py": "f982881a366630b13bb867c00c0d2cb069a8e42ebcbf5159b785cbb856c3cb76",
+    "testdata/csharp-test-inventory.json": "80998d0cff811cff95abb8e877aa3f86e2226430cc129a0c3391be69fc9bd6b5",
+    "testdata/csharp-unit-port-mappings.json": "6173d54daaad799c3d056f93912d0954c76747f116dc673d52b84c87d6a7294b",
+    "testdata/csharp-wix-and-output.json": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/wix-and-output-ports/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/wix-and-output-ports/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/wix-and-output-ports/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/wix-and-output-ports/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T06:54:47.814380833Z",
+      "FinishedAt": "2026-11-07T06:55:41.240846553Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/wix-and-output-ports/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}

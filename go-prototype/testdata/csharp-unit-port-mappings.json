@@ -53156,7 +53156,7 @@
     "adaptations": [
       "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateWixVersionFileTests.WixVersionFileVarCountTest": {
     "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
@@ -53171,7 +53171,7 @@
     "adaptations": [
       "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateWixVersionFileTests.WixVersionFileContentTest": {
     "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
@@ -53186,7 +53186,7 @@
     "adaptations": [
       "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WixFileTests.UpdateWixVersionFile": {
     "source": "src/GitVersion.Output.Tests/Output/WixFileTests.cs",
@@ -53201,7 +53201,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WixFileTests.UpdateWixVersionFileWhenFileAlreadyExists": {
     "source": "src/GitVersion.Output.Tests/Output/WixFileTests.cs",
@@ -53216,7 +53216,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyFileVersionTests.ValidateAssemblyFileVersionBuilder": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyFileVersionTests.cs",
@@ -53235,7 +53235,7 @@
     "adaptations": [
       "Exercise the Go formatter. The None scheme is represented internally by an empty string."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "InformationalVersionBuilderTests.ValidateInformationalVersionBuilder": {
     "source": "src/GitVersion.Output.Tests/Output/InformationalVersionBuilderTests.cs",
@@ -53262,7 +53262,7 @@
     "adaptations": [
       "Project the original semantic version and build metadata through the Go output provider."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CommitDateTests.CommitDateFormatTest": {
     "source": "src/GitVersion.Core.Tests/CommitDateTests.cs",
@@ -53280,7 +53280,7 @@
     "adaptations": [
       "Use the four parameterized NUnit cases and the original UTC timestamp. The Test marker adds no arguments."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_IgnoredAndEligibleTagsShareCommit_ReturnsOnlyEligibleTag": {
     "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
@@ -53295,7 +53295,7 @@
     "adaptations": [
       "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_MultiplePatterns_UsesCaseInsensitiveOrSemanticsOnFriendlyName": {
     "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
@@ -53310,7 +53310,7 @@
     "adaptations": [
       "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_EmptyOrNonMatchingTags_PreservesCandidates": {
     "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
@@ -53326,7 +53326,7 @@
     "adaptations": [
       "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BranchRepositoryTests.IsBranchIgnored_MatchesFriendlyNameWithoutRemoteName": {
     "source": "src/GitVersion.Core.Tests/Core/BranchRepositoryTests.cs",
@@ -53343,6 +53343,6 @@
     "adaptations": [
       "Match the original canonical local and remote names with the Go ignore matcher."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
