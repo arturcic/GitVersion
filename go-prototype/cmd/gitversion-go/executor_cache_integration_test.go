@@ -160,16 +160,12 @@ func TestPlatformExecutorCacheParity(t *testing.T) {
 
 	history := makeCLIHistory(t, report, "1.0.0", true)
 	requested, head := history[0], history[1]
-	for _, parser := range []string{"v6", "v7"} {
+	for _, parser := range []string{"v7"} {
 		t.Run("explicit-commit-"+parser, func(t *testing.T) {
 			compare(t, parser, "v7", parser, head.Path,
 				func(t *testing.T, run func(string, ...string) string, repo string, paths func() []string) {
 					args := []string{"--no-fetch", "--no-normalize", "--show-variable", "Sha"}
 					commit := "--commit"
-					if parser == "v6" {
-						args = []string{repo, "-nofetch", "-nonormalize", "-showvariable", "Sha"}
-						commit = "-c"
-					}
 					if got := strings.TrimSpace(run("head", args...)); got != head.Head || len(paths()) != 1 {
 						t.Fatalf("unexpected cached HEAD %q", got)
 					}

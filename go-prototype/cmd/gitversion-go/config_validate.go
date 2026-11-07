@@ -51,10 +51,7 @@ func runValidationInvocation(args []string, stdout, stderr io.Writer) (bool, err
 		if i > 0 && (args[0] == "calculate" || args[0] == "observe" || args[0] == "config") {
 			return false, nil
 		}
-		if strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
-			return true, errors.New("The 'config validate' command is only available with the POSIX argument parser.")
-		}
-		root, workdir, err := parseOptionTokens(args[:i], false)
+		root, workdir, err := parseOptionTokens(args[:i])
 		if err != nil {
 			return true, err
 		}

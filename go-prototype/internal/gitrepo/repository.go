@@ -18,15 +18,17 @@ import (
 )
 
 type Repository struct {
-	git        *git.Repository
-	dir        string
-	gitDir     string
-	dirty      int
-	contextual bool
-	head       string
-	branch     string
-	commits    map[string]*object.Commit
-	shallow    map[ObjectID]struct{}
+	git                                 *git.Repository
+	dir                                 string
+	gitDir                              string
+	dirty                               int
+	contextual                          bool
+	physicalBranch, normalizationRemote string
+	fetchedRemote                       string
+	head                                string
+	branch                              string
+	commits                             map[string]*object.Commit
+	shallow                             map[ObjectID]struct{}
 }
 
 // Head identifies the attached local branch and its commit in this snapshot.
@@ -38,6 +40,12 @@ func (r *Repository) GitDirectory() string { return r.gitDir }
 func (r *Repository) UncommittedChanges() int { return r.dirty }
 
 func (r *Repository) ContextualHead() bool { return r.contextual }
+
+func (r *Repository) NormalizationRemote() string { return r.normalizationRemote }
+
+func (r *Repository) FetchedRemote() string { return r.fetchedRemote }
+
+func (r *Repository) CheckedOutBranch() string { return r.physicalBranch }
 
 // ShallowCommits returns the sorted shallow boundaries visible in this snapshot.
 func (r *Repository) ShallowCommits() []string {
@@ -104,6 +112,7 @@ type OpenOptions struct {
 	AllowShallow, NormalizeDetached, AllowDirty bool
 	BuildBranch, BuildTag                       string
 	TargetBranch, ContextBranch                 string
+	NormalizationRemote, FetchedRemote          string
 }
 
 // OpenForCalculation opens a clean worktree using explicitly selected policies.
@@ -157,6 +166,7 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	}
 	r.head = tip.Hash().String()
 	r.branch = head.Target().String()
+	r.physicalBranch, r.normalizationRemote, r.fetchedRemote = r.branch, options.NormalizationRemote, options.FetchedRemote
 	switch {
 	case options.ContextBranch != "":
 		r.branch, r.contextual = options.ContextBranch, true
@@ -210,6 +220,10 @@ func (r *Repository) selectTargetBranch(target string) (bool, error) {
 	}
 	if selected != nil {
 		r.branch, r.head = selected.Name, selected.SHA
+		prefix := "refs/remotes/" + r.normalizationRemote + "/"
+		if name, ok := strings.CutPrefix(r.branch, prefix); r.normalizationRemote != "" && ok {
+			r.branch = "refs/heads/" + name
+		}
 	}
 	return selected != nil, nil
 }

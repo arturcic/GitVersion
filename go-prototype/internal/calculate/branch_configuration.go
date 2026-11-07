@@ -17,10 +17,11 @@ type effectiveBranchConfiguration struct {
 // The callback supplies direct source candidates, before inherited branch
 // options are resolved. The shared traversal set also breaks source cycles.
 type branchConfigurationFinder struct {
-	config   config.Config
-	branches []branchRef
-	sources  func(string, map[string]bool) ([]string, error)
-	commit   func(string) (message string, isMerge bool, err error)
+	config        config.Config
+	branches      []branchRef
+	fetchedRemote string
+	sources       func(string, map[string]bool) ([]string, error)
+	commit        func(string) (message string, isMerge bool, err error)
 }
 
 func (f branchConfigurationFinder) configurations(branch, sha string) ([]effectiveBranchConfiguration, error) {
@@ -137,6 +138,9 @@ func (f branchConfigurationFinder) pullRequestTarget(branch string) (string, err
 		name := gitrepo.NewReferenceName(candidate.name)
 		if !name.EquivalentTo(parsed.TargetBranch) {
 			continue
+		}
+		if f.fetchedRemote != "" && strings.HasPrefix(candidate.name, "refs/remotes/"+f.fetchedRemote+"/") {
+			return candidate.name, nil
 		}
 		isRemote := name.IsRemoteBranch
 		if target == "" || remote && !isRemote {

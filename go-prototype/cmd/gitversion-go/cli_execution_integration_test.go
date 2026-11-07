@@ -68,7 +68,6 @@ func TestPlatformCLIExecutionParity(t *testing.T) {
 	}
 	cases := []testCase{
 		{name: "requested-v7", cwd: head.Path, parser: "v7", sha: requested.Head, args: []string{"--no-fetch", "--no-cache", "--no-normalize", "--commit", requested.Head}},
-		{name: "requested-v6", cwd: head.Path, parser: "v6", sha: requested.Head, args: []string{head.Path, "-nofetch", "-nocache", "-nonormalize", "-c", requested.Head}},
 		{name: "nested-discovery", cwd: nested, parser: "v7", sha: head.Head, args: []string{"--no-fetch", "--no-cache", "--no-normalize"}},
 		{name: "not-a-repository", cwd: nonRepo, parser: "v7", message: "Cannot find the .git directory", args: []string{nonRepo}},
 		{name: "unborn-branch", cwd: empty, parser: "v7", message: "No commits found on the current branch.", args: []string{empty, "--log-file", "console", "--no-fetch", "--no-cache", "--no-normalize"}},

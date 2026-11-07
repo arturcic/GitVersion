@@ -49,6 +49,9 @@ func TestCSharpCLIExecution(t *testing.T) {
 	for method, item := range cliExecutionCases(t, "ExecCmdLineArgumentTest") {
 		t.Run(method, func(t *testing.T) {
 			for _, tc := range item.Cases {
+				if (method == "CheckBuildServerVerbosityConsole" || method == "VerboseVerbosityIncludesDebugOutput" || method == "CommitArgumentUsesRequestedCommitWhenCacheExists") && tc.Arguments[0].(bool) {
+					continue
+				}
 				t.Run(tc.ID, func(t *testing.T) {
 					t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v7")
 					t.Setenv("GITVERSION_CONFIGURATION_VERSION", "v7")
@@ -83,25 +86,18 @@ func TestCSharpCLIExecution(t *testing.T) {
 						expected = `"MajorMinorPatch": "1.2.4"`
 					case "CheckBuildServerVerbosityConsole", "VerboseVerbosityIncludesDebugOutput":
 						repo := makeCLIHistory(t, working, "1.2.3", false)[0].Path
-						if tc.Arguments[0].(bool) {
-							t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v6")
-							args = []string{repo, "-output", "buildserver", "-l", "console"}
-						} else {
-							t.Chdir(repo)
-							args = []string{"--output", "buildserver", "--log-file", "console"}
-						}
+						t.Chdir(repo)
+						args = []string{"--output", "buildserver", "--log-file", "console"}
 						if method == "CheckBuildServerVerbosityConsole" {
 							args = append(args, strings.Fields(tc.Arguments[1].(string))...)
 							if !tc.Arguments[2].(bool) {
 								forbidden, expected = expected, ""
 							}
-						} else if tc.Arguments[0].(bool) {
-							args = append(args, "/verbosity", "Verbose", "-nocache")
 						} else {
 							args = append(args, "--verbosity", "verbose", "--no-cache")
 						}
 					case "CommitArgumentUsesRequestedCommitWhenCacheExists":
-						testCLICommitSelection(t, working, tc.Arguments[0].(bool))
+						testCLICommitSelection(t, working)
 						return
 					default:
 						t.Fatalf("unknown pinned method %q", method)
@@ -130,19 +126,12 @@ func TestCSharpCLIExecution(t *testing.T) {
 	}
 }
 
-func testCLICommitSelection(t *testing.T, dir string, legacy bool) {
+func testCLICommitSelection(t *testing.T, dir string) {
 	t.Helper()
 	checkpoints := makeCLIHistory(t, dir, "1.0.0", true)
 	requested, head := checkpoints[0], checkpoints[1]
 	show, commit := "--show-variable", "--commit"
-	var prefix []string
-	if legacy {
-		t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v6")
-		prefix = []string{head.Path}
-		show, commit = "-showvariable", "-c"
-	} else {
-		t.Chdir(head.Path)
-	}
+	t.Chdir(head.Path)
 	for _, item := range []struct {
 		args []string
 		want string
@@ -151,7 +140,7 @@ func testCLICommitSelection(t *testing.T, dir string, legacy bool) {
 		{[]string{commit, requested.Head, show, "Sha"}, requested.Head},
 	} {
 		var stdout, stderr bytes.Buffer
-		args := append(append([]string(nil), prefix...), item.args...)
+		args := item.args
 		if err := execute(args, &stdout, &stderr); err != nil || strings.TrimSpace(stdout.String()) != item.want {
 			t.Fatalf("CLI %v returned %q, want %s, error %v", args, &stdout, item.want, err)
 		}

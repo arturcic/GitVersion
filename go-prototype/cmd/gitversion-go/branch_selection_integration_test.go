@@ -61,10 +61,9 @@ func TestPlatformBranchSelectionParity(t *testing.T) {
 
 	cases := []struct {
 		name, upper, alias, target, commit, branch, sha string
-		detached, legacy, invalid                       bool
+		detached, invalid                               bool
 	}{
 		{name: "explicit", upper: "bad name", target: "feature/work", branch: "feature/work", sha: source.target},
-		{name: "explicit-legacy", alias: "feature/ignored", target: "refs/heads/feature/work", branch: "feature/work", sha: source.target, legacy: true},
 		{name: "remote-tracking", target: "refs/remotes/origin/feature/tracking", branch: "origin/feature/tracking", sha: source.target},
 		{name: "missing-target", target: "feature/missing", branch: "main", sha: source.head},
 		{name: "divergent-ref-context", upper: "feature/work", alias: "feature/ignored", branch: "feature/work", sha: source.head},
@@ -87,11 +86,6 @@ func TestPlatformBranchSelectionParity(t *testing.T) {
 			}
 			args := []string{"--no-cache", "--no-fetch", "--no-normalize", "--output", "json", "--verbosity", "quiet"}
 			targetFlag := "--branch"
-			if test.legacy {
-				env["GITVERSION_ARGUMENT_PARSER_VERSION"] = "v6"
-				args = []string{"{repo}", "-nocache", "-nofetch", "-nonormalize", "-output", "json", "-verbosity", "quiet"}
-				targetFlag = "-b"
-			}
 			if test.target != "" {
 				args = append(args, targetFlag, test.target)
 			}

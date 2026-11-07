@@ -38,17 +38,16 @@ func TestCSharpArgumentParsers(t *testing.T) {
 	if err := json.Unmarshal(data, &corpus); err != nil {
 		t.Fatal(err)
 	}
-	for _, suite := range []string{"ArgumentParserTests", "LegacyArgumentParserTests"} {
+	for _, suite := range []string{"ArgumentParserTests"} {
 		t.Run(suite, func(t *testing.T) {
 			for name, item := range corpus.Suites[suite].Methods {
 				t.Run(name, func(t *testing.T) {
 					for _, c := range item.Cases {
 						t.Run(c.ID, func(t *testing.T) {
-							legacy := suite == "LegacyArgumentParserTests"
 							if len(item.Checks) != 0 || len(item.Error) != 0 {
-								checkExtractedParserCase(t, legacy, item, c.Arguments)
+								checkExtractedParserCase(t, item, c.Arguments)
 							} else {
-								checkSpecialParserCase(t, legacy, name, c.Arguments)
+								checkSpecialParserCase(t, name, c.Arguments)
 							}
 						})
 					}
@@ -58,7 +57,7 @@ func TestCSharpArgumentParsers(t *testing.T) {
 	}
 }
 
-func checkExtractedParserCase(t *testing.T, legacy bool, item parserMethod, args []json.RawMessage) {
+func checkExtractedParserCase(t *testing.T, item parserMethod, args []json.RawMessage) {
 	t.Helper()
 	cwd := t.TempDir()
 	env := item.Environment
@@ -74,7 +73,7 @@ func checkExtractedParserCase(t *testing.T, legacy bool, item parserMethod, args
 	} else {
 		command = *item.Command
 	}
-	got, err := parseCLIArguments(commandline.SplitUnquoted(command, ' '), legacy, cwd, lookup)
+	got, err := parseCLIArguments(commandline.SplitUnquoted(command, ' '), cwd, lookup)
 	if len(item.Error) != 0 {
 		if err == nil || !checkParserText(err.Error(), item.Error[0], item.Error[1]) {
 			t.Fatalf("%q: error %v; want %v", command, err, item.Error)
@@ -141,18 +140,12 @@ func checkParserText(value, op, expected string) bool {
 	}
 }
 
-func checkSpecialParserCase(t *testing.T, legacy bool, name string, args []json.RawMessage) {
+func checkSpecialParserCase(t *testing.T, name string, args []json.RawMessage) {
 	t.Helper()
 	cwd := t.TempDir()
 	version := "v6"
-	flagName := func(posix, old string) string {
-		if legacy {
-			return old
-		}
-		return posix
-	}
 	parse := func(command string) (cliArguments, error) {
-		return parseCLIArguments(commandline.SplitUnquoted(command, ' '), legacy, cwd, func(name string) string {
+		return parseCLIArguments(commandline.SplitUnquoted(command, ' '), cwd, func(name string) string {
 			if name == "GITVERSION_CONFIGURATION_VERSION" {
 				return version
 			}
@@ -182,7 +175,7 @@ func checkSpecialParserCase(t *testing.T, legacy bool, name string, args []json.
 	override := func(entries ...string) string {
 		var parts []string
 		for _, entry := range entries {
-			parts = append(parts, flagName("--override-config", "/overrideconfig"), entry)
+			parts = append(parts, "--override-config", entry)
 		}
 		return strings.Join(parts, " ")
 	}
@@ -227,12 +220,10 @@ func checkSpecialParserCase(t *testing.T, legacy bool, name string, args []json.
 	case "OverrideConfigSupportsNestedV7RootAndBranchPaths":
 		version = "v7"
 		values := []string{"calculation.tag-prefix=custom-", "calculation.branches.main.increment=Major", "output.branches.main.pre-release-weight=42"}
-		if !legacy {
-			values = append([]string{"workflow=GitHubFlow/v1"}, values...)
-		}
+		values = append([]string{"workflow=GitHubFlow/v1"}, values...)
 		parsed := ok(override(values...))
 		got := readOverride(parsed)
-		if !legacy && got["workflow"] != "GitHubFlow/v1" {
+		if got["workflow"] != "GitHubFlow/v1" {
 			t.Fatal(got)
 		}
 		calc, out := got["calculation"].(map[string]any), got["output"].(map[string]any)
@@ -318,10 +309,10 @@ func checkSpecialParserCase(t *testing.T, legacy bool, name string, args []json.
 		if filepath.IsAbs(path) {
 			path = filepath.Join(cwd, filepath.Base(path))
 		}
-		fail(flagName("--config", "-config") + " " + path)
+		fail("--config" + " " + path)
 	case "EnsureConfigurationFileIsSet", "ShortAliasCIsConfigNotCommit":
 		path := writeQueryConfig(t, cwd, "config.yaml", "next-version: 1.0.0")
-		option := flagName("--config", "-config")
+		option := "--config"
 		if name == "ShortAliasCIsConfigNotCommit" {
 			option = "-c"
 		}
@@ -330,13 +321,13 @@ func checkSpecialParserCase(t *testing.T, legacy bool, name string, args []json.
 			t.Fatal(got.ConfigurationFile, got.CommitID)
 		}
 	case "UpdateAssemblyInfoWithFilename", "UpdateAssemblyInfoWithMultipleFilenames", "UpdateProjectFilesWithMultipleFilenames", "UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing", "UpdateAssemblyInfoWithRelativeFilename":
-		checkAssemblyFileCases(t, cwd, name, flagName, ok)
+		checkAssemblyFileCases(t, cwd, name, ok)
 	default:
 		t.Fatal(name)
 	}
 }
 
-func checkAssemblyFileCases(t *testing.T, cwd, name string, flagName func(string, string) string, parse func(string) cliArguments) {
+func checkAssemblyFileCases(t *testing.T, cwd, name string, parse func(string) cliArguments) {
 	t.Helper()
 	target := cwd
 	files := []string{"CommonAssemblyInfo.cs"}
@@ -362,12 +353,12 @@ func checkAssemblyFileCases(t *testing.T, cwd, name string, flagName func(string
 			t.Fatal(err)
 		}
 	}
-	command := flagName("--target-path", "-targetpath") + " " + target + " "
+	command := "--target-path" + " " + target + " "
 	project := name == "UpdateProjectFilesWithMultipleFilenames"
 	if project {
-		command += flagName("--update-project-files", "-updateProjectFiles")
+		command += "--update-project-files"
 	} else {
-		command += flagName("--update-assembly-info", "-updateAssemblyInfo")
+		command += "--update-assembly-info"
 	}
 	switch name {
 	case "UpdateAssemblyInfoWithRelativeFilename":
@@ -385,5 +376,17 @@ func checkAssemblyFileCases(t *testing.T, cwd, name string, flagName func(string
 		if !slices.ContainsFunc(got.UpdateAssemblyInfoFileName, func(path string) bool { return filepath.Base(path) == filepath.Base(file) }) {
 			t.Fatalf("missing %s from %v", file, got.UpdateAssemblyInfoFileName)
 		}
+	}
+}
+
+func TestPOSIXArgumentsDoNotAcceptLegacyOptions(t *testing.T) {
+	for _, args := range [][]string{{"-nofetch"}, {"checkout", "/nofetch"}, {"-showvariable", "FullSemVer"}} {
+		if _, _, err := parseOptionTokens(args); err == nil {
+			t.Errorf("accepted legacy arguments %q", args)
+		}
+	}
+	got, _, err := parseOptionTokens([]string{"-b", "main", "--no-fetch"})
+	if err != nil || !reflect.DeepEqual(got["branch"], []string{"main"}) || !reflect.DeepEqual(got["no-fetch"], []string{"true"}) {
+		t.Fatalf("valid POSIX arguments: %v (%v)", got, err)
 	}
 }

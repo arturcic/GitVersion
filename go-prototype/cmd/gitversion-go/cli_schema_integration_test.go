@@ -60,6 +60,9 @@ func TestPlatformCSharpCLISchema(t *testing.T) {
 		}
 		t.Run(method, func(t *testing.T) {
 			for _, test := range methods[method].Cases {
+				if method == "ProcessRejectsInvalidSyntaxAndLegacyParser" && test.Arguments[1] == "v6" {
+					continue
+				}
 				t.Run(test.ID, func(t *testing.T) {
 					parser, configuration, backend := "v7", "v7", "managed"
 					switch method {

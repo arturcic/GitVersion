@@ -23,13 +23,6 @@ func execute(args []string, out, diagnostics io.Writer) error {
 			if err != nil {
 				return err
 			}
-			parser, err := selectedArgumentParser()
-			if err != nil {
-				return err
-			}
-			if parser == "v6" {
-				return argumentError("--cli-schema")
-			}
 			return writeCLISchema(out, root)
 		}
 	}

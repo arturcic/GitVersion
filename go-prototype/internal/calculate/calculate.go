@@ -123,6 +123,10 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	if err != nil {
 		return nil, trace, err
 	}
+	refs, err = normalizedReferences(r, cfg, refs)
+	if err != nil {
+		return nil, trace, err
+	}
 	mainTips := []string{}
 	branches := []branchRef{}
 	var haveCurrentBranch bool
@@ -165,7 +169,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		return nil, trace, fmt.Errorf("unsupported main-branch topology: require at most one main/master branch")
 	}
 	finder := branchConfigurationFinder{
-		config: cfg, branches: branches,
+		config: cfg, branches: branches, fetchedRemote: r.FetchedRemote(),
 		sources: func(name string, visited map[string]bool) ([]string, error) {
 			return configurationOrigins(r, cfg, name, branches, visited)
 		},

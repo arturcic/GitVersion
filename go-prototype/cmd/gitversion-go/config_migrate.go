@@ -7,7 +7,6 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 )
@@ -53,9 +52,6 @@ func migrationInvocation(args []string) ([]string, string, bool) {
 }
 
 func runConfigMigration(args []string, directory string, stdout, stderr io.Writer) error {
-	if strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
-		return errors.New("The 'config migrate' command is only available with the POSIX argument parser.")
-	}
 	options, err := parseMigrationOptions(args, directory)
 	if err != nil {
 		return err

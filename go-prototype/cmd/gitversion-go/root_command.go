@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/buildagent"
 	"github.com/GitTools/GitVersion/go-prototype/internal/calculate"
@@ -17,27 +18,12 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
-func selectedArgumentParser() (string, error) {
-	if _, retired := os.LookupEnv("GITVERSION_USE_V6_ARGUMENT_PARSER"); retired {
-		return "", fmt.Errorf("GITVERSION_USE_V6_ARGUMENT_PARSER has been removed. Unset it and use GITVERSION_ARGUMENT_PARSER_VERSION=v6 for the temporary legacy parser, or GITVERSION_ARGUMENT_PARSER_VERSION=v7 (the default).")
-	}
-	parser := strings.ToLower(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")))
-	if parser != "" && parser != "v6" && parser != "v7" {
-		return "", fmt.Errorf("Unrecognized GITVERSION_ARGUMENT_PARSER_VERSION value '%s'. Valid values are 'v6' and 'v7'.", parser)
-	}
-	return parser, nil
-}
-
 func runRootCLI(args []string, out, diagnostics io.Writer) error {
-	parser, err := selectedArgumentParser()
-	if err != nil {
-		return err
-	}
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err
 	}
-	options, err := parseCLIArguments(args, parser == "v6", cwd, os.Getenv)
+	options, err := parseCLIArguments(args, cwd, os.Getenv)
 	if err != nil {
 		return err
 	}
@@ -65,9 +51,6 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		}
 		return outputConfigurationQuery(version, directory, options.TargetURL, nil, options.OverrideConfiguration, &provider, out)
 	}
-	if options.TargetURL != "" || options.ClonePath != "" {
-		return fmt.Errorf("remote repository targeting is pending")
-	}
 	if options.Diag {
 		return fmt.Errorf("diagnostic mode is pending")
 	}
@@ -79,8 +62,8 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		AllowShallow: options.AllowShallow, AllowDirty: true,
 		TargetBranch: target, ContextBranch: contextBranch,
 	}
-	if !options.NoNormalize {
-		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
+	agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
+	if options.TargetURL != "" || !options.NoNormalize {
 		repoOptions.NormalizeDetached = agent.Name != "LocalBuild"
 		if branch := agent.CurrentBranch(); branch != nil {
 			repoOptions.BuildBranch = *branch
@@ -89,7 +72,13 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 			repoOptions.BuildTag = *tag
 		}
 	}
-	return runRootCalculation(options, repoOptions, out, diagnostics)
+	if options.TargetURL != "" && target == "" && contextBranch == "" {
+		repoOptions.TargetBranch = repoOptions.BuildBranch
+		if strings.TrimSpace(repoOptions.TargetBranch) == "" {
+			return calculationFailure{fmt.Errorf("Dynamic Git repositories must have a target branch (--branch)")}
+		}
+	}
+	return runRootCalculation(options, repoOptions, agent, out, diagnostics)
 }
 
 type versionStages struct {
@@ -122,15 +111,35 @@ type calculationFailure struct{ error }
 
 func (failure calculationFailure) Unwrap() error { return failure.error }
 
-func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, out, diagnostics io.Writer) error {
+func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, agent *buildagent.Agent, out, diagnostics io.Writer) error {
 	rawVersion := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
 	version, err := resolveConfigurationVersion(rawVersion)
 	if err != nil {
 		return err
 	}
+	credentials := gitrepo.Credentials{Username: options.Username, Password: options.Password}
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
+	defer cancel()
 	return runVersionStages(options.TargetPath, versionStages{
-		discover: discoverCalculationRoot,
+		discover: func(directory string) (string, error) {
+			if options.TargetURL != "" {
+				return gitrepo.PrepareClone(ctx, options.TargetURL, options.ClonePath, repoOptions.ContextBranch != "", credentials)
+			}
+			return discoverCalculationRoot(directory)
+		},
 		calculate: func(root string) (calculationExecution, error) {
+			if options.TargetURL != "" || (!options.NoNormalize && agent.Name != "LocalBuild") {
+				fetch := !options.NoFetch && !agent.PreventFetch()
+				remote, err := gitrepo.PrepareRemote(ctx, root, fetch, agent.ShouldCleanUpRemotes(), credentials)
+				if err != nil {
+					return calculationExecution{}, err
+				}
+				if repoOptions.ContextBranch == "" {
+					repoOptions.NormalizationRemote = remote
+				} else if fetch {
+					repoOptions.FetchedRemote = remote
+				}
+			}
 			return calculateDiscovered(options, root, rawVersion, version, diagnostics, repoOptions, !options.NoCache, config.LoadCalculationConfig)
 		},
 		output: func(result calculationExecution) error {
@@ -259,7 +268,7 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 	var result calculationExecution
 	path, custom := options.TargetPath, options.ConfigurationFile
 	configDirectory := path
-	if custom == "" {
+	if custom == "" && options.TargetURL == "" {
 		locator := config.FileLocator{}
 		file, err := locator.Get(&path)
 		if err != nil {

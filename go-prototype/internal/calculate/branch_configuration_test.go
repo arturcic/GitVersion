@@ -131,3 +131,26 @@ func TestBranchFinderPropagatesLookupErrors(t *testing.T) {
 		})
 	}
 }
+
+func TestContextualPullRequestTargetPrefersFetchedRemote(t *testing.T) {
+	const local = "refs/heads/support/v1.0.x"
+	const remote = "refs/remotes/origin/support/v1.0.x"
+	finder := branchConfigurationFinder{
+		config: inheritanceConfig(t),
+		branches: []branchRef{
+			{name: local, kind: "support"},
+			{name: "refs/remotes/other/support/v1.0.x", kind: "support"},
+			{name: remote, kind: "support"},
+		},
+		commit: func(string) (string, bool, error) {
+			return "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x", true, nil
+		},
+	}
+	for _, tc := range []struct{ fetched, want string }{{"", local}, {"origin", remote}, {"missing", local}} {
+		finder.fetchedRemote = tc.fetched
+		got, err := finder.pullRequestTarget("refs/pull/2/merge")
+		if err != nil || got != tc.want {
+			t.Errorf("fetched %q: got %q, want %q (%v)", tc.fetched, got, tc.want, err)
+		}
+	}
+}

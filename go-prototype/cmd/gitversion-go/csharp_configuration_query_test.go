@@ -33,6 +33,9 @@ func TestCSharpConfigurationQueryCLI(t *testing.T) {
 		t.Fatal(err)
 	}
 	for method, item := range corpus.Suites["ConfigurationQueryIntegrationTests"].Methods {
+		if method == "QueryIsUnavailableWithLegacyArgumentParser" {
+			continue
+		}
 		t.Run(method, func(t *testing.T) {
 			for _, c := range item.Cases {
 				t.Run(c.ID, func(t *testing.T) { checkCLIQueryCase(t, method, c.Arguments) })
@@ -209,12 +212,6 @@ func checkCLIQueryCase(t *testing.T, method string, args []json.RawMessage) {
 		writeQueryConfig(t, subdir, "GitVersion.yml", "calculation:\n  tag-prefix: local-")
 		out, logs, err := query(subdir, "calculation.tag-prefix")
 		failure(out, logs, err, "Ambiguous configuration file selection")
-	case "QueryIsUnavailableWithLegacyArgumentParser":
-		t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v6")
-		out, _, err := query(dir, "calculation.tag-prefix")
-		if err == nil || out != "" {
-			t.Fatalf("stdout %q, error %v", out, err)
-		}
 	case "ShowConfigOverrideCorrectionIsLimitedToV7":
 		version, path, expected := cliArg[string](t, args[0]), cliArg[string](t, args[1]), cliArg[string](t, args[2])
 		t.Setenv("GITVERSION_CONFIGURATION_VERSION", version)

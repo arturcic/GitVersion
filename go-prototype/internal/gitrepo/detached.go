@@ -25,6 +25,10 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 			}
 		}
 	}
+	remoteName := options.NormalizationRemote
+	if remoteName == "" {
+		remoteName = "origin"
+	}
 	var local []ReferenceName
 	localNames := map[string]bool{}
 	for _, ref := range refs {
@@ -39,7 +43,7 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 	for _, ref := range refs {
 		name := NewReferenceName(ref.Name)
 		if ref.SHA == r.head && name.IsRemoteBranch && !name.IsPullRequest &&
-			strings.HasPrefix(name.Friendly, "origin/") && name.WithoutRemote != "HEAD" &&
+			strings.HasPrefix(name.Friendly, remoteName+"/") && name.WithoutRemote != "HEAD" &&
 			!localNames[name.WithoutRemote] {
 			local = append(local, NewReferenceName("refs/heads/"+name.WithoutRemote))
 		}

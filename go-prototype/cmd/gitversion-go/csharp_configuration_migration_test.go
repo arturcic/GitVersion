@@ -103,19 +103,16 @@ func checkCLIMigrationCase(t *testing.T, method string, doc *string, args []json
 		}
 		return
 	}
-	if method == "ConfigMigrateRejectsOutputAndInPlaceTogether" || method == "ConfigRequiresASubcommand" || method == "ConfigMigrateIsRejectedAsASubcommand" {
+	if method == "ConfigMigrateRejectsOutputAndInPlaceTogether" || method == "ConfigRequiresASubcommand" {
 		command := []string{"config", "migrate", "--output", "GitVersion.v7.yml", "--in-place"}
 		want := "Cannot use --output together with --in-place."
 		switch method {
 		case "ConfigRequiresASubcommand":
 			command, want = []string{"config"}, "The 'config' command requires a subcommand. Use 'gitversion config get', 'gitversion config validate' or 'gitversion config migrate'."
-		case "ConfigMigrateIsRejectedAsASubcommand":
-			t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v6")
-			command, want = []string{"config", "migrate"}, "only available with the POSIX argument parser"
+
 		}
 		r := runMigrationTest(command...)
-		if r.err == nil || (method == "ConfigMigrateIsRejectedAsASubcommand" && !strings.Contains(r.err.Error(), want)) ||
-			(method != "ConfigMigrateIsRejectedAsASubcommand" && r.err.Error() != want) {
+		if r.err == nil || r.err.Error() != want {
 			t.Fatalf("got %v, want %q", r.err, want)
 		}
 		return

@@ -20,7 +20,7 @@ func runConfigGetInvocation(args []string, stdout, stderr io.Writer) (bool, erro
 		if i > 0 && (args[0] == "calculate" || args[0] == "observe" || args[0] == "config") {
 			return false, nil
 		}
-		root, workdir, err := parseOptionTokens(args[:i], false)
+		root, workdir, err := parseOptionTokens(args[:i])
 		if err != nil {
 			return true, err
 		}
@@ -48,9 +48,6 @@ func runConfigGetInvocation(args []string, stdout, stderr io.Writer) (bool, erro
 }
 
 func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.Writer) error {
-	if !show && strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
-		return fmt.Errorf("Could not parse command line parameter")
-	}
 	var property *string
 	if !show {
 		if len(args) == 0 || strings.HasPrefix(args[0], "--") {

@@ -28,18 +28,6 @@ var posixOptions = map[string]string{
 	"-l": "log-file", "-o": "output", "-d": "diagnose", "-b": "branch",
 	"-u": "username", "-p": "password", "-c": "config", "-v": "show-variable", "-f": "format",
 }
-var legacyOptions = map[string]string{
-	"help": "help", "h": "help", "?": "help", "version": "version", "l": "log-file",
-	"output": "output", "outputfile": "output-file", "diag": "diagnose",
-	"b": "branch", "u": "username", "p": "password", "c": "commit", "url": "url",
-	"dynamicrepolocation": "dynamic-repo-location", "config": "config", "overrideconfig": "override-config",
-	"showconfig": "show-config", "targetpath": "target-path", "verbosity": "verbosity",
-	"v": "show-variable", "showvariable": "show-variable", "format": "format",
-	"nofetch": "no-fetch", "nonormalize": "no-normalize", "nocache": "no-cache",
-	"allowshallow": "allow-shallow", "updateassemblyinfo": "update-assembly-info",
-	"updateprojectfiles": "update-project-files", "ensureassemblyinfo": "ensure-assembly-info",
-	"updatewixversionfile": "update-wix-version-file",
-}
 var argumentOptions = map[string]byte{
 	"help": 'b', "version": 'b', "diagnose": 'b', "show-config": 'b',
 	"no-fetch": 'b', "no-normalize": 'b', "no-cache": 'b', "allow-shallow": 'b',
@@ -50,13 +38,7 @@ var argumentOptions = map[string]byte{
 	"output": 'l', "update-project-files": 'l', "update-assembly-info": 'l', "override-config": 'o',
 }
 
-func canonicalOption(token string, legacy bool) string {
-	if legacy {
-		if len(token) > 1 && (token[0] == '-' || token[0] == '/') {
-			return legacyOptions[strings.ToLower(token[1:])]
-		}
-		return ""
-	}
+func canonicalOption(token string) string {
 	if name := posixOptions[token]; name != "" {
 		return name
 	}
@@ -66,11 +48,8 @@ func canonicalOption(token string, legacy bool) string {
 	return ""
 }
 
-func optionToken(token string, legacy bool) bool {
-	if strings.HasPrefix(token, "-") && len(token) > 1 {
-		return true
-	}
-	return legacy && canonicalOption(token, true) != "" && strings.HasPrefix(token, "/")
+func optionToken(token string) bool {
+	return strings.HasPrefix(token, "-") && len(token) > 1
 }
 
 func argumentError(token string) error {
@@ -97,15 +76,15 @@ func optionBoolean(value string) (bool, bool) {
 	}
 }
 
-func parseOptionTokens(args []string, legacy bool) (map[string][]string, string, error) {
+func parseOptionTokens(args []string) (map[string][]string, string, error) {
 	options := map[string][]string{}
 	positional := ""
 	for i := 0; i < len(args); {
 		token := commandline.UnquoteText(args[i])
 		name, inlineValue, inline := strings.Cut(token, "=")
-		key := canonicalOption(name, legacy)
+		key := canonicalOption(name)
 		if key == "" {
-			if i != 0 || optionToken(token, legacy) || (legacy && strings.HasPrefix(token, "/") && !directoryExists(token)) {
+			if i != 0 || optionToken(token) {
 				return nil, "", argumentError(token)
 			}
 			positional = token
@@ -125,10 +104,10 @@ func parseOptionTokens(args []string, legacy bool) (map[string][]string, string,
 			}
 		} else {
 			limit := len(args)
-			if kind == 's' || (kind == 'o' && !legacy) {
+			if kind == 's' || kind == 'o' {
 				limit = i + 1
 			}
-			for i < len(args) && i < limit && !optionToken(args[i], legacy) {
+			for i < len(args) && i < limit && !optionToken(args[i]) {
 				values, i = append(values, args[i]), i+1
 			}
 			if kind == 's' && len(values) != 1 {
@@ -144,9 +123,9 @@ func parseOptionTokens(args []string, legacy bool) (map[string][]string, string,
 	return options, positional, nil
 }
 
-func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(string) string) (cliArguments, error) {
+func parseCLIArguments(args []string, cwd string, lookup func(string) string) (cliArguments, error) {
 	var result cliArguments
-	options, positional, err := parseOptionTokens(args, legacy)
+	options, positional, err := parseOptionTokens(args)
 	if err != nil {
 		return result, err
 	}
@@ -228,7 +207,7 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 	}) {
 		return result, fmt.Errorf("Format requires a valid format string. Available variables are: %s", strings.Join(output.VariableNames, ", "))
 	}
-	if err := mapAssemblyArguments(&result, options, legacy); err != nil {
+	if err := mapAssemblyArguments(&result, options); err != nil {
 		return result, err
 	}
 	versionValue := lookup("GITVERSION_CONFIGURATION_VERSION")
@@ -237,11 +216,7 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 		if err != nil {
 			return result, err
 		}
-		switchName := "--override-config"
-		if legacy {
-			switchName = "/overrideconfig"
-		}
-		result.OverrideConfiguration, err = config.ParseCLIOverrides(values, version, switchName)
+		result.OverrideConfiguration, err = config.ParseCLIOverrides(values, version, "--override-config")
 		if err != nil {
 			return result, err
 		}
@@ -263,7 +238,7 @@ func directoryExists(path string) bool {
 	return (config.OSConfigurationFS{}).DirectoryExists(path)
 }
 
-func mapAssemblyArguments(result *cliArguments, options map[string][]string, legacy bool) error {
+func mapAssemblyArguments(result *cliArguments, options map[string][]string) error {
 	assembly, assemblySet := options["update-assembly-info"]
 	project, projectSet := options["update-project-files"]
 	result.UpdateAssemblyInfo, result.UpdateProjectFiles = assemblySet, projectSet
@@ -276,12 +251,8 @@ func mapAssemblyArguments(result *cliArguments, options map[string][]string, leg
 	if assemblySet && projectSet {
 		return fmt.Errorf("Cannot specify both --update-assembly-info and --update-project-files in the same run. Please rerun GitVersion with only one parameter")
 	}
-	ensure, projects := "--ensure-assembly-info", "--update-project-files"
-	if legacy {
-		ensure, projects = "-ensureassemblyinfo", "updateprojectfiles"
-	}
 	if projectSet && result.EnsureAssemblyInfo {
-		return fmt.Errorf("Cannot specify %s with %s: please ensure your project file exists before attempting to update it", ensure, projects)
+		return fmt.Errorf("Cannot specify --ensure-assembly-info with --update-project-files: please ensure your project file exists before attempting to update it")
 	}
 	var patterns []string
 	for _, value := range append(slices.Clone(assembly), project...) {
@@ -294,9 +265,6 @@ func mapAssemblyArguments(result *cliArguments, options map[string][]string, leg
 	}
 	if result.EnsureAssemblyInfo {
 		if len(patterns) > 1 {
-			if legacy {
-				return fmt.Errorf("Can't specify multiple assembly info files when using /ensureassemblyinfo switch, either use a single assembly info file or do not specify /ensureassemblyinfo and create assembly info files manually")
-			}
 			return fmt.Errorf("Can't specify multiple assembly info files when using --ensure-assembly-info, either use a single assembly info file or do not specify --ensure-assembly-info and create assembly info files manually")
 		}
 		result.UpdateAssemblyInfoFileName = patterns

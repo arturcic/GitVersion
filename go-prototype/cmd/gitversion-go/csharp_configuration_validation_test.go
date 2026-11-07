@@ -32,6 +32,9 @@ func TestCSharpConfigurationValidationCLI(t *testing.T) {
 		t.Fatal("original validation inventory changed")
 	}
 	for method, cases := range corpus.Methods {
+		if method == "ValidationIsUnavailableWithLegacyArgumentParser" {
+			continue
+		}
 		t.Run(method, func(t *testing.T) {
 			for _, tc := range cases {
 				t.Run(tc.ID, func(t *testing.T) {
@@ -279,14 +282,6 @@ func checkCSharpValidationCase(t *testing.T, method string, args []json.RawMessa
 		if r.stderr != "" || !strings.Contains(r.stdout, "--format") ||
 			!strings.Contains(r.stdout, "versioned JSON") || !strings.Contains(r.stdout, "--override-config") {
 			t.Fatalf("unexpected help result %+v", r)
-		}
-
-	case "ValidationIsUnavailableWithLegacyArgumentParser":
-		t.Setenv("GITVERSION_ARGUMENT_PARSER_VERSION", "v6")
-		r := run("config validate")
-		r.requireExit(t, 1)
-		if r.stdout != "" {
-			t.Fatal(r.stdout)
 		}
 
 	case "ExplicitValidationNeverConstructsGitOrCalculationServices":
