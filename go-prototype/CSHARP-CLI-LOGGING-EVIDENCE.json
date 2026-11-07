@@ -58,10 +58,10 @@
     "Elapsed scope times"
   ],
   "remaining": [
-    "Detailed strategy-specific records in complex histories, including cached tagged-version and Mainline traversal diagnostics.",
-    "C# can rewrite checkout refs during CI normalization. Go projects refs for calculation and can reuse a matching local clone when the oracle selects a new destination.",
-    "Go keeps its own cache keys and atomically replaces corrupt entries after calculation. C# deletes corrupt entries before recalculating.",
-    "Go uses native transport and parsing diagnostics. Managed Git command output and .NET exception stack frames differ.",
+    "Verbose tag-cache internals and additional Mainline and inheritance traversal branches remain outside the exact transcript matrix.",
+    "CI branch creation and updates operate on Go\u2019s calculation view. The oracle can update on-disk refs and attach HEAD. Go can reuse a matching local clone where the oracle selects another destination.",
+    "Go uses independent cache keys and atomically replaces corrupt entries after calculation. The oracle deletes corrupt entries before recalculating.",
+    "Go uses native transport and parsing diagnostics. Managed Git command output and .NET stack frames differ.",
     "Windows runtime verification."
   ],
   "trace_checkpoint": {
@@ -90,6 +90,50 @@
       "Elapsed scope times",
       "Per-process fixture directory",
       "Independent cache keys"
+    ],
+    "regression_suites": 8,
+    "remote_ci_regression_cases": 25
+  },
+  "complex_trace_checkpoint": {
+    "implementation": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+    "test": "TestPlatformCLITraceParity",
+    "normalized_complete_transcript": [
+      "fallback",
+      "configured-next",
+      "tagged-strategy",
+      "mainline",
+      "merged-release",
+      "named-release",
+      "tagged-release",
+      "mainline-merge",
+      "pruned-tags",
+      "tied-tags",
+      "cache-miss",
+      "cache-hit",
+      "clone-no-sink-exception",
+      "ci-context-skips-projection"
+    ],
+    "ordered_records": [
+      "cache-corrupt",
+      "clone",
+      "clone-repeat",
+      "clone-exception",
+      "clone-quiet-exception",
+      "ci-skip",
+      "ci-ref-decisions",
+      "ci-detached-selection",
+      "ci-fetch"
+    ],
+    "normalization": [
+      "Wall clock timestamps",
+      "Elapsed scope times",
+      "Per-process fixture directory",
+      "Independent cache keys"
+    ],
+    "ref_state_assertions": [
+      "ci-ref-decisions",
+      "ci-context-skips-projection",
+      "ci-detached-selection"
     ],
     "regression_suites": 8,
     "remote_ci_regression_cases": 25
