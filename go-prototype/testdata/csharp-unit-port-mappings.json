@@ -42092,7 +42092,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesGitHubPullMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42113,7 +42113,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesBitBucketPullMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42137,7 +42137,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesBitBucketPullMergeMessage_v7": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42154,7 +42154,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesBitBucketCloudPullMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42171,7 +42171,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesSmartGitMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42194,7 +42194,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesRemoteTrackingMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42217,7 +42217,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ParsesInvalidMergeMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42236,7 +42236,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.NullMessageStringThrows": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42253,7 +42253,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.EmptyMessageString": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42271,7 +42271,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.EmptyTagPrefix": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42290,7 +42290,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.MatchesSingleCustomMessage": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42307,7 +42307,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.MatchesMultipleCustomMessages": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42324,7 +42324,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.MatchesCaptureGroupsFromCustomMessages": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42341,7 +42341,7 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageTests.ReturnsAfterFirstMatchingPattern": {
     "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
@@ -42358,6 +42358,6 @@
       "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
       "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
