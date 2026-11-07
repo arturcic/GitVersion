@@ -51,6 +51,7 @@ func TestPlatformShallowCIParity(t *testing.T) {
 		"VerifyAzurePipelinesPullRequest": true,
 		"VerifyGitLabCIPullRequest":       true,
 	}
+	scratch := t.TempDir()
 	comparisons := 0
 	for suite, group := range ciCases(t) {
 		for method, item := range group.Methods {
@@ -71,7 +72,13 @@ func TestPlatformShallowCIParity(t *testing.T) {
 						if err := os.MkdirAll(caseDir, 0755); err != nil {
 							t.Fatal(err)
 						}
-						path, _ := ciRepository(t, caseDir, suite, method, tc.Ref)
+						// The pinned C# runner derives a named mutex from the Git
+						// directory. Keep fixture paths independent of evidence labels.
+						fixtureDir, err := os.MkdirTemp(scratch, "repo-")
+						if err != nil {
+							t.Fatal(err)
+						}
+						path, _ := ciRepository(t, fixtureDir, suite, method, tc.Ref)
 						before, err := fixtures.State(path)
 						if err != nil {
 							t.Fatal(err)
