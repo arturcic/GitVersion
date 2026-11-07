@@ -18,14 +18,15 @@ import (
 )
 
 type Repository struct {
-	git     *git.Repository
-	dir     string
-	gitDir  string
-	dirty   int
-	head    string
-	branch  string
-	commits map[string]*object.Commit
-	shallow map[ObjectID]struct{}
+	git        *git.Repository
+	dir        string
+	gitDir     string
+	dirty      int
+	contextual bool
+	head       string
+	branch     string
+	commits    map[string]*object.Commit
+	shallow    map[ObjectID]struct{}
 }
 
 // Head identifies the attached local branch and its commit in this snapshot.
@@ -35,6 +36,8 @@ func (r *Repository) Head() (branch, sha string) { return r.branch, r.head }
 func (r *Repository) GitDirectory() string { return r.gitDir }
 
 func (r *Repository) UncommittedChanges() int { return r.dirty }
+
+func (r *Repository) ContextualHead() bool { return r.contextual }
 
 // ShallowCommits returns the sorted shallow boundaries visible in this snapshot.
 func (r *Repository) ShallowCommits() []string {
@@ -100,6 +103,7 @@ func Open(path string) (*Repository, error) {
 type OpenOptions struct {
 	AllowShallow, NormalizeDetached, AllowDirty bool
 	BuildBranch, BuildTag                       string
+	TargetBranch, ContextBranch                 string
 }
 
 // OpenForCalculation opens a clean worktree using explicitly selected policies.
@@ -128,7 +132,7 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 		return nil, err
 	}
 	detached := head.Type() != plumbing.SymbolicReference || !head.Target().IsBranch()
-	if detached && !options.NormalizeDetached {
+	if detached && !options.NormalizeDetached && options.TargetBranch == "" && options.ContextBranch == "" {
 		return nil, fmt.Errorf("unsupported detached HEAD")
 	}
 	tip, err := store.resolve(plumbing.HEAD)
@@ -153,16 +157,61 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	}
 	r.head = tip.Hash().String()
 	r.branch = head.Target().String()
-	if detached {
-		r.branch, err = r.detachedBranch(layout.workingDirectory, options)
-		if err != nil {
-			return nil, err
+	switch {
+	case options.ContextBranch != "":
+		r.branch, r.contextual = options.ContextBranch, true
+	default:
+		var selected bool
+		if options.TargetBranch != "" {
+			selected, err = r.selectTargetBranch(options.TargetBranch)
+			if err != nil {
+				return nil, err
+			}
+		}
+		if detached && !selected {
+			if !options.NormalizeDetached {
+				return nil, fmt.Errorf("unsupported detached HEAD")
+			}
+			r.branch, err = r.detachedBranch(layout.workingDirectory, options)
+			if err != nil {
+				return nil, err
+			}
 		}
 	}
 	if _, err = r.load(r.head); err != nil {
 		return nil, err
 	}
 	return r, nil
+}
+
+// A named target uses the actual branch tip. Prefer local references over
+// tracking references and keep the checked-out branch when no name matches.
+func (r *Repository) selectTargetBranch(target string) (bool, error) {
+	if r.branch != "" && NewReferenceName(r.branch).EquivalentTo(&target) {
+		return true, nil
+	}
+	refs, err := r.References()
+	if err != nil {
+		return false, err
+	}
+	var selected *Reference
+	for _, ref := range refs {
+		name := NewReferenceName(ref.Name)
+		if (!name.IsLocalBranch && !name.IsRemoteBranch) || !name.EquivalentTo(&target) {
+			continue
+		}
+		if name.IsLocalBranch {
+			r.branch, r.head = ref.Name, ref.SHA
+			return true, nil
+		}
+		if selected == nil {
+			selected = &ref
+		}
+	}
+	if selected != nil {
+		r.branch, r.head = selected.Name, selected.SHA
+	}
+	return selected != nil, nil
 }
 
 // newCommitRepository applies storage-level shallow boundaries to every history

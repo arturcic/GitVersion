@@ -102,6 +102,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	}
 	canonical, head := r.Head()
 	branch := strings.TrimPrefix(canonical, "refs/heads/")
+	friendlyBranch := gitrepo.NewReferenceName(canonical).Friendly
 	kind, _, err := cfg.Branch(branch)
 	if err != nil {
 		return nil, trace, err
@@ -117,7 +118,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		result.Output = cfg.OutputFor(kind)
 		return output.Variables(result)
 	}
-	trace.Branch = branch
+	trace.Branch = friendlyBranch
 	refs, err := r.References()
 	if err != nil {
 		return nil, trace, err
@@ -141,14 +142,21 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		if err != nil {
 			return nil, trace, err
 		}
-		branches = append(branches, branchRef{name, ref.SHA, refKind})
+		tip := ref.SHA
+		if r.ContextualHead() && ref.Name == canonical {
+			tip = head
+		}
+		branches = append(branches, branchRef{name, tip, refKind})
 		haveCurrentBranch = haveCurrentBranch || name == branch
 		if local && refKind == "main" {
-			mainTips = append(mainTips, ref.SHA)
+			mainTips = append(mainTips, tip)
 		}
 	}
 	if !haveCurrentBranch {
 		branches = append(branches, branchRef{branch, head, kind})
+		if r.ContextualHead() && kind == "main" {
+			mainTips = append(mainTips, head)
+		}
 	}
 	// Non-Mainline strategies can calculate an explicitly configured branch
 	// without a main ref (for example a repository initialized on develop).
@@ -217,10 +225,12 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	// pinned managed backend orders by time, even when an ancestor is newer
 	// than the physical tip. Keep the branch history for tag discovery, but
 	// calculate and report against this selected commit.
-	if len(history) == 0 {
-		return nil, trace, fmt.Errorf("No commits found on the current branch.")
+	if !r.ContextualHead() || strings.TrimSpace(requestedCommit) != "" {
+		if len(history) == 0 {
+			return nil, trace, fmt.Errorf("No commits found on the current branch.")
+		}
+		head = history[0]
 	}
-	head = history[0]
 	effective, err = cfg.EffectiveOptions(branch, head, configurations[0].options, configurations[0].value.Inherit)
 	if err != nil {
 		return nil, trace, err
@@ -252,7 +262,10 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			return nil, trace, fmt.Errorf("unsupported octopus merge")
 		}
 	}
-	current := commits[head]
+	current, err := load(head)
+	if err != nil {
+		return nil, trace, err
+	}
 	rawTags, err := r.Tags(refs)
 	if err != nil {
 		return nil, trace, err
@@ -362,7 +375,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 				v.Label = ""
 				v.Number = nil
 			}
-			values, err := format(output.Result{Version: v, SemanticSource: selected.v, SemanticSHA: head, LegacySource: selected.v, CountSHA: head, Branch: branch, SHA: head, CommitTime: current.When, Main: main, Tagged: true})
+			values, err := format(output.Result{Version: v, SemanticSource: selected.v, SemanticSHA: head, LegacySource: selected.v, CountSHA: head, Branch: friendlyBranch, SHA: head, CommitTime: current.When, Main: main, Tagged: true})
 			return values, trace, err
 		}
 	}
@@ -611,7 +624,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	trace.SemanticSHA = chosen.semanticSHA
 	trace.CountSHA = anchor
 	trace.Counted = counted
-	values, err := format(output.Result{Version: v, SemanticSource: chosen.semantic, SemanticSHA: chosen.semanticSHA, Increment: chosen.inc, LegacySource: chosen.base, CountSHA: anchor, Distance: distance, Branch: branch, SHA: head, CommitTime: current.When, Main: main})
+	values, err := format(output.Result{Version: v, SemanticSource: chosen.semantic, SemanticSHA: chosen.semanticSHA, Increment: chosen.inc, LegacySource: chosen.base, CountSHA: anchor, Distance: distance, Branch: friendlyBranch, SHA: head, CommitTime: current.When, Main: main})
 	return values, trace, err
 }
 

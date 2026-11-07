@@ -65,13 +65,20 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		}
 		return outputConfigurationQuery(version, directory, options.TargetURL, nil, options.OverrideConfiguration, &provider, out)
 	}
-	if options.TargetURL != "" || options.TargetBranch != "" || options.ClonePath != "" {
-		return fmt.Errorf("remote and branch targeting are pending")
+	if options.TargetURL != "" || options.ClonePath != "" {
+		return fmt.Errorf("remote repository targeting is pending")
 	}
 	if options.Diag {
 		return fmt.Errorf("diagnostic mode is pending")
 	}
-	repoOptions := gitrepo.OpenOptions{AllowShallow: options.AllowShallow, AllowDirty: true}
+	target, contextBranch, err := branchSelection(options.TargetBranch, os.Getenv)
+	if err != nil {
+		return calculationFailure{err}
+	}
+	repoOptions := gitrepo.OpenOptions{
+		AllowShallow: options.AllowShallow, AllowDirty: true,
+		TargetBranch: target, ContextBranch: contextBranch,
+	}
 	if !options.NoNormalize {
 		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
 		repoOptions.NormalizeDetached = agent.Name != "LocalBuild"

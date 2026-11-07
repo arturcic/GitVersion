@@ -24,7 +24,8 @@ func calculationCachePath(repo *gitrepo.Repository, version, commit string, conf
 		References                                          []gitrepo.Reference
 		ShallowCommits                                      []string
 		UncommittedChanges                                  int
-	}{branch, head, commit, version, configuration, refs, repo.ShallowCommits(), repo.UncommittedChanges()}
+		ContextualHead                                      bool `json:",omitempty"`
+	}{branch, head, commit, version, configuration, refs, repo.ShallowCommits(), repo.UncommittedChanges(), repo.ContextualHead()}
 	input, err := json.Marshal(identity)
 	if err != nil {
 		return "", err
