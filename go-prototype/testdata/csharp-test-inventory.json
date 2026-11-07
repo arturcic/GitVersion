@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 982,
-      "verified": 903
+      "verified": 982
     },
     "integration": {
       "declarations": 662,
@@ -7112,7 +7112,7 @@
       ],
       "source_sha256": "1af96bc4d9c836096a16dfae9f4bceea03cf378d529f740641c1c200445ef801",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7144,7 +7144,7 @@
       ],
       "source_sha256": "1af96bc4d9c836096a16dfae9f4bceea03cf378d529f740641c1c200445ef801",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7170,7 +7170,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7206,7 +7206,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7233,7 +7233,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7269,7 +7269,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7312,7 +7312,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7340,7 +7340,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7364,7 +7364,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7388,7 +7388,7 @@
       ],
       "source_sha256": "d5a9ab34394ec9e9fc96b7cf2247536f02d828acd4fb54e8185e34e289df51a5",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7412,7 +7412,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7436,7 +7436,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7460,7 +7460,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7484,7 +7484,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7508,7 +7508,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7532,7 +7532,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7556,7 +7556,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7580,7 +7580,7 @@
       ],
       "source_sha256": "cb99ab09c93c54c16d11764e3dfd543e6bfe938092d64d69af1a5acf087320ca",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7604,7 +7604,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7628,7 +7628,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7652,7 +7652,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7676,7 +7676,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7700,7 +7700,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7724,7 +7724,7 @@
       ],
       "source_sha256": "3934884dcbd57e86cae28ba5c39400916c41c04df2713127944f97ac1e1f255d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7748,7 +7748,7 @@
       ],
       "source_sha256": "5115c3f8fb7a217511b249ecafd412221705d5dd0efd7078d8484c8ad0d0280d",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7772,7 +7772,7 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7796,7 +7796,7 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7820,7 +7820,7 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7844,7 +7844,7 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7868,7 +7868,7 @@
       ],
       "source_sha256": "c02532cf0e06bd2d4391fde18d17db727dbbda1987f9e59c1cee0164e615261b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7892,7 +7892,7 @@
       ],
       "source_sha256": "57aa56df9b22368feb92f8242f52f1df4d7884bd95ddcea99d7365ac3b023d66",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7916,7 +7916,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7940,7 +7940,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7964,7 +7964,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -7988,7 +7988,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8012,7 +8012,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8036,7 +8036,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8060,7 +8060,7 @@
       ],
       "source_sha256": "1fc12ce999189cae975f70cb4397dc00d17546f9d9e72cf592a7c8f35ae37189",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8084,7 +8084,7 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8108,7 +8108,7 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8136,7 +8136,7 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8165,7 +8165,7 @@
       ],
       "source_sha256": "d8362d3fc1da95587bacd33b48216e423ea069a3f248f7ad30da40eb425fa719",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8190,7 +8190,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8214,7 +8214,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8238,7 +8238,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8262,7 +8262,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8286,7 +8286,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8334,7 +8334,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8364,7 +8364,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8388,7 +8388,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8412,7 +8412,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8436,7 +8436,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8460,7 +8460,7 @@
       ],
       "source_sha256": "f7f0bb20e499dec1f9e14f3f6314566a00f52a11ed2d87ee8e3140df36c6752a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8484,7 +8484,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8524,7 +8524,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8552,7 +8552,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8592,7 +8592,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8632,7 +8632,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8663,7 +8663,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8688,7 +8688,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8712,7 +8712,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8736,7 +8736,7 @@
       ],
       "source_sha256": "1b617901b598f3521066cb329caff97aa2c2f5e27f6ed25ac3f199739cc25e92",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8760,7 +8760,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8784,7 +8784,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8808,7 +8808,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8832,7 +8832,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8856,7 +8856,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8880,7 +8880,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8904,7 +8904,7 @@
       ],
       "source_sha256": "4af2d2d0dbaf7a5579e59bfba82d80434358492c770688cb4807dd826909c506",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8928,7 +8928,7 @@
       ],
       "source_sha256": "786b494170ff31a18cb14d39c6c000cb3883580367d2f70da6e4af84e2cea143",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8952,7 +8952,7 @@
       ],
       "source_sha256": "786b494170ff31a18cb14d39c6c000cb3883580367d2f70da6e4af84e2cea143",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -8976,7 +8976,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9000,7 +9000,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9024,7 +9024,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9048,7 +9048,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9072,7 +9072,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9096,7 +9096,7 @@
       ],
       "source_sha256": "3c915ac17b3b53a8cc20648a851f1ef7371d1c6a263751294248a7d0cee8914b",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9120,7 +9120,7 @@
       ],
       "source_sha256": "fde1d0693a3fd2ee674f0ba054c0ff7838f58f99f0e008d45b542b9e68f2e4b1",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [
@@ -9144,7 +9144,7 @@
       ],
       "source_sha256": "fde1d0693a3fd2ee674f0ba054c0ff7838f58f99f0e008d45b542b9e68f2e4b1",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpBuildAgents",
       "fixtures": [],
       "port_cases": [

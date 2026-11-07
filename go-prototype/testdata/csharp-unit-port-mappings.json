@@ -48001,7 +48001,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AppVeyorJsonTests.VariableRequestPreservesWireNamesAndEscaping": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AppVeyorJsonTests.cs",
@@ -48018,7 +48018,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48033,7 +48033,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48051,7 +48051,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.MissingEnvShouldNotBlowUp": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48066,7 +48066,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.AzurePipelinesBuildNumberWithFullSemVer": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48084,7 +48084,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.AzurePipelinesBuildNumberWithSemVer": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48103,7 +48103,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48118,7 +48118,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.GetCurrentBranchShouldHandleTags": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48133,7 +48133,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AzurePipelinesTests.GetCurrentBranchShouldHandlePullRequests": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/AzurePipelinesTests.cs",
@@ -48148,7 +48148,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.CanNotApplyToCurrentContextWhenEnvironmentVariableNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48163,7 +48163,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.CalculateVersionOnMainBranch": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48178,7 +48178,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.CalculateVersionOnDevelopBranch": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48193,7 +48193,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.CalculateVersionOnFeatureBranch": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48208,7 +48208,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48223,7 +48223,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.GetCurrentBranchShouldHandleTags": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48238,7 +48238,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.GetCurrentBranchShouldHandlePullRequests": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48253,7 +48253,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BitBucketPipelinesTests.WriteAllVariablesToTheTextWriter": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BitBucketPipelinesTests.cs",
@@ -48268,7 +48268,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48283,7 +48283,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48298,7 +48298,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48313,7 +48313,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.GetCurrentBranchShouldHandlePullRequests": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48328,7 +48328,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48343,7 +48343,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildKiteTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildKiteTests.cs",
@@ -48358,7 +48358,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BuildServerBaseTests.BuildNumberIsFullSemVer": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/BuildServerBaseTests.cs",
@@ -48373,7 +48373,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CodeBuildTests.CorrectlyIdentifiesCodeBuildPresenceFromSourceVersion": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
@@ -48388,7 +48388,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CodeBuildTests.PicksUpBranchNameFromEnvironmentFromSourceVersion": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
@@ -48403,7 +48403,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CodeBuildTests.CorrectlyIdentifiesCodeBuildPresenceFromWebHook": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
@@ -48418,7 +48418,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CodeBuildTests.PicksUpBranchNameFromEnvironmentFromWebHook": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
@@ -48433,7 +48433,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "CodeBuildTests.WriteAllVariablesToTheTextWriter": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/CodeBuildTests.cs",
@@ -48448,7 +48448,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuaCiTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/ContinuaCiTests.cs",
@@ -48463,7 +48463,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48478,7 +48478,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48493,7 +48493,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.GetCurrentBranchShouldDroneBranchInCaseOfPush": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48508,7 +48508,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.GetCurrentBranchShouldUseDroneSourceBranchInCaseOfPullRequestAndNonEmptyDroneSourceBranch": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48523,7 +48523,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.GetCurrentBranchShouldUseSourceBranchFromCiCommitRefSpecInCaseOfPullRequestAndEmptyDroneSourceBranch": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48538,7 +48538,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndCiCommitRefSpec": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48553,7 +48553,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DroneTests.GetCurrentBranchShouldUseDroneBranchInCaseOfPullRequestAndEmptyDroneSourceBranchAndInvalidFormatOfCiCommitRefSpec": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/DroneTests.cs",
@@ -48568,7 +48568,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EnvRunTests.CanApplyToCurrentContext": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs",
@@ -48583,7 +48583,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EnvRunTests.CanApplyToCurrentContextEnvironmentVariableNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs",
@@ -48598,7 +48598,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EnvRunTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs",
@@ -48614,7 +48614,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EnvRunTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/EnvRunTests.cs",
@@ -48630,7 +48630,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48645,7 +48645,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48660,7 +48660,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48675,7 +48675,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.GetCurrentBranchShouldHandleTags": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48690,7 +48690,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.GetCurrentBranchShouldHandlePullRequests": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48705,7 +48705,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.GetCurrentTagOnlyReturnsAnExplicitTagReference": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48726,7 +48726,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48741,7 +48741,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.SkipEmptyOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48756,7 +48756,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.ShouldWriteIntegration": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48771,7 +48771,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.ShouldNotWriteIntegration": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48786,7 +48786,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitHubActionsTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitHubActionsTests.cs",
@@ -48801,7 +48801,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48816,7 +48816,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentTagShouldUseCommitTagName": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48835,7 +48835,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48850,7 +48850,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48869,7 +48869,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentBranchShouldHandleTags": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48887,7 +48887,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentBranchShouldHandleMergeRequestRefPaths": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48903,7 +48903,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentBranchShouldPreferTagOverMergeRequestRefPath": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48918,7 +48918,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.GetCurrentBranchShouldFallBackToRefNameWhenMergeRequestRefPathIsEmpty": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48933,7 +48933,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitLabCiTests.WriteAllVariablesToTheTextWriter": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/GitLabCiTests.cs",
@@ -48948,7 +48948,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.CanApplyCurrentContextWhenEnvironmentVariableIsSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -48963,7 +48963,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.CanNotApplyCurrentContextWhenEnvironmentVariableIsNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -48978,7 +48978,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.JenkinsTakesLocalBranchNameNotRemoteName": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -48993,7 +48993,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.JenkinsTakesBranchNameInPipelineAsCode": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -49008,7 +49008,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -49023,7 +49023,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -49038,7 +49038,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JenkinsTests.WriteAllVariablesToTheTextWriter": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/JenkinsTests.cs",
@@ -49053,7 +49053,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MyGetTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/MyGetTests.cs",
@@ -49068,7 +49068,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MyGetTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/MyGetTests.cs",
@@ -49083,7 +49083,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.CanApplyToCurrentContextShouldBeTrueWhenEnvironmentVariableIsSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49098,7 +49098,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.CanApplyToCurrentContextShouldBeFalseWhenEnvironmentVariableIsNotSet": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49113,7 +49113,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.GetCurrentBranchShouldHandleBranches": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49128,7 +49128,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.GetCurrentBranchShouldHandleTags": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49143,7 +49143,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.GetCurrentBranchShouldHandlePullRequests": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49158,7 +49158,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SpaceAutomationTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/SpaceAutomationTests.cs",
@@ -49173,7 +49173,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TeamCityTests.ShouldSetBuildNumber": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/TeamCityTests.cs",
@@ -49188,7 +49188,7 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TeamCityTests.ShouldSetOutputVariables": {
     "source": "src/GitVersion.BuildAgents.Tests/Agents/TeamCityTests.cs",
@@ -49203,6 +49203,6 @@
     "adaptations": [
       "Go adapters use injected environment lookups and local temporary files. The semantic variable provider supplies the original version and metadata fixtures. AppVeyor wire JSON is tested without a remote service."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
