@@ -52569,7 +52569,7 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormatArgumentTests.ShouldOutputFormatWithEnvironmentVariablesTests": {
     "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
@@ -52585,7 +52585,7 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormatArgumentTests.ShouldOutputDotEnvEntries": {
     "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
@@ -52609,7 +52609,7 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormatArgumentTests.ShouldOutputAllCalculatedVariablesAsDotEnvEntries": {
     "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
@@ -52624,7 +52624,7 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormatArgumentTests.ShouldOutputAllDotEnvEntriesEvenForMinimalRepositories": {
     "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
@@ -52648,7 +52648,7 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FormatArgumentTests.ShouldOutputAllCalculatedVariablesAsDotEnvEntriesEvenForMinimalRepositories": {
     "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
@@ -52663,6 +52663,6 @@
     "adaptations": [
       "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

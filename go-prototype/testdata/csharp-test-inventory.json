@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 1193,
-      "verified": 1187
+      "verified": 1193
     },
     "integration": {
       "declarations": 662,
@@ -221907,7 +221907,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
@@ -221939,7 +221939,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
@@ -222000,7 +222000,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
@@ -222033,7 +222033,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
@@ -222093,7 +222093,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
@@ -222126,7 +222126,7 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpFormatArguments",
       "fixtures": [],
       "port_cases": [
