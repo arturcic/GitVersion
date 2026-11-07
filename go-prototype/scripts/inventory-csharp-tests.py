@@ -116,8 +116,15 @@ for row in rows:
     data = (root / port['case_file']).read_bytes()
     assert hashlib.sha256(data).hexdigest() == port['case_file_sha256'], key
     corpus = json.loads(data)
-    assert corpus['revision'] == revision and corpus['source_sha256'] == row['source_sha256'], key
-    assert [case['id'] for case in corpus['methods'][row['method']]] == port['case_ids'], key
+    assert corpus['revision'] == revision, key
+    if 'suites' in corpus:
+        suite = corpus['suites'][Path(row['source']).stem]
+        assert suite['source'] == row['source'] and suite['sha256'] == row['source_sha256'], key
+        cases = suite['methods'][row['method']]['cases']
+    else:
+        assert corpus['source_sha256'] == row['source_sha256'], key
+        cases = corpus['methods'][row['method']]
+    assert [case['id'] for case in cases] == port['case_ids'], key
     assert len(port['case_ids']) == len(set(port['case_ids'])) and port['case_ids'], key
     row.update(status=port['status'], go_test=port['go_test'], port_cases=port['case_ids'],
                case_file=port['case_file'], adaptations=port['adaptations'])

@@ -44046,5 +44046,683 @@
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ConfigurationProviderTests.ProvidesNestedV7ConfigurationAndMergesOutputOnlyWorkflowBranch": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ProvidesNestedV7ConfigurationAndMergesOutputOnlyWorkflowBranch",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ResolvesEquivalentV6AndV7Configuration": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ResolvesEquivalentV6AndV7Configuration",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.V7SerializationRoundTripsDefaultsAndBuiltInWorkflows": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "V7SerializationRoundTripsDefaultsAndBuiltInWorkflows",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.RejectsMixedV7Configuration": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "RejectsMixedV7Configuration",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.RegexIsRequired": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "RegexIsRequired",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanConfigureVersionBumpResetMessage": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanConfigureVersionBumpResetMessage",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.SourceBranchesValidationShouldFailWhenMatchingBranchConfigurationIsMissing": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "SourceBranchesValidationShouldFailWhenMatchingBranchConfigurationIsMissing",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.SourceBranchesValidationShouldSucceedForWellKnownBranches": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "SourceBranchesValidationShouldSucceedForWellKnownBranches",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanProvideConfigForNewBranch": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanProvideConfigForNewBranch",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.NextVersionCanBeInteger": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "NextVersionCanBeInteger",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.NextVersionCanHaveEnormousMinorVersion": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "NextVersionCanHaveEnormousMinorVersion",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningScheme": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanUpdateAssemblyInformationalVersioningScheme",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningSchemeWithMultipleVariables": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanUpdateAssemblyInformationalVersioningSchemeWithMultipleVariables",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningSchemeWithFullSemVer": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanUpdateAssemblyInformationalVersioningSchemeWithFullSemVer",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanReadCustomVersionFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanReadCustomVersionFormat",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanReadBranchSpecificCustomVersionFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanReadBranchSpecificCustomVersionFormat",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanOverrideCustomVersionFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanOverrideCustomVersionFormat",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.CanReadDefaultDocument": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "CanReadDefaultDocument",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.WarnsOnceWhenExplicitV6LoadsAConfigurationFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "WarnsOnceWhenExplicitV6LoadsAConfigurationFile",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.DoesNotWarnWhenV6IsNotExplicitlySelected": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "DoesNotWarnWhenV6IsNotExplicitlySelected",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.DoesNotWarnForExplicitV6BuiltInDefaults": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "DoesNotWarnForExplicitV6BuiltInDefaults",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.DoesNotWarnWhenExplicitV6ConfigurationFailsNormalization": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "DoesNotWarnWhenExplicitV6ConfigurationFailsNormalization",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldUseSpecifiedSourceBranchesForDevelop": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldUseSpecifiedSourceBranchesForDevelop",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldUseSpecifiedSourceBranchesForFeature": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldUseSpecifiedSourceBranchesForFeature",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldNotOverrideAnythingWhenOverrideConfigIsEmpty": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldNotOverrideAnythingWhenOverrideConfigIsEmpty",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldUseDefaultTagPrefixWhenNotSetInConfigFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldUseDefaultTagPrefixWhenNotSetInConfigFile",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldUseTagPrefixFromConfigFileWhenProvided": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldUseTagPrefixFromConfigFileWhenProvided",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldOverrideTagPrefixWithOverrideConfigValue": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldOverrideTagPrefixWithOverrideConfigValue",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldNotOverrideDefaultTagPrefixWhenNotSetInOverrideConfig": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldNotOverrideDefaultTagPrefixWhenNotSetInOverrideConfig",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldNotOverrideTagPrefixFromConfigFileWhenNotSetInOverrideConfig": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldNotOverrideTagPrefixFromConfigFileWhenNotSetInOverrideConfig",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationProviderTests.ShouldOverrideTagPrefixFromConfigFileWhenSetInOverrideConfig": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+    "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+    "method": "ShouldOverrideTagPrefixFromConfigFileWhenSetInOverrideConfig",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.PureResolutionMatchesProviderWithFileAndOverrides": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "PureResolutionMatchesProviderWithFileAndOverrides",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.InvalidPublicInputReportsThePropertyPath": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "InvalidPublicInputReportsThePropertyPath",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014",
+      "case-015"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.AllConfiguredRegexesAreCheckedWithPublicPaths": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "AllConfiguredRegexesAreCheckedWithPublicPaths",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.CustomBranchRelationshipsResolveWithoutRepositoryHistory": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "CustomBranchRelationshipsResolveWithoutRepositoryHistory",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.NextVersionUsesTheRuntimeSemanticVersionFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "NextVersionUsesTheRuntimeSemanticVersionFormat",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationResolverTests.InternalOverridesCanUseTypedEnumsAndCollections": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+    "source_sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+    "method": "InternalOverridesCanUseTypedEnumsAndCollections",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationHelperTests.Override_Replaces_Nested_Dictionary_With_Scalar_Value": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
+    "source_sha256": "2be3964a5d356e3ef19b45eae7bebaf58c6d2206e94a6faef5256aac90c22ed1",
+    "method": "Override_Replaces_Nested_Dictionary_With_Scalar_Value",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationHelperTests.Override_Merges_Nested_Dictionaries_Recursively": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
+    "source_sha256": "2be3964a5d356e3ef19b45eae7bebaf58c6d2206e94a6faef5256aac90c22ed1",
+    "method": "Override_Merges_Nested_Dictionaries_Recursively",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationHelperTests.Override_Clones_New_Nested_Dictionaries": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
+    "source_sha256": "2be3964a5d356e3ef19b45eae7bebaf58c6d2206e94a6faef5256aac90c22ed1",
+    "method": "Override_Clones_New_Nested_Dictionaries",
+    "go_test": "TestCSharpConfigurationResolution",
+    "case_file": "testdata/csharp-configuration-resolver.json",
+    "case_file_sha256": "9cd8e1579202561b8442bed57e8aba987a78d2a857049eb425bb9538510672a6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
+      "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

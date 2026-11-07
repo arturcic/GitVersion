@@ -158,7 +158,11 @@ func flattenDocument(fields map[string]*yaml.Node) (*yaml.Node, error) {
 
 func mergeDocumentBranches(target *yaml.Node, byName map[string]*yaml.Node, source *yaml.Node, section string) error {
 	if _, err := mapping(source, section+".branches", nil); err != nil {
-		return err
+		reason := "Expected a mapping."
+		if source.Tag == "!!null" {
+			reason = "Expected a non-null configuration value."
+		}
+		return validation("PROPERTY", section+".branches", reason)
 	}
 	for i := 0; i < len(source.Content); i += 2 {
 		name, branch := source.Content[i].Value, source.Content[i+1]

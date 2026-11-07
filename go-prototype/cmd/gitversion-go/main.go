@@ -16,6 +16,9 @@ func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
+	if flags, directory, ok := configValidationInvocation(args); ok {
+		return runConfigValidate(flags, directory, out, diagnostics)
+	}
 	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--config PATH] [--trace]"
 	if len(args) == 0 || (args[0] != "observe" && args[0] != "calculate") {
 		return fmt.Errorf("%s", usage)
@@ -60,7 +63,9 @@ func execute(args []string, out, diagnostics io.Writer) error {
 }
 func main() {
 	if err := execute(os.Args[1:], os.Stdout, os.Stderr); err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		if err != invalidConfiguration {
+			fmt.Fprintln(os.Stderr, err)
+		}
 		os.Exit(1)
 	}
 }

@@ -1,0 +1,665 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "ConfigurationProviderTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+      "sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+      "methods": {
+        "ProvidesNestedV7ConfigurationAndMergesOutputOnlyWorkflowBranch": {
+          "document": "workflow: GitFlow/v1\ncalculation:\n  tag-prefix: custom-\noutput:\n  update-build-number: false\n  branches:\n    develop:\n      custom-version-format: '{SemVer}'\n      pre-release-weight: 42",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ResolvesEquivalentV6AndV7Configuration": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "V7SerializationRoundTripsDefaultsAndBuiltInWorkflows": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitFlow/v1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "TrunkBased/preview1"
+              ]
+            }
+          ]
+        },
+        "RejectsMixedV7Configuration": {
+          "document": "calculation:\n  tag-prefix: custom-\nupdate-build-number: false",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RegexIsRequired": {
+          "document": "next-version: 2.0.0\nbranches:\n    bug:\n        label: bugfix",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanConfigureVersionBumpResetMessage": {
+          "document": "version-bump-reset-message: 'baseline:'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "SourceBranchesValidationShouldFailWhenMatchingBranchConfigurationIsMissing": {
+          "document": "branches:\n    bug:\n        regex: 'bug[\\/-]'\n        label: bugfix\n        source-branches: [notconfigured]",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "SourceBranchesValidationShouldSucceedForWellKnownBranches": {
+          "document": "branches:\n    bug:\n        regex: 'bug[\\/-]'\n        label: bugfix\n        source-branches: [{wellKnownBranchKey}]",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "main"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "develop"
+              ]
+            }
+          ]
+        },
+        "CanProvideConfigForNewBranch": {
+          "document": "next-version: 2.0.0\nbranches:\n    bug:\n        regex: 'bug[\\/-]'\n        label: bugfix\n        source-branches: []",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "NextVersionCanBeInteger": {
+          "document": "next-version: 2\nsemantic-version-format: Loose",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "NextVersionCanHaveEnormousMinorVersion": {
+          "document": "next-version: 2.118998723\nsemantic-version-format: Loose",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanUpdateAssemblyInformationalVersioningScheme": {
+          "document": "assembly-versioning-scheme: MajorMinor\nassembly-file-versioning-scheme: MajorMinorPatch\nassembly-informational-format: '{NugetVersion}'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanUpdateAssemblyInformationalVersioningSchemeWithMultipleVariables": {
+          "document": "assembly-versioning-scheme: MajorMinor\nassembly-file-versioning-scheme: MajorMinorPatch\nassembly-informational-format: '{Major}.{Minor}.{Patch}'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanUpdateAssemblyInformationalVersioningSchemeWithFullSemVer": {
+          "document": "assembly-versioning-scheme: MajorMinorPatch\nassembly-file-versioning-scheme: MajorMinorPatch\nassembly-informational-format: '{FullSemVer}'\nmode: ContinuousDelivery\nnext-version: 5.3.0\nbranches: {}",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanReadCustomVersionFormat": {
+          "document": "custom-version-format: '{Major}.{Minor}.{Patch}{PreReleaseLabelName:l}{PreReleaseNumber}'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanReadBranchSpecificCustomVersionFormat": {
+          "document": "custom-version-format: '{SemVer}'\nbranches:\n  feature:\n    custom-version-format: '{Major}.{Minor}.{Patch}{PreReleaseLabelName:l}{PreReleaseNumber}'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanOverrideCustomVersionFormat": {
+          "document": "custom-version-format: '{SemVer}'",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanReadDefaultDocument": {
+          "document": "",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WarnsOnceWhenExplicitV6LoadsAConfigurationFile": {
+          "document": "",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DoesNotWarnWhenV6IsNotExplicitlySelected": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7"
+              ]
+            }
+          ]
+        },
+        "DoesNotWarnForExplicitV6BuiltInDefaults": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DoesNotWarnWhenExplicitV6ConfigurationFailsNormalization": {
+          "document": "calculation:\n  next-version: 2.0.0\noutput: {}",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldUseSpecifiedSourceBranchesForDevelop": {
+          "document": "next-version: 2.0.0\nbranches:\n    develop:\n        mode: ContinuousDeployment\n        source-branches: ['develop']\n        label: dev",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldUseSpecifiedSourceBranchesForFeature": {
+          "document": "next-version: 2.0.0\nbranches:\n    feature:\n        mode: ContinuousDeployment\n        source-branches: ['develop', 'release']\n        label: dev",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldNotOverrideAnythingWhenOverrideConfigIsEmpty": {
+          "document": "next-version: 1.2.3\ntag-prefix: custom-tag-prefix-from-yml",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldUseDefaultTagPrefixWhenNotSetInConfigFile": {
+          "document": "",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldUseTagPrefixFromConfigFileWhenProvided": {
+          "document": "tag-prefix: custom-tag-prefix-from-yml",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldOverrideTagPrefixWithOverrideConfigValue": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                true
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                false
+              ]
+            }
+          ]
+        },
+        "ShouldNotOverrideDefaultTagPrefixWhenNotSetInOverrideConfig": {
+          "document": "",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldNotOverrideTagPrefixFromConfigFileWhenNotSetInOverrideConfig": {
+          "document": "tag-prefix: custom-tag-prefix-from-yml",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShouldOverrideTagPrefixFromConfigFileWhenSetInOverrideConfig": {
+          "document": "tag-prefix: custom-tag-prefix-from-yml",
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationResolverTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
+      "sha256": "1d7768f9ae078ebb071cc1bd7190e909058fc9c7f076e680c6d10de0c6a320b6",
+      "methods": {
+        "PureResolutionMatchesProviderWithFileAndOverrides": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "GitFlow/v1"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "TrunkBased/preview1"
+              ]
+            }
+          ]
+        },
+        "InvalidPublicInputReportsThePropertyPath": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "calculation:\n  missing: true",
+                "calculation.missing"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "calculation:\n  ignore:\n    missing: true",
+                "calculation.ignore.missing"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "calculation:\n  prevent-increment:\n    missing: true",
+                "calculation.prevent-increment.missing"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation:\n  ignore:\n    paths: text",
+                "calculation.ignore.paths"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "calculation:\n  branches:\n    main:\n      source-branches: text",
+                "calculation.branches.main.source-branches"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "output:\n  branches:\n    main:\n      pre-release-weight: wrong",
+                "output.branches.main.pre-release-weight"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "calculation:\n  increment: Invalid",
+                "calculation.increment"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "calculation:\n  mode: 99",
+                "calculation.mode"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "calculation:\n  strategies: [Invalid]",
+                "calculation.strategies"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "calculation:\n  strategies: [99999]",
+                "calculation.strategies"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "output:\n  update-build-number: []",
+                "output.update-build-number"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "workflow: []",
+                "workflow"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "workflow: 123",
+                "workflow"
+              ]
+            },
+            {
+              "id": "case-013",
+              "arguments": [
+                "calculation:\n  ignore:\n    commits-before: invalid-date",
+                "calculation.ignore.commits-before"
+              ]
+            },
+            {
+              "id": "case-014",
+              "arguments": [
+                "calculation:\n  branches: null",
+                "calculation.branches"
+              ]
+            },
+            {
+              "id": "case-015",
+              "arguments": [
+                "calculation:\n  ignore:\n    branches: [null]",
+                "calculation.ignore.branches[0]"
+              ]
+            }
+          ]
+        },
+        "AllConfiguredRegexesAreCheckedWithPublicPaths": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "tag-prefix"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "version-in-branch-pattern"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "major-version-bump-message"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "minor-version-bump-message"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "patch-version-bump-message"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "no-bump-message"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "version-bump-reset-message"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "regex"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "ignore.branches"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "ignore.tags"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "ignore.paths"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "merge-message-formats.custom"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "branches.main.regex"
+              ]
+            }
+          ]
+        },
+        "CustomBranchRelationshipsResolveWithoutRepositoryHistory": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "NextVersionUsesTheRuntimeSemanticVersionFormat": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "2.0.0",
+                "Strict",
+                true
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "2.1",
+                "Loose",
+                true
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "2.1",
+                "Strict",
+                false
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "999999999999999999999999.0.0",
+                "Strict",
+                false
+              ]
+            }
+          ]
+        },
+        "InternalOverridesCanUseTypedEnumsAndCollections": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationHelperTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
+      "sha256": "2be3964a5d356e3ef19b45eae7bebaf58c6d2206e94a6faef5256aac90c22ed1",
+      "methods": {
+        "Override_Replaces_Nested_Dictionary_With_Scalar_Value": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "Override_Merges_Nested_Dictionaries_Recursively": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "Override_Clones_New_Nested_Dictionaries": {
+          "document": null,
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "presets": {
+    "internal/config/presets/GitFlow/v1.yml": {
+      "source": "docs/input/docs/workflows/GitFlow/v1.yml",
+      "sha256": "3c69147be71954a203124823fff1723edebac635bf84c3859bb5941a1b448b45"
+    },
+    "internal/config/presets/GitHubFlow/v1.yml": {
+      "source": "docs/input/docs/workflows/GitHubFlow/v1.yml",
+      "sha256": "892e77c5e88babf9fc63fabac699a01d55ed7fd0cf2c0d883cd49aa2bce6089c"
+    },
+    "internal/config/presets/TrunkBased/preview1.yml": {
+      "source": "docs/input/docs/workflows/TrunkBased/preview1.yml",
+      "sha256": "ad5f4541472ccea5978513f8129f9855560c65368e289e21c58c026ee9dc5bb4"
+    }
+  }
+}
