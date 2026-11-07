@@ -125,13 +125,13 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 	var discovered bool
 	normalize := options.TargetURL != "" || (!options.NoNormalize && agent.Name != "LocalBuild")
 	branch := repoOptions.TargetBranch
-	if branch == "" && normalize {
+	if branch == "" && normalize && repoOptions.ContextBranch == "" {
 		branch = repoOptions.BuildBranch
 	}
 	logRepository := func(project, dotGit string) {
 		log.write(logInfo, "Project root is: "+project)
 		log.write(logInfo, "DotGit directory is: "+dotGit)
-		target, contextual := branch, repoOptions.ContextBranch
+		target, contextual := branch, strings.TrimPrefix(repoOptions.ContextBranch, "refs/heads/")
 		if target == "" {
 			target = "null"
 		}
@@ -421,7 +421,18 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 		}
 		return result, err
 	}
+	var rawRefs, projectedRefs []gitrepo.Reference
 	if prepareLog != nil {
+		if repo.NormalizationRemote() != "" && prepareLog.enabled(logInfo) {
+			rawRefs, err = repo.References()
+			if err != nil {
+				return result, err
+			}
+			projectedRefs, err = repo.TraceNormalizedReferences(rawRefs, cfg.Ignore.BranchIgnored, prepareLog.info())
+			if err != nil {
+				return result, err
+			}
+		}
 		if len(repo.ShallowCommits()) > 0 {
 			prepareLog.write(logInfo, "Repository is a shallow clone. GitVersion will continue, but it is recommended to use a full clone for accurate versioning.")
 		}
@@ -429,13 +440,17 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 			if head, readErr := gitrepo.ReadCheckoutHead(root); readErr == nil {
 				prepareLog.write(logInfo, head)
 			}
+			branch, sha := repo.Head()
+			if repo.NormalizationRemote() != "" && strings.HasPrefix(branch, "refs/heads/") && branch != repo.CheckedOutBranch() {
+				prepareLog.write(logInfo, fmt.Sprintf("Selecting local branch '%s' at %.7s (calculation view).", branch, sha))
+			}
 		}
 		endPreparation()
 		endPreparation = nil
 	}
 	var cachePath string
 	if cache {
-		cachePath, err = calculationCachePath(repo, version, options.CommitID, configuration)
+		cachePath, err = calculationCachePath(repo, version, options.CommitID, configuration, rawRefs)
 		if err == nil {
 			info, end := logscope.Begin(log.info(), "Loading version variables from disk cache file "+cachePath)
 			result.values, err = loadCalculationCache(cachePath)
@@ -459,13 +474,13 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 			events.Info = func(message string) { log.write(logInfo, message) }
 			events.TaggedVersionLookup = log.taggedVersionLookup
 		}
-		result.values, result.trace, err = calculate.CalculatePreparedWithLog(repo, cfg, options.CommitID, events)
+		result.values, result.trace, err = calculate.CalculatePreparedWithLog(repo, cfg, options.CommitID, events, projectedRefs)
 		if err != nil {
 			return result, err
 		}
 		if cachePath != "" {
 			// Publish only while the repository reference view still matches the key.
-			current, err := calculationCachePath(repo, version, options.CommitID, configuration)
+			current, err := calculationCachePath(repo, version, options.CommitID, configuration, nil)
 			if err == nil && current == cachePath {
 				_, end := logscope.Begin(log.info(), "Write version variables to cache file "+cachePath)
 				if err := storeCalculationCache(cachePath, result.values); err != nil {

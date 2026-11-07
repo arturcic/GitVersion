@@ -1,6 +1,7 @@
 package gitrepo
 
 import (
+	"fmt"
 	"slices"
 	"strings"
 )
@@ -8,10 +9,15 @@ import (
 // NormalizedReferences projects the CI remote as local branches for version
 // calculation. Existing checkout and target branches keep their selected tips.
 func (repo *Repository) NormalizedReferences(refs []Reference, ignoredBranch func(string) (bool, error)) ([]Reference, error) {
-	return repo.normalizedReferences(refs, repo.NormalizationRemote(), ignoredBranch)
+	return repo.TraceNormalizedReferences(refs, ignoredBranch, nil)
 }
 
-func (repo *Repository) normalizedReferences(refs []Reference, remote string, ignoredBranch func(string) (bool, error)) ([]Reference, error) {
+// TraceNormalizedReferences reports changes to the in-memory branch view.
+func (repo *Repository) TraceNormalizedReferences(refs []Reference, ignoredBranch func(string) (bool, error), info func(string)) ([]Reference, error) {
+	return repo.normalizedReferences(refs, repo.NormalizationRemote(), ignoredBranch, info)
+}
+
+func (repo *Repository) normalizedReferences(refs []Reference, remote string, ignoredBranch func(string) (bool, error), info func(string)) ([]Reference, error) {
 	if remote == "" {
 		return refs, nil
 	}
@@ -35,17 +41,32 @@ func (repo *Repository) normalizedReferences(refs []Reference, remote string, ig
 			continue
 		}
 		local := "refs/heads/" + name
+		protected := local == repo.CheckedOutBranch() || local == current
 		if ignoredBranch != nil {
 			ignored, err := ignoredBranch(name)
 			if err != nil {
 				return nil, err
 			}
 			if ignored {
+				if info != nil && !protected {
+					info(fmt.Sprintf("Skipping ignored remote tracking branch '%s'.", ref.Name))
+				}
 				continue
 			}
 		}
-		if local == repo.CheckedOutBranch() || local == current {
+		if protected {
 			continue
+		}
+		if info != nil {
+			if index, exists := indices[local]; exists {
+				if normalized[index].Target == ref.Target {
+					info(fmt.Sprintf("Skipping update of '%s' as it already matches the remote ref.", ref.Name))
+				} else {
+					info(fmt.Sprintf("Updating local ref '%s' to point at %.7s (calculation view).", local, ref.SHA))
+				}
+			} else {
+				info(fmt.Sprintf("Creating local branch from remote tracking '%s' (calculation view).", ref.Name))
+			}
 		}
 		update(Reference{Name: local, Target: ref.SHA, SHA: ref.SHA})
 	}

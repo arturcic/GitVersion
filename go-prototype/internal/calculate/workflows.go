@@ -1,12 +1,15 @@
 package calculate
 
 import (
-	"github.com/GitTools/GitVersion/go-prototype/internal/config"
-	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
-	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
+	"fmt"
 	"regexp"
 	"sort"
 	"strings"
+
+	"github.com/GitTools/GitVersion/go-prototype/internal/config"
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/logscope"
+	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
 )
 
 type branchRef struct{ name, sha, kind string }
@@ -166,9 +169,18 @@ func configuredNextVersionCandidate(cfg config.Config, label string) (candidate,
 	return candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"}, true, nil
 }
 
-func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error), log *commitLog, only ...string) ([]candidate, error) {
+type workflowTrace struct {
+	strategy string
+	info     func(string)
+}
+
+func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error), log *commitLog, diagnostics ...workflowTrace) ([]candidate, error) {
+	var trace workflowTrace
+	if len(diagnostics) != 0 {
+		trace = diagnostics[0]
+	}
 	enabled := func(name string) bool {
-		return cfg.Strategies[name] && (len(only) == 0 || only[0] == name)
+		return cfg.Strategies[name] && (trace.strategy == "" || trace.strategy == name)
 	}
 	var out []candidate
 	if e.IsRelease && enabled("VersionInBranchName") {
@@ -190,7 +202,11 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if err != nil {
 				return nil, err
 			}
-			name := mergedBranch(c.Message)
+			parsed, err := ParseMergeMessage(&c.Message, nil)
+			if err != nil || parsed.MergedBranch == nil || parsed.Version == nil {
+				continue
+			}
+			name := strings.TrimPrefix(*parsed.MergedBranch, "origin/")
 			kind, _, err := cfg.Branch(name)
 			if err != nil {
 				continue
@@ -199,9 +215,9 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if o.IsRelease == nil || !*o.IsRelease {
 				continue
 			}
-			v, ok := versionInBranch(name)
-			if !ok {
-				continue
+			v := *parsed.Version
+			if trace.info != nil {
+				trace.info(fmt.Sprintf("Found commit [%s] matching merge message format: %s", commitDescription(id, c), *parsed.FormatName))
 			}
 			inc := semver.None
 			if !e.PreventMerged {
@@ -221,7 +237,12 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if err != nil {
 				return nil, err
 			}
-			out = append(out, candidate{base: v, semantic: v, semanticSHA: id, version: bumped, inc: inc, description: "merge message"})
+			value := candidate{base: v, semantic: v, semanticSHA: id, version: bumped, inc: inc, description: "merge message",
+				sourceDescription: fmt.Sprintf("Merge message '%s'", strings.TrimSpace(c.Message))}
+			if trace.info != nil {
+				trace.info(value.diagnostic(e.Label, e.NullLabel))
+			}
+			out = append(out, value)
 			found++
 			if found == 5 {
 				break
@@ -235,18 +256,23 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 				continue
 			}
 			v, ok := versionInBranch(b.name)
-			semanticSHA := ""
+			semanticSHA, semanticDescription := "", "Version in branch name"
+			sourceDescription := "Release branch exists -> " + semanticDescription
 			if !ok {
-				var err error
-				v, semanticSHA, ok, err = releaseTagVersion(r, cfg, b, refs, tags)
+				selected, err := releaseTag(r, cfg, b, refs, tags)
 				if err != nil {
 					return nil, err
 				}
-				if !ok {
+				if selected == nil {
 					continue
 				}
+				v = selected.v
+				v.Label, v.Number = "", nil
+				semanticSHA = selected.ref.Commit
+				semanticDescription = tagDiagnosticSource(selected.ref.Name)
+				sourceDescription = fmt.Sprintf("Release branch exists -> Version in release branch tag '%s'", strings.TrimPrefix(selected.ref.Name, "refs/tags/"))
 			}
-			base, err := branchMergeBase(r, b.sha, head)
+			base, err := tracedBranchMergeBase(r, b, branchRef{name: branch, sha: head}, load, trace.info)
 			if err != nil {
 				return nil, err
 			}
@@ -261,7 +287,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if err != nil {
 				return nil, err
 			}
-			out = append(out, candidate{base: v, semantic: v, semanticSHA: semanticSHA, version: bumped, sha: base, inc: inc, description: "release branch exists"})
+			out = append(out, candidate{base: v, semantic: v, semanticSHA: semanticSHA, version: bumped, sha: base, inc: inc, description: "release branch exists", sourceDescription: sourceDescription, semanticDescription: semanticDescription})
 		}
 	}
 	return out, nil
@@ -297,6 +323,26 @@ func candidateOrder(c candidate) int {
 }
 
 // Match the pinned branch-aware merge-base finder, excluding forward merges.
+func tracedBranchMergeBase(r *gitrepo.Repository, first, second branchRef, load func(string) (gitrepo.Commit, error), info func(string)) (string, error) {
+	if info == nil {
+		return branchMergeBase(r, first.sha, second.sha)
+	}
+	mergeInfo, end := logscope.Begin(info, fmt.Sprintf("Finding merge base between '%s' and '%s'.", first.name, second.name))
+	defer end()
+	base, err := branchMergeBase(r, first.sha, second.sha)
+	if err != nil {
+		return "", err
+	}
+	if base == "" {
+		mergeInfo(fmt.Sprintf("No merge base of '%s' and '%s' could be found.", first.name, second.name))
+	} else if commit, readErr := load(base); readErr == nil {
+		description := commitDescription(base, commit)
+		mergeInfo(fmt.Sprintf("Found merge base of '%s'", description))
+		mergeInfo(fmt.Sprintf("Merge base of '%s' and '%s' is '%s'", first.name, second.name, description))
+	}
+	return base, nil
+}
+
 func branchMergeBase(r *gitrepo.Repository, tip, other string) (string, error) {
 	c, err := r.CommitMetadata(other)
 	if err != nil {
@@ -353,7 +399,7 @@ func branchMergeBase(r *gitrepo.Repository, tip, other string) (string, error) {
 
 // An unversioned release name can take its target from a matching prerelease
 // tag on its own first-parent history, excluding every main branch's trunk.
-func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRef, refs []branchRef, tags []tag) (semver.Version, string, bool, error) {
+func releaseTag(r *gitrepo.Repository, cfg config.Config, branch branchRef, refs []branchRef, tags []tag) (*tag, error) {
 	excluded := map[string]bool{}
 	for _, b := range refs {
 		if !truth(cfg.Options(b.kind).IsMain) {
@@ -361,7 +407,7 @@ func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRe
 		}
 		ids, err := r.Walk(gitrepo.WalkOptions{Include: b.sha, FirstParent: true})
 		if err != nil {
-			return semver.Version{}, "", false, err
+			return nil, err
 		}
 		for _, id := range ids {
 			excluded[id] = true
@@ -369,7 +415,7 @@ func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRe
 	}
 	ids, err := r.Walk(gitrepo.WalkOptions{Include: branch.sha, FirstParent: true})
 	if err != nil {
-		return semver.Version{}, "", false, err
+		return nil, err
 	}
 	own := map[string]bool{}
 	for _, id := range ids {
@@ -379,7 +425,7 @@ func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRe
 	}
 	effective, err := cfg.EffectiveAt(branch.name, "main", branch.sha)
 	if err != nil {
-		return semver.Version{}, "", false, err
+		return nil, err
 	}
 	var selected *tag
 	for i := range tags {
@@ -388,11 +434,5 @@ func releaseTagVersion(r *gitrepo.Repository, cfg config.Config, branch branchRe
 			selected = t
 		}
 	}
-	if selected == nil {
-		return semver.Version{}, "", false, nil
-	}
-	v := selected.v
-	v.Label = ""
-	v.Number = nil
-	return v, selected.ref.Commit, true, nil
+	return selected, nil
 }

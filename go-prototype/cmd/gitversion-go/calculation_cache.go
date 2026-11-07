@@ -12,11 +12,14 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
-func calculationCachePath(repo *gitrepo.Repository, version, commit string, configuration []byte) (string, error) {
+func calculationCachePath(repo *gitrepo.Repository, version, commit string, configuration []byte, refs []gitrepo.Reference) (string, error) {
 	branch, head := repo.Head()
-	refs, err := repo.References()
-	if err != nil {
-		return "", err
+	if refs == nil {
+		var err error
+		refs, err = repo.References()
+		if err != nil {
+			return "", err
+		}
 	}
 	identity := struct {
 		Branch, Head, RequestedCommit, ConfigurationVersion string

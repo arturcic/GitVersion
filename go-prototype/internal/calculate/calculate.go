@@ -44,6 +44,9 @@ type candidate struct {
 	sha, semanticSHA        string
 	inc                     semver.Increment
 	description             string
+	sourceDescription       string
+	semanticDescription     string
+	forceIncrement          bool
 	effective               config.Effective
 	source                  string
 }
@@ -88,12 +91,12 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, o
 	if err != nil {
 		return nil, Trace{Candidates: []Candidate{}, Counted: []string{}}, err
 	}
-	return calculatePrepared(r, cfg, requestedCommit, strategy, CalculationLog{})
+	return calculatePrepared(r, cfg, requestedCommit, strategy, CalculationLog{}, nil)
 }
 
 // CalculatePrepared evaluates an already opened repository snapshot.
 func CalculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string) (map[string]any, Trace, error) {
-	return calculatePrepared(r, cfg, requestedCommit, nil, CalculationLog{})
+	return calculatePrepared(r, cfg, requestedCommit, nil, CalculationLog{}, nil)
 }
 
 type CalculationLog struct {
@@ -102,11 +105,12 @@ type CalculationLog struct {
 }
 
 // CalculatePreparedWithLog reports version calculation diagnostics to the caller.
-func CalculatePreparedWithLog(r *gitrepo.Repository, cfg config.Config, requestedCommit string, log CalculationLog) (map[string]any, Trace, error) {
-	return calculatePrepared(r, cfg, requestedCommit, nil, log)
+// A non-nil refs slice is the already normalized view from repository preparation.
+func CalculatePreparedWithLog(r *gitrepo.Repository, cfg config.Config, requestedCommit string, log CalculationLog, refs []gitrepo.Reference) (map[string]any, Trace, error) {
+	return calculatePrepared(r, cfg, requestedCommit, nil, log, refs)
 }
 
-func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string, strategy versionStrategy, diagnostics CalculationLog) (map[string]any, Trace, error) {
+func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string, strategy versionStrategy, diagnostics CalculationLog, refs []gitrepo.Reference) (map[string]any, Trace, error) {
 	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	ignored, err := newCommitFilter(r, cfg.Ignore)
 	if err != nil {
@@ -131,13 +135,15 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		return output.Variables(result)
 	}
 	trace.Branch = friendlyBranch
-	refs, err := r.References()
-	if err != nil {
-		return nil, trace, err
-	}
-	refs, err = r.NormalizedReferences(refs, cfg.Ignore.BranchIgnored)
-	if err != nil {
-		return nil, trace, err
+	if refs == nil {
+		refs, err = r.References()
+		if err != nil {
+			return nil, trace, err
+		}
+		refs, err = r.NormalizedReferences(refs, cfg.Ignore.BranchIgnored)
+		if err != nil {
+			return nil, trace, err
+		}
 	}
 	mainTips := []string{}
 	branches := []branchRef{}
@@ -235,7 +241,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		if strings.TrimSpace(requestedCommit) != "" && diagnostics.Warn != nil {
 			diagnostics.Warn(fmt.Sprintf("Commit '%s' specified but not found", requestedCommit))
 		}
-		if diagnostics.Info != nil {
+		if diagnostics.Info != nil && !r.ContextualHead() {
 			diagnostics.Info("Using latest commit on specified branch")
 		}
 	}
@@ -316,7 +322,14 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	// The C# service orders groups by their lookup commit, which can be a
 	// merge target's parent rather than the tagged commit itself. Flatten and
 	// deduplicate tags only after ordering those groups.
-	eligibleTags := func(effective config.Effective) ([]tag, error) {
+	eligibleTags := func(effective config.Effective, info func(string)) ([]tag, error) {
+		startLookup := func(subject string) func() {
+			if info == nil {
+				return func() {}
+			}
+			_, end := logscope.Begin(info, fmt.Sprintf("Getting tagged semantic versions %s. TagPrefix: %s and Format: %s", subject, cfg.TagPrefixText, cfg.TagVersionFormat))
+			return end
+		}
 		type tagGroup struct {
 			id   string
 			tags []tag
@@ -346,8 +359,11 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 				}
 			}
 		}
+		endBranch := startLookup(fmt.Sprintf("on branch '%s'", canonical))
 		add(history, true)
+		endBranch()
 		if effective.TrackMergeTarget {
+			endMergeTarget := startLookup(fmt.Sprintf("by track merge target '%s'", canonical))
 			for _, t := range allTags {
 				for _, parent := range commits[t.ref.Commit].Parents {
 					if reachable[parent] && commits[parent].When <= current.When {
@@ -355,6 +371,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 					}
 				}
 			}
+			endMergeTarget()
 		}
 		for _, br := range branches {
 			skip, err := cfg.Ignore.BranchIgnored(br.name)
@@ -367,11 +384,14 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			o := cfg.Options(br.kind)
 			take := (!effective.IsMain && !effective.IsRelease && truth(o.IsMain)) || (effective.TracksRelease && truth(o.IsRelease))
 			if take && br.name != branch {
+				endSource := startLookup(fmt.Sprintf("on branch '%s'", gitrepo.ReferenceFromBranchName(br.name).Canonical))
 				ids, err := r.Walk(gitrepo.WalkOptions{Include: br.sha, Sort: gitrepo.Time})
 				if err != nil {
+					endSource()
 					return nil, err
 				}
 				add(ids, false)
+				endSource()
 			}
 		}
 		sort.SliceStable(groups, func(i, j int) bool { return commits[groups[i].id].When > commits[groups[j].id].When })
@@ -388,7 +408,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		return eligible, nil
 	}
 	tagLookupStart := time.Now()
-	eligible, err := eligibleTags(effective)
+	eligible, err := eligibleTags(effective, nil)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -471,7 +491,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 						}
 					case "Mainline":
 						if cfg.Strategies["Mainline"] {
-							c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label)
+							c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label, strategyLog)
 							if err != nil {
 								return err
 							}
@@ -479,10 +499,8 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 						}
 					case "TaggedCommit":
 						if cfg.Strategies["TaggedCommit"] {
-							_, end := logscope.Begin(strategyLog, fmt.Sprintf("Getting tagged semantic versions on branch '%s'. TagPrefix: %s and Format: %s", canonical, cfg.TagPrefixText, cfg.TagVersionFormat))
 							var err error
-							eligible, err = eligibleTags(effective)
-							end()
+							eligible, err = eligibleTags(effective, strategyLog)
 							if err != nil {
 								return err
 							}
@@ -504,6 +522,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 									upper = alternative.v
 								}
 								if upper.CompareCore(threshold) < 0 {
+									if strategyLog != nil {
+										strategyLog(fmt.Sprintf("The tag '%s' is skipped because it provides a lower base version than other tags.", t.v))
+									}
 									alternative = nil
 									continue
 								}
@@ -520,6 +541,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 									return err
 								}
 								c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
+								if strategyLog != nil {
+									strategyLog(c.diagnostic(label, effective.NullLabel))
+								}
 								if alternative != nil && v.CompareCore(alternative.v) < 0 {
 									if inc == semver.None {
 										n := int64(1)
@@ -530,6 +554,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 									c.version.Patch = alternative.v.Patch
 									c.semantic = alternative.v
 									c.semanticSHA = alternative.ref.Commit
+									c.semanticDescription = tagDiagnosticSource(alternative.ref.Name)
 									c.inc = semver.None
 								}
 								candidates = append(candidates, c)
@@ -540,7 +565,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 						if cfg.Strategies["Fallback"] {
 							if eligible == nil {
 								var err error
-								eligible, err = eligibleTags(effective)
+								eligible, err = eligibleTags(effective, nil)
 								if err != nil {
 									return err
 								}
@@ -563,15 +588,15 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 							candidates = append(candidates, candidate{version: v, sha: base, inc: inc, description: "fallback"})
 						}
 					default:
-						extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load, &log, name)
+						extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load, &log, workflowTrace{strategy: name, info: strategyLog})
 						if err != nil {
 							return err
 						}
 						candidates = append(candidates, extra...)
 					}
-					if strategyLog != nil {
+					if strategyLog != nil && name != "TaggedCommit" && name != "MergeMessage" {
 						for _, c := range candidates[start:] {
-							strategyLog(c.diagnostic(label))
+							strategyLog(c.diagnostic(label, effective.NullLabel))
 						}
 					}
 					return nil
@@ -602,6 +627,10 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		}
 	}
 	endFetch()
+	const separator = "-------------------------------------------------------"
+	if diagnostics.Info != nil {
+		diagnostics.Info(separator)
+	}
 	if len(candidates) == 0 {
 		return nil, trace, fmt.Errorf("no base versions determined from enabled strategies")
 	}
@@ -631,6 +660,10 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		}
 		best = selected
 		anchor = candidates[best].sha
+		if diagnostics.Info != nil {
+			winner := candidates[best]
+			diagnostics.Info(fmt.Sprintf("Found multiple base versions which will produce the same SemVer (%s), taking latest source for commit counting (%s)", winner.version, winner.diagnosticSource()))
+		}
 	} else {
 		selected := -1
 		for i, c := range candidates {
@@ -668,7 +701,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	}
 	if diagnostics.Info != nil {
 		description, sha, count := chosen.diagnosticSource(), chosen.semanticSHA, anchor
-		if chosen.description == "fallback" {
+		if chosen.semanticDescription != "" {
+			description = chosen.semanticDescription
+		} else if chosen.description == "fallback" || (chosen.description == "mainline" && sha == "") {
 			description = ""
 		}
 		if sha == "" {
@@ -677,9 +712,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		if count == "" {
 			count = "All reachable history"
 		}
-		const separator = "-------------------------------------------------------"
-		diagnostics.Info(separator)
-		diagnostics.Info(fmt.Sprintf("Semantic version source: %s, version %s, commit %s", description, chosen.semantic.String(), sha))
+		diagnostics.Info(fmt.Sprintf("Semantic version source: %s, version %s, commit %s", description, chosen.semantic, sha))
 		diagnostics.Info("Commit count source: " + count)
 		diagnostics.Info(separator)
 	}
@@ -750,6 +783,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 }
 
 func (c candidate) diagnosticSource() string {
+	if c.sourceDescription != "" {
+		return c.sourceDescription
+	}
 	switch c.description {
 	case "configured next-version":
 		return "NextVersion in GitVersion configuration file"
@@ -760,12 +796,25 @@ func (c candidate) diagnosticSource() string {
 	case "mainline", "merge message", "release branch exists":
 		return c.description
 	default:
-		return "Git tag '" + strings.TrimPrefix(c.description, "refs/tags/") + "'"
+		return tagDiagnosticSource(c.description)
 	}
 }
 
-func (c candidate) diagnostic(label string) string {
-	message := fmt.Sprintf("%s: Version increment '%s' +semver '%s' with label '%s'", c.diagnosticSource(), c.base.String(), c.inc, label)
+func tagDiagnosticSource(name string) string {
+	return "Git tag '" + strings.TrimPrefix(name, "refs/tags/") + "'"
+}
+
+func (c candidate) diagnostic(label string, nullLabel bool) string {
+	operation := "Version increment"
+	if c.forceIncrement {
+		operation = "Force version increment"
+	}
+	message := fmt.Sprintf("%s: %s '%s' +semver '%s'", c.diagnosticSource(), operation, c.base.String(), c.inc)
+	if nullLabel {
+		message += " with no label"
+	} else {
+		message += fmt.Sprintf(" with label '%s'", label)
+	}
 	if c.sha != "" {
 		message += fmt.Sprintf(" based on commit '%.7s'.", c.sha)
 	}

@@ -2,10 +2,12 @@ package calculate
 
 import (
 	"fmt"
+	"sort"
+
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/logscope"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
-	"sort"
 )
 
 type mlOrigin struct {
@@ -110,6 +112,7 @@ type mlEngine struct {
 	when      int64
 	visited   map[string]bool
 	err       error
+	info      func(string)
 }
 
 func (e *mlEngine) effective(n *mlNode) config.Effective {
@@ -185,6 +188,11 @@ func (e *mlEngine) tagMap(branch string, fallback map[string][]semver.Version) (
 	if ref == nil {
 		return fallback, nil
 	}
+	if e.info != nil {
+		canonical := gitrepo.ReferenceFromBranchName(branch).Canonical
+		_, end := logscope.Begin(e.info, fmt.Sprintf("Getting tagged semantic versions on branch '%s'. TagPrefix: %s and Format: %s", canonical, e.cfg.TagPrefixText, e.cfg.TagVersionFormat))
+		defer end()
+	}
 	kind, _, _ := e.cfg.Branch(branch)
 	o := e.cfg.Options(kind)
 	out := map[string][]semver.Version{}
@@ -252,6 +260,12 @@ func (e *mlEngine) tagMap(branch string, fallback map[string][]semver.Version) (
 }
 func truth(v *bool) bool { return v != nil && *v }
 func (e *mlEngine) transitions(branch, exclude string) (map[string][]branchRef, error) {
+	var info func(string)
+	if e.info != nil {
+		var end func()
+		info, end = logscope.Begin(e.info, fmt.Sprintf("Finding branches source of '%s'", gitrepo.NewReferenceName(branch).Friendly))
+		defer end()
+	}
 	var tip string
 	kind, _, _ := e.cfg.Branch(branch)
 	for _, b := range e.refs {
@@ -276,7 +290,7 @@ func (e *mlEngine) transitions(branch, exclude string) (map[string][]branchRef, 
 		if !allowed {
 			continue
 		}
-		id, err := branchMergeBase(e.r, tip, b.sha)
+		id, err := tracedBranchMergeBase(e.r, branchRef{name: branch, sha: tip}, b, e.load, info)
 		if err != nil {
 			return nil, err
 		}
@@ -295,15 +309,16 @@ func (e *mlEngine) transitions(branch, exclude string) (map[string][]branchRef, 
 }
 func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semver.Version) (bool, error) {
 	state := it.branch
-	trans, err := e.transitions(state, "")
-	if err != nil {
-		return false, err
-	}
 	if tagged == nil {
+		var err error
 		tagged, err = e.tagMap(state, nil)
 		if err != nil {
 			return false, err
 		}
+	}
+	trans, err := e.transitions(state, "")
+	if err != nil {
+		return false, err
 	}
 	needKnown := false
 	defer func() {
@@ -677,7 +692,7 @@ func (e *mlEngine) reduce(it *mlIteration) (mlBase, error) {
 	}
 	return result, nil
 }
-func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source, head string, refs []branchRef, tags []tag, load func(string) (gitrepo.Commit, error), label string) (candidate, error) {
+func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source, head string, refs []branchRef, tags []tag, load func(string) (gitrepo.Commit, error), label string, info func(string)) (candidate, error) {
 	c, err := load(head)
 	if err != nil {
 		return candidate{}, err
@@ -690,7 +705,7 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 	if err != nil {
 		return candidate{}, err
 	}
-	engine := mlEngine{ignored: ignored, labelNull: effective.NullLabel, r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
+	engine := mlEngine{ignored: ignored, labelNull: effective.NullLabel, r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}, info: info}
 	tip := head
 	for _, b := range refs {
 		if b.name == branch {
@@ -715,5 +730,20 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 		return candidate{}, err
 	}
 	semantic, sha, inc := b.semantic()
-	return candidate{base: b.value, semantic: semantic, version: v, sha: b.anchor, semanticSHA: sha, inc: inc, description: "mainline"}, nil
+	result := candidate{base: b.value, semantic: semantic, version: v, sha: b.anchor, semanticSHA: sha, inc: inc, description: "mainline"}
+	if sha != "" {
+		result.semanticDescription = "Git tag"
+	}
+	if b.op != nil {
+		result.forceIncrement = b.op.force
+		if last := len(it.nodes) - 1; last >= 0 && effective.IsMain && it.nodes[last].branch == it.branch && len(it.nodes[last].tags) == 0 {
+			child := it.nodes[last].child
+			if child != nil && len(child.nodes) != 0 {
+				result.sourceDescription = "LastMergeCommitOnTrunk"
+			} else {
+				result.sourceDescription = "CommitOnTrunk"
+			}
+		}
+	}
+	return result, nil
 }

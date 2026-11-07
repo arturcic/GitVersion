@@ -19,7 +19,7 @@ func (r *Repository) detachedBranch(directory string, options OpenOptions) (stri
 		// MSBuild resolves detached checkouts from existing tracking refs.
 		remoteName = "origin"
 	}
-	refs, err = r.normalizedReferences(refs, remoteName, options.IgnoreBranch)
+	refs, err = r.normalizedReferences(refs, remoteName, options.IgnoreBranch, nil)
 	if err != nil {
 		return "", err
 	}
