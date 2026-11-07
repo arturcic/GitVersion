@@ -52067,7 +52067,7 @@
     "adaptations": [
       "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitIndexTests.ReadsStatDataUsedForCleanDetection": {
     "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
@@ -52082,7 +52082,7 @@
     "adaptations": [
       "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitIndexTests.ReadsSkipWorktreeExtendedFlags": {
     "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
@@ -52097,7 +52097,7 @@
     "adaptations": [
       "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitIndexTests.AMissingIndexFileYieldsAnEmptyIndex": {
     "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
@@ -52112,7 +52112,7 @@
     "adaptations": [
       "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DeltaStreamReaderTests.ReadsACompleteCopyInstruction": {
     "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
@@ -52127,7 +52127,7 @@
     "adaptations": [
       "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DeltaStreamReaderTests.ReturnsNullAtTheEndOfTheStream": {
     "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
@@ -52142,7 +52142,7 @@
     "adaptations": [
       "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "DeltaStreamReaderTests.ThrowsWhenTheStreamEndsInsideACopyInstruction": {
     "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
@@ -52157,7 +52157,7 @@
     "adaptations": [
       "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RandomAccessStreamTests.ReadsUnsignedBytesAndAdvancesPositionAlongsideSpanReads": {
     "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
@@ -52172,7 +52172,7 @@
     "adaptations": [
       "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RandomAccessStreamTests.ReturnsEndOfStreamAtTheDeclaredLengthWithoutAdvancing": {
     "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
@@ -52188,7 +52188,7 @@
     "adaptations": [
       "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RandomAccessStreamTests.ReturnsEndOfStreamWhenTheFileIsShorterThanTheDeclaredLength": {
     "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
@@ -52203,7 +52203,7 @@
     "adaptations": [
       "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RandomAccessStreamTests.KeepsPositionsIndependentAndLeavesTheSharedHandleOpen": {
     "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
@@ -52218,7 +52218,7 @@
     "adaptations": [
       "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RandomAccessStreamTests.ReadsBytesWithoutAllocatingPerCall": {
     "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
@@ -52233,7 +52233,7 @@
     "adaptations": [
       "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitZLibStreamTests.DecompressesAStreamWithASmallerWindowSize": {
     "source": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs",
@@ -52248,7 +52248,7 @@
     "adaptations": [
       "The exact C# payload and three invalid headers exercise the go-git zlib reader used by loose and packed objects."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitZLibStreamTests.RejectsInvalidOrUnsupportedHeaders": {
     "source": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs",
@@ -52265,6 +52265,6 @@
     "adaptations": [
       "The exact C# payload and three invalid headers exercise the go-git zlib reader used by loose and packed objects."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

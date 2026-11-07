@@ -1,0 +1,631 @@
+{
+  "implementation_checkpoint": "5053c12a9c7da84f9e11e307fbdff0e40083bdfc",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "new_unit_methods": 14,
+  "original_unit_cases": 19,
+  "original_source_files": 4,
+  "mapped_methods": 1206,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 1168,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 39896,
+      "regular_packages_passed": 13,
+      "failures": 0,
+      "skips": 0,
+      "fresh_repository_contract_oracle_matches": 16,
+      "fresh_revision_walker_oracle_matches": 47,
+      "fresh_revision_walker_oracle_queries": 48,
+      "fresh_configured_next_strategy_json_matches": 7,
+      "fresh_validation_invocation_matches": 13,
+      "fresh_reset_policy_json_matches": 192,
+      "fresh_index_assume_valid_json_matches": 3,
+      "fresh_linked_worktree_json_matches": 4,
+      "fresh_branch_inheritance_json_matches": 22,
+      "fresh_next_version_json_matches": 23,
+      "fresh_branch_rule_json_matches": 21,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_validation_cli_cases": 17,
+      "fresh_query_cli_cases": 19,
+      "fresh_migration_cli_cases": 15,
+      "fresh_root_parser_cases": 18,
+      "fresh_build_agent_cases": 20,
+      "fresh_global_mode_json_matches": 88,
+      "fresh_repository_compatibility_json_matches": 110,
+      "actual_repository_fields_matching": 33
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 39896,
+      "regular_packages_passed": 13,
+      "failures": 0,
+      "skips": 0,
+      "fresh_repository_contract_oracle_matches": 16,
+      "fresh_revision_walker_oracle_matches": 47,
+      "fresh_revision_walker_oracle_queries": 48,
+      "fresh_configured_next_strategy_json_matches": 7,
+      "fresh_validation_invocation_matches": 13,
+      "fresh_reset_policy_json_matches": 192,
+      "fresh_index_assume_valid_json_matches": 3,
+      "fresh_linked_worktree_json_matches": 4,
+      "fresh_branch_inheritance_json_matches": 22,
+      "fresh_next_version_json_matches": 23,
+      "fresh_branch_rule_json_matches": 21,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6,
+      "fresh_validation_cli_cases": 17,
+      "fresh_query_cli_cases": 19,
+      "fresh_migration_cli_cases": 15,
+      "fresh_root_parser_cases": 18,
+      "fresh_build_agent_cases": 20,
+      "fresh_global_mode_json_matches": 88,
+      "fresh_repository_compatibility_json_matches": 110,
+      "actual_repository_fields_matching": 33
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "index-assume-valid-json",
+      "path": ".local/index-assume-valid-3168851081",
+      "report_sha256": "40fcafb54f2db04392491ca21d79af65752f4fcbf20f8891029ee87a5baa4bb8",
+      "passed": 3
+    },
+    {
+      "platform": "macos",
+      "kind": "repository-contract-oracle",
+      "path": ".local/repository-contract-oracle-2521234368",
+      "report_sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
+      "passed": 16
+    },
+    {
+      "platform": "macos",
+      "kind": "revision-walker-oracle",
+      "path": ".local/revision-walker-oracle-2660055732",
+      "report_sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
+      "passed": 47
+    },
+    {
+      "platform": "macos",
+      "kind": "root-argument-parser-output",
+      "path": ".local/argument-parser-943260060",
+      "report_sha256": "77ab2e750cfb1a741d8675db50da3ae96aabaf76754803656d0180fb6fcd0b9b",
+      "passed": 18
+    },
+    {
+      "platform": "macos",
+      "kind": "build-agent-output",
+      "path": ".local/build-agent-2335705758",
+      "report_sha256": "919452104ea3256aab2f28183ffc24c4bea83ab5b0329a48bbe03f20f9c19044",
+      "passed": 20
+    },
+    {
+      "platform": "macos",
+      "kind": "config-migration-output",
+      "path": ".local/configuration-migration-4065434064",
+      "report_sha256": "fd62cf5bd3eb626458d67ab9e6188656fcf22d2aa9d41b2d3841277a1a67be48",
+      "passed": 15
+    },
+    {
+      "platform": "macos",
+      "kind": "config-query-output",
+      "path": ".local/configuration-query-368920655",
+      "report_sha256": "0524300f8fa0769e22ae91091e01883f7400f6ea1a91541f186ed4d753674d75",
+      "passed": 19
+    },
+    {
+      "platform": "macos",
+      "kind": "config-validation-json",
+      "path": ".local/configuration-validation-336033335",
+      "report_sha256": "b26ea6d33804d3848887e7ef10cc58b3fdca41a8f1602a87110d2cc49cd3d864",
+      "passed": 17
+    },
+    {
+      "platform": "macos",
+      "kind": "csharp-validation-invocation",
+      "path": ".local/configuration-validation-124916638",
+      "report_sha256": "8f3715a06409ebe5095134194158784e1e76761bdc0dc87ddc075bdcfe4218f7",
+      "passed": 13
+    },
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-1721350719",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "global-mode-json",
+      "path": ".local/global-mode-parity-3144541966",
+      "report_sha256": "bb946d3888d74fe80856486f7c25150e4c9ab731b1ff4f568d17c3f2a05441c1",
+      "passed": 88
+    },
+    {
+      "platform": "macos",
+      "kind": "linked-worktree-json",
+      "path": ".local/linked-worktree-280745379",
+      "report_sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+      "passed": 4
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-245210594",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "macos",
+      "kind": "next-version-json",
+      "path": ".local/platform-evidence/run-52904735",
+      "report_sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
+      "passed": 23
+    },
+    {
+      "platform": "macos",
+      "kind": "configured-next-strategy",
+      "path": ".local/platform-evidence/run-2844937102",
+      "report_sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
+      "passed": 7
+    },
+    {
+      "platform": "macos",
+      "kind": "branch-rule-json",
+      "path": ".local/platform-evidence/run-4103852318",
+      "report_sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
+      "passed": 21
+    },
+    {
+      "platform": "macos",
+      "kind": "branch-inheritance-json",
+      "path": ".local/platform-evidence/run-2844250710",
+      "report_sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
+      "passed": 22
+    },
+    {
+      "platform": "macos",
+      "kind": "reset-policy-json",
+      "path": ".local/platform-evidence/run-2884964943",
+      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+      "passed": 192
+    },
+    {
+      "platform": "macos",
+      "kind": "repository-compatibility-json",
+      "path": ".local/repository-compatibility-827386225",
+      "report_sha256": "61a7902c9e59df591d39f5e41242142c189441f8b9677f6e72ca1c8fe3b0b65d",
+      "passed": 110
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "root-argument-parser-output",
+      "path": ".local/index-stream-ports-linux-evidence/argument-parser-3105462301",
+      "report_sha256": "e2cc9a4027c0fe7a8a7779f15d7330d056c36eb2b6739eb9acdb7134c55c31ac",
+      "passed": 18
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "build-agent-output",
+      "path": ".local/index-stream-ports-linux-evidence/build-agent-2172456244",
+      "report_sha256": "7e3e7caf16b0f674ace7b147d5b39864bdffb15fb60153418a1690e1d40ba35e",
+      "passed": 20
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "config-migration-output",
+      "path": ".local/index-stream-ports-linux-evidence/configuration-migration-773700262",
+      "report_sha256": "a9987677a3d4a3bb633087d1307c6cfa082e08c2db93ef17ec4cae6858f9a8e9",
+      "passed": 15
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "config-query-output",
+      "path": ".local/index-stream-ports-linux-evidence/configuration-query-660073318",
+      "report_sha256": "ac7703a711b4b0262b1f979011533e6ba5646f8c57d23539b6a0438217b125eb",
+      "passed": 19
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "config-validation-json",
+      "path": ".local/index-stream-ports-linux-evidence/configuration-validation-2775021128",
+      "report_sha256": "82473ee183bb29cf45c55709d13f91fc12922edcf67f3314d56bb861d106a319",
+      "passed": 17
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "csharp-validation-invocation",
+      "path": ".local/index-stream-ports-linux-evidence/configuration-validation-3680573026",
+      "report_sha256": "19a98b63fc37aa152575c04c4bec906f548f8431bb0ce4f074aa1ecbb02f9875",
+      "passed": 13
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/index-stream-ports-linux-evidence/csharp-config-ports-1424414014",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "global-mode-json",
+      "path": ".local/index-stream-ports-linux-evidence/global-mode-parity-3584760062",
+      "report_sha256": "cc1d061fe17dc17b427aa794cec18e19ecce7667353186c501463f178cf2b51c",
+      "passed": 88
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "linked-worktree-json",
+      "path": ".local/index-stream-ports-linux-evidence/linked-worktree-1247763264",
+      "report_sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+      "passed": 4
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/index-stream-ports-linux-evidence/run-4280655149",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "next-version-json",
+      "path": ".local/index-stream-ports-linux-evidence/run-4042987015",
+      "report_sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
+      "passed": 23
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configured-next-strategy",
+      "path": ".local/index-stream-ports-linux-evidence/run-1418326885",
+      "report_sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
+      "passed": 7
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "branch-rule-json",
+      "path": ".local/index-stream-ports-linux-evidence/run-2730000799",
+      "report_sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
+      "passed": 21
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "branch-inheritance-json",
+      "path": ".local/index-stream-ports-linux-evidence/run-700418445",
+      "report_sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
+      "passed": 22
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "reset-policy-json",
+      "path": ".local/index-stream-ports-linux-evidence/run-3239262499",
+      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+      "passed": 192
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "repository-compatibility-json",
+      "path": ".local/index-stream-ports-linux-evidence/repository-compatibility-3948436895",
+      "report_sha256": "d052d8ee61e5d3ac1f5f351c8925d2125fbdad9d751e44dda2fa0d8e03528a5f",
+      "passed": 110
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "index-assume-valid-json",
+      "path": ".local/index-stream-ports-linux-evidence/index-assume-valid-2999100199",
+      "report_sha256": "ab6bd2665fed27b366a54919ddbb5a718f6fab5938e92bf15b494dfb36280c2b",
+      "passed": 3
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "repository-contract-oracle",
+      "path": ".local/index-stream-ports-linux-evidence/repository-contract-oracle-3428253643",
+      "report_sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
+      "passed": 16
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "revision-walker-oracle",
+      "path": ".local/index-stream-ports-linux-evidence/revision-walker-oracle-3988317460",
+      "report_sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
+      "passed": 47
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/arguments.go": "ed038e048e0e8dca7d087ddede52bb9bfc20627e6ea9cab1d3916d16d817e001",
+    "cmd/gitversion-go/config_migrate.go": "4bdeb8cddbb9649c023a6466b2f002730fde102be9b446bb42720cca553db905",
+    "cmd/gitversion-go/config_query.go": "9a7052e0f48dbdbba82493d17c0935cabffadf6c3a02f5ee3b3d490696af2527",
+    "cmd/gitversion-go/config_validate.go": "4cf575c4287a798540983fd53e1c4926f4c19b492f34af8a77da337aa89beaf0",
+    "cmd/gitversion-go/main.go": "54a74d07bf45dca32c9d8c2f2c40ea22cbc3dbf475885ec28aa37209ee564602",
+    "cmd/gitversion-go/root_command.go": "1f52dbe234e6faef1cedf2563b425e3af2514cf25e3f3a3018aed6b3a7645316",
+    "internal/calculate/branch_configuration.go": "6ed28abb5d9b8413877d2091e17ce5803e0bdbcb7ce6d453b89be832bd29a03c",
+    "internal/calculate/calculate.go": "36c34b63938d0c5b6aec0d126911e5479be9f29d74f7f62138fb2f0c9581ee02",
+    "internal/calculate/commit_log.go": "45941614191e1257f3afed58df6361a021ace10210421588c61ad3bee093e2b1",
+    "internal/calculate/ignore.go": "6d141327b47f4eb3de9bb10abc79d8736bd76fa7037857a1c14c5fb9c09d4952",
+    "internal/calculate/mainline.go": "6149d78c569c1f53828dd72c90bde54d4d4cee1ec16512e1238a2d2fc81b72ed",
+    "internal/calculate/merge_message.go": "541aeef98969be2eae0b5a6e3f3eb27d034e4f4cd64e450e6930b5aff71118e1",
+    "internal/calculate/version_filters.go": "3be6f5c9f6529208a1313e7649af7c561193fc579e207ad4bba9bdbb17009228",
+    "internal/calculate/workflows.go": "0accca161f1fb38eb0604c0642aa88db2a32e3b4c3b37d3d0b0ef3d942654e65",
+    "internal/config/branch_rules.go": "b774a04379fb3ede00720974520c174a3d62c8e6b941ed0fafab0d4b9a0681ee",
+    "internal/config/config.go": "891483f02ade3685b69ca28104a8d02b18d37abab44d0698995f0789db6c26a7",
+    "internal/config/document.go": "976fe9d9ed65553b148c8502f7324e820407e2b89e7ec32774df840b09405b4a",
+    "internal/config/ignore.go": "65ed37b0fd12564efb4befd79eb4106538e8804125fd20588315b933f1b8ea45",
+    "internal/config/inheritance.go": "10e4cc1433519a63d8cbf6e4b511459dc743d56c47e7f6022b363e896bb6fb8b",
+    "internal/config/labels.go": "922db5c50ab2a21f70f30b86bccdb25ea001ffaff05a571f5ef58045e733f345",
+    "internal/config/legacy.go": "60a6e0f557670341dc60e026d11d76c476964dfc4155e698e2b28c35256a62f5",
+    "internal/config/locator.go": "425afba5891e0cbaab9209290386df44fbf4a869e284d7ab4210e525fb0b3685",
+    "internal/config/migrate.go": "97fc6778bc733ef11a8752be97d51980317600f8026820a466456c3446fce84d",
+    "internal/config/output_settings.go": "aa73256a06e79a8977eb9ceec97917e164125217c8ddf87662eb348960a7b655",
+    "internal/config/overrides.go": "e7e89dec5506646129e0e669af28acdf6340c93cbcfc4cda227af725c3aff587",
+    "internal/config/provider.go": "58a75ba06f3618feb774e177add24ae7b27c957a5c469b45a15b86e6de887d01",
+    "internal/config/query.go": "98bb1a54261a911dd6c51fa71df56e05d395093ae427662e75519d0af5cdda36",
+    "internal/config/resolver.go": "0831e36e9ad4081b7591e0b53fbbca5572ceefa1f9f8de83945b01555115eea1",
+    "internal/config/resolver_validation.go": "0c1af0300f6ed01f4984138210e846e3291134453f0b37fb1164aad8eb104516",
+    "internal/config/workflows.go": "7b3a9c8bdaf0dfb35a92f1403ecfbae5b9c4aadb725e9f42b5af27e6a34a1562",
+    "internal/gitrepo/commit_text.go": "1c999c67c42a50006794fdabf213e44c983c19b5ccf863773549520c18c04255",
+    "internal/gitrepo/config_storage.go": "f4470505d32fe30de9e7db6cd52261fe3bd49dfb383ec0a03178988be689931f",
+    "internal/gitrepo/ignore.go": "3a49a8231d8abd38e62e405dba4e4bca172331ea5ecf70b0b367e700da84af87",
+    "internal/gitrepo/index_flags.go": "5726d7df90df74f3e09fd826957da88020e22281582dd5d293c2a2abc9d08194",
+    "internal/gitrepo/layout.go": "26610e8eaa4c63b4c79989bd04351342ad01d5c40739fe0e69dfab0ce4a4e29e",
+    "internal/gitrepo/object_id.go": "19a199f6affe1ae5db8ea2308ac937ae414834462191c9f9abdd5859c367b0d5",
+    "internal/gitrepo/reference_name.go": "d0c4d837a6ec250d86e67271a94da120473ad1b62f2812b857389aa46796d174",
+    "internal/gitrepo/reference_store.go": "b3d72a97393708ad1e67f9dc24f2f6c27318d534ebd45a7405fa8810de299111",
+    "internal/gitrepo/repository.go": "5179f51b8ced58ed1fc5e237780b4af6a1d3eeab5d9411efdef3e4dd2e91696a",
+    "internal/gitrepo/status.go": "41ea4a790cc925cda00e332d7a36d5582974f6a9aee07740006c0e9111fafbff",
+    "internal/gitrepo/tree_diff.go": "3484e9f41a43ae3bfdfb2f28346af3acedc44a16b8c473b7ffa92e767db71609",
+    "internal/gitrepo/walk.go": "c7b03a7dad0213fc3a06f31a0224c8c68f001859e1793157040455004aec71d9",
+    "internal/output/names.go": "72c55e55207e595259487e2e55dfd7b3b7395258a3e5b8602194f18ff3c47f38",
+    "internal/output/output.go": "4cf609391b761f3fc5476643bfdaf40e863405d3d2f5c6eadffdae44ed6c28ba",
+    "internal/semver/full.go": "17935171844be5bb88bf91a419aad52e00aa359327152f48855569118802d1e8",
+    "internal/semver/version.go": "745fc5530cb7dd950ab5cceb9440f295a30c2c2b1c570a6b10a736c76afa7e80",
+    "internal/patterns/patterns.go": "68fa6610c1fa888a2ac903c38575010d035fb8eb5136349e02e8a3847192a351",
+    "internal/formatting/dates.go": "53d03270fcc2199372cf5976e96e7b021f0927b1784583b707773d077782c2c5",
+    "internal/formatting/decimal.go": "32013abc97d79c9684ebc374847fc8369d5011f5f2ce5ad386cb11490f561fe7",
+    "internal/formatting/dispatch.go": "4b7e9727b07e9b65ef0e9c7fcef3676d97f8e9bd6a1bd9484dbe681cb1b215b3",
+    "internal/formatting/json.go": "29901e0157a5b5ef3a9fc155aeed9181e1b6d40c8b8ae264cd2004b65270abf4",
+    "internal/formatting/sanitizer.go": "6b80d1a0ac760d38e612b490b7b9e118d9c99da1e3a4d86cfbbb16eefd735264",
+    "internal/formatting/template.go": "340471c586667fe1b266d10671e89fa73155baeb2e108f71b9abb5c1080dedf7",
+    "internal/formatting/tokenizer.go": "5f4e68d9d68fbdb37b48ab182c31014e288edec9b6ebe7f82535767bf3eeca90",
+    "internal/formatting/values.go": "556011a1f5b49bd2a42f802b65b4217643e52f6f949e729747b5ab7f95dc13b2",
+    "internal/commandline/quotes.go": "c07a292ed5c084e5f8b5bc6f2f9ff5dcfd174489e55f6bb540c6a143d6a58d36",
+    "internal/parity/baseline.go": "576cb28ddacab104011dcb8ca9e32595fd9ec4548d7d482f13f0d62e8e8b664a",
+    "internal/parity/json.go": "173b525c7c363981abfde82142bb6cb02d0ca5130482aef12cec54a9f18a54ef",
+    "internal/parity/memory_other.go": "622aebd550026afb5dd5a7e9ae780b220f59199612301eba8279bbed1d238ec0",
+    "internal/parity/memory_unix.go": "f41330bb51bee7d2e8af67cbf7919fa3961bb9b1c85498a00a18740b6814a730",
+    "internal/parity/rejection.go": "180bf91685b9b761b74dd71e979ad7d27597f7acfaaed3d0d10dfaecff6e5b5f",
+    "internal/parity/runner.go": "c1b814d3049dd96632b8bafe746489ad5af86dc1eb0c230945ff9b35d0b7be3d",
+    "internal/buildagent/agent.go": "64320a1e1c251c1ea393e9f8cab8d465c46d1e9040e72aec8d70a655bb103ee4",
+    "internal/buildagent/integration.go": "9b0683ac7aae5201165ea8e391e6ff0b880d5f766775280cc18e3f9526dface5",
+    "internal/fixtures/configuration.go": "61743ae4bafcea8aff3f2603ac62be30e446916cb5e9b3d56c69bd84c3ae9e0d",
+    "internal/fixtures/configuration_edges.go": "e0ca1e9872b6832355021f7dd94894825923f6eb5a0f2fb5929f8c9f9f017dbb",
+    "internal/fixtures/configuration_ports.go": "66e4c4a29906877b264feadeddabc8f1053362ad514d6cbf4082f470c89a97ad",
+    "internal/fixtures/fixtures.go": "6ff98e086ed42d3e24ee63d2d90c8b18404a386d4dd37a0d811d43df3ca3024f",
+    "internal/fixtures/generated.go": "f6debb3c27f0b4cb154e970d8d6262816ad845636240bad3862cbba973a9c34a",
+    "internal/fixtures/merge_controls.go": "f0d7d5410e5ac23d8a532bd1a877473b581fee76831d195cc29aafb050f13715",
+    "internal/fixtures/policies.go": "146f6c7b5678b4dcceba6ee2cad7b08fe3a6b8b8d0e2b0c380488f3db8624ae9",
+    "internal/fixtures/policies_generated.go": "878c059bd9f2ddfd58c3ec05c1ddd281868a8cb52c80b7cb965ae16b5531acb2",
+    "internal/fixtures/public.go": "50f371206f9b7ae04e891201a68e1c5f948840de342fbfa3f7ddb8fbda40adbb",
+    "internal/fixtures/reduce.go": "b2a165487e92df2eb8cc56afe7b06facc9bcff7394cf023b2e901988ca95d8f0",
+    "internal/fixtures/resets.go": "45eacd0de29dad8882ccbb06ec65a01421bb0376ad8c3646b1bfa66d71b62d07",
+    "internal/fixtures/strategies.go": "08544b8a5ead50dbbd36dc1bd9eba6c2593b068318df7eca4e514e8aedf164d6",
+    "internal/fixtures/workflows.go": "50be7e7705ff00f0e606a1d8ccfc0eb83d428fca20c7ee7d2e0bfb20acb96bae",
+    "internal/fixtures/workflows_generated.go": "072e1c02c3e311bf23f6a2f7e4feab3cc6e1dc3d58bc3117f468aa2e55edba7a",
+    "internal/fixtures/worktree.go": "3ebaa78f35d33cad88e46e91618f6f10ace32ef51a861975e7a12f379fdbb847",
+    "go.mod": "265b5e37b2d6f4a754e8f050c7169aee3e224961536d7bddf2d7b89a05198fad",
+    "go.sum": "135718341e900ee1d8d3b14c324bbacc21f93d9db265ce10a4bad4fbb1515252",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8",
+    "internal/config/presets/TrunkBased/preview1.yml": "ad5f4541472ccea5978513f8129f9855560c65368e289e21c58c026ee9dc5bb4",
+    "internal/config/presets/GitFlow/v1.yml": "3c69147be71954a203124823fff1723edebac635bf84c3859bb5941a1b448b45",
+    "internal/config/presets/GitHubFlow/v1.yml": "892e77c5e88babf9fc63fabac699a01d55ed7fd0cf2c0d883cd49aa2bce6089c"
+  },
+  "candidate_sha256": {
+    "macos": "90a4543060f2d14df3600e7d01e1ef50ae6ae7cc8311ee06f6b15d2e4cb53c22",
+    "ubuntu26": "e0351edefe8de78855794f38759f87214ef5d029f10bc2964a2db9e8764a0aa6"
+  },
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T06:16:59.939757209Z",
+      "FinishedAt": "2026-11-07T06:20:02.532670585Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/index-stream-ports-linux-evidence/argument-parser-3105462301.tar.gz",
+      "sha256": "bad313e41b7efb264ef0e5921a9b7656877cadc421c9afe45b9bf8cc0a1a3079",
+      "bytes": 59430
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/build-agent-2172456244.tar.gz",
+      "sha256": "35035fdb00c013ab0bb0a327d9309295cfba85ca84caa8258b91a217a8e3f04d",
+      "bytes": 124267
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/configuration-migration-773700262.tar.gz",
+      "sha256": "69e91a3b295c95c3ec6170b03827bfeccf10503dcc24e26d81b29e94d632771a",
+      "bytes": 1639
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/configuration-query-660073318.tar.gz",
+      "sha256": "1de9416bd630da101274338b9fd7c512ebf80e475085b7fc836247fca97e1f51",
+      "bytes": 3566
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/configuration-validation-2775021128.tar.gz",
+      "sha256": "dbd960cd99f2479a0b2b5d163e5cf91ea9d7db0a6c3de81a67ea3adf7d81d59d",
+      "bytes": 2682
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/configuration-validation-3680573026.tar.gz",
+      "sha256": "deb1e33fbee1592aad8e4294ca0548af1208fa0a7acf2acba605ab52e90dfe8b",
+      "bytes": 1335
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/csharp-config-ports-1424414014.tar.gz",
+      "sha256": "0d34b0b37e10d99540a72fd185a412f08e5b036376a1c9fc8698131008dd1bf7",
+      "bytes": 30858
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/global-mode-parity-3584760062.tar.gz",
+      "sha256": "300361343d84925fffd0f6515488f718f9cb9c8ed27d9ddb28d946e75e067a5c",
+      "bytes": 672131
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/linked-worktree-1247763264.tar.gz",
+      "sha256": "ce6e6123c135863d2d21cf10b516fde1ced62755b760597bb1ecc571e61c3f99",
+      "bytes": 22035
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-4280655149.tar.gz",
+      "sha256": "eae2b00cd57f9bfc3e28360fdc48406288670638ee6e945d77951e5d12baeb22",
+      "bytes": 565586
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-4042987015.tar.gz",
+      "sha256": "1eb77c027a8ca2c2c4712dab06b77a9fd688cf6608bc87f202bb9169bb79a644",
+      "bytes": 166149
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-1418326885.tar.gz",
+      "sha256": "ef251056adc01a29a0d9ba8042f9d90a572e2dcf2c289761537bb50ce37a3e9a",
+      "bytes": 35753
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-2730000799.tar.gz",
+      "sha256": "a9560613a60ef8c73ce1a5d62b9d71b8e7950334bb7045339b4aa95afed37e13",
+      "bytes": 123228
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-700418445.tar.gz",
+      "sha256": "2008f83deaa7b204f07c8a067984d2b5301706eca9b43a5eaba1e8520c11ffd6",
+      "bytes": 207956
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/run-3239262499.tar.gz",
+      "sha256": "bb530df62e82f4521fbdfaf1ce0874f765eb8d6ae3a2a63d46cfc552fda4b1f9",
+      "bytes": 1646240
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/repository-compatibility-3948436895.tar.gz",
+      "sha256": "1b009c588e17ad8c5bdfbcf1c1acf33aea1a0442d1af9e0e3a734db2ad050691",
+      "bytes": 1111210
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/index-assume-valid-2999100199.tar.gz",
+      "sha256": "dd87e4c2a4f27125fe54926ae35a742292b6b5b97140be457b81c1e76ddf4237",
+      "bytes": 3512
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/repository-contract-oracle-3428253643.tar.gz",
+      "sha256": "2bd1c5bde645468daedba6bbebbfbcc868fee59bac12418616fb4e22727f2b2d",
+      "bytes": 1154
+    },
+    {
+      "path": ".local/index-stream-ports-linux-evidence/revision-walker-oracle-3988317460.tar.gz",
+      "sha256": "7b57af347166525efe24cb75706538f22fd5c8e70bae0b6fd72d3d080cc6ee7e",
+      "bytes": 1742
+    }
+  ],
+  "actual_repository": {
+    "snapshot": {
+      "source": "/Users/artur/projects/oss/gittools/gitversion",
+      "state": {
+        "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+        "references": "refs/heads/codex/4057-support-main d7181f936148d1fd51f7e6eb3f681b3defaa505f \nrefs/heads/codex/csharp-15-skill 0d894d5cbfa5c1f93114d3fee7b7d2344f4c9e18 \nrefs/heads/codex/docker-test-retries-and-setup 965d49413567c787f84117d86a6f2aaeb8219393 \nrefs/heads/codex/go-prototype-milestone-a 5053c12a9c7da84f9e11e307fbdff0e40083bdfc \nrefs/heads/codex/nativeaot-before-5040-rebase-20261021 025d0190738b35c7ae0b45c0a22cc24134dfe3f6 \nrefs/heads/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/heads/codex/research-5210-nativeaot 14abf574811004768bff7a76468356448dbfa1e3 \nrefs/heads/codex/runtime-performance-comparison a4ac907dfe60e6c9ced8b229f99f885351cf8d47 \nrefs/heads/feature/docker-parallel-steps 386a722cd5ca5104d39507c46fb9878e38eb7a9d \nrefs/heads/feature/new-cli-tests e8861e9af6df225830120213460258e7634ecc26 \nrefs/heads/fix/schemastore-auth-and-diff 83d29e5f80f3b1b71d548a9b470b9fa78ea2f4f4 \nrefs/heads/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/heads/poc/ci-5391-full-20261021 696d13c8b0f16f066f40dc61420cddc81f64fd50 \nrefs/heads/poc/ci-5391-nonroot-20261021 6917c127d456dd24a3c02c75f5fa28edb6db2c82 \nrefs/remotes/9swampy/ConvertRegexesReinstated 46cde7cae84bd0d2f2df0844de75dc7556a0c06d \nrefs/remotes/9swampy/ExtendGitFlowComplexExampleToPostMergeAndRebaseBehaviour 2f23dd0aad5d0cc6e2549cef92950b4e48d36b19 \nrefs/remotes/9swampy/FixDirectoryBuildProps 1dbd5e9ab09e23ba4731e183e5592965c37bb4c2 \nrefs/remotes/9swampy/HEAD 0ba0a351e5cf97c00188649060cd7c27f28cf7be refs/remotes/9swampy/main\nrefs/remotes/9swampy/MoreRegexesForCache eed9c50d3d91d1ce5b021a74383d07606372a6a2 \nrefs/remotes/9swampy/SanitizeParticipantOrphaned 1e95ca3df60a681f5d921673f8c4bc7fdbc07a54 \nrefs/remotes/9swampy/SupportFormatStringsInConfig 5f509d8721f3c801e4e8472a78c21bb64ca399ca \nrefs/remotes/9swampy/issue/4534-AzurePipelinesPreReleaseLabel a450cdaa1eec3ce2ebf088344122428fb75ddaf2 \nrefs/remotes/9swampy/main 0ba0a351e5cf97c00188649060cd7c27f28cf7be \nrefs/remotes/arturcic/HEAD 9b63978c52ee9f634c46c6795d867920ae97f528 refs/remotes/arturcic/main\nrefs/remotes/arturcic/codex/3954-review-followup fc18bd6a0c24261d12056719b7ee8a09831c2f3a \nrefs/remotes/arturcic/codex/4057-support-main 0e0e0a387512c3a9dd5e9bb61e6d3391d210b40f \nrefs/remotes/arturcic/codex/cake-sdk-migration 19b427ce409e9e1168ec484412216b2aeae14be9 \nrefs/remotes/arturcic/codex/main-reporting-proof 6d4ae6f98dd3d55516835d6b883cf03b59d02da7 \nrefs/remotes/arturcic/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/remotes/arturcic/codex/research-5210-nativeaot 14abf574811004768bff7a76468356448dbfa1e3 \nrefs/remotes/arturcic/codex/runtime-performance-comparison a4ac907dfe60e6c9ced8b229f99f885351cf8d47 \nrefs/remotes/arturcic/dependabot/dotnet_sdk/dotnet-sdk-11.0.100-rc.3.26522.148 1e19a6fde75a5ea3c4d35993abcd8f983738baf7 \nrefs/remotes/arturcic/dependabot/nuget/build/nuget-338e4bae72 666cb9229f1cd72fcfb2bc5e8a5c1c78176ffb73 \nrefs/remotes/arturcic/dependabot/nuget/new-cli/nuget-221580962b 6a1596d32275ecc71f1bae0be71a7bc5e2cec8a8 \nrefs/remotes/arturcic/dependabot/nuget/src/nuget-992d6ad3fb aecb42ec929466cea7cad1be9dc0d5e609b663b6 \nrefs/remotes/arturcic/feature/docker-parallel-steps 386a722cd5ca5104d39507c46fb9878e38eb7a9d \nrefs/remotes/arturcic/feature/override-config 8c1461db6ae19cf08bfa911647e2286d3316a30f \nrefs/remotes/arturcic/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/remotes/arturcic/support-5.x-schemas f318a2c0fd4e8f37372730b767e2162c75568ff2 \nrefs/remotes/origin/HEAD 9b63978c52ee9f634c46c6795d867920ae97f528 refs/remotes/origin/main\nrefs/remotes/origin/anonymize b96dabd4dad0ecc426d756c87e203a546b89189f \nrefs/remotes/origin/codex/remove-libgit2sharp-5040 401e0645482bae67d746f9554fa2b6a053df0532 \nrefs/remotes/origin/feature/ossar 3b7361f4a8e29f75f5a07313ed1847b272d656b2 \nrefs/remotes/origin/fix/schemastore-auth-and-diff 83d29e5f80f3b1b71d548a9b470b9fa78ea2f4f4 \nrefs/remotes/origin/gh-pages 6016e6ce88360bd76e7de90bb13fb24356a2066d \nrefs/remotes/origin/main 9b63978c52ee9f634c46c6795d867920ae97f528 \nrefs/remotes/origin/poc/ci-5391-nonroot-20261021 6917c127d456dd24a3c02c75f5fa28edb6db2c82 \nrefs/remotes/origin/support/5.x 3f75764963eb3d7956dcd5a40488c074dd9faf9e \nrefs/tags/1.0.0 0d72bbfad34be683e8131ed7ad365e7a99302ae3 \nrefs/tags/1.1.0 a813c97828a543b4fa2a8b43f52646bb52497ed7 \nrefs/tags/1.1.1 a4b40aaec5a7bc1f9bb668fed5c4879dc36f8099 \nrefs/tags/1.2.0 9b1eafbf9499c486ce1a3b9851695c5581e4be44 \nrefs/tags/1.2.1 dff80ea8efcc0482a0708cbfd6d487230f59a383 \nrefs/tags/1.3.1 51bf5727b90c1c1796a317378f26a16529da35a3 \nrefs/tags/1.3.2 d5e9b71532da0c84929ebaadda90864b0bd2261a \nrefs/tags/1.3.3 59f2254f7f89c1d0bf6e4bc384fd691b7436be3d \nrefs/tags/2.0.0 50d6f03171a3aae8487bf88ccfdd7fd273546b99 \nrefs/tags/2.0.1 95c7428a9284e2230fc79f93453bf6c69b8e5525 \nrefs/tags/3.0.0-Beta1 f7b096f4585709be43b5d13a2de9f3cd44b7e97e \nrefs/tags/3.0.0-Beta2 fe1063fbb5fada6555c4ade59055f10a910e851f \nrefs/tags/3.0.0-Beta3 24fa6b525655eddf64272b11f43ac27da34ab15e \nrefs/tags/3.1.2 4249f044c5aeb082314c9e552b412cdfd4c5d0a4 \nrefs/tags/5.0.0 9fb34b0eba870923a9c628a4f3581dbec055ccd6 \nrefs/tags/5.0.0-alpha.1 cf2ccfa2db2f4628259fc170cfba8de0f040c551 \nrefs/tags/5.0.0-beta.1 1222c51b3c473f2aef216cfa5aba6f10333b412e \nrefs/tags/5.0.0-beta.2 4448cb52e9a83ff4cf9450bfffd2b77dac3b59e8 \nrefs/tags/5.0.0-beta.3 cd2eee7eeffdc4eeec0431fd982d66ecfb880b93 \nrefs/tags/5.0.0-beta.4 893d6e4d5d97c04e15d8b03d8689b3a993f93baa \nrefs/tags/5.0.1 c71b8fc9f6d7b6adffe82fef588e717beb864e91 \nrefs/tags/5.1.0 16ae98ee3b9a1d6216723a78b95ed7f5c0faf5fe \nrefs/tags/5.1.1 5d79a7475c182b8b9e75090fd40fdd3c1157e302 \nrefs/tags/5.1.2 4eb164e8b5ddc27b736a11fd9979c7760c7a2b0f \nrefs/tags/5.1.3 bef8ebc0b62b3ddd0cdafe09b66d68bbfcaf90d5 \nrefs/tags/5.10.0 3892733000b5a4baefa00ef00ef9cd763b5dfcae \nrefs/tags/5.10.1 b17d33e3aef55c573f03d95d975557b5fcaf6591 \nrefs/tags/5.10.2 dd1fccbe5ac603c6ba46dc0bd47aeceff5f5dcfb \nrefs/tags/5.10.3 bc9c9d003e655385e3dd1ba3bd013e04062d2f9b \nrefs/tags/5.11.0 9969dabeff99e9b3362bc0c79a3170355380a4e2 \nrefs/tags/5.11.1 82cbf2c587897ed9906624f3b55f200ac99f084e \nrefs/tags/5.12.0 3f75764963eb3d7956dcd5a40488c074dd9faf9e \nrefs/tags/5.2.0 f1cd29a77c4b27a2812a6d78699bd0ea0ad54bb9 \nrefs/tags/5.2.1 101dea6a51398d663dc148a95b212119b425417c \nrefs/tags/5.2.2 409a287c57117f1cc36632ba67f1cdfa80103e68 \nrefs/tags/5.2.3 ff3494673a1bcf17e8b40cae64ae4efd62812d79 \nrefs/tags/5.2.4 643ba1fc16fad3d5659fead16c335fb6288ade7a \nrefs/tags/5.3.0 6b342b8666a9d4ddfdbbd30632c42ea149c6ba94 \nrefs/tags/5.3.1 f2de85e5729937732f8b275bb06330a67d2bc0e4 \nrefs/tags/5.3.2 438d45004092e2f6b9aa4d12b07c64becfff4031 \nrefs/tags/5.3.3 08a43ede0b292c8ce2178b3d305587f151a2bdf4 \nrefs/tags/5.3.4 be48ce3ac7f048c869fe80b8c8e648ebf4a7e360 \nrefs/tags/5.3.5 c35e84cec5f3440e0d932ca003c030b6fe0356ed \nrefs/tags/5.3.6 c73300b5aa053e9a086a5972e875890ecd7e13dc \nrefs/tags/5.3.7 b22e8726683a0997484b53c5efd54394e93b5306 \nrefs/tags/5.5.0 afbb8a4f81f3ed24dcfbec6e0b7d6b0c0561d682 \nrefs/tags/5.5.1 26def753db54e1cf430f0651d5800e5e0e607147 \nrefs/tags/5.6.0 09c7e34f17486b0623b961e2089e86f9bc1f7c88 \nrefs/tags/5.6.1 b91002132cfe8fbccc4f8e140b431ec06644e5ec \nrefs/tags/5.6.10 e9013533474e8e46b6a0ca60d20d02f3680b5980 \nrefs/tags/5.6.11 1680a89918cb1b3b15cd37ccf78079e1fc3bfdff \nrefs/tags/5.6.2 116588a2c28572b5625c7e5472716e5b1927c020 \nrefs/tags/5.6.3 aaaed5ed55cd3fe58335635dbe4695554781652b \nrefs/tags/5.6.4 519916b13047f32e6b336da644a6e6ec1659ee97 \nrefs/tags/5.6.5 ddba821eb9d2b75aa81d22dc4cea1199052e1b69 \nrefs/tags/5.6.6 80adc3f3b8919b655adca7b796b273fb10478c3f \nrefs/tags/5.6.7 e991fcfe958eb104c37f4a0fd021ac1d1e0dce49 \nrefs/tags/5.6.8 557e96abb8e3ad51cb63d637855ae5b20f0888e1 \nrefs/tags/5.6.9 ecf7f70a3d2fc18be561baeaff4eac1d930f8781 \nrefs/tags/5.7.0 8d177c6d666c8eeb1c6a6a2c71fd4b78741137d2 \nrefs/tags/5.8.0 9acbfb1d6a83c490453ae2a6948c15e0fa81b9fd \nrefs/tags/5.8.1 5c21ee61e344c142c7d18342d0a8ac4422636569 \nrefs/tags/5.8.2 90dc2bedb08ac54498bddcc279cde5c4596a18d3 \nrefs/tags/5.8.3 19462e12a0628f6281f0eef53cb418c886176fa8 \nrefs/tags/5.9.0 5078f28d3b8c694f6d0352396aa9500d19985d76 \nrefs/tags/6.0.0 d5d903370f6545aa6cd03c4d4729788df52efb5a \nrefs/tags/6.0.0-alpha.1 fc5b3ff045ea0e0f59c9bf27096af9094ca17f0e \nrefs/tags/6.0.0-beta.1 31034c8441c1d4660d5a7ecc9cc2a8ef5305caea \nrefs/tags/6.0.0-beta.2 8caa9d2e3a740997e8c2d10c69a168d7f47e20bd \nrefs/tags/6.0.0-beta.3 0560e18868afad70aac0bc8bda02885134070022 \nrefs/tags/6.0.0-beta.4 c704b65c52e3abfc2e2aabec900781e7a2218b15 \nrefs/tags/6.0.0-beta.5 8f2c17485283afb2122eaee3957c78adcad79833 \nrefs/tags/6.0.0-beta.6 a176d712d8a01412bd79369d0c52e620f0e94d8a \nrefs/tags/6.0.0-beta.7 08f03666990b43dadae6870de2a08691b973714a \nrefs/tags/6.0.0-rc.1 0452c2e74f50ec6c68abafcd589690394a383153 \nrefs/tags/6.0.0-rc.2 1fa430438688711fc2353a6e6f14b9e489b8efdc \nrefs/tags/6.0.1 0fd23d1af997a7b7c6f22f27310443270a91fb18 \nrefs/tags/6.0.2 30211316bc16e481dc440baae39ff904c4fa4966 \nrefs/tags/6.0.3 4255a15370760f01c8cc01717fdf2c123633252f \nrefs/tags/6.0.4 84f2e38075a6d36f8e033d42451f714658061218 \nrefs/tags/6.0.5 c78e7a3f34e0afe6ca0a3b4a03218f1b1280d434 \nrefs/tags/6.1.0 8856e3041dbb768118a55a31ad4e465ae70c6767 \nrefs/tags/6.2.0 c2bc09f9ee048c6bdce6ec494fa48cb74420f608 \nrefs/tags/6.3.0 74ac886dbb8f9bf037a0a7cc19f5f04f03e691c9 \nrefs/tags/6.4.0 ae43e30e8c4b9d91703b0b05577434afc0d62a6f \nrefs/tags/6.5.0 3a7e6557d2bf6dd18eca1c3bd7cd20fd792f0c3f \nrefs/tags/6.5.1 01c42647ce3d6db32caf7a0e0ed615a645de7b9a \nrefs/tags/6.6.0 4520b977bd0615ad69fe83f04743e110be0b9f66 \nrefs/tags/6.6.1 9caca985ff0816907c124ff7b7c47551f5411507 \nrefs/tags/6.6.2 74f0b7611b15be8c8e33184c98125d92b59545aa \nrefs/tags/6.7.0 00e59b5f45fe97e2e610a480a860b3a009db9602 \nrefs/tags/6.8.0 cf6a76c393a467678f773cab4bc8eb924f6076b7 \nrefs/tags/6.8.1 7929c98d84d35e1850d2430ea22e080f51e6bdfc \nrefs/tags/6.8.2 555d0ee7445119b3dee9ae94933a503ea35c6d1c \nrefs/tags/codex/version-calculation-docs-preview-assets 28243d5a024756a3e75e0c1a40872d2d030a484b \nrefs/tags/v3.0.0 8c6ab509306099157d722449e0dbff55fa80347b \nrefs/tags/v3.0.0-beta.4 bec5eb5c626a93d97b5673deda6ec50d1191e267 \nrefs/tags/v3.0.1 93ad627f16a1a714ce5d9deda9714ca180d453c7 \nrefs/tags/v3.0.2 0cb1c22881997b61e5a0cb22e21ca05dc95d6a8c \nrefs/tags/v3.1.0 c894b3da5edb4a9e52039403987e242ccc7a4cda \nrefs/tags/v3.1.1 93e36a9e4bb97ae59f4a13b5ba0eff1f26ef500b \nrefs/tags/v3.2.0 fd774251e3e44c555e72c64cb4aae23570c2747f \nrefs/tags/v3.3.0 90b8744cab37c9d72c3cb8e08e5b10454bc5e080 \nrefs/tags/v3.4.0 baec6d1a00dc7153b0c0dd11b33f6274abdd2158 \nrefs/tags/v3.4.1 2bbe5bbd1fe4b5c09a4bc8ae5d551a8d7e28df64 \nrefs/tags/v3.5.0 f1b9e4cd12c993231858a354a80c6799c8d00593 \nrefs/tags/v3.5.1 12c4e9a570aa11c3862f0157cae8dcb5718f60ed \nrefs/tags/v3.5.2 7b5318722fe60f1d7631b2e7b3796bd38f825b9f \nrefs/tags/v3.5.3 df452f0e722467433ea33cfb2f7ea2a1c471c318 \nrefs/tags/v3.5.4 28b15724fd90833ad9f05774157c5a87865360c5 \nrefs/tags/v3.6.0 2a6448d4c9731b1378afd029d0c02484cc9c91d5 \nrefs/tags/v3.6.1 35c696aa910548165b120fe293c8ee09249b4440 \nrefs/tags/v3.6.2 9756b9dbb94868608f89fe73acdf8e24d0e8d8c6 \nrefs/tags/v3.6.3 b525f21801f90aadd00b531d931f2428be036ecc \nrefs/tags/v3.6.4 8fce1c6ea5592f4660db5e3f62c82589a145a338 \nrefs/tags/v3.6.5 15ef651d24091f7530fda847c9373774754d8ec1 \nrefs/tags/v4.0.0 e715eb5dd515037d90a257f527e62442cae8c1c5 \nrefs/tags/v4.0.0-beta.1 22e03422d0dd854a7b10fd2359e4574c58d38761 \nrefs/tags/v4.0.0-beta.10 93d0e0187ed3a09dc71da4364b3cf2761baa6c88 \nrefs/tags/v4.0.0-beta.11 cc28b2dbff86fee677cc9dbbc57b13f217288e87 \nrefs/tags/v4.0.0-beta.12 9c70946f68973b3b31b2861913c247fbe6c3f0ec \nrefs/tags/v4.0.0-beta.13 0f7e7b3d845cd5ebd39bdb7f5459d34fb84e8b3d \nrefs/tags/v4.0.0-beta.14 08f23f662edd0f5161814a1948fd973dd8ae563f \nrefs/tags/v4.0.0-beta.2 72ef1cd310a064345ff4ecc4bad3bc532d153b33 \nrefs/tags/v4.0.0-beta.3 b48a69cac429839417747419fffcd5e9f292470f \nrefs/tags/v4.0.0-beta.4 0a5661188144373be0e49a4b553033037dcdfbad \nrefs/tags/v4.0.0-beta.5 ae26b81593a5728438390e0da18d494b7398a218 \nrefs/tags/v4.0.0-beta.6+1106.build.1025 e7de24c0e34728a05c9187b8d0b041d932863e3a \nrefs/tags/v4.0.0-beta.7 067d3c437a8f3bda2ffd47cec4285fd610aea995 \nrefs/tags/v4.0.0-beta.8 a88e863313734cbc94f9bb11b855b1733eb6a8c5 \nrefs/tags/v4.0.0-beta.9 d4801d79000b2888b94b4e225dc454503a8a2475 \n",
+        "configuration_sha256": "8cd32a84a90cb814e7dc5c6a203e083e5b9ba66fe7f814b5df8fa3caa5f95f41",
+        "git_config_sha256": "dce331a5f8c1bd4846ccfb0581a85cc641641f85c3ac3f60b1ca39d864cafa6c"
+      },
+      "tracked_files": 1391,
+      "archive_sha256": "6310dcde47823182b5f229b1f9c72ab6ae007bb52a459c60d5654ebf9e8d36e8",
+      "candidate_sha256": "e0351edefe8de78855794f38759f87214ef5d029f10bc2964a2db9e8764a0aa6"
+    },
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "json_sha256": {
+      ".local/index-stream-ports-real-macos-csharp.json": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19",
+      ".local/index-stream-ports-real-macos-go.json": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7",
+      ".local/index-stream-ports-linux-evidence/real-linux-csharp.json": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19",
+      ".local/index-stream-ports-linux-evidence/real-linux-go.json": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+    },
+    "comparison": "All 33 values and JSON types equal across both executables on both OS. Linux uses identical Git objects/refs, tracked files and config; ignored host build outputs excluded from snapshot and covered separately in fresh fixtures."
+  },
+  "unit_reference": "Original C# index and stream assertions and Git ls-files results, replayed from one hashed reference corpus on both platforms.",
+  "index_stream_scope": "14 original methods and 19 cases, including index versions 2 to 4, copy and truncation, bounded file views, and zlib. Supplemental index status verifies assume-valid with staged changes.",
+  "regression_scope": "Full regular/frozen suites, all eighteen previous process comparison groups, three new executable assume-valid comparisons, and independent Git index reference replay on both OS. Full replacement and Windows compatibility remain pending.",
+  "git_reference": {
+    "git": "git version 2.55.0",
+    "cases": 3,
+    "replayed_macos": true
+  },
+  "unit_and_parity_inputs": {
+    "internal/gitrepo/csharp_git_index_and_streams_test.go": "e25c9abcd52cc542dcf01c4269f419c23af94257d82799e1aed3ebd9019cc02b",
+    "internal/gitrepo/git_index_reference_test.go": "a446bf4d1df518802fd57b9037b58707fe83dd5e92c336685da3b2f9371dd321",
+    "scripts/port-git-index-and-stream-tests.py": "7b61d0621b4249bbe0cd2981645af1f9083e99630009408ff323d053e83f071b",
+    "testdata/csharp-git-index-and-streams.json": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "testdata/csharp-git-index-reference.json": "0eb220ced9ea51ee4ce7e4e642d91922bb1b931440d53627af3c1a763d6cdd21",
+    "scripts/inventory-csharp-tests.py": "1f2d1a1823921a10c8ead72badbe275253c070a1e99e1190d2bfe5d3427c2f64"
+  },
+  "oracle_inputs": {
+    ".local/repository-contract-oracle/LibGit2Sharp.dll": "86d84b0b82344d0089af06f7bb89246039185ef9228f1f811bbb53db6a361744",
+    ".local/repository-contract-oracle/RepositoryContracts": "2ae359e6e3e55735b8aa9c627864a6a805dc5ea7825a5e90d6f4761e06c913f8",
+    ".local/repository-contract-oracle/RepositoryContracts.deps.json": "e75ffd0cae96e1fd6658cdea0f573d93688fc37447811378da037e943abb2c38",
+    ".local/repository-contract-oracle/RepositoryContracts.dll": "76f0395c41c6c657d745e376ca7050faac3a367afcee4c1d88641f3683d48cd4",
+    ".local/repository-contract-oracle/RepositoryContracts.pdb": "1956e778d3761ec5ea19bef8f9f99dfc50f989f13bef67e0597acb5f118b2919",
+    ".local/repository-contract-oracle/RepositoryContracts.runtimeconfig.json": "9950d4583cfc9a106857c0d5b8a75b53e8774852b57b80bc3823a74d44a4d87f",
+    ".local/repository-contract-oracle/libgit2-5853918.dylib": "568df47ada6fa8a195757f54eb1e64ff13345e1cb995381071eaa259de9aac81",
+    ".local/repository-contract-oracle/libgit2-5853918.so": "2b2f290398049694e75e53238e723a2128c65cd0cdcaea34a1a8615ffbd695be"
+  },
+  "evidence_hashes": {
+    ".local/index-stream-git-capture.log": "5b2a3840fddf6801d17174b8a1948a76ff61d38b99fda0f9b902e369ba35e73e",
+    ".local/index-stream-git-replay.log": "ecbf11bdf4912ccfdb05e70577d49c8ed8a0870068c51ebc00239a1d38385aaa",
+    ".local/index-stream-focused.log": "87f6e9bb522801dcd39df270c769fba4e59b75bcbc9ce83021c330a4178eb9c3",
+    ".local/index-stream-assume-valid-probe.log": "d66468b290a5ae48d32adc4261da375e12bd2e2354fdf9b4a0405a74476cc8c2",
+    ".local/index-stream-ports-macos-unit.jsonl": "8c620c23bf27f790e1dd0a3d44ad1a9e5ef6fba4b8df0705ee4dcdb905405430",
+    ".local/index-stream-ports-macos-parity.log": "f580c0f2c1ce309a00f87f6e2c1e340dbe1ca100b2e8a9395b723238a4ec1a8e",
+    ".local/index-stream-ports-linux-evidence/repository-linux-parity.log": "db171b7b34d209c37c23c2f021b056aa66b00f04b4488586e724f400a3e83cc5",
+    ".local/index-stream-ports-linux-evidence/repository-linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/index-stream-ports-linux-evidence/archive-index.json": "1a0c90bf612ccd9cece5134362aad2d08b1f53ab67c3ab5235fd2fa66e2a981d",
+    "testdata/csharp-git-index-and-streams.json": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/cmd-gitversion-go.log": "08ff35c5909c095f59c7a9911e00fed620af237851222f11748ac5cd52d94d5d",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/cmd-parity.log": "69bf157cf1e737735b0709ec60afcb75b762ecff0048d436ebf2b31c9801ff1a",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-buildagent.log": "cdc9af0c18b883b64c7b7186f0d6ef569886f14dd85d1ba33db9fbc006d02927",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-calculate.log": "a4b04b79d30768eeb84483cb392a4ebdcf1f1d99b1e67d52f7abc1469ecd3b48",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-config.log": "ebe8a59422f3b33c58fc328892e160d0e09356f60ab73a9d84573e5a8aa6be89",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-fixtures.log": "21ede1f7b01755e1d8c599a27c6ff5085ce1decd77e6373e17ece5d42afbdb0a",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-gitrepo.log": "0018050fcfc46070ee3ff500c56b38217f2c5231e528f666ee363b82bb280ed6",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-output.log": "4254dc38a809186d043d73317e3ccf80b0eac6242752ebb454f165f897efa289",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-parity.log": "7420c0c46f0f35fa90b2f82eab6c34dcf1c822f9b3e86f7439d70b3ac152b961",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+    ".local/index-stream-ports-linux-evidence/linux-unit-logs/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1"
+  },
+  "linux_input_archives": {
+    ".local/index-stream-ports-linux-evidence/input-module.tar.gz": {
+      "sha256": "4328fa6d414681346f90d6a0f4f14a00a33157386c6d1140b24601b6e693745f",
+      "bytes": 139206929
+    },
+    ".local/index-stream-ports-linux-evidence/actual-repository.tar.gz": {
+      "sha256": "6310dcde47823182b5f229b1f9c72ab6ae007bb52a459c60d5654ebf9e8d36e8",
+      "bytes": 86770468
+    }
+  }
+}
