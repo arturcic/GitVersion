@@ -44745,7 +44745,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.UsesPublicScalarRepresentationAndInvariantNumbers": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44765,7 +44765,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.KnownNullIsQueryableEvenWhenOmittedFromFullDisplay": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44783,7 +44783,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.RejectsUnknownPublicPaths": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44805,7 +44805,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.RejectsMalformedPaths": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44827,7 +44827,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.RejectsStructuredValuesAndDynamicTraversal": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44854,7 +44854,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.RejectsV6EvenForAValidV7Path": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44869,7 +44869,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationPropertyQueryTests.NonNullScalarLeavesMatchFullSerializedConfiguration": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
@@ -44884,7 +44884,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationSerializerTests.SerializesV7CalculationAndOutputSectionsAndRoundTrips": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs",
@@ -44899,7 +44899,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationSerializerTests.SerializesFlatConfigurationWhenV6IsSelected": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs",
@@ -44914,7 +44914,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationSerializerTests.Serialize_OrdersConfigurationPropertiesAndPreservesBranchNames": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs",
@@ -44929,7 +44929,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanWriteOutEffectiveConfiguration": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44944,7 +44944,7 @@
     "adaptations": [
       "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryUsesDefaultAndWorkflowConfiguration": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -44962,7 +44962,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryAndDisplayHonorFileThenRuntimeOverrides": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -44980,7 +44980,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryPreservesNullBooleanAndStringValues": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -44997,7 +44997,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryRejectsUnsupportedConfigurationBeforeReadingFile": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45013,7 +45013,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryErrorsUseOnlyStderr": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45035,7 +45035,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryRejectsLegacyDocumentUnderV7": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45050,7 +45050,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryDiscoversLocalOrRootConfigurationAndSupportsExplicitFile": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45066,7 +45066,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryWorksWithoutGitHistoryAndKeepsVerboseLogsOffStdout": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45081,7 +45081,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryPreservesAmbiguousConfigurationDiagnostic": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45096,7 +45096,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.QueryIsUnavailableWithLegacyArgumentParser": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45111,7 +45111,7 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationQueryIntegrationTests.ShowConfigOverrideCorrectionIsLimitedToV7": {
     "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
@@ -45127,6 +45127,6 @@
     "adaptations": [
       "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

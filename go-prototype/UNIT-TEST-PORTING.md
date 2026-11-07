@@ -9,8 +9,8 @@ outside the explicit IntegrationTests directories and **662 integration declarat
 Using this conservative existing classification, the target is **at least 1,365
 fully mapped and verified unit/component declarations**. The first batch added
 six unit methods plus 38 integration methods; the increment batch added 14 unit
-methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Document mapping adds 10 methods and 19 cases. The variable provider adds 18 methods and 21 cases. Configuration resolution adds 40 methods and 78 cases. The verified
-unit total is **698 of 1,516 (46.04%)**, leaving **667** to reach the target.
+methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Document mapping adds 10 methods and 19 cases. The variable provider adds 18 methods and 21 cases. Configuration resolution adds 40 methods and 78 cases. Configuration query and display add 23 methods and 82 cases. The verified
+unit total is **721 of 1,516 (47.56%)**, leaving **644** to reach the target.
 Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-MODEL-PATTERNS-EVIDENCE.json`, plus
 `CSHARP-LABEL-VALIDATION-EVIDENCE.json` and
@@ -24,7 +24,8 @@ Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-FILE-LOCATOR-EVIDENCE.json` and
 `CSHARP-DOCUMENT-MAPPER-EVIDENCE.json` and
 `CSHARP-VARIABLE-PROVIDER-EVIDENCE.json` and
-`CSHARP-CONFIGURATION-RESOLVER-EVIDENCE.json`.
+`CSHARP-CONFIGURATION-RESOLVER-EVIDENCE.json` and
+`CSHARP-CONFIGURATION-QUERY-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside
