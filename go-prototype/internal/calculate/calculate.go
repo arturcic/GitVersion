@@ -69,20 +69,20 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 }
 
 // CalculateAtCommit applies the requested commit's date cutoff to the current branch.
-func CalculateAtCommit(path string, cfg config.Config, commit string) (map[string]any, Trace, error) {
-	return calculateAtCommit(path, cfg, commit, nil)
+func CalculateAtCommit(path string, cfg config.Config, commit string, options gitrepo.OpenOptions) (map[string]any, Trace, error) {
+	return calculateAtCommit(path, cfg, commit, options, nil)
 }
 
 // versionStrategy permits a source strategy to supply candidates to the shared pipeline.
 type versionStrategy func() ([]candidate, error)
 
 func calculateWithStrategy(path string, cfg config.Config, strategy versionStrategy) (map[string]any, Trace, error) {
-	return calculateAtCommit(path, cfg, "", strategy)
+	return calculateAtCommit(path, cfg, "", gitrepo.OpenOptions{}, strategy)
 }
 
-func calculateAtCommit(path string, cfg config.Config, requestedCommit string, strategy versionStrategy) (map[string]any, Trace, error) {
+func calculateAtCommit(path string, cfg config.Config, requestedCommit string, options gitrepo.OpenOptions, strategy versionStrategy) (map[string]any, Trace, error) {
 	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
-	r, err := gitrepo.Open(path)
+	r, err := gitrepo.OpenForCalculation(path, options)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -113,6 +113,7 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, s
 	}
 	mainTips := []string{}
 	branches := []branchRef{}
+	var haveCurrentBranch bool
 	for _, ref := range refs {
 
 		local := strings.HasPrefix(ref.Name, "refs/heads/")
@@ -130,9 +131,13 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, s
 			return nil, trace, err
 		}
 		branches = append(branches, branchRef{name, ref.SHA, refKind})
+		haveCurrentBranch = haveCurrentBranch || name == branch
 		if local && refKind == "main" {
 			mainTips = append(mainTips, ref.SHA)
 		}
+	}
+	if !haveCurrentBranch {
+		branches = append(branches, branchRef{branch, head, kind})
 	}
 	// Non-Mainline strategies can calculate an explicitly configured branch
 	// without a main ref (for example a repository initialized on develop).

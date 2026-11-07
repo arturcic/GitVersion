@@ -40,15 +40,16 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	format := f.String("output", "json", "output format")
 	custom := f.String("config", "", "configuration file path")
 	trace := f.Bool("trace", false, "emit calculation trace on stderr")
+	allowShallow := f.Bool("allow-shallow", false, "allow calculation from shallow history")
 	logFile := f.String("log-file", "", "write calculation diagnostics")
 	if err := f.Parse(args[1:]); err != nil {
 		return fmt.Errorf("%s: %w", usage, err)
 	}
-	if *path == "" || f.NArg() != 0 || *format != "json" || ((*trace || *custom != "" || *logFile != "") && args[0] != "calculate") {
+	if *path == "" || f.NArg() != 0 || *format != "json" || ((*trace || *allowShallow || *custom != "" || *logFile != "") && args[0] != "calculate") {
 		return fmt.Errorf("%s", usage)
 	}
 	if args[0] == "calculate" {
-		values, detail, err := calculateCLI(*path, *custom, *logFile, "", nil, diagnostics)
+		values, detail, err := calculateCLI(*path, *custom, *logFile, "", nil, diagnostics, gitrepo.OpenOptions{AllowShallow: *allowShallow})
 		if err != nil {
 			return err
 		}

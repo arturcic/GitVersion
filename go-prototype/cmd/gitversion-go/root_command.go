@@ -73,10 +73,21 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if options.TargetURL != "" || options.TargetBranch != "" || options.ClonePath != "" {
 		return fmt.Errorf("remote and branch targeting are pending")
 	}
-	if options.AllowShallow || options.Diag {
-		return fmt.Errorf("shallow history and diagnostic mode are pending")
+	if options.Diag {
+		return fmt.Errorf("diagnostic mode is pending")
 	}
-	values, trace, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.CommitID, options.OverrideConfiguration, diagnostics)
+	repoOptions := gitrepo.OpenOptions{AllowShallow: options.AllowShallow}
+	if !options.NoNormalize {
+		agent := buildagent.Resolve(options.TargetPath, os.LookupEnv)
+		repoOptions.NormalizeDetached = agent.Name != "LocalBuild"
+		if branch := agent.CurrentBranch(); branch != nil {
+			repoOptions.BuildBranch = *branch
+		}
+		if tag := agent.CurrentTag(); tag != nil {
+			repoOptions.BuildTag = *tag
+		}
+	}
+	values, trace, err := calculateCLI(options.TargetPath, options.ConfigurationFile, options.LogFilePath, options.CommitID, options.OverrideConfiguration, diagnostics, repoOptions)
 	if err != nil {
 		return err
 	}
@@ -153,7 +164,7 @@ func writeRootOutput(options cliArguments, values map[string]any, out io.Writer)
 	return encoder.Encode(values)
 }
 
-func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagnostics io.Writer) (map[string]any, calculate.Trace, error) {
+func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagnostics io.Writer, repoOptions gitrepo.OpenOptions) (map[string]any, calculate.Trace, error) {
 	if _, err := selectedConfigurationVersion(); err != nil {
 		return nil, calculate.Trace{}, err
 	}
@@ -190,7 +201,7 @@ func calculateCLI(path, custom, logFile, commit string, overrides []byte, diagno
 	if warning != "" {
 		fmt.Fprintln(diagnostics, warning)
 	}
-	values, trace, err := calculate.CalculateAtCommit(repository, cfg, commit)
+	values, trace, err := calculate.CalculateAtCommit(repository, cfg, commit, repoOptions)
 	if err != nil {
 		return nil, trace, err
 	}

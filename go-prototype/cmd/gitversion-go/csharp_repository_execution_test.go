@@ -15,6 +15,7 @@ import (
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/fixtures"
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"github.com/GitTools/GitVersion/go-prototype/internal/parity"
 )
 
@@ -55,13 +56,13 @@ func TestCSharpRepositoryExecutor(t *testing.T) {
 								t.Fatal(err)
 							}
 						}
-						values, _, err := calculateCLI(dir, "", "", "", nil, io.Discard)
+						values, _, err := calculateCLI(dir, "", "", "", nil, io.Discard, gitrepo.OpenOptions{})
 						if err == nil || !strings.Contains(err.Error(), tc.Expected[0]) || values != nil {
 							t.Fatalf("expected %q and no values, got %v, %v", tc.Expected[0], values, err)
 						}
 					case "CalculateVersionFromWorktreeHead":
 						path, head := supportWorktreeFixture(t, dir)
-						values, _, err := calculateCLI(path, "", "", "", nil, io.Discard)
+						values, _, err := calculateCLI(path, "", "", "", nil, io.Discard, gitrepo.OpenOptions{})
 						if err != nil || values["SemVer"] != tc.Expected[0] || values["VersionSourceSemVer"] != tc.Expected[1] || values["Sha"] != head {
 							t.Fatalf("worktree values = %v, error %v", values, err)
 						}
@@ -83,7 +84,7 @@ func TestCSharpRepositoryExecutor(t *testing.T) {
 						if err != nil {
 							t.Fatal(err)
 						}
-						values, _, err := calculateCLI(cps[0].Path, "", "", "", overrides, io.Discard)
+						values, _, err := calculateCLI(cps[0].Path, "", "", "", overrides, io.Discard, gitrepo.OpenOptions{})
 						value, _ := values["CustomVersion"].(string)
 						if err != nil || !strings.HasPrefix(value, tc.Expected[0]) {
 							t.Fatalf("custom version = %q, error %v", value, err)

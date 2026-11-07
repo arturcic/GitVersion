@@ -1,0 +1,745 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "GitVersionExecutorTests": {
+      "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
+      "sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
+      "methods": {
+        "CalculateVersionVariables_TwoBranchHasSameCommitHeadDetachedAndNotTagged_ThrowException": {
+          "cases": [
+            {
+              "id": "case-000",
+              "expected": [
+                "Failed to try and guess branch to use. Move one of the branches along a commit to remove warning"
+              ]
+            }
+          ]
+        },
+        "CalculateVersionVariables_TwoBranchHasSameCommitHeadDetachedAndTagged_ReturnSemver": {
+          "cases": [
+            {
+              "id": "case-000",
+              "expected": [
+                "1.0.1",
+                "1.0.1"
+              ]
+            }
+          ]
+        },
+        "CalculateVersionVariables_ShallowFetch_ThrowException": {
+          "cases": [
+            {
+              "id": "case-000",
+              "expected": [
+                "Repository is a shallow clone. Git repositories must contain the full history. See https://gitversion.net/docs/reference/requirements#unshallow for more info."
+              ]
+            }
+          ]
+        },
+        "CalculateVersionVariables_ShallowFetch_WithAllowShallow_ShouldNotThrowException": {
+          "cases": [
+            {
+              "id": "case-000",
+              "expected": []
+            }
+          ]
+        },
+        "CalculateVersionVariables_WithLimitedCloneDepth_AndAllowShallowTrue_ShouldCalculateVersionCorrectly": {
+          "cases": [
+            {
+              "id": "case-000",
+              "expected": [
+                "2.0.0",
+                "1.0.0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "PullRequestInBuildAgentTest": {
+      "source": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs",
+      "sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
+      "methods": {
+        "VerifyAzurePipelinesPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "PR-5"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "PR-5"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "PR-5"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "PR-5"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "PR-5"
+              }
+            }
+          ]
+        },
+        "VerifyCodeBuildPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "CODEBUILD_WEBHOOK_HEAD_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "CODEBUILD_WEBHOOK_HEAD_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "CODEBUILD_WEBHOOK_HEAD_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "CODEBUILD_WEBHOOK_HEAD_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "CODEBUILD_WEBHOOK_HEAD_REF": "PR-5"
+              }
+            }
+          ]
+        },
+        "VerifyContinuaCIPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "ContinuaCI.Version": "true"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "ContinuaCI.Version": "true"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "ContinuaCI.Version": "true"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "ContinuaCI.Version": "true"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "ContinuaCI.Version": "true"
+              }
+            }
+          ]
+        },
+        "VerifyDronePullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "DRONE": "true",
+                "DRONE_PULL_REQUEST": "PR-5"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "DRONE": "true",
+                "DRONE_PULL_REQUEST": "PR-5"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "DRONE": "true",
+                "DRONE_PULL_REQUEST": "PR-5"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "DRONE": "true",
+                "DRONE_PULL_REQUEST": "PR-5"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "DRONE": "true",
+                "DRONE_PULL_REQUEST": "PR-5"
+              }
+            }
+          ]
+        },
+        "VerifyGitHubActionsPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "PR-5"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "PR-5"
+              }
+            }
+          ]
+        },
+        "VerifyGitLabCIPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/merge-requests/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITLAB_CI": "true",
+                "CI_MERGE_REQUEST_REF_PATH": "refs/merge-requests/5/head",
+                "CI_COMMIT_REF_NAME": "FeatureBranch"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/merge-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "GITLAB_CI": "true",
+                "CI_MERGE_REQUEST_REF_PATH": "refs/merge-requests/5/merge",
+                "CI_COMMIT_REF_NAME": "FeatureBranch"
+              }
+            }
+          ]
+        },
+        "VerifyJenkinsPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "JENKINS_URL": "url",
+                "BRANCH_NAME": "PR-5"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "JENKINS_URL": "url",
+                "BRANCH_NAME": "PR-5"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "JENKINS_URL": "url",
+                "BRANCH_NAME": "PR-5"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "JENKINS_URL": "url",
+                "BRANCH_NAME": "PR-5"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "JENKINS_URL": "url",
+                "BRANCH_NAME": "PR-5"
+              }
+            }
+          ]
+        },
+        "VerifyMyGetPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BuildRunner": "MyGet"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BuildRunner": "MyGet"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BuildRunner": "MyGet"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BuildRunner": "MyGet"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BuildRunner": "MyGet"
+              }
+            }
+          ]
+        },
+        "VerifyTeamCityPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TEAMCITY_VERSION": "8.0.0"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TEAMCITY_VERSION": "8.0.0"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TEAMCITY_VERSION": "8.0.0"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TEAMCITY_VERSION": "8.0.0"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TEAMCITY_VERSION": "8.0.0"
+              }
+            }
+          ]
+        },
+        "VerifyTravisCIPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TRAVIS": "true",
+                "CI": "true"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TRAVIS": "true",
+                "CI": "true"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TRAVIS": "true",
+                "CI": "true"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TRAVIS": "true",
+                "CI": "true"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "TRAVIS": "true",
+                "CI": "true"
+              }
+            }
+          ]
+        },
+        "VerifyBitBucketPipelinesPullRequest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "refs/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BITBUCKET_WORKSPACE": "MyWorkspace",
+                "BITBUCKET_PR_ID": "refs/pull-requests/5/merge"
+              }
+            },
+            {
+              "id": "case-001",
+              "ref": "refs/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BITBUCKET_WORKSPACE": "MyWorkspace",
+                "BITBUCKET_PR_ID": "refs/pull/5/merge"
+              }
+            },
+            {
+              "id": "case-002",
+              "ref": "refs/heads/pull/5/head",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BITBUCKET_WORKSPACE": "MyWorkspace",
+                "BITBUCKET_PR_ID": "refs/heads/pull/5/head"
+              }
+            },
+            {
+              "id": "case-003",
+              "ref": "refs/remotes/pull/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BITBUCKET_WORKSPACE": "MyWorkspace",
+                "BITBUCKET_PR_ID": "refs/remotes/pull/5/merge"
+              }
+            },
+            {
+              "id": "case-004",
+              "ref": "refs/remotes/pull-requests/5/merge",
+              "expected": [
+                "1.0.4-PullRequest5.3"
+              ],
+              "environment": {
+                "BITBUCKET_WORKSPACE": "MyWorkspace",
+                "BITBUCKET_PR_ID": "refs/remotes/pull-requests/5/merge"
+              }
+            }
+          ]
+        },
+        "VerifyPullRequestInput": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "refs/pull-requests/5/merge",
+                "refs/pull-requests/5/merge",
+                false,
+                true,
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "refs/pull/5/merge",
+                "refs/pull/5/merge",
+                false,
+                true,
+                false
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "refs/heads/pull/5/head",
+                "pull/5/head",
+                true,
+                false,
+                false
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "refs/remotes/pull/5/merge",
+                "pull/5/merge",
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "TagCheckoutInBuildAgentTests": {
+      "source": "src/GitVersion.App.Tests/TagCheckoutInBuildAgentTests.cs",
+      "sha256": "5f26694647b6fe4cddffb2ae52e1dc1d58a989e1f6126fc557b5a0e94d8e5f09",
+      "methods": {
+        "VerifyTagCheckoutOnAzurePipelines": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "",
+              "expected": [
+                "0.2.0"
+              ],
+              "environment": {
+                "TF_BUILD": "true",
+                "BUILD_SOURCEBRANCH": "refs/tags/0.2.0"
+              }
+            }
+          ]
+        },
+        "VerifyTagCheckoutOnGitHubActions": {
+          "cases": [
+            {
+              "id": "case-000",
+              "ref": "",
+              "expected": [
+                "0.2.0"
+              ],
+              "environment": {
+                "GITHUB_ACTIONS": "true",
+                "GITHUB_REF": "ref/tags/0.2.0"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

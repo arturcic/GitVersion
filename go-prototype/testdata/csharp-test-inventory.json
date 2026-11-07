@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1297,
+  "mapped_declarations": 1316,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1259,
+      "mapped": 1278,
       "verified": 1259
     },
     "integration": {
@@ -6785,9 +6785,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyCodeBuildPullRequest",
@@ -6802,9 +6813,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyContinuaCIPullRequest",
@@ -6819,9 +6841,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyDronePullRequest",
@@ -6836,9 +6869,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyGitHubActionsPullRequest",
@@ -6853,9 +6897,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyGitLabCIPullRequest",
@@ -6870,9 +6925,17 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyJenkinsPullRequest",
@@ -6887,9 +6950,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyMyGetPullRequest",
@@ -6904,9 +6978,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyTeamCityPullRequest",
@@ -6921,9 +7006,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyTravisCIPullRequest",
@@ -6938,9 +7034,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyBitBucketPipelinesPullRequest",
@@ -6955,9 +7062,20 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/PullRequestInBuildAgentTest.cs#VerifyPullRequestInput",
@@ -6972,9 +7090,19 @@
       ],
       "source_sha256": "309f6c34210c7d82b0e5854b202e809f7c0f129ae8cae952824b57c0eebc5ea7",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpPullRequestInput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs#SplitUnquotedTests",
@@ -7072,9 +7200,16 @@
       ],
       "source_sha256": "5f26694647b6fe4cddffb2ae52e1dc1d58a989e1f6126fc557b5a0e94d8e5f09",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/TagCheckoutInBuildAgentTests.cs#VerifyTagCheckoutOnGitHubActions",
@@ -7089,9 +7224,16 @@
       ],
       "source_sha256": "5f26694647b6fe4cddffb2ae52e1dc1d58a989e1f6126fc557b5a0e94d8e5f09",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/TelemetryMsBuildLaunchTests.cs#MsBuildTargetScopesCallerToChildAndPreservesOptOut",
@@ -15016,9 +15158,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CalculateVersionVariables_TwoBranchHasSameCommitHeadDetachedAndTagged_ReturnSemver",
@@ -15033,9 +15182,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CalculateVersionVariables_ShallowFetch_ThrowException",
@@ -15050,9 +15206,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CalculateVersionVariables_ShallowFetch_WithAllowShallow_ShouldNotThrowException",
@@ -15067,9 +15230,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs#CalculateVersionVariables_WithLimitedCloneDepth_AndAllowShallowTrue_ShouldCalculateVersionCorrectly",
@@ -15084,9 +15254,16 @@
       ],
       "source_sha256": "b1639f8e46c8da2db0f7a2c344833334c0b8315be1bec3c38969ec0f7ec6f224",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpShallowAndCI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-shallow-ci.json",
+      "adaptations": [
+        "Use local go-git repositories and preserve the original CI environment and version assertions. Go resolves the effective branch in memory and retains the existing checkout."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/GitVersionToolDirectoryTests.cs#FindsGitDirectory",

@@ -77,6 +77,16 @@ type Observation struct {
 // Open deliberately accepts only complete, clean working trees with
 // attached local HEAD. Unsupported states must not yield plausible observations.
 func Open(path string) (*Repository, error) {
+	return OpenForCalculation(path, OpenOptions{})
+}
+
+type OpenOptions struct {
+	AllowShallow, NormalizeDetached bool
+	BuildBranch, BuildTag           string
+}
+
+// OpenForCalculation opens a clean worktree using explicitly selected policies.
+func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	layout, err := openLayout(path)
 	if err != nil {
 		return nil, err
@@ -88,8 +98,8 @@ func Open(path string) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	if len(shallow) > 0 {
-		return nil, fmt.Errorf("unsupported shallow repository")
+	if len(shallow) > 0 && !options.AllowShallow {
+		return nil, errors.New("Repository is a shallow clone. Git repositories must contain the full history. See https://gitversion.net/docs/reference/requirements#unshallow for more info.")
 	}
 	g, err := layout.open()
 	if err != nil {
@@ -100,7 +110,8 @@ func Open(path string) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	if head.Type() != plumbing.SymbolicReference || !head.Target().IsBranch() {
+	detached := head.Type() != plumbing.SymbolicReference || !head.Target().IsBranch()
+	if detached && !options.NormalizeDetached {
 		return nil, fmt.Errorf("unsupported detached HEAD")
 	}
 	tip, err := store.resolve(plumbing.HEAD)
@@ -120,6 +131,12 @@ func Open(path string) (*Repository, error) {
 	r := newCommitRepository(layout, g, shallow)
 	r.head = tip.Hash().String()
 	r.branch = head.Target().String()
+	if detached {
+		r.branch, err = r.detachedBranch(layout.workingDirectory, options)
+		if err != nil {
+			return nil, err
+		}
+	}
 	if _, err = r.load(r.head); err != nil {
 		return nil, err
 	}
