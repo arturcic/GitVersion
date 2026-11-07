@@ -353,16 +353,12 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 				return strategy()
 			}
 			candidates := []candidate{}
-			if cfg.Next != nil && cfg.Strategies["ConfiguredNextVersion"] && cfg.Next.Matches(label) {
-				v := *cfg.Next
-				var err error
-				if !v.IsPreRelease() || v.Label != label {
-					v, err = cfg.Next.Bump(semver.None, label, false)
-				}
-				if err != nil {
-					return nil, err
-				}
-				candidates = append(candidates, candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"})
+			next, exists, err := configuredNextVersionCandidate(cfg, label)
+			if err != nil {
+				return nil, err
+			}
+			if exists {
+				candidates = append(candidates, next)
 			}
 			if cfg.Strategies["Mainline"] {
 				c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label)

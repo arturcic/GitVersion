@@ -1,0 +1,607 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+  "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+  "methods": {
+    "ShouldNotAllowIncrementOfVersion": [
+      {
+        "message": "Merge branch 'release-0.1.5'",
+        "merge": true,
+        "incremented": "0.1.5-1",
+        "suffixes": [
+          ""
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TakesVersionFromMergeOfReleaseBranch": [
+      {
+        "message": "Merge branch 'release-10.10.50'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "10.10.50",
+        "id": "case-000"
+      },
+      {
+        "message": "Merge branch 'release-0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-001"
+      },
+      {
+        "message": "Merge branch 'Release-0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-002"
+      },
+      {
+        "message": "Merge branch 'Release/0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-003"
+      },
+      {
+        "message": "Merge branch 'releases-0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-004"
+      },
+      {
+        "message": "Merge branch 'Releases-0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-005"
+      },
+      {
+        "message": "Merge branch 'Releases/0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-006"
+      },
+      {
+        "message": "Merge branch 'release-4.6.6' into support-4.6",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "4.6.6",
+        "id": "case-007"
+      },
+      {
+        "message": "Merge branch 'release-0.1.5'\n\nRelates to: TicketId",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.1.5",
+        "id": "case-008"
+      },
+      {
+        "message": "Finish Release-0.12.0",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.12.0",
+        "id": "case-009"
+      },
+      {
+        "message": "Merge branch 'Release-v0.2.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-010"
+      },
+      {
+        "message": "Merge remote-tracking branch 'origin/release/0.8.0' into develop/main",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.8.0",
+        "id": "case-011"
+      },
+      {
+        "message": "Merge remote-tracking branch 'refs/remotes/origin/release/2.0.0'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "2.0.0",
+        "id": "case-012"
+      },
+      {
+        "message": "Merge branch 'Releases/0.2.0'",
+        "merge": false,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "version": "0.2.0",
+        "id": "case-013"
+      }
+    ],
+    "ShouldNotTakeVersionFromMergeOfNonReleaseBranch": [
+      {
+        "message": "Merge branch 'hotfix-0.1.5'",
+        "merge": false,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge branch 'develop' of github.com:Particular/NServiceBus into develop",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge branch '4.0.3'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-002"
+      },
+      {
+        "message": "Merge branch 's'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-003"
+      },
+      {
+        "message": "Merge tag '10.10.50'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-004"
+      },
+      {
+        "message": "Merge branch 'somebranch' into release-3.0.0",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-005"
+      },
+      {
+        "message": "Merge branch 'alpha-0.1.5'",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-006"
+      },
+      {
+        "message": "Merge pull request #95 from Particular/issue-94",
+        "merge": false,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-007"
+      },
+      {
+        "message": "Merge pull request #95 in Particular/issue-94",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-008"
+      },
+      {
+        "message": "Merge pull request #95 in Particular/issue-94",
+        "merge": false,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-009"
+      },
+      {
+        "message": "Merge pull request #64 from arledesma/feature-VS2013_3rd_party_test_framework_support",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-010"
+      },
+      {
+        "message": "Merge pull request #500 in FOO/bar from Particular/release-1.0.0 to develop)",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-011"
+      },
+      {
+        "message": "Merge pull request #500 in FOO/bar from feature/new-service to develop)",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-012"
+      },
+      {
+        "message": "Finish 0.14.1",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "disable_hotfix": true,
+        "id": "case-013"
+      }
+    ],
+    "ShouldNotTakeVersionFromMergeOfReleaseBranchWithRemoteOtherThanOrigin": [
+      {
+        "message": "Merge pull request #165 from organization/Particular/release-1.0.0",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "id": "case-000"
+      },
+      {
+        "message": "Merge pull request #165 in organization/Particular/release-1.0.0",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "id": "case-001"
+      },
+      {
+        "message": "Merge pull request #500 in FOO/bar from organization/Particular/release-1.0.0 to develop)",
+        "merge": true,
+        "suffixes": [
+          "",
+          " ",
+          "\r ",
+          "\r",
+          "\r\n",
+          "\r\n ",
+          "\n",
+          "\n "
+        ],
+        "id": "case-002"
+      }
+    ],
+    "ShouldNotTakeVersionFromUnrelatedMerge": [
+      {
+        "message": "Merge pull request #1 in FOO/bar from feature/ISSUE-1 to develop\n* commit '38560a7eed06e8d3f3f1aaf091befcdf8bf50fea':\n  Updated jQuery to v2.1.3",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-000"
+      },
+      {
+        "message": "Merge pull request #45 in BRIKKS/brikks from feature/NOX-68 to develop\n* commit '38560a7eed06e8d3f3f1aaf091befcdf8bf50fea':\n  Another commit message\n  Commit message including a IP-number https://10.50.1.1\n  A commit message",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-001"
+      },
+      {
+        "message": "Merge branch 'release/Sprint_2.0_Holdings_Computed_Balances'",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-002"
+      },
+      {
+        "message": "Merge branch 'develop' of http://10.0.6.3/gitblit/r/... into develop",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-003"
+      },
+      {
+        "message": "Merge branch main of http://172.16.3.10:8082/r/asu_tk/p_sd",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-004"
+      },
+      {
+        "message": "Merge branch main of http://212.248.89.56:8082/r/asu_tk/p_sd",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-005"
+      },
+      {
+        "message": "Merge branch 'DEMO' of http://10.10.10.121/gitlab/mtolland/orcid into DEMO",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "id": "case-006"
+      }
+    ],
+    "TakesVersionFromMergeOfConfiguredReleaseBranch": [
+      {
+        "message": "Merge branch 'support/0.2.0'",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "release_branch": "support",
+        "version": "0.2.0",
+        "id": "case-000"
+      },
+      {
+        "message": "Merge branch 'support/0.2.0'",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "release_branch": null,
+        "version": null,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge branch 'release/2.0.0'",
+        "merge": true,
+        "suffixes": [
+          ""
+        ],
+        "release_branch": null,
+        "version": "2.0.0",
+        "id": "case-002"
+      }
+    ]
+  }
+}

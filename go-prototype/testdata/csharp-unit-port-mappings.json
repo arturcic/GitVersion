@@ -51032,5 +51032,258 @@
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "VersionInBranchNameBaseVersionStrategyTests.CanTakeVersionFromNameOfReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
+    "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
+    "method": "CanTakeVersionFromNameOfReleaseBranch",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "VersionInBranchNameBaseVersionStrategyTests.ShouldNotTakeVersionFromNameOfNonReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
+    "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
+    "method": "ShouldNotTakeVersionFromNameOfNonReleaseBranch",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007"
+    ],
+    "adaptations": [
+      "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "VersionInBranchNameBaseVersionStrategyTests.CanTakeVersionFromNameOfConfiguredReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
+    "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
+    "method": "CanTakeVersionFromNameOfConfiguredReleaseBranch",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007"
+    ],
+    "adaptations": [
+      "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "VersionInBranchNameBaseVersionStrategyTests.CanTakeVersionFromNameOfRemoteReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
+    "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
+    "method": "CanTakeVersionFromNameOfRemoteReleaseBranch",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfiguredNextVersionVersionStrategyTests.ReturnsNullWhenNoNextVersionIsInConfig": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
+    "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
+    "method": "ReturnsNullWhenNoNextVersionIsInConfig",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
+    "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
+    "method": "ConfiguredNextVersionTest",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTestShouldFail": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
+    "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
+    "method": "ConfiguredNextVersionTestShouldFail",
+    "go_test": "TestCSharpBranchAndNextStrategies",
+    "case_file": "testdata/csharp-branch-and-next-strategies.json",
+    "case_file_sha256": "96f86658e1df296e333801d8adfcf42e9f3cb6b6af2020a5d832bdf0fd7ce9ee",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.ShouldNotAllowIncrementOfVersion": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "ShouldNotAllowIncrementOfVersion",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.TakesVersionFromMergeOfReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "TakesVersionFromMergeOfReleaseBranch",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromMergeOfNonReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "ShouldNotTakeVersionFromMergeOfNonReleaseBranch",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromMergeOfReleaseBranchWithRemoteOtherThanOrigin": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "ShouldNotTakeVersionFromMergeOfReleaseBranchWithRemoteOtherThanOrigin",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromUnrelatedMerge": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "ShouldNotTakeVersionFromUnrelatedMerge",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "MergeMessageBaseVersionStrategyTests.TakesVersionFromMergeOfConfiguredReleaseBranch": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
+    "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
+    "method": "TakesVersionFromMergeOfConfiguredReleaseBranch",
+    "go_test": "TestCSharpMergeMessageStrategy",
+    "case_file": "testdata/csharp-merge-message-strategy.json",
+    "case_file_sha256": "186acb1a1014a78fe6dc951eb4ff2927b121e5f8b8e8880b84717b6aa1faee1e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

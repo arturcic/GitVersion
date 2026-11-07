@@ -31,8 +31,11 @@ func TestPlatformWorkflowParity(t *testing.T)          { testPlatformParity(t, "
 func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "workflow-edges") }
 func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
-func TestPlatformCSharpPortsParity(t *testing.T)       { testPlatformParity(t, "csharp-ports") }
-func TestPlatformNextVersionParity(t *testing.T)       { testPlatformParity(t, "next-version") }
+func TestPlatformCSharpPortsParity(t *testing.T) { testPlatformParity(t, "csharp-ports") }
+func TestPlatformNextVersionParity(t *testing.T) { testPlatformParity(t, "next-version") }
+func TestPlatformConfiguredNextStrategyParity(t *testing.T) {
+	testPlatformParity(t, "configured-next-strategy")
+}
 func TestPlatformBranchRuleParity(t *testing.T)        { testPlatformParity(t, "branch-rules") }
 func TestPlatformBranchInheritanceParity(t *testing.T) { testPlatformParity(t, "branch-inheritance") }
 func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
@@ -128,6 +131,10 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes, err = fixtures.Load(filepath.Join(root, "testdata/csharp-next-version-recipes.json"))
 		expected = 23
 	}
+	if suite == "configured-next-strategy" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/csharp-configured-next-strategy-recipes.json"))
+		expected = 7
+	}
 	if suite == "branch-rules" {
 		recipes, err = fixtures.Load(filepath.Join(root, "testdata/branch-rule-recipes.json"))
 		expected = 21
@@ -190,12 +197,13 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-generated" {
 		goldenPath = filepath.Join(root, ".local/workflow-generated-reference.json")
 	}
-	if suite != "next-version" && suite != "branch-rules" && suite != "branch-inheritance" {
+	liveReferenceOnly := suite == "next-version" || suite == "branch-rules" || suite == "branch-inheritance" || suite == "configured-next-strategy"
+	if !liveReferenceOnly {
 		if err := parity.ReadJSON(goldenPath, &golden); err != nil {
 			t.Fatal(err)
 		}
 	}
-	if suite != "curated" && suite != "next-version" && suite != "branch-rules" && suite != "branch-inheritance" {
+	if suite != "curated" && !liveReferenceOnly {
 		goldenCount := expected - len(golden.Rejections)
 		if failure.ID != "" {
 			goldenCount--

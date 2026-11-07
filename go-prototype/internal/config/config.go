@@ -210,7 +210,7 @@ func Parse(data []byte) (Config, error) {
 		return c, err
 	}
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"mode", "increment", "next-version", "branches", "strategies", "ignore"})
+		calc, err := mapping(node, "calculation", []string{"mode", "increment", "next-version", "semantic-version-format", "branches", "strategies", "ignore"})
 		if err != nil {
 			return c, err
 		}
@@ -261,16 +261,38 @@ func Parse(data []byte) (Config, error) {
 				}
 			}
 		}
-		if n := calc["next-version"]; n != nil {
+		versionFormat := semver.Strict
+		if n := calc["semantic-version-format"]; n != nil {
+			format, err := scalar(n, "semantic-version-format")
+			if err != nil {
+				return c, err
+			}
+			versionFormat = semver.ParseMode(format)
+			if versionFormat != semver.Strict && versionFormat != semver.Loose {
+				return c, validation("VALUE", "calculation.semantic-version-format", "Expected Strict or Loose.")
+			}
+		}
+		if n := calc["next-version"]; n != nil && n.Tag != "!!null" {
 			s, err := scalar(n, "next-version")
 			if err != nil {
 				return c, err
 			}
-			v, err := semver.Parse(s)
-			if err != nil {
-				return c, err
+			if s != "" {
+				var v semver.Version
+				if versionFormat == semver.Loose {
+					v, err = semver.ParseDetailed(s, nil, versionFormat)
+					if err == nil {
+						// Check the normalized version against the calculator's numeric limits.
+						_, err = semver.Parse(v.String())
+					}
+				} else {
+					v, err = semver.Parse(s)
+				}
+				if err != nil {
+					return c, validation("VALUE", "calculation.next-version", "Expected a semantic version.")
+				}
+				c.Next = &v
 			}
-			c.Next = &v
 		}
 		if n := calc["branches"]; n != nil {
 			bs, err := mapping(n, "branches", nil)

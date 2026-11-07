@@ -151,11 +151,26 @@ func mergedBranch(message string) string {
 	}
 	return strings.TrimPrefix(*parsed.MergedBranch, "origin/")
 }
+func configuredNextVersionCandidate(cfg config.Config, label string) (candidate, bool, error) {
+	if cfg.Next == nil || !cfg.Strategies["ConfiguredNextVersion"] || !cfg.Next.Matches(label) {
+		return candidate{}, false, nil
+	}
+	v := *cfg.Next
+	if !v.IsPreRelease() || v.Label != label {
+		var err error
+		v, err = v.Bump(semver.None, label, false)
+		if err != nil {
+			return candidate{}, false, err
+		}
+	}
+	return candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"}, true, nil
+}
+
 func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error)) ([]candidate, error) {
 	var out []candidate
 	if e.IsRelease && cfg.Strategies["VersionInBranchName"] {
 		for _, name := range []string{branch, source} {
-			if v, ok := versionInBranch(name); ok {
+			if v, ok := versionInBranch(gitrepo.NewReferenceName(name).WithoutOrigin); ok {
 				bumped, err := v.Bump(semver.None, e.Label, false)
 				if err != nil {
 					return nil, err

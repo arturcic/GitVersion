@@ -1,0 +1,107 @@
+[
+  {
+    "id": "strategy-next-case-000",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-000",
+    "config": "calculation:\n  semantic-version-format: Strict\n  next-version: \"1.0.0\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-001",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-001",
+    "config": "calculation:\n  semantic-version-format: Loose\n  next-version: \"1.0.0\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-002",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-002",
+    "config": "calculation:\n  semantic-version-format: Strict\n  next-version: \"2.12.654651698\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-003",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-003",
+    "config": "calculation:\n  semantic-version-format: Loose\n  next-version: \"2.12.654651698\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-004",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-004",
+    "config": "calculation:\n  semantic-version-format: Loose\n  next-version: \"0.1\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-005",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-005",
+    "config": "calculation:\n  semantic-version-format: Strict\n  next-version: \"1.0.0-alpha.1\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "strategy-next-case-006",
+    "description": "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest case-006",
+    "config": "calculation:\n  semantic-version-format: Strict\n  next-version: \"1.0.0-2\"\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  }
+]

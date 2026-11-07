@@ -1,0 +1,253 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "VersionInBranchNameBaseVersionStrategyTests": {
+      "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
+      "sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
+      "methods": {
+        "CanTakeVersionFromNameOfReleaseBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "release-2.0.0",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "release/3.0.0",
+                "3.0.0"
+              ]
+            }
+          ]
+        },
+        "ShouldNotTakeVersionFromNameOfNonReleaseBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "origin/hotfix-2.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "remotes/origin/hotfix-2.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "origin/hotfix/2.0.0"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "remotes/origin/hotfix/2.0.0"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "custom/JIRA-123"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "remotes/custom/JIRA-123"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "hotfix/downgrade-to-gitversion-3.6.5-to-fix-miscalculated-version"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "remotes/hotfix/downgrade-to-gitversion-3.6.5-to-fix-miscalculated-version"
+              ]
+            }
+          ]
+        },
+        "CanTakeVersionFromNameOfConfiguredReleaseBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "release-2.0.0",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "release/3.0.0",
+                "3.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "support/2.0.0-lts",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "support-3.0.0-lts",
+                "3.0.0"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "hotfix/2.0.0",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "hotfix-3.0.0",
+                "3.0.0"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "hotfix/2.0.0-lts",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "hotfix-3.0.0-lts",
+                "3.0.0"
+              ]
+            }
+          ]
+        },
+        "CanTakeVersionFromNameOfRemoteReleaseBranch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "origin",
+                "release-2.0.0",
+                "2.0.0"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "origin",
+                "release/3.0.0",
+                "3.0.0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ConfiguredNextVersionVersionStrategyTests": {
+      "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
+      "sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
+      "methods": {
+        "ReturnsNullWhenNoNextVersionIsInConfig": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfiguredNextVersionTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "1.0.0",
+                "1.0.0",
+                "Strict",
+                "1.0.0-1"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "1.0.0",
+                "1.0.0",
+                "Loose",
+                "1.0.0-1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "2.12.654651698",
+                "2.12.654651698",
+                "Strict",
+                "2.12.654651698-1"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "2.12.654651698",
+                "2.12.654651698",
+                "Loose",
+                "2.12.654651698-1"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "0.1",
+                "0.1.0",
+                "Loose",
+                "0.1.0-1"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "1.0.0-alpha.1",
+                null,
+                "Strict",
+                null
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "1.0.0-2",
+                "1.0.0-2",
+                "Strict",
+                "1.0.0-2"
+              ]
+            }
+          ]
+        },
+        "ConfiguredNextVersionTestShouldFail": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "0.1",
+                "Strict"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
