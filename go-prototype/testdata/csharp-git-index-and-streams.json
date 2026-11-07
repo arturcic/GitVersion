@@ -1,0 +1,163 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "GitIndexTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
+      "sha256": "5f3434c7fbc98e6004cdaab4c33195504a56118411680d421a1fc0efce8df32f",
+      "methods": {
+        "IndexEntriesMatchGitLsFiles": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": 2
+            },
+            {
+              "id": "case-001",
+              "argument": 3
+            },
+            {
+              "id": "case-002",
+              "argument": 4
+            }
+          ]
+        },
+        "ReadsStatDataUsedForCleanDetection": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "ReadsSkipWorktreeExtendedFlags": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "AMissingIndexFileYieldsAnEmptyIndex": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        }
+      }
+    },
+    "DeltaStreamReaderTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
+      "sha256": "29bc9ad7448be1dbcc16e7b003878c4cacd5981f2fca47300de3f94e3158e271",
+      "methods": {
+        "ReadsACompleteCopyInstruction": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "ReturnsNullAtTheEndOfTheStream": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "ThrowsWhenTheStreamEndsInsideACopyInstruction": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        }
+      }
+    },
+    "RandomAccessStreamTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+      "sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+      "methods": {
+        "ReadsUnsignedBytesAndAdvancesPositionAlongsideSpanReads": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "ReturnsEndOfStreamAtTheDeclaredLengthWithoutAdvancing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": 0
+            },
+            {
+              "id": "case-001",
+              "argument": 2
+            }
+          ]
+        },
+        "ReturnsEndOfStreamWhenTheFileIsShorterThanTheDeclaredLength": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "KeepsPositionsIndependentAndLeavesTheSharedHandleOpen": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "ReadsBytesWithoutAllocatingPerCall": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        }
+      }
+    },
+    "GitZLibStreamTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs",
+      "sha256": "3d657cfca6be8d5563ba5b2b3ce8064e725e58c5407aab01979da153aa8c9ee6",
+      "methods": {
+        "DecompressesAStreamWithASmallerWindowSize": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": null
+            }
+          ]
+        },
+        "RejectsInvalidOrUnsupportedHeaders": {
+          "cases": [
+            {
+              "id": "case-000",
+              "argument": "7800"
+            },
+            {
+              "id": "case-001",
+              "argument": "7820"
+            },
+            {
+              "id": "case-002",
+              "argument": "881C"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "reference": "testdata/csharp-git-index-reference.json",
+  "reference_sha256": "0eb220ced9ea51ee4ce7e4e642d91922bb1b931440d53627af3c1a763d6cdd21"
+}

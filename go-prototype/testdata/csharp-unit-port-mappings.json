@@ -52051,5 +52051,220 @@
       "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "GitIndexTests.IndexEntriesMatchGitLsFiles": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
+    "source_sha256": "5f3434c7fbc98e6004cdaab4c33195504a56118411680d421a1fc0efce8df32f",
+    "method": "IndexEntriesMatchGitLsFiles",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitIndexTests.ReadsStatDataUsedForCleanDetection": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
+    "source_sha256": "5f3434c7fbc98e6004cdaab4c33195504a56118411680d421a1fc0efce8df32f",
+    "method": "ReadsStatDataUsedForCleanDetection",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitIndexTests.ReadsSkipWorktreeExtendedFlags": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
+    "source_sha256": "5f3434c7fbc98e6004cdaab4c33195504a56118411680d421a1fc0efce8df32f",
+    "method": "ReadsSkipWorktreeExtendedFlags",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitIndexTests.AMissingIndexFileYieldsAnEmptyIndex": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs",
+    "source_sha256": "5f3434c7fbc98e6004cdaab4c33195504a56118411680d421a1fc0efce8df32f",
+    "method": "AMissingIndexFileYieldsAnEmptyIndex",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production index storage supplies entries. The supplemental assume-valid reader preserves the bit omitted by go-git. Independent Git ls-files expectations retain version, mode, SHA, stage and path checks."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "DeltaStreamReaderTests.ReadsACompleteCopyInstruction": {
+    "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
+    "source_sha256": "29bc9ad7448be1dbcc16e7b003878c4cacd5981f2fca47300de3f94e3158e271",
+    "method": "ReadsACompleteCopyInstruction",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "DeltaStreamReaderTests.ReturnsNullAtTheEndOfTheStream": {
+    "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
+    "source_sha256": "29bc9ad7448be1dbcc16e7b003878c4cacd5981f2fca47300de3f94e3158e271",
+    "method": "ReturnsNullAtTheEndOfTheStream",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "DeltaStreamReaderTests.ThrowsWhenTheStreamEndsInsideACopyInstruction": {
+    "source": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs",
+    "source_sha256": "29bc9ad7448be1dbcc16e7b003878c4cacd5981f2fca47300de3f94e3158e271",
+    "method": "ThrowsWhenTheStreamEndsInsideACopyInstruction",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The production go-git delta reader exposes output instead of instruction records. A base with unique bytes proves exact copy offset and size; a valid empty target and truncated instruction retain EOF and rejection behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RandomAccessStreamTests.ReadsUnsignedBytesAndAdvancesPositionAlongsideSpanReads": {
+    "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+    "source_sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+    "method": "ReadsUnsignedBytesAndAdvancesPositionAlongsideSpanReads",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RandomAccessStreamTests.ReturnsEndOfStreamAtTheDeclaredLengthWithoutAdvancing": {
+    "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+    "source_sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+    "method": "ReturnsEndOfStreamAtTheDeclaredLengthWithoutAdvancing",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RandomAccessStreamTests.ReturnsEndOfStreamWhenTheFileIsShorterThanTheDeclaredLength": {
+    "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+    "source_sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+    "method": "ReturnsEndOfStreamWhenTheFileIsShorterThanTheDeclaredLength",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RandomAccessStreamTests.KeepsPositionsIndependentAndLeavesTheSharedHandleOpen": {
+    "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+    "source_sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+    "method": "KeepsPositionsIndependentAndLeavesTheSharedHandleOpen",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RandomAccessStreamTests.ReadsBytesWithoutAllocatingPerCall": {
+    "source": "src/GitVersion.Git.Managed.Tests/RandomAccessStreamTests.cs",
+    "source_sha256": "280a948883f20f59226de03ece31233a84e9d50abbde976cfdc44df83c86e267",
+    "method": "ReadsBytesWithoutAllocatingPerCall",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The Go pack implementation uses bounded io.SectionReader views. A caller-owned one-byte buffer replaces ReadByte; Go EOF, independent offsets, a live shared file and zero measured allocations preserve the original behavior."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitZLibStreamTests.DecompressesAStreamWithASmallerWindowSize": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs",
+    "source_sha256": "3d657cfca6be8d5563ba5b2b3ce8064e725e58c5407aab01979da153aa8c9ee6",
+    "method": "DecompressesAStreamWithASmallerWindowSize",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The exact C# payload and three invalid headers exercise the go-git zlib reader used by loose and packed objects."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitZLibStreamTests.RejectsInvalidOrUnsupportedHeaders": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitZLibStreamTests.cs",
+    "source_sha256": "3d657cfca6be8d5563ba5b2b3ce8064e725e58c5407aab01979da153aa8c9ee6",
+    "method": "RejectsInvalidOrUnsupportedHeaders",
+    "go_test": "TestCSharpGitIndexAndStreams",
+    "case_file": "testdata/csharp-git-index-and-streams.json",
+    "case_file_sha256": "04aa7bf6279edd71d0004b8daa82877fbc19675ef78d218fe57cf3b97f279eca",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "The exact C# payload and three invalid headers exercise the go-git zlib reader used by loose and packed objects."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
