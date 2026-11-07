@@ -50775,7 +50775,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.MergedHistoryMatchesLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50796,7 +50796,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.MergedHistoryWithExcludesMatchesLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50817,7 +50817,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.EqualCommitterTimestampsMatchLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50838,7 +50838,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.CrissCrossHistoryMatchesLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50859,7 +50859,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.OctopusMergeMatchesLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50880,7 +50880,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.FirstParentWalksMatchLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50896,7 +50896,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.MultipleIncludesMatchLibGit2": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50911,7 +50911,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.FindsTheMergeBaseOfDivergedBranches": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50926,7 +50926,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.FindsTheMergeBaseOfCrissCrossBranches": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50941,7 +50941,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.TheMergeBaseOfACommitAndItsAncestorIsTheAncestor": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50956,7 +50956,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.UnrelatedHistoriesHaveNoMergeBase": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50971,7 +50971,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.WalksUpToTheShallowBoundary": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -50986,7 +50986,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.TheShallowBoundaryWinsOverPresentParentObjects": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -51001,7 +51001,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.AMissingParentObjectFailsTheWalkInsteadOfTruncatingHistory": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -51016,7 +51016,7 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRevisionWalkerTests.WalkingFromAMissingCommitFails": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
@@ -51031,6 +51031,6 @@
     "adaptations": [
       "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

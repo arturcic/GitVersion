@@ -9,8 +9,8 @@ outside the explicit IntegrationTests directories and **662 integration declarat
 Using this conservative existing classification, the target is **at least 1,365
 fully mapped and verified unit/component declarations**. The first batch added
 six unit methods plus 38 integration methods; the increment batch added 14 unit
-methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Document mapping adds 10 methods and 19 cases. The variable provider adds 18 methods and 21 cases. Configuration resolution adds 40 methods and 78 cases. Configuration query and display add 23 methods and 82 cases. Migration and version selection add 36 methods and 60 cases. POSIX and legacy argument parsing add 146 methods and 251 cases. Build-agent output adds 79 methods and 111 cases. Next-version calculation adds 11 complete real-history methods and 23 original assertion checkpoints; three mocked-context methods remain pending. Branch inheritance and reference names add 23 methods and 81 original cases. Managed repository layout, config, and object IDs add 31 methods and 37 original cases. Git references, status, and tree diffs add 30 methods and 30 cases. The verified
-unit total is **1,077 of 1,516 (71.04%)**, leaving **288** to reach the target.
+methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Document mapping adds 10 methods and 19 cases. The variable provider adds 18 methods and 21 cases. Configuration resolution adds 40 methods and 78 cases. Configuration query and display add 23 methods and 82 cases. Migration and version selection add 36 methods and 60 cases. POSIX and legacy argument parsing add 146 methods and 251 cases. Build-agent output adds 79 methods and 111 cases. Next-version calculation adds 11 complete real-history methods and 23 original assertion checkpoints; three mocked-context methods remain pending. Branch inheritance and reference names add 23 methods and 81 original cases. Managed repository layout, config, and object IDs add 31 methods and 37 original cases. Git references, status, and tree diffs add 30 methods and 30 cases. The revision walker adds 16 methods and 53 original cases. The verified
+unit total is **1,093 of 1,516 (72.10%)**, leaving **272** to reach the target.
 Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-MODEL-PATTERNS-EVIDENCE.json`, plus
 `CSHARP-LABEL-VALIDATION-EVIDENCE.json` and
@@ -31,8 +31,9 @@ Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-BUILD-AGENT-EVIDENCE.json` and
 `CSHARP-NEXT-VERSION-EVIDENCE.json` and
 `CSHARP-BRANCH-INHERITANCE-EVIDENCE.json`,
-`CSHARP-MANAGED-REPOSITORY-EVIDENCE.json`, and
-`CSHARP-REPOSITORY-CONTRACTS-EVIDENCE.json`.
+`CSHARP-MANAGED-REPOSITORY-EVIDENCE.json`,
+`CSHARP-REPOSITORY-CONTRACTS-EVIDENCE.json`, and
+`CSHARP-REVISION-WALKER-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside
