@@ -8,8 +8,6 @@ import (
 	"fmt"
 	"io"
 	"math"
-	"os"
-	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
@@ -138,44 +136,8 @@ func Sanitize(s string, dots bool) string {
 	}
 	return b.String()
 }
-func Load(repo string) (Config, error) {
-	var path string
-	entries, err := os.ReadDir(repo)
-	if err != nil {
-		return Config{}, err
-	}
-	// Match the C# locator's filename priority and case-insensitive comparison.
-	// ReadDir supplies the same ordinal order for these ASCII filename variants.
-search:
-	for _, name := range []string{"GitVersion.yml", "GitVersion.yaml", ".GitVersion.yml", ".GitVersion.yaml"} {
-		for _, entry := range entries {
-			if entry.IsDir() || !strings.EqualFold(entry.Name(), name) {
-				continue
-			}
-			p := filepath.Join(repo, entry.Name())
-			info, err := os.Lstat(p)
-			if err != nil {
-				return Config{}, err
-			}
-			if !info.Mode().IsRegular() {
-				return Config{}, fmt.Errorf("unsupported nonregular config %s", entry.Name())
-			}
-			if info.Size() > 1<<20 {
-				return Config{}, fmt.Errorf("configuration exceeds 1 MiB")
-			}
-			path = p
-			break search
-		}
-	}
-	if path == "" {
-		return Config{}, fmt.Errorf("explicit GitHubFlow/v1 configuration required")
-	}
-	b, err := os.ReadFile(path)
-	if err != nil {
-		return Config{}, err
-	}
-	return ParseSelected(b, os.Getenv("GITVERSION_CONFIGURATION_VERSION"))
-}
+func Load(repo string) (Config, error) { return LoadNamed(repo, "") }
+
 func Parse(data []byte) (Config, error) {
 	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Mode: Delivery, Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
 	if len(data) > 1<<20 {

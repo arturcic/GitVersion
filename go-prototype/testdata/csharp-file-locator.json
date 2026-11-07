@@ -1,0 +1,609 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+  "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+  "methods": {
+    "DiscoveryIsIndependentOfDirectoryEnumerationOrder": [
+      {
+        "id": "case-000",
+        "operation": "order",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [],
+        "arguments": [
+          false
+        ],
+        "error": false,
+        "reverse": false,
+        "expected_path": "@repo/GitVersion.yml"
+      },
+      {
+        "id": "case-001",
+        "operation": "order",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [],
+        "arguments": [
+          true
+        ],
+        "error": false,
+        "reverse": true,
+        "expected_path": "@repo/GitVersion.yml"
+      }
+    ],
+    "ThrowsExceptionOnAmbiguousConfigFileLocation@66": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yml",
+          "@working/GitVersion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yml",
+          "GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-001",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yml",
+          "@working/GitVersion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yml",
+          "GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-002",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yml",
+          "@working/.GitVersion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yml",
+          ".GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-003",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yml",
+          "@working/.GitVersion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yml",
+          ".GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-004",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yaml",
+          "@working/GitVersion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yaml",
+          "GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-005",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yaml",
+          "@working/GitVersion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yaml",
+          "GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-006",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yaml",
+          "@working/.GitVersion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yaml",
+          ".GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-007",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yaml",
+          "@working/.GitVersion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yaml",
+          ".GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-008",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yml",
+          "@working/GitVersion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yml",
+          "GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-009",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yml",
+          "@working/GitVersion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yml",
+          "GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-010",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yml",
+          "@working/.GitVersion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yml",
+          ".GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-011",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yml",
+          "@working/.GitVersion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yml",
+          ".GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-012",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yaml",
+          "@working/GitVersion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml",
+          "GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-013",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yaml",
+          "@working/GitVersion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml",
+          "GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-014",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yaml",
+          "@working/.GitVersion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml",
+          ".GitVersion.yml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      },
+      {
+        "id": "case-015",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yaml",
+          "@working/.GitVersion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml",
+          ".GitVersion.yaml"
+        ],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workingDirectoryConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      }
+    ],
+    "NoWarnOnGitVersionYmlFile": [
+      {
+        "id": "case-000",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-001",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/GitVersion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yaml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-002",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-003",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.GitVersion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml"
+        ],
+        "error": false
+      }
+    ],
+    "NoWarnOnLowercasedGitVersionYmlFile": [
+      {
+        "id": "case-000",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/gitversion.yml"
+        ],
+        "arguments": [
+          "GitVersion.yml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-001",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/gitversion.yaml"
+        ],
+        "arguments": [
+          "GitVersion.yaml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-002",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.gitversion.yml"
+        ],
+        "arguments": [
+          ".GitVersion.yml"
+        ],
+        "error": false
+      },
+      {
+        "id": "case-003",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [
+          "@repo/.gitversion.yaml"
+        ],
+        "arguments": [
+          ".GitVersion.yaml"
+        ],
+        "error": false
+      }
+    ],
+    "NoWarnOnNoGitVersionYmlFile": [
+      {
+        "id": "case-000",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [],
+        "arguments": [],
+        "error": false
+      }
+    ],
+    "ThrowsExceptionOnAmbiguousConfigFileLocation@123": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [
+          "@repo/my-config.yaml",
+          "@working/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": true,
+        "expected_message": "Ambiguous configuration file selection from '{workDirConfigFilePath.Value}' and '{repositoryConfigFilePath.Value}'"
+      }
+    ],
+    "DoNotThrowWhenWorkingAndRepoPathsAreSame": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [
+          "@repo/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": false
+      }
+    ],
+    "DoNotThrowWhenWorkingAndRepoPathsAreSame_WithDifferentCasing": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@lowerrepo",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [
+          "@lowerrepo/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": false
+      }
+    ],
+    "ReturnConfigurationFilePathIfCustomConfigurationIsSet": [
+      {
+        "id": "case-000",
+        "operation": "get",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "@repo/Configuration/CustomConfig.yaml",
+        "files": [
+          "@repo/Configuration/CustomConfig.yaml"
+        ],
+        "arguments": [],
+        "error": false,
+        "expected_path": "@repo/Configuration/CustomConfig.yaml"
+      }
+    ],
+    "ReturnConfigurationFilePathIfCustomConfigurationIsSet_InvalidConfigurationFilePaths": [
+      {
+        "id": "case-000",
+        "operation": "get",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": null,
+        "files": [],
+        "arguments": [
+          null
+        ],
+        "error": false,
+        "expected_path": null
+      },
+      {
+        "id": "case-001",
+        "operation": "get",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "",
+        "files": [],
+        "arguments": [
+          ""
+        ],
+        "error": false,
+        "expected_path": null
+      },
+      {
+        "id": "case-002",
+        "operation": "get",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": " ",
+        "files": [],
+        "arguments": [
+          " "
+        ],
+        "error": false,
+        "expected_path": null
+      },
+      {
+        "id": "case-003",
+        "operation": "get",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "Configuration/CustomConfig2.yaml",
+        "files": [],
+        "arguments": [
+          "Configuration/CustomConfig2.yaml"
+        ],
+        "error": false,
+        "expected_path": null
+      }
+    ],
+    "DoNotThrowWhenConfigFileIsInSubDirectoryOfRepoPath": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "./src/my-config.yaml",
+        "files": [
+          "@repo/src/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": false
+      }
+    ],
+    "NoWarnOnCustomYmlFile": [
+      {
+        "id": "case-000",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [
+          "@process/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": false,
+        "expected_log": "No configuration file found, using default configuration"
+      }
+    ],
+    "NoWarnOnCustomYmlFileOutsideRepoPath": [
+      {
+        "id": "case-000",
+        "operation": "provide",
+        "working": "@repo",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [
+          "@unrelated/my-config.yaml"
+        ],
+        "arguments": [],
+        "error": false,
+        "expected_log": "No configuration file found, using default configuration"
+      }
+    ],
+    "ThrowsExceptionOnCustomYmlFileDoesNotExist": [
+      {
+        "id": "case-000",
+        "operation": "verify",
+        "working": "@working",
+        "repo": "@repo",
+        "custom": "my-config.yaml",
+        "files": [],
+        "arguments": [],
+        "error": true,
+        "expected_message": "The configuration file was not found at '{workingPathFileConfig}' or '{repoPathFileConfig}'"
+      }
+    ]
+  }
+}

@@ -142,6 +142,10 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		}
 	}
 
+	for _, setting := range []string{"missing", "empty", "empty-map", "null-workflow", "priority", "relative", "absolute"} {
+		recipes = append(recipes, fixtures.Recipe{ID: "locator-" + setting, Description: setting, Config: "workflow: GitHubFlow/v1\n", Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}})
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
@@ -234,6 +238,56 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 				}
 				cp.Head = hash.String()
 			}
+
+			customPath := ""
+			if strings.HasPrefix(cp.Recipe, "locator-") {
+				setting := strings.TrimPrefix(cp.Recipe, "locator-")
+				g, err := git.PlainOpen(cp.Path)
+				if err != nil {
+					t.Fatal(err)
+				}
+				wt, err := g.Worktree()
+				if err != nil {
+					t.Fatal(err)
+				}
+				switch setting {
+				case "missing":
+					if _, err = wt.Remove("GitVersion.yml"); err != nil {
+						t.Fatal(err)
+					}
+				case "empty", "empty-map", "null-workflow":
+					value := ""
+					if setting == "empty-map" {
+						value = "{}"
+					}
+					if setting == "null-workflow" {
+						value = "workflow: null"
+					}
+					write("GitVersion.yml", value)
+					if _, err = wt.Add("GitVersion.yml"); err != nil {
+						t.Fatal(err)
+					}
+				case "priority":
+					write("GitVersion.yaml", "bad YAML: [")
+					if _, err = wt.Add("GitVersion.yaml"); err != nil {
+						t.Fatal(err)
+					}
+				case "relative", "absolute":
+					write("Configuration/custom.yaml", "workflow: GitHubFlow/v1\ncalculation: {next-version: 9.0.0, mode: ManualDeployment, branches: {main: {label: custom}}}\n")
+					if _, err = wt.Add("Configuration/custom.yaml"); err != nil {
+						t.Fatal(err)
+					}
+					customPath = "Configuration/custom.yaml"
+					if setting == "absolute" {
+						customPath = "@absolute"
+					}
+				}
+				hash, err := wt.Commit("Configure locator case", &git.CommitOptions{Author: &object.Signature{Name: "Parity Configuration", Email: "parity@example.invalid", When: time.Date(2025, 1, 1, 0, 3, 0, 0, time.UTC)}})
+				if err != nil {
+					t.Fatal(err)
+				}
+				cp.Head = hash.String()
+			}
 			raw, err := os.ReadFile(filepath.Join(cp.Path, ".git/config"))
 			if err != nil {
 				t.Fatal(err)
@@ -261,9 +315,19 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 			if strings.HasPrefix(cp.Recipe, "legacy-") {
 				environment["GITVERSION_CONFIGURATION_VERSION"] = "v6"
 			}
+			caseCommands := append([]parity.Command{}, commands...)
+			if customPath != "" {
+				for j := range caseCommands {
+					caseCommands[j].Arguments = append(append([]string{}, caseCommands[j].Arguments...), "--config", customPath)
+				}
+			}
 			var reference []byte
-			for j, command := range commands {
+			for j, command := range caseCommands {
 				output := filepath.Join(dir, fmt.Sprintf("%s-%d", cp.ID, j))
+				if customPath == "@absolute" {
+					command.Arguments = append([]string{}, command.Arguments...)
+					command.Arguments[len(command.Arguments)-1] = filepath.Join(output, "repo", "Configuration", "custom.yaml")
+				}
 				result, err := parity.Run(t.Context(), command, cp.Path, output, environment, 60*time.Second)
 				if err != nil {
 					t.Fatal(err)

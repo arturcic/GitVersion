@@ -166,8 +166,8 @@ func TestCalculationConfiguredSourceKeepsTagAnchor(t *testing.T) {
 	}
 }
 
-func TestCalculationErrorForMissingConfig(t *testing.T) {
-	if _, _, err := Calculate(t.TempDir()); err == nil || !strings.Contains(err.Error(), "configuration required") {
+func TestCalculationErrorForMissingRepository(t *testing.T) {
+	if _, _, err := Calculate(t.TempDir()); err == nil || !strings.Contains(err.Error(), "repository") {
 		t.Fatalf("missing config: %v", err)
 	}
 }

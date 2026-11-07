@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/GitTools/GitVersion/go-prototype/internal/calculate"
+	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"io"
 	"os"
@@ -15,7 +16,7 @@ func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
-	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--trace]"
+	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--config PATH] [--trace]"
 	if len(args) == 0 || (args[0] != "observe" && args[0] != "calculate") {
 		return fmt.Errorf("%s", usage)
 	}
@@ -23,15 +24,20 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	f.SetOutput(io.Discard)
 	path := f.String("repository", "", "repository root")
 	format := f.String("output", "json", "output format")
+	custom := f.String("config", "", "configuration file path")
 	trace := f.Bool("trace", false, "emit calculation trace on stderr")
 	if err := f.Parse(args[1:]); err != nil {
 		return fmt.Errorf("%s: %w", usage, err)
 	}
-	if *path == "" || f.NArg() != 0 || *format != "json" || (*trace && args[0] != "calculate") {
+	if *path == "" || f.NArg() != 0 || *format != "json" || ((*trace || *custom != "") && args[0] != "calculate") {
 		return fmt.Errorf("%s", usage)
 	}
 	if args[0] == "calculate" {
-		values, detail, err := calculate.Calculate(*path)
+		cfg, err := config.LoadNamed(*path, *custom)
+		if err != nil {
+			return err
+		}
+		values, detail, err := calculate.CalculateWithConfig(*path, cfg)
 		if err != nil {
 			return err
 		}

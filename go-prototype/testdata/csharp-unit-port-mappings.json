@@ -43299,5 +43299,282 @@
       "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ConfigurationFileLocatorTests.DiscoveryIsIndependentOfDirectoryEnumerationOrder": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "DiscoveryIsIndependentOfDirectoryEnumerationOrder",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.ThrowsExceptionOnAmbiguousConfigFileLocation@66": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "ThrowsExceptionOnAmbiguousConfigFileLocation@66",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014",
+      "case-015"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.NoWarnOnGitVersionYmlFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "NoWarnOnGitVersionYmlFile",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.NoWarnOnLowercasedGitVersionYmlFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "NoWarnOnLowercasedGitVersionYmlFile",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.NoWarnOnNoGitVersionYmlFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "NoWarnOnNoGitVersionYmlFile",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.ThrowsExceptionOnAmbiguousConfigFileLocation@123": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "ThrowsExceptionOnAmbiguousConfigFileLocation@123",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.DoNotThrowWhenWorkingAndRepoPathsAreSame": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "DoNotThrowWhenWorkingAndRepoPathsAreSame",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.DoNotThrowWhenWorkingAndRepoPathsAreSame_WithDifferentCasing": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "DoNotThrowWhenWorkingAndRepoPathsAreSame_WithDifferentCasing",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.ReturnConfigurationFilePathIfCustomConfigurationIsSet": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "ReturnConfigurationFilePathIfCustomConfigurationIsSet",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.ReturnConfigurationFilePathIfCustomConfigurationIsSet_InvalidConfigurationFilePaths": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "ReturnConfigurationFilePathIfCustomConfigurationIsSet_InvalidConfigurationFilePaths",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.DoNotThrowWhenConfigFileIsInSubDirectoryOfRepoPath": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "DoNotThrowWhenConfigFileIsInSubDirectoryOfRepoPath",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.NoWarnOnCustomYmlFile": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "NoWarnOnCustomYmlFile",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.NoWarnOnCustomYmlFileOutsideRepoPath": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "NoWarnOnCustomYmlFileOutsideRepoPath",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationFileLocatorTests.ThrowsExceptionOnCustomYmlFileDoesNotExist": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
+    "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
+    "method": "ThrowsExceptionOnCustomYmlFileDoesNotExist",
+    "go_test": "TestCSharpConfigurationFileLocator",
+    "case_file": "testdata/csharp-file-locator.json",
+    "case_file_sha256": "a44032507ef13f92f34828f72c93c1ed036cfd158408cb26d201ca0f7eecc261",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+      "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+      "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+      "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

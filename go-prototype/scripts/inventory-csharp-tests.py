@@ -45,6 +45,16 @@ for sha, path in files:
                              'category': 'integration' if '/IntegrationTests/' in path else 'unit-or-component',
                              'status': 'pending', 'go_test': None, 'fixtures': []})
             pending = []
+# Pinned declaration lines disambiguate overloads/nested-class name collisions.
+# The denominator counts declarations and does not change.
+from collections import Counter
+identities = Counter(row['id'] for row in rows)
+for row in rows:
+    if identities[row['id']] > 1:
+        row['source_method'] = row['method']
+        row['method'] += '@' + str(row['line'])
+        row['id'] = row['source'] + '#' + row['method']
+assert len({row['id'] for row in rows}) == len(rows)
 # Explicit reviewed mappings: each fixture retains the original FullSemVer assertion.
 mappings = {
  'VersionInCurrentBranchNameScenarios.TakesVersionFromNameOfReleaseBranch': ['csharp-release-name--head'],

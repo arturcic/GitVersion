@@ -56,8 +56,8 @@ func TestConfigurationFileDiscovery(t *testing.T) {
 		})
 	}
 	dir := t.TempDir()
-	if _, err := Load(dir); err == nil {
-		t.Fatal("missing config accepted")
+	if c, err := Load(dir); err != nil || c.Workflow != "GitFlow/v1" {
+		t.Fatal("missing config did not use defaults", err)
 	}
 	for _, n := range []string{"GitVersion.yml", "GitVersion.yaml"} {
 		if err := os.WriteFile(filepath.Join(dir, n), []byte("workflow: GitHubFlow/v1"), 0644); err != nil {

@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 654,
+  "mapped_declarations": 668,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 616,
+      "mapped": 630,
       "verified": 616
     },
     "integration": {
@@ -7908,15 +7908,26 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
-      "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ThrowsExceptionOnAmbiguousConfigFileLocation@66",
       "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
       "line": 66,
-      "method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "method": "ThrowsExceptionOnAmbiguousConfigFileLocation@66",
       "attributes": [
         {
           "line": 50,
@@ -7985,9 +7996,35 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "source_method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012",
+        "case-013",
+        "case-014",
+        "case-015"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#NoWarnOnGitVersionYmlFile",
@@ -8014,9 +8051,22 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#NoWarnOnLowercasedGitVersionYmlFile",
@@ -8043,9 +8093,22 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#NoWarnOnNoGitVersionYmlFile",
@@ -8060,15 +8123,25 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
-      "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ThrowsExceptionOnAmbiguousConfigFileLocation@123",
       "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
       "line": 123,
-      "method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "method": "ThrowsExceptionOnAmbiguousConfigFileLocation@123",
       "attributes": [
         {
           "line": 122,
@@ -8077,9 +8150,20 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "source_method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#DoNotThrowWhenWorkingAndRepoPathsAreSame",
@@ -8094,9 +8178,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#DoNotThrowWhenWorkingAndRepoPathsAreSame_WithDifferentCasing",
@@ -8111,9 +8205,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ReturnConfigurationFilePathIfCustomConfigurationIsSet",
@@ -8128,9 +8232,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ReturnConfigurationFilePathIfCustomConfigurationIsSet_InvalidConfigurationFilePaths",
@@ -8157,9 +8271,22 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#DoNotThrowWhenConfigFileIsInSubDirectoryOfRepoPath",
@@ -8174,9 +8301,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#NoWarnOnCustomYmlFile",
@@ -8191,9 +8328,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#NoWarnOnCustomYmlFileOutsideRepoPath",
@@ -8208,9 +8355,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs#ThrowsExceptionOnCustomYmlFileDoesNotExist",
@@ -8225,9 +8382,19 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationFileLocator",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-file-locator.json",
+      "adaptations": [
+        "The original filesystem mock maps to an injected Go filesystem with independent directory enumeration. Original empty configuration files remain empty.",
+        "Fixture-relative paths replace temp directory values; exact original diagnostic templates resolve to the corresponding fixture paths.",
+        "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
+        "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs#Override_Replaces_Nested_Dictionary_With_Scalar_Value",
@@ -27082,10 +27249,10 @@
       "fixtures": []
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseAndFeatureBranch",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseAndFeatureBranch@204",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs",
       "line": 204,
-      "method": "EnsureReleaseAndFeatureBranch",
+      "method": "EnsureReleaseAndFeatureBranch@204",
       "attributes": [
         {
           "line": 202,
@@ -27100,13 +27267,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "EnsureReleaseAndFeatureBranch"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseAndFeatureBranch",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseAndFeatureBranch@296",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs",
       "line": 296,
-      "method": "EnsureReleaseAndFeatureBranch",
+      "method": "EnsureReleaseAndFeatureBranch@296",
       "attributes": [
         {
           "line": 287,
@@ -27149,13 +27317,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "EnsureReleaseAndFeatureBranch"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseBranch",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseBranch@384",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs",
       "line": 384,
-      "method": "EnsureReleaseBranch",
+      "method": "EnsureReleaseBranch@384",
       "attributes": [
         {
           "line": 382,
@@ -27170,13 +27339,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "EnsureReleaseBranch"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseBranch",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureReleaseBranch@477",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs",
       "line": 477,
-      "method": "EnsureReleaseBranch",
+      "method": "EnsureReleaseBranch@477",
       "attributes": [
         {
           "line": 468,
@@ -27219,7 +27389,8 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "EnsureReleaseBranch"
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/CompareTheDifferentWhenUsingMainlineVersionStrategyWithGitFlow.cs#EnsureFeatureDevelopmentWithDevelopBranch",
@@ -29904,10 +30075,10 @@
       "fixtures": []
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack@266",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 266,
-      "method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack",
+      "method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack@266",
       "attributes": [
         {
           "line": 265,
@@ -29918,13 +30089,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated@289",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 289,
-      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated@289",
       "attributes": [
         {
           "line": 288,
@@ -29935,13 +30107,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack@310",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 310,
-      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack",
+      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack@310",
       "attributes": [
         {
           "line": 309,
@@ -29952,13 +30125,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated@336",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 336,
-      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated@336",
       "attributes": [
         {
           "line": 335,
@@ -29969,13 +30143,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack@355",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 355,
-      "method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack",
+      "method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack@355",
       "attributes": [
         {
           "line": 354,
@@ -29986,13 +30161,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromDevelopAfterReleaseBranchMergedBack"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchCreated@379",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 379,
-      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated",
+      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated@379",
       "attributes": [
         {
           "line": 378,
@@ -30003,13 +30179,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromMainAfterReleaseBranchCreated"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack@400",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs",
       "line": 400,
-      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack",
+      "method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack@400",
       "attributes": [
         {
           "line": 399,
@@ -30020,7 +30197,8 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "ShouldPickUpVersionFromMainAfterReleaseBranchMergedBack"
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/FeatureBranchScenarios.cs#PickUpVersionFromMainMarkedWithIsTracksReleaseBranches",
@@ -32811,10 +32989,10 @@
       "fixtures": []
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs#AlternativeSemanticVersionsShouldBeConsidered",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs#AlternativeSemanticVersionsShouldBeConsidered@1393",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs",
       "line": 1393,
-      "method": "AlternativeSemanticVersionsShouldBeConsidered",
+      "method": "AlternativeSemanticVersionsShouldBeConsidered@1393",
       "attributes": [
         {
           "line": 1392,
@@ -32825,13 +33003,14 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "AlternativeSemanticVersionsShouldBeConsidered"
     },
     {
-      "id": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs#AlternativeSemanticVersionsShouldBeConsidered",
+      "id": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs#AlternativeSemanticVersionsShouldBeConsidered@1409",
       "source": "src/GitVersion.Core.Tests/IntegrationTests/OtherScenarios.cs",
       "line": 1409,
-      "method": "AlternativeSemanticVersionsShouldBeConsidered",
+      "method": "AlternativeSemanticVersionsShouldBeConsidered@1409",
       "attributes": [
         {
           "line": 1406,
@@ -32850,7 +33029,8 @@
       "category": "integration",
       "status": "pending",
       "go_test": null,
-      "fixtures": []
+      "fixtures": [],
+      "source_method": "AlternativeSemanticVersionsShouldBeConsidered"
     },
     {
       "id": "src/GitVersion.Core.Tests/IntegrationTests/PerformanceScenarios.cs#RepositoryWithALotOfTags",
