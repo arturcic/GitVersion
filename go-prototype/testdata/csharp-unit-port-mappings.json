@@ -44061,7 +44061,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ResolvesEquivalentV6AndV7Configuration": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44077,7 +44077,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.V7SerializationRoundTripsDefaultsAndBuiltInWorkflows": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44096,7 +44096,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.RejectsMixedV7Configuration": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44112,7 +44112,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.RegexIsRequired": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44128,7 +44128,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanConfigureVersionBumpResetMessage": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44144,7 +44144,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.SourceBranchesValidationShouldFailWhenMatchingBranchConfigurationIsMissing": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44160,7 +44160,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.SourceBranchesValidationShouldSucceedForWellKnownBranches": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44177,7 +44177,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanProvideConfigForNewBranch": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44193,7 +44193,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.NextVersionCanBeInteger": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44209,7 +44209,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.NextVersionCanHaveEnormousMinorVersion": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44225,7 +44225,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningScheme": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44241,7 +44241,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningSchemeWithMultipleVariables": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44257,7 +44257,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanUpdateAssemblyInformationalVersioningSchemeWithFullSemVer": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44273,7 +44273,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanReadCustomVersionFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44289,7 +44289,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanReadBranchSpecificCustomVersionFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44305,7 +44305,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanOverrideCustomVersionFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44321,7 +44321,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanReadDefaultDocument": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44337,7 +44337,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.WarnsOnceWhenExplicitV6LoadsAConfigurationFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44353,7 +44353,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.DoesNotWarnWhenV6IsNotExplicitlySelected": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44370,7 +44370,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.DoesNotWarnForExplicitV6BuiltInDefaults": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44386,7 +44386,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.DoesNotWarnWhenExplicitV6ConfigurationFailsNormalization": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44402,7 +44402,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseSpecifiedSourceBranchesForDevelop": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44418,7 +44418,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseSpecifiedSourceBranchesForFeature": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44434,7 +44434,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldNotOverrideAnythingWhenOverrideConfigIsEmpty": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44450,7 +44450,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseDefaultTagPrefixWhenNotSetInConfigFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44466,7 +44466,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseTagPrefixFromConfigFileWhenProvided": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44482,7 +44482,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldOverrideTagPrefixWithOverrideConfigValue": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44499,7 +44499,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldNotOverrideDefaultTagPrefixWhenNotSetInOverrideConfig": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44515,7 +44515,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldNotOverrideTagPrefixFromConfigFileWhenNotSetInOverrideConfig": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44531,7 +44531,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldOverrideTagPrefixFromConfigFileWhenSetInOverrideConfig": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -44547,7 +44547,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.PureResolutionMatchesProviderWithFileAndOverrides": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44565,7 +44565,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.InvalidPublicInputReportsThePropertyPath": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44596,7 +44596,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.AllConfiguredRegexesAreCheckedWithPublicPaths": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44624,7 +44624,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.CustomBranchRelationshipsResolveWithoutRepositoryHistory": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44640,7 +44640,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.NextVersionUsesTheRuntimeSemanticVersionFormat": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44659,7 +44659,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationResolverTests.InternalOverridesCanUseTypedEnumsAndCollections": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationResolverTests.cs",
@@ -44675,7 +44675,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationHelperTests.Override_Replaces_Nested_Dictionary_With_Scalar_Value": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
@@ -44691,7 +44691,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationHelperTests.Override_Merges_Nested_Dictionaries_Recursively": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
@@ -44707,7 +44707,7 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationHelperTests.Override_Clones_New_Nested_Dictionaries": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationHelperTests.cs",
@@ -44723,6 +44723,6 @@
       "Ordered YAML nodes represent public aliases and C# typed dictionaries. The typed-enum and collection case uses Go enum and set values encoded as runtime overrides.",
       "The Go serializer checks deterministic legacy equivalence and round trips. Branch collection assertions preserve source order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
