@@ -14,6 +14,22 @@ func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
+	if containsCLISchemaOption(args) {
+		root := compatibilityCLITree()
+		if handled, err := cliSchemaInvocation(args, root); handled {
+			if err != nil {
+				return err
+			}
+			parser, err := selectedArgumentParser()
+			if err != nil {
+				return err
+			}
+			if parser == "v6" {
+				return argumentError("--cli-schema")
+			}
+			return writeCLISchema(out, root)
+		}
+	}
 	if len(args) > 0 && args[0] == "msbuild" {
 		return runMSBuild(args[1:], out, diagnostics)
 	}

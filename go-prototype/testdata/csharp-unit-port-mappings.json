@@ -55015,5 +55015,234 @@
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "CliSchemaTests.ExportsBeforeMappingOrAuthentication": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ExportsBeforeMappingOrAuthentication",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.PreservesUnmatchedAndPositionalDiagnostics": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "PreservesUnmatchedAndPositionalDiagnostics",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.TokenConsumedAsStringValueDoesNotRequestSchema": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "TokenConsumedAsStringValueDoesNotRequestSchema",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.ReportsExpectedOutputFailure": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ReportsExpectedOutputFailure",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.HostSkipsExecutorsAndFeatureLogging": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "HostSkipsExecutorsAndFeatureLogging",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.ProcessExportsSameDocumentWithoutRepositoryOrFiles": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ProcessExportsSameDocumentWithoutRepositoryOrFiles",
+    "go_test": "TestPlatformCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.ProcessRejectsInvalidSyntaxAndLegacyParser": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ProcessRejectsInvalidSyntaxAndLegacyParser",
+    "go_test": "TestPlatformCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.ProcessEmitsOnlySchemaWhenCombinedWithHelpOrVersion": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ProcessEmitsOnlySchemaWhenCombinedWithHelpOrVersion",
+    "go_test": "TestPlatformCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaTests.ProcessIgnoresBuildServerOutputAndPreservesExistingConfiguration": {
+    "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+    "source_sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+    "method": "ProcessIgnoresBuildServerOutputAndPreservesExistingConfiguration",
+    "go_test": "TestPlatformCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Run the pinned C# executable and the Go CLI in empty directories. Preserve parser, selector, output, and filesystem assertions. Compare the full schema with each executable reporting its own informational version."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaExporterTests.ExportsLiveTreeIncludingHiddenSymbolsAndLocalOptions": {
+    "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
+    "source_sha256": "2a9a1e349b5830d03910033d1b634f2d8a78bce7cdb9ffccbdb8064da38e33fe",
+    "method": "ExportsLiveTreeIncludingHiddenSymbolsAndLocalOptions",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaExporterTests.DoesNotRunDefaultsValidatorsParsersOrCompletionSources": {
+    "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
+    "source_sha256": "2a9a1e349b5830d03910033d1b634f2d8a78bce7cdb9ffccbdb8064da38e33fe",
+    "method": "DoesNotRunDefaultsValidatorsParsersOrCompletionSources",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaExporterTests.OutputIsStableAcrossCulturesAndRepeatedExports": {
+    "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
+    "source_sha256": "2a9a1e349b5830d03910033d1b634f2d8a78bce7cdb9ffccbdb8064da38e33fe",
+    "method": "OutputIsStableAcrossCulturesAndRepeatedExports",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CliSchemaExporterTests.PreservesFiniteAndUnboundedArgumentArity": {
+    "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
+    "source_sha256": "2a9a1e349b5830d03910033d1b634f2d8a78bce7cdb9ffccbdb8064da38e33fe",
+    "method": "PreservesFiniteAndUnboundedArgumentArity",
+    "go_test": "TestCSharpCLISchema",
+    "case_file": "testdata/csharp-cli-schema.json",
+    "case_file_sha256": "b11a1f3db6b61e417a6f7aa0c2336b5d5fb8d6972556316fd1ae06292550cc0f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "Use the Go command tree, syntax classifier, writer, and host entry point in place of System.CommandLine and the .NET host. Preserve schema structure and early exit assertions. Go represents option metadata as data without parsing callbacks or culture-dependent formatting."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

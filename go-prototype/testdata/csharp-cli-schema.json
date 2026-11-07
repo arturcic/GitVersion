@@ -1,0 +1,701 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "schema_source": "src/GitVersion.App.Tests/Fixtures/OpenCli/schema.json",
+  "schema_source_sha256": "77dd6a1202534f90476aabaeccb9ae39c6085ffeafc43a9c323f0dfd057c2d5f",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "OpenCLI.json",
+    "type": "object",
+    "properties": {
+      "opencli": {
+        "type": "string",
+        "description": "The OpenCLI version number"
+      },
+      "command": {
+        "$ref": "#/$defs/Command",
+        "description": "The root command"
+      },
+      "info": {
+        "$ref": "#/$defs/CliInfo",
+        "description": "Information about the CLI"
+      },
+      "conventions": {
+        "$ref": "#/$defs/Conventions",
+        "description": "The conventions used by the CLI"
+      }
+    },
+    "required": [
+      "opencli",
+      "command",
+      "info"
+    ],
+    "description": "The OpenCLI description",
+    "$defs": {
+      "Command": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The command name"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true,
+            "description": "The command aliases"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Option"
+            },
+            "description": "The command options"
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Argument"
+            },
+            "description": "The command arguments"
+          },
+          "commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Command"
+            },
+            "description": "The command's sub commands"
+          },
+          "exitCodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ExitCode"
+            },
+            "description": "The command's exit codes"
+          },
+          "description": {
+            "type": "string",
+            "description": "The command description"
+          },
+          "hidden": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the command is hidden"
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Examples of how to use the command"
+          },
+          "interactive": {
+            "type": "boolean",
+            "default": false,
+            "description": "Indicate whether or not the command requires interactive input"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Metadata"
+            },
+            "description": "Custom metadata"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "CliInfo": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The application title"
+          },
+          "summary": {
+            "type": "string",
+            "description": "A short summary of the application"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the application"
+          },
+          "contact": {
+            "$ref": "#/$defs/Contact",
+            "description": "The contact information"
+          },
+          "license": {
+            "$ref": "#/$defs/License",
+            "description": "The application license"
+          },
+          "version": {
+            "type": "string",
+            "description": "The application version"
+          }
+        },
+        "required": [
+          "title",
+          "version"
+        ]
+      },
+      "Conventions": {
+        "type": "object",
+        "properties": {
+          "groupOptions": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether or not grouping of short options are allowed"
+          },
+          "optionSeparator": {
+            "type": "string",
+            "default": " ",
+            "description": "The option argument separator"
+          }
+        }
+      },
+      "Option": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The option name"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the option is required"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true,
+            "description": "The option's aliases"
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Argument"
+            },
+            "description": "The option's arguments"
+          },
+          "group": {
+            "type": "string",
+            "description": "The option group"
+          },
+          "description": {
+            "type": "string",
+            "description": "The option description"
+          },
+          "recursive": {
+            "type": "boolean",
+            "default": false,
+            "description": "Specifies whether the option is accessible from the immediate parent command and, recursively, from its subcommands"
+          },
+          "hidden": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the option is hidden"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Metadata"
+            },
+            "description": "Custom metadata"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Argument": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The argument name"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the argument is required"
+          },
+          "arity": {
+            "$ref": "#/$defs/Arity",
+            "default": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "description": "The argument arity. Arity defines the minimum and maximum number of argument values"
+          },
+          "acceptedValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of accepted values"
+          },
+          "group": {
+            "type": "string",
+            "description": "The argument group"
+          },
+          "description": {
+            "type": "string",
+            "description": "The argument description"
+          },
+          "hidden": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the argument is hidden"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Metadata"
+            },
+            "description": "Custom metadata"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "ExitCode": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "The exit code"
+          },
+          "description": {
+            "type": "string",
+            "description": "The exit code description"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {}
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The identifying name of the contact person/organization"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URI for the contact information. This MUST be in the form of a URI."
+          },
+          "email": {
+            "$ref": "#/$defs/email",
+            "description": "The email address of the contact person/organization. This MUST be in the form of an email address."
+          }
+        },
+        "description": "Contact information"
+      },
+      "License": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The license name"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The SPDX license identifier"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URI for the license. This MUST be in the form of a URI"
+          }
+        }
+      },
+      "Arity": {
+        "type": "object",
+        "properties": {
+          "minimum": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 0,
+            "description": "The minimum number of values allowed"
+          },
+          "maximum": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 0,
+            "description": "The maximum number of values allowed"
+          }
+        },
+        "description": "Arity defines the minimum and maximum number of argument values"
+      },
+      "email": {
+        "type": "string",
+        "pattern": ".+\\@.+\\..+"
+      }
+    }
+  },
+  "suites": {
+    "CliSchemaTests": {
+      "source": "src/GitVersion.App.Tests/CliSchemaTests.cs",
+      "sha256": "299b6a7c6b48de1321b2de41f9c702223669d67644c43672749bf3e0339a2592",
+      "methods": {
+        "ExportsBeforeMappingOrAuthentication": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--cli-schema"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--cli-schema --config"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "config --cli-schema"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "config migrate --cli-schema"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "config validate --cli-schema"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "--help --cli-schema"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "--cli-schema --help"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "--version --cli-schema"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "--cli-schema --version"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "--output invalid --cli-schema --version"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "config migrate --help --cli-schema"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "config migrate --cli-schema --help"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "--config missing.yml --show-variable invalid --verbosity invalid --cli-schema"
+              ]
+            },
+            {
+              "id": "case-013",
+              "arguments": [
+                "--update-assembly-info *.cs --update-project-files *.csproj --cli-schema"
+              ]
+            },
+            {
+              "id": "case-014",
+              "arguments": [
+                "config migrate --config missing.yml --output result.yml --in-place --force --cli-schema"
+              ]
+            }
+          ]
+        },
+        "PreservesUnmatchedAndPositionalDiagnostics": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--cli-schema --unknown"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--cli-schema --version --unknown"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--unknown --cli-schema"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--cli-schema first second"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "config migrate unexpected --cli-schema"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "-- --cli-schema"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "--config --cli-schema --unknown"
+              ]
+            }
+          ]
+        },
+        "TokenConsumedAsStringValueDoesNotRequestSchema": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ReportsExpectedOutputFailure": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "HostSkipsExecutorsAndFeatureLogging": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ProcessExportsSameDocumentWithoutRepositoryOrFiles": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6",
+                "libgit2"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7",
+                "libgit2"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "v6",
+                "managed"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "v7",
+                "managed"
+              ]
+            }
+          ]
+        },
+        "ProcessRejectsInvalidSyntaxAndLegacyParser": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--cli-schema --unknown",
+                "v7"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--cli-schema",
+                "v6"
+              ]
+            }
+          ]
+        },
+        "ProcessEmitsOnlySchemaWhenCombinedWithHelpOrVersion": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--help --cli-schema"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--cli-schema --help"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--version --cli-schema"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--cli-schema --version"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "config migrate --help --cli-schema"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "config migrate --cli-schema --help"
+              ]
+            }
+          ]
+        },
+        "ProcessIgnoresBuildServerOutputAndPreservesExistingConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "CliSchemaExporterTests": {
+      "source": "src/GitVersion.App.Tests/CliSchemaExporterTests.cs",
+      "sha256": "2a9a1e349b5830d03910033d1b634f2d8a78bce7cdb9ffccbdb8064da38e33fe",
+      "methods": {
+        "ExportsLiveTreeIncludingHiddenSymbolsAndLocalOptions": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DoesNotRunDefaultsValidatorsParsersOrCompletionSources": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OutputIsStableAcrossCulturesAndRepeatedExports": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "PreservesFiniteAndUnboundedArgumentArity": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                0,
+                1
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                1,
+                1
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                2,
+                4
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                0,
+                100000
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                1,
+                100000
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

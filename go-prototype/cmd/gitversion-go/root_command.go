@@ -17,13 +17,21 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
-func runRootCLI(args []string, out, diagnostics io.Writer) error {
+func selectedArgumentParser() (string, error) {
 	if _, retired := os.LookupEnv("GITVERSION_USE_V6_ARGUMENT_PARSER"); retired {
-		return fmt.Errorf("GITVERSION_USE_V6_ARGUMENT_PARSER has been removed. Unset it and use GITVERSION_ARGUMENT_PARSER_VERSION=v6 for the temporary legacy parser, or GITVERSION_ARGUMENT_PARSER_VERSION=v7 (the default).")
+		return "", fmt.Errorf("GITVERSION_USE_V6_ARGUMENT_PARSER has been removed. Unset it and use GITVERSION_ARGUMENT_PARSER_VERSION=v6 for the temporary legacy parser, or GITVERSION_ARGUMENT_PARSER_VERSION=v7 (the default).")
 	}
 	parser := strings.ToLower(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")))
 	if parser != "" && parser != "v6" && parser != "v7" {
-		return fmt.Errorf("Unrecognized GITVERSION_ARGUMENT_PARSER_VERSION value '%s'. Valid values are 'v6' and 'v7'.", parser)
+		return "", fmt.Errorf("Unrecognized GITVERSION_ARGUMENT_PARSER_VERSION value '%s'. Valid values are 'v6' and 'v7'.", parser)
+	}
+	return parser, nil
+}
+
+func runRootCLI(args []string, out, diagnostics io.Writer) error {
+	parser, err := selectedArgumentParser()
+	if err != nil {
+		return err
 	}
 	cwd, err := os.Getwd()
 	if err != nil {
