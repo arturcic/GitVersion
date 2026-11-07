@@ -12,6 +12,7 @@ import (
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/logscope"
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 	"github.com/GitTools/GitVersion/go-prototype/internal/patterns"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
@@ -423,132 +424,173 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			return values, trace, err
 		}
 	}
+	fetchLog, endFetch := logscope.Begin(diagnostics.Info, "Fetching the base versions for version calculation...")
 	candidates := []candidate{}
 	for _, configuration := range configurations {
 		source := configuration.branch
 		effective, err := cfg.EffectiveOptions(branch, head, configuration.options, configuration.value.Inherit)
 		if err != nil {
+			endFetch()
 			return nil, trace, err
 		}
 		label := effective.Label
-		eligible, err := eligibleTags(effective)
-		if err != nil {
-			return nil, trace, err
-		}
 		localCandidates, err := func() ([]candidate, error) {
 			if strategy != nil {
 				return strategy()
 			}
-			candidates := []candidate{}
-			next, exists, err := configuredNextVersionCandidate(cfg, label)
-			if err != nil {
-				return nil, err
-			}
-			if exists {
-				candidates = append(candidates, next)
-			}
-			if cfg.Strategies["Mainline"] {
-				c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label)
+			branchLog, endBranch := logscope.Begin(fetchLog, fmt.Sprintf("Calculating base versions for '%s'", gitrepo.NewReferenceName(source).Friendly))
+			defer endBranch()
+			versionBranches := []branchRef{}
+			for _, b := range branches {
+				skip, err := cfg.Ignore.BranchIgnored(b.name)
 				if err != nil {
 					return nil, err
 				}
-				candidates = append(candidates, c)
+				if !skip {
+					versionBranches = append(versionBranches, b)
+				}
 			}
-			if cfg.Strategies["TaggedCommit"] {
-				var alternative *tag
-				threshold := semver.Version{}
-				for _, t := range eligible {
-					if !t.v.Matches(label) {
-						if alternative == nil || t.v.Compare(alternative.v) > 0 {
-							copy := t
-							alternative = &copy
+			var candidates []candidate
+			var eligible []tag
+			for _, name := range []string{"ConfiguredNextVersion", "Mainline", "MergeMessage", "TaggedCommit", "TrackReleaseBranches", "VersionInBranchName", "Fallback"} {
+				if name == "Fallback" && len(candidates) != 0 {
+					break
+				}
+				start := len(candidates)
+				strategyLog, endStrategy := logscope.Begin(branchLog, fmt.Sprintf("[Using '%sVersionStrategy' strategy]", name))
+				err := func() error {
+					defer endStrategy()
+					switch name {
+					case "ConfiguredNextVersion":
+						next, exists, err := configuredNextVersionCandidate(cfg, label)
+						if err != nil {
+							return err
 						}
-						continue
-					}
-					upper, err := t.v.Bump(semver.Major, "", true)
-					if err != nil {
-						return nil, err
-					}
-					if alternative != nil && upper.CompareCore(alternative.v) < 0 {
-						upper = alternative.v
-					}
-					if upper.CompareCore(threshold) < 0 {
-						alternative = nil
-						continue
-					}
-					inc, err := log.increment(head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags)
-					if err != nil {
-						return nil, err
-					}
-					threshold, err = t.v.Bump(inc, "", true)
-					if err != nil {
-						return nil, err
-					}
-					v, err := t.v.Bump(inc, label, false)
-					if err != nil {
-						return nil, err
-					}
-					c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
-					if alternative != nil && v.CompareCore(alternative.v) < 0 {
-						if inc == semver.None {
-							n := int64(1)
-							c.version.Number = &n
+						if exists {
+							candidates = append(candidates, next)
 						}
-						c.version.Major = alternative.v.Major
-						c.version.Minor = alternative.v.Minor
-						c.version.Patch = alternative.v.Patch
-						c.semantic = alternative.v
-						c.semanticSHA = alternative.ref.Commit
-						c.inc = semver.None
+					case "Mainline":
+						if cfg.Strategies["Mainline"] {
+							c, err := mainlineCandidate(r, cfg, branch, source, head, branches, allTags, load, label)
+							if err != nil {
+								return err
+							}
+							candidates = append(candidates, c)
+						}
+					case "TaggedCommit":
+						if cfg.Strategies["TaggedCommit"] {
+							_, end := logscope.Begin(strategyLog, fmt.Sprintf("Getting tagged semantic versions on branch '%s'. TagPrefix: %s and Format: %s", canonical, cfg.TagPrefixText, cfg.TagVersionFormat))
+							var err error
+							eligible, err = eligibleTags(effective)
+							end()
+							if err != nil {
+								return err
+							}
+							var alternative *tag
+							threshold := semver.Version{}
+							for _, t := range eligible {
+								if !t.v.Matches(label) {
+									if alternative == nil || t.v.Compare(alternative.v) > 0 {
+										copy := t
+										alternative = &copy
+									}
+									continue
+								}
+								upper, err := t.v.Bump(semver.Major, "", true)
+								if err != nil {
+									return err
+								}
+								if alternative != nil && upper.CompareCore(alternative.v) < 0 {
+									upper = alternative.v
+								}
+								if upper.CompareCore(threshold) < 0 {
+									alternative = nil
+									continue
+								}
+								inc, err := log.increment(head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags)
+								if err != nil {
+									return err
+								}
+								threshold, err = t.v.Bump(inc, "", true)
+								if err != nil {
+									return err
+								}
+								v, err := t.v.Bump(inc, label, false)
+								if err != nil {
+									return err
+								}
+								c := candidate{base: t.v, semantic: t.v, version: v, sha: t.ref.Commit, semanticSHA: t.ref.Commit, inc: inc, description: t.ref.Name}
+								if alternative != nil && v.CompareCore(alternative.v) < 0 {
+									if inc == semver.None {
+										n := int64(1)
+										c.version.Number = &n
+									}
+									c.version.Major = alternative.v.Major
+									c.version.Minor = alternative.v.Minor
+									c.version.Patch = alternative.v.Patch
+									c.semantic = alternative.v
+									c.semanticSHA = alternative.ref.Commit
+									c.inc = semver.None
+								}
+								candidates = append(candidates, c)
+								alternative = nil
+							}
+						}
+					case "Fallback":
+						if cfg.Strategies["Fallback"] {
+							if eligible == nil {
+								var err error
+								eligible, err = eligibleTags(effective)
+								if err != nil {
+									return err
+								}
+							}
+							base := ""
+							for _, t := range eligible {
+								if t.v.Matches(label) {
+									base = t.ref.Commit
+									break
+								}
+							}
+							inc, err := log.increment(head, base, label, effective.Increment, effective.Messages, allTags)
+							if err != nil {
+								return err
+							}
+							v, err := (semver.Version{}).Bump(inc, label, false)
+							if err != nil {
+								return err
+							}
+							candidates = append(candidates, candidate{version: v, sha: base, inc: inc, description: "fallback"})
+						}
+					default:
+						extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load, &log, name)
+						if err != nil {
+							return err
+						}
+						candidates = append(candidates, extra...)
 					}
-					candidates = append(candidates, c)
-					alternative = nil
-				}
-			}
-			{
-				versionBranches := []branchRef{}
-				for _, b := range branches {
-					skip, err := cfg.Ignore.BranchIgnored(b.name)
-					if err != nil {
-						return nil, err
+					if strategyLog != nil {
+						for _, c := range candidates[start:] {
+							strategyLog(c.diagnostic(label))
+						}
 					}
-					if !skip {
-						versionBranches = append(versionBranches, b)
-					}
-				}
-				extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load, &log)
+					return nil
+				}()
 				if err != nil {
 					return nil, err
 				}
-				candidates = append(candidates, extra...)
-			}
-			if len(candidates) == 0 && cfg.Strategies["Fallback"] {
-				base := ""
-				for _, t := range eligible {
-					if t.v.Matches(label) {
-						base = t.ref.Commit
-						break
-					}
-				}
-				inc, err := log.increment(head, base, label, effective.Increment, effective.Messages, allTags)
-				if err != nil {
-					return nil, err
-				}
-				v, err := (semver.Version{}).Bump(inc, label, false)
-				if err != nil {
-					return nil, err
-				}
-				candidates = append(candidates, candidate{version: v, sha: base, inc: inc, description: "fallback"})
 			}
 			sort.SliceStable(candidates, func(i, j int) bool { return candidateOrder(candidates[i]) < candidateOrder(candidates[j]) })
 			return candidates, nil
 		}()
 		if err != nil {
+			endFetch()
 			return nil, trace, err
 		}
 		for i := range localCandidates {
 			allowed, err := ignored.include(localCandidates[i].sha)
 			if err != nil {
+				endFetch()
 				return nil, trace, err
 			}
 			if !allowed {
@@ -559,6 +601,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			candidates = append(candidates, localCandidates[i])
 		}
 	}
+	endFetch()
 	if len(candidates) == 0 {
 		return nil, trace, fmt.Errorf("no base versions determined from enabled strategies")
 	}
@@ -624,8 +667,8 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		}
 	}
 	if diagnostics.Info != nil {
-		description, sha, count := chosen.description, chosen.semanticSHA, anchor
-		if description == "fallback" {
+		description, sha, count := chosen.diagnosticSource(), chosen.semanticSHA, anchor
+		if chosen.description == "fallback" {
 			description = ""
 		}
 		if sha == "" {
@@ -704,6 +747,29 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	trace.Counted = counted
 	values, err := format(output.Result{Version: v, SemanticSource: chosen.semantic, SemanticSHA: chosen.semanticSHA, Increment: chosen.inc, LegacySource: chosen.base, CountSHA: anchor, Distance: distance, Branch: friendlyBranch, SHA: head, CommitTime: current.When, Main: main})
 	return values, trace, err
+}
+
+func (c candidate) diagnosticSource() string {
+	switch c.description {
+	case "configured next-version":
+		return "NextVersion in GitVersion configuration file"
+	case "fallback":
+		return "Fallback base version"
+	case "version in branch name":
+		return "Version in branch name"
+	case "mainline", "merge message", "release branch exists":
+		return c.description
+	default:
+		return "Git tag '" + strings.TrimPrefix(c.description, "refs/tags/") + "'"
+	}
+}
+
+func (c candidate) diagnostic(label string) string {
+	message := fmt.Sprintf("%s: Version increment '%s' +semver '%s' with label '%s'", c.diagnosticSource(), c.base.String(), c.inc, label)
+	if c.sha != "" {
+		message += fmt.Sprintf(" based on commit '%.7s'.", c.sha)
+	}
+	return message
 }
 
 func commitDescription(sha string, commit gitrepo.Commit) string {

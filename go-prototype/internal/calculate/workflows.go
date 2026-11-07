@@ -166,9 +166,12 @@ func configuredNextVersionCandidate(cfg config.Config, label string) (candidate,
 	return candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"}, true, nil
 }
 
-func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error), log *commitLog) ([]candidate, error) {
+func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error), log *commitLog, only ...string) ([]candidate, error) {
+	enabled := func(name string) bool {
+		return cfg.Strategies[name] && (len(only) == 0 || only[0] == name)
+	}
 	var out []candidate
-	if e.IsRelease && cfg.Strategies["VersionInBranchName"] {
+	if e.IsRelease && enabled("VersionInBranchName") {
 		for _, name := range []string{branch, source} {
 			if v, ok := versionInBranch(gitrepo.NewReferenceName(name).WithoutOrigin); ok {
 				bumped, err := v.Bump(semver.None, e.Label, false)
@@ -180,7 +183,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			}
 		}
 	}
-	if e.TrackMergeMessage && cfg.Strategies["MergeMessage"] {
+	if e.TrackMergeMessage && enabled("MergeMessage") {
 		found := 0
 		for _, id := range history {
 			c, err := load(id)
@@ -225,7 +228,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			}
 		}
 	}
-	if e.TracksRelease && cfg.Strategies["TrackReleaseBranches"] {
+	if e.TracksRelease && enabled("TrackReleaseBranches") {
 		for _, b := range refs {
 			o := cfg.Options(b.kind)
 			if o.IsRelease == nil || !*o.IsRelease {

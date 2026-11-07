@@ -15,6 +15,7 @@ import (
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/formatting"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
+	"github.com/GitTools/GitVersion/go-prototype/internal/logscope"
 	"github.com/GitTools/GitVersion/go-prototype/internal/output"
 )
 
@@ -122,10 +123,46 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 	defer cancel()
 	repoOptions.PreparationContext, repoOptions.RemoteCredentials = ctx, credentials
 	var discovered bool
+	normalize := options.TargetURL != "" || (!options.NoNormalize && agent.Name != "LocalBuild")
+	branch := repoOptions.TargetBranch
+	if branch == "" && normalize {
+		branch = repoOptions.BuildBranch
+	}
+	logRepository := func(project, dotGit string) {
+		log.write(logInfo, "Project root is: "+project)
+		log.write(logInfo, "DotGit directory is: "+dotGit)
+		target, contextual := branch, repoOptions.ContextBranch
+		if target == "" {
+			target = "null"
+		}
+		if contextual == "" {
+			contextual = "null"
+		}
+		log.write(logInfo, fmt.Sprintf("Branch input: %s; contextual override: %s", target, contextual))
+	}
 	err := runVersionStages(options.TargetPath, versionStages{
 		discover: func(directory string) (string, error) {
 			if options.TargetURL != "" {
-				return gitrepo.PrepareClone(ctx, options.TargetURL, options.ClonePath, repoOptions.ContextBranch != "", credentials)
+				return gitrepo.PrepareCloneWithLog(ctx, options.TargetURL, options.ClonePath, repoOptions.ContextBranch != "", credentials,
+					func(source, destination string, existing bool) func(error) {
+						logRepository(directory, destination)
+						info, end := logscope.Begin(log.info(), fmt.Sprintf("Creating dynamic repository at '%s'", destination))
+						if info == nil {
+							return func(error) {}
+						}
+						if existing {
+							info("Git repository already exists")
+							return func(error) { end() }
+						}
+						cloneInfo, endClone := logscope.Begin(info, fmt.Sprintf("Cloning repository from url '%s'", source))
+						return func(err error) {
+							if err == nil {
+								cloneInfo(fmt.Sprintf("Cloned repository '%s' into '%s'", source, destination))
+							}
+							endClone()
+							end()
+						}
+					})
 			}
 			if !(config.OSConfigurationFS{}).DirectoryExists(directory) {
 				return "", errors.New("Cannot find the .git directory")
@@ -134,38 +171,37 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 		},
 		calculate: func(root string) (calculationExecution, error) {
 			discovered = true
-			project, dotGit, err := gitrepo.CalculationPaths(root)
-			if err != nil {
-				return calculationExecution{}, err
-			}
-			log.write(logInfo, "Project root is: "+project+string(filepath.Separator))
-			log.write(logInfo, "DotGit directory is: "+dotGit)
-			branch, contextual := repoOptions.TargetBranch, repoOptions.ContextBranch
-			if branch == "" {
-				branch = "null"
-			}
-			if contextual == "" {
-				contextual = "null"
-			}
-			log.write(logInfo, fmt.Sprintf("Branch input: %s; contextual override: %s", branch, contextual))
-			if options.TargetURL != "" || (!options.NoNormalize && agent.Name != "LocalBuild") {
-				fetch := !options.NoFetch && !agent.PreventFetch()
-				cleanup := agent.ShouldCleanUpRemotes() && options.TargetURL == ""
-				remote, err := gitrepo.PrepareRemote(ctx, root, fetch, cleanup, credentials)
+			if options.TargetURL == "" && log.enabled(logInfo) {
+				project, dotGit, err := gitrepo.CalculationPaths(root)
 				if err != nil {
 					return calculationExecution{}, err
 				}
-				if cleanup {
-					repoOptions.RetainRemote = remote
-				}
-				if repoOptions.ContextBranch == "" {
-					repoOptions.NormalizationRemote = remote
-				} else if fetch {
-					repoOptions.FetchedRemote = remote
+				logRepository(project+string(filepath.Separator), dotGit)
+			}
+			var preparation repositoryPreparation
+			if normalize {
+				preparation = repositoryPreparation{
+					branch: branch,
+					prepare: func(repoOptions *gitrepo.OpenOptions, info func(string)) error {
+						fetch := !options.NoFetch && !agent.PreventFetch()
+						cleanup := agent.ShouldCleanUpRemotes() && options.TargetURL == ""
+						remote, err := gitrepo.PrepareRemoteWithLog(ctx, root, fetch, cleanup, credentials, info)
+						if err != nil {
+							return err
+						}
+						if cleanup {
+							repoOptions.RetainRemote = remote
+						}
+						if repoOptions.ContextBranch == "" {
+							repoOptions.NormalizationRemote = remote
+						} else if fetch {
+							repoOptions.FetchedRemote = remote
+						}
+						return nil
+					},
 				}
 			}
-			locator := config.FileLocator{Log: log.configLookup}
-			return calculateDiscovered(options, root, rawVersion, version, repoOptions, !options.NoCache, locator.LoadCalculationConfig, log)
+			return calculateDiscovered(options, root, rawVersion, version, repoOptions, !options.NoCache, nil, log, preparation)
 		},
 		output: func(result calculationExecution) error {
 			return writeRootOutput(options, result.values, result.updateBuildNumber, out)
@@ -197,7 +233,8 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 		if options.Password != "" {
 			message = strings.ReplaceAll(message, options.Password, "*******")
 		}
-		if errors.Is(err, gitrepo.ErrNoCommits) {
+		var unexpected gitrepo.UnexpectedPreparationError
+		if errors.Is(err, gitrepo.ErrNoCommits) || errors.As(err, &unexpected) {
 			log.write(logError, "An unexpected error occurred:\n"+message)
 			log.write(logInfo, gitGraphHint)
 		} else {
@@ -294,7 +331,7 @@ func executeCalculation(options cliArguments, diagnostics io.Writer, repoOptions
 	}
 	log := newCLILog(options.LogFilePath, options.Verbosity, false, diagnostics)
 	defer log.close()
-	return calculateDiscovered(options, root, rawVersion, version, repoOptions, cache, loadConfig, log)
+	return calculateDiscovered(options, root, rawVersion, version, repoOptions, cache, loadConfig, log, repositoryPreparation{})
 }
 
 func discoverCalculationRoot(path string) (string, error) {
@@ -308,27 +345,61 @@ func discoverCalculationRoot(path string) (string, error) {
 	return gitrepo.WorkingTreeRoot(path)
 }
 
+type repositoryPreparation struct {
+	branch  string
+	prepare func(*gitrepo.OpenOptions, func(string)) error
+}
+
 func calculateDiscovered(options cliArguments, root, rawVersion, version string, repoOptions gitrepo.OpenOptions, cache bool,
-	loadConfig func(string, string, []byte, string, func(string)) (config.Config, []byte, error), log *cliLog,
+	loadConfig func(string, string, []byte, string, func(string)) (config.Config, []byte, error), log *cliLog, preparation repositoryPreparation,
 ) (calculationExecution, error) {
 	var result calculationExecution
+	cache = cache && len(options.OverrideConfiguration) == 0
+	var pendingConfig []string
+	emitConfig := log.configLookup
+	var prepareLog *cliLog
+	var endPreparation func()
+	if preparation.prepare != nil {
+		_, endPreparation = logscope.Begin(log.info(), fmt.Sprintf("Normalizing git directory for branch '%s'", preparation.branch))
+		defer func() {
+			if endPreparation != nil {
+				endPreparation()
+			}
+		}()
+		prepareLog = log.indented()
+		emitConfig = prepareLog.configLookup
+	} else if cache {
+		emitConfig = func(message string) { pendingConfig = append(pendingConfig, message) }
+	}
+	flushConfig := func() {
+		for _, message := range pendingConfig {
+			log.configLookup(message)
+		}
+		pendingConfig = nil
+	}
+	defer flushConfig()
+	if loadConfig == nil {
+		locator := config.FileLocator{Log: emitConfig}
+		loadConfig = locator.LoadCalculationConfig
+	}
 	path, custom := options.TargetPath, options.ConfigurationFile
 	configDirectory := path
 	if custom == "" && options.TargetURL == "" {
-		locator := config.FileLocator{}
-		if log != nil {
-			locator.Log = log.configLookup
-		}
+		var search []string
+		locator := config.FileLocator{Log: func(message string) { search = append(search, message) }}
 		file, err := locator.Get(&path)
 		if err != nil {
 			return result, err
 		}
 		if file == nil {
+			for _, message := range search {
+				emitConfig(message)
+			}
 			configDirectory = root
 		}
 	}
 	cfg, configuration, err := loadConfig(configDirectory, custom, options.OverrideConfiguration, rawVersion, func(message string) {
-		log.write(logWarning, message)
+		emitConfig(message)
 	})
 	if err != nil {
 		if strings.Contains(err.Error(), "uses the legacy v6 configuration structure") {
@@ -338,6 +409,11 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 	}
 	result.updateBuildNumber = cfg.UpdateBuildNumber
 	repoOptions.IgnoreBranch = cfg.Ignore.BranchIgnored
+	if prepareLog != nil {
+		if err := preparation.prepare(&repoOptions, prepareLog.info()); err != nil {
+			return result, err
+		}
+	}
 	repo, err := gitrepo.OpenForCalculation(root, repoOptions)
 	if err != nil {
 		if errors.Is(err, gitrepo.ErrNoCommits) {
@@ -345,25 +421,38 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 		}
 		return result, err
 	}
+	if prepareLog != nil {
+		if len(repo.ShallowCommits()) > 0 {
+			prepareLog.write(logInfo, "Repository is a shallow clone. GitVersion will continue, but it is recommended to use a full clone for accurate versioning.")
+		}
+		if repoOptions.ContextBranch == "" && prepareLog.enabled(logInfo) {
+			if head, readErr := gitrepo.ReadCheckoutHead(root); readErr == nil {
+				prepareLog.write(logInfo, head)
+			}
+		}
+		endPreparation()
+		endPreparation = nil
+	}
 	var cachePath string
-	if cache && len(options.OverrideConfiguration) == 0 {
+	if cache {
 		cachePath, err = calculationCachePath(repo, version, options.CommitID, configuration)
 		if err == nil {
-			started := time.Now()
-			title := "Loading version variables from disk cache file " + cachePath
-			log.write(logInfo, "┌─── Begin: "+title)
+			info, end := logscope.Begin(log.info(), "Loading version variables from disk cache file "+cachePath)
 			result.values, err = loadCalculationCache(cachePath)
 			switch {
 			case err == nil:
 				result.cacheHit = true
 			case os.IsNotExist(err):
-				log.write(logInfo, "│   Cache file "+cachePath+" not found.")
+				if info != nil {
+					info("Cache file " + cachePath + " not found.")
+				}
 			default:
-				log.write(logInfo, "│   Unable to read cache file "+cachePath+".")
+				log.write(logError, "│   Unable to read cache file "+cachePath+", replacing it after calculation.")
 			}
-			log.write(logInfo, fmt.Sprintf("└─── End: %s (Took: %.2fms)", title, float64(time.Since(started))/float64(time.Millisecond)))
+			end()
 		}
 	}
+	flushConfig()
 	if !result.cacheHit {
 		events := calculate.CalculationLog{Warn: func(message string) { log.write(logWarning, message) }}
 		if log.enabled(logInfo) {
@@ -378,9 +467,11 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 			// Publish only while the repository reference view still matches the key.
 			current, err := calculationCachePath(repo, version, options.CommitID, configuration)
 			if err == nil && current == cachePath {
+				_, end := logscope.Begin(log.info(), "Write version variables to cache file "+cachePath)
 				if err := storeCalculationCache(cachePath, result.values); err != nil {
-					log.write(logInfo, "Unable to write cache file "+cachePath+".")
+					log.write(logError, fmt.Sprintf("│   Unable to write cache file %s: %v", cachePath, err))
 				}
+				end()
 			}
 		}
 	}

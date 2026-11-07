@@ -75,6 +75,13 @@ func connectionOptions(source string, credentials Credentials) (auth transport.A
 // PrepareClone reuses a checkout with the requested origin or publishes a
 // complete clone in the first free destination.
 func PrepareClone(ctx context.Context, source, base string, noCheckout bool, credentials Credentials) (string, error) {
+	return PrepareCloneWithLog(ctx, source, base, noCheckout, credentials, nil)
+}
+
+// CloneLog observes the selected clone destination and closes its trace after publication.
+type CloneLog func(source, destination string, existing bool) func(error)
+
+func PrepareCloneWithLog(ctx context.Context, source, base string, noCheckout bool, credentials Credentials, log CloneLog) (_ string, resultErr error) {
 	endpoint, err := transport.NewEndpoint(source)
 	if err != nil {
 		return "", errors.New("Invalid dynamic repository URL.")
@@ -112,6 +119,9 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 			if info.IsDir() {
 				for _, path := range []string{filepath.Join(destination, ".git"), destination} {
 					if matchesClone(path, source) {
+						if log != nil {
+							log(source, path, true)(nil)
+						}
 						return path, nil
 					}
 				}
@@ -121,6 +131,10 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 			return "", err
 		}
 		if staging == "" {
+			if log != nil {
+				finish := log(source, filepath.Join(destination, ".git"), false)
+				defer func() { finish(resultErr) }()
+			}
 			staging, err = os.MkdirTemp(base, ".gitversion-clone-")
 			if err != nil {
 				return "", err
@@ -133,7 +147,14 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 			if _, err := git.PlainCloneContext(ctx, filepath.Join(staging, ".git"), false, &git.CloneOptions{
 				URL: source, NoCheckout: noCheckout, Auth: auth, CABundle: caBundle,
 			}); err != nil {
-				return "", transportFailure("clone", err)
+				failure := transportFailure("clone", err)
+				if endpoint.Protocol == "file" {
+					if errors.Is(err, transport.ErrRepositoryNotFound) {
+						failure = fmt.Errorf("The repository '%s' does not exist.", source)
+					}
+					failure = UnexpectedPreparationError{failure}
+				}
+				return "", failure
 			}
 		}
 		// Reserve the name without replacing an existing directory, including
@@ -179,6 +200,10 @@ func matchesClone(path, source string) bool {
 // PrepareRemote refreshes remote-tracking refs and returns the remote used for
 // the calculation view. It leaves the checkout and local branch tips intact.
 func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, credentials Credentials) (string, error) {
+	return PrepareRemoteWithLog(ctx, path, fetch, preferOrigin, credentials, nil)
+}
+
+func PrepareRemoteWithLog(ctx context.Context, path string, fetch, preferOrigin bool, credentials Credentials, info func(string)) (string, error) {
 	layout, err := openLayout(path)
 	if err != nil {
 		return "", err
@@ -191,8 +216,11 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 	if err != nil {
 		return "", err
 	}
-	remote = resolveFileRemote(repo, remote, layout.workingDirectory)
 	cfg := remote.Config()
+	if info != nil && len(cfg.URLs) != 0 {
+		info(fmt.Sprintf("One remote found (%s -> '%s').", cfg.Name, cfg.URLs[0]))
+	}
+	remote = resolveFileRemote(repo, remote, layout.workingDirectory)
 	if fetch {
 		specs := append([]gitconfig.RefSpec(nil), cfg.Fetch...)
 		hasBranches := false
@@ -200,7 +228,18 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 			hasBranches = hasBranches || spec.Src() == "refs/heads/*"
 		}
 		if !hasBranches {
-			specs = append(specs, gitconfig.RefSpec("+refs/heads/*:refs/remotes/"+cfg.Name+"/*"))
+			refSpec := "+refs/heads/*:refs/remotes/" + cfg.Name + "/*"
+			if info != nil {
+				info("Adding refspec: " + refSpec)
+			}
+			specs = append(specs, gitconfig.RefSpec(refSpec))
+		}
+		if info != nil {
+			names := make([]string, len(specs))
+			for i, spec := range specs {
+				names[i] = string(spec)
+			}
+			info(fmt.Sprintf("Fetching from remote '%s' using the following refspecs: %s.", cfg.Name, strings.Join(names, ", ")))
 		}
 		auth, caBundle, err := remoteConnectionOptions(remote, credentials)
 		if err != nil {
@@ -209,6 +248,8 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: auth, CABundle: caBundle}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
 			return "", transportFailure("fetch", err)
 		}
+	} else if info != nil {
+		info("Skipping fetching, if GitVersion does not calculate your version as expected you might need to allow fetching or use dynamic repositories")
 	}
 	return cfg.Name, nil
 }
@@ -339,3 +380,8 @@ func transportFailure(operation string, err error) error {
 		return fmt.Errorf("Could not %s the Git repository.", operation)
 	}
 }
+
+// UnexpectedPreparationError marks a backend failure handled by the executor's error sink.
+type UnexpectedPreparationError struct{ error }
+
+func (failure UnexpectedPreparationError) Unwrap() error { return failure.error }

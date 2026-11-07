@@ -30,6 +30,7 @@ var logURLPassword = regexp.MustCompile(`([a-zA-Z][a-zA-Z0-9+.-]*://[^\s/:@]+:)[
 const gitGraphHint = "Please run `git log --graph --format=\"%h %cr %d\" --decorate --date=relative --all --remotes=*` to see the git graph. This can help you troubleshoot any issues.\n"
 
 type cliLog struct {
+	indent  string
 	stderr  io.Writer
 	file    *os.File
 	level   logLevel
@@ -84,7 +85,7 @@ func (l *cliLog) writeSinks(level logLevel, message, fileMessage string) {
 	now := time.Now()
 	prefix := fmt.Sprintf("%s [%s:%02d] ", logNames[level], now.Format("06-01-02 15:04:05"), now.Nanosecond()/10_000_000)
 	render := func(text string) string {
-		return prefix + logURLPassword.ReplaceAllString(text, "${1}*******@") + "\n"
+		return prefix + l.indent + logURLPassword.ReplaceAllString(text, "${1}*******@") + "\n"
 	}
 	if l.console || level == logWarning {
 		_, _ = io.WriteString(l.stderr, render(message))
@@ -123,4 +124,17 @@ func (l *cliLog) featureSelection(version string) {
 
 func (l *cliLog) enabled(level logLevel) bool {
 	return level >= l.level && (l.file != nil || l.console || level == logWarning)
+}
+
+func (l *cliLog) indented() *cliLog {
+	child := *l
+	child.indent += "│   "
+	return &child
+}
+
+func (l *cliLog) info() func(string) {
+	if !l.enabled(logInfo) {
+		return nil
+	}
+	return func(message string) { l.write(logInfo, message) }
 }

@@ -121,9 +121,29 @@ type OpenOptions struct {
 	RetainRemote                                string
 }
 
-// OpenForCalculation opens a clean worktree using explicitly selected policies.
 var ErrNoCommits = errors.New("No commits found on the current branch.")
 
+// ReadCheckoutHead describes the physical checkout before virtual normalization.
+func ReadCheckoutHead(path string) (string, error) {
+	layout, err := openLayout(path)
+	if err != nil {
+		return "", err
+	}
+	repo, err := layout.open()
+	if err != nil {
+		return "", err
+	}
+	head, err := (referenceStore{git: repo, commonDirectory: layout.commonDirectory}).lookup(plumbing.HEAD)
+	if err != nil {
+		return "", err
+	}
+	if head.Type() == plumbing.SymbolicReference {
+		return fmt.Sprintf("HEAD points at branch '%s'.", head.Target()), nil
+	}
+	return fmt.Sprintf("HEAD is detached and points at commit '%s'.", head.Hash()), nil
+}
+
+// OpenForCalculation opens a clean worktree using explicitly selected policies.
 func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	layout, err := openLayout(path)
 	if err != nil {
