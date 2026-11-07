@@ -1,0 +1,216 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+  "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+  "methods": {
+    "ShouldOutputFormatTests": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "{SemVer}",
+          "1.1.0-foo.1"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "{Major}.{Minor}",
+          "1.1"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "{Major}.{Minor}.{Patch}",
+          "1.1.0"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "{Major}.{Minor}.{Patch}.{PreReleaseLabel}",
+          "1.1.0.foo.1"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "{PreReleaseLabelName}",
+          "foo"
+        ]
+      }
+    ],
+    "ShouldOutputFormatWithEnvironmentVariablesTests": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "{Major}.{Minor}.{env:CustomVar}",
+          "1.1.foo"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "{Major}.{Minor}.{Patch}.{env:CustomVar}",
+          "1.1.0.foo"
+        ]
+      }
+    ],
+    "ShouldOutputDotEnvEntries": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "Major",
+          "'1'"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "MajorMinorPatch",
+          "'1.1.0'"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "SemVer",
+          "'1.1.0-foo.1'"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "PreReleaseLabel",
+          "'foo.1'"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "PreReleaseLabelName",
+          "'foo'"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "PreReleaseLabelWithDash",
+          "'-foo.1'"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "PreReleaseLabelNameWithDash",
+          "'-foo'"
+        ]
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "AssemblySemFileVer",
+          "'1.1.0.0'"
+        ]
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "BranchName",
+          "'feature/foo'"
+        ]
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "FullSemVer",
+          "'1.1.0-foo.1+1'"
+        ]
+      }
+    ],
+    "ShouldOutputAllCalculatedVariablesAsDotEnvEntries": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ShouldOutputAllDotEnvEntriesEvenForMinimalRepositories": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "Major",
+          "'0'"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "MajorMinorPatch",
+          "'0.0.1'"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "SemVer",
+          "'0.0.1-1'"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "BuildMetaData",
+          "''"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "AssemblySemVer",
+          "'0.0.1.0'"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "PreReleaseLabel",
+          "'1'"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "PreReleaseLabelWithDash",
+          "'-1'"
+        ]
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "BranchName",
+          "'main'"
+        ]
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "PreReleaseLabelName",
+          "''"
+        ]
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "PreReleaseLabelNameWithDash",
+          "''"
+        ]
+      }
+    ],
+    "ShouldOutputAllCalculatedVariablesAsDotEnvEntriesEvenForMinimalRepositories": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  }
+}

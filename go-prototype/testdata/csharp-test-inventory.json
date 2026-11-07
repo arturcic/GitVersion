@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1225,
+  "mapped_declarations": 1231,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1187,
+      "mapped": 1193,
       "verified": 1187
     },
     "integration": {
@@ -221907,9 +221907,20 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs#ShouldOutputFormatWithEnvironmentVariablesTests",
@@ -221928,9 +221939,17 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs#ShouldOutputDotEnvEntries",
@@ -221981,9 +222000,25 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs#ShouldOutputAllCalculatedVariablesAsDotEnvEntries",
@@ -221998,9 +222033,16 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs#ShouldOutputAllDotEnvEntriesEvenForMinimalRepositories",
@@ -222051,9 +222093,25 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs#ShouldOutputAllCalculatedVariablesAsDotEnvEntriesEvenForMinimalRepositories",
@@ -222068,9 +222126,16 @@
       ],
       "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpFormatArguments",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-format-arguments.json",
+      "adaptations": [
+        "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/GitVersionInfoGeneratorTests.cs#ShouldCreateFile",

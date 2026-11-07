@@ -52551,5 +52551,118 @@
       "The original assertions run on a deterministic go-git fixture with the same history and layout. Both pinned C# adapters run against it and must agree before their result is used as the Go reference. Temporary paths are expressed relative to the fixture root."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "FormatArgumentTests.ShouldOutputFormatTests": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputFormatTests",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormatArgumentTests.ShouldOutputFormatWithEnvironmentVariablesTests": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputFormatWithEnvironmentVariablesTests",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormatArgumentTests.ShouldOutputDotEnvEntries": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputDotEnvEntries",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormatArgumentTests.ShouldOutputAllCalculatedVariablesAsDotEnvEntries": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputAllCalculatedVariablesAsDotEnvEntries",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormatArgumentTests.ShouldOutputAllDotEnvEntriesEvenForMinimalRepositories": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputAllDotEnvEntriesEvenForMinimalRepositories",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormatArgumentTests.ShouldOutputAllCalculatedVariablesAsDotEnvEntriesEvenForMinimalRepositories": {
+    "source": "src/GitVersion.Output.Tests/Output/FormatArgumentTests.cs",
+    "source_sha256": "a2699d9ef056e537a4016779663f49d303c6df9e2c40d170eb569cefa5f15448",
+    "method": "ShouldOutputAllCalculatedVariablesAsDotEnvEntriesEvenForMinimalRepositories",
+    "go_test": "TestCSharpFormatArguments",
+    "case_file": "testdata/csharp-format-arguments.json",
+    "case_file_sha256": "3a6484c84fbc52688f88979ef3ac4e3ce824daf471ac7631a7972c0b7aae3022",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go runs the CLI output path using equivalent deterministic go-git histories. The dotenv line count is compared with the calculated JSON variable count."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
