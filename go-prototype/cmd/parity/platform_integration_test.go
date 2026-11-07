@@ -31,6 +31,7 @@ func TestPlatformWorkflowEdgeParity(t *testing.T)      { testPlatformParity(t, "
 func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "workflow-generated") }
 
 func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
+func TestPlatformMergeControlParity(t *testing.T)      { testPlatformParity(t, "merge-control") }
 func TestPlatformConfigurationEdgeParity(t *testing.T) { testPlatformParity(t, "configuration-edge") }
 func TestPlatformConfigurationParity(t *testing.T)     { testPlatformParity(t, "configuration") }
 func TestPlatformResetParity(t *testing.T) {
@@ -118,6 +119,10 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes = fixtures.StrategyRecipes()
 		expected = 768
 	}
+	if suite == "merge-control" {
+		recipes = fixtures.MergeControlRecipes()
+		expected = 384
+	}
 	if suite == "configuration-edge" {
 		recipes = fixtures.ConfigurationEdgeRecipes()
 		expected = 14
@@ -157,7 +162,7 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-edges" {
 		goldenName = "workflow-edge-reference.json"
 	}
-	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" {
+	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
 		goldenName = suite + "-reference.json"
 	}
 	goldenPath := filepath.Join(root, "testdata", goldenName)
@@ -181,7 +186,7 @@ func testPlatformParity(t *testing.T, suite string) {
 			}
 		}
 	}
-	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" {
+	if suite == "strategy" || suite == "configuration" || suite == "configuration-edge" || suite == "merge-control" {
 		if golden.Schema != 1 || golden.SpecSHA256 != specHash {
 			t.Fatal("reference provenance differs")
 		}

@@ -22,7 +22,7 @@ The first direct ports cover six methods / seven cases from
 `VersionInCurrentBranchNameScenarios` and `VersionInMergedBranchNameScenarios`.
 `TestConfigurationEdgeFrozenReference` retains each original FullSemVer assertion
 and checks all fields against an independently captured C# result. The corresponding
-process check is `TestPlatformConfigurationEdgeParity` on macOS and Ubuntu.
+process check is `TestPlatformConfigurationEdgeParity`, now passing on macOS and Ubuntu. The six mapped declarations are marked `verified-macos-ubuntu`; the other 2,172 declarations remain pending. This is 0.28% explicitly mapped declarations, not a compatibility percentage.
 
 The generated configuration and strategy matrices are additional tests. They do
 not stand in for importing the existing suite. Future ports should add the source

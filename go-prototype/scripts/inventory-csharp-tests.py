@@ -58,7 +58,7 @@ found = set()
 for row in rows:
     key = Path(row['source']).stem + '.' + row['method']
     if key in mappings:
-        row.update(status='ported-awaiting-platform-verification', go_test='TestConfigurationEdgeFrozenReference', fixtures=mappings[key])
+        row.update(status='verified-macos-ubuntu', go_test='TestConfigurationEdgeFrozenReference', fixtures=mappings[key])
         found.add(key)
 assert found == set(mappings), 'A mapped C# test is absent from the pin'
 out = {'schema': 1, 'source_revision': revision,

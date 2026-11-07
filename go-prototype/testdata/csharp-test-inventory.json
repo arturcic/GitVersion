@@ -33013,7 +33013,7 @@
       ],
       "source_sha256": "10e2da0e920eeff61548cc14f5262380484440cdaf9dc1bb3f6f5027221e0a12",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-release-name--head"
@@ -33032,7 +33032,7 @@
       ],
       "source_sha256": "10e2da0e920eeff61548cc14f5262380484440cdaf9dc1bb3f6f5027221e0a12",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-feature-name--head"
@@ -33051,7 +33051,7 @@
       ],
       "source_sha256": "10e2da0e920eeff61548cc14f5262380484440cdaf9dc1bb3f6f5027221e0a12",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-support-name--head"
@@ -33104,7 +33104,7 @@
       ],
       "source_sha256": "829c4e5a5975740d2070dc731d3a23498350da0fca6a6f3ad94044aaaba0b51b",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-release-merged--head"
@@ -33144,7 +33144,7 @@
       ],
       "source_sha256": "829c4e5a5975740d2070dc731d3a23498350da0fca6a6f3ad94044aaaba0b51b",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-release-accidental--head",
@@ -33164,7 +33164,7 @@
       ],
       "source_sha256": "829c4e5a5975740d2070dc731d3a23498350da0fca6a6f3ad94044aaaba0b51b",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestConfigurationEdgeFrozenReference",
       "fixtures": [
         "csharp-support-merged--head"

@@ -131,3 +131,19 @@ func TestMatchCasesRejectsMissingReorderedAndChangedIdentities(t *testing.T) {
 		t.Fatal("path dependence", err)
 	}
 }
+
+func TestEffectiveConfigurationRejectsMutation(t *testing.T) {
+	r := parity.Result{Stdout: []byte("workflow: GitFlow/v1\n"), Before: "state", After: "state"}
+	if !effectiveConfigurationSucceeded(r) {
+		t.Fatal("valid unchanged configuration output rejected")
+	}
+	r.After = "changed"
+	if effectiveConfigurationSucceeded(r) {
+		t.Fatal("effective configuration accepted after repository mutation")
+	}
+	r.Before = ""
+	r.After = ""
+	if effectiveConfigurationSucceeded(r) {
+		t.Fatal("effective configuration accepted without state evidence")
+	}
+}

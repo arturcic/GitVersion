@@ -9,6 +9,9 @@ import (
 	"testing"
 )
 
+func TestMergeControlFrozenReference(t *testing.T) {
+	testConfigurationReference(t, "merge-control", fixtures.MergeControlRecipes(), 384, 0)
+}
 func TestConfigurationEdgeFrozenReference(t *testing.T) {
 	testConfigurationReference(t, "configuration-edge", fixtures.ConfigurationEdgeRecipes(), 13, 1)
 }

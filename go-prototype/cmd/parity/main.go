@@ -316,9 +316,13 @@ func validateConfigurations(ctx context.Context, cases []fixtures.Checkpoint, b 
 		if err = parity.WriteJSON(filepath.Join(dir, "result.json"), r); err != nil {
 			return err
 		}
-		if r.ExitCode != 0 || r.Error != "" || len(r.Stdout) == 0 {
+		if !effectiveConfigurationSucceeded(r) {
 			return fmt.Errorf("effective configuration failed for %s: %s", hash, r.Error)
 		}
 	}
 	return nil
+}
+
+func effectiveConfigurationSucceeded(r parity.Result) bool {
+	return r.ExitCode == 0 && r.Error == "" && len(r.Stdout) > 0 && r.Before != "" && r.Before == r.After
 }

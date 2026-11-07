@@ -1,0 +1,73 @@
+{
+  "internal/semver": {
+    "statements": 93,
+    "covered": 88,
+    "percent": 94.62
+  },
+  "internal/config": {
+    "statements": 280,
+    "covered": 252,
+    "percent": 90.0
+  },
+  "internal/output": {
+    "statements": 46,
+    "covered": 44,
+    "percent": 95.65
+  },
+  "cmd/gitversion-go": {
+    "statements": 31,
+    "covered": 25,
+    "percent": 80.65
+  },
+  "internal/parity": {
+    "statements": 359,
+    "covered": 252,
+    "percent": 70.19
+  },
+  "internal/gitrepo": {
+    "statements": 449,
+    "covered": 406,
+    "percent": 90.42
+  },
+  "internal/fixtures": {
+    "statements": 639,
+    "covered": 477,
+    "percent": 74.65
+  },
+  "internal/calculate": {
+    "statements": 1014,
+    "covered": 901,
+    "percent": 88.86
+  },
+  "cmd/parity": {
+    "statements": 258,
+    "covered": 49,
+    "percent": 18.99
+  },
+  "implementation": {
+    "statements": 1913,
+    "covered": 1716,
+    "percent": 89.7
+  },
+  "whole_module": {
+    "statements": 3169,
+    "covered": 2494,
+    "percent": 78.7
+  },
+  "distinct_tests_passed": 3159,
+  "packages_passed": 9,
+  "implementation_checkpoint": "f41a4f190",
+  "scope": "Regular suite plus refreshed cmd/parity tests. Statement coverage; build-tagged external process tests excluded. No feature-compatibility percentage.",
+  "commands": [
+    "CGO_ENABLED=0 go test ./... -count=1 -coverprofile=.local/configuration-final-coverage.out -json",
+    "CGO_ENABLED=0 go test ./cmd/parity -count=1 -coverprofile=.local/configuration-final-harness-coverage.out -json"
+  ],
+  "profile_combination": "Replace cmd/parity entries with its refreshed profile; all other package entries come from the full regular suite.",
+  "evidence": {
+    ".local/configuration-final-unit.jsonl": "a6d0aaa36456698a81a0e618cd8d0007f456f427ab20ef25054cfa486ad08df9",
+    ".local/configuration-final-harness-unit.jsonl": "a52057d56a1591ac4af34ffce0c93bffca013b62af1f24f1824d79bfe499bd20",
+    ".local/configuration-final-coverage.out": "c1cb420b8fba9e110666d51c18d622d717ca19895e6e62f98edd366aff4d628d",
+    ".local/configuration-final-harness-coverage.out": "90b6674563dfc128708f5a96ec5e5a2025a20a1a158a77d5b0ed7399ac621b91",
+    ".local/configuration-combined-coverage.out": "5a2e5e57e1aeacb417feb28244c40890412152968f457de57893462c29fc1245"
+  }
+}

@@ -6,19 +6,19 @@ Compatibility is an inventory of observable behaviors, not a percentage inferred
 
 | Area | Current state | Remaining acceptance work |
 | --- | --- | --- |
-| GitHub Flow main/feature calculation | Verified declared subset | Reset directives verified; all remaining strategies, unusual histories and version bounds |
-| Deployment modes and branch controls | First E batch verified | Inheritance across all branch families, remaining prevent/track controls |
-| GitFlow and branch families | Declared default-family subset verified on macOS/Ubuntu | Full custom/fallback branch policies, competing configuration sources and remaining merge interactions; see WORKFLOWS.md |
-| Mainline | Declared strategy subset verified on macOS/Ubuntu | Remaining strategy combinations and configuration interactions; exact diagnostic parity for baseline rejection |
-| Configuration | Partial, strict accepted subset | All v7 sections/defaults, source branches, custom regex/formatting, ignore paths/SHAs/dates, override precedence, lookup and diagnostics |
-| Semantic versions and output variables | 33 fields verified within subset | Loose format, build metadata, prerelease next-version, full bounds, custom/assembly/date formats |
+| GitHub Flow main/feature calculation | Verified declared subset | Reset directives verified; additional configuration interactions, unusual histories and version bounds |
+| Deployment modes and branch controls | First E batch verified | Remaining per-family edge interactions and custom/default/null policies |
+| GitFlow and branch families | Declared default-family subset verified on macOS/Ubuntu | Competing built-in configuration sources now covered; full custom/fallback branch policies and further merge interactions remain open; see CONFIGURATION-STRATEGIES.md |
+| Mainline | Declared strategy subset verified on macOS/Ubuntu | All 128 strategy subsets covered on six histories; further configuration/topology interactions and exact rejection diagnostics remain open |
+| Configuration | Strategy/control subset verified; 1,232 C# configuration audits | All v7 sections/defaults, source branches, custom regex/formatting, ignore paths/SHAs/dates, override precedence, lookup and diagnostics |
+| Semantic versions and output variables | 33 fields verified within subset | Loose format, build metadata, additional prerelease next-version boundaries, full bounds, custom/assembly/date formats |
 | Repository layouts and state | Complete clean attached local repositories | Worktrees, detached/shallow/bare/dirty repositories, remote refs, missing objects, normalization and supported failure behavior |
 | CLI | Prototype calculate/observe commands only | Pinned CLI syntax/options/aliases, help/schema/version, exit codes, diagnostics, config commands, output selection, file updates, cache and repository options |
 | Build-server adapters | Open | Provider detection and precedence; exact output/escaping/files/environment and GitVersion_ prefix; network/CI preparation contracts |
 | MSBuild | Open | Task/property/target compatibility, generated GitVersionInformation, assembly updates, build-log output, multi-target and design-time build behavior |
 | Distribution and embedding | Open | Local native binaries, package layout/entry points, .NET task/API compatibility boundaries, reproducible packaging and consumer smoke tests |
 | macOS | Verified existing corpus on arm64 | Each new group; architecture matrix and filesystem edge cases |
-| Ubuntu 26.04 | Verified 684 curated checkpoints + 999 generated JSON comparisons + one rejection on arm64 | Each new group; architecture matrix and filesystem edge cases |
+| Ubuntu 26.04 | Verified 3,568 JSON comparisons + 82 rejection contracts on arm64 | Each new group; architecture matrix and filesystem edge cases |
 | Windows | Explicitly last; not executed | Portable handoff, platform-specific behavior, all declared groups and integrations |
 
 ## Source-backed inventory
@@ -34,7 +34,7 @@ The pinned source is extracted under `.local/source/`; do not use a moving branc
 ## Execution order
 
 1. Ubuntu 26.04 workflow gates are verified; retain image/runtime/package provenance for every new group.
-2. Expand calculation/configuration in reference-first batches. Reset-message and declared GitFlow/Mainline semantics are verified; next are remaining configuration, source-branch and strategy-combination groups.
+2. Expand calculation/configuration in reference-first batches. Reset-message and declared GitFlow/Mainline semantics are verified; strategy/control combinations and competing built-in source branches have a subsequent batch. Custom regex/source policies, ignore rules, YAML defaults and output formats remain open.
 3. Implement the pinned CLI surface and all output formats, diagnostic/exit behavior and filesystem side effects.
 4. Implement build-server adapters and MSBuild/consumer compatibility with isolated local stand-ins. Real CI publication/network operations require separate authorization.
 5. Run the complete declared matrix on macOS and Ubuntu, including generated histories, public snapshots, repeatability, consumer builds and performance regressions.
