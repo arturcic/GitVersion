@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1283 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1297 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,245 verified unit/component methods out of 1,516 separately from integration ports.
+1,259 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -337,3 +337,7 @@ It selects history on the current branch by the requested commit's timestamp.
 The prototype does not maintain a persistent calculation cache. The
 [CLI execution evidence](CSHARP-CLI-EXECUTION-EVIDENCE.json) records live
 commit selection, discovery and failure cases, and validation JSON byte checks.
+
+The [repository execution evidence](CSHARP-REPOSITORY-EXECUTION-EVIDENCE.json)
+records forward-merge bases, the 25 original equal-timestamp graph seeds,
+worktree calculation and TeamCity JSON and file output.

@@ -53530,7 +53530,7 @@
     "adaptations": [
       "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreTests.FindsCorrectMergeBaseForForwardMergeMovesOn": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
@@ -53545,7 +53545,7 @@
     "adaptations": [
       "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreTests.FindsCorrectMergeBaseForMultipleForwardMerges": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreTests.cs",
@@ -53560,7 +53560,7 @@
     "adaptations": [
       "Build the original forward-merge histories with go-git and compare both argument orders through the branch-aware merge-base finder."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreEqualTimestampTests.DerivedCommitLogReturnsTheSameCommitsWhenTimestampsAreEqual": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreEqualTimestampTests.cs",
@@ -53575,7 +53575,7 @@
     "adaptations": [
       "Use all 25 original generator seeds and parent choices, with a fixed common timestamp. Check the entire set or every parent/child position for each base."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreEqualTimestampTests.DerivedCommitLogIsAValidTopologicalOrderWhenTimestampsAreEqual": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreEqualTimestampTests.cs",
@@ -53590,7 +53590,7 @@
     "adaptations": [
       "Use all 25 original generator seeds and parent choices, with a fixed common timestamp. Check the entire set or every parent/child position for each base."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CustomVersionUsesBranchSpecificFormat": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53605,7 +53605,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.WorkingDirectoryWithoutGit": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53620,7 +53620,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.WorkingDirectoryWithoutCommits": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53635,7 +53635,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.GetDotGitDirectoryNoWorktree": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53650,7 +53650,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.GetDotGitDirectoryWorktree": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53665,7 +53665,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CalculateVersionFromWorktreeHead": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -53680,7 +53680,7 @@
     "adaptations": [
       "Use the Go calculation and layout paths with temporary repositories. Check Git errors in place of .NET exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JsonOutputOnBuildServerTest.BeingOnBuildServerDoesntOverrideOutputJson": {
     "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
@@ -53695,7 +53695,7 @@
     "adaptations": [
       "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JsonOutputOnBuildServerTest.BeingOnBuildServerWithOutputJsonDoesNotFail": {
     "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
@@ -53710,7 +53710,7 @@
     "adaptations": [
       "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "JsonOutputOnBuildServerTest.BeingOnBuildServerWithOutputJsonAndOutputFileDoesNotFail": {
     "source": "src/GitVersion.App.Tests/JsonOutputOnBuildServerTest.cs",
@@ -53726,6 +53726,6 @@
     "adaptations": [
       "Recreate the five initial commits, local checkout, and later remote tag and commit without contacting a server. Compare the original version, service message, and JSON file."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

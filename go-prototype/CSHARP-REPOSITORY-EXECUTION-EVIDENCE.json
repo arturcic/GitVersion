@@ -1,0 +1,164 @@
+{
+  "source_checkpoint": "d29dff914e5212d564842772dc21fedaf96f24ef",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "ported_methods": 14,
+  "original_parameter_cases": 15,
+  "equal_timestamp_seeds_per_method": 25,
+  "equal_timestamp_base_checks": 750,
+  "inventory": {
+    "verified_unit_component": 1259,
+    "total_unit_component": 1516,
+    "target": 1365,
+    "verified_integration": 38,
+    "total_integration": 662
+  },
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40242,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "repository_execution_comparisons": 3
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40242,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "repository_execution_comparisons": 3
+    }
+  },
+  "candidate_sha256": {
+    "macos": "4e1fe8f6cdd34452bfe45f52d51af52e8decf67665d7bb460689ef6f7664f437",
+    "ubuntu26": "dcbda74bddc6c6ce20c3df1b3518b8db2b6ef5c53ddba62c3b7ab7b16ef69bf8"
+  },
+  "process_reports": {
+    "macos": {
+      "report": ".local/repository-execution-ports/macos/repository-execution-2150980716/report.json",
+      "sha256": "7dce34ccac4b5ceb109541fc423e650434717ced7eaa599b617b601a58245fe9",
+      "log_sha256": "8c8f30db9dc00ac785c55b0f6cf6ca283bf2ede9cca3714092ec1ed67ccd65a0"
+    },
+    "ubuntu26": {
+      "report": ".local/repository-execution-ports/linux/repository-execution-51958571/report.json",
+      "sha256": "908ac62c1703d87723e84255b188e7cc1a391b7c6894522b4ee762c97754ccdd",
+      "log_sha256": "2500fe91ffabbadecc558cdfae07614fd22941d25baecfe2cde6ef93f7f12fb5"
+    }
+  },
+  "unit_logs": {
+    "macos": "64fdfa5d90e227be5e352a71ddd4890ee6152e6199e797b0af2f82504737bbc9",
+    "macos_path": ".local/repository-execution-ports/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/repository-execution-ports/linux/unit/internal-calculate.log": "72c0b86e140975ebcb4879dc206de74216b7aa65cfad99d61038832cdbc464fd",
+      ".local/repository-execution-ports/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+      ".local/repository-execution-ports/linux/unit/internal-parity.log": "7b8ade9c8937d90bd9bf94fb261606cfce69dba1c05b46aebc6fa8ac8931db1c",
+      ".local/repository-execution-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/repository-execution-ports/linux/unit/internal-buildagent.log": "53d1b04a9a4406365c119aff11bf30b7623b0c91da4b9c10e2a31f818809dd2a",
+      ".local/repository-execution-ports/linux/unit/cmd-parity.log": "f3230adcde12aaf6601500fc1278b99c4ab53029a8a099197144853ab4e4c6f4",
+      ".local/repository-execution-ports/linux/unit/internal-config.log": "387db78000a5f3258d677213029d57e6b911087afaed16cc5e61ba3162908f1a",
+      ".local/repository-execution-ports/linux/unit/internal-output.log": "ebba6c99fcb0be44f86caa550ca74261425ff440db98b970aa6475f1e9a793b5",
+      ".local/repository-execution-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+      ".local/repository-execution-ports/linux/unit/cmd-gitversion-go.log": "28dc13468dcbbbf26b17ecd2ce423cfcf9c122882afafda5dbfa7d250503a23f",
+      ".local/repository-execution-ports/linux/unit/internal-gitrepo.log": "782481a9f353231ca4f4a6ff2ba72916eea5f5651de050b38c2b2eacb255aac5",
+      ".local/repository-execution-ports/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+      ".local/repository-execution-ports/linux/unit/internal-fixtures.log": "8a723f23ed63c80f5c272a4b6b6ecdbef9cf05d58580633db2a8642c12125c2f"
+    }
+  },
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/csharp_repository_execution_test.go": "d73400c73735fa5644e390c37e850e2b145526e8206c9ec555e602e20d838676",
+    "cmd/gitversion-go/repository_execution_integration_test.go": "8c122dc0ef3003fd727449179060a5d2f983ee3a1bd50370a24e2acd98f657f8",
+    "internal/calculate/csharp_repository_execution_test.go": "4ca44fec48e43cc36f488b87d336723dc61ec79ea909775189bbd676e9c4034d",
+    "internal/gitrepo/csharp_repository_executor_layout_test.go": "d58cdc6fe246e2cfbaa666d2f605db0e193afd5e7bf0815613791785a2318c8a",
+    "scripts/port-repository-execution-tests.py": "144928a67733bf1c7b52aeb412c1cf248a156e74bf72b8bf7c58e6dc96871b93",
+    "testdata/csharp-repository-execution.json": "4d9773e47cad787b97ccb344b9a90778e3b4e9da63088970268a1e321f41565f",
+    "testdata/csharp-test-inventory.json": "2fe24833bf561a2dd90f5e9fb228e517f9e9d1099f4b04fa33024dfbd691eeca",
+    "testdata/csharp-unit-port-mappings.json": "b02c1c1ff4596b44ea3942ee1c1056d40a9e6e5b0177c8dcae398a99c097725e"
+  },
+  "prior_runtime_evidence": {
+    "path": "CSHARP-CLI-EXECUTION-EVIDENCE.json",
+    "sha256": "288f856cea406c3841def9a166bb849e8189bba585577a24b1038ab9a7d1b019",
+    "basis": "Identical production source and runtime executables."
+  },
+  "reused_linux_unit_binary_hashes": {
+    "internal-output.test": "828fcc3045c98b4fedf4c4a7f08c8721ae69c113ba16adf8fb516a1d10100f9e",
+    "internal-patterns.test": "8581e9c993709a7ae2e04c0b3807afa2ef5e8e90a4411ee81296501b0a331f56",
+    "internal-buildagent.test": "2168bfabc0745d2f22f4e05ab32eeaea99ccd3e814e7a079a09e73a7eb4e4fec",
+    "cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    "internal-config.test": "5d51748455b61c991890a2a07c9a02d6fcb2d1350cc6b4d2018573e27bfd8b38",
+    "internal-fixtures.test": "891c79ec22cec8f471fe1cb114cea6f0bb2714b95440ed2e2d17ae4cab76958b",
+    "internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    "internal-semver.test": "90c19c0e5153406e7097e0a570f9e1690653c881933c7d3f59144a1cfdfba180",
+    "internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    "internal-formatting.test": "39fb5607bfebf83b5674f942f6a913557ebf33428342a57b67fcfe7fcae4d1e1"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/repository-execution-ports/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/repository-execution-ports/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/repository-execution-ports/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/repository-execution-ports/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T07:13:31.985394167Z",
+      "FinishedAt": "2026-11-07T07:14:18.947583591Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/repository-execution-ports/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/cli-execution-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}
