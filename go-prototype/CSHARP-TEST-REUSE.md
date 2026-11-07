@@ -28,3 +28,7 @@ The generated configuration and strategy matrices are additional tests. They do
 not stand in for importing the existing suite. Future ports should add the source
 method, exact parameter case, portable recipe and assertion before marking an
 inventory entry verified. Windows validation remains a separate final gate.
+
+The [semantic-version unit batch](CSHARP-SEMVER-PORTS.md) adds 14 original methods
+with 1,158 literal parameter/assertion cases. Unit/component and integration totals
+are tracked separately for the [90% unit-test target](UNIT-TEST-PORTING.md).
