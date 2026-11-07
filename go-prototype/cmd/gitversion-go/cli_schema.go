@@ -122,7 +122,7 @@ func writeCLISchema(out io.Writer, root cliSchemaCommand) error {
 	root.Metadata = []cliSchemaMetadata{{"gitversion.optionArgumentSeparators", []string{" ", "=", ":"}}}
 	document := cliSchemaDocument{
 		Opencli:     "0.1",
-		Info:        cliSchemaInfo{Title: "GitVersion", Version: informationalVersion},
+		Info:        cliSchemaInfo{Title: "GitVersion", Version: cliInformationalVersion()},
 		Command:     root,
 		Conventions: cliSchemaConventions{GroupOptions: true, OptionSeparator: " "},
 	}
@@ -143,7 +143,13 @@ func containsCLISchemaOption(args []string) bool {
 }
 
 func cliSchemaInvocation(args []string, root cliSchemaCommand) (bool, error) {
+	_, requested, err := inspectCLIInvocation(args, root, "--cli-schema")
+	return requested, err
+}
+
+func inspectCLIInvocation(args []string, root cliSchemaCommand, request string) ([]cliSchemaCommand, bool, error) {
 	command := root
+	path := []cliSchemaCommand{root}
 	requested := false
 	positionals := 0
 	var unmatched string
@@ -158,12 +164,13 @@ func cliSchemaInvocation(args []string, root cliSchemaCommand) (bool, error) {
 		next := slices.IndexFunc(command.Commands, func(child cliSchemaCommand) bool { return child.Name == token })
 		if next >= 0 {
 			command, positionals = command.Commands[next], 0
+			path = append(path, command)
 			continue
 		}
 		name, inline := splitSchemaOption(token)
 		option, found := findSchemaOption(root, command, name)
 		if found {
-			if name == "--cli-schema" {
+			if option.Name == request && (request != "--help" || name == "--help" || name == "-h" || name == "-?") {
 				requested = true
 			}
 			if inline || len(option.Arguments) == 0 || i+1 == len(args) {
@@ -197,12 +204,12 @@ func cliSchemaInvocation(args []string, root cliSchemaCommand) (bool, error) {
 		}
 	}
 	if !requested {
-		return false, nil
+		return path, false, nil
 	}
 	if unmatched != "" {
-		return true, argumentError(unmatched)
+		return path, true, argumentError(unmatched)
 	}
-	return true, nil
+	return path, true, nil
 }
 
 func splitSchemaOption(token string) (name string, inline bool) {

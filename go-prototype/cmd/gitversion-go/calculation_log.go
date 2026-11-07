@@ -10,10 +10,7 @@ import (
 )
 
 func writeCalculationLog(options cliArguments, result calculationExecution, diagnostics io.Writer) error {
-	if options.LogFilePath == "" || options.Verbosity == "Quiet" || options.Verbosity == "Minimal" {
-		return nil
-	}
-	write := func(out io.Writer) error {
+	return writeRootLog(options, diagnostics, func(out io.Writer) error {
 		for _, message := range result.cacheMessages {
 			if _, err := fmt.Fprintln(out, "INFO "+message); err != nil {
 				return err
@@ -23,6 +20,12 @@ func writeCalculationLog(options cliArguments, result calculationExecution, diag
 			return nil
 		}
 		return writeCalculationDetails(out, options.Verbosity, result.trace, result.values)
+	})
+}
+
+func writeRootLog(options cliArguments, diagnostics io.Writer, write func(io.Writer) error) error {
+	if options.LogFilePath == "" || options.Verbosity == "Quiet" || options.Verbosity == "Minimal" {
+		return nil
 	}
 	if options.LogFilePath == "console" {
 		return write(diagnostics)

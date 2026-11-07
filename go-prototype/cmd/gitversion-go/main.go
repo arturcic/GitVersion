@@ -26,6 +26,14 @@ func execute(args []string, out, diagnostics io.Writer) error {
 			return writeCLISchema(out, root)
 		}
 	}
+	if len(args) > 0 && args[0] != "calculate" && args[0] != "observe" && args[0] != "msbuild" && containsHelpOption(args) {
+		if path, requested, err := inspectCLIInvocation(args, compatibilityCLITree(), "--help"); requested {
+			if err != nil {
+				return err
+			}
+			return writeCLIHelp(out, path)
+		}
+	}
 	if len(args) > 0 && args[0] == "msbuild" {
 		return runMSBuild(args[1:], out, diagnostics)
 	}

@@ -63,7 +63,7 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	options.StringVar(&name, "c", "", "configuration file")
 	options.StringVar(&logFile, "log-file", "", "configuration diagnostics")
 	options.StringVar(&logFile, "l", "", "configuration diagnostics")
-	options.String("verbosity", "Normal", "diagnostic verbosity")
+	verbosity := options.String("verbosity", "Normal", "diagnostic verbosity")
 	options.Bool("telemetry-opt-out", false, "disable telemetry")
 	var overrides []string
 	options.Func("override-config", "runtime key=value override", func(value string) error {
@@ -72,6 +72,9 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	})
 	if err := options.Parse(args); err != nil || options.NArg() != 0 {
 		return fmt.Errorf("Could not parse command line parameter")
+	}
+	if _, err := parseVerbosity(*verbosity); err != nil {
+		return fmt.Errorf("An error occurred:\n%w", err)
 	}
 	requested := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
 	version, err := selectedConfigurationVersion()

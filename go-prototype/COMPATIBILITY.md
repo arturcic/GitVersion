@@ -1,6 +1,6 @@
 # Full replacement compatibility contract
 
-User-confirmed target: **full replacement, including CLI and integrations**, against the pinned established C# `src/` implementation at `14d222235b7dabb7033473528a76fd18478a9217`. Prioritize macOS and Ubuntu 26.04; validate Windows last. Keep all implementation, build artifacts and evidence local. This target is not achieved yet.
+The target is **replacement of the established C# CLI and in-scope integrations**, pinned to `src/` at `14d222235b7dabb7033473528a76fd18478a9217`. MSBuild, experimental `new-cli/`, SSH, and legacy CLI arguments are outside the active scope. Prioritize macOS and Ubuntu 26.04; validate Windows last. Keep all implementation, build artifacts and evidence local. This target is not achieved yet.
 
 Compatibility is an inventory of observable behaviors, not a percentage inferred from passing tests. A group closes only when positive, negative, boundary and interaction cases match the pinned reference on both priority platforms. Unsupported cases remain open even when the Go executable rejects them cleanly. Intentional differences require an explicit decision; do not silently call them compatible.
 
@@ -15,7 +15,7 @@ Compatibility is an inventory of observable behaviors, not a percentage inferred
 | Repository layouts and state | Complete clean attached local repositories | Worktrees, detached/shallow/bare/dirty repositories, remote refs, missing objects, normalization and supported failure behavior |
 | CLI | Prototype calculate/observe commands only | Pinned CLI syntax/options/aliases, help/schema/version, exit codes, diagnostics, config commands, output selection, file updates, cache and repository options |
 | Build-server adapters | Open | Provider detection and precedence; exact output/escaping/files/environment and GitVersion_ prefix; network/CI preparation contracts |
-| MSBuild | Open | Task/property/target compatibility, generated GitVersionInformation, assembly updates, build-log output, multi-target and design-time build behavior |
+| MSBuild | Out of scope | Existing prototype task results are historical evidence. |
 | Distribution and embedding | Open | Local native binaries, package layout/entry points, .NET task/API compatibility boundaries, reproducible packaging and consumer smoke tests |
 | macOS | Verified existing corpus on arm64 | Each new group; architecture matrix and filesystem edge cases |
 | Ubuntu 26.04 | Verified 3,568 JSON comparisons + 82 rejection contracts on arm64 | Each new group; architecture matrix and filesystem edge cases |
@@ -36,7 +36,7 @@ The pinned source is extracted under `.local/source/`; do not use a moving branc
 1. Ubuntu 26.04 workflow gates are verified; retain image/runtime/package provenance for every new group.
 2. Expand calculation/configuration in reference-first batches. Reset-message and declared GitFlow/Mainline semantics are verified; strategy/control combinations and competing built-in source branches have a subsequent batch. Custom regex/source policies, ignore rules, YAML defaults and output formats remain open.
 3. Implement the pinned CLI surface and all output formats, diagnostic/exit behavior and filesystem side effects.
-4. Implement build-server adapters and MSBuild/consumer compatibility with isolated local stand-ins. Real CI publication/network operations require separate authorization.
+4. Validate build-server adapters and downstream CLI consumers with isolated local stand-ins. Real CI publication or network operations require separate authorization.
 5. Run the complete declared matrix on macOS and Ubuntu, including generated histories, public snapshots, repeatability, consumer builds and performance regressions.
 6. Prepare a self-contained Windows handoff and run the final platform matrix in the VMware guest when requested.
 

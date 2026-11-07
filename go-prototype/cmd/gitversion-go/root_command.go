@@ -28,11 +28,10 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		return err
 	}
 	if options.IsHelp {
-		_, err := fmt.Fprintln(out, "Usage: gitversion-go [<path>] [--config PATH] [--output json|file] [--show-variable NAME] [--format TEMPLATE]\n       gitversion-go [<path>] config get|validate|migrate")
-		return err
+		return writeCLIHelp(out, []cliSchemaCommand{compatibilityCLITree()})
 	}
 	if options.IsVersion {
-		_, err := fmt.Fprintln(out, "gitversion-go prototype")
+		_, err := fmt.Fprintln(out, cliInformationalVersion())
 		return err
 	}
 	if options.ShowConfiguration {
@@ -52,7 +51,13 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		return outputConfigurationQuery(version, directory, options.TargetURL, nil, options.OverrideConfiguration, &provider, out)
 	}
 	if options.Diag {
-		return fmt.Errorf("diagnostic mode is pending")
+		options.NoCache = true
+		if err := writeRootLog(options, diagnostics, func(out io.Writer) error {
+			_, err := io.WriteString(out, "INFO Please run `git log --graph --format=\"%h %cr %d\" --decorate --date=relative --all --remotes=*` to see the git graph. This can help you troubleshoot any issues.\n")
+			return err
+		}); err != nil {
+			return err
+		}
 	}
 	target, contextBranch, err := branchSelection(options.TargetBranch, os.Getenv)
 	if err != nil {

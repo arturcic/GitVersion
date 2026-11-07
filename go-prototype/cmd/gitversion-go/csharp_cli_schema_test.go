@@ -161,7 +161,7 @@ func TestCSharpCLISchema(t *testing.T) {
 							toggle := d.Command.Options[0].Arguments[0]
 							if len(d.Command.Options[1].Arguments) != 0 || toggle.Arity.Minimum != 0 || toggle.Arity.Maximum == nil ||
 								*toggle.Arity.Maximum != 1 || !slices.Equal(toggle.AcceptedValues, []string{"true", "false"}) ||
-								d.Info.Version != informationalVersion {
+								d.Info.Version != cliInformationalVersion() {
 								t.Fatalf("incorrect boolean or version metadata: %+v %+v", toggle, d.Info)
 							}
 						case "PreservesFiniteAndUnboundedArgumentArity":
