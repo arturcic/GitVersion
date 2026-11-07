@@ -45143,7 +45143,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.MigratesFlatConfigurationToCalculationAndOutputSections": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45158,7 +45158,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.AcceptsNestedConfigurationAndProducesDeterministicOutput": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45173,7 +45173,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.MigratesWorkflowOnlyConfigurationAtRoot": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45189,7 +45189,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.MigratesDraftCalculationWorkflowToRootWithoutChangingOverrides": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45204,7 +45204,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsDuplicateRootAndCalculationWorkflowsEvenWhenEqual": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45220,7 +45220,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsOutputWorkflow": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45236,7 +45236,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.MigratesConfiguredValuesWithoutAddingDefaults": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45251,7 +45251,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsMixedConfiguration": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45266,7 +45266,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsMalformedYaml": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45281,7 +45281,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsInvalidSettings": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45301,7 +45301,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationServiceTests.RejectsInvalidNestedStructure": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationMigrationServiceTests.cs",
@@ -45319,7 +45319,7 @@
     "adaptations": [
       "Go error types represent C# YAML and layout exceptions. Configured fields are inspected through normalized YAML nodes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationExecutorTests.InPlaceMigrationWarnsThatCommentsCannotBePreserved": {
     "source": "src/GitVersion.App.Tests/ConfigurationMigrationExecutorTests.cs",
@@ -45334,7 +45334,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationMigrationExecutorTests.InPlaceMigrationWritesWorkflowAtRootAndIsIdempotent": {
     "source": "src/GitVersion.App.Tests/ConfigurationMigrationExecutorTests.cs",
@@ -45350,7 +45350,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.V6V7AndMigratedConfigurationCalculateCurrentCommitLabel": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45366,7 +45366,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateWritesMigratedConfigurationToStandardOutput": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45381,7 +45381,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateDoesNotOverwriteOutputWithoutForce": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45396,7 +45396,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateDiscoversRootConfigurationUnlessWorkingDirectoryHasOne": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45412,7 +45412,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateLeavesNoTemporaryFileAfterWritingOutput": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45427,7 +45427,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateRejectsInvalidInputWithoutReplacingFile": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45442,7 +45442,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateInPlaceMigratesExplicitConfigurationOutsideGitRepository": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45457,7 +45457,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateInPlaceUsesPositionalTargetPath": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45472,7 +45472,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ConfigMigrateDoesNotEmitLegacyFallbackWarning": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45487,7 +45487,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.V6AndV7ConfigurationCalculateTheSameVersion": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45502,7 +45502,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ExplicitV6WarningUsesStandardErrorOnceWithoutContaminatingJson": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45518,7 +45518,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.CalculatesVersionWithSharedRootConfiguration": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45536,7 +45536,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.RootWorkflowAppliesDefaultsToBothSectionsAndPreservesOverrides": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45552,7 +45552,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ExplicitV6WithoutUserConfigurationDoesNotWarnOnStandardError": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45567,7 +45567,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.ShowConfigUsesSelectedConfigurationStructure": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45583,7 +45583,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.DefaultCalculationDisplaysConfigurationVersionMismatchOnStandardError": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45598,7 +45598,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationVersionIntegrationTests.InvalidConfigurationVersionDisplaysDiagnosticOnStandardError": {
     "source": "src/GitVersion.App.Tests/ConfigurationVersionIntegrationTests.cs",
@@ -45613,7 +45613,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigMigrateParsesItsInputAndOutputOptions": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45631,7 +45631,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigMigrateUsesPositionalTargetPath": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45646,7 +45646,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigMigrateRejectsOutputAndInPlaceTogether": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45661,7 +45661,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigRequiresASubcommand": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45676,7 +45676,7 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.ConfigMigrateIsRejectedAsASubcommand": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -45691,6 +45691,6 @@
     "adaptations": [
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
