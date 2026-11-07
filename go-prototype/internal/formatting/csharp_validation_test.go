@@ -11,6 +11,14 @@ import (
 
 type originalCase struct {
 	ID, Operation, Input, Expected string
+	Template                       string
+	SourceKind                     string `json:"source_kind"`
+	Properties                     map[string]any
+	Environment                    map[string]*string
+	Value                          any
+	Format                         string
+	Success                        bool
+	Priority                       int
 	Error                          bool
 	ExpectedTokens                 []string `json:"expected_tokens"`
 }

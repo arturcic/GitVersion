@@ -2397,5 +2397,694 @@
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
     "status": "verified-macos-ubuntu"
+  },
+  "StringFormatWithExtensionTests.FormatWithNoTokens": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithNoTokens",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithSingleSimpleToken": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithSingleSimpleToken",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultipleTokensAndVerbatimText": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultipleTokensAndVerbatimText",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithEnvVarToken": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithEnvVarToken",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithEnvVarTokenWithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithEnvVarTokenWithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithUnsetEnvVarToken_WithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithUnsetEnvVarToken_WithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithUnsetEnvVarToken_WithoutFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithUnsetEnvVarToken_WithoutFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultipleEnvVars": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultipleEnvVars",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultipleEnvChars": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultipleEnvChars",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultipleFallbackChars": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultipleFallbackChars",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithSingleFallbackChar": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithSingleFallbackChar",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithNullPropagationWithMultipleSpaces": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithNullPropagationWithMultipleSpaces",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMissingPropertyAndEnvFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMissingPropertyAndEnvFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMissingEnvAndPropertyFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMissingEnvAndPropertyFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultiplePropertiesAndNoFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultiplePropertiesAndNoFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultiplePropertiesAndQuotedFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultiplePropertiesAndQuotedFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMultipleAvailablePropertiesAndFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMultipleAvailablePropertiesAndFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithMissingPropertiesAndIntegerFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithMissingPropertiesAndIntegerFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWithPropertyAndEnvAndFormatters": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWithPropertyAndEnvAndFormatters",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWith_EnvVarAndPropertyAndFallback_DoesNotThrow": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWith_EnvVarAndPropertyAndFallback_DoesNotThrow",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatWith_MissingEnvVarOrPropertyAndNoFallback_Throws": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatWith_MissingEnvVarOrPropertyAndNoFallback_Throws",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatEnvVar_WithFallback_QuotedAndEmpty": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatEnvVar_WithFallback_QuotedAndEmpty",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_String": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_String",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_Integer": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_Integer",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullObject": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullObject",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullInteger": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullInteger",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_String_WithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_String_WithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_Integer_WithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_Integer_WithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullObject_WithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullObject_WithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullInteger_WithFallback": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullInteger_WithFallback",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullObject_WithFallback_Quoted": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullObject_WithFallback_Quoted",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullObject_WithFallback_QuotedAndPadded": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullObject_WithFallback_QuotedAndPadded",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatProperty_NullObject_WithFallback_QuotedAndEmpty": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatProperty_NullObject_WithFallback_QuotedAndEmpty",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatWithExtensionTests.FormatAssemblyInformationalVersionWithSemanticVersionCustomFormattedVersionSourceDistance": {
+    "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+    "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+    "method": "FormatAssemblyInformationalVersionWithSemanticVersionCustomFormattedVersionSourceDistance",
+    "go_test": "TestCSharpTemplateFormatting",
+    "case_file": "testdata/csharp-string-format-with-extension.json",
+    "case_file_sha256": "925852f57ee1ba2f867935e4d8c8b773b8929478891e00a4f673c0151682347d",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.Priority_ShouldBe2": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "Priority_ShouldBe2",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.TryFormat_NullValue_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "TryFormat_NullValue_ReturnsFalse",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.TryFormat_ValidFormats_ReturnsExpectedResult": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "TryFormat_ValidFormats_ReturnsExpectedResult",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.TryFormat_EmptyStringWithValidFormat_ReturnsEmpty": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "TryFormat_EmptyStringWithValidFormat_ReturnsEmpty",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.TryFormat_ValidStringWithInvalidFormat_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "TryFormat_ValidStringWithInvalidFormat_ReturnsFalse",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "StringFormatterTests.TryFormat_EmptyOrWhitespaceStringWithInvalidFormat_ReturnsTrue": {
+    "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+    "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+    "method": "TryFormat_EmptyOrWhitespaceStringWithInvalidFormat_ReturnsTrue",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-string-formatter.json",
+    "case_file_sha256": "4531559e981c0a8d0e898be6191dab3ae3d8b52822f785abb3173fd0ce2ba51e",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "NumericFormatterTests.Priority_ShouldBe1": {
+    "source": "src/GitVersion.Core.Tests/Formatting/NumericFormatterTests.cs",
+    "source_sha256": "b41fcc4a0c4055828379d8bb53c7a91cfae26df6a0e4cb228960e4d13b8350c7",
+    "method": "Priority_ShouldBe1",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-numeric-formatter.json",
+    "case_file_sha256": "577bfa4f27f013f5103802619d587728876ad1fe4ae281c118191eb8ad68d6fe",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "NumericFormatterTests.TryFormat_NullValue_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/NumericFormatterTests.cs",
+    "source_sha256": "b41fcc4a0c4055828379d8bb53c7a91cfae26df6a0e4cb228960e4d13b8350c7",
+    "method": "TryFormat_NullValue_ReturnsFalse",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-numeric-formatter.json",
+    "case_file_sha256": "577bfa4f27f013f5103802619d587728876ad1fe4ae281c118191eb8ad68d6fe",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "NumericFormatterTests.TryFormat_ValidFormats_ReturnsExpectedResult": {
+    "source": "src/GitVersion.Core.Tests/Formatting/NumericFormatterTests.cs",
+    "source_sha256": "b41fcc4a0c4055828379d8bb53c7a91cfae26df6a0e4cb228960e4d13b8350c7",
+    "method": "TryFormat_ValidFormats_ReturnsExpectedResult",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-numeric-formatter.json",
+    "case_file_sha256": "577bfa4f27f013f5103802619d587728876ad1fe4ae281c118191eb8ad68d6fe",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "NumericFormatterTests.TryFormat_UnsupportedFormat_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/NumericFormatterTests.cs",
+    "source_sha256": "b41fcc4a0c4055828379d8bb53c7a91cfae26df6a0e4cb228960e4d13b8350c7",
+    "method": "TryFormat_UnsupportedFormat_ReturnsFalse",
+    "go_test": "TestCSharpStringAndNumericFormatters",
+    "case_file": "testdata/csharp-numeric-formatter.json",
+    "case_file_sha256": "577bfa4f27f013f5103802619d587728876ad1fe4ae281c118191eb8ad68d6fe",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeFormat_WithBoundaryLengths_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeFormat_WithBoundaryLengths_ReturnsInput",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeEnvVarName_WithBoundaryLengths_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeEnvVarName_WithBoundaryLengths_ReturnsInput",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeMemberName_WithBoundaryLengths_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeMemberName_WithBoundaryLengths_ReturnsInput",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeFormat_WithUnicode_ReturnsInput": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeFormat_WithUnicode_ReturnsInput",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeEnvVarName_WithUnicode_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeEnvVarName_WithUnicode_ThrowsArgumentException",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "EdgeCaseTests.SanitizeMemberName_WithUnicode_ThrowsArgumentException": {
+    "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+    "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+    "method": "SanitizeMemberName_WithUnicode_ThrowsArgumentException",
+    "go_test": "TestCSharpSanitizerEdgeCases",
+    "case_file": "testdata/csharp-edge-case.json",
+    "case_file_sha256": "655cc719deca53bbd6dc1f40db5f5c12083fc22f0bd71161a142b5ab5c8df01f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
+    "status": "ported-awaiting-platform-verification"
   }
 }

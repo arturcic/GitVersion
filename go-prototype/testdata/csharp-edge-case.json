@@ -1,0 +1,76 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/EdgeCaseTests.cs",
+  "source_sha256": "241f63a91d2a0c16301a75c2eaa0cb9326b118ea1682776d8c6a372e9b2e004b",
+  "methods": {
+    "SanitizeFormat_WithBoundaryLengths_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "expected": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeFormat",
+        "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "expected": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "id": "case-001"
+      }
+    ],
+    "SanitizeEnvVarName_WithBoundaryLengths_ReturnsInput": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-001"
+      }
+    ],
+    "SanitizeMemberName_WithBoundaryLengths_ReturnsInput": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-000"
+      },
+      {
+        "operation": "SanitizeMemberName",
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expected": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "id": "case-001"
+      }
+    ],
+    "SanitizeFormat_WithUnicode_ReturnsInput": [
+      {
+        "operation": "SanitizeFormat",
+        "input": "\u6d4b\u8bd5format",
+        "expected": "\u6d4b\u8bd5format",
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "SanitizeEnvVarName_WithUnicode_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeEnvVarName",
+        "input": "\u6d4b\u8bd5_VAR",
+        "expected": "Environment variable name contains disallowed characters: '\u6d4b\u8bd5_VAR'",
+        "error": true,
+        "id": "case-000"
+      }
+    ],
+    "SanitizeMemberName_WithUnicode_ThrowsArgumentException": [
+      {
+        "operation": "SanitizeMemberName",
+        "input": "\u6d4b\u8bd5Member",
+        "expected": "Member name contains disallowed characters: '\u6d4b\u8bd5Member'",
+        "error": true,
+        "id": "case-000"
+      }
+    ]
+  }
+}

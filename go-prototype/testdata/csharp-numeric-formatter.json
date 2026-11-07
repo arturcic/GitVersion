@@ -1,0 +1,92 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/NumericFormatterTests.cs",
+  "source_sha256": "b41fcc4a0c4055828379d8bb53c7a91cfae26df6a0e4cb228960e4d13b8350c7",
+  "methods": {
+    "Priority_ShouldBe1": [
+      {
+        "operation": "priority-numeric",
+        "priority": 1,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_NullValue_ReturnsFalse": [
+      {
+        "operation": "numeric",
+        "value": null,
+        "format": "n",
+        "success": false,
+        "expected": "",
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_ValidFormats_ReturnsExpectedResult": [
+      {
+        "operation": "numeric",
+        "value": "1234.5678",
+        "format": "n",
+        "expected": "1,234.57",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "numeric",
+        "value": "1234.5678",
+        "format": "f2",
+        "expected": "1234.57",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "numeric",
+        "value": "1234.5678",
+        "format": "f0",
+        "expected": "1235",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "numeric",
+        "value": "1234.5678",
+        "format": "g",
+        "expected": "1234.5678",
+        "success": true,
+        "id": "case-003"
+      },
+      {
+        "operation": "numeric",
+        "value": "1234",
+        "format": "d8",
+        "expected": "00001234",
+        "success": true,
+        "id": "case-004"
+      },
+      {
+        "operation": "numeric",
+        "value": "1234",
+        "format": "x8",
+        "expected": "000004d2",
+        "success": true,
+        "id": "case-005"
+      },
+      {
+        "operation": "numeric",
+        "value": "12",
+        "format": "b8",
+        "expected": "00001100",
+        "success": true,
+        "id": "case-006"
+      }
+    ],
+    "TryFormat_UnsupportedFormat_ReturnsFalse": [
+      {
+        "operation": "numeric",
+        "value": 1234.5678,
+        "format": "z",
+        "success": false,
+        "expected": "",
+        "id": "case-000"
+      }
+    ]
+  }
+}

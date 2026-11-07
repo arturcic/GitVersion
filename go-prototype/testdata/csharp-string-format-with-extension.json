@@ -1,0 +1,553 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Extensions/StringFormatWithExtensionTests.cs",
+  "source_sha256": "8e1eb072b19e866ba117a9b287bb09fa47f843ccce4cabf63bb06b4684ce600c",
+  "methods": {
+    "FormatWithNoTokens": [
+      {
+        "template": "Some String without tokens",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Some String without tokens",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithSingleSimpleToken": [
+      {
+        "template": "{SomeProperty}",
+        "properties": {
+          "SomeProperty": "SomeValue"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "SomeValue",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultipleTokensAndVerbatimText": [
+      {
+        "template": "{SomeProperty} some text {AnotherProperty}",
+        "properties": {
+          "SomeProperty": "AValue",
+          "AnotherProperty": "Other Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "AValue some text Other Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithEnvVarToken": [
+      {
+        "template": "{env:GIT_VERSION_TEST_VAR}",
+        "properties": {},
+        "environment": {
+          "GIT_VERSION_TEST_VAR": "Env Var Value"
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Env Var Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithEnvVarTokenWithFallback": [
+      {
+        "template": "{env:GIT_VERSION_TEST_VAR ?? \"fallback\"}",
+        "properties": {},
+        "environment": {
+          "GIT_VERSION_TEST_VAR": "Env Var Value"
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Env Var Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithUnsetEnvVarToken_WithFallback": [
+      {
+        "template": "{env:GIT_VERSION_UNSET_TEST_VAR ?? \"fallback\"}",
+        "properties": {},
+        "environment": {
+          "GIT_VERSION_UNSET_TEST_VAR": null
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "fallback",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithUnsetEnvVarToken_WithoutFallback": [
+      {
+        "template": "{env:GIT_VERSION_UNSET_TEST_VAR}",
+        "properties": {},
+        "environment": {
+          "GIT_VERSION_UNSET_TEST_VAR": null
+        },
+        "source_kind": "dictionary",
+        "error": true,
+        "expected": null,
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultipleEnvVars": [
+      {
+        "template": "{env:GIT_VERSION_TEST_VAR_1} and {env:GIT_VERSION_TEST_VAR_2}",
+        "properties": {},
+        "environment": {
+          "GIT_VERSION_TEST_VAR_1": "Val-1",
+          "GIT_VERSION_TEST_VAR_2": "Val-2"
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Val-1 and Val-2",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultipleEnvChars": [
+      {
+        "template": "{env:env:GIT_VERSION_TEST_VAR_1} and {env:DUMMY_VAR ?? \"fallback\"}",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": true,
+        "expected": null,
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultipleFallbackChars": [
+      {
+        "template": " and {env:DUMMY_VAR ??? \"fallback\"}",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": true,
+        "expected": null,
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithSingleFallbackChar": [
+      {
+        "template": "{en:DUMMY_ENV_VAR} and {env:DUMMY_ENV_VAR??\"fallback\"}",
+        "properties": {},
+        "environment": {
+          "DUMMY_ENV_VAR": "DummyVal"
+        },
+        "source_kind": "dictionary",
+        "error": true,
+        "expected": null,
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithNullPropagationWithMultipleSpaces": [
+      {
+        "template": "{SomeProperty} and {env:DUMMY_ENV_VAR  ??  \"fallback\"}",
+        "properties": {
+          "SomeProperty": "Some Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Some Value and fallback",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMissingPropertyAndEnvFallback": [
+      {
+        "template": "{SomeProperty ?? env:DUMMY_ENV_VAR}",
+        "properties": {},
+        "environment": {
+          "DUMMY_ENV_VAR": "Dummy-Value"
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Dummy-Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMissingEnvAndPropertyFallback": [
+      {
+        "template": "{env:DUMMY_ENV_VAR ?? SomeProperty}",
+        "properties": {
+          "SomeProperty": "Some Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Some Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultiplePropertiesAndNoFallback": [
+      {
+        "template": "{SomeProperty ?? SomeOtherProperty ?? MissingProp}",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": true,
+        "expected": null,
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultiplePropertiesAndQuotedFallback": [
+      {
+        "template": "{SomeProperty ?? SomeOtherProperty ?? \"fallback\"}",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "fallback",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMultipleAvailablePropertiesAndFallback": [
+      {
+        "template": "{SomeProperty ?? SomeOtherProperty ?? \"fallback\"}",
+        "properties": {
+          "SomeOtherProperty": "Some-Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Some-Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithMissingPropertiesAndIntegerFallback": [
+      {
+        "template": "{SomeProperty ?? SomeOtherProperty ?? 47}",
+        "properties": {},
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "47",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWithPropertyAndEnvAndFormatters": [
+      {
+        "template": "{SomeProperty:l} and {env:DUMMY_ENV_VAR:l}",
+        "properties": {
+          "SomeProperty": "TheValue"
+        },
+        "environment": {
+          "DUMMY_ENV_VAR": "DummyVal"
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "thevalue and dummyval",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatWith_EnvVarAndPropertyAndFallback_DoesNotThrow": [
+      {
+        "template": "{env:VARIABLE ?? \"\"}",
+        "environment": {},
+        "properties": {},
+        "expected": "",
+        "operation": "template",
+        "id": "case-000"
+      },
+      {
+        "template": "{env:MISSING ?? env:VARIABLE}",
+        "environment": {
+          "VARIABLE": "Var"
+        },
+        "properties": {},
+        "expected": "Var",
+        "operation": "template",
+        "id": "case-001"
+      },
+      {
+        "template": "{Property ?? \"\"}",
+        "environment": {},
+        "properties": {},
+        "expected": "",
+        "operation": "template",
+        "id": "case-002"
+      },
+      {
+        "template": "{Property ?? 47}",
+        "environment": {},
+        "properties": {},
+        "expected": "47",
+        "operation": "template",
+        "id": "case-003"
+      },
+      {
+        "template": "{Property ?? env:VARIABLE}",
+        "environment": {},
+        "properties": {
+          "Property": "Branch"
+        },
+        "expected": "Branch",
+        "operation": "template",
+        "id": "case-004"
+      },
+      {
+        "template": "{Property ?? env:VARIABLE ?? \"\"}",
+        "environment": {},
+        "properties": {},
+        "expected": "",
+        "operation": "template",
+        "id": "case-005"
+      },
+      {
+        "template": "{Property ?? env:VARIABLE ?? 42}",
+        "environment": {},
+        "properties": {},
+        "expected": "42",
+        "operation": "template",
+        "id": "case-006"
+      }
+    ],
+    "FormatWith_MissingEnvVarOrPropertyAndNoFallback_Throws": [
+      {
+        "template": "{env:VARIABLE}",
+        "properties": {},
+        "environment": {},
+        "error": true,
+        "operation": "template",
+        "id": "case-000"
+      },
+      {
+        "template": "{Property}",
+        "properties": {},
+        "environment": {},
+        "error": true,
+        "operation": "template",
+        "id": "case-001"
+      },
+      {
+        "template": "{Property ?? env:VARIABLE}",
+        "properties": {},
+        "environment": {},
+        "error": true,
+        "operation": "template",
+        "id": "case-002"
+      },
+      {
+        "template": "{Property ?? Property}",
+        "properties": {},
+        "environment": {},
+        "error": true,
+        "operation": "template",
+        "id": "case-003"
+      }
+    ],
+    "FormatEnvVar_WithFallback_QuotedAndEmpty": [
+      {
+        "template": "{env:ENV_VAR ?? \"\"}",
+        "properties": {},
+        "environment": {
+          "ENV_VAR": null
+        },
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_String": [
+      {
+        "template": "{Property}",
+        "properties": {
+          "Property": "Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_Integer": [
+      {
+        "template": "{Property}",
+        "properties": {
+          "Property": 42
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "42",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullObject": [
+      {
+        "template": "{Property}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullInteger": [
+      {
+        "template": "{Property}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_String_WithFallback": [
+      {
+        "template": "{Property ?? \"fallback\"}",
+        "properties": {
+          "Property": "Value"
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "Value",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_Integer_WithFallback": [
+      {
+        "template": "{Property ?? \"fallback\"}",
+        "properties": {
+          "Property": 42
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "42",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullObject_WithFallback": [
+      {
+        "template": "{Property ?? \"fallback\"}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "fallback",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullInteger_WithFallback": [
+      {
+        "template": "{Property ?? 43}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "43",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullObject_WithFallback_Quoted": [
+      {
+        "template": "{Property ?? \"literal\"}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "literal",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullObject_WithFallback_QuotedAndPadded": [
+      {
+        "template": "{Property ?? \" fallback \"}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": " fallback ",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatProperty_NullObject_WithFallback_QuotedAndEmpty": [
+      {
+        "template": "{Property ?? \"\"}",
+        "properties": {
+          "Property": null
+        },
+        "environment": {},
+        "source_kind": "dictionary",
+        "error": false,
+        "expected": "",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ],
+    "FormatAssemblyInformationalVersionWithSemanticVersionCustomFormattedVersionSourceDistance": [
+      {
+        "template": "1.2.3-0042",
+        "properties": {
+          "Major": 1,
+          "Minor": 2,
+          "Patch": 3,
+          "VersionSourceDistance": 42,
+          "Branch": "main",
+          "VersionSourceSha": "versionSourceSha",
+          "Sha": "commitSha",
+          "ShortSha": "commitShortSha",
+          "CommitDate": "2014-03-06 23:59:59Z",
+          "PreReleaseName": "",
+          "PreReleaseNumber": 9
+        },
+        "environment": {},
+        "source_kind": "semantic-object",
+        "error": false,
+        "expected": "1.2.3-0042",
+        "operation": "template",
+        "id": "case-000"
+      }
+    ]
+  }
+}

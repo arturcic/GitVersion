@@ -1,0 +1,232 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/StringFormatterTests.cs",
+  "source_sha256": "bdb5ae3bffa10bf7ea4a03d6a8bd380e55416892c16d4282db8de1be7dc427db",
+  "methods": {
+    "Priority_ShouldBe2": [
+      {
+        "operation": "priority-string",
+        "priority": 2,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_NullValue_ReturnsFalse": [
+      {
+        "operation": "string",
+        "value": null,
+        "format": "u",
+        "expected": "",
+        "success": false,
+        "id": "case-000"
+      },
+      {
+        "operation": "string",
+        "value": null,
+        "format": "",
+        "expected": "",
+        "success": false,
+        "id": "case-001"
+      },
+      {
+        "operation": "string",
+        "value": null,
+        "format": "   ",
+        "expected": "",
+        "success": false,
+        "id": "case-002"
+      },
+      {
+        "operation": "string",
+        "value": null,
+        "format": "invalid",
+        "expected": "",
+        "success": false,
+        "id": "case-003"
+      }
+    ],
+    "TryFormat_ValidFormats_ReturnsExpectedResult": [
+      {
+        "operation": "string",
+        "value": "hello",
+        "format": "u",
+        "expected": "HELLO",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "string",
+        "value": "HELLO",
+        "format": "l",
+        "expected": "hello",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "string",
+        "value": "hello world",
+        "format": "t",
+        "expected": "Hello World",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "string",
+        "value": "hELLO",
+        "format": "s",
+        "expected": "Hello",
+        "success": true,
+        "id": "case-003"
+      },
+      {
+        "operation": "string",
+        "value": "hello world",
+        "format": "c",
+        "expected": "HelloWorld",
+        "success": true,
+        "id": "case-004"
+      }
+    ],
+    "TryFormat_EmptyStringWithValidFormat_ReturnsEmpty": [
+      {
+        "operation": "string",
+        "value": "",
+        "format": "s",
+        "expected": "",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "u",
+        "expected": "",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "l",
+        "expected": "",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "t",
+        "expected": "",
+        "success": true,
+        "id": "case-003"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "c",
+        "expected": "",
+        "success": true,
+        "id": "case-004"
+      }
+    ],
+    "TryFormat_ValidStringWithInvalidFormat_ReturnsFalse": [
+      {
+        "operation": "string",
+        "value": "test",
+        "format": "",
+        "expected": "",
+        "success": false,
+        "id": "case-000"
+      },
+      {
+        "operation": "string",
+        "value": "test",
+        "format": "   ",
+        "expected": "",
+        "success": false,
+        "id": "case-001"
+      },
+      {
+        "operation": "string",
+        "value": "test",
+        "format": "invalid",
+        "expected": "",
+        "success": false,
+        "id": "case-002"
+      },
+      {
+        "operation": "string",
+        "value": "invalid",
+        "format": "",
+        "expected": "",
+        "success": false,
+        "id": "case-003"
+      },
+      {
+        "operation": "string",
+        "value": "invalid",
+        "format": "   ",
+        "expected": "",
+        "success": false,
+        "id": "case-004"
+      },
+      {
+        "operation": "string",
+        "value": "invalid",
+        "format": "invalid",
+        "expected": "",
+        "success": false,
+        "id": "case-005"
+      }
+    ],
+    "TryFormat_EmptyOrWhitespaceStringWithInvalidFormat_ReturnsTrue": [
+      {
+        "operation": "string",
+        "value": "",
+        "format": "",
+        "expected": "",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "   ",
+        "expected": "",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "string",
+        "value": "",
+        "format": "invalid",
+        "expected": "",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "string",
+        "value": "   ",
+        "format": "",
+        "expected": "",
+        "success": true,
+        "id": "case-003"
+      },
+      {
+        "operation": "string",
+        "value": "   ",
+        "format": "   ",
+        "expected": "",
+        "success": true,
+        "id": "case-004"
+      },
+      {
+        "operation": "string",
+        "value": "   ",
+        "format": "invalid",
+        "expected": "",
+        "success": true,
+        "id": "case-005"
+      }
+    ]
+  }
+}
