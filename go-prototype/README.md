@@ -428,7 +428,7 @@ and detached pull request discovery, plus rejection on HTTP 401, 403 and 404.
 Pass `--username` and `--password` for HTTP(S) Basic authentication. The
 explicit credentials are used for transport and kept out of Git configuration
 and diagnostics. Set `GIT_SSL_CAINFO` to trust an additional CA for HTTPS.
-The separate SSH checkpoint below covers public key authentication.
+SSH remote operations are outside the Go rewrite scope. Existing checkouts with SSH remotes can still calculate from local refs when no remote access is required.
 
 Ordinary fetch refreshes remote-tracking refs, including new branches in a
 single-branch shallow checkout. It retains the shallow boundary.
@@ -439,34 +439,3 @@ branches, and selection from advertised pull requests and annotated tags.
 Go projects normalization changes into its calculation view, keeping physical
 HEAD and local branch tips intact. The pinned C# client can report a suppressed
 credential prompt for HTTP 401, while Go reports an unauthorized remote.
-
-The [SSH parity evidence](CSHARP-SSH-EVIDENCE.json) records 9 loopback
-cases on macOS and Ubuntu 26. The root CLI uses go-git for SSH clone, fetch, and
-detached pull request discovery. Use an SSH agent through `SSH_AUTH_SOCK` or
-an unencrypted key from a standard location or `IdentityFile` in
-`~/.ssh/config`. An agent can also sign with the selected encrypted identity.
-The SSH transport verifies the server against known hosts. Use
-`SSH_KNOWN_HOSTS` to select a different known-hosts file.
-
-The C# oracle uses OpenSSH on macOS and a test-only SSH client called by Git
-on offline Ubuntu. The Go candidate uses its embedded SSH transport on both.
-That checkpoint covers SSH public keys and host key checks. The password and
-jump host checkpoint below extends it.
-
-The [SSH password and jump evidence](CSHARP-SSH-JUMP-EVIDENCE.json) records
-9 loopback comparisons. Set `GITVERSION_SSH_PASSWORD` to supply the
-destination password without putting it in the remote URL. The Go CLI also
-accepts `--password`, which takes precedence over the environment variable.
-URLs containing an SSH password are rejected before clone setup.
-
-Configure `ProxyJump` in `~/.ssh/config` for a destination. Use a host alias
-or a `[user@]host[:port]` entry, with commas for a chain. The Go client uses
-SSH forwarding and checks each host key against known hosts. Jump hosts can
-use configured keys or the SSH agent. `GITVERSION_SSH_JUMP_PASSWORD` supplies
-one password shared by password-authenticated hops in the chain, independently
-of the destination password.
-
-The managed C# oracle uses OpenSSH and an askpass fixture on macOS. On offline
-Ubuntu it uses a test-only SSH client through Git. These fixtures cover
-password auth and SSH forwarding. Interactive prompts and arbitrary
-`ProxyCommand` commands are outside the verified scope.

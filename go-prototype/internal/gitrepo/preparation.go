@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"net"
 	"os"
 	"path/filepath"
 	"slices"
@@ -19,13 +18,13 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/transport/client"
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 	"github.com/go-git/go-git/v5/plumbing/transport/server"
-	"golang.org/x/crypto/ssh/knownhosts"
 )
 
 // go-git's default file transport shells out to Git. Use its in-process
 // transport with the same layout handling as version calculation.
 func init() {
 	client.InstallProtocol("file", server.NewClient(localRepositoryLoader{}))
+	client.InstallProtocol("ssh", nil)
 }
 
 type localRepositoryLoader struct{}
@@ -48,45 +47,29 @@ func (localRepositoryLoader) Load(endpoint *transport.Endpoint) (storer.Storer, 
 // Credentials are supplied to the transport without writing them to Git config.
 type Credentials struct{ Username, Password string }
 
-type connection struct {
-	auth       transport.AuthMethod
-	caBundle   []byte
-	socket     net.Conn
-	proxy      transport.ProxyOptions
-	closeRoute func()
-}
+var errSSHRemoteUnsupported = errors.New("SSH remotes are not supported. Use an HTTPS URL or a local Git path.")
 
-func (c connection) close() {
-	if c.closeRoute != nil {
-		c.closeRoute()
-	}
-	if c.socket != nil {
-		_ = c.socket.Close()
-	}
-}
-
-func connectionOptions(ctx context.Context, source string, credentials Credentials) (connection, error) {
-	endpoint, err := transport.NewEndpoint(source)
-	if err != nil {
-		return connection{}, nil
+func connectionOptions(source string, credentials Credentials) (auth transport.AuthMethod, caBundle []byte, err error) {
+	endpoint, parseErr := transport.NewEndpoint(source)
+	if parseErr != nil {
+		return nil, nil, nil
 	}
 	if endpoint.Protocol == "ssh" {
-		return sshConnectionOptions(ctx, endpoint, credentials)
+		return nil, nil, errSSHRemoteUnsupported
 	}
-	var options connection
 	if endpoint.Protocol != "http" && endpoint.Protocol != "https" {
-		return options, nil
+		return nil, nil, nil
 	}
 	if strings.TrimSpace(credentials.Username) != "" {
-		options.auth = &http.BasicAuth{Username: credentials.Username, Password: credentials.Password}
+		auth = &http.BasicAuth{Username: credentials.Username, Password: credentials.Password}
 	}
 	if caPath := os.Getenv("GIT_SSL_CAINFO"); endpoint.Protocol == "https" && caPath != "" {
-		options.caBundle, err = os.ReadFile(caPath)
+		caBundle, err = os.ReadFile(caPath)
 		if err != nil {
-			return connection{}, fmt.Errorf("read Git HTTPS CA bundle: %w", err)
+			return nil, nil, fmt.Errorf("read Git HTTPS CA bundle: %w", err)
 		}
 	}
-	return options, nil
+	return auth, caBundle, nil
 }
 
 // PrepareClone reuses a checkout with the requested origin or publishes a
@@ -96,8 +79,8 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 	if err != nil {
 		return "", errors.New("Invalid dynamic repository URL.")
 	}
-	if endpoint.Protocol == "ssh" && endpoint.Password != "" {
-		return "", errSSHPasswordInURL
+	if endpoint.Protocol == "ssh" {
+		return "", errSSHRemoteUnsupported
 	}
 	if endpoint.Protocol == "file" && !strings.Contains(source, "://") {
 		source = endpoint.Path
@@ -143,13 +126,12 @@ func PrepareClone(ctx context.Context, source, base string, noCheckout bool, cre
 				return "", err
 			}
 			defer os.RemoveAll(staging)
-			options, err := connectionOptions(ctx, source, credentials)
+			auth, caBundle, err := connectionOptions(source, credentials)
 			if err != nil {
 				return "", err
 			}
-			defer options.close()
 			if _, err := git.PlainCloneContext(ctx, filepath.Join(staging, ".git"), false, &git.CloneOptions{
-				URL: source, NoCheckout: noCheckout, Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy,
+				URL: source, NoCheckout: noCheckout, Auth: auth, CABundle: caBundle,
 			}); err != nil {
 				return "", transportFailure("clone", err)
 			}
@@ -220,12 +202,11 @@ func PrepareRemote(ctx context.Context, path string, fetch, preferOrigin bool, c
 		if !hasBranches {
 			specs = append(specs, gitconfig.RefSpec("+refs/heads/*:refs/remotes/"+cfg.Name+"/*"))
 		}
-		options, err := remoteConnectionOptions(ctx, remote, credentials)
+		auth, caBundle, err := remoteConnectionOptions(remote, credentials)
 		if err != nil {
 			return "", err
 		}
-		defer options.close()
-		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
+		if err := remote.FetchContext(ctx, &git.FetchOptions{RefSpecs: specs, Auth: auth, CABundle: caBundle}); err != nil && !errors.Is(err, git.NoErrAlreadyUpToDate) {
 			return "", transportFailure("fetch", err)
 		}
 	}
@@ -277,20 +258,19 @@ func resolveFileRemote(repo *git.Repository, remote *git.Remote, directory strin
 	return git.NewRemote(repo.Storer, &resolved)
 }
 
-func remoteConnectionOptions(ctx context.Context, remote *git.Remote, credentials Credentials) (connection, error) {
+func remoteConnectionOptions(remote *git.Remote, credentials Credentials) (transport.AuthMethod, []byte, error) {
 	if urls := remote.Config().URLs; len(urls) > 0 {
-		return connectionOptions(ctx, urls[0], credentials)
+		return connectionOptions(urls[0], credentials)
 	}
-	return connection{}, nil
+	return nil, nil, nil
 }
 
 func advertisedTips(ctx context.Context, remote *git.Remote, head plumbing.Hash, credentials Credentials) ([]string, error) {
-	options, err := remoteConnectionOptions(ctx, remote, credentials)
+	auth, caBundle, err := remoteConnectionOptions(remote, credentials)
 	if err != nil {
 		return nil, err
 	}
-	defer options.close()
-	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: options.auth, CABundle: options.caBundle, ProxyOptions: options.proxy, PeelingOption: git.AppendPeeled})
+	refs, err := remote.ListContext(ctx, &git.ListOptions{Auth: auth, CABundle: caBundle, PeelingOption: git.AppendPeeled})
 	if err != nil {
 		return nil, transportFailure("list remote references for", err)
 	}
@@ -346,12 +326,7 @@ func peelLocalTag(store storer.EncodedObjectStorer, hash plumbing.Hash) plumbing
 }
 
 func transportFailure(operation string, err error) error {
-	var keyError *knownhosts.KeyError
 	switch {
-	case errors.As(err, &keyError), strings.Contains(err.Error(), "cannot create known hosts callback"):
-		return errors.New("SSH host key verification failed")
-	case strings.Contains(err.Error(), "ssh: unable to authenticate"):
-		return errors.New("SSH authentication failed")
 	case errors.Is(err, transport.ErrAuthenticationRequired):
 		return errors.New("Unauthorized: Incorrect username/password")
 	case errors.Is(err, transport.ErrAuthorizationFailed):

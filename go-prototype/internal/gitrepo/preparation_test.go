@@ -8,6 +8,8 @@ import (
 	"time"
 
 	git "github.com/go-git/go-git/v5"
+	gitconfig "github.com/go-git/go-git/v5/config"
+	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
@@ -61,12 +63,42 @@ func TestDynamicCloneReusesMatchingRemoteAndPreservesCollision(t *testing.T) {
 	}
 }
 
-func TestSSHPasswordInURLIsRejectedBeforeClone(t *testing.T) {
-	base := filepath.Join(t.TempDir(), "clones")
-	if _, err := PrepareClone(t.Context(), "ssh://git:fixture-secret@127.0.0.1/example.git", base, false, Credentials{}); !errors.Is(err, errSSHPasswordInURL) {
-		t.Fatalf("expected URL password rejection, got %v", err)
-	}
-	if _, err := os.Stat(base); !errors.Is(err, os.ErrNotExist) {
-		t.Fatalf("clone path was created: %v", err)
+func TestSSHRemoteOperationsAreRejected(t *testing.T) {
+	for _, tc := range []struct{ name, url string }{
+		{"ssh-url", "ssh://git@127.0.0.1/example.git"},
+		{"scp-address", "git@127.0.0.1:example.git"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			directory := t.TempDir()
+			cloneBase := filepath.Join(directory, "clones")
+			if _, err := PrepareClone(t.Context(), tc.url, cloneBase, false, Credentials{}); !errors.Is(err, errSSHRemoteUnsupported) {
+				t.Fatalf("clone: expected SSH rejection, got %v", err)
+			}
+			if _, err := os.Stat(cloneBase); !errors.Is(err, os.ErrNotExist) {
+				t.Fatalf("rejected clone created its destination: %v", err)
+			}
+			repo, err := git.PlainInit(filepath.Join(directory, "checkout"), false)
+			if err != nil {
+				t.Fatal(err)
+			}
+			remote, err := repo.CreateRemote(&gitconfig.RemoteConfig{Name: "origin", URLs: []string{tc.url}})
+			if err != nil {
+				t.Fatal(err)
+			}
+			worktree, err := repo.Worktree()
+			if err != nil {
+				t.Fatal(err)
+			}
+			checkout := worktree.Filesystem.Root()
+			if _, err := PrepareRemote(t.Context(), checkout, true, false, Credentials{}); !errors.Is(err, errSSHRemoteUnsupported) {
+				t.Fatalf("fetch: expected SSH rejection, got %v", err)
+			}
+			if _, err := advertisedTips(t.Context(), remote, plumbing.ZeroHash, Credentials{}); !errors.Is(err, errSSHRemoteUnsupported) {
+				t.Fatalf("remote ref discovery: expected SSH rejection, got %v", err)
+			}
+			if name, err := PrepareRemote(t.Context(), checkout, false, false, Credentials{}); err != nil || name != "origin" {
+				t.Fatalf("preparing without fetch: got %q (%v)", name, err)
+			}
+		})
 	}
 }
