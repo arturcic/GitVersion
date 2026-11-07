@@ -1,0 +1,1525 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs",
+  "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
+  "methods": {
+    "ConfiguredVersionKeepsExternalSemanticSource": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          1
+        ],
+        "recipe": {
+          "id": "version-source-0-0",
+          "description": "ConfiguredVersionKeepsExternalSemanticSource",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"next-version\": \"5.0.0\"}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 1,
+          "VersionSourceSha": "@tagSha",
+          "VersionSourceDistance": 1,
+          "SemVerSourceSha": null,
+          "FullSemVer": "5.0.0-1"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          2
+        ],
+        "recipe": {
+          "id": "version-source-0-1",
+          "description": "ConfiguredVersionKeepsExternalSemanticSource",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"next-version\": \"5.0.0\"}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 2,
+          "VersionSourceSha": "@tagSha",
+          "VersionSourceDistance": 2,
+          "SemVerSourceSha": null,
+          "FullSemVer": "5.0.0-2"
+        },
+        "special": {}
+      }
+    ],
+    "BranchNameKeepsExternalSemanticSource": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-1-0",
+          "description": "BranchNameKeepsExternalSemanticSource",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "branch",
+              "name": "release/5.0.0"
+            },
+            {
+              "op": "checkout",
+              "name": "release/5.0.0"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 1,
+          "SemVerSourceSha": null,
+          "FullSemVer": "5.0.0-beta.1+1"
+        },
+        "special": {}
+      }
+    ],
+    "TrackedReleaseKeepsSemanticOriginSeparateFromMergeBase": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          "release/some_release",
+          true
+        ],
+        "recipe": {
+          "id": "version-source-2-0",
+          "description": "TrackedReleaseKeepsSemanticOriginSeparateFromMergeBase",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.2.1"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "mergebasesha"
+            },
+            {
+              "op": "branch",
+              "name": "release/some_release"
+            },
+            {
+              "op": "checkout",
+              "name": "release/some_release"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "tag",
+              "name": "1.3.0-beta.1"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "1.3.0",
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceIncrement": "Minor",
+          "CommitCountSourceSha": "@mergeBaseSha",
+          "CommitCountSourceDistance": 1,
+          "VersionSourceSha": "@mergeBaseSha",
+          "FullSemVer": "1.4.0-alpha.1"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          "release/1.3.0",
+          false
+        ],
+        "recipe": {
+          "id": "version-source-2-1",
+          "description": "TrackedReleaseKeepsSemanticOriginSeparateFromMergeBase",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.2.1"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "mergebasesha"
+            },
+            {
+              "op": "branch",
+              "name": "release/1.3.0"
+            },
+            {
+              "op": "checkout",
+              "name": "release/1.3.0"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "tag",
+              "name": "1.3.0-beta.1"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "1.3.0",
+          "SemVerSourceSha": null,
+          "SemVerSourceIncrement": "Minor",
+          "CommitCountSourceSha": "@mergeBaseSha",
+          "CommitCountSourceDistance": 1,
+          "VersionSourceSha": "@mergeBaseSha",
+          "FullSemVer": "1.4.0-alpha.1"
+        },
+        "special": {}
+      }
+    ],
+    "ExternalOnlySourceCountsReachableHistory": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-3-0",
+          "description": "ExternalOnlySourceCountsReachableHistory",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"next-version\": \"5.0.0\"}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "CommitCountSourceDistance": 2,
+          "SemVerSourceSha": null,
+          "CommitCountSourceSha": null,
+          "FullSemVer": "5.0.0-2"
+        },
+        "special": {}
+      }
+    ],
+    "OrdinaryTagRetainsSelectedIncrement": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-4-0",
+          "description": "OrdinaryTagRetainsSelectedIncrement",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "1.0.0",
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceIncrement": "Patch",
+          "VersionSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 1,
+          "FullSemVer": "1.0.1-1"
+        },
+        "special": {}
+      }
+    ],
+    "TaggedHeadUsesTagForBothSources": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          false
+        ],
+        "recipe": {
+          "id": "version-source-5-0",
+          "description": "TaggedHeadUsesTagForBothSources",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "tag",
+              "name": "2.3.4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\", \"prevent-increment\": {\"when-current-commit-tagged\": true}}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "2.3.4",
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 0,
+          "FullSemVer": "2.3.4"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          true
+        ],
+        "recipe": {
+          "id": "version-source-5-1",
+          "description": "TaggedHeadUsesTagForBothSources",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "branch",
+              "name": "feature/inherited"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/inherited"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "tag",
+              "name": "2.3.4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\", \"prevent-increment\": {\"when-current-commit-tagged\": true}}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "2.3.4",
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 0,
+          "FullSemVer": "2.3.4"
+        },
+        "special": {}
+      }
+    ],
+    "DeploymentModesPreserveSourceMetadata": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          "ManualDeployment",
+          "1.0.1-beta.1+2"
+        ],
+        "recipe": {
+          "id": "version-source-6-0",
+          "description": "DeploymentModesPreserveSourceMetadata",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"label\": \"beta\", \"mode\": \"ManualDeployment\"}}}}",
+        "expected": {
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceSemVer": "1.0.0",
+          "SemVerSourceIncrement": "Patch",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 2,
+          "FullSemVer": "1.0.1-beta.1+2"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          "ContinuousDelivery",
+          "1.0.1-beta.2"
+        ],
+        "recipe": {
+          "id": "version-source-6-1",
+          "description": "DeploymentModesPreserveSourceMetadata",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"label\": \"beta\", \"mode\": \"ContinuousDelivery\"}}}}",
+        "expected": {
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceSemVer": "1.0.0",
+          "SemVerSourceIncrement": "Patch",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 2,
+          "FullSemVer": "1.0.1-beta.2"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-002",
+        "operation": "repository",
+        "arguments": [
+          "ContinuousDeployment",
+          "1.0.1"
+        ],
+        "recipe": {
+          "id": "version-source-6-2",
+          "description": "DeploymentModesPreserveSourceMetadata",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"label\": \"beta\", \"mode\": \"ContinuousDeployment\"}}}}",
+        "expected": {
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceSemVer": "1.0.0",
+          "SemVerSourceIncrement": "Patch",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 2,
+          "FullSemVer": "1.0.1"
+        },
+        "special": {}
+      }
+    ],
+    "IgnoredCommitInMergeGraphIsExcludedFromDistance": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-7-0",
+          "description": "IgnoredCommitInMergeGraphIsExcludedFromDistance",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "branch",
+              "name": "feature/counting"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/counting"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "ignoredsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "commit",
+              "id": "commit-4"
+            },
+            {
+              "op": "merge",
+              "id": "merge-5",
+              "from": "feature/counting",
+              "message": "Merge branch 'feature/counting'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"next-version\": \"5.0.0\", \"ignore\": {\"sha\": [\"@ignoredSha\"]}}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 3,
+          "SemVerSourceSha": null,
+          "FullSemVer": "5.0.0-3"
+        },
+        "special": {}
+      }
+    ],
+    "ReleaseBranchPresenceDoesNotChangeLatestSource": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          false
+        ],
+        "recipe": {
+          "id": "version-source-8-0",
+          "description": "ReleaseBranchPresenceDoesNotChangeLatestSource",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "0.1.0"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "branch",
+              "name": "release/0.2.0"
+            },
+            {
+              "op": "checkout",
+              "name": "release/0.2.0"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "merge",
+              "id": "merge-4",
+              "from": "release/0.2.0",
+              "message": "Merge branch 'release/0.2.0'"
+            },
+            {
+              "op": "tag",
+              "name": "0.2.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "releasetagsha"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "merge",
+              "id": "merge-5",
+              "from": "main",
+              "message": "Merge branch 'main'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"develop\": {\"mode\": \"ManualDeployment\", \"track-merge-message\": false}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "0.2.0",
+          "SemVerSourceSha": "@releaseTagSha",
+          "SemVerSourceIncrement": "Minor",
+          "CommitCountSourceSha": "@releaseTagSha",
+          "CommitCountSourceDistance": 1,
+          "FullSemVer": "0.3.0-alpha.1+1"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          true
+        ],
+        "recipe": {
+          "id": "version-source-8-1",
+          "description": "ReleaseBranchPresenceDoesNotChangeLatestSource",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "0.1.0"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "branch",
+              "name": "release/0.2.0"
+            },
+            {
+              "op": "checkout",
+              "name": "release/0.2.0"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "merge",
+              "id": "merge-4",
+              "from": "release/0.2.0",
+              "message": "Merge branch 'release/0.2.0'"
+            },
+            {
+              "op": "tag",
+              "name": "0.2.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "releasetagsha"
+            },
+            {
+              "op": "delete-branch",
+              "name": "release/0.2.0"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "merge",
+              "id": "merge-5",
+              "from": "main",
+              "message": "Merge branch 'main'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"develop\": {\"mode\": \"ManualDeployment\", \"track-merge-message\": false}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "0.2.0",
+          "SemVerSourceSha": "@releaseTagSha",
+          "SemVerSourceIncrement": "Minor",
+          "CommitCountSourceSha": "@releaseTagSha",
+          "CommitCountSourceDistance": 1,
+          "FullSemVer": "0.3.0-alpha.1+1"
+        },
+        "special": {}
+      }
+    ],
+    "AlternativeTagFloorReplacesSemanticSourceWithoutResettingCount": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-9-0",
+          "description": "AlternativeTagFloorReplacesSemanticSourceWithoutResettingCount",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "countsha"
+            },
+            {
+              "op": "branch",
+              "name": "feature/work"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/work"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "tag",
+              "name": "5.0.0-other.1"
+            },
+            {
+              "op": "checkpoint",
+              "id": "floorsha"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0-other.1",
+          "SemVerSourceSha": "@floorSha",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@countSha",
+          "CommitCountSourceDistance": 1,
+          "VersionSourceSemVer": "1.0.0",
+          "FullSemVer": "5.0.0-work.1+1"
+        },
+        "special": {}
+      }
+    ],
+    "MainlineFoldKeepsExternalOriginWhenOperatorChangesCountAnchor": [
+      {
+        "id": "case-000",
+        "operation": "operator",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-10-0",
+          "description": "MainlineFoldKeepsExternalOriginWhenOperatorChangesCountAnchor",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "version": "5.1.0-1",
+          "anchor": "nextCountCommit",
+          "source_sha": null,
+          "source_version": "5.0.1-1",
+          "increment": "Minor"
+        },
+        "special": {}
+      }
+    ],
+    "OperatorAlternativeFloorUsesSupplyingSourceOnlyWhenItWins": [
+      {
+        "id": "case-000",
+        "operation": "operator",
+        "arguments": [
+          5,
+          "5.0.0",
+          "None"
+        ],
+        "recipe": {
+          "id": "version-source-11-0",
+          "description": "OperatorAlternativeFloorUsesSupplyingSourceOnlyWhenItWins",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "version": "5.0.0-1",
+          "anchor": "originalCommit",
+          "source_sha": "alternativeCommit",
+          "source_version": "5.0.0",
+          "increment": "None"
+        },
+        "special": {
+          "alternativeMajor": 5,
+          "sourceVersion": "5.0.0",
+          "increment": "None"
+        }
+      },
+      {
+        "id": "case-001",
+        "operation": "operator",
+        "arguments": [
+          0,
+          "1.0.0",
+          "Patch"
+        ],
+        "recipe": {
+          "id": "version-source-11-1",
+          "description": "OperatorAlternativeFloorUsesSupplyingSourceOnlyWhenItWins",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "version": "1.0.1-1",
+          "anchor": "originalCommit",
+          "source_sha": "originalCommit",
+          "source_version": "1.0.0",
+          "increment": "Patch"
+        },
+        "special": {
+          "alternativeMajor": 0,
+          "sourceVersion": "1.0.0",
+          "increment": "Patch"
+        }
+      }
+    ],
+    "MainlineRepeatedIncrementsKeepTagOrigin": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-12-0",
+          "description": "MainlineRepeatedIncrementsKeepTagOrigin",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "previoussha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"strategies\": [\"ConfiguredNextVersion\", \"Mainline\"], \"branches\": {\"main\": {\"mode\": \"ContinuousDeployment\", \"prevent-increment\": {\"of-merged-branch\": true}}, \"feature\": {\"increment\": \"Minor\", \"mode\": \"ContinuousDelivery\", \"prevent-increment\": {\"when-current-commit-tagged\": false}}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "1.0.1-1",
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceIncrement": "Patch",
+          "CommitCountSourceSha": "@previousSha",
+          "CommitCountSourceDistance": 1,
+          "FullSemVer": "1.0.2"
+        },
+        "special": {}
+      }
+    ],
+    "MainlineMergeKeepsChildSemanticOrigin": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-13-0",
+          "description": "MainlineMergeKeepsChildSemanticOrigin",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "branch",
+              "name": "feature/work"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/work"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "merge",
+              "id": "merge-4",
+              "from": "feature/work",
+              "message": "Merge branch 'feature/work'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"strategies\": [\"ConfiguredNextVersion\", \"Mainline\"], \"branches\": {\"main\": {\"mode\": \"ContinuousDeployment\", \"prevent-increment\": {\"of-merged-branch\": true}}, \"feature\": {\"increment\": \"Minor\", \"mode\": \"ContinuousDelivery\", \"prevent-increment\": {\"when-current-commit-tagged\": false}}}}}",
+        "expected": {
+          "SemVerSourceSha": "@tagSha",
+          "SemVerSourceSemVer": "1.0.0",
+          "SemVerSourceIncrement": "Minor",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 3,
+          "FullSemVer": "1.1.0"
+        },
+        "special": {}
+      }
+    ],
+    "MergeMessageKeepsSupplyingCommitSeparateFromOlderTag": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [
+          "2.0.0",
+          "2.0.0-3"
+        ],
+        "recipe": {
+          "id": "version-source-14-0",
+          "description": "MergeMessageKeepsSupplyingCommitSeparateFromOlderTag",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "branch",
+              "name": "release/2.0.0"
+            },
+            {
+              "op": "checkout",
+              "name": "release/2.0.0"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "merge",
+              "id": "merge-3",
+              "from": "release/2.0.0",
+              "message": "Merge branch 'release/2.0.0'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "mergesha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "2.0.0",
+          "SemVerSourceSha": "@mergeSha",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 3,
+          "FullSemVer": "2.0.0-3"
+        },
+        "special": {}
+      },
+      {
+        "id": "case-001",
+        "operation": "repository",
+        "arguments": [
+          "1.0.1",
+          "1.0.1-3"
+        ],
+        "recipe": {
+          "id": "version-source-14-1",
+          "description": "MergeMessageKeepsSupplyingCommitSeparateFromOlderTag",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "tagsha"
+            },
+            {
+              "op": "branch",
+              "name": "release/1.0.1"
+            },
+            {
+              "op": "checkout",
+              "name": "release/1.0.1"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkout",
+              "name": "main"
+            },
+            {
+              "op": "merge",
+              "id": "merge-3",
+              "from": "release/1.0.1",
+              "message": "Merge branch 'release/1.0.1'"
+            },
+            {
+              "op": "checkpoint",
+              "id": "mergesha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-4"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "SemVerSourceSemVer": "1.0.1",
+          "SemVerSourceSha": "@mergeSha",
+          "SemVerSourceIncrement": "None",
+          "CommitCountSourceSha": "@tagSha",
+          "CommitCountSourceDistance": 3,
+          "FullSemVer": "1.0.1-3"
+        },
+        "special": {}
+      }
+    ],
+    "StableWinnerExcludesPreReleaseCandidateFromCountingSelection": [
+      {
+        "id": "case-000",
+        "operation": "injected-strategy",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-15-0",
+          "description": "StableWinnerExcludesPreReleaseCandidateFromCountingSelection",
+          "config": "{\"workflow\": \"GitHubFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "stablesha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "tag",
+              "name": "4.0.0-alpha.1"
+            },
+            {
+              "op": "checkpoint",
+              "id": "prereleasesha"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitHubFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"mode\": \"ContinuousDeployment\"}}}}",
+        "expected": {
+          "SemVerSourceSemVer": "5.0.0",
+          "CommitCountSourceSha": "@stableSha",
+          "CommitCountSourceDistance": 2,
+          "SemVerSourceSha": null,
+          "FullSemVer": "5.0.0"
+        },
+        "special": {}
+      }
+    ],
+    "VersionSourceSha": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-16-0",
+          "description": "VersionSourceSha",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "checkpoint",
+              "id": "secondcommitsha"
+            },
+            {
+              "op": "branch",
+              "name": "feature/foo"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/foo"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "VersionSourceDistance": 3,
+          "CommitCountSourceDistance": 3,
+          "VersionSourceSha": null,
+          "SemVerSourceSha": null,
+          "CommitCountSourceSha": null
+        },
+        "special": {}
+      }
+    ],
+    "VersionSourceShaOneCommit": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-17-0",
+          "description": "VersionSourceShaOneCommit",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "VersionSourceDistance": 1,
+          "VersionSourceSha": null
+        },
+        "special": {}
+      }
+    ],
+    "VersionSourceShaUsingTag": [
+      {
+        "id": "case-000",
+        "operation": "repository",
+        "arguments": [],
+        "recipe": {
+          "id": "version-source-18-0",
+          "description": "VersionSourceShaUsingTag",
+          "config": "{\"workflow\": \"GitFlow/v1\"}",
+          "steps": [
+            {
+              "op": "commit",
+              "id": "commit-1"
+            },
+            {
+              "op": "branch",
+              "name": "develop"
+            },
+            {
+              "op": "checkout",
+              "name": "develop"
+            },
+            {
+              "op": "commit",
+              "id": "commit-2"
+            },
+            {
+              "op": "tag",
+              "name": "1.0.0"
+            },
+            {
+              "op": "checkpoint",
+              "id": "secondcommitsha"
+            },
+            {
+              "op": "branch",
+              "name": "feature/foo"
+            },
+            {
+              "op": "checkout",
+              "name": "feature/foo"
+            },
+            {
+              "op": "commit",
+              "id": "commit-3"
+            },
+            {
+              "op": "checkpoint",
+              "id": "head"
+            }
+          ]
+        },
+        "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {}}",
+        "expected": {
+          "VersionSourceSha": "@secondCommitSha",
+          "VersionSourceDistance": 1
+        },
+        "special": {}
+      }
+    ]
+  }
+}

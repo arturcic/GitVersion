@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 614,
+  "mapped_declarations": 633,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 576,
+      "mapped": 595,
       "verified": 576
     },
     "integration": {
@@ -212561,9 +212561,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#BranchNameKeepsExternalSemanticSource",
@@ -212578,9 +212589,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#TrackedReleaseKeepsSemanticOriginSeparateFromMergeBase",
@@ -212599,9 +212620,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#ExternalOnlySourceCountsReachableHistory",
@@ -212616,9 +212648,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#OrdinaryTagRetainsSelectedIncrement",
@@ -212633,9 +212675,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#TaggedHeadUsesTagForBothSources",
@@ -212654,9 +212706,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#DeploymentModesPreserveSourceMetadata",
@@ -212679,9 +212742,21 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#IgnoredCommitInMergeGraphIsExcludedFromDistance",
@@ -212696,9 +212771,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#ReleaseBranchPresenceDoesNotChangeLatestSource",
@@ -212717,9 +212802,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#AlternativeTagFloorReplacesSemanticSourceWithoutResettingCount",
@@ -212734,9 +212830,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#MainlineFoldKeepsExternalOriginWhenOperatorChangesCountAnchor",
@@ -212751,9 +212857,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#OperatorAlternativeFloorUsesSupplyingSourceOnlyWhenItWins",
@@ -212772,9 +212888,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#MainlineRepeatedIncrementsKeepTagOrigin",
@@ -212789,9 +212916,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#MainlineMergeKeepsChildSemanticOrigin",
@@ -212806,9 +212943,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#MergeMessageKeepsSupplyingCommitSeparateFromOlderTag",
@@ -212827,9 +212974,20 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#StableWinnerExcludesPreReleaseCandidateFromCountingSelection",
@@ -212844,9 +213002,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#VersionSourceSha",
@@ -212861,9 +213029,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#VersionSourceShaOneCommit",
@@ -212878,9 +213056,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#VersionSourceShaUsingTag",
@@ -212895,9 +213083,19 @@
       ],
       "source_sha256": "895f7f1e949c3732b0260cdca92f8536e79000aee7692afa06c71f0a2da3261a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVersionSources",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-version-sources.json",
+      "adaptations": [
+        "Deterministic go-git history replaces repository fixture identities/timestamps/random files; parent order, tags and branch operations are retained.",
+        "Original assertions retain every source/counting identity and distance. Named SHA variables resolve to original setup checkpoint identities. Model-null legacy SHA maps to the empty Go trace string, independently of the legacy JSON formatter empty-string contract.",
+        "TrunkBased builder is projected to the same explicit Mainline strategy, modes, increments and prevent-increment settings used by these scenarios.",
+        "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/DeltaStreamReaderTests.cs#ReadsACompleteCopyInstruction",

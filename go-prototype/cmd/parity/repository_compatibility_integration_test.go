@@ -3,10 +3,15 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	git "github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing"
+	"github.com/go-git/go-git/v5/plumbing/object"
 	"os"
 	"path/filepath"
 	"reflect"
+	"strings"
 	"testing"
 	"time"
 
@@ -74,6 +79,19 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		}})
 	}
 
+	for _, workflow := range []string{"GitHubFlow/v1", "GitFlow/v1"} {
+		for _, mainline := range []bool{false, true} {
+			for _, setting := range []string{"sha-middle", "sha-prefix", "sha-head", "date-middle", "paths-middle", "paths-head", "paths-config", "empty"} {
+				doc := map[string]any{"workflow": workflow, "calculation": map[string]any{"mode": "ManualDeployment", "branches": map[string]any{"main": map[string]any{"label": "alpha"}}}}
+				if mainline {
+					doc["calculation"].(map[string]any)["strategies"] = []string{"Mainline"}
+				}
+				raw, _ := json.Marshal(doc)
+				recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("ignore-%02d", len(recipes)), Description: setting, Config: string(raw), Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "middle", Message: "work +semver: major"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}})
+			}
+		}
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
@@ -102,6 +120,69 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 				if err := os.WriteFile(p, []byte(content), 0644); err != nil {
 					t.Fatal(err)
 				}
+			}
+
+			if strings.HasPrefix(cp.Recipe, "ignore-") {
+				g, err := git.PlainOpen(cp.Path)
+				if err != nil {
+					t.Fatal(err)
+				}
+				head, err := g.CommitObject(plumbing.NewHash(cp.Head))
+				if err != nil {
+					t.Fatal(err)
+				}
+				var doc map[string]any
+				raw, err := os.ReadFile(filepath.Join(cp.Path, "GitVersion.yml"))
+				if err != nil {
+					t.Fatal(err)
+				}
+				if err = json.Unmarshal(raw, &doc); err != nil {
+					t.Fatal(err)
+				}
+				setting := ""
+				for _, r := range recipes {
+					if r.ID == cp.Recipe {
+						setting = r.Description
+					}
+				}
+				ignore := map[string]any{}
+				switch setting {
+				case "sha-middle":
+					ignore["sha"] = []string{head.ParentHashes[0].String()}
+				case "sha-prefix":
+					ignore["sha"] = []string{strings.ToUpper(head.ParentHashes[0].String()[:8])}
+				case "sha-head":
+					ignore["sha"] = []string{cp.Head}
+				case "date-middle":
+					ignore["commits-before"] = "2025-01-01T00:01:00Z"
+				case "paths-middle":
+					ignore["paths"] = []string{"^middle[.]txt$"}
+				case "paths-head":
+					ignore["paths"] = []string{"^after[.]txt$"}
+				case "paths-config":
+					ignore["paths"] = []string{"^GitVersion[.]yml$"}
+				case "empty":
+					ignore["sha"] = []string{}
+					ignore["paths"] = []string{}
+				}
+				doc["calculation"].(map[string]any)["ignore"] = ignore
+				raw, err = json.Marshal(doc)
+				if err != nil {
+					t.Fatal(err)
+				}
+				write("GitVersion.yml", string(raw)+"\n")
+				wt, err := g.Worktree()
+				if err != nil {
+					t.Fatal(err)
+				}
+				if _, err = wt.Add("GitVersion.yml"); err != nil {
+					t.Fatal(err)
+				}
+				hash, err := wt.Commit("Configure ignore rules", &git.CommitOptions{Author: &object.Signature{Name: "Parity Configuration", Email: "parity@example.invalid", When: time.Date(2025, 1, 1, 0, 3, 0, 0, time.UTC)}})
+				if err != nil {
+					t.Fatal(err)
+				}
+				cp.Head = hash.String()
 			}
 			raw, err := os.ReadFile(filepath.Join(cp.Path, ".git/config"))
 			if err != nil {

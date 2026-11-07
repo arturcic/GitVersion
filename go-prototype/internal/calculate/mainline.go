@@ -98,6 +98,7 @@ type mlIteration struct {
 	parent *mlNode
 }
 type mlEngine struct {
+	ignored   *commitFilter
 	labelNull bool
 	r         *gitrepo.Repository
 	cfg       config.Config
@@ -304,6 +305,15 @@ func (e *mlEngine) build(it *mlIteration, ids []string, tagged map[string][]semv
 		}
 	}()
 	for _, id := range ids {
+		if e.ignored != nil {
+			allowed, err := e.ignored.include(id)
+			if err != nil {
+				return false, err
+			}
+			if !allowed {
+				continue
+			}
+		}
 		if e.visited[id] {
 			continue
 		}
@@ -669,7 +679,11 @@ func mainlineCandidate(r *gitrepo.Repository, cfg config.Config, branch, source,
 	if err != nil {
 		return candidate{}, err
 	}
-	engine := mlEngine{labelNull: effective.NullLabel, r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
+	ignored, err := newCommitFilter(r, cfg.Ignore)
+	if err != nil {
+		return candidate{}, err
+	}
+	engine := mlEngine{ignored: ignored, labelNull: effective.NullLabel, r: r, cfg: cfg, refs: refs, tags: tags, load: load, target: source, label: label, when: c.When, visited: map[string]bool{}}
 	tip := head
 	for _, b := range refs {
 		if b.name == branch {

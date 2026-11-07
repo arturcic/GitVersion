@@ -65,8 +65,19 @@ func Calculate(path string) (map[string]any, Trace, error) {
 // Callers must obtain cfg from config.Parse or config.Load. The repository and
 // its configuration file are not modified by the supplied configuration.
 func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace, error) {
+	return calculateWithStrategy(path, cfg, nil)
+}
+
+// versionStrategy permits a source strategy to supply candidates to the shared pipeline.
+type versionStrategy func() ([]candidate, error)
+
+func calculateWithStrategy(path string, cfg config.Config, strategy versionStrategy) (map[string]any, Trace, error) {
 	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	r, err := gitrepo.Open(path)
+	if err != nil {
+		return nil, trace, err
+	}
+	ignored, err := newCommitFilter(r, cfg.Ignore)
 	if err != nil {
 		return nil, trace, err
 	}
@@ -137,6 +148,10 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 	if err != nil {
 		return nil, trace, err
 	}
+	history, err = ignored.ids(history)
+	if err != nil {
+		return nil, trace, err
+	}
 	// RepositoryStore.GetCurrentCommit takes the first branch-log entry. The
 	// pinned managed backend orders by time, even when an ancestor is newer
 	// than the physical tip. Keep the branch history for tag discovery, but
@@ -175,6 +190,13 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 	allTags := []tag{}
 	byCommit := map[string][]tag{}
 	for _, raw := range rawTags {
+		allowed, err := ignored.include(raw.Commit)
+		if err != nil {
+			return nil, trace, err
+		}
+		if !allowed {
+			continue
+		}
 		v, recognized, err := semver.ParseTag(strings.TrimPrefix(raw.Name, "refs/tags/"))
 		if err != nil {
 			return nil, trace, err
@@ -295,6 +317,9 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 			return nil, trace, err
 		}
 		localCandidates, err := func() ([]candidate, error) {
+			if strategy != nil {
+				return strategy()
+			}
 			candidates := []candidate{}
 			if cfg.Next != nil && cfg.Strategies["ConfiguredNextVersion"] && cfg.Next.Matches(label) {
 				v := *cfg.Next
@@ -336,7 +361,7 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 						alternative = nil
 						continue
 					}
-					inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load)
+					inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load, cfg.Ignore)
 					if err != nil {
 						return nil, err
 					}
@@ -380,7 +405,7 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 						break
 					}
 				}
-				inc, err := increment(r, head, base, label, effective.Increment, effective.Messages, allTags, load)
+				inc, err := increment(r, head, base, label, effective.Increment, effective.Messages, allTags, load, cfg.Ignore)
 				if err != nil {
 					return nil, err
 				}
@@ -397,10 +422,17 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 			return nil, trace, err
 		}
 		for i := range localCandidates {
+			allowed, err := ignored.include(localCandidates[i].sha)
+			if err != nil {
+				return nil, trace, err
+			}
+			if !allowed {
+				continue
+			}
 			localCandidates[i].effective = effective
 			localCandidates[i].source = source
+			candidates = append(candidates, localCandidates[i])
 		}
-		candidates = append(candidates, localCandidates...)
 	}
 	if len(candidates) == 0 {
 		return nil, trace, fmt.Errorf("no base versions determined from enabled strategies")
@@ -470,6 +502,10 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 	if err != nil {
 		return nil, trace, err
 	}
+	counted, err = ignored.ids(counted)
+	if err != nil {
+		return nil, trace, err
+	}
 	distance := int64(len(counted))
 	v := chosen.version
 	if effective.Mode == config.Delivery {
@@ -508,11 +544,19 @@ func CalculateWithConfig(path string, cfg config.Config) (map[string]any, Trace,
 	return values, trace, err
 }
 
-func increment(r *gitrepo.Repository, head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag, load func(string) (gitrepo.Commit, error)) (semver.Increment, error) {
+func increment(r *gitrepo.Repository, head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag, load func(string) (gitrepo.Commit, error), settings config.IgnoreSettings) (semver.Increment, error) {
 	if messages == "Disabled" {
 		return defaultIncrement, nil
 	}
 	ids, err := r.Walk(gitrepo.WalkOptions{Include: head, Exclude: base, Sort: gitrepo.Topological | gitrepo.Time})
+	if err != nil {
+		return semver.None, err
+	}
+	ignored, err := newCommitFilter(r, settings)
+	if err != nil {
+		return semver.None, err
+	}
+	ids, err = ignored.ids(ids)
 	if err != nil {
 		return semver.None, err
 	}

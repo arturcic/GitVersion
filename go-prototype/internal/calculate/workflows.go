@@ -208,7 +208,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 						return nil, err
 					}
 				}
-				inc, err = increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load)
+				inc, err = increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load, cfg.Ignore)
 				if err != nil {
 					return nil, err
 				}
@@ -249,7 +249,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if base == "" {
 				continue
 			}
-			inc, err := increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load)
+			inc, err := increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load, cfg.Ignore)
 			if err != nil {
 				return nil, err
 			}

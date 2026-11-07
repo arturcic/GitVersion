@@ -20,6 +20,7 @@ import (
 )
 
 type Config struct {
+	Ignore        IgnoreSettings
 	Workflow      string
 	Strategies    map[string]bool
 	Extra         map[string]Options
@@ -206,9 +207,15 @@ func Parse(data []byte) (Config, error) {
 	c.Workflow = workflow
 	c.initializeWorkflow()
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"mode", "next-version", "branches", "strategies"})
+		calc, err := mapping(node, "calculation", []string{"mode", "next-version", "branches", "strategies", "ignore"})
 		if err != nil {
 			return c, err
+		}
+		if n := calc["ignore"]; n != nil {
+			c.Ignore, err = parseIgnore(n)
+			if err != nil {
+				return c, err
+			}
 		}
 		if n := calc["mode"]; n != nil {
 			s, err := scalar(n, "calculation.mode")
