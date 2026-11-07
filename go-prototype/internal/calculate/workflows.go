@@ -166,7 +166,7 @@ func configuredNextVersionCandidate(cfg config.Config, label string) (candidate,
 	return candidate{base: *cfg.Next, semantic: *cfg.Next, version: v, description: "configured next-version"}, true, nil
 }
 
-func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error)) ([]candidate, error) {
+func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error), log *commitLog) ([]candidate, error) {
 	var out []candidate
 	if e.IsRelease && cfg.Strategies["VersionInBranchName"] {
 		for _, name := range []string{branch, source} {
@@ -209,7 +209,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 						return nil, err
 					}
 				}
-				inc, err = increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load, cfg.Ignore)
+				inc, err = log.increment(head, base, e.Label, e.Increment, e.Messages, tags)
 				if err != nil {
 					return nil, err
 				}
@@ -250,7 +250,7 @@ func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effec
 			if base == "" {
 				continue
 			}
-			inc, err := increment(r, head, base, e.Label, e.Increment, e.Messages, tags, load, cfg.Ignore)
+			inc, err := log.increment(head, base, e.Label, e.Increment, e.Messages, tags)
 			if err != nil {
 				return nil, err
 			}

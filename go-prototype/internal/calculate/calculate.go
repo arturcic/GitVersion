@@ -189,6 +189,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 		}
 		return c, err
 	}
+	log := commitLog{walk: r.Walk, load: load, ignored: ignored}
 	for _, id := range history {
 		reachable[id] = true
 		c, err := load(id)
@@ -389,7 +390,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 						alternative = nil
 						continue
 					}
-					inc, err := increment(r, head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags, load, cfg.Ignore)
+					inc, err := log.increment(head, t.ref.Commit, label, effective.Increment, effective.Messages, allTags)
 					if err != nil {
 						return nil, err
 					}
@@ -429,7 +430,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 						versionBranches = append(versionBranches, b)
 					}
 				}
-				extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load)
+				extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load, &log)
 				if err != nil {
 					return nil, err
 				}
@@ -443,7 +444,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 						break
 					}
 				}
-				inc, err := increment(r, head, base, label, effective.Increment, effective.Messages, allTags, load, cfg.Ignore)
+				inc, err := log.increment(head, base, label, effective.Increment, effective.Messages, allTags)
 				if err != nil {
 					return nil, err
 				}
@@ -585,48 +586,25 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	return values, trace, err
 }
 
-func increment(r *gitrepo.Repository, head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag, load func(string) (gitrepo.Commit, error), settings config.IgnoreSettings) (semver.Increment, error) {
+func (l *commitLog) increment(head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag) (semver.Increment, error) {
 	if messages == "Disabled" {
 		return defaultIncrement, nil
 	}
-	ids, err := r.Walk(gitrepo.WalkOptions{Include: head, Exclude: base, Sort: gitrepo.Topological | gitrepo.Time})
-	if err != nil {
-		return semver.None, err
-	}
-	ignored, err := newCommitFilter(r, settings)
-	if err != nil {
-		return semver.None, err
-	}
-	ids, err = ignored.ids(ids)
-	if err != nil {
-		return semver.None, err
-	}
-	included := map[string]bool{}
-	for _, id := range ids {
-		included[id] = true
-	}
-	// Bump messages on commits already covered by a matching version tag do not
-	// contribute again, even when a different candidate is being evaluated.
+	var excluded []string
 	for _, t := range tags {
-		if !t.v.Matches(label) || !included[t.ref.Target] {
-			continue
+		if t.v.Matches(label) {
+			excluded = append(excluded, t.ref.Target)
 		}
-		hidden, err := r.Walk(gitrepo.WalkOptions{Include: t.ref.Target, Sort: gitrepo.Time})
-		if err != nil {
-			return semver.None, err
-		}
-		for _, id := range hidden {
-			delete(included, id)
-		}
+	}
+	ids, err := l.incrementHistory(head, base, excluded)
+	if err != nil {
+		return semver.None, err
 	}
 	// Accumulate newest-to-oldest. A recognized reset ends the scan and can
 	// lower the configured increment floor; newer messages still contribute.
 	result := semver.None
 	for _, id := range ids {
-		if !included[id] {
-			continue
-		}
-		c, err := load(id)
+		c, err := l.load(id)
 		if err != nil {
 			return result, err
 		}

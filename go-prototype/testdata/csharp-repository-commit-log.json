@@ -1,0 +1,61 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+  "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+  "methods": {
+    "DerivedCommitLogMatchesRevisionWalkForEveryBaseVersionSource": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogMatchesRevisionWalkWhenBaseVersionSourceIsUnreachableFromHead": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogExcludesTheAncestorsOfTheGivenShas": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogStopsExcludingAtIgnoredCommits": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogHonoursIgnoredCommits": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogMatchesRevisionWalkWhenACommitInTheMiddleOfTheHistoryIsIgnored": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogPerformsExactlyOneRevisionWalk": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "IncrementStrategyFinderReadsTheWholeHistoryWithASingleRevisionWalk": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DerivedCommitLogRetainsOnlyTheProjectionOfTheCurrentHead": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  }
+}

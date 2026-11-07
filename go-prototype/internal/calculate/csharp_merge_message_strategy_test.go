@@ -58,7 +58,7 @@ func TestCSharpMergeMessageStrategy(t *testing.T) {
 								}
 								return gitrepo.Commit{Message: tc.Message + suffix, Parents: parents}, nil
 							}
-							got, err := workflowCandidates(nil, cfg, effective, "main", "", "tip", nil, []string{"tip"}, nil, load)
+							got, err := workflowCandidates(nil, cfg, effective, "main", "", "tip", nil, []string{"tip"}, nil, load, nil)
 							if err != nil {
 								t.Fatal(err)
 							}

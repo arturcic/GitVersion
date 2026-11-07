@@ -51571,5 +51571,140 @@
       "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogMatchesRevisionWalkForEveryBaseVersionSource": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogMatchesRevisionWalkForEveryBaseVersionSource",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogMatchesRevisionWalkWhenBaseVersionSourceIsUnreachableFromHead": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogMatchesRevisionWalkWhenBaseVersionSourceIsUnreachableFromHead",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogExcludesTheAncestorsOfTheGivenShas": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogExcludesTheAncestorsOfTheGivenShas",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogStopsExcludingAtIgnoredCommits": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogStopsExcludingAtIgnoredCommits",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogHonoursIgnoredCommits": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogHonoursIgnoredCommits",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogMatchesRevisionWalkWhenACommitInTheMiddleOfTheHistoryIsIgnored": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogMatchesRevisionWalkWhenACommitInTheMiddleOfTheHistoryIsIgnored",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogPerformsExactlyOneRevisionWalk": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogPerformsExactlyOneRevisionWalk",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.IncrementStrategyFinderReadsTheWholeHistoryWithASingleRevisionWalk": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "IncrementStrategyFinderReadsTheWholeHistoryWithASingleRevisionWalk",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RepositoryStoreCommitLogTests.DerivedCommitLogRetainsOnlyTheProjectionOfTheCurrentHead": {
+    "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
+    "source_sha256": "3e171426e53986e947643e479b08ef509e1be4d498e079c50409eac652d34b26",
+    "method": "DerivedCommitLogRetainsOnlyTheProjectionOfTheCurrentHead",
+    "go_test": "TestCSharpRepositoryStoreCommitLog",
+    "case_file": "testdata/csharp-repository-commit-log.json",
+    "case_file_sha256": "0a649b84b08841da4b396954d3b58554fa4cfe43e6864cd41e02a39007bf625b",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

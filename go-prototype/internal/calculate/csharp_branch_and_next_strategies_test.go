@@ -109,7 +109,7 @@ func checkBranchVersionStrategy(t *testing.T, method string, args []*string) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	got, err := workflowCandidates(repo, cfg, effective, "main", ref, head, nil, nil, nil, repo.CommitMetadata)
+	got, err := workflowCandidates(repo, cfg, effective, "main", ref, head, nil, nil, nil, repo.CommitMetadata, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
