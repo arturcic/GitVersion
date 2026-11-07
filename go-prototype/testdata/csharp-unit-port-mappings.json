@@ -49220,7 +49220,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.PreReleaseVersionMainline": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49237,7 +49237,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeIntoMainline": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49254,7 +49254,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeSelfIntoMainline": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49271,7 +49271,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeFeatureIntoMainline": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49288,7 +49288,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeHotfixIntoMainline": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49305,7 +49305,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeFeatureIntoMainlineWithMinorIncrement": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49322,7 +49322,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.MergeFeatureIntoMainlineWithMinorIncrementAndThenMergeHotfix": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49339,7 +49339,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.PreReleaseLabelCanUseBranchNameVariable": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49356,7 +49356,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.PreReleaseNumberShouldBeScopeToPreReleaseLabelInManualDeployment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49373,7 +49373,7 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "NextVersionCalculatorTests.GetNextVersionOnNonMainlineBranchWithoutCommitsShouldWorkNormally": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/NextVersionCalculatorTests.cs",
@@ -49390,6 +49390,6 @@
       "MergeNoFF/MergeTo retain true merges; default merges in these cases fast-forward to the original descendant.",
       "Builder-only custom branch increment None is explicitly materialized in YAML; workflow names select the pinned embedded defaults. Three mocked-context methods remain pending."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
