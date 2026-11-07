@@ -97,6 +97,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 		result.Mode = effective.Mode
 		result.Weight = &effective.Weight
 		result.TagWeight = &effective.TagWeight
+		result.Output = cfg.OutputFor(kind)
 		return output.Variables(result)
 	}
 	trace.Branch = branch

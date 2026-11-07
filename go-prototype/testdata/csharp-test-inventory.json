@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 678,
+  "mapped_declarations": 696,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 640,
+      "mapped": 658,
       "verified": 640
     },
     "integration": {
@@ -212736,9 +212736,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeForPreRelease",
@@ -212753,9 +212761,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeliveryModeForStable",
@@ -212770,9 +212786,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeForStable",
@@ -212787,9 +212811,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged",
@@ -212804,9 +212836,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeWithTagNamePattern",
@@ -212821,9 +212861,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeWithTagSetToBranchName",
@@ -212838,9 +212886,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeliveryModeForFeatureBranch",
@@ -212855,9 +212911,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat",
@@ -212872,9 +212936,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel",
@@ -212889,9 +212961,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#CustomVersionIsEmptyWhenFormatIsNotConfigured",
@@ -212906,9 +212986,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#CustomVersionSupportsPep440FormatForIssue2065",
@@ -212923,9 +213011,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesUnambiguousPreReleaseVariables",
@@ -212948,9 +213044,19 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#CustomVersionFormatCanBeConfiguredPerBranch",
@@ -212965,9 +213071,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#CustomVersionSupportsMonotonicallyIncreasingIntegerFormatForIssue3340",
@@ -212982,9 +213096,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#Format_Allows_CSharp_FormatStrings",
@@ -212999,9 +213121,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#SeparateSourcesSurviveFormattingEnumerationAndJson",
@@ -213020,9 +213150,18 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#CopyingEnumeratedVariablesDoesNotReuseOldSourceValues",
@@ -213037,9 +213176,17 @@
       ],
       "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpVariableProvider",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-variable-provider.json",
+      "adaptations": [
+        "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
+        "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VersionSourceTests.cs#ConfiguredVersionKeepsExternalSemanticSource",

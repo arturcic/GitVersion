@@ -18,6 +18,7 @@ import (
 )
 
 type Config struct {
+	Output        OutputSettings
 	Ignore        IgnoreSettings
 	Workflow      string
 	Strategies    map[string]bool
@@ -37,6 +38,7 @@ const (
 )
 
 type Options struct {
+	CustomVersionFormat *string
 	// NullLabel retains an explicit null from programmatic builders. YAML parsing
 	// currently accepts explicit string labels only.
 	NullLabel                                                                                               bool
@@ -248,8 +250,11 @@ func Parse(data []byte) (Config, error) {
 		}
 	}
 	if n := root["output"]; n != nil {
-		out, err := mapping(n, "output", []string{"tag-pre-release-weight", "branches"})
+		out, err := mapping(n, "output", append([]string{"tag-pre-release-weight", "branches"}, outputSettingNames...))
 		if err != nil {
+			return c, err
+		}
+		if err := parseOutputSettings(out, &c.Output); err != nil {
 			return c, err
 		}
 		if n := out["tag-pre-release-weight"]; n != nil {
@@ -265,19 +270,26 @@ func Parse(data []byte) (Config, error) {
 			}
 			for _, kind := range c.Kinds() {
 				if n := bs[kind]; n != nil {
-					b, err := mapping(n, "output.branches."+kind, []string{"pre-release-weight"})
+					b, err := mapping(n, "output.branches."+kind, []string{"pre-release-weight", "custom-version-format"})
 					if err != nil {
 						return c, err
+					}
+					o := c.Options(kind)
+					if n := b["custom-version-format"]; n != nil && n.Tag != "!!null" {
+						value, err := scalar(n, "output.branches."+kind+".custom-version-format")
+						if err != nil {
+							return c, err
+						}
+						o.CustomVersionFormat = &value
 					}
 					if n := b["pre-release-weight"]; n != nil {
 						w, err := integer(n, "pre-release-weight")
 						if err != nil {
 							return c, err
 						}
-						o := c.Options(kind)
 						o.Weight = w
-						c.setOptions(kind, o)
 					}
+					c.setOptions(kind, o)
 				}
 			}
 		}

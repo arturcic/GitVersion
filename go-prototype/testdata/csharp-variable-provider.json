@@ -1,0 +1,469 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
+  "source_sha256": "cee9f4b31af7cdfd84e98579dbcd91146c30549e1fa98140f101850b136d39b6",
+  "methods": {
+    "ProvidesVariablesInContinuousDeliveryModeForPreRelease": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeForPreRelease": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeliveryModeForStable": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeForStable": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeWithTagNamePattern": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeWithTagSetToBranchName": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeliveryModeForFeatureBranch": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "CustomVersionIsEmptyWhenFormatIsNotConfigured": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "CustomVersionSupportsPep440FormatForIssue2065": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ProvidesUnambiguousPreReleaseVariables": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "beta",
+          99,
+          "beta",
+          "99",
+          "beta.99",
+          "-beta",
+          "-beta.99"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "",
+          99,
+          "",
+          "99",
+          "99",
+          "",
+          "-99"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          null,
+          null,
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    ],
+    "CustomVersionFormatCanBeConfiguredPerBranch": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "CustomVersionSupportsMonotonicallyIncreasingIntegerFormatForIssue3340": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "Format_Allows_CSharp_FormatStrings": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "SeparateSourcesSurviveFormattingEnumerationAndJson": [
+      {
+        "id": "case-000",
+        "arguments": [
+          null
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "semantic-source-sha"
+        ]
+      }
+    ],
+    "CopyingEnumeratedVariablesDoesNotReuseOldSourceValues": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  },
+  "approvals": {
+    "ProvidesVariablesInContinuousDeliveryModeForPreRelease": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForPreRelease.approved.txt",
+      "sha256": "56c7ffe8a150db5dd5e823109a54448a0fb027a11eecbb6d8c8c0ea86d8e3195",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "develop",
+        "BuildMetaData": 5,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "develop",
+        "FullBuildMetaData": "5.Branch.develop.Sha.commitSha",
+        "FullSemVer": "1.2.3-unstable.4+5",
+        "InformationalVersion": "1.2.3-unstable.4+5.Branch.develop.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "unstable",
+        "PreReleaseLabelNameWithDash": "-unstable",
+        "PreReleaseNumber": 4,
+        "PreReleaseLabel": "unstable.4",
+        "PreReleaseLabelWithDash": "-unstable.4",
+        "SemVer": "1.2.3-unstable.4",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 4
+      }
+    },
+    "ProvidesVariablesInContinuousDeploymentModeForPreRelease": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForPreRelease.approved.txt",
+      "sha256": "1fef2ce66a23a7a376c51819edbce71fee9339e5c181f44fc9859b4786a71379",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "develop",
+        "BuildMetaData": null,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "develop",
+        "FullBuildMetaData": "Branch.develop.Sha.commitSha",
+        "FullSemVer": "1.2.3-unstable.8",
+        "InformationalVersion": "1.2.3-unstable.8+Branch.develop.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "unstable",
+        "PreReleaseLabelNameWithDash": "-unstable",
+        "PreReleaseNumber": 8,
+        "PreReleaseLabel": "unstable.8",
+        "PreReleaseLabelWithDash": "-unstable.8",
+        "SemVer": "1.2.3-unstable.8",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 8
+      }
+    },
+    "ProvidesVariablesInContinuousDeliveryModeForStable": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForStable.approved.txt",
+      "sha256": "ac0ed71a066c79849f4b7ebc65ee35f674fb2f39c79add9528d398047649796f",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "develop",
+        "BuildMetaData": 5,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "develop",
+        "FullBuildMetaData": "5.Branch.develop.Sha.commitSha",
+        "FullSemVer": "1.2.3+5",
+        "InformationalVersion": "1.2.3+5.Branch.develop.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "",
+        "PreReleaseLabelNameWithDash": "",
+        "PreReleaseNumber": null,
+        "PreReleaseLabel": "",
+        "PreReleaseLabelWithDash": "",
+        "SemVer": "1.2.3",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 0
+      }
+    },
+    "ProvidesVariablesInContinuousDeploymentModeForStable": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForStable.approved.txt",
+      "sha256": "0d4b87628834a0430142adb1ec0da771b781d4ed1354b8de67bd30990828dc56",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "develop",
+        "BuildMetaData": null,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "develop",
+        "FullBuildMetaData": "Branch.develop.Sha.commitSha",
+        "FullSemVer": "1.2.3-ci.5",
+        "InformationalVersion": "1.2.3-ci.5+Branch.develop.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "ci",
+        "PreReleaseLabelNameWithDash": "-ci",
+        "PreReleaseNumber": 5,
+        "PreReleaseLabel": "ci.5",
+        "PreReleaseLabelWithDash": "-ci.5",
+        "SemVer": "1.2.3-ci.5",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 5
+      }
+    },
+    "ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged.approved.txt",
+      "sha256": "fbfaba350488df3c559bba6bf3b2e99655e936e50b2670757890223d4fcc9a76",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "",
+        "BuildMetaData": 5,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "",
+        "FullBuildMetaData": "5.Sha.commitSha",
+        "FullSemVer": "1.2.3+5",
+        "InformationalVersion": "1.2.3+5.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "",
+        "PreReleaseLabelNameWithDash": "",
+        "PreReleaseNumber": null,
+        "PreReleaseLabel": "",
+        "PreReleaseLabelWithDash": "",
+        "SemVer": "1.2.3",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 0
+      }
+    },
+    "ProvidesVariablesInContinuousDeliveryModeForFeatureBranch": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForFeatureBranch.approved.txt",
+      "sha256": "723040289bfc97a1f645dac38046f190338514bbe271c30ce9766c114fda1e75",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "feature/123",
+        "BuildMetaData": 5,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "feature-123",
+        "FullBuildMetaData": "5.Branch.feature-123.Sha.commitSha",
+        "FullSemVer": "1.2.3+5",
+        "InformationalVersion": "1.2.3+5.Branch.feature-123.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "",
+        "PreReleaseLabelNameWithDash": "",
+        "PreReleaseNumber": null,
+        "PreReleaseLabel": "",
+        "PreReleaseLabelWithDash": "",
+        "SemVer": "1.2.3",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 0
+      }
+    },
+    "ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat.approved.txt",
+      "sha256": "5bf055a4ff882be8e4586ced3666524a2a88f21ffc870f17193835501b0ea7b9",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "feature/123",
+        "BuildMetaData": 5,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "feature-123",
+        "FullBuildMetaData": "5.Branch.feature-123.Sha.commitSha",
+        "FullSemVer": "1.2.3+5",
+        "InformationalVersion": "1.2.3+5.Branch.feature-123.Sha.commitShortSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "",
+        "PreReleaseLabelNameWithDash": "",
+        "PreReleaseNumber": null,
+        "PreReleaseLabel": "",
+        "PreReleaseLabelWithDash": "",
+        "SemVer": "1.2.3",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 0
+      }
+    },
+    "ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel": {
+      "path": "src/GitVersion.Core.Tests/VersionCalculation/Approved/VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel.approved.txt",
+      "sha256": "7db9e99d3045f6f2193cb35e906ccf8cf20431becceeeafb761fa085d623da15",
+      "variables": {
+        "AssemblySemFileVer": "1.2.3.0",
+        "AssemblySemVer": "1.2.3.0",
+        "BranchName": "main",
+        "BuildMetaData": null,
+        "CommitCountSourceDistance": 5,
+        "CommitCountSourceSha": "versionSourceSha",
+        "CommitDate": "2014-03-06",
+        "CustomVersion": "",
+        "EscapedBranchName": "main",
+        "FullBuildMetaData": "Branch.main.Sha.commitSha",
+        "FullSemVer": "1.2.3-9",
+        "InformationalVersion": "1.2.3-9+Branch.main.Sha.commitSha",
+        "Major": 1,
+        "MajorMinorPatch": "1.2.3",
+        "Minor": 2,
+        "Patch": 3,
+        "PreReleaseLabelName": "",
+        "PreReleaseLabelNameWithDash": "",
+        "PreReleaseNumber": 9,
+        "PreReleaseLabel": "9",
+        "PreReleaseLabelWithDash": "-9",
+        "SemVer": "1.2.3-9",
+        "SemVerSourceIncrement": "None",
+        "SemVerSourceSemVer": null,
+        "SemVerSourceSha": null,
+        "Sha": "commitSha",
+        "ShortSha": "commitShortSha",
+        "UncommittedChanges": 0,
+        "VersionSourceDistance": 5,
+        "VersionSourceIncrement": "None",
+        "VersionSourceSemVer": "",
+        "VersionSourceSha": "versionSourceSha",
+        "WeightedPreReleaseNumber": 55009
+      }
+    }
+  }
+}

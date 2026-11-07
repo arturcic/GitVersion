@@ -37,7 +37,8 @@ func ReadLegacyDocument(data []byte) (LegacyDocument, error) {
 	if err != nil {
 		return out, err
 	}
-	fields, err := mapping(flat, "legacy", []string{"workflow", "mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"})
+	keys := append([]string{"mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"}, outputSettingNames...)
+	fields, err := mapping(flat, "legacy", append([]string{"workflow"}, keys...))
 	if err != nil {
 		return out, err
 	}
@@ -55,7 +56,7 @@ func ReadLegacyDocument(data []byte) (LegacyDocument, error) {
 		}
 	}
 	putDocumentField(root, "workflow", workflow)
-	for _, key := range []string{"mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"} {
+	for _, key := range keys {
 		value := fields[key]
 		if value == nil {
 			continue

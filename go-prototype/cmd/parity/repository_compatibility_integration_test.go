@@ -156,6 +156,49 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		})
 	}
 
+	for _, setting := range []struct{ id, branch, configuration string }{
+		{"formatted-main", "main", `workflow: GitFlow/v1
+calculation:
+  branches:
+    main: {mode: ManualDeployment, label: beta}
+output:
+  assembly-versioning-scheme: MajorMinor
+  assembly-file-versioning-scheme: MajorMinorPatchTag
+  assembly-informational-format: "{SemVerSourceSemVer}-{SemVerSourceIncrement}+{CommitCountSourceDistance:000}.{BranchName}"
+  commit-date-format: yyyyMMdd
+  custom-version-format: "{Major:00}{Minor:00}{Patch:000}{PreReleaseLabelName:l}{PreReleaseNumber}"
+`},
+		{"formatted-feature", "feature/example", `workflow: GitFlow/v1
+output:
+  assembly-versioning-scheme: None
+  assembly-file-versioning-format: "{Major}.{Minor}.{Patch}.{WeightedPreReleaseNumber}"
+  custom-version-format: "{SemVer}-global"
+  branches:
+    feature: {custom-version-format: "{SemVer}-{BranchName}"}
+`},
+		{"formatted-release", "release/1.1.0", `workflow: GitFlow/v1
+output:
+  custom-version-format: "{SemVer}-global"
+  branches:
+    release: {custom-version-format: ""}
+`},
+		{"legacy-formatted-main", "main", `workflow: GitFlow/v1
+branches:
+  main: {mode: ManualDeployment, label: beta}
+assembly-versioning-format: "{Major}.{Minor}.{Patch}.{PreReleaseNumber}"
+assembly-file-versioning-scheme: Major
+assembly-informational-format: "{Major}.{Minor}.{Patch}-{VersionSourceDistance:0000}"
+custom-version-format: "{SemVer}-legacy"
+`},
+	} {
+		steps := []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}}
+		if setting.branch != "main" {
+			steps = append(steps, fixtures.Step{Op: "branch", Name: setting.branch}, fixtures.Step{Op: "checkout", Name: setting.branch})
+		}
+		steps = append(steps, fixtures.Step{Op: "commit", ID: "after"}, fixtures.Step{Op: "checkpoint", ID: "head"})
+		recipes = append(recipes, fixtures.Recipe{ID: setting.id, Description: "Configured version variable rendering", Config: setting.configuration, Steps: steps})
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
