@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 795 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 941 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-757 verified unit/component methods out of 1,516 separately from integration ports.
+903 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -263,3 +263,7 @@ for a JSON scalar or `gitversion-go --show-config` for the effective YAML.
 [Configuration migration and version selection ports](CSHARP-CONFIGURATION-MIGRATION-PORTS.md)
 cover 36 original methods and 60 cases. Use `gitversion-go config migrate --config PATH`
 to preview migrated YAML. `--output PATH` writes a new file and `--in-place` replaces the input.
+
+[POSIX and legacy argument ports](CSHARP-ARGUMENT-PARSER-PORTS.md) cover 146
+original methods and 251 cases. For a local calculation, run
+`gitversion-go /path/to/repository --show-variable FullSemVer`.

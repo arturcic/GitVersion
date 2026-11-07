@@ -45706,7 +45706,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigSupportsNestedV7RootAndBranchPaths": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45721,7 +45721,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigGetRejectsUnrelatedOptionsBeforeAndAfterCommand": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45743,7 +45743,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigGetRequiresExactlyOneProperty": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45759,7 +45759,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ConfigGetRejectsV6BeforeConfigFileValidation": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45774,7 +45774,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigAcceptsWorkflowOnlyInEitherVersion": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45790,7 +45790,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigRejectsNestedWorkflowWithRootReplacement": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45806,7 +45806,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigPreservesV7BranchNameCasing": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45821,7 +45821,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigRejectsDottedV7BranchNameWithClearDiagnostic": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45836,7 +45836,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigRejectsV6PathInV7WithReplacement": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45851,7 +45851,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigRejectsPropertyInWrongV7SectionWithReplacement": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45866,7 +45866,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigSupportsV6BranchPath": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45881,7 +45881,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigPreservesV6BranchNameCasing": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45896,7 +45896,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigRejectsV7PathInV6WithReplacement": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45911,7 +45911,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideConfigBatchValidationDoesNotApplyAnyValues": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45926,7 +45926,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.TargetPathAllowsDirectoryNamedConfig": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45941,7 +45941,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EmptyMeansUseCurrentDirectory": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45956,7 +45956,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.SingleMeansUseAsTargetDirectory": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45971,7 +45971,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -45986,7 +45986,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.NoPathAndLogfileLongFormShouldUseCurrentDirectoryTargetDirectory": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46001,7 +46001,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.HelpSwitchTest": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46016,7 +46016,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.VersionSwitchTest": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46031,7 +46031,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.TargetDirectoryAndLogFilePathCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46046,7 +46046,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UsernameAndPasswordCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46061,7 +46061,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UnknownOutputShouldThrow": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46076,7 +46076,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputDefaultsToJson": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46091,7 +46091,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46106,7 +46106,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.MultipleOutputJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46121,7 +46121,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputBuildserverCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46136,7 +46136,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.MultipleOutputBuildserverCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46151,7 +46151,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46166,7 +46166,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.MultipleOutputFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46181,7 +46181,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputBuildserverAndJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46196,7 +46196,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputBuildserverAndJsonAndFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46211,7 +46211,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.MultipleArgsAndFlag": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46226,7 +46226,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OutputFileArgumentCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46242,7 +46242,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UrlAndBranchNameCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46257,7 +46257,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.WrongNumberOfArgumentsShouldThrow": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46272,7 +46272,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UnknownArgumentsShouldThrow": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46288,7 +46288,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoTrue": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46309,7 +46309,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateProjectTrue": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46327,7 +46327,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoFalse": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46343,7 +46343,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.CreateMultipleAssemblyInfoProtected": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46358,7 +46358,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46373,7 +46373,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoWithFilename": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46388,7 +46388,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenames": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46403,7 +46403,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateProjectFilesWithMultipleFilenames": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46418,7 +46418,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46433,7 +46433,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.UpdateAssemblyInfoWithRelativeFilename": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46448,7 +46448,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideconfigWithNoOptions": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46463,7 +46463,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OverrideconfigWithInvalidOption": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46479,7 +46479,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureAssemblyInfoTrueWhenFound": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46494,7 +46494,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureAssemblyInfoTrue": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46509,7 +46509,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureAssemblyInfoFalse": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46524,7 +46524,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.DynamicRepoLocation": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46539,7 +46539,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.CanLogToConsole": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46554,7 +46554,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.NofetchTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46569,7 +46569,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.NoNormalizeTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46584,7 +46584,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.AllowshallowTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46599,7 +46599,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.DiagTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46614,7 +46614,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.DiagAndLogToConsoleIsNotIgnored": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46629,7 +46629,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNofetch": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46644,7 +46644,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNonormalize": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46659,7 +46659,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNocache": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46674,7 +46674,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeAllowshallow": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46689,7 +46689,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.SeveralSwitchesCanBeParsed": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46727,7 +46727,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.LogPathCanContainForwardSlash": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46742,7 +46742,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.BooleanArgumentHandling": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46757,7 +46757,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.NocacheTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46772,7 +46772,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.CheckVerbosityParsing": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46792,7 +46792,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46807,7 +46807,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EmptyArgumentsRemotePasswordDefinedSetsPassword": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46822,7 +46822,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46837,7 +46837,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46852,7 +46852,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureShowVariableIsSet": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46867,7 +46867,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureFormatIsSet": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46882,7 +46882,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ThrowIfConfigurationFileDoesNotExist": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46898,7 +46898,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.EnsureConfigurationFileIsSet": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46913,7 +46913,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.ShortAliasCIsConfigNotCommit": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46928,7 +46928,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ArgumentParserTests.CommitLongFormSetsCommitId": {
     "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
@@ -46943,7 +46943,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OverrideConfigSupportsNestedV7RootAndBranchPaths": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -46958,7 +46958,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OverrideConfigRejectsV6PathInV7WithReplacement": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -46973,7 +46973,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EmptyMeansUseCurrentDirectory": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -46988,7 +46988,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.SingleMeansUseAsTargetDirectory": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47003,7 +47003,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47018,7 +47018,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.HelpSwitchTest": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47033,7 +47033,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.VersionSwitchTest": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47048,7 +47048,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.TargetDirectoryAndLogFilePathCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47063,7 +47063,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UsernameAndPasswordCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47078,7 +47078,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UnknownOutputShouldThrow": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47093,7 +47093,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputDefaultsToJson": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47108,7 +47108,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47123,7 +47123,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.MultipleOutputJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47138,7 +47138,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputBuildserverCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47153,7 +47153,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.MultipleOutputBuildserverCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47168,7 +47168,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47183,7 +47183,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.MultipleOutputFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47198,7 +47198,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputBuildserverAndJsonCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47213,7 +47213,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputBuildserverAndJsonAndFileCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47228,7 +47228,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.MultipleArgsAndFlag": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47243,7 +47243,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OutputFileArgumentCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47259,7 +47259,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UrlAndBranchNameCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47274,7 +47274,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.WrongNumberOfArgumentsShouldThrow": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47289,7 +47289,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UnknownArgumentsShouldThrow": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47305,7 +47305,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoTrue": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47326,7 +47326,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateProjectTrue": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47344,7 +47344,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoFalse": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47360,7 +47360,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.CreateMultipleAssemblyInfoProtected": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47375,7 +47375,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47390,7 +47390,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoWithFilename": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47405,7 +47405,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenames": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47420,7 +47420,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateProjectFilesWithMultipleFilenames": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47435,7 +47435,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47450,7 +47450,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.UpdateAssemblyInfoWithRelativeFilename": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47465,7 +47465,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OverrideconfigWithNoOptions": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47480,7 +47480,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OverrideconfigWithInvalidOption": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47496,7 +47496,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureAssemblyInfoTrueWhenFound": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47511,7 +47511,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureAssemblyInfoTrue": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47526,7 +47526,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureAssemblyInfoFalse": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47541,7 +47541,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.DynamicRepoLocation": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47556,7 +47556,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.CanLogToConsole": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47571,7 +47571,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.NofetchTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47586,7 +47586,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.NoNormalizeTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47601,7 +47601,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.AllowshallowTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47616,7 +47616,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.DiagTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47631,7 +47631,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.DiagAndLogToConsoleIsNotIgnored": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47646,7 +47646,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNofetch": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47661,7 +47661,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNonormalize": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47676,7 +47676,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNocache": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47691,7 +47691,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeAllowshallow": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47706,7 +47706,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.SeveralSwitchesCanBeParsed": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47744,7 +47744,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.LogPathCanContainForwardSlash": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47759,7 +47759,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.BooleanArgumentHandling": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47774,7 +47774,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.NocacheTrueWhenDefined": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47789,7 +47789,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.CheckVerbosityParsing": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47809,7 +47809,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47824,7 +47824,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EmptyArgumentsRemotePasswordDefinedSetsPassword": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47839,7 +47839,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47854,7 +47854,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47869,7 +47869,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureShowVariableIsSet": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47884,7 +47884,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureFormatIsSet": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47899,7 +47899,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.ThrowIfConfigurationFileDoesNotExist": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47915,7 +47915,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LegacyArgumentParserTests.EnsureConfigurationFileIsSet": {
     "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
@@ -47930,7 +47930,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "QuotedStringHelpersTests.SplitUnquotedTests": {
     "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
@@ -47955,7 +47955,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "QuotedStringHelpersTests.SplitUnquotedRemovesEmptyEntries": {
     "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
@@ -47970,7 +47970,7 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "QuotedStringHelpersTests.UnquoteTextTests": {
     "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
@@ -47986,6 +47986,6 @@
     "adaptations": [
       "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
