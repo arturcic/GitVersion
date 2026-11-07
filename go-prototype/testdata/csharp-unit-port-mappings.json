@@ -54700,7 +54700,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54717,7 +54717,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuild": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54734,7 +54734,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54751,7 +54751,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExist": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54768,7 +54768,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExistInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54785,7 +54785,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExist": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54802,7 +54802,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "UpdateAssemblyInfoTaskTest.UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExistInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
@@ -54819,7 +54819,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutput": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54834,7 +54834,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInAzurePipeline": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54849,7 +54849,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldNotUpdateBuildNumberInAzurePipeline": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54864,7 +54864,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldUpdateBuildNumberInAzurePipeline": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54883,7 +54883,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInGitHubActions": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54898,7 +54898,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutputWhenRunWithMsBuild": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54913,7 +54913,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "WriteVersionInfoTest.WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputWhenRunWithMsBuildInAzurePipeline": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
@@ -54928,7 +54928,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GetVersionTaskTests.OutputsShouldMatchVariableProvider": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
@@ -54943,7 +54943,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GetVersionTaskTests.GetVersionTaskShouldReturnVersionOutputVariables": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
@@ -54958,7 +54958,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GetVersionTaskTests.GetVersionTaskShouldReturnVersionOutputVariablesForBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
@@ -54973,7 +54973,7 @@
     "adaptations": [
       "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GetVersionTaskTests.GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuild": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
@@ -54995,7 +54995,7 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GetVersionTaskTests.GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuildInBuildServer": {
     "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
@@ -55014,6 +55014,6 @@
     "adaptations": [
       "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

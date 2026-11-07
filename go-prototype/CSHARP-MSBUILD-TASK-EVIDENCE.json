@@ -1,0 +1,212 @@
+{
+  "source_checkpoint": "4409132033227f0f424b4d87cfcae32e3e1002ac",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "ported_methods": 20,
+  "original_parameter_cases": 51,
+  "regular_port_cases": 24,
+  "msbuild_engine_cases": 27,
+  "inventory": {
+    "verified_unit_component": 1335,
+    "total_unit_component": 1516,
+    "target": 1365,
+    "verified_integration": 38,
+    "total_integration": 662
+  },
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40489,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "msbuild_engine_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40489,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "msbuild_engine_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    }
+  },
+  "candidate_sha256": {
+    "macos": "5c672158e11578ede74874cacbe96332b4196018d24209111a44f04a6b070359",
+    "ubuntu26": "b0fdc6faf0b0219fc58e22f91adf8a74fead52118478a20292fe21d7a80552ed"
+  },
+  "process_reports": {
+    "macos": {
+      "cli_execution_regression": {
+        "report": ".local/msbuild-task-ports/macos/cli-execution-2352928884/report.json",
+        "sha256": "359c73c26ab1e80aa6e3cbc92350950adbe0cc08cc93c849943702e113d36c75",
+        "log_sha256": "0ec87dfac5f2fcd0f5c2d6a66a240ce52d40280a51b4f469c06f81acceb48d7b"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/msbuild-task-ports/macos/msbuild-output-3703232894/report.json",
+        "sha256": "430ce5efc0dcf74870ffbb549c936641d68079d481ebc032da655d2e1089b791",
+        "log_sha256": "0ec87dfac5f2fcd0f5c2d6a66a240ce52d40280a51b4f469c06f81acceb48d7b"
+      },
+      "msbuild_tasks": {
+        "report": ".local/msbuild-task-ports/macos/msbuild-tasks-2462066793/report.json",
+        "sha256": "49f485347379cec4e4aa923c46c5ad510e5b0f786211ce39aa394d990ff578c5",
+        "log_sha256": "0ec87dfac5f2fcd0f5c2d6a66a240ce52d40280a51b4f469c06f81acceb48d7b"
+      },
+      "repository_execution_regression": {
+        "report": ".local/msbuild-task-ports/macos/repository-execution-1904844367/report.json",
+        "sha256": "113381f4878e8009fab0dd74296ce43aa78ed97fb32c38b8069898c408d01841",
+        "log_sha256": "0ec87dfac5f2fcd0f5c2d6a66a240ce52d40280a51b4f469c06f81acceb48d7b"
+      }
+    },
+    "ubuntu26": {
+      "cli_execution_regression": {
+        "report": ".local/msbuild-task-ports/linux/cli-execution-4153175070/report.json",
+        "sha256": "43b7cf6214b5a7a10c970ef77d26a1ae71c497e3765c368e5b4e076c34651c85",
+        "log_sha256": "84829502ea19b6c2524b71fc549a60024b4a5e8b7e52f98549cd01ca37ff9c07"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/msbuild-task-ports/linux/msbuild-output-4241131197/report.json",
+        "sha256": "eb2e8e12b3563546c5325b087bf03a918cb1e1aecc6c0f4c0db5f576c0963811",
+        "log_sha256": "84829502ea19b6c2524b71fc549a60024b4a5e8b7e52f98549cd01ca37ff9c07"
+      },
+      "msbuild_tasks": {
+        "report": ".local/msbuild-task-ports/linux/msbuild-tasks-1634697138/report.json",
+        "sha256": "3c2bbb97c2933f8f1260a53f8fb960c0f4d7b9ce50a5d44b67d685617cc9b6c9",
+        "log_sha256": "84829502ea19b6c2524b71fc549a60024b4a5e8b7e52f98549cd01ca37ff9c07"
+      },
+      "repository_execution_regression": {
+        "report": ".local/msbuild-task-ports/linux/repository-execution-604075470/report.json",
+        "sha256": "f39fdd5389f32a0a7317c8b403dc910246cde344d01922646a7a7eb1779faca1",
+        "log_sha256": "84829502ea19b6c2524b71fc549a60024b4a5e8b7e52f98549cd01ca37ff9c07"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "ec6d7fe5520f2b7fc33159615f0da906b814f4918791782fa59487f282bd37d8",
+    "macos_path": ".local/msbuild-task-ports/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/msbuild-task-ports/linux/unit/internal-commandline.log": "364c192b9cc1a6fee183cad782cbe7b40d87c1f2680e890ecab599e65026b27f",
+      ".local/msbuild-task-ports/linux/unit/internal-gitrepo.log": "83ebf42861fd7375c556cc77698f8479eedaa3cf3dd282a052b785397e090918",
+      ".local/msbuild-task-ports/linux/unit/internal-patterns.log": "0259d7d03c0180080c178760a3cf55b6fc38c482d3aa4cd7cc71842e578f46ba",
+      ".local/msbuild-task-ports/linux/unit/internal-semver.log": "da924d9ef48c3ba41235e18e0038690abb92c5cdda5d5550cd7087201ba80ff7",
+      ".local/msbuild-task-ports/linux/unit/internal-fixtures.log": "e39d2ca3885256a878b8078606f4321dab5360d0be0a289fbe79c6cda912bc37",
+      ".local/msbuild-task-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/msbuild-task-ports/linux/unit/cmd-gitversion-go.log": "21adf698b1a39bed2eb35d442a36c53505c4cdad1495eb1fab79992edf61c038",
+      ".local/msbuild-task-ports/linux/unit/internal-config.log": "c0a91235455a94748790135a5b32de0b0883f806234d9d7dd7f34b8bb8199308",
+      ".local/msbuild-task-ports/linux/unit/internal-calculate.log": "d1b78b4c87069429f4373118e6b9fda544aafa5ea349110d732a06e83554b124",
+      ".local/msbuild-task-ports/linux/unit/cmd-parity.log": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3",
+      ".local/msbuild-task-ports/linux/unit/internal-buildagent.log": "ae34f30e3638e91eddc167f17fd54c209758fb2628eb9f36238d882d55bb0d38",
+      ".local/msbuild-task-ports/linux/unit/internal-parity.log": "14acad713af20365f118ae45423aafb1e9f7f0810e96a84c603c01af589c7d38",
+      ".local/msbuild-task-ports/linux/unit/internal-output.log": "d79d9a6a032dae88e2826242d63e17e8f99b6539c696f5555c7a782e574fe68d"
+    }
+  },
+  "dependency_list_sha256": "d76bc51f9d69b33bb0aa326d5699bde5fb519d4550c11a3d438c2815917a6595",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/csharp_msbuild_output_test.go": "99ef3edda0df6e4785719ae94d397e90452f6239a3a1c41ee2db135e224cdad2",
+    "cmd/gitversion-go/csharp_msbuild_tasks_test.go": "7da887b3a4e581b46b7741fc4ee81a14861a0c5ae442a3fbc12f2aa1b5a1fa34",
+    "cmd/gitversion-go/msbuild.go": "6f0608016ee46b92225dc2c817c472acf6b8c583d324082819b3f5f28147f878",
+    "cmd/gitversion-go/msbuild_output_integration_test.go": "de17a3fc5beb66db652fc844f19a608a799d0bedeb2e116696a306c3a305f83c",
+    "cmd/gitversion-go/msbuild_tasks_integration_test.go": "81eb9137dbe61123332dbef3750e56c2d03ee61d4c7782fef8f98eb761ccbdc0",
+    "msbuild/GitVersion.Go.targets": "469c8b726258f86aa4b74fcf5daf71978198e46acdf615b52cf6c53907cff664",
+    "scripts/port-msbuild-task-tests.py": "6c7b319d984e30f4c73e62f0ab3325f4d4ceed055fa2579539afa45cfce9a76b",
+    "testdata/csharp-msbuild-tasks.json": "b32edbe19bfc3547e75d0b17bfc4589c855cf2eea6a3f17487a39e0624110559",
+    "testdata/csharp-test-inventory.json": "d7ed42ca160ee6143a3a38f355b50a4ea56d3d7a6544b1013679a247982ef894",
+    "testdata/csharp-unit-port-mappings.json": "4a12177db6069dff61e063b8cc00e19745960d472787a058bcad5e2a6a502a1f"
+  },
+  "reused_linux_unit_binary_hashes": {
+    "internal-output.test": "7a15da53e754c26b636b6c5a05588d29113e383d080544fafd7b483dce68e340",
+    "internal-patterns.test": "d562529c06240976d7fbae6e50df9d1daafc170c0e5d9918f4cb2fab8ec8d915",
+    "internal-buildagent.test": "fef63000421aa1b6dc6cd490a604909926a6760be12740754ed1125c6a0f300a",
+    "cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    "internal-config.test": "a874fd7f0557d56146cb8f4a17767d028af00bd6140546e511994f63d79572af",
+    "internal-fixtures.test": "291523b70f717dc71b9c3fa5a3397897ce29bad22f00a9bd01002e8450949766",
+    "internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    "internal-gitrepo.test": "7dc761d1cec98d315b0e27d0a4005fd91502799dffa29687485aca67dd289d4e",
+    "internal-semver.test": "cf2872451dfc61687f0935319eac05222de7d04c1bff94dc13d9a80a0eaa041c",
+    "internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    "internal-calculate.test": "20cb78497da709272ebcae2a973005e9a806d8c7e15cb6671da507f8588b7226",
+    "internal-formatting.test": "bf0069ded21cad563627999ca29bb9fd0878d2b016b0ff11180a738b65fbb6e7"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/msbuild-task-ports/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/msbuild-task-ports/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/msbuild-task-ports/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/msbuild-task-ports/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T07:41:44.677046625Z",
+      "FinishedAt": "2026-11-07T07:42:56.234303047Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-task-ports/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-output-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/Library/Application Support/dotnetup/dotnet/sdk/10.0.403",
+        "Destination": "/sdk",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}
