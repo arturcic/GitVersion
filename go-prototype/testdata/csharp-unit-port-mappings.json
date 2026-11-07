@@ -51585,7 +51585,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogMatchesRevisionWalkWhenBaseVersionSourceIsUnreachableFromHead": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51600,7 +51600,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogExcludesTheAncestorsOfTheGivenShas": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51615,7 +51615,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogStopsExcludingAtIgnoredCommits": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51630,7 +51630,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogHonoursIgnoredCommits": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51645,7 +51645,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogMatchesRevisionWalkWhenACommitInTheMiddleOfTheHistoryIsIgnored": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51660,7 +51660,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogPerformsExactlyOneRevisionWalk": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51675,7 +51675,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.IncrementStrategyFinderReadsTheWholeHistoryWithASingleRevisionWalk": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51690,7 +51690,7 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RepositoryStoreCommitLogTests.DerivedCommitLogRetainsOnlyTheProjectionOfTheCurrentHead": {
     "source": "src/GitVersion.Core.Tests/Core/RepositoryStoreCommitLogTests.cs",
@@ -51705,6 +51705,6 @@
     "adaptations": [
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
