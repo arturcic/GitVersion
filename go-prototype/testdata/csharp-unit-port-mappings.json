@@ -2049,7 +2049,7 @@
       "case-010"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LabelTokenizerTests.ParseTokens_InvalidLiterals_Throws": {
     "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
@@ -2065,7 +2065,7 @@
       "case-003"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LabelTokenizerTests.ParseTokens_ValidIdentifiers_ReturnsValid": {
     "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
@@ -2088,7 +2088,7 @@
       "case-010"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LabelTokenizerTests.ParseTokens_MalformedIdentifiers_Throws": {
     "source": "src/GitVersion.Core.Tests/Formatting/LabelTokenizerTests.cs",
@@ -2107,7 +2107,7 @@
       "case-006"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithValidName_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2120,7 +2120,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithEmptyOrWhitespace_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2135,7 +2135,7 @@
       "case-002"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithTooLongName_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2148,7 +2148,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithMaxValidLength_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2161,7 +2161,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithInvalidCharacters_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2174,7 +2174,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeEnvVarNameTests.SanitizeEnvVarName_WithValidNames_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeEnvVarNameTests.cs",
@@ -2192,7 +2192,7 @@
       "case-005"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithValidFormat_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2205,7 +2205,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithEmptyOrWhitespace_ThrowsFormatException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2220,7 +2220,7 @@
       "case-002"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithTooLongFormat_ThrowsFormatException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2233,7 +2233,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithMaxValidLength_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2246,7 +2246,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithControlCharacters_ThrowsFormatException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2263,7 +2263,7 @@
       "case-004"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithTabCharacter_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2276,7 +2276,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeFormatTests.SanitizeFormat_WithValidFormats_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeFormatTests.cs",
@@ -2296,7 +2296,7 @@
       "case-007"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithValidName_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2309,7 +2309,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithEmptyOrWhitespace_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2324,7 +2324,7 @@
       "case-002"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithTooLongName_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2337,7 +2337,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithMaxValidLength_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2350,7 +2350,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithInvalidCharacters_ThrowsArgumentException": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2363,7 +2363,7 @@
       "case-000"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithValidNames_ReturnsInput": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2382,7 +2382,7 @@
       "case-006"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SanitizeMemberNameTests.SanitizeMemberName_WithDottedNames_HandledByRegex": {
     "source": "src/GitVersion.Core.Tests/Formatting/SanitizeMemberNameTests.cs",
@@ -2396,6 +2396,6 @@
       "case-001"
     ],
     "adaptations": "All original parameter cases and assertions retained. C# exception assertions map to Go error returns; explicit exception messages remain exact. Token names remain ordered. No configuration-label resolution or general formatter dispatch is claimed by these primitive ports.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

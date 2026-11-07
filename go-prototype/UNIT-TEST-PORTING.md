@@ -9,10 +9,11 @@ outside the explicit IntegrationTests directories and **662 integration declarat
 Using this conservative existing classification, the target is **at least 1,365
 fully mapped and verified unit/component declarations**. The first batch added
 six unit methods plus 38 integration methods; the increment batch added 14 unit
-methods and the parsing/formatting/regex batch added 42 more. Current verified
-unit total: **62 of 1,516 (4.09%)**, leaving **1,303** to reach the target.
+methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Current verified
+unit total: **86 of 1,516 (5.67%)**, leaving **1,279** to reach the target.
 Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
-`CSHARP-MODEL-PATTERNS-EVIDENCE.json`.
+`CSHARP-MODEL-PATTERNS-EVIDENCE.json`, plus
+`CSHARP-LABEL-VALIDATION-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside

@@ -15,8 +15,8 @@ This batch ports **42 complete method declarations and 171 original cases**:
 
 Together with the preceding increment batch, all 21 attributed methods in the
 pinned `SemanticVersionTests.cs` now have complete source mappings. This does not
-claim all semantic-version behavior is covered: other classes have additional
-comparison, prerelease and metadata tests still pending.
+claim all semantic-version behavior is covered: remaining calculation and formatting
+classes exercise additional interactions and still need ports.
 
 ## Implementation
 

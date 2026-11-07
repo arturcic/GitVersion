@@ -1,0 +1,143 @@
+{
+  "implementation_checkpoint": "c492f2f6177a2ef596a8ac5b76ddddc1b1b2b711",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "new_unit_methods": 24,
+  "original_unit_cases": 82,
+  "mapped_methods": 124,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 86,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 4780,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 4780,
+      "regular_packages_passed": 11,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-331028217",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-493786442",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/csharp-label-validation-linux-evidence/csharp-config-ports-263990418",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/csharp-label-validation-linux-evidence/run-1891852467",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/main.go": "f322f3def2afb153c1b04ad2e1ac520a62d40e2eef936f83ff0b853a9c709c89",
+    "internal/calculate/calculate.go": "e744f802258233da6c2bc14fd7dd70d1e12ced04ead76ffdf4a3eb0f38a1337d",
+    "internal/calculate/mainline.go": "cd572d2e2dbb899ff61b822551dfcf3dc2782d156e9204760042ecd49686f47c",
+    "internal/calculate/workflows.go": "d187f8a4ad07d6a5a67fbe51e17985bc525b511aee75c8cd2bd7fd6547e9a7e8",
+    "internal/config/config.go": "40630c7c2ace1447af06c5bfcaca42455502ca305516a88c99375dfc6d65afee",
+    "internal/config/workflows.go": "a435864fd2ab853e734fc9049fa26b0ee9553c37002d12001be3b5d3ff53a98c",
+    "internal/gitrepo/repository.go": "26f5aee50242fc0e777253260789d46611a675dac1a892fef4775a991bdd6a93",
+    "internal/gitrepo/walk.go": "c404252bb932e571dd435d7fd61aaeb3dacb3e7beb314f855b37264bbbc83bd9",
+    "internal/output/output.go": "3b7b5b9f77eeb309bb953bb5f73d2a2e6b34de59c7edd6ec5b9948312b322078",
+    "internal/semver/full.go": "17935171844be5bb88bf91a419aad52e00aa359327152f48855569118802d1e8",
+    "internal/semver/version.go": "5efc3881aa9164014d38321434282c39c1e00c2167cbb67205ed9c737ea459be",
+    "internal/patterns/patterns.go": "09bd7e9f41abad535d5021bc5e934a2c7798d2cc5b4b6f328987e990813cabc0",
+    "internal/formatting/sanitizer.go": "6b80d1a0ac760d38e612b490b7b9e118d9c99da1e3a4d86cfbbb16eefd735264",
+    "internal/formatting/tokenizer.go": "5f4e68d9d68fbdb37b48ab182c31014e288edec9b6ebe7f82535767bf3eeca90",
+    "go.mod": "8b0442dd0cdab323d02b77df2ac36b894ff56c4e2465df083b430ed022e641aa",
+    "go.sum": "135718341e900ee1d8d3b14c324bbacc21f93d9db265ce10a4bad4fbb1515252",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8"
+  },
+  "candidate_sha256": {
+    "macos": "8f0cd7801432a7f2b9a738916826678b34dbc8a0231e3c04c94b20f819628256",
+    "ubuntu26": "61223aa53277160e819fd08c7aa6242ba2f5551f481bdbca4957b4cd03a2d391"
+  },
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T00:46:40.657702966Z",
+      "FinishedAt": "2026-11-07T00:48:05.826808922Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/csharp-label-validation-linux-evidence/csharp-config-ports-263990418.tar.gz",
+      "sha256": "cf780b89627aa18f3de12192481f5769f3c3d09ad3578674d6aa6cb13f1a4a2f",
+      "bytes": 30994
+    },
+    {
+      "path": ".local/csharp-label-validation-linux-evidence/run-1891852467.tar.gz",
+      "sha256": "b568bb6bbfe4bad39b97e243bb2642afc30cabc001d406842dad9dd6a32e071a",
+      "bytes": 566634
+    }
+  ],
+  "evidence_hashes": {
+    ".local/csharp-label-validation-unit-macos-final.jsonl": "6572c463e5ead98b21a04d45e08a7aeb9ebef60ae4894825a17523292771d472",
+    ".local/csharp-label-validation-platform-macos.log": "b423484bc25f25dd9e0e84b4193d33463c58c15a996734ca82f044055d92300b",
+    ".local/csharp-label-validation-linux-evidence/linux-platform.log": "b43b0d7c8b7a525bdf79821cb82f00cd90846834af272546c44a8ba2b7d636ef",
+    ".local/csharp-label-validation-linux-evidence/linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/csharp-label-validation-linux-evidence/archive-index.json": "2506fbd16d1bd2d23bad8891648ae5ddd862686ca6530a5afb0315fee5d1a909",
+    "testdata/csharp-label-tokenizer.json": "a07164e97b72c79f259a427ed2427b6bde59359e3897da2da456494b95c66d08",
+    "testdata/csharp-sanitize-format.json": "137ad9a9a62727e79a44ec83783b350314ff5f1c14dbac6110fc90f94afdded0",
+    "testdata/csharp-sanitize-env-var-name.json": "5ef536e809fc96d95377c197fc0e2e55cdb4f095e55d5e4b3e7de119ef318738",
+    "testdata/csharp-sanitize-member-name.json": "d403bb0b55e2ca518802c9d3b004023a892f363cfc123af0291f7ac2651d95e0",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/cmd-gitversion-go.log": "9416eac20bd23cc590eb4311406c21e33a33bc3f9368646e6b0939d0f85cbbc7",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/cmd-parity.log": "1747f13f44d52acd7cc002a723b0c3ee8c6ca9426a23b2fd8bf231b2c8d88849",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-calculate.log": "73283f406de4e5cd46ac048f66a8b1f9142712fdda272529f1741e9e23f70a11",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-config.log": "94cc7034001e880e252da1d6b267a36301462d1e9898c2d0e5bb024284f04f97",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-fixtures.log": "36c023b9263a11e36a28e44b1568cb67748546d91d8caf65d35c44e78b86553f",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-formatting.log": "8f5b2ecb39b7933d33409701855370907b4967cee46ad7487bb14bbaafd4b98f",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-gitrepo.log": "04aeb743c93d98e39d121da1007b91c612fb5ae803915588af1f3ababa559d2d",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-output.log": "03b9d7b1ab9ab4b1bc6548f9214fb4e47a8b927f6216207d75daac3484570908",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-parity.log": "ab09e838086ec4ed8b4c33c46385a8d983ee175ba9db0a2cc85821a5c212e6b5",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+    ".local/csharp-label-validation-linux-evidence/linux-unit-logs/internal-semver.log": "1e41f297b361162c2b01b92c5d0b6de8085892711f73e11f907a703fe6ff6258"
+  },
+  "unit_reference": "Literal expected values and assertions from pinned C# source. Original NUnit runner not executed by this harness.",
+  "regression_scope": "Full regular/frozen suites on both OS; fresh first-batch calculation/configuration process probes. Previous full strategy matrix remains historical evidence."
+}

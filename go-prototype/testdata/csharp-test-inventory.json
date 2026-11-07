@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 86,
-      "verified": 62
+      "verified": 86
     },
     "integration": {
       "declarations": 662,
@@ -14291,7 +14291,7 @@
       ],
       "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpLabelTokens",
       "fixtures": [],
       "port_cases": [
@@ -14335,7 +14335,7 @@
       ],
       "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpLabelTokens",
       "fixtures": [],
       "port_cases": [
@@ -14400,7 +14400,7 @@
       ],
       "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpLabelTokens",
       "fixtures": [],
       "port_cases": [
@@ -14456,7 +14456,7 @@
       ],
       "source_sha256": "4450d7339a559b34fb9fe195a987f76d8599d57cf03ffe26445cb4b59552fe4a",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpLabelTokens",
       "fixtures": [],
       "port_cases": [
@@ -14576,7 +14576,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14606,7 +14606,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14630,7 +14630,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14652,7 +14652,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14674,7 +14674,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14716,7 +14716,7 @@
       ],
       "source_sha256": "1ed09da57eb8733da4b39ee7e13e8f493183b289510ce73ed4501fc86a038638",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14743,7 +14743,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14773,7 +14773,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14797,7 +14797,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14819,7 +14819,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14857,7 +14857,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14883,7 +14883,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14933,7 +14933,7 @@
       ],
       "source_sha256": "dcb77dd36df997237d4d9ef0dd2e3d1d7021f876ea532bcdb82c8a3906c30618",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14962,7 +14962,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -14992,7 +14992,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -15016,7 +15016,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -15038,7 +15038,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -15060,7 +15060,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -15106,7 +15106,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
@@ -15138,7 +15138,7 @@
       ],
       "source_sha256": "54b6b3973489fba2f1519adef495224beb9f425d3d8a1177f6a176d2cffedbd3",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpInputSanitizers",
       "fixtures": [],
       "port_cases": [
