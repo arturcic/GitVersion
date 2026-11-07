@@ -42374,7 +42374,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "2f7b6b2c642479112b6f4b540d91f69024cde5aa15b61652e7fd210dfe6170bf"
   },
   "MinDateVersionFilterTests.WhenCommitShouldExcludeWithReason": {
@@ -42391,7 +42391,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "2f7b6b2c642479112b6f4b540d91f69024cde5aa15b61652e7fd210dfe6170bf"
   },
   "MinDateVersionFilterTests.WhenShaMismatchShouldNotExclude": {
@@ -42408,7 +42408,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "2f7b6b2c642479112b6f4b540d91f69024cde5aa15b61652e7fd210dfe6170bf"
   },
   "MinDateVersionFilterTests.ExcludeShouldAcceptVersionWithNullCommit": {
@@ -42425,7 +42425,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "2f7b6b2c642479112b6f4b540d91f69024cde5aa15b61652e7fd210dfe6170bf"
   },
   "ShaVersionFilterTests.VerifyNullGuard": {
@@ -42442,7 +42442,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "e351fef10dfcf374d17089239fa83825da3c2505ae1f0a80dc0f892e2ca2f1ed"
   },
   "ShaVersionFilterTests.WhenShaMatchShouldExcludeWithReason": {
@@ -42459,7 +42459,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "e351fef10dfcf374d17089239fa83825da3c2505ae1f0a80dc0f892e2ca2f1ed"
   },
   "ShaVersionFilterTests.WhenShaMismatchShouldNotExclude": {
@@ -42476,7 +42476,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "e351fef10dfcf374d17089239fa83825da3c2505ae1f0a80dc0f892e2ca2f1ed"
   },
   "ShaVersionFilterTests.ExcludeShouldAcceptVersionWithNullCommit": {
@@ -42493,7 +42493,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "e351fef10dfcf374d17089239fa83825da3c2505ae1f0a80dc0f892e2ca2f1ed"
   },
   "PathFilterTests.VerifyNullGuard": {
@@ -42510,7 +42510,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "6945fe68db972015ece6d339c6b5cca44b13f85799e51cc4fac393fd50e2f60e"
   },
   "PathFilterTests.WhenPathMatchShouldExcludeWithReason": {
@@ -42527,7 +42527,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "6945fe68db972015ece6d339c6b5cca44b13f85799e51cc4fac393fd50e2f60e"
   },
   "PathFilterTests.WhenPathMismatchShouldNotExclude": {
@@ -42544,7 +42544,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "6945fe68db972015ece6d339c6b5cca44b13f85799e51cc4fac393fd50e2f60e"
   },
   "PathFilterTests.ExcludeShouldAcceptVersionWithNullCommit": {
@@ -42561,7 +42561,7 @@
       "Go errors replace null-argument exceptions; all original exclude flags and null/nonblank reason assertions are retained.",
       "Mock commit paths and SHA become an immutable commit value; null version and null commit remain distinct."
     ],
-    "status": "ported-awaiting-platform-verification",
+    "status": "verified-macos-ubuntu",
     "case_file_sha256": "6945fe68db972015ece6d339c6b5cca44b13f85799e51cc4fac393fd50e2f60e"
   }
 }

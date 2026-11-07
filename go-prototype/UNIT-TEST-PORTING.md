@@ -9,15 +9,16 @@ outside the explicit IntegrationTests directories and **662 integration declarat
 Using this conservative existing classification, the target is **at least 1,365
 fully mapped and verified unit/component declarations**. The first batch added
 six unit methods plus 38 integration methods; the increment batch added 14 unit
-methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Current verified
-unit total: **564 of 1,516 (37.20%)**, leaving **801** to reach the target.
+methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Current verified
+unit total: **576 of 1,516 (37.99%)**, leaving **789** to reach the target.
 Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-MODEL-PATTERNS-EVIDENCE.json`, plus
 `CSHARP-LABEL-VALIDATION-EVIDENCE.json` and
 `CSHARP-TEMPLATE-FORMATTING-EVIDENCE.json` and
 `CSHARP-DISPATCH-LABELS-EVIDENCE.json` and
 `CSHARP-MAINLINE-EVIDENCE.json` and
-`CSHARP-MERGE-MESSAGE-EVIDENCE.json`.
+`CSHARP-MERGE-MESSAGE-EVIDENCE.json` and
+`CSHARP-VERSION-FILTER-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside
