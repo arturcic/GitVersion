@@ -49848,7 +49848,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParsesUpperCaseHexAndNormalizesToLowerCase": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49863,7 +49863,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParsesA64CharacterSha256HexString": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49878,7 +49878,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParsesRawBytes": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49893,7 +49893,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParsesAsciiEncodedHex": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49908,7 +49908,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParseRejectsInvalidHexLengths": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49926,7 +49926,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParseRejectsInvalidRawByteLengths": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49941,7 +49941,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ParseRejectsNonHexCharacters": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49956,7 +49956,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.EqualObjectIdsAreEqualAndHaveTheSameHashCode": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49971,7 +49971,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.DifferentObjectIdsAreNotEqual": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -49986,7 +49986,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ASha1IdIsNotEqualToASha256IdWithTheSamePrefix": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50001,7 +50001,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.CanBeUsedAsADictionaryKey": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50016,7 +50016,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ToStringWithLengthReturnsAHexPrefix": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50034,7 +50034,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.ToStringWithInvalidLengthThrows": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50049,7 +50049,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.CopyToCopiesTheRawBytes": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50064,7 +50064,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.AsUInt16ReturnsTheFirstTwoBytes": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50079,7 +50079,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitObjectIdTests.EmptyHasAZeroHashLength": {
     "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
@@ -50094,7 +50094,7 @@
     "adaptations": [
       "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.DiscoversARepositoryFromItsRootAndFromANestedDirectory": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50109,7 +50109,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.TryOpenDoesNotWalkUpToAnEnclosingRepository": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50124,7 +50124,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.RejectsSha256RepositoriesWithAClearMessage": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50139,7 +50139,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.ReturnsNullOutsideOfARepository": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50154,7 +50154,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.ResolvesLinkedWorktrees": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50169,7 +50169,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.DetectsShallowClones": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50184,7 +50184,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.DiscoversABareRepository": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50199,7 +50199,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitRepositoryLayoutTests.ThrowsForReftableRepositories": {
     "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
@@ -50214,7 +50214,7 @@
     "adaptations": [
       "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.UnescapesBackslashesInUnquotedValue": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50229,7 +50229,7 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.UnescapesBackslashesInQuotedValue": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50244,7 +50244,7 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.KeepsForwardSlashPathUnchanged": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50259,7 +50259,7 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.StripsInlineCommentOutsideQuotesButNotInside": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50274,7 +50274,7 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.DecodesEscapeSequences": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50289,7 +50289,7 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitConfigurationFileTests.TrimsUnquotedTrailingWhitespaceButKeepsQuotedWhitespace": {
     "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
@@ -50304,6 +50304,6 @@
     "adaptations": [
       "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
