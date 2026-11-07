@@ -207,8 +207,8 @@ func validateValue(value *yaml.Node, rule fieldRule, name, path, version string)
 		value.Tag, value.Value, value.Style = "!!int", strconv.FormatInt(number, 10), 0
 	case "date":
 		for _, layout := range []string{time.RFC3339Nano, "2006-01-02T15:04:05", "2006-01-02 15:04:05", "2006-01-02"} {
-			if _, err := time.Parse(layout, value.Value); err == nil && value.Kind == yaml.ScalarNode {
-				stringScalar(value, name)
+			if parsed, err := time.Parse(layout, value.Value); err == nil && value.Kind == yaml.ScalarNode {
+				*value = *stringNode(parsed.Format("2006-01-02T15:04:05Z"))
 				return nil
 			}
 		}

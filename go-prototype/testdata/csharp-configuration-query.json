@@ -1,0 +1,625 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "ConfigurationPropertyQueryTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs",
+      "sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
+      "methods": {
+        "PreservesStringTypeAndContents": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                ""
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "null"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "true"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "123"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "2026-09-29"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "[vV]?"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "  quoted \"value\" \\ caf\u00e9\nsecond line\t"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "{Major}.{env:BUILD_NUMBER ?? 0}"
+              ]
+            }
+          ]
+        },
+        "UsesPublicScalarRepresentationAndInvariantNumbers": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "output.update-build-number",
+                "false"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "output.pre-release-weight",
+                "0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "output.tag-pre-release-weight",
+                "60000"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "output.assembly-versioning-scheme",
+                "\"MajorMinor\""
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "calculation.prevent-increment.of-merged-branch",
+                "true"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "calculation.ignore.commits-before",
+                "\"2026-01-02T03:04:05Z\""
+              ]
+            }
+          ]
+        },
+        "KnownNullIsQueryableEvenWhenOmittedFromFullDisplay": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "workflow"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "calculation.next-version"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "calculation.prevent-increment.of-merged-branch"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation.ignore.commits-before"
+              ]
+            }
+          ]
+        },
+        "RejectsUnknownPublicPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "tag-prefix"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "calculation.tagprefixpattern"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "calculation.update-build-number"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "output.tag-prefix"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "output.workflow"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "workflow.child"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "calculation.tag-prefix.child"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "calculation.missing"
+              ]
+            }
+          ]
+        },
+        "RejectsMalformedPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                ""
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "."
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "calculation..tag-prefix"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation.tag-prefix."
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "Calculation.tag-prefix"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "calculation.*"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "calculation.strategies[0]"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "calculation/tag-prefix"
+              ]
+            }
+          ]
+        },
+        "RejectsStructuredValuesAndDynamicTraversal": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "calculation"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "output"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "calculation.prevent-increment"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "calculation.ignore"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "calculation.branches"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "calculation.branches.main.increment"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "output.branches.missing.pre-release-weight"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "calculation.merge-message-formats"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "calculation.merge-message-formats.missing"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "calculation.strategies"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "calculation.strategies.0"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "calculation.ignore.sha"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "calculation.ignore.branches"
+              ]
+            }
+          ]
+        },
+        "RejectsV6EvenForAValidV7Path": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "NonNullScalarLeavesMatchFullSerializedConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationSerializerTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs",
+      "sha256": "6bfc60a9e091d075981c849c30671a510d074d5a23a5bf3982c77716a86424b9",
+      "methods": {
+        "SerializesV7CalculationAndOutputSectionsAndRoundTrips": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "SerializesFlatConfigurationWhenV6IsSelected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "Serialize_OrdersConfigurationPropertiesAndPreservesBranchNames": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationProviderTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
+      "sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
+      "methods": {
+        "CanWriteOutEffectiveConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationQueryIntegrationTests": {
+      "source": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs",
+      "sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
+      "methods": {
+        "QueryUsesDefaultAndWorkflowConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "GitFlow/v1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "GitHubFlow/v1"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "TrunkBased/preview1"
+              ]
+            }
+          ]
+        },
+        "QueryAndDisplayHonorFileThenRuntimeOverrides": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "managed",
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "managed",
+                true
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "libgit2",
+                false
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "libgit2",
+                true
+              ]
+            }
+          ]
+        },
+        "QueryPreservesNullBooleanAndStringValues": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "output.assembly-versioning-format",
+                "null"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "output.update-build-number",
+                "false"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "output.custom-version-format",
+                "\"null\""
+              ]
+            }
+          ]
+        },
+        "QueryRejectsUnsupportedConfigurationBeforeReadingFile": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6",
+                "require v7 configuration"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "invalid",
+                "Unrecognized GITVERSION_CONFIGURATION_VERSION"
+              ]
+            }
+          ]
+        },
+        "QueryErrorsUseOnlyStderr": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "config get calculation.missing",
+                "Unknown configuration property"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "config get tag-prefix",
+                "Unknown configuration property"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "config get calculation..tag-prefix",
+                "Invalid configuration property path"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "config get output",
+                "only scalar properties"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "config get calculation.branches.main.increment",
+                "maps and collections are not supported"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "config get calculation.strategies",
+                "maps and collections are not supported"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "config get",
+                "Could not parse command line parameter"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "--update-wix-version-file config get calculation.tag-prefix",
+                "cannot be used with 'config get'"
+              ]
+            }
+          ]
+        },
+        "QueryRejectsLegacyDocumentUnderV7": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "QueryDiscoversLocalOrRootConfigurationAndSupportsExplicitFile": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "QueryWorksWithoutGitHistoryAndKeepsVerboseLogsOffStdout": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "QueryPreservesAmbiguousConfigurationDiagnostic": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "QueryIsUnavailableWithLegacyArgumentParser": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShowConfigOverrideCorrectionIsLimitedToV7": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6",
+                "tag-prefix",
+                "[vV]?"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7",
+                "calculation.tag-prefix",
+                "overridden-"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "approval": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.CanWriteOutEffectiveConfiguration.approved.txt",
+    "sha256": "cac2e4f887d502c87e205d83abaccccdb48438022fa6e29dea58bda48bc78bb2",
+    "yaml": "assembly-file-versioning-scheme: MajorMinorPatch\nassembly-versioning-scheme: MajorMinorPatch\nbranches:\n  develop:\n    increment: Minor\n    is-main-branch: false\n    is-release-branch: false\n    is-source-branch-for: []\n    label: alpha\n    mode: ContinuousDelivery\n    pre-release-weight: 0\n    prevent-increment:\n      when-current-commit-tagged: false\n    regex: ^dev(elop)?(ment)?$\n    source-branches:\n      - main\n    track-merge-message: true\n    track-merge-target: true\n    tracks-release-branches: true\n  main:\n    increment: Patch\n    is-main-branch: true\n    is-release-branch: false\n    is-source-branch-for: []\n    label: ''\n    pre-release-weight: 55000\n    prevent-increment:\n      of-merged-branch: true\n    regex: \"^master$|^main$\"\n    source-branches: []\n    track-merge-message: true\n    track-merge-target: false\n    tracks-release-branches: false\n  release:\n    increment: Minor\n    is-main-branch: false\n    is-release-branch: true\n    is-source-branch-for: []\n    label: beta\n    mode: ManualDeployment\n    pre-release-weight: 30000\n    prevent-increment:\n      of-merged-branch: true\n      when-current-commit-tagged: false\n    regex: \"^releases?[\\\\/-](?<BranchName>.+)\"\n    source-branches:\n      - main\n      - support\n    track-merge-target: false\n    tracks-release-branches: false\n  feature:\n    increment: Inherit\n    is-main-branch: false\n    is-source-branch-for: []\n    label: \"{BranchName}\"\n    mode: ManualDeployment\n    pre-release-weight: 30000\n    prevent-increment:\n      when-current-commit-tagged: false\n    regex: \"^features?[\\\\/-](?<BranchName>.+)\"\n    source-branches:\n      - develop\n      - main\n      - release\n      - support\n      - hotfix\n    track-merge-message: true\n  pull-request:\n    increment: Inherit\n    is-source-branch-for: []\n    label: \"PullRequest{Number}\"\n    mode: ContinuousDelivery\n    pre-release-weight: 30000\n    prevent-increment:\n      of-merged-branch: true\n      when-current-commit-tagged: false\n    regex: \"^(pull-requests|pull|pr)[\\\\/-](?<Number>\\\\d*)\"\n    source-branches:\n      - develop\n      - main\n      - release\n      - feature\n      - support\n      - hotfix\n    track-merge-message: true\n  hotfix:\n    increment: Inherit\n    is-main-branch: false\n    is-release-branch: true\n    is-source-branch-for: []\n    label: beta\n    mode: ManualDeployment\n    pre-release-weight: 30000\n    prevent-increment:\n      when-current-commit-tagged: false\n    regex: \"^hotfix(es)?[\\\\/-](?<BranchName>.+)\"\n    source-branches:\n      - main\n      - support\n  support:\n    increment: Patch\n    is-main-branch: true\n    is-release-branch: false\n    is-source-branch-for: []\n    label: ''\n    pre-release-weight: 55000\n    prevent-increment:\n      of-merged-branch: true\n    regex: \"^support[\\\\/-](?<BranchName>.+)\"\n    source-branches:\n      - main\n    track-merge-target: false\n    tracks-release-branches: false\n  unknown:\n    increment: Inherit\n    is-main-branch: false\n    is-source-branch-for: []\n    label: \"{BranchName}\"\n    mode: ManualDeployment\n    prevent-increment:\n      when-current-commit-tagged: true\n    regex: \"(?<BranchName>.+)\"\n    source-branches:\n      - main\n      - develop\n      - release\n      - feature\n      - pull-request\n      - hotfix\n      - support\ncommit-date-format: yyyy-MM-dd\ncommit-message-incrementing: Enabled\nignore:\n  branches: []\n  paths: []\n  sha: []\n  tags: []\nincrement: Inherit\nis-main-branch: false\nis-release-branch: false\nis-source-branch-for: []\nlabel: \"{BranchName}\"\nmajor-version-bump-message: \"[+=]semver:\\\\s?(breaking|major)\"\nmerge-message-formats: {}\nminor-version-bump-message: \"[+=]semver:\\\\s?(feature|minor)\"\nmode: ContinuousDelivery\nno-bump-message: \"[+=]semver:\\\\s?(none|skip)\"\npatch-version-bump-message: \"[+=]semver:\\\\s?(fix|patch)\"\nprevent-increment:\n  of-merged-branch: false\n  when-branch-merged: false\n  when-current-commit-tagged: true\nregex: ''\nsemantic-version-format: Strict\nsource-branches: []\nstrategies:\n  - Fallback\n  - ConfiguredNextVersion\n  - MergeMessage\n  - TaggedCommit\n  - TrackReleaseBranches\n  - VersionInBranchName\ntag-pre-release-weight: 60000\ntag-prefix: \"[vV]?\"\ntrack-merge-message: true\ntrack-merge-target: false\ntracks-release-branches: false\nupdate-build-number: true\nversion-bump-reset-message: \"=semver:\"\nversion-in-branch-pattern: \"(?<version>[vV]?\\\\d+(\\\\.\\\\d+)?(\\\\.\\\\d+)?).*\"\n"
+  }
+}

@@ -13,8 +13,20 @@ type Provider struct {
 }
 
 func (p *Provider) Provide(directory *string, overrides []byte) (ResolvedConfiguration, error) {
+	return p.ProvideFrom(directory, nil, overrides)
+}
+
+func (p *Provider) ProvideFrom(directory, root *string, overrides []byte) (ResolvedConfiguration, error) {
+	if directory != nil && root != nil {
+		if err := p.Locator.Verify(*directory, *root); err != nil {
+			return ResolvedConfiguration{}, err
+		}
+	}
 	var data []byte
 	file, err := p.Locator.Get(directory)
+	if err == nil && file == nil && root != nil && pathValue(directory) != *root {
+		file, err = p.Locator.Get(root)
+	}
 	if err != nil {
 		return ResolvedConfiguration{}, err
 	}

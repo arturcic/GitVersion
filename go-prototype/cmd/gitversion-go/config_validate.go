@@ -134,25 +134,16 @@ func validationFile(workdir, name, format string) (*string, error) {
 	if err != nil {
 		return nil, err
 	}
-	for parent := filepath.Dir(dir); parent != dir; parent = filepath.Dir(parent) {
-		if _, err := os.Stat(filepath.Join(dir, ".git")); err == nil {
-			break
+	if root := configRepositoryRoot(dir); root != nil && *root != dir {
+		rootFile, err := locator.Get(root)
+		if err != nil {
+			return nil, err
 		}
-		if _, err := os.Stat(filepath.Join(parent, ".git")); err == nil {
-			rootFile, err := locator.Get(&parent)
-			if err != nil {
-				return nil, err
-			}
-			if file != nil && rootFile != nil {
-				return nil, &config.ValidationError{Code: "GVCONFIG_DISCOVERY", Reason: "Ambiguous configuration file selection. Select a file with --config."}
-			}
-			if file == nil {
-				file = rootFile
-			}
-			break
+		if file != nil && rootFile != nil {
+			return nil, &config.ValidationError{Code: "GVCONFIG_DISCOVERY", Reason: "Ambiguous configuration file selection. Select a file with --config."}
 		}
-		if parent == filepath.Dir(parent) {
-			break
+		if file == nil {
+			file = rootFile
 		}
 	}
 	if file == nil {
@@ -185,11 +176,11 @@ func diagnosticFor(err error) validationDiagnostic {
 	return diagnostic
 }
 
-func configValidationInvocation(args []string) ([]string, string, bool) {
-	if len(args) >= 2 && args[0] == "config" && args[1] == "validate" {
+func configInvocation(args []string, command string) ([]string, string, bool) {
+	if len(args) >= 2 && args[0] == "config" && args[1] == command {
 		return args[2:], ".", true
 	}
-	if len(args) >= 3 && !strings.HasPrefix(args[0], "-") && args[1] == "config" && args[2] == "validate" {
+	if len(args) >= 3 && !strings.HasPrefix(args[0], "-") && args[1] == "config" && args[2] == command {
 		return args[3:], args[0], true
 	}
 	return nil, "", false

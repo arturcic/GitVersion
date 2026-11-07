@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 736,
+  "mapped_declarations": 759,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 698,
+      "mapped": 721,
       "verified": 698
     },
     "integration": {
@@ -2172,9 +2172,19 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryAndDisplayHonorFileThenRuntimeOverrides",
@@ -2189,9 +2199,19 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryPreservesNullBooleanAndStringValues",
@@ -2214,9 +2234,18 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryRejectsUnsupportedConfigurationBeforeReadingFile",
@@ -2235,9 +2264,17 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryErrorsUseOnlyStderr",
@@ -2280,9 +2317,23 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryRejectsLegacyDocumentUnderV7",
@@ -2297,9 +2348,16 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryDiscoversLocalOrRootConfigurationAndSupportsExplicitFile",
@@ -2318,9 +2376,17 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryWorksWithoutGitHistoryAndKeepsVerboseLogsOffStdout",
@@ -2335,9 +2401,16 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryPreservesAmbiguousConfigurationDiagnostic",
@@ -2352,9 +2425,16 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#QueryNeverCallsVersionCalculationOrVersionOutput",
@@ -2386,9 +2466,16 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationQueryIntegrationTests.cs#ShowConfigOverrideCorrectionIsLimitedToV7",
@@ -2407,9 +2494,17 @@
       ],
       "source_sha256": "edc33a84b370f26c2298a7671f4fcbdec23ad38388290d7d363c56f95fb064e1",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQueryCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "CLI execution uses Go command dispatch and Go Git fixtures. Both original backend environment values are exercised through the single pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationExecutorTests.cs#YamlLocationsAreOneBasedAndMessagesAreRedacted",
@@ -8863,9 +8958,23 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#UsesPublicScalarRepresentationAndInvariantNumbers",
@@ -8900,9 +9009,21 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#KnownNullIsQueryableEvenWhenOmittedFromFullDisplay",
@@ -8929,9 +9050,19 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#RejectsUnknownPublicPaths",
@@ -8974,9 +9105,23 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#RejectsMalformedPaths",
@@ -9019,9 +9164,23 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#RejectsStructuredValuesAndDynamicTraversal",
@@ -9084,9 +9243,28 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#RejectsV6EvenForAValidV7Path",
@@ -9101,9 +9279,16 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationPropertyQueryTests.cs#NonNullScalarLeavesMatchFullSerializedConfiguration",
@@ -9118,9 +9303,16 @@
       ],
       "source_sha256": "ea9cba7ede9229ae6668587fb0cee24596bcca256875f0f1fc16a101beef992c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#ProvidesNestedV7ConfigurationAndMergesOutputOnlyWorkflowBranch",
@@ -9538,9 +9730,16 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs#CanUpdateAssemblyInformationalVersioningScheme",
@@ -10440,9 +10639,16 @@
       ],
       "source_sha256": "6bfc60a9e091d075981c849c30671a510d074d5a23a5bf3982c77716a86424b9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs#SerializesFlatConfigurationWhenV6IsSelected",
@@ -10457,9 +10663,16 @@
       ],
       "source_sha256": "6bfc60a9e091d075981c849c30671a510d074d5a23a5bf3982c77716a86424b9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs#Serialize_OrdersConfigurationPropertiesAndPreservesBranchNames",
@@ -10474,9 +10687,16 @@
       ],
       "source_sha256": "6bfc60a9e091d075981c849c30671a510d074d5a23a5bf3982c77716a86424b9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpConfigurationQuery",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-query.json",
+      "adaptations": [
+        "Ordered YAML nodes stand in for the C# configuration objects. JSON scalar types, properties, nulls, errors, display order, and approved YAML are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationSerializerTests.cs#ReusesConfigurationFacadesAndBranchProjections",

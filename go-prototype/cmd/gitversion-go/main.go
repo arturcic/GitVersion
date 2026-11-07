@@ -16,8 +16,19 @@ func run(args []string, out io.Writer) error {
 	return execute(args, out, io.Discard)
 }
 func execute(args []string, out, diagnostics io.Writer) error {
-	if flags, directory, ok := configValidationInvocation(args); ok {
+	if flags, directory, ok := configInvocation(args, "validate"); ok {
 		return runConfigValidate(flags, directory, out, diagnostics)
+	}
+	if flags, directory, ok := configInvocation(args, "get"); ok {
+		return runConfigQuery(flags, directory, false, out, diagnostics)
+	}
+	if flags, directory, ok := configurationDisplayInvocation(args); ok {
+		return runConfigQuery(flags, directory, true, out, diagnostics)
+	}
+	for i, arg := range args {
+		if arg == "--update-wix-version-file" && i+2 < len(args) && args[i+1] == "config" && args[i+2] == "get" {
+			return fmt.Errorf("Option --update-wix-version-file cannot be used with 'config get'")
+		}
 	}
 	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--config PATH] [--trace]"
 	if len(args) == 0 || (args[0] != "observe" && args[0] != "calculate") {
