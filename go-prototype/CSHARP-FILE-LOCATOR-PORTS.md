@@ -32,4 +32,18 @@ empty-map, null-workflow and competing default files, plus relative/absolute cus
 configuration. The full repository matrix has 98 checkpoints. These source ports
 do not execute the original NUnit runner. Document mapping tests remain next.
 
-Platform verification is pending; no new methods count as verified yet.
+Implementation checkpoints: `23432fe76` and `e3c11ea42`. Both macOS arm64 and
+Ubuntu 26.04.1 arm64 passed **37,934 regular tests/subtests in 11 packages** with
+no failures or skips. Fresh process checks passed 98 repository/configuration
+JSON cases, 88 global-mode JSON cases, 87 calculation JSON cases and six
+configuration checks per OS. All 33 actual-repository fields/types still match
+C#: **7.0.0-alpha.1+739**.
+
+`CSHARP-FILE-LOCATOR-EVIDENCE.json` binds source, binaries, corpus, reports, logs
+and Linux inputs to e3c11ea42. The container used no network or host mounts.
+Original case extraction is deterministic; vet and whitespace checks passed.
+
+Verified unit/component total: **630 / 1,516 (41.56%)**; **735 more methods**
+are required to reach 1,365 (90%). Integration remains 38 / 662; total mapping
+is 668 / 2,178 (30.67%). Full document mapping, configuration provider behavior,
+CLI/integration coverage and Windows remain pending.

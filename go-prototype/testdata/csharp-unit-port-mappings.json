@@ -43317,7 +43317,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.ThrowsExceptionOnAmbiguousConfigFileLocation@66": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43350,7 +43350,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.NoWarnOnGitVersionYmlFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43371,7 +43371,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.NoWarnOnLowercasedGitVersionYmlFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43392,7 +43392,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.NoWarnOnNoGitVersionYmlFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43410,7 +43410,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.ThrowsExceptionOnAmbiguousConfigFileLocation@123": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43428,7 +43428,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.DoNotThrowWhenWorkingAndRepoPathsAreSame": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43446,7 +43446,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.DoNotThrowWhenWorkingAndRepoPathsAreSame_WithDifferentCasing": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43464,7 +43464,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.ReturnConfigurationFilePathIfCustomConfigurationIsSet": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43482,7 +43482,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.ReturnConfigurationFilePathIfCustomConfigurationIsSet_InvalidConfigurationFilePaths": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43503,7 +43503,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.DoNotThrowWhenConfigFileIsInSubDirectoryOfRepoPath": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43521,7 +43521,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.NoWarnOnCustomYmlFile": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43539,7 +43539,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.NoWarnOnCustomYmlFileOutsideRepoPath": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43557,7 +43557,7 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationFileLocatorTests.ThrowsExceptionOnCustomYmlFileDoesNotExist": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationFileLocatorTests.cs",
@@ -43575,6 +43575,6 @@
       "Both nested same-named declarations retain separate pinned-line identities. Original null, filename, lowercase, directory, custom path, log and error assertions are retained.",
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

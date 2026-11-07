@@ -134,7 +134,7 @@ output:
 
 Both `main` and `feature` support `mode` (`ManualDeployment`, `ContinuousDelivery`, `ContinuousDeployment`), `increment` (`None`, `Patch`, `Minor`, `Major`; feature additionally `Inherit`), literal string labels, `commit-message-incrementing` (`Enabled`, `Disabled`, `MergeMessageOnly`) and boolean `prevent-increment.when-current-commit-tagged`. Feature labels additionally support `{BranchName}`. Output weights accept nonnegative decimal integers within Int32; explicit zero is preserved. `next-version` accepts three-component stable and prerelease versions; the new reference matrix covers matching/mismatching numeric prerelease labels and strategy competition. Omitted settings retain the original GitHub Flow defaults.
 
-The later [workflow expansion](WORKFLOWS.md) extends these controls to additional preset branches. The [strategy/control expansion](CONFIGURATION-STRATEGIES.md) adds all seven explicit strategy flags, empty/None/duplicate selections, main/release classification, release/merge tracking, and `prevent-increment.of-merged-branch` / `when-branch-merged`. Competing source configurations and Mainline inheritance transitions are preserved. Only declared fields and branches are accepted; unsupported settings fail explicitly. YAML aliases/anchors, duplicate keys, multiple documents and incorrectly typed settings are rejected. Configuration discovery uses the C# filename priority and case-insensitive matching among the four standard names at the repository root; there is no custom config-path option yet. YAML uses the checksum-pinned `gopkg.in/yaml.v3 v3.0.1` dependency. See [MILESTONE-E.md](MILESTONE-E.md) for validation commands and limitations.
+The later [workflow expansion](WORKFLOWS.md) extends these controls to additional preset branches. The [strategy/control expansion](CONFIGURATION-STRATEGIES.md) adds all seven explicit strategy flags, empty/None/duplicate selections, main/release classification, release/merge tracking, and `prevent-increment.of-merged-branch` / `when-branch-merged`. Competing source configurations and Mainline inheritance transitions are preserved. Only declared fields and branches are accepted; unsupported settings fail explicitly. YAML aliases/anchors, duplicate keys, multiple documents and incorrectly typed settings are rejected. Configuration discovery uses the C# filename priority and case-insensitive matching among the four standard names at the repository root. Missing or empty configuration uses GitFlow defaults. Pass `--config PATH` to select an existing relative or absolute configuration file. YAML uses the checksum-pinned `gopkg.in/yaml.v3 v3.0.1` dependency. See [MILESTONE-E.md](MILESTONE-E.md) for validation commands and limitations.
 
 The calculator accepts at most one `main` or `master` branch. Explicitly configured branches can calculate without a main ref; inherited branches still require a source. The workflow expansion adds the preset develop, release, hotfix, support and pull-request families described in [WORKFLOWS.md](WORKFLOWS.md), alongside the original feature-prefix pattern. Defaults remain main ContinuousDelivery and feature ManualDeployment; all three modes can now be selected explicitly. It supports strict version tags with optional `v`/`V` prefix, matching and unrelated prerelease labels, configured next versions, fallback, ordinary merges, and default `+semver:`/`=semver:` bump and reset directives. Semantic-source and commit-counting-source identities are kept separate. Supplementary Unicode characters follow C# UTF-16 sanitization, and bump-message whitespace follows .NET's Unicode rules.
 
@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 654 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 668 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-616 verified unit/component methods out of 1,516 separately from integration ports.
+630 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -242,3 +242,6 @@ filter methods. Reusable filter APIs are verified; SHA/date/path ignore wiring i
 [Ignore configuration and selected legacy loading](CSHARP-IGNORE-CONFIGURATION-PORTS.md)
 add 21 original methods / 35 cases, branch/tag filters, remote source discovery and
 a corrected date-floor boundary. V6 selection supports the declared fields.
+
+[Configuration file locator ports](CSHARP-FILE-LOCATOR-PORTS.md) add all 14 original
+methods / 39 cases, default configuration loading and explicit `--config` paths.

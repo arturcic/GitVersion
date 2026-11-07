@@ -8,7 +8,7 @@
     "unit-or-component": {
       "declarations": 1516,
       "mapped": 630,
-      "verified": 616
+      "verified": 630
     },
     "integration": {
       "declarations": 662,
@@ -7908,7 +7908,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -7996,7 +7996,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "source_method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
@@ -8051,7 +8051,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8093,7 +8093,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8123,7 +8123,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8150,7 +8150,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "source_method": "ThrowsExceptionOnAmbiguousConfigFileLocation",
@@ -8178,7 +8178,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8205,7 +8205,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8232,7 +8232,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8271,7 +8271,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8301,7 +8301,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8328,7 +8328,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8355,7 +8355,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
@@ -8382,7 +8382,7 @@
       ],
       "source_sha256": "d423e02f0cf687535ff9e67a6b3b27746a91be467efe68d409fc10d4c5380d35",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationFileLocator",
       "fixtures": [],
       "port_cases": [
