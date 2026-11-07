@@ -13,8 +13,8 @@ Compatibility is an inventory of observable behaviors, not a percentage inferred
 | Configuration | Strategy/control subset verified; 1,232 C# configuration audits | All v7 sections/defaults, source branches, custom regex/formatting, ignore paths/SHAs/dates, override precedence, lookup and diagnostics |
 | Semantic versions and output variables | 33 fields verified within subset | Loose format, build metadata, additional prerelease next-version boundaries, full bounds, custom/assembly/date formats |
 | Repository layouts and state | Complete clean attached local repositories | Worktrees, detached/shallow/bare/dirty repositories, remote refs, missing objects, normalization and supported failure behavior |
-| CLI | Prototype calculate/observe commands only | Pinned CLI syntax/options/aliases, help/schema/version, exit codes, diagnostics, config commands, output selection, file updates, cache and repository options |
-| Build-server adapters | Open | Provider detection and precedence; exact output/escaping/files/environment and GitVersion_ prefix; network/CI preparation contracts |
+| CLI | Root POSIX CLI and configuration commands verified in selected cases | Full log content and routing, diagnostic failure behavior, and broader option interactions |
+| Build-server adapters | Partial | Broader provider precedence, failure paths, repository side effects, and downstream CI smoke tests |
 | MSBuild | Out of scope | Existing prototype task results are historical evidence. |
 | Distribution and embedding | Open | Local native binaries, package layout/entry points, .NET task/API compatibility boundaries, reproducible packaging and consumer smoke tests |
 | macOS | Verified existing corpus on arm64 | Each new group; architecture matrix and filesystem edge cases |
