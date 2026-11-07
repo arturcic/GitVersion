@@ -1,0 +1,267 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+  "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+  "methods": {
+    "AssignsEverySerializedPropertyToRootOrExactlyOneV7Section": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DetectsEmptyFlatNestedAndMixedDocuments": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "FlattensAndMergesCalculationAndOutputBranches": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "RejectsMixedAndSelectedVersionMismatches": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "RejectsPropertiesInTheWrongV7SectionWithReplacement": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "AcceptsEmptyAndWorkflowOnlyDocumentsInEitherVersion": [
+      {
+        "id": "case-000",
+        "arguments": [
+          false,
+          false
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          false,
+          true
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          true,
+          false
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          true,
+          true
+        ]
+      }
+    ],
+    "RootWorkflowDoesNotDetermineDocumentVersion": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "calculation",
+          true
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "output",
+          true
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "tag-prefix",
+          false
+        ]
+      }
+    ],
+    "RootWorkflowDoesNotMakeMixedDocumentValid": [
+      {
+        "id": "case-000",
+        "arguments": [
+          false
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          true
+        ]
+      }
+    ],
+    "RejectsNestedWorkflowEvenWhenRootWorkflowExists": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "calculation",
+          false
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "calculation",
+          true
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "output",
+          false
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "output",
+          true
+        ]
+      }
+    ],
+    "BothNestingOverloadsKeepWorkflowAtRoot": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  },
+  "schema_source_sha256": {
+    "src/GitVersion.Configuration/BranchConfiguration.cs": "f7f4c827c30b33e1aaca070bf1a7a011f1210f20651e48111a97977c02a3786b",
+    "src/GitVersion.Configuration/GitVersionConfiguration.cs": "e952364f0ec854b90458f71d8e43f1a242fde1e01b8d24048cb97426191621b9",
+    "src/GitVersion.Core/Configuration/ICalculationBranchConfiguration.cs": "5e854376eda1a23ec8350279e84d2e38197938483e844b8ad06ceb8d8b0228c5",
+    "src/GitVersion.Core/Configuration/IOutputBranchConfiguration.cs": "077b1526920f9a24e5b1f37a38cd543546bef049bebc878b8f17ee80057fc5c9",
+    "src/GitVersion.Core/Configuration/ICalculationConfiguration.cs": "a56b5bcf7c86d681d237ca4ca9840ee7b30ca92e8113a45d889d51e570ebabb8",
+    "src/GitVersion.Core/Configuration/IOutputConfiguration.cs": "63ee468763f09184ba4c5236c2e3d5d7a17f4d785c24726a6123030529be6fd8",
+    "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39"
+  },
+  "schema": {
+    "root": [
+      "assembly-file-versioning-format",
+      "assembly-file-versioning-scheme",
+      "assembly-informational-format",
+      "assembly-versioning-format",
+      "assembly-versioning-scheme",
+      "branches",
+      "commit-date-format",
+      "commit-message-incrementing",
+      "custom-version-format",
+      "ignore",
+      "increment",
+      "is-main-branch",
+      "is-release-branch",
+      "is-source-branch-for",
+      "label",
+      "major-version-bump-message",
+      "merge-message-formats",
+      "minor-version-bump-message",
+      "mode",
+      "next-version",
+      "no-bump-message",
+      "patch-version-bump-message",
+      "pre-release-weight",
+      "prevent-increment",
+      "regex",
+      "semantic-version-format",
+      "source-branches",
+      "strategies",
+      "tag-pre-release-weight",
+      "tag-prefix",
+      "track-merge-message",
+      "track-merge-target",
+      "tracks-release-branches",
+      "update-build-number",
+      "version-bump-reset-message",
+      "version-in-branch-pattern",
+      "workflow"
+    ],
+    "branch": [
+      "commit-message-incrementing",
+      "custom-version-format",
+      "increment",
+      "is-main-branch",
+      "is-release-branch",
+      "is-source-branch-for",
+      "label",
+      "mode",
+      "pre-release-weight",
+      "prevent-increment",
+      "regex",
+      "source-branches",
+      "track-merge-message",
+      "track-merge-target",
+      "tracks-release-branches"
+    ],
+    "calculation": [
+      "branches",
+      "commit-message-incrementing",
+      "ignore",
+      "increment",
+      "is-main-branch",
+      "is-release-branch",
+      "is-source-branch-for",
+      "label",
+      "major-version-bump-message",
+      "merge-message-formats",
+      "minor-version-bump-message",
+      "mode",
+      "next-version",
+      "no-bump-message",
+      "patch-version-bump-message",
+      "prevent-increment",
+      "regex",
+      "semantic-version-format",
+      "source-branches",
+      "strategies",
+      "tag-prefix",
+      "track-merge-message",
+      "track-merge-target",
+      "tracks-release-branches",
+      "version-bump-reset-message",
+      "version-in-branch-pattern"
+    ],
+    "output": [
+      "assembly-file-versioning-format",
+      "assembly-file-versioning-scheme",
+      "assembly-informational-format",
+      "assembly-versioning-format",
+      "assembly-versioning-scheme",
+      "branches",
+      "commit-date-format",
+      "custom-version-format",
+      "pre-release-weight",
+      "tag-pre-release-weight",
+      "update-build-number"
+    ],
+    "calculation_branch": [
+      "commit-message-incrementing",
+      "increment",
+      "is-main-branch",
+      "is-release-branch",
+      "is-source-branch-for",
+      "label",
+      "mode",
+      "prevent-increment",
+      "regex",
+      "source-branches",
+      "track-merge-message",
+      "track-merge-target",
+      "tracks-release-branches"
+    ],
+    "output_branch": [
+      "custom-version-format",
+      "pre-release-weight"
+    ]
+  }
+}

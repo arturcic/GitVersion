@@ -33,21 +33,28 @@ func ReadLegacyDocument(data []byte) (LegacyDocument, error) {
 	if len(doc.Content) != 1 {
 		return out, fmt.Errorf("configuration requires a mapping")
 	}
-	fields, err := mapping(doc.Content[0], "legacy", []string{"workflow", "mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"})
+	flat, err := normalizeDocument(doc.Content[0], "v6", "configuration")
 	if err != nil {
 		return out, err
 	}
-	root := &yaml.Node{Kind: yaml.MappingNode, Tag: "!!map"}
-	calc := &yaml.Node{Kind: yaml.MappingNode, Tag: "!!map"}
-	output := &yaml.Node{Kind: yaml.MappingNode, Tag: "!!map"}
-	put := func(n *yaml.Node, key string, value *yaml.Node) {
-		n.Content = append(n.Content, &yaml.Node{Kind: yaml.ScalarNode, Tag: "!!str", Value: key}, value)
+	fields, err := mapping(flat, "legacy", []string{"workflow", "mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"})
+	if err != nil {
+		return out, err
 	}
+	root := documentMap()
 	workflow := fields["workflow"]
 	if workflow == nil {
 		workflow = &yaml.Node{Kind: yaml.ScalarNode, Tag: "!!str", Value: "GitFlow/v1"}
 	}
-	put(root, "workflow", workflow)
+	if branches := fields["branches"]; branches != nil {
+		// Nesting drops empty branch maps. Validate names before this projection
+		// so an unsupported branch cannot bypass effective validation.
+		settings := Config{Workflow: workflow.Value}
+		if _, err := mapping(branches, "branches", settings.Kinds()); err != nil {
+			return out, err
+		}
+	}
+	putDocumentField(root, "workflow", workflow)
 	for _, key := range []string{"mode", "next-version", "branches", "strategies", "ignore", "tag-pre-release-weight"} {
 		value := fields[key]
 		if value == nil {
@@ -97,17 +104,12 @@ func ReadLegacyDocument(data []byte) (LegacyDocument, error) {
 				}
 			}
 		}
-		if key == "tag-pre-release-weight" {
-			put(output, key, value)
-		} else {
-			put(calc, key, value)
-		}
+		putDocumentField(root, key, value)
 	}
-	put(root, "calculation", calc)
-	if len(output.Content) > 0 {
-		put(root, "output", output)
+	out.nested, err = nestDocument(root)
+	if err != nil {
+		return out, err
 	}
-	out.nested = root
 	return out, nil
 }
 func SelectConfigurationVersion(value *string) (string, error) {

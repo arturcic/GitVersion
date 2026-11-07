@@ -43576,5 +43576,184 @@
       "ProvideForDirectory uses the same production locator/default parser as CLI loading; no warning exceptions map to nil Go errors."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ConfigurationDocumentMapperTests.AssignsEverySerializedPropertyToRootOrExactlyOneV7Section": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "AssignsEverySerializedPropertyToRootOrExactlyOneV7Section",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.DetectsEmptyFlatNestedAndMixedDocuments": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "DetectsEmptyFlatNestedAndMixedDocuments",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.FlattensAndMergesCalculationAndOutputBranches": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "FlattensAndMergesCalculationAndOutputBranches",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.RejectsMixedAndSelectedVersionMismatches": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "RejectsMixedAndSelectedVersionMismatches",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.RejectsPropertiesInTheWrongV7SectionWithReplacement": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "RejectsPropertiesInTheWrongV7SectionWithReplacement",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.AcceptsEmptyAndWorkflowOnlyDocumentsInEitherVersion": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "AcceptsEmptyAndWorkflowOnlyDocumentsInEitherVersion",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.RootWorkflowDoesNotDetermineDocumentVersion": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "RootWorkflowDoesNotDetermineDocumentVersion",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.RootWorkflowDoesNotMakeMixedDocumentValid": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "RootWorkflowDoesNotMakeMixedDocumentValid",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.RejectsNestedWorkflowEvenWhenRootWorkflowExists": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "RejectsNestedWorkflowEvenWhenRootWorkflowExists",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationDocumentMapperTests.BothNestingOverloadsKeepWorkflowAtRoot": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationDocumentMapperTests.cs",
+    "source_sha256": "5a0cfa6d7f89e921c02b4824b4229ed255b04f61a324bf58da234e9fe48f5a39",
+    "method": "BothNestingOverloadsKeepWorkflowAtRoot",
+    "go_test": "TestCSharpConfigurationDocumentMapper",
+    "case_file": "testdata/csharp-document-mapper.json",
+    "case_file_sha256": "fbac9bc4c9d0ed0f7f30b14d1106bf8cd760dea2ae1a79502fb1fef72f8344e7",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original dictionary values and assertions are transcribed in Go. Typed and object-keyed input maps both encode to the production YAML node representation.",
+      "Pinned serialized properties and inherited interface fields independently supply the original reflection expectations for the Go ownership registry.",
+      "Go errors replace configuration exceptions, preserving the original asserted diagnostic substrings."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

@@ -155,6 +155,9 @@ func Parse(data []byte) (Config, error) {
 	if len(doc.Content) != 1 {
 		return c, fmt.Errorf("empty configuration")
 	}
+	if _, err := normalizeDocument(doc.Content[0], "v7", "configuration"); err != nil {
+		return c, err
+	}
 	root, err := mapping(doc.Content[0], "root", []string{"workflow", "calculation", "output"})
 	if err != nil {
 		return c, err
@@ -388,7 +391,7 @@ func mapping(n *yaml.Node, path string, allowed []string) (map[string]*yaml.Node
 		if err != nil {
 			return nil, err
 		}
-		ok := false
+		ok := allowed == nil
 		for _, a := range allowed {
 			if a == k {
 				ok = true

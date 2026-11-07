@@ -146,6 +146,16 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		recipes = append(recipes, fixtures.Recipe{ID: "locator-" + setting, Description: setting, Config: "workflow: GitHubFlow/v1\n", Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}})
 	}
 
+	for _, setting := range []struct{ id, configuration string }{
+		{"legacy-mapper-weight", "workflow: GitHubFlow/v1\nbranches:\n  main: {mode: ManualDeployment, label: ci, increment: Minor, pre-release-weight: 42}\n"},
+		{"mapper-weight", "workflow: GitHubFlow/v1\ncalculation:\n  branches:\n    main: {mode: ManualDeployment, label: ci, increment: Minor}\noutput:\n  branches:\n    main: {pre-release-weight: 42}\n"},
+	} {
+		recipes = append(recipes, fixtures.Recipe{
+			ID: setting.id, Description: "Calculation and output settings on one branch", Config: setting.configuration,
+			Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}},
+		})
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
