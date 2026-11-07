@@ -120,6 +120,7 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 	credentials := gitrepo.Credentials{Username: options.Username, Password: options.Password}
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
 	defer cancel()
+	repoOptions.PreparationContext, repoOptions.RemoteCredentials = ctx, credentials
 	return runVersionStages(options.TargetPath, versionStages{
 		discover: func(directory string) (string, error) {
 			if options.TargetURL != "" {
@@ -130,9 +131,13 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 		calculate: func(root string) (calculationExecution, error) {
 			if options.TargetURL != "" || (!options.NoNormalize && agent.Name != "LocalBuild") {
 				fetch := !options.NoFetch && !agent.PreventFetch()
-				remote, err := gitrepo.PrepareRemote(ctx, root, fetch, agent.ShouldCleanUpRemotes(), credentials)
+				cleanup := agent.ShouldCleanUpRemotes() && options.TargetURL == ""
+				remote, err := gitrepo.PrepareRemote(ctx, root, fetch, cleanup, credentials)
 				if err != nil {
 					return calculationExecution{}, err
+				}
+				if cleanup {
+					repoOptions.RetainRemote = remote
 				}
 				if repoOptions.ContextBranch == "" {
 					repoOptions.NormalizationRemote = remote
@@ -291,6 +296,7 @@ func calculateDiscovered(options cliArguments, root, rawVersion, version string,
 		fmt.Fprintln(diagnostics, warning)
 	}
 	result.updateBuildNumber = cfg.UpdateBuildNumber
+	repoOptions.IgnoreBranch = cfg.Ignore.BranchIgnored
 	repo, err := gitrepo.OpenForCalculation(root, repoOptions)
 	if err != nil {
 		return result, err

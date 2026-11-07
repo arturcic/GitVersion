@@ -4,6 +4,7 @@
 package gitrepo
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"os"
@@ -25,6 +26,7 @@ type Repository struct {
 	contextual                          bool
 	physicalBranch, normalizationRemote string
 	fetchedRemote                       string
+	excludedRemotes                     map[string]bool
 	head                                string
 	branch                              string
 	commits                             map[string]*object.Commit
@@ -113,6 +115,10 @@ type OpenOptions struct {
 	BuildBranch, BuildTag                       string
 	TargetBranch, ContextBranch                 string
 	NormalizationRemote, FetchedRemote          string
+	PreparationContext                          context.Context
+	RemoteCredentials                           Credentials
+	IgnoreBranch                                func(string) (bool, error)
+	RetainRemote                                string
 }
 
 // OpenForCalculation opens a clean worktree using explicitly selected policies.
@@ -167,6 +173,19 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	r.head = tip.Hash().String()
 	r.branch = head.Target().String()
 	r.physicalBranch, r.normalizationRemote, r.fetchedRemote = r.branch, options.NormalizationRemote, options.FetchedRemote
+	if options.RetainRemote != "" {
+		remotes, err := g.Remotes()
+		if err != nil {
+			return nil, err
+		}
+		r.excludedRemotes = make(map[string]bool, len(remotes))
+		for _, remote := range remotes {
+			name := remote.Config().Name
+			if name != options.RetainRemote {
+				r.excludedRemotes[name] = true
+			}
+		}
+	}
 	switch {
 	case options.ContextBranch != "":
 		r.branch, r.contextual = options.ContextBranch, true
@@ -177,6 +196,12 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 			if err != nil {
 				return nil, err
 			}
+		}
+		if !selected && options.TargetBranch == "" && options.NormalizationRemote != "" && strings.TrimSpace(options.BuildBranch) != "" {
+			if err := r.applyProviderBranch(options.BuildBranch, options.NormalizationRemote); err != nil {
+				return nil, err
+			}
+			selected = true
 		}
 		if detached && !selected {
 			if !options.NormalizeDetached {
@@ -192,6 +217,29 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 		return nil, err
 	}
 	return r, nil
+}
+
+// CI providers name the build branch at the checkout tip. An unqualified
+// provider branch may resolve to its tracking ref, but normalization cannot
+// move the checkout to another commit.
+func (r *Repository) applyProviderBranch(branch, remote string) error {
+	name := strings.TrimPrefix(branch, "refs/heads/")
+	if name == branch {
+		name = strings.TrimPrefix(branch, "refs/")
+	}
+	local := plumbing.NewBranchReferenceName(name)
+	if err := local.Validate(); err != nil {
+		return fmt.Errorf("invalid build branch %q", branch)
+	}
+	ref, err := r.git.Reference(plumbing.NewRemoteReferenceName(remote, branch), true)
+	if err != nil && !errors.Is(err, plumbing.ErrReferenceNotFound) {
+		return err
+	}
+	if err == nil && ref.Hash().String() != r.head {
+		return fmt.Errorf("GitVersion has a bug, your HEAD has moved after repo normalisation after step 'EnsureLocalBranchExistsForCurrentBranch'")
+	}
+	r.branch = local.String()
+	return nil
 }
 
 // A named target uses the actual branch tip. Prefer local references over
@@ -273,6 +321,12 @@ func (r *Repository) References() ([]Reference, error) {
 		return nil, err
 	}
 	for _, ref := range entries {
+		if path, ok := strings.CutPrefix(ref.Name().String(), "refs/remotes/"); ok {
+			remote, _, _ := strings.Cut(path, "/")
+			if r.excludedRemotes[remote] {
+				continue
+			}
+		}
 		if !ref.Name().IsBranch() && !ref.Name().IsTag() && !ref.Name().IsRemote() {
 			// The version calculator uses local and remote branches and tags.
 			continue

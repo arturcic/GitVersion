@@ -123,7 +123,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	if err != nil {
 		return nil, trace, err
 	}
-	refs, err = normalizedReferences(r, cfg, refs)
+	refs, err = r.NormalizedReferences(refs, cfg.Ignore.BranchIgnored)
 	if err != nil {
 		return nil, trace, err
 	}
