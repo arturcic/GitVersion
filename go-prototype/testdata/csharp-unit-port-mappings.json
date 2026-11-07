@@ -55258,7 +55258,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.ResolvedConfiguration_IsCreatedOncePerExecution": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55273,7 +55273,7 @@
     "adaptations": [
       "Record the Go configuration loader call and assert that calculation and build-number output use the single resolved configuration."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CacheFileExistsOnDisk": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55288,7 +55288,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CacheFileExistsOnDiskWhenOverrideConfigIsSpecifiedVersionShouldBeDynamicallyCalculatedWithoutSavingInCache": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55303,7 +55303,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.CacheFileIsMissing": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55318,7 +55318,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.ConfigChangeInvalidatesCache": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55336,7 +55336,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.NoCacheBypassesCache": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55351,7 +55351,7 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.GetProjectRootDirectoryWorkingDirectoryWithWorktree": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55366,7 +55366,7 @@
     "adaptations": [
       "Run go-git repository discovery on ordinary and linked checkout paths. The original supplies a URL but performs no remote preparation or access."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "GitVersionExecutorTests.GetProjectRootDirectoryNoWorktree": {
     "source": "src/GitVersion.Core.Tests/Core/GitVersionExecutorTests.cs",
@@ -55381,7 +55381,7 @@
     "adaptations": [
       "Run go-git repository discovery on ordinary and linked checkout paths. The original supplies a URL but performs no remote preparation or access."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ExecCmdLineArgumentTest.CommitArgumentUsesRequestedCommitWhenCacheExists": {
     "source": "src/GitVersion.App.Tests/ExecCmdLineArgumentTest.cs",
@@ -55397,6 +55397,6 @@
     "adaptations": [
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

@@ -1,0 +1,237 @@
+{
+  "source_checkpoint": "615d3bf82d016d80f8b019189a4748e360dbb9f0",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "ported_methods": 10,
+  "original_parameter_cases": 14,
+  "regular_port_cases": 14,
+  "executor_cache_process_comparisons": 22,
+  "inventory": {
+    "verified_unit_component": 1358,
+    "total_unit_component": 1516,
+    "target": 1365,
+    "verified_integration": 38,
+    "total_integration": 662
+  },
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40559,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "executor_cache_process_comparisons": 22,
+      "cli_schema_regression_cases": 13,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40559,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "executor_cache_process_comparisons": 22,
+      "cli_schema_regression_cases": 13,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    }
+  },
+  "candidate_sha256": {
+    "macos": "589eb6de242b2265e74d5401234ae1aebe1914e1587fe38413dd22fe89ff4d14",
+    "ubuntu26": "22bbf9b1dba93c07cb7e616b93d09ddc8eb73be7cc7151be5728aa206535fcb3"
+  },
+  "process_reports": {
+    "macos": {
+      "cli_execution_regression": {
+        "report": ".local/executor-cache-ports/macos/cli-execution-4088047289/report.json",
+        "sha256": "99fd8d54eebb64a7b26225e73cdecf55b02bff758cf42b1f94dda344c362ae58",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      },
+      "cli_schema": {
+        "report": ".local/executor-cache-ports/macos/cli-schema-347540726/report.json",
+        "sha256": "a1dd07fef9c3aab52e8a0d786d155b9ca996fc9d7ac655403b11fcdf918221b5",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      },
+      "executor_cache": {
+        "report": ".local/executor-cache-ports/macos/executor-cache-84619154/report.json",
+        "sha256": "95f88379083d4088453772bf5c66e103d946e9c0c0b21b32f8ce1fe4f8f4a688",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/executor-cache-ports/macos/msbuild-output-341905633/report.json",
+        "sha256": "04463f1c6538ea1b27babbe9b7c0ba6ee0b1e73e23a0aba1f6b0d696ca0b028a",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      },
+      "msbuild_tasks": {
+        "report": ".local/executor-cache-ports/macos/msbuild-tasks-3571382005/report.json",
+        "sha256": "4fb6b940332cbacf289a63bd5b43aa86d49032432928cb2edf02dcc89c0b5870",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      },
+      "repository_execution_regression": {
+        "report": ".local/executor-cache-ports/macos/repository-execution-266274604/report.json",
+        "sha256": "1c76864b996ef2d7512c5b6349dd7fe7b3a195bf9768c8035723ce7b76c661be",
+        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+      }
+    },
+    "ubuntu26": {
+      "cli_execution_regression": {
+        "report": ".local/executor-cache-ports/linux/cli-execution-1634773817/report.json",
+        "sha256": "2c5c10f85914ac10a3d9a05f7231cccc6c0ef5dbcc798aa2abec10d021f2f77b",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      },
+      "cli_schema": {
+        "report": ".local/executor-cache-ports/linux/cli-schema-1220422598/report.json",
+        "sha256": "ad850b10cfc9c6dfba7ba5f7c673002c0448c067e96b8730e20fa5ea8ae983c9",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      },
+      "executor_cache": {
+        "report": ".local/executor-cache-ports/linux/executor-cache-2470683016/report.json",
+        "sha256": "1bf1eca455f12d5fb95e735fee07663e10c35661f1acddeaab4e98f4c40ad7a8",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/executor-cache-ports/linux/msbuild-output-1495307674/report.json",
+        "sha256": "fecf6da348eb22e9c5fc5e5957a8eba70df5edfdec20036d95358a35b64ff44a",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      },
+      "msbuild_tasks": {
+        "report": ".local/executor-cache-ports/linux/msbuild-tasks-928908271/report.json",
+        "sha256": "d8da938e574a96256790fca3a536946f9b5e6fb73d5ae919b88feaa32a69f4d5",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      },
+      "repository_execution_regression": {
+        "report": ".local/executor-cache-ports/linux/repository-execution-3580523406/report.json",
+        "sha256": "0093cc7c772868fd4b4df5a5d4bc1a3fec933cfdeb52b37ca70e9f4c0b2fc900",
+        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "724f0492ad627c33f764de78d13311b2661d6ee5c3363fccffc1fff2c3dc79f4",
+    "macos_path": ".local/executor-cache-ports/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/executor-cache-ports/linux/unit/internal-parity.log": "912bbdd23705b3f43f43333278aa07a600e02b65b02e56cb30e4fcc764bb7435",
+      ".local/executor-cache-ports/linux/unit/cmd-gitversion-go.log": "3754edacddc699a80291625a2f41937c63a7fb88d7ed166bc304f28a6e032270",
+      ".local/executor-cache-ports/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+      ".local/executor-cache-ports/linux/unit/internal-fixtures.log": "81e7c777a7aee4d2b1d28acd8a7c386f49295676a423c6c4ac2820ac8e0c1068",
+      ".local/executor-cache-ports/linux/unit/internal-output.log": "7b1ffbcb19e1e90ce50322e8c69540d3045e28cca7d4dcad52d7196dd2df69f8",
+      ".local/executor-cache-ports/linux/unit/internal-config.log": "f475c6f625523f5dbdeba64026d62c5bf41c62949c58b5655a1fd85aac580501",
+      ".local/executor-cache-ports/linux/unit/internal-calculate.log": "76455a9953d6dc788f72fc90a27cfbeca89fe4bbee69e366bd840095069cd97b",
+      ".local/executor-cache-ports/linux/unit/internal-gitrepo.log": "36fa34f3fdc24fee705bb2bb3bc27fd0b17f795451765b01f239b8df376719af",
+      ".local/executor-cache-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+      ".local/executor-cache-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/executor-cache-ports/linux/unit/internal-buildagent.log": "58d8d06a175d63a4c49d62a4315d79485b5acafe7a5804ed7b0970269f80fb6b",
+      ".local/executor-cache-ports/linux/unit/internal-commandline.log": "f36f0c65ffb5ff893c88980f0f6b32c87bcbf15ddf106f247ee7af7a911e1a12",
+      ".local/executor-cache-ports/linux/unit/cmd-parity.log": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3"
+    }
+  },
+  "dependency_list_sha256": "ae41415646630599f922dc40f51cc41ac178b43e17487420ead78dad0c8858e0",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/calculation_cache.go": "3ac84d1416df968e089b76a368fdef5b81c5c405c89b8e8156bb4fa0090e2deb",
+    "cmd/gitversion-go/calculation_log.go": "4042b0c759472743ae921ec4c08127c85986fc9f3bcfb54139523007ffa394c9",
+    "cmd/gitversion-go/config_query.go": "5c9f7ee166d4139e24657f3f6668217181612cb0872e141d1e9ffebcdaf749fd",
+    "cmd/gitversion-go/csharp_executor_cache_test.go": "99c901555b9f3235c0b8f2ec1e94f963a85e632926fdb1c0ff9838036f0c168a",
+    "cmd/gitversion-go/executor_cache_integration_test.go": "ee4477c2e6987a5ce2fa3c7a99e7cdffe1ae65a7d0a6dae759407f952991b904",
+    "cmd/gitversion-go/root_command.go": "81b7fb704b6c0d7292d936fddab1beb15d4810249d28a04e58820c0d542ddf66",
+    "internal/calculate/calculate.go": "a8f72f8a1749ee66db85159a53db33c17b48c04181c8a75cf86ee603184d7b6e",
+    "internal/calculate/csharp_tagged_version_filtering_test.go": "5ea88c105e67e6e371e8571321340e514a3fac9c56c2f1c6d25fe36a960c6068",
+    "internal/config/config.go": "f201e0cb13e45386776bd221f34b575040185d1094216ead02ad1da4ae89ed61",
+    "internal/config/legacy.go": "5f3f35903a47188e6b1ca6840402ae2edc2e8b327a4a0d81c0b7bafeb5ea5de9",
+    "internal/config/locator.go": "92205cbde3e4ee1b279408c488799611ba7e16d73184a6be5a70f82a7a1ecfed",
+    "internal/gitrepo/repository.go": "5ac61e7e4f9a3bc05ffb5c39d9278121a38b6f5b856d890b36677a3dfd76656f",
+    "internal/output/output.go": "d73b134092bf2c95f8419965646a4c7d66453d0233a8fc223f0795e1418a154d",
+    "internal/semver/version.go": "dc41d7412557720932efc9f2d940b10111e2b7df259fc48bb37d5de05e5914e6",
+    "scripts/port-executor-cache-tests.py": "cd5cb949d9d88ec030328e9a586545581ccb26edfe6c98be93ad4e5898eed46b",
+    "testdata/csharp-executor-cache.json": "c09c7ca35b1b7c602a8d607c6594059692c98cdd9447ca72e41c025d96cfb935",
+    "testdata/csharp-test-inventory.json": "0952f60efda7b372acb9b32d2baa7eabef44f6c46c401a9d1e1f4002e288d237",
+    "testdata/csharp-unit-port-mappings.json": "1842867aabe9c9cfd048e7ebbaa6ea50e2f4e63cdc19c0c6d498eabba69de3bf"
+  },
+  "reused_linux_unit_binary_hashes": {
+    "internal-patterns.test": "d562529c06240976d7fbae6e50df9d1daafc170c0e5d9918f4cb2fab8ec8d915",
+    "cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    "internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    "internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    "internal-formatting.test": "bf0069ded21cad563627999ca29bb9fd0878d2b016b0ff11180a738b65fbb6e7"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/executor-cache-ports/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/executor-cache-ports/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/executor-cache-ports/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/executor-cache-ports/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T08:12:58.666011169Z",
+      "FinishedAt": "2026-11-07T08:14:16.646484344Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/executor-cache-ports/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-output-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/Library/Application Support/dotnetup/dotnet/sdk/10.0.403",
+        "Destination": "/sdk",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}

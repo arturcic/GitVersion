@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1386 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1396 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,348 verified unit/component methods out of 1,516 separately from integration ports.
+1,358 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -384,3 +384,8 @@ Go task command checks and the 27 cases run through the MSBuild engine.
 without opening a repository. The [CLI schema evidence](CSHARP-CLI-SCHEMA-EVIDENCE.json)
 records comparisons with the pinned C# executable, with each executable
 reporting its own informational version.
+
+The compatibility CLI caches version variables under the checkout's Git
+metadata using Go-specific filenames. `--no-cache` and runtime overrides
+bypass the cache. The [executor cache evidence](CSHARP-EXECUTOR-CACHE-EVIDENCE.json)
+covers cache hits, configuration changes, commit targeting, and tag prefixes.
