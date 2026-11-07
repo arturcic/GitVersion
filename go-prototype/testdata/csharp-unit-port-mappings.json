@@ -51047,7 +51047,7 @@
     "adaptations": [
       "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionInBranchNameBaseVersionStrategyTests.ShouldNotTakeVersionFromNameOfNonReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
@@ -51069,7 +51069,7 @@
     "adaptations": [
       "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionInBranchNameBaseVersionStrategyTests.CanTakeVersionFromNameOfConfiguredReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
@@ -51091,7 +51091,7 @@
     "adaptations": [
       "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionInBranchNameBaseVersionStrategyTests.CanTakeVersionFromNameOfRemoteReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs",
@@ -51107,7 +51107,7 @@
     "adaptations": [
       "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfiguredNextVersionVersionStrategyTests.ReturnsNullWhenNoNextVersionIsInConfig": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
@@ -51122,7 +51122,7 @@
     "adaptations": [
       "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTest": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
@@ -51143,7 +51143,7 @@
     "adaptations": [
       "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfiguredNextVersionVersionStrategyTests.ConfiguredNextVersionTestShouldFail": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs",
@@ -51158,7 +51158,7 @@
     "adaptations": [
       "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.ShouldNotAllowIncrementOfVersion": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51173,7 +51173,7 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.TakesVersionFromMergeOfReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51201,7 +51201,7 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromMergeOfNonReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51229,7 +51229,7 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromMergeOfReleaseBranchWithRemoteOtherThanOrigin": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51246,7 +51246,7 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.ShouldNotTakeVersionFromUnrelatedMerge": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51267,7 +51267,7 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MergeMessageBaseVersionStrategyTests.TakesVersionFromMergeOfConfiguredReleaseBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs",
@@ -51284,6 +51284,6 @@
     "adaptations": [
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

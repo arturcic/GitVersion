@@ -3,12 +3,12 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1131,
+  "mapped_declarations": 1144,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1093,
-      "verified": 1093
+      "mapped": 1106,
+      "verified": 1106
     },
     "integration": {
       "declarations": 662,
@@ -215207,9 +215207,16 @@
       ],
       "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs#ConfiguredNextVersionTest",
@@ -215248,9 +215255,22 @@
       ],
       "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/ConfiguredNextVersionVersionStrategyTests.cs#ConfiguredNextVersionTestShouldFail",
@@ -215265,9 +215285,16 @@
       ],
       "source_sha256": "295af874fb178a0cbf4576b97a6c69616ccda35fb9bedc0d521df79d206a1f95",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "The calculator represents the version operator by its applied increment and resulting version. Assert the absent source, increment kind, label and number change or identity, exact resulting version, and typed safe diagnostic."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#ShouldNotAllowIncrementOfVersion",
@@ -215282,9 +215309,16 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#TakesVersionFromMergeOfReleaseBranch",
@@ -215351,9 +215385,29 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012",
+        "case-013"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#ShouldNotTakeVersionFromMergeOfNonReleaseBranch",
@@ -215420,9 +215474,29 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012",
+        "case-013"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#ShouldNotTakeVersionFromMergeOfReleaseBranchWithRemoteOtherThanOrigin",
@@ -215445,9 +215519,18 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#ShouldNotTakeVersionFromUnrelatedMerge",
@@ -215486,9 +215569,22 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/MergeMessageBaseVersionStrategyTests.cs#TakesVersionFromMergeOfConfiguredReleaseBranch",
@@ -215511,9 +215607,18 @@
       ],
       "source_sha256": "2ead10f055caf4510a4f4ea4d1b15590cb5d94f7184919ba1d74c2db5e3f74e3",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpMergeMessageStrategy",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-merge-message-strategy.json",
+      "adaptations": [
+        "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs#CanTakeVersionFromNameOfReleaseBranch",
@@ -215532,9 +215637,17 @@
       ],
       "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs#ShouldNotTakeVersionFromNameOfNonReleaseBranch",
@@ -215577,9 +215690,23 @@
       ],
       "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs#CanTakeVersionFromNameOfConfiguredReleaseBranch",
@@ -215622,9 +215749,23 @@
       ],
       "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/Strategies/VersionInBranchNameBaseVersionStrategyTests.cs#CanTakeVersionFromNameOfRemoteReleaseBranch",
@@ -215643,9 +215784,17 @@
       ],
       "source_sha256": "efb85097a2eda4612181c8120dc6e69b09e7c04d35d1ca7b4f92edc3d6ff43f4",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpBranchAndNextStrategies",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-branch-and-next-strategies.json",
+      "adaptations": [
+        "A deterministic go-git fixture creates real local branches and reproduces the remote-tracking reference created by fetch. The calculator workflow candidate retains the original semantic version and cardinality."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs#ProvidesVariablesInContinuousDeliveryModeForPreRelease",
