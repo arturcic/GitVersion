@@ -123,7 +123,8 @@ for row in rows:
         cases = suite['methods'][row['method']]['cases']
     else:
         assert corpus['source_sha256'] == row['source_sha256'], key
-        cases = corpus['methods'][row['method']]
+        method = corpus['methods'][row['method']]
+        cases = method['cases'] if isinstance(method, dict) else method
     assert [case['id'] for case in cases] == port['case_ids'], key
     assert len(port['case_ids']) == len(set(port['case_ids'])) and port['case_ids'], key
     row.update(status=port['status'], go_test=port['go_test'], port_cases=port['case_ids'],
