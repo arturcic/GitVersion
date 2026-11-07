@@ -2,6 +2,8 @@ package gitrepo
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/go-git/go-billy/v5"
 
 	"github.com/go-git/go-billy/v5/osfs"
@@ -45,6 +47,10 @@ func (layout repositoryLayout) open() (*git.Repository, error) {
 	if layout.workingDirectory != "" {
 		worktree = osfs.New(layout.workingDirectory)
 	}
-	storage := filesystem.NewStorage(fs, cache.NewObjectLRUDefault())
+	// Alternate object databases can live outside the repository's chroot.
+	volumeRoot := filepath.VolumeName(layout.commonDirectory) + string(filepath.Separator)
+	storage := filesystem.NewStorageWithOptions(fs, cache.NewObjectLRUDefault(), filesystem.Options{
+		AlternatesFS: osfs.New(volumeRoot),
+	})
 	return git.Open(&commonConfigStorage{storage}, worktree)
 }

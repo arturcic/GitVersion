@@ -147,6 +147,11 @@ func (r *Repository) load(id string) (*object.Commit, error) {
 	if err != nil {
 		return nil, fmt.Errorf("commit %s: %w", id, err)
 	}
+	c.Message = decodeCommitText(c.Message, string(c.Encoding))
+	c.Author.Name = decodeCommitText(c.Author.Name, "")
+	c.Author.Email = decodeCommitText(c.Author.Email, "")
+	c.Committer.Name = decodeCommitText(c.Committer.Name, "")
+	c.Committer.Email = decodeCommitText(c.Committer.Email, "")
 	if _, boundary := r.shallow[parsed]; boundary {
 		c.ParentHashes = nil
 	}

@@ -51706,5 +51706,350 @@
       "The deterministic Go fixture preserves the original two merges, branch tips, commit order, and optional unmerged branch. The independent Go revision walk supplies the original oracle expression. A counting walk callback verifies the production projection and increment path reuse and eviction."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "LooseObjectTests.ReadsACommitFromLooseObjects": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReadsACommitFromLooseObjects",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.ReadsARootCommitWithoutParents": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReadsARootCommitWithoutParents",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.CommitMatchesGitLogOutput": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "CommitMatchesGitLogOutput",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.CommitMessageMatchesGitCatFileOutput": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "CommitMessageMatchesGitCatFileOutput",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.ReadsACommitMessageHonoringTheEncodingHeader": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReadsACommitMessageHonoringTheEncodingHeader",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.FallsBackToLatin1ForInvalidUtf8WithoutAnEncodingHeader": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "FallsBackToLatin1ForInvalidUtf8WithoutAnEncodingHeader",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.ReadsABlobFromLooseObjects": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReadsABlobFromLooseObjects",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.ReportsTheObjectTypeWhenItIsNotKnownUpFront": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReportsTheObjectTypeWhenItIsNotKnownUpFront",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.DoesNotFindAMissingObject": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "DoesNotFindAMissingObject",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.DoesNotFindAnObjectWhenRequestedWithTheWrongType": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "DoesNotFindAnObjectWhenRequestedWithTheWrongType",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LooseObjectTests.ReadsObjectsFromAnAlternateObjectDatabase": {
+    "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+    "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+    "method": "ReadsObjectsFromAnAlternateObjectDatabase",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "PackedObjectTests.ReadsCommitsFromAPackFile": {
+    "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+    "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+    "method": "ReadsCommitsFromAPackFile",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "PackedObjectTests.ReadsDeltifiedObjectsFromAPackWithDeepDeltaChains": {
+    "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+    "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+    "method": "ReadsDeltifiedObjectsFromAPackWithDeepDeltaChains",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "PackedObjectTests.ReadsRefDeltaObjectsFromAPackFile": {
+    "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+    "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+    "method": "ReadsRefDeltaObjectsFromAPackFile",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "PackedObjectTests.ReadsBlobsAndTreesFromAPackFile": {
+    "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+    "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+    "method": "ReadsBlobsAndTreesFromAPackFile",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "PackedObjectTests.ReadsLooseObjectsCreatedAfterThePack": {
+    "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+    "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+    "method": "ReadsLooseObjectsCreatedAfterThePack",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TagTests.ReadsAnAnnotatedTag": {
+    "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
+    "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
+    "method": "ReadsAnAnnotatedTag",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TagTests.ReadsAnAnnotatedTagWithAMultiLineMessage": {
+    "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
+    "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
+    "method": "ReadsAnAnnotatedTagWithAMultiLineMessage",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TagTests.ReadsANestedAnnotatedTag": {
+    "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
+    "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
+    "method": "ReadsANestedAnnotatedTag",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TagTests.ReadsAnAnnotatedTagFromAPackFile": {
+    "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
+    "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
+    "method": "ReadsAnAnnotatedTagFromAPackFile",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TreeTests.ReadsTheRootTreeEntriesMatchingGitLsTree": {
+    "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
+    "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
+    "method": "ReadsTheRootTreeEntriesMatchingGitLsTree",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TreeTests.ReadsANestedTree": {
+    "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
+    "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
+    "method": "ReadsANestedTree",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TreeTests.FindsANodeUsingTheStreamingReader": {
+    "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
+    "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
+    "method": "FindsANodeUsingTheStreamingReader",
+    "go_test": "TestCSharpGitObjectReaders",
+    "case_file": "testdata/csharp-git-object-readers.json",
+    "case_file_sha256": "49ecd4f71ef01dcbd8680b7bbdaa5ed2f5c16a6aac423976a1d4f2145ca86481",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

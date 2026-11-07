@@ -1,0 +1,97 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "cases": {
+    "CommitMatchesGitLogOutput": [
+      "Test Author",
+      "author@example.com",
+      "1685606460",
+      "Test Committer",
+      "committer@example.com",
+      "1685606460"
+    ],
+    "CommitMessageMatchesGitCatFileOutput": [
+      "a message with special characters: äöü — ✓"
+    ],
+    "FindsANodeUsingTheStreamingReader": [
+      "774465708eee720940059257e22a96c48ec05221",
+      "cf67e9ef3a0fc6d858423fc177f2fbbe985a6f17"
+    ],
+    "PackedDeltaHistoryBlobs": [
+      "522003bbd227ff3614cd753bbae5d5e9af343f6d",
+      "3acbfbbe486fbd61634fdd1d391811d5d9da9f09",
+      "5a33220f22bf854401ba30a8fe377de5460e48b2",
+      "485f92900f189b24994d71b87baee3564bad2502",
+      "001af285b85aac54c27135452bac03853e6d9229",
+      "2187227721375080b5361a446dfbed6f9dad899c",
+      "c22772d1a3dddf8c03fd2d0f8154f968de1a4960",
+      "e99fc4f1a4e7080d3316a8fd2a0bc9ac69a9d27b",
+      "be7e2dec8625757a129b494378a61e7e50d9c71c",
+      "0069193b1ce0d104adc05b2bd43c2e3993b88e5b",
+      "a71be114589930835e9825ede686363e68ab49f1",
+      "d21834b6c27e92928016c9829f030baa6defc731",
+      "546dc5412e9965ab6819b75cec64b9589c2448bb",
+      "62b248ede88ea96a7a419864fd1ced7d1bdd0e2a",
+      "ac0cf203ef6b507887092681f472abb9cd9d8a0c",
+      "7c35dc022d5a1c6c27ae11af3b2aff363f9645dc",
+      "499d9f05e6b8b7bb5d04de35120eed8d931a5ed0",
+      "1cdd1423e079f5b47a49d214386ddce577030f77",
+      "20a7d9cd2bca3f3be361b75a5bf5eeeddbc4851d",
+      "c46e74193b1222273cb0ae5a3176a1279367106d",
+      "4066fb222c562696e63fe759680affd1ec16e341",
+      "43fc33a31db9cb66aaeb6a368beb1997cf78ae03",
+      "5d7db5427a149e1ae76dcb8861304c54e367e7cb",
+      "348053943adb7b2bea6e66a1032ecb63a3a6a7b5",
+      "eb7999b52132dbca57b92690d3838cc0028b4757",
+      "48460e66af8a0274abe26c451205e1f57867aa91",
+      "346b69b36feda9ec823f606ea8d18811fc7c18ba",
+      "5197cd06f04e3d8d11d8b0c4b91fd0269b44ac8e",
+      "e06b29410712281c830e25ff8da3ebc87ef09347",
+      "66f60146f300cd305016b63eaf7b7996d52b299a"
+    ],
+    "PackedTwentyCommitTree": [
+      "585b2a9475f2f9de02e72b1cbee6e8328adb5421",
+      "c46e74193b1222273cb0ae5a3176a1279367106d"
+    ],
+    "ReadsABlobFromLooseObjects": [
+      "de2fd67c30b7f83c93682ed83ebff8a57a447cb5"
+    ],
+    "ReadsACommitFromLooseObjects": [
+      "92b8b694ffb1675e5975148e1121810081dbdffe"
+    ],
+    "ReadsACommitMessageHonoringTheEncodingHeader": [
+      "encoding ISO-8859-1",
+      "café à la crème"
+    ],
+    "ReadsANestedAnnotatedTag": [
+      "c86d560ac9a418e7c822fa6d19c2481b0699d010",
+      "77026ac09244e73b8b81231d5b8120136e1c9944",
+      "9239501f0cd819bac50960edb94d971b235010a3"
+    ],
+    "ReadsANestedTree": [
+      "36ce9ae339c2bf00b3d4a9f94ef0b1af174bac3e",
+      "cf67e9ef3a0fc6d858423fc177f2fbbe985a6f17",
+      "f2ad6c76f0115a6ba5b00456a849810e7ec0af20"
+    ],
+    "ReadsAnAnnotatedTag": [
+      "69f65bcb6fe40967901fc7755c9464a685c3bc51",
+      "77026ac09244e73b8b81231d5b8120136e1c9944"
+    ],
+    "ReadsAnAnnotatedTagFromAPackFile": [
+      "a1688a1b89d52af943f909176b960dc259caff11",
+      "77026ac09244e73b8b81231d5b8120136e1c9944"
+    ],
+    "ReadsAnAnnotatedTagWithAMultiLineMessage": [
+      "874986ea6c0c6b7d82a39fd179af938ec7f9c8c1",
+      "77026ac09244e73b8b81231d5b8120136e1c9944"
+    ],
+    "ReadsCommitsFromAPackFile": [
+      "92b8b694ffb1675e5975148e1121810081dbdffe"
+    ],
+    "ReadsTheRootTreeEntriesMatchingGitLsTree": [
+      "7b5bb57acc502b96bb0a3c28ba1d5ecb011526ea",
+      "100644 blob 78981922613b2afb6025042ff6bd878ac1994e85\ta.txt",
+      "100644 blob 61780798228d17af2d34fce4cfbdf35556832472\tb.txt",
+      "040000 tree cf67e9ef3a0fc6d858423fc177f2fbbe985a6f17\tsub"
+    ]
+  }
+}

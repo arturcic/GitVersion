@@ -1,0 +1,192 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "LooseObjectTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
+      "sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
+      "methods": {
+        "ReadsACommitFromLooseObjects": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsARootCommitWithoutParents": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "CommitMatchesGitLogOutput": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "CommitMessageMatchesGitCatFileOutput": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsACommitMessageHonoringTheEncodingHeader": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "FallsBackToLatin1ForInvalidUtf8WithoutAnEncodingHeader": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsABlobFromLooseObjects": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReportsTheObjectTypeWhenItIsNotKnownUpFront": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "DoesNotFindAMissingObject": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "DoesNotFindAnObjectWhenRequestedWithTheWrongType": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsObjectsFromAnAlternateObjectDatabase": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        }
+      }
+    },
+    "PackedObjectTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
+      "sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
+      "methods": {
+        "ReadsCommitsFromAPackFile": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsDeltifiedObjectsFromAPackWithDeepDeltaChains": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsRefDeltaObjectsFromAPackFile": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsBlobsAndTreesFromAPackFile": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsLooseObjectsCreatedAfterThePack": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        }
+      }
+    },
+    "TagTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
+      "sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
+      "methods": {
+        "ReadsAnAnnotatedTag": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsAnAnnotatedTagWithAMultiLineMessage": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsANestedAnnotatedTag": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsAnAnnotatedTagFromAPackFile": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        }
+      }
+    },
+    "TreeTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
+      "sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
+      "methods": {
+        "ReadsTheRootTreeEntriesMatchingGitLsTree": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "ReadsANestedTree": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        },
+        "FindsANodeUsingTheStreamingReader": {
+          "cases": [
+            {
+              "id": "case-000"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "reference": "testdata/csharp-git-object-readers-reference.json",
+  "reference_sha256": "e81f7e7f90a2a82ad711135f992049d077286852ddcb37926c8befa442e48b5a"
+}
