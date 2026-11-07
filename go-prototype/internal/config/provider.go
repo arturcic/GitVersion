@@ -30,6 +30,14 @@ func (p *Provider) ProvideFrom(directory, root *string, overrides []byte) (Resol
 	if err != nil {
 		return ResolvedConfiguration{}, err
 	}
+	if p.Locator.Log != nil {
+		selected, err := SelectConfigurationVersion(&p.Version)
+		if err != nil {
+			return ResolvedConfiguration{}, err
+		}
+		p.Locator.log("Configuration version: " + selected)
+		p.Locator.log(configurationSource(file))
+	}
 	if file != nil {
 		data, err = p.Locator.fs().ReadFile(*file)
 		if err != nil {
@@ -47,4 +55,11 @@ func (p *Provider) ProvideFrom(directory, root *string, overrides []byte) (Resol
 
 func LegacyConfigurationWarning(file string) string {
 	return fmt.Sprintf("Configuration file '%s' uses the temporary v6 compatibility mode. Legacy configuration loading is removed in GitVersion 7.1. Run 'gitversion config migrate' and validate with GITVERSION_CONFIGURATION_VERSION=v7.", file)
+}
+
+func configurationSource(file *string) string {
+	if file == nil {
+		return "No configuration file found, using default configuration"
+	}
+	return fmt.Sprintf("Using configuration file '%s'", *file)
 }

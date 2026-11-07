@@ -194,7 +194,7 @@ func TestCSharpBuildServerJSON(t *testing.T) {
 						}
 					}
 					var stdout, stderr bytes.Buffer
-					if err := execute(args, &stdout, &stderr); err != nil || stderr.Len() != 0 {
+					if err := execute(args, &stdout, &stderr); err != nil || strings.Contains(stderr.String(), "Applicable build agent found: 'TeamCity'.") != buildServer {
 						t.Fatalf("TeamCity output: %v, %q", err, &stderr)
 					}
 					data := stdout.Bytes()

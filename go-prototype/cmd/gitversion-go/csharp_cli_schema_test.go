@@ -82,8 +82,7 @@ func TestCSharpCLISchema(t *testing.T) {
 							if err != nil || requested {
 								t.Fatalf("schema routing = %v, %v", requested, err)
 							}
-							flags, directory, migration := migrationInvocation(args)
-							options, err := parseMigrationOptions(flags, directory)
+							options, migration, err := migrationInvocation(args)
 							if err != nil || !migration || options.output != "--cli-schema" {
 								t.Fatalf("migration routing = %v, %q, %v", migration, options.output, err)
 							}

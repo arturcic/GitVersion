@@ -37,8 +37,8 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	if len(args) > 0 && args[0] == "msbuild" {
 		return runMSBuild(args[1:], out, diagnostics)
 	}
-	if flags, directory, ok := migrationInvocation(args); ok {
-		return runConfigMigration(flags, directory, out, diagnostics)
+	if handled, err := runConfigMigrationInvocation(args, out, diagnostics); handled {
+		return err
 	}
 	if len(args) == 1 && args[0] == "config" {
 		return fmt.Errorf("The 'config' command requires a subcommand. Use 'gitversion config get', 'gitversion config validate' or 'gitversion config migrate'.")
@@ -101,7 +101,8 @@ func main() {
 }
 
 func writeCommandDiagnostic(out io.Writer, err error) {
-	if err == invalidConfiguration {
+	var rendered renderedCommandError
+	if err == invalidConfiguration || errors.As(err, &rendered) {
 		return
 	}
 	var failure calculationFailure

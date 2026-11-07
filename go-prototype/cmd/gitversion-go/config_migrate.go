@@ -7,6 +7,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 )
@@ -41,29 +42,68 @@ func parseMigrationOptions(args []string, directory string) (migrationOptions, e
 	return result, nil
 }
 
-func migrationInvocation(args []string) ([]string, string, bool) {
-	if flags, directory, ok := configInvocation(args, "migrate"); ok {
-		return flags, directory, true
+func migrationInvocation(args []string) (migrationOptions, bool, error) {
+	if len(args) > 0 && (args[0] == "calculate" || args[0] == "observe" || args[0] == "config" && (len(args) < 2 || args[1] != "migrate")) {
+		return migrationOptions{}, false, nil
 	}
-	if len(args) >= 4 && (args[0] == "-c" || args[0] == "--config") && args[2] == "config" && args[3] == "migrate" {
-		return append(append([]string{}, args[:2]...), args[4:]...), ".", true
+	for i := 0; i+1 < len(args); i++ {
+		if args[i] != "config" || args[i+1] != "migrate" {
+			continue
+		}
+		root, directory, err := parseOptionTokens(args[:i])
+		if err != nil {
+			return migrationOptions{}, true, err
+		}
+		for j := i + 2; j < len(args); j++ {
+			name, _, inline := strings.Cut(args[j], "=")
+			switch name {
+			case "--config", "-c", "--output", "--target-path":
+				if !inline {
+					j++
+				}
+			case "--log-file", "-l", "--verbosity":
+				return migrationOptions{}, true, fmt.Errorf("An error occurred:\n%w", argumentError(name))
+			}
+		}
+		if directory == "" {
+			directory = "."
+		}
+		if paths := root["target-path"]; len(paths) != 0 {
+			directory = paths[len(paths)-1]
+		}
+		flags := []string{}
+		for _, name := range []string{"config", "log-file"} {
+			for _, value := range root[name] {
+				flags = append(flags, "--"+name+"="+value)
+			}
+		}
+		flags = append(flags, args[i+2:]...)
+		options, err := parseMigrationOptions(flags, directory)
+		return options, true, err
 	}
-	return nil, "", false
+	return migrationOptions{}, false, nil
 }
 
-func runConfigMigration(args []string, directory string, stdout, stderr io.Writer) error {
-	options, err := parseMigrationOptions(args, directory)
+func runConfigMigrationInvocation(args []string, stdout, stderr io.Writer) (bool, error) {
+	options, handled, err := migrationInvocation(args)
+	if err != nil || !handled {
+		return handled, err
+	}
+	version, err := selectedConfigurationVersion()
 	if err != nil {
-		return err
+		return true, err
 	}
-	return executeMigration(options, stdout, stderr)
+	log := newCLILog(options.logFile, "", false, stderr)
+	defer log.close()
+	log.featureSelection(version)
+	return true, executeMigration(options, stdout, log)
 }
 
-func migrationInput(options migrationOptions, directory string) (string, error) {
+func migrationInput(options migrationOptions, directory string, log *cliLog) (string, error) {
 	if options.input != "" {
 		return resolveMigrationPath(directory, options.input), nil
 	}
-	locator := config.FileLocator{}
+	locator := config.FileLocator{Log: log.configLookup}
 	file, err := locator.Get(&directory)
 	if err == nil && file == nil {
 		root := configRepositoryRoot(directory)
@@ -87,12 +127,12 @@ func resolveMigrationPath(directory, name string) string {
 	return filepath.Join(directory, name)
 }
 
-func executeMigration(options migrationOptions, stdout, stderr io.Writer) error {
+func executeMigration(options migrationOptions, stdout io.Writer, log *cliLog) error {
 	directory, err := filepath.Abs(options.workingDirectory)
 	if err != nil {
 		return err
 	}
-	input, err := migrationInput(options, directory)
+	input, err := migrationInput(options, directory, log)
 	if errors.Is(err, os.ErrNotExist) || (err == nil && !(config.OSConfigurationFS{}).FileExists(input)) {
 		return errors.New("Could not find a configuration file to migrate. Specify one with --config.")
 	}
@@ -126,24 +166,14 @@ func executeMigration(options migrationOptions, stdout, stderr io.Writer) error 
 	if info != nil && info.IsDir() {
 		return fmt.Errorf("The output path '%s' is a directory.", destination)
 	}
+	if info != nil {
+		log.write(logWarning, fmt.Sprintf("Replacing '%s'. Comments cannot be preserved during migration.", destination))
+	}
 	if err := writeFileAtomically(destination, migrated, info, overwrite); err != nil {
 		if !overwrite && errors.Is(err, os.ErrExist) {
 			return migrationConflict(destination)
 		}
 		return err
-	}
-	if info != nil {
-		message := fmt.Sprintf("Replacing '%s'. Comments cannot be preserved during migration.", destination)
-		fmt.Fprintln(stderr, message)
-		if options.logFile != "" && options.logFile != "console" {
-			log, err := os.OpenFile(resolveMigrationPath(directory, options.logFile), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
-			if err != nil {
-				return err
-			}
-			_, err = fmt.Fprintln(log, message)
-			closeErr := log.Close()
-			return errors.Join(err, closeErr)
-		}
 	}
 	return nil
 }

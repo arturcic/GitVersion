@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
@@ -86,15 +87,25 @@ func calculateAtCommit(path string, cfg config.Config, requestedCommit string, o
 	if err != nil {
 		return nil, Trace{Candidates: []Candidate{}, Counted: []string{}}, err
 	}
-	return calculatePrepared(r, cfg, requestedCommit, strategy)
+	return calculatePrepared(r, cfg, requestedCommit, strategy, CalculationLog{})
 }
 
 // CalculatePrepared evaluates an already opened repository snapshot.
 func CalculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string) (map[string]any, Trace, error) {
-	return calculatePrepared(r, cfg, requestedCommit, nil)
+	return calculatePrepared(r, cfg, requestedCommit, nil, CalculationLog{})
 }
 
-func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string, strategy versionStrategy) (map[string]any, Trace, error) {
+type CalculationLog struct {
+	Info, Warn          func(string)
+	TaggedVersionLookup func(prefix string, format semver.ParseMode, cached bool)
+}
+
+// CalculatePreparedWithLog reports version calculation diagnostics to the caller.
+func CalculatePreparedWithLog(r *gitrepo.Repository, cfg config.Config, requestedCommit string, log CalculationLog) (map[string]any, Trace, error) {
+	return calculatePrepared(r, cfg, requestedCommit, nil, log)
+}
+
+func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit string, strategy versionStrategy, diagnostics CalculationLog) (map[string]any, Trace, error) {
 	trace := Trace{Candidates: []Candidate{}, Counted: []string{}}
 	ignored, err := newCommitFilter(r, cfg.Ignore)
 	if err != nil {
@@ -187,13 +198,18 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	if err != nil {
 		return nil, trace, err
 	}
+	var requestedFound bool
 	if strings.TrimSpace(requestedCommit) != "" {
+		if diagnostics.Info != nil {
+			diagnostics.Info(fmt.Sprintf("Searching for specific commit '%s'", requestedCommit))
+		}
 		// The managed C# adapter searches the current HEAD history and then
 		// skips commits newer than the requested commit's timestamp.
 		for _, id := range history {
 			if !strings.EqualFold(id, requestedCommit) {
 				continue
 			}
+			requestedFound = true
 			commit, err := r.CommitMetadata(id)
 			if err != nil {
 				return nil, trace, err
@@ -214,6 +230,14 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			break
 		}
 	}
+	if !requestedFound {
+		if strings.TrimSpace(requestedCommit) != "" && diagnostics.Warn != nil {
+			diagnostics.Warn(fmt.Sprintf("Commit '%s' specified but not found", requestedCommit))
+		}
+		if diagnostics.Info != nil {
+			diagnostics.Info("Using latest commit on specified branch")
+		}
+	}
 	configurations, err := finder.configurations(branch, head)
 	if err != nil {
 		return nil, trace, err
@@ -231,7 +255,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	// calculate and report against this selected commit.
 	if !r.ContextualHead() || strings.TrimSpace(requestedCommit) != "" {
 		if len(history) == 0 {
-			return nil, trace, fmt.Errorf("No commits found on the current branch.")
+			return nil, trace, gitrepo.ErrNoCommits
 		}
 		head = history[0]
 	}
@@ -270,6 +294,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	if err != nil {
 		return nil, trace, err
 	}
+	if diagnostics.TaggedVersionLookup != nil {
+		diagnostics.TaggedVersionLookup(cfg.TagPrefixText, cfg.TagVersionFormat, false)
+	}
 	rawTags, err := r.Tags(refs)
 	if err != nil {
 		return nil, trace, err
@@ -277,6 +304,9 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	allTags, err := readSemanticTags(rawTags, cfg.Ignore, cfg.TagPrefix, ignored, load)
 	if err != nil {
 		return nil, trace, err
+	}
+	if diagnostics.Info != nil {
+		diagnostics.Info(fmt.Sprintf("Running against branch: %s (%s)", friendlyBranch, commitDescription(head, current)))
 	}
 	byCommit := map[string][]tag{}
 	for _, tag := range allTags {
@@ -356,6 +386,7 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		}
 		return eligible, nil
 	}
+	tagLookupStart := time.Now()
 	eligible, err := eligibleTags(effective)
 	if err != nil {
 		return nil, trace, err
@@ -371,6 +402,15 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			}
 		}
 		if selected != nil {
+			if diagnostics.Info != nil {
+				options := fmt.Sprintf("TagPrefix: %s and Format: %s", cfg.TagPrefixText, cfg.TagVersionFormat)
+				title := fmt.Sprintf("Getting tagged semantic versions on branch '%s'. %s", canonical, options)
+				diagnostics.Info("┌─── Begin: " + title)
+				if diagnostics.TaggedVersionLookup != nil {
+					diagnostics.TaggedVersionLookup(cfg.TagPrefixText, cfg.TagVersionFormat, true)
+				}
+				diagnostics.Info(fmt.Sprintf("└─── End: %s (Took: %.2fms)", title, float64(time.Since(tagLookupStart))/float64(time.Millisecond)))
+			}
 			v := selected.v
 			trace.SemanticSource = v.String()
 			trace.SemanticSHA = head
@@ -583,6 +623,23 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 			}
 		}
 	}
+	if diagnostics.Info != nil {
+		description, sha, count := chosen.description, chosen.semanticSHA, anchor
+		if description == "fallback" {
+			description = ""
+		}
+		if sha == "" {
+			sha = "External"
+		}
+		if count == "" {
+			count = "All reachable history"
+		}
+		const separator = "-------------------------------------------------------"
+		diagnostics.Info(separator)
+		diagnostics.Info(fmt.Sprintf("Semantic version source: %s, version %s, commit %s", description, chosen.semantic.String(), sha))
+		diagnostics.Info("Commit count source: " + count)
+		diagnostics.Info(separator)
+	}
 	counted, err := r.Walk(gitrepo.WalkOptions{Include: head, Exclude: anchor, Sort: gitrepo.Topological | gitrepo.Time})
 	if err != nil {
 		return nil, trace, err
@@ -592,6 +649,23 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 		return nil, trace, err
 	}
 	distance := int64(len(counted))
+	if diagnostics.Info != nil {
+		base := "null"
+		if anchor != "" {
+			base = commitDescription(anchor, commits[anchor])
+		}
+		message := "Using manual deployment workflow to calculate the incremented version."
+		switch effective.Mode {
+		case config.Delivery:
+			message = "Using continuous delivery workflow to calculate the incremented version."
+		case config.Deployment:
+			message = "Using continuous deployment workflow to calculate the incremented version."
+		}
+		started := time.Now()
+		diagnostics.Info("┌─── Begin: " + message)
+		diagnostics.Info(fmt.Sprintf("│   %d commits found between %s and %s", distance, base, commitDescription(head, current)))
+		diagnostics.Info(fmt.Sprintf("└─── End: %s (Took: %.2fms)", message, float64(time.Since(started))/float64(time.Millisecond)))
+	}
 	v := chosen.version
 	if effective.Mode == config.Delivery {
 		if v.Number == nil {
@@ -630,6 +704,11 @@ func calculatePrepared(r *gitrepo.Repository, cfg config.Config, requestedCommit
 	trace.Counted = counted
 	values, err := format(output.Result{Version: v, SemanticSource: chosen.semantic, SemanticSHA: chosen.semanticSHA, Increment: chosen.inc, LegacySource: chosen.base, CountSHA: anchor, Distance: distance, Branch: friendlyBranch, SHA: head, CommitTime: current.When, Main: main})
 	return values, trace, err
+}
+
+func commitDescription(sha string, commit gitrepo.Commit) string {
+	subject, _, _ := strings.Cut(commit.Message, "\n")
+	return fmt.Sprintf("'%.7s' - %s", sha, strings.TrimSuffix(subject, "\r"))
 }
 
 func (l *commitLog) increment(head, base, label string, defaultIncrement semver.Increment, messages string, tags []tag) (semver.Increment, error) {

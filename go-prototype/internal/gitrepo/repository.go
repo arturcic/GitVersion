@@ -122,6 +122,8 @@ type OpenOptions struct {
 }
 
 // OpenForCalculation opens a clean worktree using explicitly selected policies.
+var ErrNoCommits = errors.New("No commits found on the current branch.")
+
 func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	layout, err := openLayout(path)
 	if err != nil {
@@ -153,7 +155,7 @@ func OpenForCalculation(path string, options OpenOptions) (*Repository, error) {
 	tip, err := store.resolve(plumbing.HEAD)
 	if err != nil {
 		if errors.Is(err, plumbing.ErrReferenceNotFound) {
-			return nil, errors.New("No commits found on the current branch.")
+			return nil, ErrNoCommits
 		}
 		return nil, fmt.Errorf("unsupported empty or broken HEAD: %w", err)
 	}

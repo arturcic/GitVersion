@@ -86,12 +86,8 @@ func checkCLIMigrationCase(t *testing.T, method string, doc *string, args []json
 		if method == "ConfigMigrateParsesItsInputAndOutputOptions" {
 			command = cliArg[string](t, args[0]) + " --output GitVersion.v7.yml --force"
 		}
-		flags, dir, ok := migrationInvocation(strings.Fields(command))
-		if !ok {
-			t.Fatal("migration command not recognized")
-		}
-		opts, err := parseMigrationOptions(flags, dir)
-		if err != nil {
+		opts, ok, err := migrationInvocation(strings.Fields(command))
+		if !ok || err != nil {
 			t.Fatal(err)
 		}
 		if method == "ConfigMigrateUsesPositionalTargetPath" {
@@ -360,7 +356,7 @@ func checkVersionSelectionCase(t *testing.T, method string, args []json.RawMessa
 		var options []string
 		withLog := cliArg[bool](t, args[0])
 		if withLog {
-			options = []string{"--log-file", "run.log"}
+			options = []string{"--log-file", filepath.Join(dir, "run.log")}
 		}
 		r := calc("v6", options...)
 		if got := parse(r)["FullSemVer"]; got != "2.0.0-1" {

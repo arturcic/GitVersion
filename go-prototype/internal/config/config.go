@@ -33,6 +33,8 @@ type Config struct {
 	DefaultMode       Mode
 	TagWeight         int64
 	TagPrefix         *patterns.Pattern
+	TagPrefixText     string
+	TagVersionFormat  semver.ParseMode
 	branchOrder       []string
 	branchRegex       map[string]string
 	branchPatterns    map[string]*patterns.Pattern
@@ -207,6 +209,7 @@ func Parse(data []byte) (Config, error) {
 	}
 	c.Workflow = workflow
 	c.DefaultMode = Delivery
+	c.TagPrefixText, c.TagVersionFormat = "[vV]?", semver.Strict
 	c.initializeWorkflow()
 	if err := c.initializeBranchRules(); err != nil {
 		return c, err
@@ -221,6 +224,7 @@ func Parse(data []byte) (Config, error) {
 			if err != nil {
 				return c, err
 			}
+			c.TagPrefixText = expression
 			c.TagPrefix, err = patterns.Compile("^("+expression+")(?<version>.*)$", patterns.IgnoreCase)
 			if err != nil {
 				return c, fmt.Errorf("calculation.tag-prefix: %w", err)
@@ -280,6 +284,7 @@ func Parse(data []byte) (Config, error) {
 				return c, err
 			}
 			versionFormat = semver.ParseMode(format)
+			c.TagVersionFormat = versionFormat
 			if versionFormat != semver.Strict && versionFormat != semver.Loose {
 				return c, validation("VALUE", "calculation.semantic-version-format", "Expected Strict or Loose.")
 			}

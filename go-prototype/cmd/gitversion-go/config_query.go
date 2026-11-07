@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/buildagent"
 	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 )
 
@@ -73,7 +74,8 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	if err := options.Parse(args); err != nil || options.NArg() != 0 {
 		return fmt.Errorf("Could not parse command line parameter")
 	}
-	if _, err := parseVerbosity(*verbosity); err != nil {
+	level, err := parseVerbosity(*verbosity)
+	if err != nil {
 		return fmt.Errorf("An error occurred:\n%w", err)
 	}
 	requested := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
@@ -93,6 +95,9 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 		return err
 	}
 	if !(config.OSConfigurationFS{}).DirectoryExists(dir) {
+		if !show {
+			return fmt.Errorf("An error occurred:\nThe working directory '%s' does not exist.", dir)
+		}
 		return fmt.Errorf("The selected directory does not exist.")
 	}
 	locator := config.FileLocator{}
@@ -105,22 +110,10 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 		}
 		locator.Custom = &name
 	}
-	var logging io.Writer = io.Discard
-	if logFile == "console" {
-		logging = stderr
-	} else if logFile != "" {
-		if !filepath.IsAbs(logFile) {
-			logFile = filepath.Join(dir, logFile)
-		}
-		file, err := os.OpenFile(logFile, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
-		if err != nil {
-			return err
-		}
-		defer file.Close()
-		logging = file
-	}
-	fmt.Fprintln(logging, "Configuration version:", version)
-	locator.Log = func(message string) { fmt.Fprintln(logging, message) }
+	log := newCLILog(logFile, level, false, stderr)
+	defer log.close()
+	log.initialize(dir, version, buildagent.Resolve(dir, os.LookupEnv), false)
+	locator.Log = log.configLookup
 	provider := config.Provider{Locator: locator, Version: requested}
 	return outputConfigurationQuery(version, dir, "", property, runtime, &provider, stdout)
 }

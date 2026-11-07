@@ -90,6 +90,12 @@ func WorkingTreeRoot(path string) (string, error) {
 	return layout.workingDirectory, nil
 }
 
+// CalculationPaths returns the checkout root and the resolved Git directory.
+func CalculationPaths(path string) (string, string, error) {
+	layout, err := discoverLayout(path)
+	return layout.workingDirectory, layout.gitDirectory, err
+}
+
 func openLayout(path string) (repositoryLayout, error) {
 	abs, err := filepath.Abs(path)
 	if err != nil {

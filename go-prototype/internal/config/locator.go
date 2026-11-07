@@ -109,6 +109,9 @@ func (l FileLocator) Get(directory *string) (*string, error) {
 	files = append([]string{}, files...)
 	sort.Strings(files)
 	for _, name := range ConfigurationFileNames {
+		if l.Log != nil {
+			l.log(fmt.Sprintf("Trying to find configuration file %s at '%s'", name, dir))
+		}
 		for _, file := range files {
 			if strings.EqualFold(filepath.Base(file), name) {
 				l.log("Found configuration file at '" + file + "'")
@@ -235,12 +238,12 @@ func LoadNamedWithOverrides(repo, custom string, overrides []byte, warn func(str
 
 // LoadCalculationConfig returns the exact file bytes used to resolve the configuration.
 func LoadCalculationConfig(repo, custom string, overrides []byte, version string, warn func(string)) (Config, []byte, error) {
-	var name *string
+	return (FileLocator{}).LoadCalculationConfig(repo, custom, overrides, version, warn)
+}
+
+func (locator FileLocator) LoadCalculationConfig(repo, custom string, overrides []byte, version string, warn func(string)) (Config, []byte, error) {
 	if custom != "" {
-		name = &custom
-	}
-	locator := FileLocator{Custom: name}
-	if name != nil {
+		locator.Custom = &custom
 		path := configPath(repo, custom)
 		if !locator.fs().FileExists(path) {
 			return Config{}, nil, fmt.Errorf("Could not find config file at '%s'", path)
@@ -249,6 +252,14 @@ func LoadCalculationConfig(repo, custom string, overrides []byte, version string
 	file, err := locator.Get(&repo)
 	if err != nil {
 		return Config{}, nil, err
+	}
+	if locator.Log != nil {
+		selected, err := SelectConfigurationVersion(&version)
+		if err != nil {
+			return Config{}, nil, err
+		}
+		locator.log("Configuration version: " + selected)
+		locator.log(configurationSource(file))
 	}
 	var data []byte
 	if file != nil {
