@@ -3,12 +3,12 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1144,
+  "mapped_declarations": 1160,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1106,
-      "verified": 1106
+      "mapped": 1122,
+      "verified": 1122
     },
     "integration": {
       "declarations": 662,
@@ -3235,9 +3235,21 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#InvalidDocumentsProduceOneSafeJsonEnvelope",
@@ -3308,9 +3320,30 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012",
+        "case-013",
+        "case-014"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#OverridesUseRuntimeRulesAndSafeDiagnostics",
@@ -3349,9 +3382,22 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ExplicitV6CompatibilityWarnsWithoutFailing",
@@ -3366,9 +3412,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#MissingFilesNeverValidateDefaults",
@@ -3387,9 +3440,17 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ExplicitPathSupportsSpacesAndUnicodeOutsideGit",
@@ -3404,9 +3465,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#DiscoveryPreservesSupportedFilenamePriority",
@@ -3421,9 +3489,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#RepositoryDiscoveryPreservesRootAndAmbiguityRules",
@@ -3442,9 +3517,17 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#IncompatibleRootOptionsAreReportedWithoutSideEffects",
@@ -3503,9 +3586,27 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ParserFailuresUseExistingStderrContract",
@@ -3536,9 +3637,20 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ValidationHelpDescribesTheCommandAndLocalJsonOption",
@@ -3553,9 +3665,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ValidationIsUnavailableWithLegacyArgumentParser",
@@ -3570,9 +3689,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ExplicitValidationNeverConstructsGitOrCalculationServices",
@@ -3599,9 +3725,19 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#ExplicitValidationPreservesHistoryAndDirtyFiles",
@@ -3620,9 +3756,17 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#NestedV7DocumentDoesNotFallBackWhenV6IsSelected",
@@ -3637,9 +3781,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs#InvalidLocalFormatIsAnExecutedInvocationError",
@@ -3654,9 +3805,16 @@
       ],
       "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpConfigurationValidationCLI",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-configuration-validation.json",
+      "adaptations": [
+        "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/ConfigurationValidationJsonTests.cs#ValidationEnvelopePreservesFieldNamesNullsAndDiagnosticDetails",
