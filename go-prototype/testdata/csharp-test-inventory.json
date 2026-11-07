@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1031,
+  "mapped_declarations": 1054,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 993,
+      "mapped": 1016,
       "verified": 993
     },
     "integration": {
@@ -14668,9 +14668,20 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs#FromTagName_RejectsNull",
@@ -14685,9 +14696,17 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs#FromTagName_RejectsEmpty",
@@ -14702,9 +14721,17 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs#EquivalentTo_UsesOriginStrippedName",
@@ -14723,9 +14750,18 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs#WithoutOrigin_ReturnsExpectedName",
@@ -14756,9 +14792,21 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs#WithoutRemote_ReturnsExpectedName",
@@ -14789,9 +14837,21 @@
       ],
       "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpReferenceName",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-reference-names.json",
+      "adaptations": [
+        "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
+        "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs#SwitchArgumentRegex_MatchesExpected",
@@ -207516,9 +207576,20 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_a_branch_with_versioning_mode_Given_fallback_configuration_without_versioning_mode_Then_result_should_have_versioning_mode",
@@ -207533,9 +207604,20 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_a_branch_with_versioning_mode_Given_parent_configuration_with_versioning_mode_Then_result_should_not_have_versioning_mode_of_parent",
@@ -207550,9 +207632,20 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_a_branch_with_tag_alpha_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_alpha",
@@ -207567,9 +207660,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_a_branch_without_tag_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_from_parent",
@@ -207584,9 +207686,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#UsesFirstBranchConfigWhenMultipleMatch",
@@ -207605,9 +207716,19 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_inherit_Then_result_should_be_empty",
@@ -207622,9 +207743,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_Then_result_should_have_fallback_increment",
@@ -207651,9 +207781,21 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_Then_result_should_be_empty",
@@ -207668,9 +207810,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_unknown_configuration_with_increment_inherit_Then_result_should_have_fallback_increment",
@@ -207697,9 +207848,21 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_Then_result_should_have_develop_increment",
@@ -207714,9 +207877,42 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012",
+        "case-013",
+        "case-014",
+        "case-015",
+        "case-016",
+        "case-017",
+        "case-018",
+        "case-019",
+        "case-020",
+        "case-021",
+        "case-022",
+        "case-023",
+        "case-024"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_inherit_Then_result_should_have_fallback_increment",
@@ -207731,9 +207927,22 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_and_develop_branch_with_increment_Then_result_should_have_develop_branch_increment",
@@ -207760,9 +207969,21 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#Pull_request_merge_target_selects_local_support_branch_from_multiple_candidates",
@@ -207777,9 +207998,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#Pull_request_merge_target_accepts_remote_only_branch",
@@ -207794,9 +208024,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#Pull_request_target_falls_back_to_all_source_candidates_when_it_cannot_disambiguate",
@@ -207819,9 +208058,20 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#Pull_request_target_continues_inheriting_from_selected_branch",
@@ -207836,9 +208086,18 @@
       ],
       "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpEffectiveBranchConfigurationFinder",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-branch-inheritance.json",
+      "adaptations": [
+        "Original IRepositoryStore source-branch mocks become a typed callback in the same recursive finder used by production calculation. Branch identities and ordered result cardinalities remain explicit.",
+        "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
+        "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/JsonVersionBuilderTests.cs#Json",

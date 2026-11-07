@@ -10,7 +10,7 @@ import (
 func boolp(v bool) *bool                        { return &v }
 func incp(v semver.Increment) *semver.Increment { return &v }
 func (c Config) Kinds() []string {
-	if len(c.branchOrder) > 0 {
+	if c.branchOrder != nil {
 		return append([]string(nil), c.branchOrder...)
 	}
 	kinds := []string{"main", "feature", "release", "pull-request", "unknown"}
@@ -26,6 +26,12 @@ func (c Config) Options(kind string) Options {
 	case "feature":
 		return c.Feature
 	default:
+		if kind == "" {
+			if options, exists := c.Extra[kind]; exists {
+				return options
+			}
+			return Options{Label: "{BranchName}", PreventTagged: true, InheritPreventTagged: true, InheritWeight: true}
+		}
 		return c.Extra[kind]
 	}
 }
@@ -41,13 +47,15 @@ func (c *Config) setOptions(kind string, o Options) {
 }
 func (c *Config) initializeWorkflow() {
 	c.Extra = map[string]Options{}
+	c.Main.Increment = incp(semver.Patch)
+	c.Main.InheritPreventTagged = true
 	c.Main.IsMain = boolp(true)
 	c.Main.IsRelease = boolp(false)
 	c.Main.PreventMerged = boolp(true)
 	c.Main.TracksRelease = boolp(false)
 	c.Main.TrackMergeTarget = boolp(false)
 	c.Feature.IsMain = boolp(false)
-	c.Extra["unknown"] = Options{Mode: Manual, Label: "{BranchName}", IsMain: boolp(false)}
+	c.Extra["unknown"] = Options{Mode: Manual, Label: "{BranchName}", IsMain: boolp(false), InheritWeight: true}
 	if c.Workflow == "GitFlow/v1" {
 		o := c.Extra["unknown"]
 		o.PreventTagged = true
@@ -69,12 +77,12 @@ func (c *Config) initializeWorkflow() {
 		c.Feature.Mode = Delivery
 		c.Feature.Increment = incp(semver.Minor)
 		c.Extra["hotfix"] = Options{Mode: Delivery, Label: "{BranchName}", Increment: incp(semver.Patch), Weight: 30000, IsMain: boolp(false), IsRelease: boolp(true)}
-		c.Extra["unknown"] = Options{Mode: Delivery, Label: "{BranchName}", Increment: incp(semver.Patch), Weight: 30000}
+		c.Extra["unknown"] = Options{Label: "{BranchName}", Increment: incp(semver.Patch), Weight: 30000}
 	}
 	if c.Workflow == "GitFlow/v1" {
 		c.Extra["develop"] = Options{Mode: Delivery, Label: "alpha", Increment: incp(semver.Minor), IsMain: boolp(false), IsRelease: boolp(false), TracksRelease: boolp(true), TrackMergeTarget: boolp(true)}
 		c.Extra["hotfix"] = Options{Mode: Manual, Label: "beta", Weight: 30000, IsMain: boolp(false), IsRelease: boolp(true)}
-		c.Extra["support"] = Options{Mode: Delivery, Label: "", Increment: incp(semver.Patch), Weight: 55000, PreventTagged: true, IsMain: boolp(true), IsRelease: boolp(false), PreventMerged: boolp(true)}
+		c.Extra["support"] = Options{Label: "", Increment: incp(semver.Patch), Weight: 55000, PreventTagged: true, InheritPreventTagged: true, IsMain: boolp(true), IsRelease: boolp(false), PreventMerged: boolp(true)}
 	}
 }
 
@@ -88,7 +96,7 @@ var workflowPatterns = map[string]*regexp.Regexp{
 
 func (c Config) Branch(name string) (kind, capture string, err error) {
 	name = normalizedBranchName(name)
-	if len(c.branchOrder) > 0 {
+	if c.branchRegex != nil {
 		return c.matchBranchRule(name)
 	}
 	if strings.HasPrefix(name, "refs/remotes/") {

@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/go-git/go-billy/v5/osfs"
@@ -219,6 +220,29 @@ func build(recipe Recipe, dest string) ([]Checkpoint, error) {
 			}
 			heads[s.Name] = h
 			if err = repo.Storer.SetReference(plumbing.NewHashReference(ref, h)); err != nil {
+				return nil, err
+			}
+		case "remote-branch":
+			from := s.From
+			if from == "" {
+				from = branch
+			}
+			h, ok := heads[from]
+			if !ok {
+				return nil, fmt.Errorf("unknown remote branch source %q", from)
+			}
+			remote, target, valid := strings.Cut(s.Name, "/")
+			if !valid || remote == "" || target == "" {
+				return nil, fmt.Errorf("invalid remote branch name %q", s.Name)
+			}
+			name := plumbing.NewRemoteReferenceName(remote, target)
+			if err := name.Validate(); err != nil {
+				return nil, err
+			}
+			if _, err := repo.Storer.Reference(name); err != plumbing.ErrReferenceNotFound {
+				return nil, fmt.Errorf("remote ref already exists or cannot be read: %v", err)
+			}
+			if err := repo.Storer.SetReference(plumbing.NewHashReference(name, h)); err != nil {
 				return nil, err
 			}
 		case "delete-branch":

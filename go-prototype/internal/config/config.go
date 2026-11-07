@@ -20,20 +20,21 @@ import (
 )
 
 type Config struct {
-	Output         OutputSettings
-	Ignore         IgnoreSettings
-	Workflow       string
-	Strategies     map[string]bool
-	Extra          map[string]Options
-	Next           *semver.Version
-	MainIncrement  semver.Increment
-	Main, Feature  Options
-	DefaultMode    Mode
-	TagWeight      int64
-	branchOrder    []string
-	branchRegex    map[string]string
-	branchPatterns map[string]*patterns.Pattern
-	branchSources  map[string][]string
+	Output            OutputSettings
+	Ignore            IgnoreSettings
+	Workflow          string
+	Strategies        map[string]bool
+	Extra             map[string]Options
+	Next              *semver.Version
+	MainIncrement     semver.Increment
+	FallbackIncrement *semver.Increment
+	Main, Feature     Options
+	DefaultMode       Mode
+	TagWeight         int64
+	branchOrder       []string
+	branchRegex       map[string]string
+	branchPatterns    map[string]*patterns.Pattern
+	branchSources     map[string][]string
 }
 
 type Mode string
@@ -49,7 +50,7 @@ type Options struct {
 	// NullLabel retains an explicit null from programmatic builders. YAML parsing
 	// currently accepts explicit string labels only.
 	NullLabel                                                                                               bool
-	InheritPreventTagged                                                                                    bool
+	InheritPreventTagged, InheritWeight                                                                     bool
 	IsMain, IsRelease, TracksRelease, TrackMergeTarget, PreventMerged, PreventWhenMerged, TrackMergeMessage *bool
 	Mode                                                                                                    Mode
 	Label                                                                                                   string
@@ -80,74 +81,65 @@ func (c Config) EffectiveAt(branch, source, sha string) (Effective, error) {
 	if err != nil {
 		return Effective{}, err
 	}
-	o := c.Options(kind)
-	parentKind, _, err := c.Branch(source)
-	if err != nil {
-		return Effective{}, err
+	options := c.Options(kind)
+	inherited := options.Increment == nil
+	if inherited {
+		parent, _, err := c.Branch(source)
+		if err != nil {
+			return Effective{}, err
+		}
+		options = options.Inherit(c.Options(parent))
 	}
-	parent := c.Options(parentKind)
+	return c.projectEffective(branch, kind, capture, sha, options, inherited)
+}
+
+func (c Config) projectEffective(branch, kind, capture, sha string, o Options, inherited bool) (Effective, error) {
 	shortSHA := sha
 	if len(shortSHA) > 7 {
 		shortSHA = shortSHA[:7]
 	}
-	expandLabel := func(template string) string {
-		label := strings.ReplaceAll(strings.ReplaceAll(template, "{BranchName}", capture), "{Number}", capture)
-		label = strings.ReplaceAll(strings.ReplaceAll(label, "{Sha}", sha), "{ShortSha}", shortSHA)
-		return Sanitize(label, true)
-	}
-	if expression, ok := c.branchRegex[kind]; ok && !o.NullLabel {
-		resolved, err := (LabelConfiguration{Label: &o.Label, Regex: &expression}).resolve(ptrBranch(normalizedBranchName(branch)), nil, os.LookupEnv, &LabelCommit{SHA: sha, ShortSHA: shortSHA}, c.branchPatterns[kind])
-		if err != nil {
-			return Effective{}, err
-		}
-		expandLabel = func(string) string { return *resolved }
-	}
-	e := Effective{NullLabel: o.NullLabel, Kind: kind, Mode: o.Mode, Label: expandLabel(o.Label), Increment: c.MainIncrement, Weight: o.Weight, TagWeight: c.TagWeight, PreventTagged: o.PreventTagged, Inherit: kind != "main" && o.Increment == nil, Messages: "Enabled"}
-	if e.Mode == "" {
-		e.Mode = c.DefaultMode
-		if e.Mode == "" {
-			e.Mode = Delivery
-		}
-		if e.Inherit && parent.Mode != "" {
-			e.Mode = parent.Mode
+	label := o.Label
+	if !o.NullLabel {
+		if c.branchRegex != nil {
+			expression := c.branchRegex[kind]
+			resolved, err := (LabelConfiguration{Label: &o.Label, Regex: &expression}).resolve(ptrBranch(normalizedBranchName(branch)), nil, os.LookupEnv, &LabelCommit{SHA: sha, ShortSHA: shortSHA}, c.branchPatterns[kind])
+			if err != nil {
+				return Effective{}, err
+			}
+			label = *resolved
+		} else {
+			label = strings.NewReplacer("{BranchName}", capture, "{Number}", capture, "{Sha}", sha, "{ShortSha}", shortSHA).Replace(label)
+			label = Sanitize(label, true)
 		}
 	}
-	if e.Inherit && o.InheritPreventTagged {
-		e.PreventTagged = parent.PreventTagged
+	mode := o.Mode
+	if mode == "" {
+		mode = c.DefaultMode
+		if mode == "" {
+			mode = Delivery
+		}
 	}
-	if e.Inherit && o.NullLabel {
-		e.NullLabel = parent.NullLabel
-		e.Label = expandLabel(parent.Label)
-	}
-	if e.Inherit && parent.Increment != nil {
-		e.Increment = *parent.Increment
+	increment := c.MainIncrement
+	if c.FallbackIncrement != nil {
+		increment = *c.FallbackIncrement
 	}
 	if o.Increment != nil {
-		e.Increment = *o.Increment
+		increment = *o.Increment
 	}
-	if e.Inherit && parent.Messages != nil {
-		e.Messages = *parent.Messages
-	}
+	messages := "Enabled"
 	if o.Messages != nil {
-		e.Messages = *o.Messages
+		messages = *o.Messages
 	}
-	value := func(child, ancestor *bool, fallback bool) bool {
-		if child != nil {
-			return *child
-		}
-		if e.Inherit && ancestor != nil {
-			return *ancestor
+	value := func(p *bool, fallback bool) bool {
+		if p != nil {
+			return *p
 		}
 		return fallback
 	}
-	e.IsMain = value(o.IsMain, parent.IsMain, false)
-	e.IsRelease = value(o.IsRelease, parent.IsRelease, false)
-	e.TracksRelease = value(o.TracksRelease, parent.TracksRelease, false)
-	e.TrackMergeTarget = value(o.TrackMergeTarget, parent.TrackMergeTarget, false)
-	e.PreventMerged = value(o.PreventMerged, parent.PreventMerged, false)
-	e.PreventWhenMerged = value(o.PreventWhenMerged, parent.PreventWhenMerged, false)
-	e.TrackMergeMessage = value(o.TrackMergeMessage, parent.TrackMergeMessage, true)
-	return e, nil
+	return Effective{Kind: kind, NullLabel: o.NullLabel, Label: label, Mode: mode, Increment: increment, Weight: o.Weight, TagWeight: c.TagWeight,
+		PreventTagged: o.PreventTagged, Inherit: inherited, Messages: messages, IsMain: value(o.IsMain, false), IsRelease: value(o.IsRelease, false),
+		TracksRelease: value(o.TracksRelease, false), TrackMergeTarget: value(o.TrackMergeTarget, false), PreventMerged: value(o.PreventMerged, false),
+		PreventWhenMerged: value(o.PreventWhenMerged, false), TrackMergeMessage: value(o.TrackMergeMessage, true)}, nil
 }
 
 var feature = regexp.MustCompile(`^features?[/\\-](.+)$`)
@@ -181,7 +173,7 @@ func Sanitize(s string, dots bool) string {
 func Load(repo string) (Config, error) { return LoadNamed(repo, "") }
 
 func Parse(data []byte) (Config, error) {
-	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Mode: Delivery, Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
+	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}
 	if len(data) > 1<<20 {
 		return c, fmt.Errorf("configuration exceeds 1 MiB")
 	}
@@ -218,7 +210,7 @@ func Parse(data []byte) (Config, error) {
 		return c, err
 	}
 	if node := root["calculation"]; node != nil {
-		calc, err := mapping(node, "calculation", []string{"mode", "next-version", "branches", "strategies", "ignore"})
+		calc, err := mapping(node, "calculation", []string{"mode", "increment", "next-version", "branches", "strategies", "ignore"})
 		if err != nil {
 			return c, err
 		}
@@ -226,6 +218,19 @@ func Parse(data []byte) (Config, error) {
 			c.Ignore, err = parseIgnore(n)
 			if err != nil {
 				return c, err
+			}
+		}
+		if n := calc["increment"]; n != nil {
+			value, err := scalar(n, "calculation.increment")
+			if err != nil {
+				return c, err
+			}
+			if value != "Inherit" {
+				increment, err := semver.ParseIncrement(value)
+				if err != nil {
+					return c, err
+				}
+				c.FallbackIncrement = &increment
 			}
 		}
 		if n := calc["mode"]; n != nil {
@@ -237,21 +242,6 @@ func Parse(data []byte) (Config, error) {
 				return c, fmt.Errorf("unsupported deployment mode %q", s)
 			}
 			c.DefaultMode = Mode(s)
-			// These workflow branches inherit the global mode. Other branch
-			// types have an explicit workflow mode, which takes precedence.
-			if c.Workflow != "TrunkBased/preview1" {
-				c.Main.Mode = Mode(s)
-			}
-			if c.Workflow == "TrunkBased/preview1" {
-				o := c.Options("unknown")
-				o.Mode = Mode(s)
-				c.setOptions("unknown", o)
-			}
-			if c.Workflow == "GitFlow/v1" {
-				o := c.Options("support")
-				o.Mode = Mode(s)
-				c.setOptions("support", o)
-			}
 		}
 		if n := calc["strategies"]; n != nil {
 			if n.Kind != yaml.SequenceNode || n.Anchor != "" {
@@ -292,7 +282,7 @@ func Parse(data []byte) (Config, error) {
 				if n := bs[kind]; n != nil {
 					o := c.Options(kind)
 					if _, exists := c.branchRegex[kind]; !exists {
-						o = Options{Label: "{BranchName}", PreventTagged: true, InheritPreventTagged: true}
+						o = Options{Label: "{BranchName}", PreventTagged: true, InheritPreventTagged: true, InheritWeight: true}
 						c.branchOrder = append(c.branchOrder, kind)
 					}
 					if err := c.parseBranchRules(n, kind); err != nil {
@@ -360,6 +350,7 @@ func Parse(data []byte) (Config, error) {
 							return c, err
 						}
 						o.Weight = w
+						o.InheritWeight = false
 					}
 					c.setOptions(kind, o)
 				}
@@ -400,7 +391,7 @@ func parseOptions(n *yaml.Node, kind, expression string, o *Options) error {
 				}
 				o.Label = s
 			case "increment":
-				if s == "Inherit" && kind != "main" {
+				if s == "Inherit" {
 					o.Increment = nil
 					continue
 				}

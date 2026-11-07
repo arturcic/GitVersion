@@ -191,7 +191,7 @@ func (r *Repository) References() ([]Reference, error) {
 func (r *Repository) Tags(refs []Reference) ([]Tag, error) {
 	tags := []Tag{}
 	for _, ref := range refs {
-		if !strings.HasPrefix(ref.Name, "refs/tags/") {
+		if !NewReferenceName(ref.Name).IsTag {
 			continue
 		}
 		id := ref.SHA

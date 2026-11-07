@@ -11,20 +11,12 @@ import (
 
 type branchRef struct{ name, sha, kind string }
 
-// configurationSources follows the pinned source finder: descending merge-base
-// time, remove older origins contained by a newer candidate, prefer a ref whose
-// tip is exactly the branch point, and retain competing origins at one point.
-func configurationSources(r *gitrepo.Repository, cfg config.Config, branch string, refs []branchRef, visited map[string]bool) ([]string, error) {
-	if visited[branch] {
-		return nil, nil
-	}
-	visited[branch] = true
+// configurationOrigins follows the pinned direct source finder: descending
+// merge-base time, discard older contained origins, and prefer exact branch tips.
+func configurationOrigins(r *gitrepo.Repository, cfg config.Config, branch string, refs []branchRef, visited map[string]bool) ([]string, error) {
 	kind, _, err := cfg.Branch(branch)
 	if err != nil {
 		return nil, err
-	}
-	if kind == "main" || cfg.Options(kind).Increment != nil {
-		return []string{branch}, nil
 	}
 	var tip string
 	for _, b := range refs {
@@ -121,15 +113,9 @@ func configurationSources(r *gitrepo.Repository, cfg config.Config, branch strin
 		if exact && o.branch.sha != o.base {
 			continue
 		}
-		sources, err := configurationSources(r, cfg, o.branch.name, refs, visited)
-		if err != nil {
-			return nil, err
-		}
-		for _, source := range sources {
-			if !seen[source] {
-				out = append(out, source)
-				seen[source] = true
-			}
+		if !seen[o.branch.name] {
+			out = append(out, o.branch.name)
+			seen[o.branch.name] = true
 		}
 	}
 	return out, nil

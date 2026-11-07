@@ -1,0 +1,459 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
+  "source_sha256": "5af171cd547b73e51ed08b2caf535a55edde038d0d0db8d1ba7dc1149251ba5a",
+  "theory_enums": {
+    "IncrementStrategy": {
+      "source": "src/GitVersion.Core/VersionCalculation/IncrementStrategy.cs",
+      "sha256": "cdaf6409c9b038100f5e110d8396bfe3cda40379392ac25d393cc976ab4ca3d3",
+      "values": [
+        "None",
+        "Major",
+        "Minor",
+        "Patch",
+        "Inherit"
+      ]
+    },
+    "DeploymentMode": {
+      "source": "src/GitVersion.Core/VersionCalculation/DeploymentMode.cs",
+      "sha256": "b015761c45419e7435c8481d1b50d196f5afea1cea9b2898e4725aece6f1c9df",
+      "values": [
+        "ManualDeployment",
+        "ContinuousDelivery",
+        "ContinuousDeployment"
+      ]
+    }
+  },
+  "methods": {
+    "When_getting_configurations_of_a_branch_without_versioning_mode_Given_fallback_configuration_with_versioning_mode_Then_result_should_have_versioning_mode": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "ManualDeployment"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "ContinuousDelivery"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "ContinuousDeployment"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_a_branch_with_versioning_mode_Given_fallback_configuration_without_versioning_mode_Then_result_should_have_versioning_mode": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "ManualDeployment"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "ContinuousDelivery"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "ContinuousDeployment"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_a_branch_with_versioning_mode_Given_parent_configuration_with_versioning_mode_Then_result_should_not_have_versioning_mode_of_parent": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "ManualDeployment"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "ContinuousDelivery"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "ContinuousDeployment"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_a_branch_with_tag_alpha_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_alpha": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "When_getting_configurations_of_a_branch_without_tag_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_from_parent": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "UsesFirstBranchConfigWhenMultipleMatch": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "release/latest",
+          "None",
+          "latest"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "release/1.0.0",
+          "Patch",
+          "not-latest"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_inherit_Then_result_should_be_empty": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_Then_result_should_have_fallback_increment": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "Major"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_Then_result_should_be_empty": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_unknown_configuration_with_increment_inherit_Then_result_should_have_fallback_increment": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "Major"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_Then_result_should_have_develop_increment": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None",
+          "None"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "None",
+          "Major"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "None",
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "None",
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "None",
+          "Inherit"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "Major",
+          "None"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "Major",
+          "Major"
+        ]
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "Major",
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "Major",
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "Major",
+          "Inherit"
+        ]
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "Minor",
+          "None"
+        ]
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "Minor",
+          "Major"
+        ]
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "Minor",
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "Minor",
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "Minor",
+          "Inherit"
+        ]
+      },
+      {
+        "id": "case-015",
+        "arguments": [
+          "Patch",
+          "None"
+        ]
+      },
+      {
+        "id": "case-016",
+        "arguments": [
+          "Patch",
+          "Major"
+        ]
+      },
+      {
+        "id": "case-017",
+        "arguments": [
+          "Patch",
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-018",
+        "arguments": [
+          "Patch",
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-019",
+        "arguments": [
+          "Patch",
+          "Inherit"
+        ]
+      },
+      {
+        "id": "case-020",
+        "arguments": [
+          "Inherit",
+          "None"
+        ]
+      },
+      {
+        "id": "case-021",
+        "arguments": [
+          "Inherit",
+          "Major"
+        ]
+      },
+      {
+        "id": "case-022",
+        "arguments": [
+          "Inherit",
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-023",
+        "arguments": [
+          "Inherit",
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-024",
+        "arguments": [
+          "Inherit",
+          "Inherit"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_inherit_Then_result_should_have_fallback_increment": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Major"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "Inherit"
+        ]
+      }
+    ],
+    "When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_and_develop_branch_with_increment_Then_result_should_have_develop_branch_increment": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "None"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Patch"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Minor"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "Major"
+        ]
+      }
+    ],
+    "Pull_request_merge_target_selects_local_support_branch_from_multiple_candidates": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "Pull_request_merge_target_accepts_remote_only_branch": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "Pull_request_target_falls_back_to_all_source_candidates_when_it_cannot_disambiguate": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "Merge pull request 2 from hotfix/v1.0.2",
+          "refs/pull/2/merge"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "Merge pull request 2 from hotfix/v1.0.2 into release/v1.0.x",
+          "refs/pull/2/merge"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x",
+          "refs/heads/feature/foo"
+        ]
+      }
+    ],
+    "Pull_request_target_continues_inheriting_from_selected_branch": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  }
+}

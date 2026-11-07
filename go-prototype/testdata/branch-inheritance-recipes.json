@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "inheritance-pr-local-and-origin",
+    "description": "local-and-origin",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "origin/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-origin-only",
+    "description": "origin-only",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "origin/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "delete-branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-upstream-only",
+    "description": "upstream-only",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "upstream/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "delete-branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-target-missing",
+    "description": "target-missing",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into release/v9.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-not-a-pr",
+    "description": "not-a-pr",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "branch",
+        "name": "feature/foo"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/foo"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-no-target",
+    "description": "no-target",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-inherit-target",
+    "description": "inherit-target",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}, \"support\": {\"increment\": \"Inherit\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-ignored-target",
+    "description": "ignored-target",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}, \"ignore\": {\"branches\": [\"^support/\"]}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-default-parent",
+    "description": "default-parent",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-deployment-parent",
+    "description": "deployment-parent",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\", \"mode\": \"ContinuousDeployment\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-delivery-parent",
+    "description": "delivery-parent",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\", \"mode\": \"ContinuousDelivery\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-child-override",
+    "description": "child-override",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"], \"mode\": \"ContinuousDelivery\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-message-disabled",
+    "description": "message-disabled",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\", \"commit-message-incrementing\": \"Disabled\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-chain-tagged-head",
+    "description": "tagged-head",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"feature\": {\"increment\": \"Inherit\"}, \"custom\": {\"regex\": \"^custom/(?<BranchName>.+)\", \"label\": \"{BranchName}\", \"increment\": \"Inherit\", \"source-branches\": [\"feature\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "feature/parent"
+      },
+      {
+        "op": "checkout",
+        "name": "feature/parent"
+      },
+      {
+        "op": "commit",
+        "id": "parent-work"
+      },
+      {
+        "op": "branch",
+        "name": "custom/topic"
+      },
+      {
+        "op": "checkout",
+        "name": "custom/topic"
+      },
+      {
+        "op": "commit",
+        "id": "child-work",
+        "message": "child work +semver: major"
+      },
+      {
+        "op": "tag",
+        "name": "2.0.0-topic.1"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-orphan-none",
+    "description": "Orphaned develop with global None",
+    "initial_branch": "develop",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"increment\": \"None\", \"branches\": {\"develop\": {\"increment\": \"Inherit\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-orphan-patch",
+    "description": "Orphaned develop with global Patch",
+    "initial_branch": "develop",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"increment\": \"Patch\", \"branches\": {\"develop\": {\"increment\": \"Inherit\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-orphan-minor",
+    "description": "Orphaned develop with global Minor",
+    "initial_branch": "develop",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"increment\": \"Minor\", \"branches\": {\"develop\": {\"increment\": \"Inherit\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-orphan-major",
+    "description": "Orphaned develop with global Major",
+    "initial_branch": "develop",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"increment\": \"Major\", \"branches\": {\"develop\": {\"increment\": \"Inherit\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-non-merge",
+    "description": "non-merge",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "origin/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "commit",
+        "id": "pull-merge",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-disallowed-target",
+    "description": "disallowed-target",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}, \"pull-request\": {\"source-branches\": [\"main\"]}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "origin/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "merge",
+        "id": "pull-merge",
+        "from": "hotfix/v1.0.2",
+        "message": "Merge pull request 2 from hotfix/v1.0.2 into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-orphan-main",
+    "description": "Main inherits explicit root increment",
+    "config": "workflow: GitFlow/v1\ncalculation: {increment: Minor, branches: {main: {increment: Inherit}}}\n",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  },
+  {
+    "id": "inheritance-pr-non-merge-feature",
+    "description": "A single-parent non-release message cannot choose the target",
+    "config": "{\"workflow\": \"GitFlow/v1\", \"calculation\": {\"branches\": {\"main\": {\"increment\": \"Minor\"}}}}",
+    "steps": [
+      {
+        "op": "commit",
+        "id": "root"
+      },
+      {
+        "op": "tag",
+        "name": "1.0.0"
+      },
+      {
+        "op": "branch",
+        "name": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "checkout",
+        "name": "hotfix/v1.0.2"
+      },
+      {
+        "op": "commit",
+        "id": "fix"
+      },
+      {
+        "op": "checkout",
+        "name": "main"
+      },
+      {
+        "op": "commit",
+        "id": "main-work"
+      },
+      {
+        "op": "remote-branch",
+        "name": "origin/support/v1.0.x",
+        "from": "support/v1.0.x"
+      },
+      {
+        "op": "branch",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "checkout",
+        "name": "pull/2/merge"
+      },
+      {
+        "op": "commit",
+        "id": "pull-merge",
+        "message": "Merge pull request 2 from feature/foo into support/v1.0.x"
+      },
+      {
+        "op": "checkpoint",
+        "id": "head"
+      }
+    ]
+  }
+]

@@ -84,25 +84,20 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	canonical, head := r.Head()
 	branch := strings.TrimPrefix(canonical, "refs/heads/")
 	kind, _, err := cfg.Branch(branch)
-	main := kind == "main"
 	if err != nil {
 		return nil, trace, err
 	}
-	effective, err := cfg.EffectiveAt(branch, "main", head)
-	if err != nil {
-		return nil, trace, err
-	}
-	label := effective.Label
+	var effective config.Effective
 	format := func(result output.Result) (map[string]any, error) {
 		result.Mode = effective.Mode
-		result.Weight = &effective.Weight
+		// The variables provider uses the original branch's configured weight.
+		weight := cfg.Options(kind).Weight
+		result.Weight = &weight
 		result.TagWeight = &effective.TagWeight
 		result.Output = cfg.OutputFor(kind)
 		return output.Variables(result)
 	}
 	trace.Branch = branch
-	trace.Label = label
-	trace.Mode = string(effective.Mode)
 	refs, err := r.References()
 	if err != nil {
 		return nil, trace, err
@@ -132,26 +127,32 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	}
 	// Non-Mainline strategies can calculate an explicitly configured branch
 	// without a main ref (for example a repository initialized on develop).
-	// Inherited branches still require a source through configurationSources.
+	// Inherited branches still require a source through the branch configuration finder.
 	if len(mainTips) > 1 {
 		return nil, trace, fmt.Errorf("unsupported main-branch topology: require at most one main/master branch")
 	}
-	sources, err := configurationSources(r, cfg, branch, branches, map[string]bool{})
+	finder := branchConfigurationFinder{
+		config: cfg, branches: branches,
+		sources: func(name string, visited map[string]bool) ([]string, error) {
+			return configurationOrigins(r, cfg, name, branches, visited)
+		},
+		commit: func(name string) (string, bool, error) {
+			for _, b := range branches {
+				if b.name == name {
+					c, err := r.CommitMetadata(b.sha)
+					return c.Message, len(c.Parents) > 1, err
+				}
+			}
+			return "", false, nil
+		},
+	}
+	configurations, err := finder.configurations(branch, head)
 	if err != nil {
 		return nil, trace, err
 	}
-	if len(sources) == 0 {
+	if len(configurations) == 0 {
 		return nil, trace, fmt.Errorf("no base versions determined from source branches")
 	}
-	source := sources[0]
-	effective, err = cfg.EffectiveAt(branch, source, head)
-	if err != nil {
-		return nil, trace, err
-	}
-	label = effective.Label
-	main = effective.IsMain
-	trace.Label = label
-	trace.Mode = string(effective.Mode)
 	history, err := r.Walk(gitrepo.WalkOptions{Include: head, Sort: gitrepo.Time})
 	if err != nil {
 		return nil, trace, err
@@ -168,6 +169,14 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 		return nil, trace, fmt.Errorf("no commits on current branch")
 	}
 	head = history[0]
+	effective, err = cfg.EffectiveOptions(branch, head, configurations[0].options, configurations[0].value.Inherit)
+	if err != nil {
+		return nil, trace, err
+	}
+	label := effective.Label
+	main := effective.IsMain
+	trace.Label = label
+	trace.Mode = string(effective.Mode)
 	commits := map[string]gitrepo.Commit{}
 	reachable := map[string]bool{}
 	load := func(id string) (gitrepo.Commit, error) {
@@ -328,8 +337,9 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 		}
 	}
 	candidates := []candidate{}
-	for _, source := range sources {
-		effective, err := cfg.EffectiveAt(branch, source, head)
+	for _, configuration := range configurations {
+		source := configuration.branch
+		effective, err := cfg.EffectiveOptions(branch, head, configuration.options, configuration.value.Inherit)
 		if err != nil {
 			return nil, trace, err
 		}
@@ -511,7 +521,7 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	}
 	chosen := candidates[best]
 	effective = chosen.effective
-	source = chosen.source
+	source := chosen.source
 	label = effective.Label
 	main = effective.IsMain
 	trace.Label = label

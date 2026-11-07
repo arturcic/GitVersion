@@ -2,9 +2,9 @@ package config
 
 import (
 	"fmt"
-	"strings"
 	"sync"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"github.com/GitTools/GitVersion/go-prototype/internal/patterns"
 	"gopkg.in/yaml.v3"
 )
@@ -12,11 +12,7 @@ import (
 func ptrBranch(s string) *string { return &s }
 
 func normalizedBranchName(name string) string {
-	name = strings.TrimPrefix(name, "refs/heads/")
-	if strings.HasPrefix(name, "refs/remotes/") {
-		name = strings.TrimPrefix(strings.TrimPrefix(name, "refs/remotes/"), "origin/")
-	}
-	return name
+	return gitrepo.NewReferenceName(name).WithoutOrigin
 }
 
 // Use the frozen workflow's ordered rules. The unknown rule is considered only
@@ -57,16 +53,57 @@ var embeddedBranchRules = sync.OnceValue(func() map[string][]workflowBranchRule 
 })
 
 func (c *Config) initializeBranchRules() error {
+	definitions := []BranchDefinition{}
+	for _, rule := range embeddedBranchRules()[c.Workflow] {
+		definitions = append(definitions, BranchDefinition{rule.kind, rule.expression, c.Options(rule.kind), rule.sources})
+	}
+	updated, err := c.WithBranchDefinitions(definitions)
+	if err == nil {
+		*c = updated
+	}
+	return err
+}
+
+// BranchDefinition is the ordered, typed form used by workflow and builder
+// configuration. An empty definition list removes every branch-specific rule.
+type BranchDefinition struct {
+	Name, Regex string
+	Options     Options
+	Sources     []string
+}
+
+func (c Config) WithBranchDefinitions(definitions []BranchDefinition) (Config, error) {
+	c.branchOrder = []string{}
 	c.branchRegex = map[string]string{}
 	c.branchPatterns = map[string]*patterns.Pattern{}
 	c.branchSources = map[string][]string{}
-	for _, rule := range embeddedBranchRules()[c.Workflow] {
-		c.branchOrder = append(c.branchOrder, rule.kind)
-		c.branchRegex[rule.kind] = rule.expression
-		c.branchPatterns[rule.kind] = rule.pattern
-		c.branchSources[rule.kind] = rule.sources
+	c.Extra = map[string]Options{}
+	c.Main, c.Feature = Options{}, Options{}
+	for _, definition := range definitions {
+		if _, exists := c.branchRegex[definition.Name]; exists {
+			return c, fmt.Errorf("duplicate branch configuration %q", definition.Name)
+		}
+		var compiled *patterns.Pattern
+		for _, preset := range embeddedBranchRules()[c.Workflow] {
+			if preset.kind == definition.Name && preset.expression == definition.Regex {
+				compiled = preset.pattern
+				break
+			}
+		}
+		if compiled == nil {
+			var err error
+			compiled, err = patterns.Compile(definition.Regex, patterns.IgnoreCase)
+			if err != nil {
+				return c, err
+			}
+		}
+		c.branchOrder = append(c.branchOrder, definition.Name)
+		c.branchRegex[definition.Name] = definition.Regex
+		c.branchPatterns[definition.Name] = compiled
+		c.branchSources[definition.Name] = append([]string(nil), definition.Sources...)
+		c.setOptions(definition.Name, definition.Options)
 	}
-	return nil
+	return c, nil
 }
 
 func (c *Config) parseBranchRules(node *yaml.Node, kind string) error {
@@ -125,7 +162,7 @@ func (c Config) matchBranchRule(name string) (string, string, error) {
 	if match != nil {
 		return "unknown", branchCapture(match, name), nil
 	}
-	return "unknown", Sanitize(name, false), nil
+	return "", Sanitize(name, false), nil
 }
 
 func (c Config) matchRule(kind, name string) (*patterns.Match, error) {

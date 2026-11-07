@@ -1,0 +1,141 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
+  "source_sha256": "63aa0344129013c84f435c5d87f0cc86919db2800ce463e78c195d6c13a62f1e",
+  "methods": {
+    "FromTagName_PreservesLiteralName": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "1.2.3",
+          "refs/tags/1.2.3"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "release/1.2.3",
+          "refs/tags/release/1.2.3"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "refs/tags/1.2.3",
+          "refs/tags/refs/tags/1.2.3"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "refs/heads/main",
+          "refs/tags/refs/heads/main"
+        ]
+      }
+    ],
+    "FromTagName_RejectsNull": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "FromTagName_RejectsEmpty": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "EquivalentTo_UsesOriginStrippedName": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "refs/remotes/origin/release/1.0.0",
+          "release/1.0.0",
+          true
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "refs/remotes/upstream/release/1.0.0",
+          "release/1.0.0",
+          false
+        ]
+      }
+    ],
+    "WithoutOrigin_ReturnsExpectedName": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "refs/heads/release/1.0.0",
+          "release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "refs/remotes/origin/release/1.0.0",
+          "release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "refs/remotes/upstream/release/1.0.0",
+          "upstream/release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "refs/remotes/pull/123/merge",
+          "pull/123/merge"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "refs/pull/123/merge",
+          "refs/pull/123/merge"
+        ]
+      }
+    ],
+    "WithoutRemote_ReturnsExpectedName": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "refs/heads/release/1.0.0",
+          "release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "refs/remotes/origin/release/1.0.0",
+          "release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "refs/remotes/upstream/release/1.0.0",
+          "release/1.0.0"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "refs/remotes/pull/123/merge",
+          "pull/123/merge"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "refs/pull/123/merge",
+          "refs/pull/123/merge"
+        ]
+      }
+    ]
+  }
+}

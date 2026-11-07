@@ -34,6 +34,7 @@ func TestPlatformGeneratedWorkflowParity(t *testing.T) { testPlatformParity(t, "
 func TestPlatformCSharpPortsParity(t *testing.T)       { testPlatformParity(t, "csharp-ports") }
 func TestPlatformNextVersionParity(t *testing.T)       { testPlatformParity(t, "next-version") }
 func TestPlatformBranchRuleParity(t *testing.T)        { testPlatformParity(t, "branch-rules") }
+func TestPlatformBranchInheritanceParity(t *testing.T) { testPlatformParity(t, "branch-inheritance") }
 func TestPlatformStrategyParity(t *testing.T)          { testPlatformParity(t, "strategy") }
 func TestPlatformMergeControlParity(t *testing.T)      { testPlatformParity(t, "merge-control") }
 func TestPlatformConfigurationEdgeParity(t *testing.T) { testPlatformParity(t, "configuration-edge") }
@@ -131,6 +132,10 @@ func testPlatformParity(t *testing.T, suite string) {
 		recipes, err = fixtures.Load(filepath.Join(root, "testdata/branch-rule-recipes.json"))
 		expected = 21
 	}
+	if suite == "branch-inheritance" {
+		recipes, err = fixtures.Load(filepath.Join(root, "testdata/branch-inheritance-recipes.json"))
+		expected = 22
+	}
 	if suite == "strategy" {
 		recipes = fixtures.StrategyRecipes()
 		expected = 768
@@ -185,12 +190,12 @@ func testPlatformParity(t *testing.T, suite string) {
 	if suite == "workflow-generated" {
 		goldenPath = filepath.Join(root, ".local/workflow-generated-reference.json")
 	}
-	if suite != "next-version" && suite != "branch-rules" {
+	if suite != "next-version" && suite != "branch-rules" && suite != "branch-inheritance" {
 		if err := parity.ReadJSON(goldenPath, &golden); err != nil {
 			t.Fatal(err)
 		}
 	}
-	if suite != "curated" && suite != "next-version" && suite != "branch-rules" {
+	if suite != "curated" && suite != "next-version" && suite != "branch-rules" && suite != "branch-inheritance" {
 		goldenCount := expected - len(golden.Rejections)
 		if failure.ID != "" {
 			goldenCount--

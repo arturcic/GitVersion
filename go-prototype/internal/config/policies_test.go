@@ -55,7 +55,7 @@ output:
 
 func TestExpandedPolicyRejectsInvalidValues(t *testing.T) {
 	for _, tc := range []struct{ name, section string }{
-		{"main-inherit", "calculation: {branches: {main: {increment: Inherit}}}"},
+		{"invalid-main-increment", "calculation: {branches: {main: {increment: Unknown}}}"},
 		{"mode", "calculation: {branches: {feature: {mode: Mainline}}}"},
 		{"message-mode", "calculation: {branches: {feature: {commit-message-incrementing: Sometimes}}}"},
 		{"string-bool", "calculation: {branches: {main: {prevent-increment: {when-current-commit-tagged: 'false'}}}}"},
