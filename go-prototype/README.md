@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1250 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1260 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,212 verified unit/component methods out of 1,516 separately from integration ports.
+1,222 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -318,3 +318,11 @@ file from the language template. For example:
 The [assembly updater evidence](CSHARP-ASSEMBLY-INFO-EVIDENCE.json) records 19
 ported C# tests, all 55 parameter cases, and byte comparisons of the files
 written by both executables on macOS and Ubuntu.
+
+The root CLI also supports `--update-project-files` for SDK-style C#, F#,
+Visual Basic and SQL projects. Pass one or more paths, or omit paths to discover
+supported project files under the working directory. A project with
+`GenerateAssemblyInfo` disabled is skipped with a warning.
+
+The [project updater evidence](CSHARP-PROJECT-FILE-EVIDENCE.json) records the 17
+ported NUnit cases and the seven live C# comparisons per platform.

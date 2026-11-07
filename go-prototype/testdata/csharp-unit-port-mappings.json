@@ -53005,7 +53005,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.CannotUpdateProjectFileWithIncorrectProjectSdk": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53020,7 +53020,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.CannotUpdateProjectFileWithMissingProjectSdk": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53035,7 +53035,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.CannotUpdateProjectFileWithoutAssemblyInfoGeneration": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53050,7 +53050,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.CannotUpdateProjectFileWithoutAPropertyGroup": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53065,7 +53065,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithStandardXmlInsertsElement": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53080,7 +53080,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithStandardXmlModifiesElement": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53095,7 +53095,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithDuplicatePropertyGroupsModifiesLastElement": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53110,7 +53110,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithMultipleVersionElementsLastOneIsModified": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53125,7 +53125,7 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ProjectFileUpdaterTests.UpdateProjectFileAddsVersionToFile": {
     "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
@@ -53141,6 +53141,6 @@
     "adaptations": [
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
