@@ -56,3 +56,34 @@ func TestCSharpMergeMessages(t *testing.T) {
 		})
 	}
 }
+
+func TestMergeMessagePatternBoundaries(t *testing.T) {
+	for _, c := range []struct {
+		name, message, pattern string
+		wantFormat             bool
+		wantPR                 *int
+		wantError              bool
+	}{
+		{name: "custom-case-insensitive", message: "MY MESSAGE", pattern: "my message", wantFormat: true},
+		{name: "invalid-custom-pattern", message: "anything", pattern: "[", wantError: true},
+		{name: "request-overflow", message: "PR 2147483648", pattern: `PR (?<PullRequestNumber>\d+)`, wantFormat: true},
+		{name: "empty-source-capture", message: "value", pattern: `(?<SourceBranch>)value`, wantFormat: true},
+		{name: "unmatched-custom", message: "unrelated", pattern: "my message"},
+	} {
+		t.Run(c.name, func(t *testing.T) {
+			got, err := ParseMergeMessage(&c.message, []MergeFormat{{Name: "custom", Pattern: c.pattern}})
+			if (err != nil) != c.wantError {
+				t.Fatal(err)
+			}
+			if c.wantError {
+				return
+			}
+			if (got.FormatName != nil) != c.wantFormat || got.PullRequestNumber != nil {
+				t.Fatalf("unexpected match: %+v", got)
+			}
+			if c.wantFormat && (got.MergedBranch == nil || *got.MergedBranch != "") {
+				t.Fatal("missing/empty source distinction lost")
+			}
+		})
+	}
+}

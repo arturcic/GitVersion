@@ -35,7 +35,7 @@ func ParseMergeMessage(message *string, custom []MergeFormat) (MergeMessage, err
 		var err error
 		if i < len(custom) {
 			name = custom[i].Name
-			p, err = patterns.Compile(custom[i].Pattern, 0)
+			p, err = patterns.Compile(custom[i].Pattern, patterns.IgnoreCase)
 		} else {
 			name = names[i-len(custom)]
 			if name == "GitHubPull" {
