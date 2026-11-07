@@ -1,0 +1,436 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+  "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+  "methods": {
+    "ValidDocumentsHaveEmptyStdoutAndNoSideEffects": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "{}"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          ""
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "calculation:\n  tag-prefix: '[vV]?'\noutput:\n  update-build-number: false"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "workflow: GitFlow/v1"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "workflow: GitHubFlow/v1"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "workflow: TrunkBased/preview1"
+        ]
+      }
+    ],
+    "InvalidDocumentsProduceOneSafeJsonEnvelope": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "calculation: [",
+          "GVCONFIG_YAML"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "calculation:\n  unknown-key: secret-value",
+          "GVCONFIG_PROPERTY"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "output:\n  tag-prefix: secret-value",
+          "GVCONFIG_LAYOUT"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "tag-prefix: secret-value",
+          "GVCONFIG_LAYOUT"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "calculation:\n  secret-value: true\noutput:\n  secret-value: true",
+          "GVCONFIG_LAYOUT"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "calculation:\n  increment: secret-value",
+          "GVCONFIG_PROPERTY"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "output:\n  update-build-number: secret-value",
+          "GVCONFIG_PROPERTY"
+        ]
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "output:\n  tag-pre-release-weight: secret-value",
+          "GVCONFIG_PROPERTY"
+        ]
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "calculation:\n  tag-prefix: '['",
+          "GVCONFIG_REGEX"
+        ]
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "calculation:\n  next-version: secret-value",
+          "GVCONFIG_VALUE"
+        ]
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "workflow: secret-value",
+          "GVCONFIG_WORKFLOW"
+        ]
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "workflow: ''",
+          "GVCONFIG_WORKFLOW"
+        ]
+      },
+      {
+        "id": "case-012",
+        "arguments": [
+          "calculation:\n  branches:\n    main:\n      source-branches: [missing]",
+          "GVCONFIG_BRANCH"
+        ]
+      },
+      {
+        "id": "case-013",
+        "arguments": [
+          "calculation:\n  branches:\n    main:\n      is-source-branch-for: [missing]",
+          "GVCONFIG_BRANCH"
+        ]
+      },
+      {
+        "id": "case-014",
+        "arguments": [
+          "calculation:\n  branches:\n    custom:\n      label: custom",
+          "GVCONFIG_BRANCH"
+        ]
+      }
+    ],
+    "OverridesUseRuntimeRulesAndSafeDiagnostics": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "--override-config calculation.tag-prefix=runtime-",
+          true,
+          null
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "--override-config calculation.strategies=Mainline",
+          true,
+          null
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "--override-config workflow=GitHubFlow/v1",
+          true,
+          null
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "--override-config calculation.tag-prefix=[",
+          false,
+          "GVCONFIG_REGEX"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "--override-config calculation.increment=bad",
+          false,
+          "GVCONFIG_PROPERTY"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "--override-config unknown=secret-value",
+          false,
+          "GVCONFIG_OVERRIDE"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "--override-config secret-value",
+          false,
+          "GVCONFIG_OVERRIDE"
+        ]
+      }
+    ],
+    "ExplicitV6CompatibilityWarnsWithoutFailing": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "MissingFilesNeverValidateDefaults": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "config validate --config missing.yml --format json"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "config validate --format json"
+        ]
+      }
+    ],
+    "ExplicitPathSupportsSpacesAndUnicodeOutsideGit": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "DiscoveryPreservesSupportedFilenamePriority": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "RepositoryDiscoveryPreservesRootAndAmbiguityRules": [
+      {
+        "id": "case-000",
+        "arguments": [
+          false
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          true
+        ]
+      }
+    ],
+    "IncompatibleRootOptionsAreReportedWithoutSideEffects": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "--url https://invalid.example/repo"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "--branch main"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "--output buildserver"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "--output-file generated.json"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "--update-assembly-info"
+        ]
+      },
+      {
+        "id": "case-005",
+        "arguments": [
+          "--update-project-files"
+        ]
+      },
+      {
+        "id": "case-006",
+        "arguments": [
+          "--update-wix-version-file"
+        ]
+      },
+      {
+        "id": "case-007",
+        "arguments": [
+          "--diagnose"
+        ]
+      },
+      {
+        "id": "case-008",
+        "arguments": [
+          "--no-fetch"
+        ]
+      },
+      {
+        "id": "case-009",
+        "arguments": [
+          "--no-cache"
+        ]
+      },
+      {
+        "id": "case-010",
+        "arguments": [
+          "--no-normalize"
+        ]
+      },
+      {
+        "id": "case-011",
+        "arguments": [
+          "--show-config"
+        ]
+      }
+    ],
+    "ParserFailuresUseExistingStderrContract": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "config validate --unknown --format json"
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "config validate --config"
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "config validate extra"
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "config validate --update-wix-version-file --format json"
+        ]
+      },
+      {
+        "id": "case-004",
+        "arguments": [
+          "config validate --url https://invalid.example/repo --format json"
+        ]
+      }
+    ],
+    "ValidationHelpDescribesTheCommandAndLocalJsonOption": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ValidationIsUnavailableWithLegacyArgumentParser": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "ExplicitValidationNeverConstructsGitOrCalculationServices": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "managed",
+          "{}",
+          true
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "libgit2",
+          "{}",
+          true
+        ]
+      },
+      {
+        "id": "case-002",
+        "arguments": [
+          "managed",
+          "calculation: [",
+          false
+        ]
+      },
+      {
+        "id": "case-003",
+        "arguments": [
+          "libgit2",
+          "calculation: [",
+          false
+        ]
+      }
+    ],
+    "ExplicitValidationPreservesHistoryAndDirtyFiles": [
+      {
+        "id": "case-000",
+        "arguments": [
+          "{}",
+          true
+        ]
+      },
+      {
+        "id": "case-001",
+        "arguments": [
+          "calculation:\n  tag-prefix: '['",
+          false
+        ]
+      }
+    ],
+    "NestedV7DocumentDoesNotFallBackWhenV6IsSelected": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ],
+    "InvalidLocalFormatIsAnExecutedInvocationError": [
+      {
+        "id": "case-000",
+        "arguments": []
+      }
+    ]
+  }
+}

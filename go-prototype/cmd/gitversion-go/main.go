@@ -20,8 +20,8 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	if len(args) == 1 && args[0] == "config" {
 		return fmt.Errorf("The 'config' command requires a subcommand. Use 'gitversion config get', 'gitversion config validate' or 'gitversion config migrate'.")
 	}
-	if flags, directory, ok := configInvocation(args, "validate"); ok {
-		return runConfigValidate(flags, directory, out, diagnostics)
+	if handled, err := runValidationInvocation(args, out, diagnostics); handled {
+		return err
 	}
 	if flags, directory, ok := configInvocation(args, "get"); ok {
 		return runConfigQuery(flags, directory, false, out, diagnostics)

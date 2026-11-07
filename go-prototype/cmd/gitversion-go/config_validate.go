@@ -34,7 +34,54 @@ type validationEnvelope struct {
 	Diagnostics   []validationDiagnostic `json:"diagnostics"`
 }
 
-func runConfigValidate(args []string, workdir string, stdout, stderr io.Writer) error {
+// Root options are listed in the order in which the pinned parser reports an
+// unsupported option. Options shared with the subcommand are forwarded.
+var validationUnsupportedRootOptions = []string{
+	"diagnose", "log-file", "output", "output-file", "show-variable", "format",
+	"show-config", "no-fetch", "no-cache", "no-normalize", "allow-shallow",
+	"verbosity", "update-assembly-info", "update-project-files", "ensure-assembly-info",
+	"update-wix-version-file", "url", "branch", "username", "password", "commit",
+	"dynamic-repo-location",
+}
+
+func runValidationInvocation(args []string, stdout, stderr io.Writer) (bool, error) {
+	for i := 0; i+1 < len(args); i++ {
+		if args[i] != "config" || args[i+1] != "validate" {
+			continue
+		}
+		if i > 0 && (args[0] == "calculate" || args[0] == "observe" || args[0] == "config") {
+			return false, nil
+		}
+		if strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
+			return true, errors.New("The 'config validate' command is only available with the POSIX argument parser.")
+		}
+		root, workdir, err := parseOptionTokens(args[:i], false)
+		if err != nil {
+			return true, err
+		}
+		if workdir == "" {
+			workdir = "."
+		}
+		var problem string
+		for _, name := range validationUnsupportedRootOptions {
+			if _, exists := root[name]; exists {
+				problem = fmt.Sprintf("Option '--%s' cannot be used with 'config validate'.", name)
+				break
+			}
+		}
+		var flags []string
+		for _, name := range []string{"config", "target-path", "override-config", "telemetry-opt-out", "help"} {
+			for _, value := range root[name] {
+				flags = append(flags, "--"+name+"="+value)
+			}
+		}
+		flags = append(flags, args[i+2:]...)
+		return true, runConfigValidate(flags, workdir, problem, discoverValidationFile, stdout, stderr)
+	}
+	return false, nil
+}
+
+func runConfigValidate(args []string, workdir, problem string, discover func(string) (*string, error), stdout, stderr io.Writer) error {
 	options := flag.NewFlagSet("config validate", flag.ContinueOnError)
 	options.SetOutput(io.Discard)
 	options.StringVar(&workdir, "target-path", workdir, "working directory")
@@ -43,17 +90,22 @@ func runConfigValidate(args []string, workdir string, stdout, stderr io.Writer) 
 	options.StringVar(&file, "c", "", "configuration file")
 	options.StringVar(&format, "format", "", "result format")
 	options.Bool("telemetry-opt-out", false, "disable telemetry")
+	help := options.Bool("help", false, "show help")
 	var overrides []string
 	options.Func("override-config", "runtime key=value override", func(value string) error {
 		overrides = append(overrides, value)
 		return nil
 	})
-	if err := options.Parse(args); err != nil || options.NArg() != 0 {
-		if errors.Is(err, flag.ErrHelp) {
-			fmt.Fprintln(stdout, "Usage: gitversion-go [<path>] config validate [--config PATH] [--override-config KEY=VALUE] [--format json]\nValidates configuration without reading Git history. --format json emits a versioned JSON result.")
-			return nil
-		}
-		return fmt.Errorf("Could not parse command line parameter")
+	err := options.Parse(args)
+	if errors.Is(err, flag.ErrHelp) || (err == nil && *help) {
+		fmt.Fprintln(stdout, "Usage: gitversion-go [<path>] config validate [--config PATH] [--override-config KEY=VALUE] [--format json]\nValidates configuration without reading Git history. --format json emits a versioned JSON result.")
+		return nil
+	}
+	if err != nil || options.NArg() != 0 {
+		return errors.New("Could not parse command line parameter")
+	}
+	if problem == "" && format != "" && format != "json" {
+		problem = "config validate --format supports only json."
 	}
 
 	result := validationEnvelope{SchemaVersion: 1, Diagnostics: []validationDiagnostic{}}
@@ -61,7 +113,11 @@ func runConfigValidate(args []string, workdir string, stdout, stderr io.Writer) 
 	version, err := config.SelectConfigurationVersion(&requested)
 	if err == nil {
 		result.Version = &version
-		result.File, err = validationFile(workdir, file, format)
+		if problem != "" {
+			err = &config.ValidationError{Code: "GVCONFIG_INVOCATION", Reason: problem}
+		} else {
+			result.File, err = validationFile(workdir, file, discover)
+		}
 		if err == nil {
 			var data []byte
 			data, err = (config.OSConfigurationFS{}).ReadFile(*result.File)
@@ -114,12 +170,9 @@ func runConfigValidate(args []string, workdir string, stdout, stderr io.Writer) 
 	return nil
 }
 
-func validationFile(workdir, name, format string) (*string, error) {
+func validationFile(workdir, name string, discover func(string) (*string, error)) (*string, error) {
 	if workdir == "" {
 		return nil, &config.ValidationError{Code: "GVCONFIG_INVOCATION", Reason: "The selected directory path is invalid."}
-	}
-	if format != "" && format != "json" {
-		return nil, &config.ValidationError{Code: "GVCONFIG_INVOCATION", Reason: "Unsupported validation output format. Use json."}
 	}
 	dir, err := filepath.Abs(workdir)
 	if err != nil || !(config.OSConfigurationFS{}).DirectoryExists(dir) {
@@ -132,6 +185,10 @@ func validationFile(workdir, name, format string) (*string, error) {
 		name = filepath.Clean(name)
 		return &name, nil
 	}
+	return discover(dir)
+}
+
+func discoverValidationFile(dir string) (*string, error) {
 	locator := config.FileLocator{}
 	file, err := locator.Get(&dir)
 	if err != nil {

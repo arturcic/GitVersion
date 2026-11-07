@@ -97,8 +97,7 @@ func optionBoolean(value string) (bool, bool) {
 	}
 }
 
-func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(string) string) (cliArguments, error) {
-	var result cliArguments
+func parseOptionTokens(args []string, legacy bool) (map[string][]string, string, error) {
 	options := map[string][]string{}
 	positional := ""
 	for i := 0; i < len(args); {
@@ -107,7 +106,7 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 		key := canonicalOption(name, legacy)
 		if key == "" {
 			if i != 0 || optionToken(token, legacy) || (legacy && strings.HasPrefix(token, "/") && !directoryExists(token)) {
-				return result, argumentError(token)
+				return nil, "", argumentError(token)
 			}
 			positional = token
 			i++
@@ -133,13 +132,23 @@ func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(strin
 				values, i = append(values, args[i]), i+1
 			}
 			if kind == 's' && len(values) != 1 {
-				return result, argumentError(token)
+				return nil, "", argumentError(token)
 			}
 		}
 		if kind == 'b' && len(values) == 0 {
 			values = append(values, "true")
 		}
 		options[key] = append(options[key], values...)
+	}
+
+	return options, positional, nil
+}
+
+func parseCLIArguments(args []string, legacy bool, cwd string, lookup func(string) string) (cliArguments, error) {
+	var result cliArguments
+	options, positional, err := parseOptionTokens(args, legacy)
+	if err != nil {
+		return result, err
 	}
 
 	last := func(name string) string {

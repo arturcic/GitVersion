@@ -51285,5 +51285,291 @@
       "Synthetic commit metadata replaces C# interface substitutes. The calculator candidate path receives the original message, parent count, workflow, branch settings, and whitespace variations. The tests assert candidate cardinality and exact semantic or incremented version."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ConfigurationValidationIntegrationTests.ValidDocumentsHaveEmptyStdoutAndNoSideEffects": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ValidDocumentsHaveEmptyStdoutAndNoSideEffects",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.InvalidDocumentsProduceOneSafeJsonEnvelope": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "InvalidDocumentsProduceOneSafeJsonEnvelope",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.OverridesUseRuntimeRulesAndSafeDiagnostics": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "OverridesUseRuntimeRulesAndSafeDiagnostics",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ExplicitV6CompatibilityWarnsWithoutFailing": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ExplicitV6CompatibilityWarnsWithoutFailing",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.MissingFilesNeverValidateDefaults": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "MissingFilesNeverValidateDefaults",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ExplicitPathSupportsSpacesAndUnicodeOutsideGit": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ExplicitPathSupportsSpacesAndUnicodeOutsideGit",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.DiscoveryPreservesSupportedFilenamePriority": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "DiscoveryPreservesSupportedFilenamePriority",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.RepositoryDiscoveryPreservesRootAndAmbiguityRules": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "RepositoryDiscoveryPreservesRootAndAmbiguityRules",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.IncompatibleRootOptionsAreReportedWithoutSideEffects": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "IncompatibleRootOptionsAreReportedWithoutSideEffects",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ParserFailuresUseExistingStderrContract": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ParserFailuresUseExistingStderrContract",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ValidationHelpDescribesTheCommandAndLocalJsonOption": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ValidationHelpDescribesTheCommandAndLocalJsonOption",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ValidationIsUnavailableWithLegacyArgumentParser": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ValidationIsUnavailableWithLegacyArgumentParser",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ExplicitValidationNeverConstructsGitOrCalculationServices": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ExplicitValidationNeverConstructsGitOrCalculationServices",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.ExplicitValidationPreservesHistoryAndDirtyFiles": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "ExplicitValidationPreservesHistoryAndDirtyFiles",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.NestedV7DocumentDoesNotFallBackWhenV6IsSelected": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "NestedV7DocumentDoesNotFallBackWhenV6IsSelected",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationValidationIntegrationTests.InvalidLocalFormatIsAnExecutedInvocationError": {
+    "source": "src/GitVersion.App.Tests/ConfigurationValidationIntegrationTests.cs",
+    "source_sha256": "4ed9d22bb80f1f88af9ae870c0eaa4d9362e418668b71d540ae7decc68066dfe",
+    "method": "InvalidLocalFormatIsAnExecutedInvocationError",
+    "go_test": "TestCSharpConfigurationValidationCLI",
+    "case_file": "testdata/csharp-configuration-validation.json",
+    "case_file_sha256": "a8e2a5561805570ef66feaf163415edf95e52dbee8ab1971511e86b8eff29c12",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Go command dispatch and isolated streams stand in for the C# application fixture. Hash snapshots include repository and untracked files. Explicit validation injects a failing discovery callback and uses the original backend environment values with the pure-Go runtime."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

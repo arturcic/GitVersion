@@ -4,6 +4,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
@@ -11,10 +12,26 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/GitTools/GitVersion/go-prototype/internal/commandline"
 	"github.com/GitTools/GitVersion/go-prototype/internal/parity"
 )
 
 func TestPlatformConfigurationValidationParity(t *testing.T) {
+	testPlatformConfigurationValidation(t, false)
+}
+
+func TestPlatformCSharpValidationInvocationParity(t *testing.T) {
+	testPlatformConfigurationValidation(t, true)
+}
+
+type validationParityCase struct {
+	name, document, version, override string
+	code                              int
+	missing                           bool
+}
+
+func testPlatformConfigurationValidation(t *testing.T, originalInvocations bool) {
+	t.Helper()
 	root, err := filepath.Abs("../..")
 	if err != nil {
 		t.Fatal(err)
@@ -42,11 +59,7 @@ func TestPlatformConfigurationValidationParity(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	cases := []struct {
-		name, document, version, override string
-		code                              int
-		missing                           bool
-	}{
+	cases := []validationParityCase{
 		{"empty", "", "v7", "", 0, false},
 		{"nested", "calculation: {tag-prefix: 'release-'}\noutput: {update-build-number: false}", "v7", "", 0, false},
 		{"trunk", "workflow: TrunkBased/preview1", "v7", "", 0, false},
@@ -65,11 +78,39 @@ func TestPlatformConfigurationValidationParity(t *testing.T) {
 		{"override-invalid-value", "{}", "v7", "calculation.increment=bad", 1, false},
 		{"override-invalid-path", "{}", "v7", "unknown=private-value", 1, false},
 	}
+	prefix := map[string][]string{}
+	localFormat := map[string]string{}
+	if originalInvocations {
+		var corpus struct {
+			Methods map[string]json.RawMessage
+		}
+		if err := parity.ReadJSON(filepath.Join(root, "testdata/csharp-configuration-validation.json"), &corpus); err != nil {
+			t.Fatal(err)
+		}
+		var invocations []struct {
+			ID        string
+			Arguments []string
+		}
+		if err := json.Unmarshal(corpus.Methods["IncompatibleRootOptionsAreReportedWithoutSideEffects"], &invocations); err != nil {
+			t.Fatal(err)
+		}
+		cases = nil
+		for _, tc := range invocations {
+			name := "root-option-" + tc.ID
+			cases = append(cases, validationParityCase{name: name, document: "{}", version: "v7", code: 1})
+			prefix[name] = commandline.SplitUnquoted(tc.Arguments[0], ' ')
+		}
+		if len(cases) != 12 {
+			t.Fatal("original root option inventory changed")
+		}
+		cases = append(cases, validationParityCase{name: "invalid-local-format", document: "{}", version: "v7", code: 1})
+		localFormat["invalid-local-format"] = "xml"
+	}
 	type observation struct {
 		Stdout, Stderr string
 		ExitCode       int
 	}
-	passed := 0
+	passed := []string{}
 	for _, tc := range cases {
 		if t.Run(tc.name, func(t *testing.T) {
 			workdir := t.TempDir()
@@ -83,7 +124,11 @@ func TestPlatformConfigurationValidationParity(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			args := []string{"config", "validate", "--config", file, "--format", "json"}
+			format := "json"
+			if value := localFormat[tc.name]; value != "" {
+				format = value
+			}
+			args := append(prefix[tc.name], "config", "validate", "--config", file, "--format", format)
 			if tc.override != "" {
 				args = append(args, "--override-config", tc.override)
 			}
@@ -112,9 +157,13 @@ func TestPlatformConfigurationValidationParity(t *testing.T) {
 			if reference.ExitCode != tc.code || actual.ExitCode != reference.ExitCode {
 				t.Fatalf("exit mismatch: reference %+v, Go %+v", reference, actual)
 			}
-			diff, err := parity.Compare([]byte(reference.Stdout), []byte(actual.Stdout))
-			if err != nil || len(diff) > 0 {
-				t.Fatalf("validation JSON differs: %v %+v", err, diff)
+			if format == "json" {
+				diff, err := parity.Compare([]byte(reference.Stdout), []byte(actual.Stdout))
+				if err != nil || len(diff) > 0 {
+					t.Fatalf("validation JSON differs: %v %+v", err, diff)
+				}
+			} else if reference.Stdout != "" || actual.Stdout != "" {
+				t.Fatalf("expected empty stdout: reference %+v, Go %+v", reference, actual)
 			}
 			if reference.Stderr != actual.Stderr {
 				t.Fatalf("diagnostics differ:\n%s\n%s", reference.Stderr, actual.Stderr)
@@ -124,10 +173,10 @@ func TestPlatformConfigurationValidationParity(t *testing.T) {
 				t.Fatal("validation modified inputs", err)
 			}
 		}) {
-			passed++
+			passed = append(passed, tc.name)
 		}
 	}
-	report := map[string]any{"passed": passed, "failed": len(cases) - passed, "candidate_sha256": hash, "baseline_revision": baseline.Spec.Revision, "spec_sha256": spec}
+	report := map[string]any{"passed": len(passed), "failed": len(cases) - len(passed), "cases": passed, "candidate_sha256": hash, "baseline_revision": baseline.Spec.Revision, "spec_sha256": spec}
 	if err := parity.WriteJSON(filepath.Join(dir, "report.json"), report); err != nil {
 		t.Fatal(fmt.Errorf("save validation report: %w", err))
 	}
