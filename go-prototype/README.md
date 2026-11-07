@@ -428,7 +428,7 @@ and detached pull request discovery, plus rejection on HTTP 401, 403 and 404.
 Pass `--username` and `--password` for HTTP(S) Basic authentication. The
 explicit credentials are used for transport and kept out of Git configuration
 and diagnostics. Set `GIT_SSL_CAINFO` to trust an additional CA for HTTPS.
-SSH authentication is outside this validation.
+The separate SSH checkpoint below covers public key authentication.
 
 Ordinary fetch refreshes remote-tracking refs, including new branches in a
 single-branch shallow checkout. It retains the shallow boundary.
@@ -439,3 +439,16 @@ branches, and selection from advertised pull requests and annotated tags.
 Go projects normalization changes into its calculation view, keeping physical
 HEAD and local branch tips intact. The pinned C# client can report a suppressed
 credential prompt for HTTP 401, while Go reports an unauthorized remote.
+
+The [SSH parity evidence](CSHARP-SSH-EVIDENCE.json) records 9 loopback
+cases on macOS and Ubuntu 26. The root CLI uses go-git for SSH clone, fetch, and
+detached pull request discovery. Use an SSH agent through `SSH_AUTH_SOCK` or
+an unencrypted key from a standard location or `IdentityFile` in
+`~/.ssh/config`. An agent can also sign with the selected encrypted identity.
+The SSH transport verifies the server against known hosts. Use
+`SSH_KNOWN_HOSTS` to select a different known-hosts file.
+
+The C# oracle uses OpenSSH on macOS and a test-only SSH client called by Git
+on offline Ubuntu. The Go candidate uses its embedded SSH transport on both.
+The tests cover SSH public keys and host key checks. They do not cover SSH
+password authentication, jump hosts, or external Git services.
