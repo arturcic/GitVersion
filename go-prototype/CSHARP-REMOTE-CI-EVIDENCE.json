@@ -1,0 +1,304 @@
+{
+  "source_checkpoint": "e6f326762ccd170dc4baac1f92102d3e5d486236",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "pinned_sources": {
+    "src/GitVersion.Core/Core/GitPreparer.cs": "57b2790f9aac40d8ddacd182e4c520f31495b636947bf4fd650a5a1fb6f12fa1",
+    "src/GitVersion.Git.Managed/CommandLine/GitCliMutator.cs": "98c811c83a505483224d2f8767520e636e8ada56e9e7fe3f4d37e20d314e7f75",
+    "src/GitVersion.Git.Managed/CommandLine/PullRequestBranchOperations.cs": "dd19d55d8992608080246f262ec0e46d8c7ca7e15cf227bae29cbd03a195c577",
+    "src/GitVersion.Core/Core/BranchResolver.cs": "4004f3a9f140057679d1e671e6b017392cdc0d1e6244aa5c20e3c5575268aaf7"
+  },
+  "remote_ci_comparisons": 25,
+  "remote_ci_json_comparisons": 15,
+  "remote_ci_rejection_comparisons": 10,
+  "json_fields_per_comparison": 33,
+  "argument_scope": "v7 POSIX only; v6 configuration stays supported",
+  "preparation_oracle": {
+    "macos": "managed",
+    "ubuntu26": "managed"
+  },
+  "ubuntu_oracle_git": {
+    "version": "2.43.0",
+    "source": "existing local dotnet SDK image",
+    "binary_sha256": "aa6540695d076182256dd6e96c8b302e4d56381e3000bbfd5c71bbdfe94a4942"
+  },
+  "observed_differences": [
+    "Go projects CI branch changes in memory",
+    "HTTP 401 wording may differ by C# oracle Git client"
+  ],
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40406,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "remote_ci_comparisons": 25,
+      "repository_preparation_regression_comparisons": 7,
+      "branch_selection_regression_comparisons": 8,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 20,
+      "cli_schema_regression_cases": 12,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 6
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40406,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "remote_ci_comparisons": 25,
+      "repository_preparation_regression_comparisons": 7,
+      "branch_selection_regression_comparisons": 8,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 20,
+      "cli_schema_regression_cases": 12,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 6
+    }
+  },
+  "candidate_sha256": {
+    "macos": "82c12dcc607d119b58a80732687485a18e624f9a75a9278eef19c7a91cff16a8",
+    "ubuntu26": "d6352ebca08bc27bd37730a9f89ebec44f70a69270809dd48994449a8dd694b6"
+  },
+  "process_reports": {
+    "macos": {
+      "branch_selection": {
+        "report": ".local/remote-ci/macos/branch-selection-1275146841/report.json",
+        "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "cli_execution_regression": {
+        "report": ".local/remote-ci/macos/cli-execution-2315441454/report.json",
+        "sha256": "6b62918e3505c74bb8ef82a35c19901880afdfb748868890e04f5280b1110786",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "cli_schema": {
+        "report": ".local/remote-ci/macos/cli-schema-3372849250/report.json",
+        "sha256": "9fd727d50e1f28ceb40fc6c3b4faf0b6b137d45e07d0d2b422a629b169e2a423",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "executor_cache": {
+        "report": ".local/remote-ci/macos/executor-cache-806136145/report.json",
+        "sha256": "145b494cd706e25a308a733f860ec845b7b1954a3adc75592f02bba6cf735641",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "executor_routing": {
+        "report": ".local/remote-ci/macos/executor-routing-72528689/report.json",
+        "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/remote-ci/macos/msbuild-output-2929657694/report.json",
+        "sha256": "7214348b3fd77ca5db9c04e45da2486caea77e19269568193f3e2d7a810a767a",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "msbuild_tasks": {
+        "report": ".local/remote-ci/macos/msbuild-tasks-40600330/report.json",
+        "sha256": "577ea7d884709ac80854a0f5cadf523726888d5112534458392dc651e82349b1",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "repository_preparation": {
+        "report": ".local/remote-ci/macos/repository-preparation-496023789/report.json",
+        "sha256": "cb8bfc7ca3fe7fe82ca0c380a3a900c2da47cf52ef36227d5eab2e80e0532d5c",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "remote_ci": {
+        "report": ".local/remote-ci/macos/remote-ci-294978580/report.json",
+        "sha256": "da8830a8ed510a2429f8a9d1e8bded3a152341f9eb2733d2d620287f99ed1995",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      },
+      "repository_execution_regression": {
+        "report": ".local/remote-ci/macos/repository-execution-145278106/report.json",
+        "sha256": "e992cf0d1418c566831e4d43c52a05f7489acf224588d3ddb32458e6e32c6fb4",
+        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+      }
+    },
+    "ubuntu26": {
+      "branch_selection": {
+        "report": ".local/remote-ci/linux/branch-selection-918527158/report.json",
+        "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "cli_execution_regression": {
+        "report": ".local/remote-ci/linux/cli-execution-4244450373/report.json",
+        "sha256": "8c2824cc23d05c3206a77a7dff5dbd65cd7fc7abe4757a5292f8ee9dee4e73e9",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "cli_schema": {
+        "report": ".local/remote-ci/linux/cli-schema-1069134160/report.json",
+        "sha256": "181eac45af0253b8add4ab3fd228b649b80f82bfebb9c290c4ee8ed9b9c2e358",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "executor_cache": {
+        "report": ".local/remote-ci/linux/executor-cache-3278711189/report.json",
+        "sha256": "a7e5bb59e5bd7bed6e00289a7852bf803d8930cc6a4e3609aa2213d29d26ce3d",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "executor_routing": {
+        "report": ".local/remote-ci/linux/executor-routing-616715274/report.json",
+        "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/remote-ci/linux/msbuild-output-829049845/report.json",
+        "sha256": "a9177db78aadadef36853118b52e7f583a6e4b350f502b1955634813318df7cc",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "msbuild_tasks": {
+        "report": ".local/remote-ci/linux/msbuild-tasks-3398658857/report.json",
+        "sha256": "306bfdd2f743c5e51528ebb66bcd73a20f7e37e2e057e3fd96934b52e3c3de80",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "repository_preparation": {
+        "report": ".local/remote-ci/linux/repository-preparation-3064954418/report.json",
+        "sha256": "e974615c63febe50fbe41ae3b5989eee582267fafba27ee65af6d7c462457aca",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "remote_ci": {
+        "report": ".local/remote-ci/linux/remote-ci-1805071350/report.json",
+        "sha256": "64d01361a27f46d1ab2d1fd527ff507680ca9dac4057dccc6d3dd51296bc8d34",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      },
+      "repository_execution_regression": {
+        "report": ".local/remote-ci/linux/repository-execution-448463170/report.json",
+        "sha256": "d317ce1bb68ae6da50830c53beb8568a34e5b8373ee45539ea283b43769c511e",
+        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "51e0f1450f4b783aaf8b69f348a12f24ea3ecc8276d56e3d47d568dd4aa41a85",
+    "macos_path": ".local/remote-ci/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/remote-ci/linux/unit/cmd-gitversion-go.log": "b9152e27652118d647ef76d435c6a47da7480c26e42a8e2f251844f15719e943",
+      ".local/remote-ci/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+      ".local/remote-ci/linux/unit/internal-gitrepo.log": "95917087952ec35ad692a7afed881d0e7e4ac11e54137b5c99cb8b0a707019c0",
+      ".local/remote-ci/linux/unit/internal-output.log": "105bcec53e6b40c8463ebfec946793846e5b7e228880fb72a8077048db4ceca5",
+      ".local/remote-ci/linux/unit/internal-calculate.log": "43446d05d79e5572a28968d599dbf55643cbbebc8138cb864b304b316f15a484",
+      ".local/remote-ci/linux/unit/cmd-parity.log": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3",
+      ".local/remote-ci/linux/unit/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+      ".local/remote-ci/linux/unit/internal-fixtures.log": "b7b6536075aea689ec6143238719750ec90b947bc20b7845419e7d783eae89aa",
+      ".local/remote-ci/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+      ".local/remote-ci/linux/unit/internal-parity.log": "4f41b88865d4f9bb507620ab6ad09d3460ba25b82334210ea593e51ce194650f",
+      ".local/remote-ci/linux/unit/internal-config.log": "2ebc32bde9155ae3efe8a27b8f0c3c9c264094e60c24b2c5c7441b0620c3bf68",
+      ".local/remote-ci/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/remote-ci/linux/unit/internal-buildagent.log": "61317aa9289a30522022f50a4feb17e2400b89ec5f84d7c97db046beeaca8975"
+    }
+  },
+  "dependency_list_sha256": "ae41415646630599f922dc40f51cc41ac178b43e17487420ead78dad0c8858e0",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/remote_ci_integration_test.go": "9b288ec5406a82c4dc8ba67fe0075d817a9a588eaaea50bb767e501e166193e0",
+    "cmd/gitversion-go/root_command.go": "3ceb233a26a84178c48b859cbee33950ea6284410f80f3da3203f9bf61104699",
+    "internal/calculate/calculate.go": "a7822011a2def2c38f4f09d1986d990e1777fe1f175f108ea590425622f7e95b",
+    "internal/gitrepo/detached.go": "df7f7cb19c4dbc64081c52b2ac3aed01c5e4b8510f2f1e06af41dcdac5b37382",
+    "internal/gitrepo/normalization.go": "c09ce7ba0f0d29bd34c250a2d6fd9023b845a51a2420e2e4d92b082826689f3f",
+    "internal/gitrepo/preparation.go": "30a9d18bb608ee42b5c4e2a59a895f2cb669bb4df87e763af136e6db2f0ea102",
+    "internal/gitrepo/repository.go": "f74006b4a510b3899705281be31be48a7dae953e8a9b5f2f5987aea6bcb5ef73"
+  },
+  "reused_linux_unit_binary_hashes": {
+    ".local/msbuild-output-ports/linux-bin/internal-patterns.test": "d562529c06240976d7fbae6e50df9d1daafc170c0e5d9918f4cb2fab8ec8d915",
+    ".local/msbuild-output-ports/linux-bin/cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    ".local/msbuild-output-ports/linux-bin/internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    ".local/msbuild-output-ports/linux-bin/internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    ".local/msbuild-output-ports/linux-bin/internal-formatting.test": "bf0069ded21cad563627999ca29bb9fd0878d2b016b0ff11180a738b65fbb6e7",
+    ".local/executor-cache-ports/linux-bin/internal-semver.test": "2eacd401ba6d4b80eeb69b6377bf4b47edd9c4dad7c3cfcdf76f370fdbf1614a"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/remote-ci/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/remote-ci/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/remote-ci/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/remote-ci/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T10:47:04.990309583Z",
+      "FinishedAt": "2026-11-07T10:48:32.070036763Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/remote-ci/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/executor-cache-ports/linux-bin",
+        "Destination": "/cache-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/remote-ci/oracle-git",
+        "Destination": "/oracle-git",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-output-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/Library/Application Support/dotnetup/dotnet/sdk/10.0.403",
+        "Destination": "/sdk",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}

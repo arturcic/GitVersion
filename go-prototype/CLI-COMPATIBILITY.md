@@ -2,7 +2,7 @@
 
 Generated from the immutable baseline lock’s captured `--cli-schema`, not from a moving website. Reference SHA: `14d222235b7dabb7033473528a76fd18478a9217`. The table is the original inventory of C# CLI contracts. The current Go root CLI uses POSIX argument syntax; the slash aliases shown for help are part of the pinned schema snapshot. Matching an option name is insufficient: arguments, aliases, precedence, stdout/stderr, exit status and side effects need differential tests.
 
-The [repository preparation checkpoint](CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json) verifies `--url`, `--branch`, `--dynamic-repo-location`, `--no-fetch`, and `--no-normalize` for the local remote fixtures. Authenticated network remotes, shallow fetch, and broader CI topologies remain to be verified. See the [prototype README](README.md) for the current CLI and integration evidence.
+The [repository preparation checkpoint](CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json) verifies `--url`, `--branch`, `--dynamic-repo-location`, `--no-fetch`, and `--no-normalize` for the local remote fixtures. The [remote and CI checkpoint](CSHARP-REMOTE-CI-EVIDENCE.json) also verifies Basic authentication against local smart HTTP, shallow fetch, and detached CI normalization. HTTPS uses a local CA. SSH authentication remains outside the measured cases. See the [prototype README](README.md) for the current CLI and integration evidence.
 
 | Command | Option | Aliases | Status |
 | --- | --- | --- | --- |

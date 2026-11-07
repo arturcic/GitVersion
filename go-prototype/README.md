@@ -14,7 +14,7 @@ The module uses **go-git v5.19.3** and requires Go 1.26 or newer. Fixture constr
 
 `baseline.json` pins the established `src/` C# implementation at `14d222235b7dabb7033473528a76fd18478a9217`, its SDK, Release/net10.0 build, runtime 10.0.14, v7 configuration/parser, managed Git backend, and invocation. The prototype intentionally does not use the experimental `new-cli/` tree or published v6 behavior.
 
-The C# oracle is an unmodified historical build. That source still references and publishes its legacy libgit2 fallback; the harness normally selects its **managed** backend. Repository preparation uses the pinned native C# backend on offline Ubuntu because the managed clone and fetch require a system Git executable. Those historical C# packages are confined to the ignored oracle build and are not Go dependencies. Eliminating the historical fallback from C# packaging is outside this prototype.
+The C# oracle is an unmodified historical build. That source still references and publishes its legacy libgit2 fallback; the harness normally selects its **managed** backend. The earlier repository preparation checkpoint used the pinned native C# backend on Ubuntu. The current remote and CI checkpoint uses the managed C# backend on both platforms with a Git executable supplied to the oracle and fixture server. Those historical C# packages are confined to the ignored oracle build and are not Go dependencies. Eliminating the historical fallback from C# packaging is outside this prototype.
 
 `scripts/build-baseline.sh` extracts exactly the pinned commit with `git archive`, builds the extracted source, captures help/schema/version, and writes `.local/baseline.lock.json`. The lock includes the source-archive SHA256, baseline-spec SHA256, every published file's SHA256, the dotnet-host SHA256, and every file in the explicitly selected .NET runtime. It also records SDK, toolchain, platform and runtime inventory. Runs verify the spec, executable directory, host and pinned runtime against this lock before executing. This detects drift; it is local build provenance, not a signed supply-chain attestation.
 
@@ -419,6 +419,23 @@ process without a system Git executable.
 
 The [repository preparation evidence](CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json)
 records seven live comparisons of all 33 version fields on macOS and offline
-Ubuntu 26. External authentication services and broader CI topologies are
-outside this evidence. Legacy argument syntax and the parser selector are out
-of scope; v6 YAML loading and configuration migration remain supported.
+Ubuntu 26. Legacy argument syntax and the parser selector are out of scope; v6 YAML loading and configuration migration remain supported.
+
+The [authenticated remote and CI evidence](CSHARP-REMOTE-CI-EVIDENCE.json)
+records 25 new process cases per platform against the managed C# build.
+Local smart HTTP and HTTPS fixtures exercise Basic credentials on dynamic clone, fetch,
+and detached pull request discovery, plus rejection on HTTP 401, 403 and 404.
+Pass `--username` and `--password` for HTTP(S) Basic authentication. The
+explicit credentials are used for transport and kept out of Git configuration
+and diagnostics. Set `GIT_SSL_CAINFO` to trust an additional CA for HTTPS.
+SSH authentication is outside this validation.
+
+Ordinary fetch refreshes remote-tracking refs, including new branches in a
+single-branch shallow checkout. It retains the shallow boundary.
+`--allow-shallow` permits calculation from the remaining history. Without it
+both executables reject shallow calculation. The detached CI cases cover
+provider branch names, Jenkins duplicate remotes, stale and ignored tracking
+branches, and selection from advertised pull requests and annotated tags.
+Go projects normalization changes into its calculation view, keeping physical
+HEAD and local branch tips intact. The pinned C# client can report a suppressed
+credential prompt for HTTP 401, while Go reports an unauthorized remote.
