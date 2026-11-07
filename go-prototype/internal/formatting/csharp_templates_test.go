@@ -121,7 +121,7 @@ func TestTemplateFallbackInteractions(t *testing.T) {
 	}{
 		{"present-null", "{Null}", "", false}, {"null-fallback", `{Null ?? "yes"}`, "yes", false},
 		{"empty-stops", `{Empty ?? "no"}`, "", false}, {"missing-then-null", `{Missing ?? Null}`, "", true},
-		{"late-malformed", `{Word ?? "unterminated}`, "", true}, {"format-error-fallback", `{Number:n-1 ?? "yes"}`, "yes", false},
+		{"late-malformed", `{Word ?? "unterminated}`, "", true}, {"format-error-fallback", `{Number:Q ?? "yes"}`, "yes", false},
 		{"unknown-text-format", `{Word:unknown}`, "Hello", false}, {"repeated", "{Word}-{Word}", "Hello-Hello", false},
 		{"nested-braces", "{{Word}} {}", "{Hello} {}", false}, {"dictionary-dot", "{nested.key}", "exact", false},
 		{"bool", "{Flag}", "True", false}, {"whitespace-expression", "{ }", "", false},
@@ -193,7 +193,10 @@ func TestNumericAndStringFormatterBoundaries(t *testing.T) {
 			t.Fatal("non-string or nonnumeric handled", got, ok, err)
 		}
 	}
-	for _, f := range []string{"f1000", "n-1", "dX"} {
+	if got, ok, err := (NumericFormatter{}).TryFormat("1", "f1000"); err != nil || !ok || got != "1."+strings.Repeat("0", 1000) {
+		t.Fatal("valid large precision rejected", ok, err)
+	}
+	for _, f := range []string{"f1000000000", "Q", "d1000000000"} {
 		if _, _, err := (NumericFormatter{}).TryFormat("1", f); err == nil {
 			t.Fatal("invalid/unsupported precision accepted", f)
 		}

@@ -102,7 +102,7 @@ func (NumericFormatter) TryFormat(value any, format string) (string, bool, error
 	precision := -1
 	if len(format) > 1 {
 		n, err := strconv.Atoi(format[1:])
-		if err != nil || n < 0 || n > 999 {
+		if err != nil || n < 0 || n > 999999999 {
 			return "", false, fmt.Errorf("unsupported numeric format %q", format)
 		}
 		precision = n
