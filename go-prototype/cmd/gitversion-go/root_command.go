@@ -63,20 +63,7 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 		if err != nil {
 			return err
 		}
-		runtime := options.OverrideConfiguration
-		if version == "v6" {
-			runtime = nil
-		}
-		resolved, err := provider.ProvideFrom(&directory, configRepositoryRoot(directory), runtime)
-		if err != nil {
-			return err
-		}
-		data, err := resolved.Serialize(version)
-		if err != nil {
-			return err
-		}
-		_, err = out.Write(append(data, '\n'))
-		return err
+		return outputConfigurationQuery(version, directory, options.TargetURL, nil, options.OverrideConfiguration, &provider, out)
 	}
 	if options.TargetURL != "" || options.TargetBranch != "" || options.ClonePath != "" {
 		return fmt.Errorf("remote and branch targeting are pending")
@@ -95,30 +82,73 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 			repoOptions.BuildTag = *tag
 		}
 	}
-	result, err := executeCalculation(options, diagnostics, repoOptions, !options.NoCache, config.LoadCalculationConfig)
+	return runRootCalculation(options, repoOptions, out, diagnostics)
+}
+
+type versionStages struct {
+	discover  func(string) (string, error)
+	calculate func(string) (calculationExecution, error)
+	output    func(calculationExecution) error
+	assembly  func(map[string]any) error
+	wix       func(map[string]any) error
+}
+
+func runVersionStages(directory string, stages versionStages) error {
+	root, err := stages.discover(directory)
+	if err != nil {
+		return calculationFailure{err}
+	}
+	result, err := stages.calculate(root)
+	if err != nil {
+		return calculationFailure{err}
+	}
+	if err := stages.output(result); err != nil {
+		return err
+	}
+	if err := stages.assembly(result.values); err != nil {
+		return err
+	}
+	return stages.wix(result.values)
+}
+
+type calculationFailure struct{ error }
+
+func (failure calculationFailure) Unwrap() error { return failure.error }
+
+func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, out, diagnostics io.Writer) error {
+	rawVersion := os.Getenv("GITVERSION_CONFIGURATION_VERSION")
+	version, err := resolveConfigurationVersion(rawVersion)
 	if err != nil {
 		return err
 	}
-	if err := writeCalculationLog(options, result, diagnostics); err != nil {
-		return err
-	}
-	values := result.values
-	if err := writeRootOutput(options, values, result.updateBuildNumber, out); err != nil {
-		return err
-	}
-	switch {
-	case options.UpdateProjectFiles:
-		err = updateProjectFiles(options.TargetPath, options.UpdateAssemblyInfoFileName, values, diagnostics)
-	case options.UpdateAssemblyInfo:
-		err = updateAssemblyInfo(options.TargetPath, options.UpdateAssemblyInfoFileName, options.EnsureAssemblyInfo, values, diagnostics)
-	}
-	if err != nil {
-		return err
-	}
-	if options.UpdateWixVersionFile {
-		return updateWixVersionFile(options.TargetPath, values)
-	}
-	return nil
+	return runVersionStages(options.TargetPath, versionStages{
+		discover: discoverCalculationRoot,
+		calculate: func(root string) (calculationExecution, error) {
+			return calculateDiscovered(options, root, rawVersion, version, diagnostics, repoOptions, !options.NoCache, config.LoadCalculationConfig)
+		},
+		output: func(result calculationExecution) error {
+			if err := writeCalculationLog(options, result, diagnostics); err != nil {
+				return err
+			}
+			return writeRootOutput(options, result.values, result.updateBuildNumber, out)
+		},
+		assembly: func(values map[string]any) error {
+			switch {
+			case options.UpdateProjectFiles:
+				return updateProjectFiles(options.TargetPath, options.UpdateAssemblyInfoFileName, values, diagnostics)
+			case options.UpdateAssemblyInfo:
+				return updateAssemblyInfo(options.TargetPath, options.UpdateAssemblyInfoFileName, options.EnsureAssemblyInfo, values, diagnostics)
+			default:
+				return nil
+			}
+		},
+		wix: func(values map[string]any) error {
+			if options.UpdateWixVersionFile {
+				return updateWixVersionFile(options.TargetPath, values)
+			}
+			return nil
+		},
+	})
 }
 
 func writeRootOutput(options cliArguments, values map[string]any, updateBuildNumber bool, out io.Writer) error {
@@ -198,18 +228,29 @@ func executeCalculation(options cliArguments, diagnostics io.Writer, repoOptions
 	if err != nil {
 		return result, err
 	}
-	path, custom := options.TargetPath, options.ConfigurationFile
+	root, err := discoverCalculationRoot(options.TargetPath)
+	if err != nil {
+		return result, err
+	}
+	return calculateDiscovered(options, root, rawVersion, version, diagnostics, repoOptions, cache, loadConfig)
+}
+
+func discoverCalculationRoot(path string) (string, error) {
 	info, err := os.Stat(path)
 	if os.IsNotExist(err) || (err == nil && !info.IsDir()) {
-		return result, fmt.Errorf("The working directory '%s' does not exist.", path)
+		return "", fmt.Errorf("The working directory '%s' does not exist.", path)
 	}
 	if err != nil {
-		return result, err
+		return "", err
 	}
-	root, err := gitrepo.WorkingTreeRoot(path)
-	if err != nil {
-		return result, err
-	}
+	return gitrepo.WorkingTreeRoot(path)
+}
+
+func calculateDiscovered(options cliArguments, root, rawVersion, version string, diagnostics io.Writer, repoOptions gitrepo.OpenOptions, cache bool,
+	loadConfig func(string, string, []byte, string, func(string)) (config.Config, []byte, error),
+) (calculationExecution, error) {
+	var result calculationExecution
+	path, custom := options.TargetPath, options.ConfigurationFile
 	configDirectory := path
 	if custom == "" {
 		locator := config.FileLocator{}

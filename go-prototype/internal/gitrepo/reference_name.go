@@ -36,6 +36,15 @@ func NewReferenceName(canonical string) ReferenceName {
 	return r
 }
 
+// ReferenceFromBranchName accepts a canonical reference or a short local branch name.
+func ReferenceFromBranchName(name string) ReferenceName {
+	ref := NewReferenceName(name)
+	if ref.IsLocalBranch || ref.IsRemoteBranch || ref.IsTag || ref.IsPullRequest {
+		return ref
+	}
+	return NewReferenceName("refs/heads/" + name)
+}
+
 func (r ReferenceName) EquivalentTo(name *string) bool {
 	return name != nil && (strings.EqualFold(r.Canonical, *name) || strings.EqualFold(r.Friendly, *name) || strings.EqualFold(r.WithoutOrigin, *name))
 }

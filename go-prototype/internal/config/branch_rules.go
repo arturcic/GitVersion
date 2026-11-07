@@ -12,7 +12,7 @@ import (
 func ptrBranch(s string) *string { return &s }
 
 func normalizedBranchName(name string) string {
-	return gitrepo.NewReferenceName(name).WithoutOrigin
+	return gitrepo.ReferenceFromBranchName(name).WithoutOrigin
 }
 
 // Use the frozen workflow's ordered rules. The unknown rule is considered only

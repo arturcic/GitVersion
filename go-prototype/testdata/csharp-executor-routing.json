@@ -1,0 +1,193 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "version_variables": {
+    "AssemblySemFileVer": "1.2.3.0",
+    "AssemblySemVer": "1.2.3.0",
+    "BranchName": "main",
+    "BuildMetaData": null,
+    "CommitDate": null,
+    "CustomVersion": null,
+    "EscapedBranchName": "main",
+    "FullBuildMetaData": null,
+    "FullSemVer": "1.2.3",
+    "InformationalVersion": "1.2.3",
+    "Major": "1",
+    "MajorMinorPatch": "1.2.3",
+    "Minor": "2",
+    "Patch": "3",
+    "PreReleaseLabelName": null,
+    "PreReleaseLabelNameWithDash": null,
+    "PreReleaseNumber": null,
+    "PreReleaseLabel": null,
+    "PreReleaseLabelWithDash": null,
+    "SemVer": "1.2.3",
+    "Sha": null,
+    "ShortSha": null,
+    "UncommittedChanges": "0",
+    "VersionSourceDistance": "0",
+    "VersionSourceIncrement": "None",
+    "VersionSourceSemVer": "1.2.3",
+    "VersionSourceSha": null,
+    "WeightedPreReleaseNumber": "0"
+  },
+  "suites": {
+    "GitVersionExecutorRoutingTests": {
+      "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+      "sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+      "methods": {
+        "DisplayUsesVersionSpecificOverridesWithoutCalculating": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7"
+              ]
+            }
+          ]
+        },
+        "PropertyQueryUsesScalarSerializerAndSkipsDynamicRepositoryVerification": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "LegacyPropertyQueryStillThrowsBeforeLoadingConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "NormalExecutionDiscoversCalculatesAndWritesOutputsInOrder": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        },
+        "ExpectedCalculationFailureReturnsOneAndWritesStderr": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                false
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                true
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ConfigurationExtensionsTests": {
+      "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+      "sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+      "methods": {
+        "EnsureGetEffectiveConfigurationWithoutBranchUsesEmptyBranchConfiguration": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EnsureIsReleaseBranchWithReferenceNameWorksAsExpected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "release/2.0.0",
+                "refs/heads/release/2.0.0",
+                "release/2.0.0",
+                "release/2.0.0",
+                true,
+                false,
+                false,
+                false,
+                true
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "upstream/release/2.0.0",
+                "refs/heads/upstream/release/2.0.0",
+                "upstream/release/2.0.0",
+                "upstream/release/2.0.0",
+                true,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "origin/release/2.0.0",
+                "refs/heads/origin/release/2.0.0",
+                "origin/release/2.0.0",
+                "origin/release/2.0.0",
+                true,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "refs/remotes/upstream/release/2.0.0",
+                "refs/remotes/upstream/release/2.0.0",
+                "upstream/release/2.0.0",
+                "upstream/release/2.0.0",
+                false,
+                false,
+                true,
+                false,
+                false
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "refs/remotes/origin/release/2.0.0",
+                "refs/remotes/origin/release/2.0.0",
+                "origin/release/2.0.0",
+                "release/2.0.0",
+                false,
+                false,
+                true,
+                false,
+                true
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

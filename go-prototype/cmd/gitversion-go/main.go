@@ -3,11 +3,14 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
-	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"io"
 	"os"
+	"strings"
+
+	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 )
 
 func run(args []string, out io.Writer) error {
@@ -91,9 +94,18 @@ func execute(args []string, out, diagnostics io.Writer) error {
 }
 func main() {
 	if err := execute(os.Args[1:], os.Stdout, os.Stderr); err != nil {
-		if err != invalidConfiguration {
-			fmt.Fprintln(os.Stderr, err)
-		}
+		writeCommandDiagnostic(os.Stderr, err)
 		os.Exit(1)
 	}
+}
+
+func writeCommandDiagnostic(out io.Writer, err error) {
+	if err == invalidConfiguration {
+		return
+	}
+	var failure calculationFailure
+	if errors.As(err, &failure) && !strings.HasPrefix(err.Error(), "An error occurred:\n") {
+		fmt.Fprintln(out, "An error occurred:")
+	}
+	fmt.Fprintln(out, err)
 }

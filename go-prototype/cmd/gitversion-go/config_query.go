@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -50,12 +51,12 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	if !show && strings.EqualFold(strings.TrimSpace(os.Getenv("GITVERSION_ARGUMENT_PARSER_VERSION")), "v6") {
 		return fmt.Errorf("Could not parse command line parameter")
 	}
-	var property string
+	var property *string
 	if !show {
 		if len(args) == 0 || strings.HasPrefix(args[0], "--") {
 			return fmt.Errorf("Could not parse command line parameter")
 		}
-		property, args = args[0], args[1:]
+		property, args = &args[0], args[1:]
 	}
 	options := flag.NewFlagSet("configuration", flag.ContinueOnError)
 	options.SetOutput(io.Discard)
@@ -86,9 +87,6 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	runtime, err := config.ValidationOverrides(overrides, version)
 	if err != nil {
 		return err
-	}
-	if show && version == "v6" {
-		runtime = nil
 	}
 	dir, err := filepath.Abs(workdir)
 	if err != nil {
@@ -124,23 +122,48 @@ func runConfigQuery(args []string, workdir string, show bool, stdout, stderr io.
 	fmt.Fprintln(logging, "Configuration version:", version)
 	locator.Log = func(message string) { fmt.Fprintln(logging, message) }
 	provider := config.Provider{Locator: locator, Version: requested}
-	resolved, err := provider.ProvideFrom(&dir, configRepositoryRoot(dir), runtime)
-	if err != nil {
-		return err
+	return outputConfigurationQuery(version, dir, "", property, runtime, &provider, stdout)
+}
+
+type configurationView interface {
+	Serialize(version string) ([]byte, error)
+	SerializeProperty(property, version string) ([]byte, error)
+}
+
+func outputConfigurationQuery(version, directory, remoteURL string, property *string, overrides []byte, provider *config.Provider, out io.Writer) error {
+	provide := func(directory, project *string, runtime []byte) (configurationView, error) {
+		return provider.ProvideFrom(directory, project, runtime)
 	}
-	if show {
-		data, err := resolved.Serialize(version)
-		if err != nil {
-			return err
+	return writeConfigurationQuery(version, directory, remoteURL, property, overrides, configRepositoryRoot, provide, out)
+}
+
+func writeConfigurationQuery(version, directory, remoteURL string, property *string, overrides []byte,
+	findProject func(string) *string, provide func(*string, *string, []byte) (configurationView, error), out io.Writer,
+) error {
+	if version != "v7" {
+		if property != nil {
+			return errors.New(config.RequireV7Query)
 		}
-		_, err = stdout.Write(append(data, '\n'))
-		return err
+		overrides = nil
 	}
-	data, err := resolved.SerializeProperty(property, version)
+	var project *string
+	if strings.TrimSpace(remoteURL) == "" {
+		project = findProject(directory)
+	}
+	resolved, err := provide(&directory, project, overrides)
 	if err != nil {
 		return err
 	}
-	_, err = stdout.Write(append(data, '\n'))
+	var data []byte
+	if property == nil {
+		data, err = resolved.Serialize(version)
+	} else {
+		data, err = resolved.SerializeProperty(*property, version)
+	}
+	if err != nil {
+		return err
+	}
+	_, err = out.Write(append(data, '\n'))
 	return err
 }
 

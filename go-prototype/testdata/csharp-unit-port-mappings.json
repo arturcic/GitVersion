@@ -55398,5 +55398,117 @@
       "Use real go-git histories and the root CLI. Preserve the original C# cache payload, configuration names, log assertions, override behavior and both explicit commit parser cases. Go uses independent cache filenames."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "GitVersionExecutorRoutingTests.DisplayUsesVersionSpecificOverridesWithoutCalculating": {
+    "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+    "source_sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+    "method": "DisplayUsesVersionSpecificOverridesWithoutCalculating",
+    "go_test": "TestCSharpExecutorRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Exercise the production Go routing functions through recording collaborators. Return Go errors from the executor and verify status and stderr at the process boundary. Go represents the resolved configuration and version variables with its own types."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorRoutingTests.PropertyQueryUsesScalarSerializerAndSkipsDynamicRepositoryVerification": {
+    "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+    "source_sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+    "method": "PropertyQueryUsesScalarSerializerAndSkipsDynamicRepositoryVerification",
+    "go_test": "TestCSharpExecutorRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Exercise the production Go routing functions through recording collaborators. Return Go errors from the executor and verify status and stderr at the process boundary. Go represents the resolved configuration and version variables with its own types."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorRoutingTests.LegacyPropertyQueryStillThrowsBeforeLoadingConfiguration": {
+    "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+    "source_sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+    "method": "LegacyPropertyQueryStillThrowsBeforeLoadingConfiguration",
+    "go_test": "TestCSharpExecutorRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Exercise the production Go routing functions through recording collaborators. Return Go errors from the executor and verify status and stderr at the process boundary. Go represents the resolved configuration and version variables with its own types."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorRoutingTests.NormalExecutionDiscoversCalculatesAndWritesOutputsInOrder": {
+    "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+    "source_sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+    "method": "NormalExecutionDiscoversCalculatesAndWritesOutputsInOrder",
+    "go_test": "TestCSharpExecutorRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Exercise the production Go routing functions through recording collaborators. Return Go errors from the executor and verify status and stderr at the process boundary. Go represents the resolved configuration and version variables with its own types."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitVersionExecutorRoutingTests.ExpectedCalculationFailureReturnsOneAndWritesStderr": {
+    "source": "src/GitVersion.App.Tests/GitVersionExecutorRoutingTests.cs",
+    "source_sha256": "e1a6ec8a90ac48cb5b17eac23097f82e9898c4297cea364bc4000377abe1ed96",
+    "method": "ExpectedCalculationFailureReturnsOneAndWritesStderr",
+    "go_test": "TestCSharpExecutorRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Exercise the production Go routing functions through recording collaborators. Return Go errors from the executor and verify status and stderr at the process boundary. Go represents the resolved configuration and version variables with its own types."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetEffectiveConfigurationWithoutBranchUsesEmptyBranchConfiguration": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetEffectiveConfigurationWithoutBranchUsesEmptyBranchConfiguration",
+    "go_test": "TestCSharpConfigurationExtensionRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use Go effective output and branch settings and the canonical reference constructor. Preserve the original format, weight and all reference and classification assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureIsReleaseBranchWithReferenceNameWorksAsExpected": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureIsReleaseBranchWithReferenceNameWorksAsExpected",
+    "go_test": "TestCSharpConfigurationExtensionRouting",
+    "case_file": "testdata/csharp-executor-routing.json",
+    "case_file_sha256": "1091af65adfee40f4252910c9bd7396c227cbbad093e7954cf48aa3d21d7e7d0",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": [
+      "Use Go effective output and branch settings and the canonical reference constructor. Preserve the original format, weight and all reference and classification assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }
