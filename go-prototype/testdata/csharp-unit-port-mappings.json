@@ -49409,7 +49409,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_a_branch_with_versioning_mode_Given_fallback_configuration_without_versioning_mode_Then_result_should_have_versioning_mode": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49428,7 +49428,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_a_branch_with_versioning_mode_Given_parent_configuration_with_versioning_mode_Then_result_should_not_have_versioning_mode_of_parent": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49447,7 +49447,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_a_branch_with_tag_alpha_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_alpha": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49464,7 +49464,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_a_branch_without_tag_Given_branch_which_inherits_from_parent_branch_Then_result_should_have_tag_from_parent": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49481,7 +49481,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.UsesFirstBranchConfigWhenMultipleMatch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49499,7 +49499,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_inherit_Then_result_should_be_empty": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49516,7 +49516,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_orphaned_branch_Given_fallback_configuration_with_increment_Then_result_should_have_fallback_increment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49536,7 +49536,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_Then_result_should_be_empty": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49553,7 +49553,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_unknown_configuration_with_increment_inherit_Then_result_should_have_fallback_increment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49573,7 +49573,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_Then_result_should_have_develop_increment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49614,7 +49614,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_unknown_branch_Given_fallback_configuration_with_increment_and_develop_branch_with_increment_inherit_Then_result_should_have_fallback_increment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49635,7 +49635,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.When_getting_configurations_of_an_unknown_branch_Given_fallback_and_unknown_configuration_with_increment_inherit_and_develop_branch_with_increment_Then_result_should_have_develop_branch_increment": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49655,7 +49655,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.Pull_request_merge_target_selects_local_support_branch_from_multiple_candidates": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49672,7 +49672,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.Pull_request_merge_target_accepts_remote_only_branch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49689,7 +49689,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.Pull_request_target_falls_back_to_all_source_candidates_when_it_cannot_disambiguate": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49708,7 +49708,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "EffectiveBranchConfigurationFinderTests.Pull_request_target_continues_inheriting_from_selected_branch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs",
@@ -49725,7 +49725,7 @@
       "Every NUnit Theory expands over the pinned C# enum declaration order. Typed Go options retain builder null modes/labels, inherited increments, and original fallback settings. Ordered builder definitions preserve WithoutBranches for overlapping regex rules.",
       "Go errors replace exceptions. No version-output oracle is supplied to the independent calculator."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.FromTagName_PreservesLiteralName": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49744,7 +49744,7 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.FromTagName_RejectsNull": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49760,7 +49760,7 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.FromTagName_RejectsEmpty": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49776,7 +49776,7 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.EquivalentTo_UsesOriginStrippedName": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49793,7 +49793,7 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.WithoutOrigin_ReturnsExpectedName": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49813,7 +49813,7 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ReferenceNameTests.WithoutRemote_ReturnsExpectedName": {
     "source": "src/GitVersion.Core.Tests/Core/ReferenceNameTests.cs",
@@ -49833,6 +49833,6 @@
       "Canonical/friendly/origin-stripped/remote-stripped names and all literal tag prefixes retain their exact C# assertions. The same production reference type is used by configuration matching, tag observation and PR target equivalence.",
       "Typed Go ReferenceArgumentError carries ParamName and a distinct null/empty Kind in place of the two C# exception classes."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

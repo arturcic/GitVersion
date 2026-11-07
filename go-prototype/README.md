@@ -171,7 +171,7 @@ The harness passes arguments directly, without shell expansion. A candidate rece
 
 ## Current boundaries
 
-The corpus is a starting reference set, not a claim of complete GitVersion compatibility. GitFlow/Mainline, TrunkBased, and all three deployment modes have bounded reference corpora. Custom branch regex/source rules, named captures, and build-agent output have separate live C# comparisons. Full recursive configuration inheritance, arbitrary regex/formatting behavior, remaining repository preparation modes, and file/MSBuild integrations still need additional implementation and reference cases. No upstream code, packaging, tests or workflows are changed by this module.
+The corpus is a starting reference set, not a claim of complete GitVersion compatibility. GitFlow/Mainline, TrunkBased, and all three deployment modes have bounded reference corpora. Custom branch regex/source rules, named captures, and build-agent output have separate live C# comparisons. Additional configuration combinations, arbitrary regex/formatting behavior, remaining repository preparation modes, and file/MSBuild integrations still need additional implementation and reference cases. No upstream code, packaging, tests or workflows are changed by this module.
 
 ## Milestone D: generated histories and public replay
 
@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1031 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1054 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-993 verified unit/component methods out of 1,516 separately from integration ports.
+1,016 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -277,3 +277,8 @@ add 11 complete original methods and all 23 intermediate assertions. Calculation
 now accepts `workflow: TrunkBased/preview1`, custom branch `regex` and
 `source-branches`, and labels using named captures. Twenty-one additional live
 comparisons cover rule selection, inherited settings, and TrunkBased mode defaults.
+
+[Branch inheritance and reference-name ports](CSHARP-BRANCH-INHERITANCE-PORTS.md)
+add 23 original methods and 81 cases. Calculation retains intermediate branch
+settings, uses explicit global fallback increments for orphaned branches, and
+resolves eligible pull-request merge targets with pinned local/origin precedence.
