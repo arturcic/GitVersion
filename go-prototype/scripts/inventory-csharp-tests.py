@@ -96,6 +96,11 @@ assert used_recipes == set(recipe_by_id) and used_configs == set(config_cases), 
 found.update(found_ports)
 out = {'schema': 1, 'source_revision': revision,
        'kind': 'static attributed method inventory; not expanded NUnit discovery',
-       'declarations': len(rows), 'mapped_declarations': len(found), 'tests': rows}
+       'declarations': len(rows), 'mapped_declarations': len(found),
+       'categories': {category: {'declarations': sum(r['category'] == category for r in rows),
+                                'mapped': sum(r['category'] == category and r['go_test'] is not None for r in rows),
+                                'verified': sum(r['category'] == category and r['status'] == 'verified-macos-ubuntu' for r in rows)}
+                      for category in ['unit-or-component', 'integration']},
+       'unit_target_percent': 90, 'unit_target_methods': 1365, 'tests': rows}
 (root / 'testdata/csharp-test-inventory.json').write_text(json.dumps(out, indent=2) + '\n')
 print(f'{len(rows)} attributed declarations; {len(found)} mapped methods; {len(used_recipes)} new recipes and {len(used_configs)} configuration cases')

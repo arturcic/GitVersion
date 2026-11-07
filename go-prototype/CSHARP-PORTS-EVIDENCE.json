@@ -1,0 +1,127 @@
+{
+  "implementation_checkpoint": "b7074272e3c4ec66f4c91e3c2cf7bdaf54a4ad55",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "mapped_methods": 44,
+  "new_mapped_methods": 38,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 6,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 3261,
+      "regular_packages_passed": 9,
+      "failures": 0,
+      "skips": 0,
+      "fresh_json_matches": 87,
+      "configuration_value_cases": 6
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 3261,
+      "regular_packages_passed": 9,
+      "failures": 0,
+      "skips": 0,
+      "fresh_json_matches": 87,
+      "configuration_value_cases": 6
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-1389304614",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-194510272",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/csharp-ports-linux-evidence/csharp-config-ports-1340409026",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/csharp-ports-linux-evidence/run-3811299832",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/main.go": "f322f3def2afb153c1b04ad2e1ac520a62d40e2eef936f83ff0b853a9c709c89",
+    "go.mod": "611240e72a60413858cb96d5589c4d5a717671b7deadf8445feb5dc5d413a5ba",
+    "go.sum": "cc94c19eb5448a4cce76d9bad30b465f4740258a605f4fc6b0c4bf2231ef0e11",
+    "internal/calculate/calculate.go": "e744f802258233da6c2bc14fd7dd70d1e12ced04ead76ffdf4a3eb0f38a1337d",
+    "internal/calculate/mainline.go": "cd572d2e2dbb899ff61b822551dfcf3dc2782d156e9204760042ecd49686f47c",
+    "internal/calculate/workflows.go": "d187f8a4ad07d6a5a67fbe51e17985bc525b511aee75c8cd2bd7fd6547e9a7e8",
+    "internal/config/config.go": "40630c7c2ace1447af06c5bfcaca42455502ca305516a88c99375dfc6d65afee",
+    "internal/config/workflows.go": "a435864fd2ab853e734fc9049fa26b0ee9553c37002d12001be3b5d3ff53a98c",
+    "internal/gitrepo/repository.go": "26f5aee50242fc0e777253260789d46611a675dac1a892fef4775a991bdd6a93",
+    "internal/gitrepo/walk.go": "c404252bb932e571dd435d7fd61aaeb3dacb3e7beb314f855b37264bbbc83bd9",
+    "internal/output/output.go": "3b7b5b9f77eeb309bb953bb5f73d2a2e6b34de59c7edd6ec5b9948312b322078",
+    "internal/semver/version.go": "6767bcea2d3b879cd6689310bbc1d7720f846381ea10c39551e3c18982a5ad65"
+  },
+  "candidate_sha256": {
+    "macos": "0b47e327b01da5f11b340e5e5dd9afcee7cf39a58f3a30ed6d1c5b62b424ca13",
+    "ubuntu26": "9d0f619834c00bf365c72ab56ad017d84cbb3df4819359f541620f41658186cb"
+  },
+  "candidate_vcs_note": "Both candidates identify b7074272e; macOS is clean. Ubuntu reports modified=true due documentation changes during packaging. Production input bytes are verified equal to the checkpoint.",
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T00:23:51.99416075Z",
+      "FinishedAt": "2026-11-07T00:24:54.629588918Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/csharp-ports-linux-evidence/csharp-config-ports-1340409026.tar.gz",
+      "sha256": "ec473bb37cfe9cd2fb8feba103d9d3a3f291bbbe43b6445ca03bf785bc9d3d5b",
+      "bytes": 30863
+    },
+    {
+      "path": ".local/csharp-ports-linux-evidence/run-3811299832.tar.gz",
+      "sha256": "f8015377260ca74a5bd9b41a577accaa6b7d62b741aed7dbff5d434af41db743",
+      "bytes": 565646
+    }
+  ],
+  "evidence_hashes": {
+    ".local/csharp-ports-unit-macos.jsonl": "cc1d469eccdb8f444715111d4f4d8a71bd1089c6d0766d6bc1e06e6165562457",
+    ".local/csharp-ports-platform-macos-checkpoint.log": "4526e0a31625c776f1252847a5b53704b935037015e439dd9023e680b12b7352",
+    ".local/csharp-ports-capture-final.log": "1753aea58ca9a33f95c5ffca1a473c9bcd92c9e1e2b2874d6cfda9687e781945",
+    ".local/csharp-ports-frozen-first.log": "0bae09a79b9688f75fa4db281f129aa5ec8568937f3afa806fa93e9cdf06c6c6",
+    ".local/csharp-ports-linux-evidence/linux-platform.log": "42103fe0411d9fc643db1b5fec8903b4842f489fed9de9fb0a1fd38741b858d2",
+    ".local/csharp-ports-linux-evidence/linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/csharp-ports-linux-evidence/archive-index.json": "aea2c23406943a849d841e373e1872c326e70731e91572ce3be1bb750f199469",
+    "testdata/csharp-calculation-ports.json": "4e8cc9caab93696695bcc09c2f88f2b4e57e3ddf55408a4860f8d4ad9aec1516",
+    "testdata/csharp-configuration-ports.json": "2bf1c16d6260c9b0952537d876a7864bb7c1b7b250fad65188e80e31f40fb833",
+    "testdata/csharp-ports-reference.json": "4178cfae8647f9416785a2887f083fa0afea0a8ab66ee9741e99e1e08380794c"
+  },
+  "coverage": "Previous checkpoint measurements only; no new statement coverage measurement",
+  "regression_scope": "Regular frozen-reference regressions rerun on both platforms; prior full fresh-process strategy matrix remains historical evidence."
+}

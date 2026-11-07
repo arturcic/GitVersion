@@ -4,6 +4,20 @@
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
   "mapped_declarations": 44,
+  "categories": {
+    "unit-or-component": {
+      "declarations": 1516,
+      "mapped": 6,
+      "verified": 6
+    },
+    "integration": {
+      "declarations": 662,
+      "mapped": 38,
+      "verified": 38
+    }
+  },
+  "unit_target_percent": 90,
+  "unit_target_methods": 1365,
   "tests": [
     {
       "id": "new-cli/GitVersion.Cli.Generator.Tests/SystemCommandlineGeneratorTests.cs#ValidateGeneratedCommandImplementationForCSharp14Net10Consumer",
@@ -8808,7 +8822,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -8834,7 +8848,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -8860,7 +8874,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -9013,7 +9027,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -9281,7 +9295,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -9324,7 +9338,7 @@
       ],
       "source_sha256": "e758105956a9983a6edeef98c8115be0750c1237a68299a767c7134d200bc808",
       "category": "unit-or-component",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpConfigurationPorts",
       "fixtures": [],
       "port_cases": [
@@ -25827,7 +25841,7 @@
       ],
       "source_sha256": "69bded1c633edc27d5cdc408a656aa5439b0a2ae181c13f520911cbc48192c48",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-branch-tag-0-1-0-alpha-1--head",
@@ -26593,7 +26607,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-fallback-main--head"
@@ -26625,7 +26639,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-fallback-develop--head"
@@ -26657,7 +26671,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-next--head"
@@ -26689,7 +26703,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-tag-1-0-0--head"
@@ -26721,7 +26735,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-tag-1-1-0--head"
@@ -26753,7 +26767,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-merge-main--source",
@@ -26795,7 +26809,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-merge-develop--source",
@@ -26837,7 +26851,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-merge-release--source",
@@ -26879,7 +26893,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-cancel-release--main",
@@ -26929,7 +26943,7 @@
       ],
       "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-delivery-finish-release--main",
@@ -28367,7 +28381,7 @@
       ],
       "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-fallback-branch-none--head",
@@ -28434,7 +28448,7 @@
       ],
       "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-fallback-message-none--head",
@@ -29552,7 +29566,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-manualdeployment--head"
@@ -29583,7 +29597,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-continuousdelivery--head"
@@ -29614,7 +29628,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-continuousdeployment--head"
@@ -29645,7 +29659,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-no-tag--head"
@@ -29676,7 +29690,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-bad-tag--head"
@@ -29724,7 +29738,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-next-higher--head"
@@ -29755,7 +29769,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-next-tag1-default--head",
@@ -29794,7 +29808,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-next-tag2-default--head",
@@ -29833,7 +29847,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-next-tag3-default--head",
@@ -29872,7 +29886,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-next-tag4-default--head",
@@ -29911,7 +29925,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-patch--head"
@@ -29942,7 +29956,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-tag--head"
@@ -29973,7 +29987,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-old-next--head"
@@ -30004,7 +30018,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-main-old-next-tag--head"
@@ -30103,7 +30117,7 @@
       ],
       "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-develop-next-1-default--head",
@@ -33492,7 +33506,7 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-bump-prerelease--head"
@@ -33523,7 +33537,7 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-bump-messages--minor",
@@ -33556,7 +33570,7 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-bump-tag-wins--major",
@@ -33692,7 +33706,7 @@
       ],
       "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
       "category": "integration",
-      "status": "ported-awaiting-platform-verification",
+      "status": "verified-macos-ubuntu",
       "go_test": "TestCSharpCalculationPortsFrozenReference",
       "fixtures": [
         "port-bump-source-tag--minor",

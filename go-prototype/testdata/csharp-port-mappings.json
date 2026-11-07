@@ -16,7 +16,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.CanHandleContinuousDelivery": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -35,7 +35,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.CanHandleContinuousDeployment": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -54,7 +54,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithCommitsButNoTagsVersionShouldBe01": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -73,7 +73,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithCommitsButBadTagsVersionShouldBe01": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -92,7 +92,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndNextVersionInConfigVersionShouldMatchVersionTxtFile": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -111,7 +111,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndNoNextVersionTxtFileVersionShouldBeTagWithBumpedPatch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -130,7 +130,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndNoNextVersionTxtFileAndNoCommitsVersionShouldBeTag": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -149,7 +149,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndOldNextVersionConfigVersionShouldBeTagWithBumpedPatch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -168,7 +168,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndOldNextVersionConfigAndNoCommitsVersionShouldBeTag": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -187,7 +187,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -213,7 +213,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag2": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -239,7 +239,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag3": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -265,7 +265,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.GivenARepositoryWithTagAndANextVersionTxtFileAndNoCommitsVersionShouldBeTag4": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -291,7 +291,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "f720b5b0cc89c05429a68a82a97a4cb9f33c16ed3ad068f9852f0405075d93ff",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMainWillBeUsed": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/FallbackVersionStrategyScenarios.cs",
@@ -331,7 +331,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "FallbackVersionStrategyScenarios.EnsureVersionIncrementOnMessageWillBeUsed": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/FallbackVersionStrategyScenarios.cs",
@@ -371,7 +371,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "c0ce4e5a3c8a2b89d9a24a16833c4fce8ebce81d3fb0efb1883d2d5bab99f42b",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "BranchWithoutCommitScenarios.BranchVersionHavePrecedenceOverTagVersionIfVersionGreaterThanTag": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/BranchWithoutCommitScenarios.cs",
@@ -404,7 +404,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "69bded1c633edc27d5cdc408a656aa5439b0a2ae181c13f520911cbc48192c48",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionBumpingScenarios.AppliedPreReleaseLabelCausesBump": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs",
@@ -423,7 +423,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersion": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs",
@@ -443,7 +443,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersion_TagTakesPriority": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs",
@@ -464,7 +464,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VersionBumpingScenarios.CanUseCommitMessagesToBumpVersionBaseVersionTagIsAppliedToSameCommit": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/VersionBumpingScenarios.cs",
@@ -484,7 +484,7 @@
       "Builder configuration is serialized as explicit v7 YAML; fixed identities, timestamps and unique file contents replace fixture-generated commits."
     ],
     "source_sha256": "ab9301749b2bbdf0cfb03de96919f3efcb3d03a4fe573dae996e233c8e526eb7",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldUseTheFallbackVersionOnMainWhenNoVersionsAreAvailable": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -504,7 +504,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldUseTheFallbackVersionOnDevelopWhenNoVersionsAreAvailable": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -524,7 +524,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldUseConfiguredNextVersionOnMainWhenNoHigherVersionsAvailable": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -544,7 +544,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldNotMatterWhenConfiguredNextVersionIsEqualsToTheTaggedVersion": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -564,7 +564,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldUseTaggedVersionWhenGreaterThanConfiguredNextVersion": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -584,7 +584,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromMainToFeatureBranch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -609,7 +609,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromDevelopToFeatureBranch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -634,7 +634,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldCalculateTheCorrectVersionWhenMergingFromReleaseToFeatureBranch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -659,7 +659,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldFallbackToTheVersionOnDevelopLikeTheReleaseWasNeverCreatedWhenReleaseHasBeenCanceled": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -688,7 +688,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ContinuousDeliveryTestScenarios.ShouldConsiderTheMergeCommitFromMainToDevelopWhenReleaseHasBeenMergedAndTaggedOnMain": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/ContinuousDeliveryTestScenarios.cs",
@@ -720,7 +720,7 @@
       "Global ContinuousDelivery, where specified, is expanded to explicit branch modes; all original version checkpoints retained."
     ],
     "source_sha256": "5b6635d32f7405f29c413989700b45fa1cdf721d4e6ac5c6a90f028c6c429ab4",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.OverwritesDefaultsWithProvidedConfig": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -736,7 +736,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CombineVersionStrategyConfigNextAndTaggedCommit": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -752,7 +752,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.CanRemoveLabel": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -768,7 +768,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.NextVersionCanHavePatch": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -784,7 +784,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseDefaultSourceBranchesWhenNotSpecifiedForDevelop": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -800,7 +800,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "ConfigurationProviderTests.ShouldUseDefaultSourceBranchesWhenNotSpecifiedForFeature": {
     "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationProviderTests.cs",
@@ -816,7 +816,7 @@
     "adaptations": [
       "Original v6 flat settings are represented as explicit GitFlow/v1 v7 YAML. Configuration values and default comparisons are retained; legacy v6 serialization/provider APIs are not claimed."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "MainScenarios.NextVersionShouldBeConsideredOnTheDevelopmentBranch": {
     "source": "src/GitVersion.Core.Tests/IntegrationTests/MainScenarios.cs",
@@ -856,6 +856,6 @@
     "adaptations": [
       "Four original configuration/commit checkpoints use independent deterministic fixtures; explicit v7 YAML."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

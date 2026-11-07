@@ -199,3 +199,9 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 "$GO_HOST" test -c -tags platform -o .lo
 ```
 
 Cross-builds only establish compilation. On Windows, copy the module including the published `.local/baseline/` and original lock, preserve the layout, and run `scripts/run-platform.ps1 -Dotnet C:\absolute\path\dotnet.exe`. This is prepared but has not been executed. The Linux execution command and image digest are recorded in the D report; all containers and artifacts remain local.
+
+### Original C# test ports
+
+[Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
+parameter cases and source hashes. The mapping inventory now covers 44 of 2,178
+C# declarations; remaining source tests are explicitly pending.
