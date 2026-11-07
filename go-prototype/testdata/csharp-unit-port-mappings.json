@@ -52985,5 +52985,162 @@
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ProjectFileUpdaterTests.CanUpdateProjectFileWithSdkProjectFileXml": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "CanUpdateProjectFileWithSdkProjectFileXml",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.CannotUpdateProjectFileWithIncorrectProjectSdk": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "CannotUpdateProjectFileWithIncorrectProjectSdk",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.CannotUpdateProjectFileWithMissingProjectSdk": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "CannotUpdateProjectFileWithMissingProjectSdk",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.CannotUpdateProjectFileWithoutAssemblyInfoGeneration": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "CannotUpdateProjectFileWithoutAssemblyInfoGeneration",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.CannotUpdateProjectFileWithoutAPropertyGroup": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "CannotUpdateProjectFileWithoutAPropertyGroup",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithStandardXmlInsertsElement": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "UpdateProjectXmlVersionElementWithStandardXmlInsertsElement",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithStandardXmlModifiesElement": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "UpdateProjectXmlVersionElementWithStandardXmlModifiesElement",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithDuplicatePropertyGroupsModifiesLastElement": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "UpdateProjectXmlVersionElementWithDuplicatePropertyGroupsModifiesLastElement",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.UpdateProjectXmlVersionElementWithMultipleVersionElementsLastOneIsModified": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "UpdateProjectXmlVersionElementWithMultipleVersionElementsLastOneIsModified",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ProjectFileUpdaterTests.UpdateProjectFileAddsVersionToFile": {
+    "source": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs",
+    "source_sha256": "8dee94c6bf4aea81f0105739874483da66928102b8fa053ff12309cc5ac3b869",
+    "method": "UpdateProjectFileAddsVersionToFile",
+    "go_test": "TestCSharpProjectFileUpdater",
+    "case_file": "testdata/csharp-project-file.json",
+    "case_file_sha256": "642588b4e13a9c23525c8c0d9a21372d6beabbc943cb804d94ed15ef2f6b8fc6",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

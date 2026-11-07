@@ -51,12 +51,7 @@ func updateAssemblyInfo(directory string, paths []string, ensure bool, values ma
 		}
 	}
 
-	type change struct {
-		path, content string
-		original      []byte
-		info          os.FileInfo
-	}
-	var changes []change
+	var changes []fileChange
 	seen := map[string]bool{}
 	for _, name := range paths {
 		path := resolveMigrationPath(directory, name)
@@ -104,30 +99,11 @@ func updateAssemblyInfo(directory string, paths []string, ensure bool, values ma
 			return err
 		}
 		if info == nil || updated != content {
-			changes = append(changes, change{path, updated, original, info})
+			changes = append(changes, fileChange{path, updated, original, info})
 		}
 	}
 
-	for i, item := range changes {
-		var err error
-		if item.info != nil {
-			err = writeFileAtomically(item.path, []byte(item.content), item.info, true)
-		} else {
-			err = createAssemblyInfo(item.path, item.content)
-		}
-		if err != nil {
-			for j := i - 1; j >= 0; j-- {
-				previous := changes[j]
-				if previous.info == nil {
-					err = errors.Join(err, os.Remove(previous.path))
-				} else {
-					err = errors.Join(err, writeFileAtomically(previous.path, previous.original, previous.info, true))
-				}
-			}
-			return err
-		}
-	}
-	return nil
+	return applyFileChanges(changes)
 }
 
 // .NET ReadAllText recognizes Unicode BOMs and writes changed text as UTF-8.
