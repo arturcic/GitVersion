@@ -130,7 +130,7 @@ func executeMigration(options migrationOptions, stdout, stderr io.Writer) error 
 	if info != nil && info.IsDir() {
 		return fmt.Errorf("The output path '%s' is a directory.", destination)
 	}
-	if err := writeMigratedConfiguration(destination, migrated, info, overwrite); err != nil {
+	if err := writeFileAtomically(destination, migrated, info, overwrite); err != nil {
 		if !overwrite && errors.Is(err, os.ErrExist) {
 			return migrationConflict(destination)
 		}
@@ -156,7 +156,7 @@ func migrationConflict(destination string) error {
 	return fmt.Errorf("The output file '%s' already exists. Use --force to replace it.", destination)
 }
 
-func writeMigratedConfiguration(destination string, data []byte, existing os.FileInfo, overwrite bool) error {
+func writeFileAtomically(destination string, data []byte, existing os.FileInfo, overwrite bool) error {
 	temp, err := os.CreateTemp(filepath.Dir(destination), "."+filepath.Base(destination)+".*.tmp")
 	if err != nil {
 		return err

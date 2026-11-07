@@ -1,0 +1,3407 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "ArgumentParserTests": {
+      "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+      "sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+      "methods": {
+        "ConfigValidateDefersInvalidTargetPathToItsExecutor": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigSupportsNestedV7RootAndBranchPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ConfigGetRejectsUnrelatedOptionsBeforeAndAfterCommand": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--output json"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--show-config"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--show-variable FullSemVer"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--update-wix-version-file"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "--update-assembly-info"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "--no-cache"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "--diagnose"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "--branch main"
+              ]
+            }
+          ]
+        },
+        "ConfigGetRequiresExactlyOneProperty": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "config get"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "config get calculation.tag-prefix extra"
+              ]
+            }
+          ]
+        },
+        "ConfigGetRejectsV6BeforeConfigFileValidation": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigAcceptsWorkflowOnlyInEitherVersion": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "v6"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "v7"
+              ]
+            }
+          ]
+        },
+        "OverrideConfigRejectsNestedWorkflowWithRootReplacement": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "calculation"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "output"
+              ]
+            }
+          ]
+        },
+        "OverrideConfigPreservesV7BranchNameCasing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigRejectsDottedV7BranchNameWithClearDiagnostic": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigRejectsV6PathInV7WithReplacement": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigRejectsPropertyInWrongV7SectionWithReplacement": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigSupportsV6BranchPath": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigPreservesV6BranchNameCasing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigRejectsV7PathInV6WithReplacement": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigBatchValidationDoesNotApplyAnyValues": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "TargetPathAllowsDirectoryNamedConfig": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--target-path config",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "config"
+            ]
+          ]
+        },
+        "EmptyMeansUseCurrentDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "$cwd"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ],
+            [
+              "NoFetch",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "SingleMeansUseAsTargetDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "path",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "path"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-l logFilePath",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "$cwd"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "logFilePath"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "NoPathAndLogfileLongFormShouldUseCurrentDirectoryTargetDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--log-file logFilePath",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "$cwd"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "logFilePath"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "HelpSwitchTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-h",
+          "environment": {},
+          "checks": [
+            [
+              "IsHelp",
+              "ShouldBe",
+              true
+            ],
+            [
+              "TargetPath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ]
+          ]
+        },
+        "VersionSwitchTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--version",
+          "environment": {},
+          "checks": [
+            [
+              "IsVersion",
+              "ShouldBe",
+              true
+            ],
+            [
+              "TargetPath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ]
+          ]
+        },
+        "TargetDirectoryAndLogFilePathCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --log-file logFilePath",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "logFilePath"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "UsernameAndPasswordCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -u [username] -p [password]",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "[username]"
+            ],
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "[password]"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "UnknownOutputShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output invalid_value",
+          "environment": {},
+          "error": [
+            "ShouldContain",
+            "invalid_value"
+          ],
+          "checks": []
+        },
+        "OutputDefaultsToJson": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleOutputJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output json --output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputBuildserverCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output buildserver",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleOutputBuildserverCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output buildserver --output buildserver",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ]
+          ]
+        },
+        "MultipleOutputFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output file --output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ]
+          ]
+        },
+        "OutputBuildserverAndJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output buildserver --output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputBuildserverAndJsonAndFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output buildserver --output json --output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleArgsAndFlag": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --output buildserver --update-assembly-info",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ]
+          ]
+        },
+        "OutputFileArgumentCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--output file",
+                "GitVersion.json"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--output file --output-file version.json",
+                "version.json"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "OutputFile",
+              "ShouldBe",
+              "$arg1"
+            ]
+          ]
+        },
+        "UrlAndBranchNameCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --url https://github.com/Particular/GitVersion.git --branch someBranch",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "TargetUrl",
+              "ShouldBe",
+              "https://github.com/Particular/GitVersion.git"
+            ],
+            [
+              "TargetBranch",
+              "ShouldBe",
+              "someBranch"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "WrongNumberOfArgumentsShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath --log-file logFilePath extraArg",
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Could not parse command line parameter 'extraArg'."
+          ],
+          "checks": []
+        },
+        "UnknownArgumentsShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "targetDirectoryPath -x logFilePath"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--invalid-argument"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldStartWith",
+            "Could not parse command line parameter"
+          ],
+          "checks": []
+        },
+        "UpdateAssemblyInfoTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--update-assembly-info true"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--update-assembly-info 1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--update-assembly-info"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--update-assembly-info assemblyInfo.cs"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "--update-assembly-info assemblyInfo.cs --ensure-assembly-info"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "--update-assembly-info assemblyInfo.cs otherAssemblyInfo.cs"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "--update-assembly-info Assembly.cs Assembly.cs --ensure-assembly-info"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "UpdateProjectTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--update-project-files assemblyInfo.csproj"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--update-project-files assemblyInfo.csproj"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--update-project-files assemblyInfo.csproj otherAssemblyInfo.fsproj"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--update-project-files"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateProjectFiles",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "UpdateAssemblyInfoFalse": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--update-assembly-info false"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--update-assembly-info 0"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "CreateMultipleAssemblyInfoProtected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--update-assembly-info Assembly.cs Assembly1.cs --ensure-assembly-info"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Can't specify multiple assembly info files when using --ensure-assembly-info, either use a single assembly info file or do not specify --ensure-assembly-info and create assembly info files manually"
+          ],
+          "checks": []
+        },
+        "UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--update-project-files Assembly.csproj --ensure-assembly-info"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Cannot specify --ensure-assembly-info with --update-project-files: please ensure your project file exists before attempting to update it"
+          ],
+          "checks": []
+        },
+        "UpdateAssemblyInfoWithFilename": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithMultipleFilenames": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateProjectFilesWithMultipleFilenames": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithRelativeFilename": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideconfigWithNoOptions": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--override-config",
+          "environment": {},
+          "checks": [
+            [
+              "OverrideConfiguration",
+              "ShouldBeEmpty",
+              null
+            ]
+          ]
+        },
+        "OverrideconfigWithInvalidOption": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "tag-prefix=sample=asdf",
+                "Could not parse --override-config option: tag-prefix=sample=asdf. Ensure it is in format 'key=value'."
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "unknown-option=25",
+                "Could not parse --override-config option: unknown-option=25. Unsupported key 'unknown-option'."
+              ]
+            }
+          ]
+        },
+        "EnsureAssemblyInfoTrueWhenFound": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--ensure-assembly-info",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "EnsureAssemblyInfoTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--ensure-assembly-info true",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "EnsureAssemblyInfoFalse": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--ensure-assembly-info false",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "DynamicRepoLocation": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--dynamic-repo-location /tmp/foo",
+          "environment": {},
+          "checks": [
+            [
+              "ClonePath",
+              "ShouldBe",
+              "/tmp/foo"
+            ]
+          ]
+        },
+        "CanLogToConsole": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--log-file console",
+          "environment": {},
+          "checks": [
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "console"
+            ]
+          ]
+        },
+        "NofetchTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-fetch",
+          "environment": {},
+          "checks": [
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "NoNormalizeTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-normalize",
+          "environment": {},
+          "checks": [
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "AllowshallowTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--allow-shallow",
+          "environment": {},
+          "checks": [
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "DiagTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--diagnose",
+          "environment": {},
+          "checks": [
+            [
+              "Diag",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "DiagAndLogToConsoleIsNotIgnored": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--diagnose --log-file console",
+          "environment": {},
+          "checks": [
+            [
+              "Diag",
+              "ShouldBe",
+              true
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "console"
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNofetch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath --no-fetch",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNonormalize": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath --no-normalize",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNocache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath --no-cache",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeAllowshallow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath --allow-shallow",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "SeveralSwitchesCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "--no-fetch --no-normalize --no-cache --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "--no-fetch --no-normalize --allow-shallow --no-cache"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "--no-fetch --no-cache --no-normalize --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "--no-fetch --no-cache --allow-shallow --no-normalize"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "--no-fetch --allow-shallow --no-normalize --no-cache"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "--no-fetch --allow-shallow --no-cache --no-normalize"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "--no-normalize --no-fetch --no-cache --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "--no-normalize --no-fetch --allow-shallow --no-cache"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "--no-normalize --no-cache --no-fetch --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "--no-normalize --no-cache --allow-shallow --no-fetch"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "--no-normalize --allow-shallow --no-fetch --no-cache"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "--no-normalize --allow-shallow --no-cache --no-fetch"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "--no-cache --no-fetch --no-normalize --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-013",
+              "arguments": [
+                "--no-cache --no-fetch --allow-shallow --no-normalize"
+              ]
+            },
+            {
+              "id": "case-014",
+              "arguments": [
+                "--no-cache --no-normalize --no-fetch --allow-shallow"
+              ]
+            },
+            {
+              "id": "case-015",
+              "arguments": [
+                "--no-cache --no-normalize --allow-shallow --no-fetch"
+              ]
+            },
+            {
+              "id": "case-016",
+              "arguments": [
+                "--no-cache --allow-shallow --no-fetch --no-normalize"
+              ]
+            },
+            {
+              "id": "case-017",
+              "arguments": [
+                "--no-cache --allow-shallow --no-normalize --no-fetch"
+              ]
+            },
+            {
+              "id": "case-018",
+              "arguments": [
+                "--allow-shallow --no-fetch --no-normalize --no-cache"
+              ]
+            },
+            {
+              "id": "case-019",
+              "arguments": [
+                "--allow-shallow --no-fetch --no-cache --no-normalize"
+              ]
+            },
+            {
+              "id": "case-020",
+              "arguments": [
+                "--allow-shallow --no-normalize --no-fetch --no-cache"
+              ]
+            },
+            {
+              "id": "case-021",
+              "arguments": [
+                "--allow-shallow --no-normalize --no-cache --no-fetch"
+              ]
+            },
+            {
+              "id": "case-022",
+              "arguments": [
+                "--allow-shallow --no-cache --no-fetch --no-normalize"
+              ]
+            },
+            {
+              "id": "case-023",
+              "arguments": [
+                "--allow-shallow --no-cache --no-normalize --no-fetch"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ],
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ],
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ],
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "LogPathCanContainForwardSlash": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-l /some/path",
+          "environment": {},
+          "checks": [
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "/some/path"
+            ]
+          ]
+        },
+        "BooleanArgumentHandling": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-fetch --update-assembly-info true",
+          "environment": {},
+          "checks": [
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ],
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "NocacheTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-cache",
+          "environment": {},
+          "checks": [
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "CheckVerbosityParsing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "x",
+                true,
+                "Normal"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "diagnostic",
+                false,
+                "Diagnostic"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "Minimal",
+                false,
+                "Minimal"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "NORMAL",
+                false,
+                "Normal"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "quiet",
+                false,
+                "Quiet"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "Verbose",
+                false,
+                "Verbose"
+              ]
+            }
+          ]
+        },
+        "EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {
+            "GITVERSION_REMOTE_USERNAME": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "EmptyArgumentsRemotePasswordDefinedSetsPassword": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {
+            "GITVERSION_REMOTE_PASSWORD": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-cache",
+          "environment": {
+            "GITVERSION_REMOTE_USERNAME": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--no-cache",
+          "environment": {
+            "GITVERSION_REMOTE_PASSWORD": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "EnsureShowVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--show-variable SemVer",
+          "environment": {},
+          "checks": [
+            [
+              "ShowVariable",
+              "ShouldBe",
+              "SemVer"
+            ]
+          ]
+        },
+        "EnsureFormatIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--format {Major}.{Minor}.{Patch}",
+          "environment": {},
+          "checks": [
+            [
+              "Format",
+              "ShouldBe",
+              "{Major}.{Minor}.{Patch}"
+            ]
+          ]
+        },
+        "ThrowIfConfigurationFileDoesNotExist": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "custom-config.yaml"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "/tmp/custom-config.yaml"
+              ]
+            }
+          ]
+        },
+        "EnsureConfigurationFileIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ShortAliasCIsConfigNotCommit": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CommitLongFormSetsCommitId": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "--url https://github.com/GitTools/GitVersion.git --branch main --commit abc1234",
+          "environment": {},
+          "checks": [
+            [
+              "CommitId",
+              "ShouldBe",
+              "abc1234"
+            ]
+          ]
+        }
+      }
+    },
+    "LegacyArgumentParserTests": {
+      "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+      "sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+      "methods": {
+        "OverrideConfigSupportsNestedV7RootAndBranchPaths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideConfigRejectsV6PathInV7WithReplacement": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EmptyMeansUseCurrentDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "$cwd"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "SingleMeansUseAsTargetDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "path",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "path"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-l logFilePath",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "$cwd"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "logFilePath"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "HelpSwitchTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-h",
+          "environment": {},
+          "checks": [
+            [
+              "IsHelp",
+              "ShouldBe",
+              true
+            ],
+            [
+              "TargetPath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ]
+          ]
+        },
+        "VersionSwitchTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-version",
+          "environment": {},
+          "checks": [
+            [
+              "IsVersion",
+              "ShouldBe",
+              true
+            ],
+            [
+              "TargetPath",
+              "ShouldBe",
+              null
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              null
+            ]
+          ]
+        },
+        "TargetDirectoryAndLogFilePathCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -l logFilePath",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "logFilePath"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "UsernameAndPasswordCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -u [username] -p [password]",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "[username]"
+            ],
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "[password]"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "UnknownOutputShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output invalid_value",
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Value 'invalid_value' cannot be parsed as output type, please use 'json', 'file', 'buildserver' or 'dotenv'"
+          ],
+          "checks": []
+        },
+        "OutputDefaultsToJson": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleOutputJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output json -output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputBuildserverCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output buildserver",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleOutputBuildserverCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output buildserver -output buildserver",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ]
+          ]
+        },
+        "MultipleOutputFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output file -output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "json"
+            ]
+          ]
+        },
+        "OutputBuildserverAndJsonCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output buildserver -output json",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldNotContain",
+              "file"
+            ]
+          ]
+        },
+        "OutputBuildserverAndJsonAndFileCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output buildserver -output json -output file",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "json"
+            ],
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ]
+          ]
+        },
+        "MultipleArgsAndFlag": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -output buildserver -updateAssemblyInfo",
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "buildserver"
+            ]
+          ]
+        },
+        "OutputFileArgumentCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-output file",
+                "GitVersion.json"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "-output file -outputfile version.json",
+                "version.json"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "Output",
+              "ShouldContain",
+              "file"
+            ],
+            [
+              "OutputFile",
+              "ShouldBe",
+              "$arg1"
+            ]
+          ]
+        },
+        "UrlAndBranchNameCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -url https://github.com/Particular/GitVersion.git -b someBranch",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetDirectoryPath"
+            ],
+            [
+              "TargetUrl",
+              "ShouldBe",
+              "https://github.com/Particular/GitVersion.git"
+            ],
+            [
+              "TargetBranch",
+              "ShouldBe",
+              "someBranch"
+            ],
+            [
+              "IsHelp",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "WrongNumberOfArgumentsShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetDirectoryPath -l logFilePath extraArg",
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Could not parse command line parameter 'extraArg'."
+          ],
+          "checks": []
+        },
+        "UnknownArgumentsShouldThrow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "targetDirectoryPath -x logFilePath"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "/invalid-argument"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldStartWith",
+            "Could not parse command line parameter"
+          ],
+          "checks": []
+        },
+        "UpdateAssemblyInfoTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-updateAssemblyInfo true"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "-updateAssemblyInfo 1"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "-updateAssemblyInfo"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "-updateAssemblyInfo assemblyInfo.cs"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "-updateAssemblyInfo assemblyInfo.cs -ensureassemblyinfo"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "-updateAssemblyInfo assemblyInfo.cs otherAssemblyInfo.cs"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "-updateAssemblyInfo Assembly.cs Assembly.cs -ensureassemblyinfo"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "UpdateProjectTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-updateProjectFiles assemblyInfo.csproj"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "-updateProjectFiles assemblyInfo.csproj"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "-updateProjectFiles assemblyInfo.csproj otherAssemblyInfo.fsproj"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "-updateProjectFiles"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateProjectFiles",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "UpdateAssemblyInfoFalse": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-updateAssemblyInfo false"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "-updateAssemblyInfo 0"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "CreateMultipleAssemblyInfoProtected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-updateAssemblyInfo Assembly.cs Assembly1.cs -ensureassemblyinfo"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Can't specify multiple assembly info files when using /ensureassemblyinfo switch, either use a single assembly info file or do not specify /ensureassemblyinfo and create assembly info files manually"
+          ],
+          "checks": []
+        },
+        "UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-updateProjectFiles Assembly.csproj -ensureassemblyinfo"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "error": [
+            "ShouldBe",
+            "Cannot specify -ensureassemblyinfo with updateprojectfiles: please ensure your project file exists before attempting to update it"
+          ],
+          "checks": []
+        },
+        "UpdateAssemblyInfoWithFilename": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithMultipleFilenames": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateProjectFilesWithMultipleFilenames": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UpdateAssemblyInfoWithRelativeFilename": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "OverrideconfigWithNoOptions": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "/overrideconfig",
+          "environment": {},
+          "checks": [
+            [
+              "OverrideConfiguration",
+              "ShouldBeEmpty",
+              null
+            ]
+          ]
+        },
+        "OverrideconfigWithInvalidOption": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "tag-prefix=sample=asdf",
+                "Could not parse /overrideconfig option: tag-prefix=sample=asdf. Ensure it is in format 'key=value'."
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "unknown-option=25",
+                "Could not parse /overrideconfig option: unknown-option=25. Unsupported key 'unknown-option'."
+              ]
+            }
+          ]
+        },
+        "EnsureAssemblyInfoTrueWhenFound": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-ensureAssemblyInfo",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "EnsureAssemblyInfoTrue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-ensureAssemblyInfo true",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "EnsureAssemblyInfoFalse": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-ensureAssemblyInfo false",
+          "environment": {},
+          "checks": [
+            [
+              "EnsureAssemblyInfo",
+              "ShouldBe",
+              false
+            ]
+          ]
+        },
+        "DynamicRepoLocation": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-dynamicRepoLocation /path/to/repo",
+          "environment": {},
+          "checks": [
+            [
+              "ClonePath",
+              "ShouldBe",
+              "/path/to/repo"
+            ]
+          ]
+        },
+        "CanLogToConsole": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-l console",
+          "environment": {},
+          "checks": [
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "console"
+            ]
+          ]
+        },
+        "NofetchTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-nofetch",
+          "environment": {},
+          "checks": [
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "NoNormalizeTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-nonormalize",
+          "environment": {},
+          "checks": [
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "AllowshallowTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-allowshallow",
+          "environment": {},
+          "checks": [
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "DiagTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-diag",
+          "environment": {},
+          "checks": [
+            [
+              "Diag",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "DiagAndLogToConsoleIsNotIgnored": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-diag -l console",
+          "environment": {},
+          "checks": [
+            [
+              "Diag",
+              "ShouldBe",
+              true
+            ],
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "console"
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNofetch": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath -nofetch ",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNonormalize": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath -nonormalize",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeNocache": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath -nocache",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "OtherArgumentsCanBeParsedBeforeAllowshallow": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "targetpath -allowshallow",
+          "environment": {},
+          "checks": [
+            [
+              "TargetPath",
+              "ShouldBe",
+              "targetpath"
+            ],
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "SeveralSwitchesCanBeParsed": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "-nofetch -nonormalize -nocache -allowshallow"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "-nofetch -nonormalize -allowshallow -nocache"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "-nofetch -nocache -nonormalize -allowshallow"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "-nofetch -nocache -allowshallow -nonormalize"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "-nofetch -allowshallow -nonormalize -nocache"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "-nofetch -allowshallow -nocache -nonormalize"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "-nonormalize -nofetch -nocache -allowshallow"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "-nonormalize -nofetch -allowshallow -nocache"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "-nonormalize -nocache -nofetch -allowshallow"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "-nonormalize -nocache -allowshallow -nofetch"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "-nonormalize -allowshallow -nofetch -nocache"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "-nonormalize -allowshallow -nocache -nofetch"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "-nocache -nofetch -nonormalize -allowshallow"
+              ]
+            },
+            {
+              "id": "case-013",
+              "arguments": [
+                "-nocache -nofetch -allowshallow -nonormalize"
+              ]
+            },
+            {
+              "id": "case-014",
+              "arguments": [
+                "-nocache -nonormalize -nofetch -allowshallow"
+              ]
+            },
+            {
+              "id": "case-015",
+              "arguments": [
+                "-nocache -nonormalize -allowshallow -nofetch"
+              ]
+            },
+            {
+              "id": "case-016",
+              "arguments": [
+                "-nocache -allowshallow -nofetch -nonormalize"
+              ]
+            },
+            {
+              "id": "case-017",
+              "arguments": [
+                "-nocache -allowshallow -nonormalize -nofetch"
+              ]
+            },
+            {
+              "id": "case-018",
+              "arguments": [
+                "-allowshallow -nofetch -nonormalize -nocache"
+              ]
+            },
+            {
+              "id": "case-019",
+              "arguments": [
+                "-allowshallow -nofetch -nocache -nonormalize"
+              ]
+            },
+            {
+              "id": "case-020",
+              "arguments": [
+                "-allowshallow -nonormalize -nofetch -nocache"
+              ]
+            },
+            {
+              "id": "case-021",
+              "arguments": [
+                "-allowshallow -nonormalize -nocache -nofetch"
+              ]
+            },
+            {
+              "id": "case-022",
+              "arguments": [
+                "-allowshallow -nocache -nofetch -nonormalize"
+              ]
+            },
+            {
+              "id": "case-023",
+              "arguments": [
+                "-allowshallow -nocache -nonormalize -nofetch"
+              ]
+            }
+          ],
+          "command": null,
+          "environment": {},
+          "checks": [
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ],
+            [
+              "NoNormalize",
+              "ShouldBe",
+              true
+            ],
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ],
+            [
+              "AllowShallow",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "LogPathCanContainForwardSlash": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-l /some/path",
+          "environment": {},
+          "checks": [
+            [
+              "LogFilePath",
+              "ShouldBe",
+              "/some/path"
+            ]
+          ]
+        },
+        "BooleanArgumentHandling": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "/nofetch /updateassemblyinfo true",
+          "environment": {},
+          "checks": [
+            [
+              "NoFetch",
+              "ShouldBe",
+              true
+            ],
+            [
+              "UpdateAssemblyInfo",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "NocacheTrueWhenDefined": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-nocache",
+          "environment": {},
+          "checks": [
+            [
+              "NoCache",
+              "ShouldBe",
+              true
+            ]
+          ]
+        },
+        "CheckVerbosityParsing": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "x",
+                true,
+                "Normal"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "diagnostic",
+                false,
+                "Diagnostic"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "Minimal",
+                false,
+                "Minimal"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "NORMAL",
+                false,
+                "Normal"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "quiet",
+                false,
+                "Quiet"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "Verbose",
+                false,
+                "Verbose"
+              ]
+            }
+          ]
+        },
+        "EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {
+            "GITVERSION_REMOTE_USERNAME": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "EmptyArgumentsRemotePasswordDefinedSetsPassword": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "",
+          "environment": {
+            "GITVERSION_REMOTE_PASSWORD": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-nocache",
+          "environment": {
+            "GITVERSION_REMOTE_USERNAME": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Username",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-nocache",
+          "environment": {
+            "GITVERSION_REMOTE_PASSWORD": "value"
+          },
+          "checks": [
+            [
+              "Authentication.Password",
+              "ShouldBe",
+              "value"
+            ]
+          ]
+        },
+        "EnsureShowVariableIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-showvariable SemVer",
+          "environment": {},
+          "checks": [
+            [
+              "ShowVariable",
+              "ShouldBe",
+              "SemVer"
+            ]
+          ]
+        },
+        "EnsureFormatIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ],
+          "command": "-format {Major}.{Minor}.{Patch}",
+          "environment": {},
+          "checks": [
+            [
+              "Format",
+              "ShouldBe",
+              "{Major}.{Minor}.{Patch}"
+            ]
+          ]
+        },
+        "ThrowIfConfigurationFileDoesNotExist": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "custom-config.yaml"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "/path/to/custom-config.yaml"
+              ]
+            }
+          ]
+        },
+        "EnsureConfigurationFileIsSet": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "QuotedStringHelpersTests": {
+      "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
+      "sha256": "55c070196a33626bb229a702d1ad6d898467e94698080f189fdd403a074a6bd5",
+      "methods": {
+        "SplitUnquotedTests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null,
+                " ",
+                []
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "one two three",
+                " ",
+                [
+                  "one",
+                  "two",
+                  "three"
+                ]
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "one \"two three\"",
+                " ",
+                [
+                  "one",
+                  "\"two three\""
+                ]
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "one \"two three",
+                " ",
+                [
+                  "one",
+                  "\"two three"
+                ]
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "/overrideconfig tag-prefix=Sample",
+                " ",
+                [
+                  "/overrideconfig",
+                  "tag-prefix=Sample"
+                ]
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "/overrideconfig tag-prefix=Sample 2",
+                " ",
+                [
+                  "/overrideconfig",
+                  "tag-prefix=Sample",
+                  "2"
+                ]
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "/overrideconfig tag-prefix=\"Sample 2\"",
+                " ",
+                [
+                  "/overrideconfig",
+                  "tag-prefix=\"Sample 2\""
+                ]
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "/overrideconfig tag-prefix=\"Sample \\\"quoted\\\"\"",
+                " ",
+                [
+                  "/overrideconfig",
+                  "tag-prefix=\"Sample \\\"quoted\\\"\""
+                ]
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "/overrideconfig tag-prefix=sample;assembly-versioning-format=\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\"",
+                " ",
+                [
+                  "/overrideconfig",
+                  "tag-prefix=sample;assembly-versioning-format=\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\""
+                ]
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "tag-prefix=sample;assembly-versioning-format=\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\"",
+                ";",
+                [
+                  "tag-prefix=sample",
+                  "assembly-versioning-format=\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\""
+                ]
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "assembly-versioning-format=\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\"",
+                "=",
+                [
+                  "assembly-versioning-format",
+                  "\"{Major}.{Minor}.{Patch}.{env:CI_JOB_ID ?? 0}\""
+                ]
+              ]
+            }
+          ]
+        },
+        "SplitUnquotedRemovesEmptyEntries": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                " /switch1 value1  /switch2 ",
+                " ",
+                [
+                  "/switch1",
+                  "value1",
+                  "/switch2"
+                ]
+              ]
+            }
+          ]
+        },
+        "UnquoteTextTests": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "\"sample\"",
+                "sample"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "\"escaped \\\"quote\"",
+                "escaped \"quote"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

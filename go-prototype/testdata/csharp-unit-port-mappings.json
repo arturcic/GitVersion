@@ -45692,5 +45692,2300 @@
       "Go command dispatch exposes returned errors and captured stderr in place of the C# program runner. Equivalent go-git fixtures supply HEAD and exercise the production command."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "ArgumentParserTests.ConfigValidateDefersInvalidTargetPathToItsExecutor": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ConfigValidateDefersInvalidTargetPathToItsExecutor",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigSupportsNestedV7RootAndBranchPaths": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigSupportsNestedV7RootAndBranchPaths",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ConfigGetRejectsUnrelatedOptionsBeforeAndAfterCommand": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ConfigGetRejectsUnrelatedOptionsBeforeAndAfterCommand",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ConfigGetRequiresExactlyOneProperty": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ConfigGetRequiresExactlyOneProperty",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ConfigGetRejectsV6BeforeConfigFileValidation": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ConfigGetRejectsV6BeforeConfigFileValidation",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigAcceptsWorkflowOnlyInEitherVersion": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigAcceptsWorkflowOnlyInEitherVersion",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigRejectsNestedWorkflowWithRootReplacement": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigRejectsNestedWorkflowWithRootReplacement",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigPreservesV7BranchNameCasing": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigPreservesV7BranchNameCasing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigRejectsDottedV7BranchNameWithClearDiagnostic": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigRejectsDottedV7BranchNameWithClearDiagnostic",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigRejectsV6PathInV7WithReplacement": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigRejectsV6PathInV7WithReplacement",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigRejectsPropertyInWrongV7SectionWithReplacement": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigRejectsPropertyInWrongV7SectionWithReplacement",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigSupportsV6BranchPath": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigSupportsV6BranchPath",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigPreservesV6BranchNameCasing": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigPreservesV6BranchNameCasing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigRejectsV7PathInV6WithReplacement": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigRejectsV7PathInV6WithReplacement",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideConfigBatchValidationDoesNotApplyAnyValues": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideConfigBatchValidationDoesNotApplyAnyValues",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.TargetPathAllowsDirectoryNamedConfig": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "TargetPathAllowsDirectoryNamedConfig",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EmptyMeansUseCurrentDirectory": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EmptyMeansUseCurrentDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.SingleMeansUseAsTargetDirectory": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "SingleMeansUseAsTargetDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.NoPathAndLogfileLongFormShouldUseCurrentDirectoryTargetDirectory": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "NoPathAndLogfileLongFormShouldUseCurrentDirectoryTargetDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.HelpSwitchTest": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "HelpSwitchTest",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.VersionSwitchTest": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "VersionSwitchTest",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.TargetDirectoryAndLogFilePathCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "TargetDirectoryAndLogFilePathCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UsernameAndPasswordCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UsernameAndPasswordCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UnknownOutputShouldThrow": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UnknownOutputShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputDefaultsToJson": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputDefaultsToJson",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.MultipleOutputJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "MultipleOutputJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputBuildserverCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputBuildserverCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.MultipleOutputBuildserverCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "MultipleOutputBuildserverCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.MultipleOutputFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "MultipleOutputFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputBuildserverAndJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputBuildserverAndJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputBuildserverAndJsonAndFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputBuildserverAndJsonAndFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.MultipleArgsAndFlag": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "MultipleArgsAndFlag",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OutputFileArgumentCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OutputFileArgumentCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UrlAndBranchNameCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UrlAndBranchNameCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.WrongNumberOfArgumentsShouldThrow": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "WrongNumberOfArgumentsShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UnknownArgumentsShouldThrow": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UnknownArgumentsShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoTrue": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateProjectTrue": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateProjectTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoFalse": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoFalse",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.CreateMultipleAssemblyInfoProtected": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "CreateMultipleAssemblyInfoProtected",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateProjectInfoWithEnsureAssemblyInfoProtected",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoWithFilename": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoWithFilename",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenames": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoWithMultipleFilenames",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateProjectFilesWithMultipleFilenames": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateProjectFilesWithMultipleFilenames",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.UpdateAssemblyInfoWithRelativeFilename": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "UpdateAssemblyInfoWithRelativeFilename",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideconfigWithNoOptions": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideconfigWithNoOptions",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OverrideconfigWithInvalidOption": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OverrideconfigWithInvalidOption",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureAssemblyInfoTrueWhenFound": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureAssemblyInfoTrueWhenFound",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureAssemblyInfoTrue": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureAssemblyInfoTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureAssemblyInfoFalse": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureAssemblyInfoFalse",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.DynamicRepoLocation": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "DynamicRepoLocation",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.CanLogToConsole": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "CanLogToConsole",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.NofetchTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "NofetchTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.NoNormalizeTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "NoNormalizeTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.AllowshallowTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "AllowshallowTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.DiagTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "DiagTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.DiagAndLogToConsoleIsNotIgnored": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "DiagAndLogToConsoleIsNotIgnored",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNofetch": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OtherArgumentsCanBeParsedBeforeNofetch",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNonormalize": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OtherArgumentsCanBeParsedBeforeNonormalize",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeNocache": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OtherArgumentsCanBeParsedBeforeNocache",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.OtherArgumentsCanBeParsedBeforeAllowshallow": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "OtherArgumentsCanBeParsedBeforeAllowshallow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.SeveralSwitchesCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "SeveralSwitchesCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014",
+      "case-015",
+      "case-016",
+      "case-017",
+      "case-018",
+      "case-019",
+      "case-020",
+      "case-021",
+      "case-022",
+      "case-023"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.LogPathCanContainForwardSlash": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "LogPathCanContainForwardSlash",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.BooleanArgumentHandling": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "BooleanArgumentHandling",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.NocacheTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "NocacheTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.CheckVerbosityParsing": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "CheckVerbosityParsing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EmptyArgumentsRemoteUsernameDefinedSetsUsername",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EmptyArgumentsRemotePasswordDefinedSetsPassword": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EmptyArgumentsRemotePasswordDefinedSetsPassword",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ArbitraryArgumentsRemoteUsernameDefinedSetsUsername",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ArbitraryArgumentsRemotePasswordDefinedSetsPassword",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureShowVariableIsSet": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureShowVariableIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureFormatIsSet": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureFormatIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ThrowIfConfigurationFileDoesNotExist": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ThrowIfConfigurationFileDoesNotExist",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.EnsureConfigurationFileIsSet": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "EnsureConfigurationFileIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.ShortAliasCIsConfigNotCommit": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "ShortAliasCIsConfigNotCommit",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ArgumentParserTests.CommitLongFormSetsCommitId": {
+    "source": "src/GitVersion.App.Tests/ArgumentParserTests.cs",
+    "source_sha256": "29b1bc99ab0876ace60b4a319c08b18a6c9d2b66855f25f9912086c482cceed5",
+    "method": "CommitLongFormSetsCommitId",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OverrideConfigSupportsNestedV7RootAndBranchPaths": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OverrideConfigSupportsNestedV7RootAndBranchPaths",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OverrideConfigRejectsV6PathInV7WithReplacement": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OverrideConfigRejectsV6PathInV7WithReplacement",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EmptyMeansUseCurrentDirectory": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EmptyMeansUseCurrentDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.SingleMeansUseAsTargetDirectory": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "SingleMeansUseAsTargetDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "NoPathAndLogfileShouldUseCurrentDirectoryTargetDirectory",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.HelpSwitchTest": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "HelpSwitchTest",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.VersionSwitchTest": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "VersionSwitchTest",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.TargetDirectoryAndLogFilePathCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "TargetDirectoryAndLogFilePathCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UsernameAndPasswordCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UsernameAndPasswordCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UnknownOutputShouldThrow": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UnknownOutputShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputDefaultsToJson": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputDefaultsToJson",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.MultipleOutputJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "MultipleOutputJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputBuildserverCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputBuildserverCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.MultipleOutputBuildserverCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "MultipleOutputBuildserverCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.MultipleOutputFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "MultipleOutputFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputBuildserverAndJsonCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputBuildserverAndJsonCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputBuildserverAndJsonAndFileCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputBuildserverAndJsonAndFileCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.MultipleArgsAndFlag": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "MultipleArgsAndFlag",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OutputFileArgumentCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OutputFileArgumentCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UrlAndBranchNameCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UrlAndBranchNameCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.WrongNumberOfArgumentsShouldThrow": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "WrongNumberOfArgumentsShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UnknownArgumentsShouldThrow": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UnknownArgumentsShouldThrow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoTrue": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateProjectTrue": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateProjectTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoFalse": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoFalse",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.CreateMultipleAssemblyInfoProtected": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "CreateMultipleAssemblyInfoProtected",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateProjectInfoWithEnsureAssemblyInfoProtected": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateProjectInfoWithEnsureAssemblyInfoProtected",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoWithFilename": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoWithFilename",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenames": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoWithMultipleFilenames",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateProjectFilesWithMultipleFilenames": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateProjectFilesWithMultipleFilenames",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoWithMultipleFilenamesMatchingGlobbing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.UpdateAssemblyInfoWithRelativeFilename": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "UpdateAssemblyInfoWithRelativeFilename",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OverrideconfigWithNoOptions": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OverrideconfigWithNoOptions",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OverrideconfigWithInvalidOption": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OverrideconfigWithInvalidOption",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureAssemblyInfoTrueWhenFound": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureAssemblyInfoTrueWhenFound",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureAssemblyInfoTrue": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureAssemblyInfoTrue",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureAssemblyInfoFalse": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureAssemblyInfoFalse",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.DynamicRepoLocation": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "DynamicRepoLocation",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.CanLogToConsole": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "CanLogToConsole",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.NofetchTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "NofetchTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.NoNormalizeTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "NoNormalizeTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.AllowshallowTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "AllowshallowTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.DiagTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "DiagTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.DiagAndLogToConsoleIsNotIgnored": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "DiagAndLogToConsoleIsNotIgnored",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNofetch": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OtherArgumentsCanBeParsedBeforeNofetch",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNonormalize": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OtherArgumentsCanBeParsedBeforeNonormalize",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeNocache": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OtherArgumentsCanBeParsedBeforeNocache",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.OtherArgumentsCanBeParsedBeforeAllowshallow": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "OtherArgumentsCanBeParsedBeforeAllowshallow",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.SeveralSwitchesCanBeParsed": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "SeveralSwitchesCanBeParsed",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014",
+      "case-015",
+      "case-016",
+      "case-017",
+      "case-018",
+      "case-019",
+      "case-020",
+      "case-021",
+      "case-022",
+      "case-023"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.LogPathCanContainForwardSlash": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "LogPathCanContainForwardSlash",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.BooleanArgumentHandling": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "BooleanArgumentHandling",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.NocacheTrueWhenDefined": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "NocacheTrueWhenDefined",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.CheckVerbosityParsing": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "CheckVerbosityParsing",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EmptyArgumentsRemoteUsernameDefinedSetsUsername": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EmptyArgumentsRemoteUsernameDefinedSetsUsername",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EmptyArgumentsRemotePasswordDefinedSetsPassword": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EmptyArgumentsRemotePasswordDefinedSetsPassword",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.ArbitraryArgumentsRemoteUsernameDefinedSetsUsername": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "ArbitraryArgumentsRemoteUsernameDefinedSetsUsername",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.ArbitraryArgumentsRemotePasswordDefinedSetsPassword": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "ArbitraryArgumentsRemotePasswordDefinedSetsPassword",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureShowVariableIsSet": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureShowVariableIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureFormatIsSet": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureFormatIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.ThrowIfConfigurationFileDoesNotExist": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "ThrowIfConfigurationFileDoesNotExist",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "LegacyArgumentParserTests.EnsureConfigurationFileIsSet": {
+    "source": "src/GitVersion.App.Tests/LegacyArgumentParserTests.cs",
+    "source_sha256": "cadcc54b8c13f54105b40a6f8dd3c7204c021c17b63f72cc6d61b332daf6448e",
+    "method": "EnsureConfigurationFileIsSet",
+    "go_test": "TestCSharpArgumentParsers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "QuotedStringHelpersTests.SplitUnquotedTests": {
+    "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
+    "source_sha256": "55c070196a33626bb229a702d1ad6d898467e94698080f189fdd403a074a6bd5",
+    "method": "SplitUnquotedTests",
+    "go_test": "TestCSharpQuotedStringHelpers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "QuotedStringHelpersTests.SplitUnquotedRemovesEmptyEntries": {
+    "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
+    "source_sha256": "55c070196a33626bb229a702d1ad6d898467e94698080f189fdd403a074a6bd5",
+    "method": "SplitUnquotedRemovesEmptyEntries",
+    "go_test": "TestCSharpQuotedStringHelpers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "QuotedStringHelpersTests.UnquoteTextTests": {
+    "source": "src/GitVersion.App.Tests/QuotedStringHelpersTests.cs",
+    "source_sha256": "55c070196a33626bb229a702d1ad6d898467e94698080f189fdd403a074a6bd5",
+    "method": "UnquoteTextTests",
+    "go_test": "TestCSharpQuotedStringHelpers",
+    "case_file": "testdata/csharp-argument-parsers.json",
+    "case_file_sha256": "7d0dbcc2fa09de3bb5652500228df60b578cc08c2d2b5467599297b80059419c",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "C# parser fields and warning exceptions are checked against the production Go parser, captured diagnostics, and temporary filesystem fixtures."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

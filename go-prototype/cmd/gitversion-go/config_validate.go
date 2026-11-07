@@ -115,6 +115,9 @@ func runConfigValidate(args []string, workdir string, stdout, stderr io.Writer) 
 }
 
 func validationFile(workdir, name, format string) (*string, error) {
+	if workdir == "" {
+		return nil, &config.ValidationError{Code: "GVCONFIG_INVOCATION", Reason: "The selected directory path is invalid."}
+	}
 	if format != "" && format != "json" {
 		return nil, &config.ValidationError{Code: "GVCONFIG_INVOCATION", Reason: "Unsupported validation output format. Use json."}
 	}

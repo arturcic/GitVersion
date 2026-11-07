@@ -225,6 +225,10 @@ func LoadNamed(repo, custom string) (Config, error) {
 }
 
 func LoadNamedWithWarning(repo, custom string, warn func(string)) (Config, error) {
+	return LoadNamedWithOverrides(repo, custom, nil, warn)
+}
+
+func LoadNamedWithOverrides(repo, custom string, overrides []byte, warn func(string)) (Config, error) {
 	var name *string
 	if custom != "" {
 		name = &custom
@@ -241,16 +245,55 @@ func LoadNamedWithWarning(repo, custom string, warn func(string)) (Config, error
 	if err != nil {
 		return Config{}, err
 	}
-	if file == nil {
-		return ParseProvided(nil, version)
+	var data []byte
+	if file != nil {
+		data, err = locator.fs().ReadFile(*file)
+		if err != nil {
+			return Config{}, err
+		}
 	}
-	data, err := locator.fs().ReadFile(*file)
-	if err != nil {
-		return Config{}, err
+	if len(overrides) != 0 {
+		data, err = mergeCalculatorOverrides(data, overrides, version)
+		if err != nil {
+			return Config{}, err
+		}
 	}
 	configuration, err := ParseProvided(data, version)
-	if err == nil && warn != nil && IsExplicitV6(&version) {
+	if err == nil && file != nil && warn != nil && IsExplicitV6(&version) {
 		warn(LegacyConfigurationWarning(*file))
 	}
 	return configuration, err
+}
+
+func mergeCalculatorOverrides(data, overrides []byte, version string) ([]byte, error) {
+	selected, err := SelectConfigurationVersion(&version)
+	if err != nil {
+		return nil, err
+	}
+	read := func(raw []byte, layout, source string) (*yaml.Node, error) {
+		node, err := readConfigurationMap(raw)
+		if err != nil {
+			return nil, err
+		}
+		return normalizeDocument(node, layout, source)
+	}
+	file, err := read(data, selected, "configuration file")
+	if err != nil {
+		return nil, err
+	}
+	runtime, err := read(overrides, "", "runtime override configuration")
+	if err != nil {
+		return nil, err
+	}
+	if err := validateFields(runtime, rootField, "", selected); err != nil {
+		return nil, err
+	}
+	mergeConfiguration(file, runtime)
+	if selected == "v7" {
+		file, err = nestDocument(file)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return yaml.Marshal(file)
 }

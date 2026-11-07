@@ -87,6 +87,10 @@ func Environment(home string, extra map[string]string) []string {
 }
 
 func Resolve(c Command, repo string) (Command, error) {
+	return resolve(c, repo, false)
+}
+
+func resolve(c Command, repo string, allowImplicitRepository bool) (Command, error) {
 	if !filepath.IsAbs(c.Executable) {
 		return c, fmt.Errorf("executable must be absolute")
 	}
@@ -100,7 +104,7 @@ func Resolve(c Command, repo string) (Command, error) {
 			return c, fmt.Errorf("{repo} must be a complete argument")
 		}
 	}
-	if !found {
+	if !found && !allowImplicitRepository {
 		return c, fmt.Errorf("command requires a {repo} argument")
 	}
 	return Command{c.Executable, args}, nil
@@ -109,6 +113,15 @@ func Resolve(c Command, repo string) (Command, error) {
 // Run records failures rather than hiding them behind successful JSON parsing.
 // Each run gets its own repository copy and private HOME; it never invokes a shell.
 func Run(ctx context.Context, c Command, source, workspace string, environment map[string]string, timeout time.Duration) (Result, error) {
+	return run(ctx, c, source, workspace, environment, timeout, false)
+}
+
+// RunInWorkingDirectory permits commands that select the repository by cwd.
+func RunInWorkingDirectory(ctx context.Context, c Command, source, workspace string, environment map[string]string, timeout time.Duration) (Result, error) {
+	return run(ctx, c, source, workspace, environment, timeout, true)
+}
+
+func run(ctx context.Context, c Command, source, workspace string, environment map[string]string, timeout time.Duration, allowImplicitRepository bool) (Result, error) {
 	var result Result
 	if timeout <= 0 {
 		return result, fmt.Errorf("timeout must be positive")
@@ -120,7 +133,7 @@ func Run(ctx context.Context, c Command, source, workspace string, environment m
 	if err := fixtures.Copy(source, repo); err != nil {
 		return result, err
 	}
-	resolved, err := Resolve(c, repo)
+	resolved, err := resolve(c, repo, allowImplicitRepository)
 	if err != nil {
 		return result, err
 	}

@@ -28,7 +28,7 @@ func TestObserveCommand(t *testing.T) {
 	}
 }
 func TestUnsupportedCommandProducesNoJSON(t *testing.T) {
-	for _, args := range [][]string{{}, {"calculate"}, {"observe", "--repository"}, {"observe", "--repository", "missing", "extra"}} {
+	for _, args := range [][]string{{"calculate"}, {"observe", "--repository"}, {"observe", "--repository", "missing", "extra"}} {
 		var b bytes.Buffer
 		if err := run(args, &b); err == nil || !strings.Contains(err.Error(), "usage:") {
 			t.Fatalf("bad command accepted: %v", args)

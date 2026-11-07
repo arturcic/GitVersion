@@ -465,7 +465,7 @@ func checkMigrationShowCase(t *testing.T, method string, args []json.RawMessage)
 func TestMigrationPublishDoesNotClobberConcurrentOutput(t *testing.T) {
 	dir := t.TempDir()
 	path := writeQueryConfig(t, dir, "out.yml", "concurrent writer")
-	err := writeMigratedConfiguration(path, []byte("calculation: {}\noutput: {}\n"), nil, false)
+	err := writeFileAtomically(path, []byte("calculation: {}\noutput: {}\n"), nil, false)
 	if !os.IsExist(err) || mustReadMigrated(t, path) != "concurrent writer" ||
 		!slices.Equal(migrationFiles(t, dir), []string{"out.yml"}) {
 		t.Fatalf("concurrent destination or temp file changed: %v", err)

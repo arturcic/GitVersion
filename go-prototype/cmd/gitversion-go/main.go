@@ -5,13 +5,9 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/GitTools/GitVersion/go-prototype/internal/calculate"
-	"github.com/GitTools/GitVersion/go-prototype/internal/config"
 	"github.com/GitTools/GitVersion/go-prototype/internal/gitrepo"
 	"io"
 	"os"
-	"path/filepath"
-	"strings"
 )
 
 func run(args []string, out io.Writer) error {
@@ -38,10 +34,10 @@ func execute(args []string, out, diagnostics io.Writer) error {
 			return fmt.Errorf("Option --update-wix-version-file cannot be used with 'config get'")
 		}
 	}
-	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--config PATH] [--trace]"
 	if len(args) == 0 || (args[0] != "observe" && args[0] != "calculate") {
-		return fmt.Errorf("%s", usage)
+		return runRootCLI(args, out, diagnostics)
 	}
+	usage := "usage: gitversion-go calculate|observe --repository PATH [--output json] [--config PATH] [--trace]"
 	f := flag.NewFlagSet(args[0], flag.ContinueOnError)
 	f.SetOutput(io.Discard)
 	path := f.String("repository", "", "repository root")
@@ -56,41 +52,9 @@ func execute(args []string, out, diagnostics io.Writer) error {
 		return fmt.Errorf("%s", usage)
 	}
 	if args[0] == "calculate" {
-		if _, err := selectedConfigurationVersion(); err != nil {
-			return err
-		}
-		var warning string
-		cfg, err := config.LoadNamedWithWarning(*path, *custom, func(message string) { warning = message })
-		if err != nil {
-			if strings.Contains(err.Error(), "uses the legacy v6 configuration structure") {
-				return fmt.Errorf("An error occurred:\n%w", err)
-			}
-			return err
-		}
-		if warning != "" {
-			fmt.Fprintln(diagnostics, warning)
-		}
-		values, detail, err := calculate.CalculateWithConfig(*path, cfg)
+		values, detail, err := calculateCLI(*path, *custom, *logFile, nil, diagnostics)
 		if err != nil {
 			return err
-		}
-		if warning != "" && *logFile != "" && *logFile != "console" {
-			name := *logFile
-			if !filepath.IsAbs(name) {
-				name = filepath.Join(*path, name)
-			}
-			file, err := os.OpenFile(name, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
-			if err != nil {
-				return err
-			}
-			_, err = fmt.Fprintln(file, warning)
-			closeErr := file.Close()
-			if err != nil {
-				return err
-			}
-			if closeErr != nil {
-				return closeErr
-			}
 		}
 		if *trace {
 			if err = json.NewEncoder(diagnostics).Encode(detail); err != nil {
