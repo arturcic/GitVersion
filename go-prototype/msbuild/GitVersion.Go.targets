@@ -8,10 +8,78 @@
   <Target Name="GenerateGitVersionGoInformation">
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
           ConsoleToMSBuild="true"
-          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_LANGUAGE=$(GitVersionGoLanguage);GITVERSION_GO_INTERMEDIATE=$(IntermediateOutputPath);GITVERSION_GO_NAMESPACE=$(RootNamespace);GITVERSION_GO_USE_NAMESPACE=$(UseProjectNamespaceForGitVersionInformation)"
-          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild generate-version-info --project-file &quot;$GITVERSION_GO_PROJECT&quot; --language &quot;$GITVERSION_GO_LANGUAGE&quot; --intermediate-output-path &quot;$GITVERSION_GO_INTERMEDIATE&quot; --use-project-namespace=&quot;$GITVERSION_GO_USE_NAMESPACE&quot; --root-namespace &quot;$GITVERSION_GO_NAMESPACE&quot;">
+          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_VERSION_FILE=$(GitVersionGoVersionFile);GITVERSION_GO_LANGUAGE=$(GitVersionGoLanguage);GITVERSION_GO_INTERMEDIATE=$(IntermediateOutputPath);GITVERSION_GO_NAMESPACE=$(RootNamespace);GITVERSION_GO_USE_NAMESPACE=$(UseProjectNamespaceForGitVersionInformation)"
+          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild generate-version-info --project-file &quot;$GITVERSION_GO_PROJECT&quot; --version-file &quot;$GITVERSION_GO_VERSION_FILE&quot; --language &quot;$GITVERSION_GO_LANGUAGE&quot; --intermediate-output-path &quot;$GITVERSION_GO_INTERMEDIATE&quot; --use-project-namespace=&quot;$GITVERSION_GO_USE_NAMESPACE&quot; --root-namespace &quot;$GITVERSION_GO_NAMESPACE&quot;">
       <Output TaskParameter="ConsoleOutput" PropertyName="GitVersionInformationFilePath" />
     </Exec>
     <Message Text="GitVersionInformationFilePath: $(GitVersionInformationFilePath)" Importance="High" />
+  </Target>
+  <Target Name="UpdateGitVersionGoAssemblyInfo">
+    <PropertyGroup>
+      <_GitVersionGoCompileList>$([System.IO.Path]::GetTempFileName())</_GitVersionGoCompileList>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(_GitVersionGoCompileList)" Lines="@(Compile)" Overwrite="true" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          ConsoleToMSBuild="true"
+          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_VERSION_FILE=$(GitVersionGoVersionFile);GITVERSION_GO_LANGUAGE=$(GitVersionGoLanguage);GITVERSION_GO_INTERMEDIATE=$(IntermediateOutputPath);GITVERSION_GO_COMPILE_LIST=$(_GitVersionGoCompileList)"
+          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild update-assembly-info --project-file &quot;$GITVERSION_GO_PROJECT&quot; --version-file &quot;$GITVERSION_GO_VERSION_FILE&quot; --language &quot;$GITVERSION_GO_LANGUAGE&quot; --intermediate-output-path &quot;$GITVERSION_GO_INTERMEDIATE&quot; --compile-list &quot;$GITVERSION_GO_COMPILE_LIST&quot;">
+      <Output TaskParameter="ConsoleOutput" PropertyName="AssemblyInfoTempFilePath" />
+    </Exec>
+    <Delete Files="$(_GitVersionGoCompileList)" />
+    <Message Text="AssemblyInfoTempFilePath: $(AssemblyInfoTempFilePath)" Importance="High" />
+    <OnError ExecuteTargets="_CleanGitVersionGoTaskFiles" />
+  </Target>
+  <Target Name="WriteGitVersionGoBuildLog">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          StandardOutputImportance="High"
+          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_VERSION_FILE=$(GitVersionGoVersionFile)"
+          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild write-version-info --project-file &quot;$GITVERSION_GO_PROJECT&quot; --version-file &quot;$GITVERSION_GO_VERSION_FILE&quot;" />
+    <Message Text="GitVersion build output complete" Importance="High" />
+  </Target>
+  <Target Name="GetGitVersionGoVersion">
+    <PropertyGroup>
+      <_GitVersionGoVersionXML>$([System.IO.Path]::GetTempFileName())</_GitVersionGoVersionXML>
+    </PropertyGroup>
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          EnvironmentVariables="GITVERSION_GO_EXECUTABLE=$(GitVersionGoExecutable);GITVERSION_GO_PROJECT=$(MSBuildProjectFullPath);GITVERSION_GO_VERSION_FILE=$(GitVersionGoVersionFile);GITVERSION_GO_XML=$(_GitVersionGoVersionXML)"
+          Command="&quot;$GITVERSION_GO_EXECUTABLE&quot; msbuild get-version --project-file &quot;$GITVERSION_GO_PROJECT&quot; --version-file &quot;$GITVERSION_GO_VERSION_FILE&quot; --output-file &quot;$GITVERSION_GO_XML&quot;" />
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/AssemblySemFileVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_AssemblySemFileVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/AssemblySemVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_AssemblySemVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/BranchName/text()"><Output TaskParameter="Result" PropertyName="GitVersion_BranchName" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/BuildMetaData/text()"><Output TaskParameter="Result" PropertyName="GitVersion_BuildMetaData" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/CommitDate/text()"><Output TaskParameter="Result" PropertyName="GitVersion_CommitDate" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/CommitCountSourceDistance/text()"><Output TaskParameter="Result" PropertyName="GitVersion_CommitCountSourceDistance" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/CommitCountSourceSha/text()"><Output TaskParameter="Result" PropertyName="GitVersion_CommitCountSourceSha" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/CustomVersion/text()"><Output TaskParameter="Result" PropertyName="GitVersion_CustomVersion" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/EscapedBranchName/text()"><Output TaskParameter="Result" PropertyName="GitVersion_EscapedBranchName" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/FullBuildMetaData/text()"><Output TaskParameter="Result" PropertyName="GitVersion_FullBuildMetaData" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/FullSemVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_FullSemVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/InformationalVersion/text()"><Output TaskParameter="Result" PropertyName="GitVersion_InformationalVersion" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/Major/text()"><Output TaskParameter="Result" PropertyName="GitVersion_Major" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/MajorMinorPatch/text()"><Output TaskParameter="Result" PropertyName="GitVersion_MajorMinorPatch" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/Minor/text()"><Output TaskParameter="Result" PropertyName="GitVersion_Minor" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/Patch/text()"><Output TaskParameter="Result" PropertyName="GitVersion_Patch" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/PreReleaseLabelName/text()"><Output TaskParameter="Result" PropertyName="GitVersion_PreReleaseLabelName" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/PreReleaseLabelNameWithDash/text()"><Output TaskParameter="Result" PropertyName="GitVersion_PreReleaseLabelNameWithDash" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/PreReleaseNumber/text()"><Output TaskParameter="Result" PropertyName="GitVersion_PreReleaseNumber" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/PreReleaseLabel/text()"><Output TaskParameter="Result" PropertyName="GitVersion_PreReleaseLabel" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/PreReleaseLabelWithDash/text()"><Output TaskParameter="Result" PropertyName="GitVersion_PreReleaseLabelWithDash" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/SemVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_SemVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/SemVerSourceIncrement/text()"><Output TaskParameter="Result" PropertyName="GitVersion_SemVerSourceIncrement" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/SemVerSourceSemVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_SemVerSourceSemVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/SemVerSourceSha/text()"><Output TaskParameter="Result" PropertyName="GitVersion_SemVerSourceSha" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/Sha/text()"><Output TaskParameter="Result" PropertyName="GitVersion_Sha" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/ShortSha/text()"><Output TaskParameter="Result" PropertyName="GitVersion_ShortSha" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/UncommittedChanges/text()"><Output TaskParameter="Result" PropertyName="GitVersion_UncommittedChanges" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/VersionSourceDistance/text()"><Output TaskParameter="Result" PropertyName="GitVersion_VersionSourceDistance" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/VersionSourceIncrement/text()"><Output TaskParameter="Result" PropertyName="GitVersion_VersionSourceIncrement" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/VersionSourceSemVer/text()"><Output TaskParameter="Result" PropertyName="GitVersion_VersionSourceSemVer" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/VersionSourceSha/text()"><Output TaskParameter="Result" PropertyName="GitVersion_VersionSourceSha" /></XmlPeek>
+    <XmlPeek XmlInputPath="$(_GitVersionGoVersionXML)" Query="/GitVersion/WeightedPreReleaseNumber/text()"><Output TaskParameter="Result" PropertyName="GitVersion_WeightedPreReleaseNumber" /></XmlPeek>
+    <Delete Files="$(_GitVersionGoVersionXML)" />
+    <OnError ExecuteTargets="_CleanGitVersionGoTaskFiles" />
+  </Target>
+  <Target Name="_CleanGitVersionGoTaskFiles">
+    <Delete Files="$(_GitVersionGoCompileList);$(_GitVersionGoVersionXML)" />
   </Target>
 </Project>

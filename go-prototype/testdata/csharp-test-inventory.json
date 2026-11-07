@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1353,
+  "mapped_declarations": 1373,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1315,
+      "mapped": 1335,
       "verified": 1315
     },
     "integration": {
@@ -221710,9 +221710,16 @@
       ],
       "source_sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs#GetVersionTaskShouldReturnVersionOutputVariables",
@@ -221727,9 +221734,16 @@
       ],
       "source_sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs#GetVersionTaskShouldReturnVersionOutputVariablesForBuildServer",
@@ -221744,9 +221758,16 @@
       ],
       "source_sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs#GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuild",
@@ -221789,9 +221810,23 @@
       ],
       "source_sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs#GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuildInBuildServer",
@@ -221822,9 +221857,20 @@
       ],
       "source_sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFile",
@@ -221839,9 +221885,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileInBuildServer",
@@ -221856,9 +221911,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuild",
@@ -221873,9 +221937,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildInBuildServer",
@@ -221890,9 +221963,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExist",
@@ -221907,9 +221989,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExistInBuildServer",
@@ -221924,9 +222015,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExist",
@@ -221941,9 +222041,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs#UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExistInBuildServer",
@@ -221958,9 +222067,18 @@
       ],
       "source_sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutput",
@@ -221975,9 +222093,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInAzurePipeline",
@@ -221992,9 +222117,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldNotUpdateBuildNumberInAzurePipeline",
@@ -222009,9 +222141,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldUpdateBuildNumberInAzurePipeline",
@@ -222042,9 +222181,20 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInGitHubActions",
@@ -222059,9 +222209,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Use a GitVersion JSON file, go-git fixture histories, and the Go task command. Retain the original version, path, output, and failure assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutputWhenRunWithMsBuild",
@@ -222076,9 +222233,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs#WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputWhenRunWithMsBuildInAzurePipeline",
@@ -222093,9 +222257,16 @@
       ],
       "source_sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestPlatformCSharpMSBuildTasks",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-msbuild-tasks.json",
+      "adaptations": [
+        "Run the actual MSBuild engine through the imported Go target and preserve the version file and task output assertions."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/AssemblyFileVersionTests.cs#ValidateAssemblyFileVersionBuilder",

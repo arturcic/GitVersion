@@ -1,0 +1,713 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "property_source": "src/GitVersion.MsBuild/Tasks/GetVersion.cs",
+  "property_source_sha256": "72e78d86de081acb9c35233fa101b809a1b45b518570182c3dc3122df046de5f",
+  "properties": [
+    "AssemblySemFileVer",
+    "AssemblySemVer",
+    "BranchName",
+    "BuildMetaData",
+    "CommitCountSourceDistance",
+    "CommitCountSourceSha",
+    "SemVerSourceIncrement",
+    "SemVerSourceSemVer",
+    "SemVerSourceSha",
+    "CommitDate",
+    "CustomVersion",
+    "EscapedBranchName",
+    "FullBuildMetaData",
+    "FullSemVer",
+    "InformationalVersion",
+    "Major",
+    "MajorMinorPatch",
+    "Minor",
+    "Patch",
+    "PreReleaseLabelName",
+    "PreReleaseLabelNameWithDash",
+    "PreReleaseNumber",
+    "PreReleaseLabel",
+    "PreReleaseLabelWithDash",
+    "SemVer",
+    "Sha",
+    "ShortSha",
+    "UncommittedChanges",
+    "VersionSourceDistance",
+    "VersionSourceIncrement",
+    "VersionSourceSemVer",
+    "VersionSourceSha",
+    "WeightedPreReleaseNumber"
+  ],
+  "suites": {
+    "UpdateAssemblyInfoTaskTest": {
+      "source": "src/GitVersion.MsBuild.Tests/Tasks/UpdateAssemblyInfoTaskTest.cs",
+      "sha256": "5337b95451618c3a294a69799c51f97bf32a04a31b35ab86dc7c5c8a5d4022c5",
+      "methods": {
+        "UpdateAssemblyInfoTaskShouldCreateFile": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileInBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuild": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildInBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExist": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenIntermediateOutputPathDoesNotExistInBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExist": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": false,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.2.4.0\")"
+            }
+          ]
+        },
+        "UpdateAssemblyInfoTaskShouldCreateFileWhenRunWithMsBuildAndIntermediateOutputPathDoesNotExistInBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "C#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "F#"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "VB"
+              ],
+              "azure": true,
+              "github": false,
+              "attribute": "assembly: AssemblyVersion(\"1.0.1.0\")"
+            }
+          ]
+        }
+      }
+    },
+    "WriteVersionInfoTest": {
+      "source": "src/GitVersion.MsBuild.Tests/Tasks/WriteVersionInfoTest.cs",
+      "sha256": "8a280f4ff70354f486de7951b498c2d231d17632e11ada5fcfc769b9097a79d2",
+      "methods": {
+        "WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutput": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": false,
+              "github": false,
+              "contains": [],
+              "excludes": [
+                "##vso[task.setvariable"
+              ]
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInAzurePipeline": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[task.setvariable variable=GitVersion_FullSemVer]1.0.1-1",
+                "##vso[task.setvariable variable=GitVersion_FullSemVer;isOutput=true]1.0.1-1"
+              ],
+              "excludes": [
+                "##vso[task.setvariable variable=GitVersion."
+              ]
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldNotUpdateBuildNumberInAzurePipeline": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "2021-02-14.1"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[task.setvariable variable=GitVersion_FullSemVer]1.0.1-1",
+                "##vso[task.setvariable variable=GitVersion_FullSemVer;isOutput=true]1.0.1-1"
+              ],
+              "excludes": [
+                "##vso[build.updatebuildnumber]",
+                "##vso[task.setvariable variable=GitVersion."
+              ],
+              "config": "calculation: {}\noutput:\n  update-build-number: false"
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldUpdateBuildNumberInAzurePipeline": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "2021-02-14.1-$(GITVERSION.FullSemVer)",
+                "2021-02-14.1-1.0.1-1"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[build.updatebuildnumber]2021-02-14.1-1.0.1-1"
+              ],
+              "excludes": []
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "2021-02-14.1-$(GITVERSION.SemVer)",
+                "2021-02-14.1-1.0.1"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[build.updatebuildnumber]2021-02-14.1-1.0.1"
+              ],
+              "excludes": []
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "2021-02-14.1-$(GITVERSION.minor)",
+                "2021-02-14.1-0"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[build.updatebuildnumber]2021-02-14.1-0"
+              ],
+              "excludes": []
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "2021-02-14.1-$(GITVERSION_MAJOR)",
+                "2021-02-14.1-1"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[build.updatebuildnumber]2021-02-14.1-1"
+              ],
+              "excludes": []
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "2021-02-14.1",
+                "1.0.1-1"
+              ],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[build.updatebuildnumber]1.0.1-1"
+              ],
+              "excludes": []
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputInGitHubActions": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": false,
+              "github": true,
+              "contains": [
+                "GitVersion_SemVer=1.0.1"
+              ],
+              "excludes": []
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldNotLogOutputVariablesToBuildOutputWhenRunWithMsBuild": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": false,
+              "github": false,
+              "contains": [],
+              "excludes": [
+                "##vso[task.setvariable"
+              ]
+            }
+          ]
+        },
+        "WriteVersionInfoTaskShouldLogOutputVariablesToBuildOutputWhenRunWithMsBuildInAzurePipeline": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": true,
+              "github": false,
+              "contains": [
+                "##vso[task.setvariable variable=GitVersion_FullSemVer]1.0.1-1",
+                "##vso[task.setvariable variable=GitVersion_FullSemVer;isOutput=true]1.0.1-1"
+              ],
+              "excludes": [
+                "##vso[task.setvariable variable=GitVersion."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "GetVersionTaskTests": {
+      "source": "src/GitVersion.MsBuild.Tests/Tasks/GetVersionTaskTests.cs",
+      "sha256": "f2715101e86be6f070a4a1bd42fa142bb71516f85e0a2016a70647eb9c168cda",
+      "methods": {
+        "OutputsShouldMatchVariableProvider": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            }
+          ]
+        },
+        "GetVersionTaskShouldReturnVersionOutputVariables": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": false,
+              "github": false,
+              "properties": {
+                "Major": "1",
+                "Minor": "2",
+                "Patch": "4",
+                "MajorMinorPatch": "1.2.4",
+                "PreReleaseNumber": "1",
+                "PreReleaseLabel": "1",
+                "PreReleaseLabelWithDash": "-1",
+                "FullSemVer": "1.2.4-1",
+                "SemVerSourceSemVer": "1.2.3",
+                "SemVerSourceIncrement": "Patch",
+                "CommitCountSourceDistance": "1",
+                "PreReleaseLabelName": "",
+                "PreReleaseLabelNameWithDash": ""
+              },
+              "equal_properties": [
+                [
+                  "SemVerSourceSha",
+                  "VersionSourceSha"
+                ],
+                [
+                  "CommitCountSourceSha",
+                  "VersionSourceSha"
+                ]
+              ],
+              "nonempty_properties": [
+                "VersionSourceSha"
+              ]
+            }
+          ]
+        },
+        "GetVersionTaskShouldReturnVersionOutputVariablesForBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "azure": true,
+              "github": false,
+              "properties": {
+                "Major": "1",
+                "Minor": "0",
+                "Patch": "1",
+                "MajorMinorPatch": "1.0.1",
+                "PreReleaseNumber": "1",
+                "PreReleaseLabel": "1",
+                "PreReleaseLabelWithDash": "-1",
+                "FullSemVer": "1.0.1-1",
+                "PreReleaseLabelName": "",
+                "PreReleaseLabelNameWithDash": ""
+              },
+              "equal_properties": [],
+              "nonempty_properties": []
+            }
+          ]
+        },
+        "GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuild": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "Major",
+                "1"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "Minor",
+                "2"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "Patch",
+                "4"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "MajorMinorPatch",
+                "1.2.4"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "FullSemVer",
+                "1.2.4-1"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "SemVerSourceSemVer",
+                "1.2.3"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "SemVerSourceIncrement",
+                "Patch"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "CommitCountSourceDistance",
+                "1"
+              ],
+              "azure": false,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            }
+          ]
+        },
+        "GetVersionTaskShouldReturnVersionOutputVariablesWhenRunWithMsBuildInBuildServer": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "Major",
+                "1"
+              ],
+              "azure": true,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "Minor",
+                "0"
+              ],
+              "azure": true,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "Patch",
+                "1"
+              ],
+              "azure": true,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "MajorMinorPatch",
+                "1.0.1"
+              ],
+              "azure": true,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "FullSemVer",
+                "1.0.1-1"
+              ],
+              "azure": true,
+              "github": false,
+              "properties": {},
+              "equal_properties": [],
+              "nonempty_properties": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}

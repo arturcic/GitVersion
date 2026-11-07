@@ -152,7 +152,7 @@ func checkMSBuildCommand(t *testing.T, method string, tc msbuildOutputCase) {
 	if azure {
 		t.Setenv("TF_BUILD", "true")
 	}
-	working := msbuildVersionRepository(t, dir, azure)
+	working := msbuildVersionRepository(t, dir, azure, "")
 	project := filepath.Join(working, "App.Project."+msbuildProjectExtension(t, *tc.Arguments[0]))
 	writeMSBuildFixture(t, project, "<Project/>")
 	// The project represents a build input. Keep it outside Git's dirty count.
@@ -215,7 +215,7 @@ func writeMSBuildFixture(t *testing.T, path, content string) {
 	}
 }
 
-func msbuildVersionRepository(t *testing.T, dir string, azure bool) string {
+func msbuildVersionRepository(t *testing.T, dir string, azure bool, configText string) string {
 	t.Helper()
 	steps := []fixtures.Step{{Op: "commit", ID: "first"}, {Op: "tag", Name: "1.2.3"}, {Op: "commit", ID: "head"}}
 	if azure {
@@ -227,7 +227,7 @@ func msbuildVersionRepository(t *testing.T, dir string, azure bool) string {
 			fixtures.Step{Op: "commit", ID: "head"}, fixtures.Step{Op: "branch", Name: "develop"})
 	}
 	steps = append(steps, fixtures.Step{Op: "checkpoint", ID: "head"})
-	cps, err := fixtures.Generate([]fixtures.Recipe{{ID: "msbuild-output", Steps: steps}}, filepath.Join(dir, "fixtures"))
+	cps, err := fixtures.Generate([]fixtures.Recipe{{ID: "msbuild-output", Config: configText, Steps: steps}}, filepath.Join(dir, "fixtures"))
 	if err != nil {
 		t.Fatal(err)
 	}

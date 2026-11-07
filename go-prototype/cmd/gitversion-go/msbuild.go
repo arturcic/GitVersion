@@ -1,8 +1,11 @@
 package main
 
 import (
+	"context"
 	"crypto/rand"
 	"embed"
+	"encoding/json"
+	"encoding/xml"
 	"errors"
 	"flag"
 	"fmt"
@@ -23,47 +26,92 @@ import (
 var versionInfoTemplates embed.FS
 
 func runMSBuild(args []string, out, diagnostics io.Writer) error {
-	const usage = "usage: gitversion-go msbuild generate-version-info|check-assembly-info --project-file PATH"
+	const usage = "usage: gitversion-go msbuild <generate-version-info|check-assembly-info|update-assembly-info|get-version|write-version-info> --project-file PATH"
 	if len(args) == 0 {
 		return errors.New(usage)
 	}
-	flags := flag.NewFlagSet(args[0], flag.ContinueOnError)
+	command := args[0]
+	flags := flag.NewFlagSet(command, flag.ContinueOnError)
 	flags.SetOutput(io.Discard)
 	project := flags.String("project-file", "", "MSBuild project path")
-	switch args[0] {
-	case "check-assembly-info":
-		if err := flags.Parse(args[1:]); err != nil || *project == "" {
-			return errors.New(usage)
+	var language, intermediate, rootNamespace, compileList, outputFile string
+	var useNamespace bool
+	versionFile := flags.String("version-file", "", "existing GitVersion JSON")
+	switch command {
+	case "check-assembly-info", "write-version-info":
+	case "get-version":
+		flags.StringVar(&outputFile, "output-file", "", "version properties XML path")
+	case "generate-version-info", "update-assembly-info":
+		flags.StringVar(&language, "language", "C#", "C#, F#, or VB")
+		flags.StringVar(&intermediate, "intermediate-output-path", "", "generated file directory")
+		if command == "generate-version-info" {
+			flags.BoolVar(&useNamespace, "use-project-namespace", false, "use project namespace")
+			flags.StringVar(&rootNamespace, "root-namespace", "", "project root namespace")
+		} else {
+			flags.StringVar(&compileList, "compile-list", "", "newline-delimited compile items")
 		}
-		return checkMSBuildAssemblyInfo(*project, flags.Args())
-	case "generate-version-info":
-		language := flags.String("language", "C#", "C#, F#, or VB")
-		intermediate := flags.String("intermediate-output-path", "", "generated file directory")
-		useNamespace := flags.Bool("use-project-namespace", false, "use project namespace")
-		rootNamespace := flags.String("root-namespace", "", "project root namespace")
-		if err := flags.Parse(args[1:]); err != nil || *project == "" || flags.NArg() != 0 {
-			return errors.New(usage)
+	default:
+		return errors.New(usage)
+	}
+	if err := flags.Parse(args[1:]); err != nil || *project == "" {
+		return errors.New(usage)
+	}
+	compileFiles := flags.Args()
+	if command == "check-assembly-info" {
+		return checkMSBuildAssemblyInfo(*project, compileFiles)
+	}
+	if command == "update-assembly-info" {
+		if compileList != "" {
+			raw, err := os.ReadFile(compileList)
+			if err != nil {
+				return err
+			}
+			for _, name := range strings.Split(assemblyInfoText(raw), "\n") {
+				if name = strings.TrimSuffix(name, "\r"); name != "" {
+					compileFiles = append(compileFiles, name)
+				}
+			}
 		}
-		path, extension, err := generatedVersionInfoPath(*project, *intermediate, *language, "GitVersionInformation")
+		if err := checkMSBuildAssemblyInfo(*project, compileFiles); err != nil {
+			return err
+		}
+	} else if flags.NArg() != 0 {
+		return errors.New(usage)
+	}
+
+	directory := filepath.Dir(*project)
+	agent := buildagent.Resolve(directory, os.LookupEnv)
+	values, err := msbuildVariables(directory, *versionFile, agent, diagnostics)
+	if err != nil {
+		return err
+	}
+	switch command {
+	case "get-version":
+		return writeMSBuildVersionXML(values, outputFile, out)
+	case "write-version-info":
+		update, err := updateBuildNumberSetting(directory, "", nil)
 		if err != nil {
 			return err
 		}
-		projectDirectory := filepath.Dir(*project)
-		agent := buildagent.Resolve(projectDirectory, os.LookupEnv)
-		options := gitrepo.OpenOptions{NormalizeDetached: agent.Name != "LocalBuild"}
-		if branch := agent.CurrentBranch(); branch != nil {
-			options.BuildBranch = *branch
+		return agent.WriteIntegration(context.Background(), out, values, update)
+	case "update-assembly-info":
+		path, _, err := generatedVersionInfoPath(*project, intermediate, language, "AssemblyInfo")
+		if err != nil {
+			return err
 		}
-		if tag := agent.CurrentTag(); tag != nil {
-			options.BuildTag = *tag
+		if err := updateAssemblyInfo(filepath.Dir(path), []string{filepath.Base(path)}, true, values, diagnostics); err != nil {
+			return err
 		}
-		values, _, err := calculateCLI(projectDirectory, "", "", "", nil, diagnostics, options)
+		_, err = fmt.Fprintln(out, path)
+		return err
+	default:
+		path, extension, err := generatedVersionInfoPath(*project, intermediate, language, "GitVersionInformation")
 		if err != nil {
 			return err
 		}
 		var namespace string
-		if *useNamespace {
-			namespace = *rootNamespace
+		if useNamespace {
+			namespace = rootNamespace
 			if strings.TrimSpace(namespace) == "" {
 				namespace = strings.TrimSuffix(filepath.Base(*project), filepath.Ext(*project))
 			}
@@ -73,9 +121,69 @@ func runMSBuild(args []string, out, diagnostics io.Writer) error {
 		}
 		_, err = fmt.Fprintln(out, path)
 		return err
-	default:
-		return errors.New(usage)
 	}
+}
+
+func msbuildVariables(directory, versionFile string, agent *buildagent.Agent, diagnostics io.Writer) (map[string]any, error) {
+	if versionFile != "" {
+		data, err := os.ReadFile(resolveMigrationPath(directory, versionFile))
+		if err != nil {
+			return nil, err
+		}
+		decoder := json.NewDecoder(strings.NewReader(assemblyInfoText(data)))
+		decoder.UseNumber()
+		var values map[string]any
+		if err := decoder.Decode(&values); err != nil {
+			return nil, err
+		}
+		if values == nil {
+			return nil, errors.New("expected GitVersion JSON object")
+		}
+		var extra any
+		if err := decoder.Decode(&extra); err != io.EOF {
+			return nil, errors.New("unexpected data after GitVersion JSON")
+		}
+		return values, nil
+	}
+	options := gitrepo.OpenOptions{NormalizeDetached: agent.Name != "LocalBuild"}
+	if branch := agent.CurrentBranch(); branch != nil {
+		options.BuildBranch = *branch
+	}
+	if tag := agent.CurrentTag(); tag != nil {
+		options.BuildTag = *tag
+	}
+	values, _, err := calculateCLI(directory, "", "", "", nil, diagnostics, options)
+	return values, err
+}
+
+func writeMSBuildVersionXML(values map[string]any, path string, out io.Writer) error {
+	var content strings.Builder
+	encoder := xml.NewEncoder(&content)
+	root := xml.StartElement{Name: xml.Name{Local: "GitVersion"}}
+	if err := encoder.EncodeToken(root); err != nil {
+		return err
+	}
+	for _, name := range output.VariableNames {
+		element := xml.StartElement{Name: xml.Name{Local: name}}
+		if err := encoder.EncodeElement(buildagent.ValueText(values[name]), element); err != nil {
+			return err
+		}
+	}
+	if err := encoder.EncodeToken(root.End()); err != nil {
+		return err
+	}
+	if err := encoder.Flush(); err != nil {
+		return err
+	}
+	if path == "" {
+		_, err := fmt.Fprintln(out, content.String())
+		return err
+	}
+	info, err := os.Lstat(path)
+	if err != nil && !os.IsNotExist(err) {
+		return err
+	}
+	return writeFileAtomically(path, []byte(content.String()), info, true)
 }
 
 func languageExtension(language string) (string, error) {

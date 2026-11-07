@@ -42,7 +42,7 @@ func TestPlatformCSharpMSBuildOutput(t *testing.T) {
 				comparisons++
 				t.Run(tc.ID, func(t *testing.T) {
 					caseDir := t.TempDir()
-					work := msbuildVersionRepository(t, caseDir, tc.BuildServer)
+					work := msbuildVersionRepository(t, caseDir, tc.BuildServer, "")
 					language := *tc.Arguments[0]
 					project := filepath.Join(work, "App."+msbuildProjectExtension(t, language))
 					ext, err := languageExtension(language)
