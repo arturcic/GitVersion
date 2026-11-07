@@ -1,0 +1,258 @@
+{
+  "source_checkpoint": "3939e18b9783e10ecdd325c6e232279f2a5fc8ef",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "pinned_sources": {
+    "src/GitVersion.Core/Core/BranchResolver.cs": "4004f3a9f140057679d1e671e6b017392cdc0d1e6244aa5c20e3c5575268aaf7",
+    "src/GitVersion.Core/Core/RepositoryStore.cs": "95c354ab7136fad46bc7bb4f0d8f8b7979e5eaecadda0c22469286a69704f63f",
+    "src/GitVersion.Core/Core/GitVersionContextFactory.cs": "d1ffae3f88c33f20cce15632e16765dce2c641bd7db0747b012da17f91b052db",
+    "src/GitVersion.Core.Tests/IntegrationTests/BranchContextTests.cs": "6dc75f6c032e09f3bf22f2924c4e18eaa4cb0418b0796b19b3a1e16edc80ab0c"
+  },
+  "branch_selection_comparisons": 9,
+  "successful_json_comparisons": 8,
+  "rejection_comparisons": 1,
+  "platforms": {
+    "macos": {
+      "tests_and_subtests": 40585,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "branch_selection_comparisons": 9,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 22,
+      "cli_schema_regression_cases": 13,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    },
+    "ubuntu26": {
+      "tests_and_subtests": 40585,
+      "packages": 13,
+      "failures": 0,
+      "skips": 0,
+      "branch_selection_comparisons": 9,
+      "executor_routing_regression_comparisons": 8,
+      "executor_cache_regression_comparisons": 22,
+      "cli_schema_regression_cases": 13,
+      "msbuild_task_regression_cases": 27,
+      "msbuild_generation_regression_cases": 18,
+      "repository_execution_regression_comparisons": 3,
+      "cli_execution_regression_comparisons": 7
+    }
+  },
+  "candidate_sha256": {
+    "macos": "f85eb962634e8078d73a41b458f87866717947c300937315b40a1027427c6f49",
+    "ubuntu26": "b9e8068910b0e4507f695dd90bb58e49dc6ceb1041f7c56154ff7a8e84763932"
+  },
+  "process_reports": {
+    "macos": {
+      "branch_selection": {
+        "report": ".local/branch-selection/macos/branch-selection-238782676/report.json",
+        "sha256": "728ad660903e8bd265a07ca946a1cf1bbe25fcdb603cb096f83e31b9306dd597",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "cli_execution_regression": {
+        "report": ".local/branch-selection/macos/cli-execution-2631612568/report.json",
+        "sha256": "a4092948a25a6f530c6f2c6177b39d1f5008765296baaa84624b113c51842930",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "cli_schema": {
+        "report": ".local/branch-selection/macos/cli-schema-1028174790/report.json",
+        "sha256": "2fd98fe1e5394aa0e35193dc3ccdf5fd6fccd636044bfd7b6e84c771f0303d38",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "executor_cache": {
+        "report": ".local/branch-selection/macos/executor-cache-2574039410/report.json",
+        "sha256": "e56c4ad677d55138eb843f5081d0073569d6cf7b52280729a600b44f296d73fb",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "executor_routing": {
+        "report": ".local/branch-selection/macos/executor-routing-2781577312/report.json",
+        "sha256": "967f5da09897f6afe5729fb5bbbbc9e46b3eebf7dd7c06707c5e8231f776e7cf",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/branch-selection/macos/msbuild-output-1689099913/report.json",
+        "sha256": "7bff767426b2c4e7a8007fb8c352e48db3b560d84b7002604d78f81af373d928",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "msbuild_tasks": {
+        "report": ".local/branch-selection/macos/msbuild-tasks-3817207319/report.json",
+        "sha256": "34e90f872e3fea12ea41d0497e3897bdd8cdbf52e160babbc9910385053d512d",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      },
+      "repository_execution_regression": {
+        "report": ".local/branch-selection/macos/repository-execution-2187838598/report.json",
+        "sha256": "345e329323ad2d2365ba351c722d014aa30269726d3d3e162d0db13849af70ee",
+        "log_sha256": "26be737c86dc6a895544c9b87c85efeeff69638f4a609b709c46e4b629a1f637"
+      }
+    },
+    "ubuntu26": {
+      "branch_selection": {
+        "report": ".local/branch-selection/linux/branch-selection-2031243570/report.json",
+        "sha256": "74d29ebc87f32830593e72db144d342926decd60865029cf15a753433500d3ac",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "cli_execution_regression": {
+        "report": ".local/branch-selection/linux/cli-execution-2454532018/report.json",
+        "sha256": "bc77c82caf3c59764d4d8e70b7417fb361b3d358cdb556deed018bc17e8047e0",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "cli_schema": {
+        "report": ".local/branch-selection/linux/cli-schema-1367199199/report.json",
+        "sha256": "4854e415a0984801399bf69ffc52c32f8c864a3b318665b426e6c530405f7d99",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "executor_cache": {
+        "report": ".local/branch-selection/linux/executor-cache-98707516/report.json",
+        "sha256": "621aa43ee6eaa8fad96b49560b0b451a265239589564033e486d14be694275a8",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "executor_routing": {
+        "report": ".local/branch-selection/linux/executor-routing-312666203/report.json",
+        "sha256": "9b6fc77b34d384cb87d653f2a547645841380455dd87376f67bf063eb98d5af7",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "msbuild_generation_regression": {
+        "report": ".local/branch-selection/linux/msbuild-output-793384157/report.json",
+        "sha256": "6acbb58d0f0e49c9eeb27e2d4423770a6b23119613c22b7460657df3f6d086b5",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "msbuild_tasks": {
+        "report": ".local/branch-selection/linux/msbuild-tasks-3671379433/report.json",
+        "sha256": "93450ad1317fd66fe455b9439f898f6de2e2750e156daa2dbf92b20e3861125a",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      },
+      "repository_execution_regression": {
+        "report": ".local/branch-selection/linux/repository-execution-4133130466/report.json",
+        "sha256": "be87bea2c94bde418673bc999683b4aeb5c0686506834674931b991a203525ee",
+        "log_sha256": "bf1e9a827d9882590a34fb676ec774c3a31419f204aef503e97f52048c23d682"
+      }
+    }
+  },
+  "unit_logs": {
+    "macos": "2501cf426a539638422fbd49deedf5e5ff4f57998331267b1443f609aa691a78",
+    "macos_path": ".local/branch-selection/macos-unit.jsonl.gz",
+    "ubuntu26": {
+      ".local/branch-selection/linux/unit/internal-gitrepo.log": "c55c666e9262da6a84e373e624064f9caae5658291b9f89762afb0ad6876f63e",
+      ".local/branch-selection/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+      ".local/branch-selection/linux/unit/internal-calculate.log": "3ce021730d0d07fd0daf275b85c50a7ae73f34734f2f324302ff9ada1c36d690",
+      ".local/branch-selection/linux/unit/cmd-gitversion-go.log": "c9095405d4a50ee737084745bf96b697d37e5635115cef7caa9343d7486753ee",
+      ".local/branch-selection/linux/unit/internal-fixtures.log": "7bc59e87e8e923eaeabf228f1ad701e191baf1e5919417bfa5c66205fb3a8e44",
+      ".local/branch-selection/linux/unit/cmd-parity.log": "b36a65f724690df43da80f2092a3d27be3a1def1ee38dc94ee6de365586dc9db",
+      ".local/branch-selection/linux/unit/internal-parity.log": "fdd51bf597343389403d3f57e1a50a16a14fd48e477c6f7fcb1ec4fa9a4387da",
+      ".local/branch-selection/linux/unit/internal-output.log": "e055a5bf3d2ae3a5f0d1bbd69ef1b4830bd323d2b080470b4ce91ad18885f150",
+      ".local/branch-selection/linux/unit/internal-commandline.log": "f36f0c65ffb5ff893c88980f0f6b32c87bcbf15ddf106f247ee7af7a911e1a12",
+      ".local/branch-selection/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+      ".local/branch-selection/linux/unit/internal-config.log": "daeea90bb16910e8457f6bda057a6f87331835b03da9631c29013b00a94b34dd",
+      ".local/branch-selection/linux/unit/internal-buildagent.log": "22858028a31e177f26b6afb709459cc98f0c5e95633d2692aaf96e27d656ac6c",
+      ".local/branch-selection/linux/unit/internal-semver.log": "da924d9ef48c3ba41235e18e0038690abb92c5cdda5d5550cd7087201ba80ff7"
+    }
+  },
+  "dependency_list_sha256": "ae41415646630599f922dc40f51cc41ac178b43e17487420ead78dad0c8858e0",
+  "source_checkpoint_inputs": {
+    "cmd/gitversion-go/branch_selection.go": "025a997ec28572e1ee3d409e6e43a8dd00fdb70a40614bfd61b694ca7fc5eee6",
+    "cmd/gitversion-go/branch_selection_fixture_test.go": "0fc98f95e254c521a0d1056d7c4614849098697476820e4f4853328c14e9155a",
+    "cmd/gitversion-go/branch_selection_integration_test.go": "a0b881828ef62bb5604228eedc08d3f1d93b506affc2dec3cf7fd1d7d8b5cd4e",
+    "cmd/gitversion-go/branch_selection_test.go": "90bb79993de828d65cdd47a09a6ef41798de41ac47bd1dcb5ed8cd8b8c13c7f6",
+    "cmd/gitversion-go/calculation_cache.go": "aa4e09df9a3acbb4f8841ff41a6cdde5739ec9401b6216df0500d81a579d8b78",
+    "cmd/gitversion-go/root_command.go": "b69d3083fb62bda34399183ac82543b854f544ceef089cdd32bba6294f1587fd",
+    "internal/calculate/calculate.go": "3615f6900dadf42399c879d7fc08b76ed2c2189cb91cc19d39bbb508e9213af8",
+    "internal/gitrepo/repository.go": "590fbcf8e7608fed25e3c3c1f9c5c98cb263699eddaa87b8340fe9a6403103f7"
+  },
+  "reused_linux_unit_binary_hashes": {
+    ".local/msbuild-output-ports/linux-bin/internal-patterns.test": "d562529c06240976d7fbae6e50df9d1daafc170c0e5d9918f4cb2fab8ec8d915",
+    ".local/msbuild-output-ports/linux-bin/cmd-parity.test": "b228354ae80a66126f24f29ce79d43294ab5c1ed0d279287ba53d36a187df2f9",
+    ".local/msbuild-output-ports/linux-bin/internal-parity.test": "09193766e75cea1688cfb7474a4352e80ea5855a1f8366c284661665e55e22c2",
+    ".local/msbuild-output-ports/linux-bin/internal-commandline.test": "3c3ec70a02f61237edd4a5481b01e1ed0e54e7b2424c98247ed870da1c1ddcbe",
+    ".local/msbuild-output-ports/linux-bin/internal-formatting.test": "bf0069ded21cad563627999ca29bb9fd0878d2b016b0ff11180a738b65fbb6e7",
+    ".local/executor-cache-ports/linux-bin/internal-semver.test": "2eacd401ba6d4b80eeb69b6377bf4b47edd9c4dad7c3cfcdf76f370fdbf1614a"
+  },
+  "actual_checkout": {
+    "head": "9b63978c52ee9f634c46c6795d867920ae97f528",
+    "FullSemVer": "7.0.0-alpha.1+739",
+    "fields_matching": 33,
+    "output": {
+      ".local/branch-selection/macos/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/branch-selection/macos/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      },
+      ".local/branch-selection/linux/real-csharp.json": {
+        "sha256": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19"
+      },
+      ".local/branch-selection/linux/real-go.json": {
+        "sha256": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
+      }
+    },
+    "ubuntu_snapshot_sha256": "c31b8fcaa757f3872a7ba3ae5668753fca28d1c59d86e41604e512068b7e211c"
+  },
+  "ubuntu_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T09:53:43.874677833Z",
+      "FinishedAt": "2026-11-07T09:55:36.529725552Z"
+    },
+    "network": "none",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/branch-selection/linux-bin",
+        "Destination": "/bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/executor-cache-ports/linux-bin",
+        "Destination": "/cache-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/msbuild-output-ports/linux-bin",
+        "Destination": "/previous-bins",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/Library/Application Support/dotnetup/dotnet/sdk/10.0.403",
+        "Destination": "/sdk",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype/.local/dual-backend-ports-real-snapshot.tar.gz",
+        "Destination": "/snapshot",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/artur/.codex/worktrees/go-prototype-milestone-a/gitversion/go-prototype",
+        "Destination": "/workspace/go-prototype",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}

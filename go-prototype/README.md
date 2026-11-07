@@ -334,7 +334,7 @@ the original cases and live byte comparisons on macOS and Ubuntu.
 
 The root CLI supports `--commit <sha>` and the legacy `-c <sha>` option.
 It selects history on the current branch by the requested commit's timestamp.
-The prototype does not maintain a persistent calculation cache. The
+The root CLI maintains a persistent calculation cache. The
 [CLI execution evidence](CSHARP-CLI-EXECUTION-EVIDENCE.json) records live
 commit selection, discovery and failure cases, and validation JSON byte checks.
 
@@ -394,3 +394,11 @@ The [unit-test target audit](CSHARP-EXECUTOR-ROUTING-EVIDENCE.json) links the
 pinned C# inventory to 1,365 passing Go method paths and 35,300 original case
 paths on macOS and offline Ubuntu 26. Integration declarations and Go statement
 coverage are tracked separately.
+
+The root CLI supports `--branch NAME` and legacy `-b NAME` for local branches
+and existing remote-tracking refs. `GIT_BRANCH` and `Git_Branch` supply a
+calculation context at the checked-out commit, with the uppercase name
+taking priority. An explicit target takes precedence over both aliases.
+Branch selection preserves the checkout and the Git refs. The
+[branch selection evidence](CSHARP-BRANCH-SELECTION-EVIDENCE.json)
+records live JSON and repository-state comparisons on both platforms.
