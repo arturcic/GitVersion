@@ -1,0 +1,2445 @@
+{
+  "schema": 1,
+  "baseline": "14d222235b7dabb7033473528a76fd18478a9217",
+  "audit_of": "5aad826cf56206207930ec0100e432247a9780fe",
+  "priority_platforms": [
+    "macOS arm64",
+    "Ubuntu 26.04 arm64"
+  ],
+  "last_platform": "Windows",
+  "statuses": {
+    "matched": "The stated, bounded behavior has live pinned-C# evidence on both priority platforms at the linked checkpoint.",
+    "partial": "Some cases are evidenced. The gap describes the remaining acceptance work.",
+    "open": "No sufficient acceptance evidence is mapped.",
+    "decision": "A known or proposed difference needs an explicit compatibility decision.",
+    "excluded": "Outside the agreed replacement scope.",
+    "deferred": "Scheduled after the priority-platform work."
+  },
+  "behaviors": [
+    {
+      "id": "cli-help",
+      "area": "CLI",
+      "behavior": "Root and configuration help text in the six captured invocations",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.App/ArgumentParser.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIHelpAndDiagnosticsParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cli-version",
+      "area": "CLI",
+      "behavior": "Version works outside Git and agrees with the executable’s own schema version",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.App/VersionWriter.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIHelpAndDiagnosticsParity",
+        "TestPlatformCSharpCLISchema"
+      ],
+      "evidence": [
+        "CSHARP-CLI-SCHEMA-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cli-schema",
+      "area": "CLI",
+      "behavior": "OpenCLI command tree, option metadata, and early exit without repository writes",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.App/CliSchema/CliSchemaExporter.cs"
+      ],
+      "tests": [
+        "TestPlatformCSharpCLISchema"
+      ],
+      "evidence": [
+        "CSHARP-CLI-SCHEMA-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cli-parse",
+      "area": "CLI",
+      "behavior": "Modern POSIX arguments, aliases, precedence, invalid input and exit status",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/ArgumentParser.cs"
+      ],
+      "tests": [
+        "TestPlatformArgumentParserParity",
+        "TestPlatformCLIExecutionParity"
+      ],
+      "evidence": [
+        "CSHARP-ARGUMENT-PARSER-EVIDENCE.json",
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json"
+      ],
+      "gap": "Finish option interactions and exact parser diagnostics for remaining malformed inputs."
+    },
+    {
+      "id": "cli-diagnose",
+      "area": "CLI",
+      "behavior": "Diagnostic run emits graph hint to a selected sink and bypasses cache",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.App/GitVersionExecutor.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIHelpAndDiagnosticsParity",
+        "TestPlatformCLILoggingParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cli-sinks",
+      "area": "CLI",
+      "behavior": "Five verbosity levels, stderr and file routing, append, and bad sink paths",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.Core/Extensions/ServiceCollectionExtensions.cs"
+      ],
+      "tests": [
+        "TestPlatformCLILoggingParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cli-traces",
+      "area": "CLI",
+      "behavior": "Execution logs for version strategies, CI, cache and diagnostic paths",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs",
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity",
+        "TestPlatformCLILoggingParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Remaining verbose tagged-cache records and complex Mainline and inheritance traces."
+    },
+    {
+      "id": "cli-errors",
+      "area": "CLI",
+      "behavior": "Expected and unexpected failure status, sink filtering and graph hint",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/GitVersionToolRunner.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIExecutionParity",
+        "TestPlatformCLILoggingParity",
+        "TestPlatformCLITraceParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json",
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json"
+      ],
+      "gap": "Compare remaining root and output failures, including unexpected preparation errors."
+    },
+    {
+      "id": "cli-native-errors",
+      "area": "CLI",
+      "behavior": "Managed Git diagnostic text and .NET exception frames",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.App/GitVersionToolRunner.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Decide whether native Go diagnostics are sufficient or stable user-facing text needs an explicit contract."
+    },
+    {
+      "id": "cli-telemetry-opt-out",
+      "area": "CLI",
+      "behavior": "Opt-out argument is recognized and local parity runs disable telemetry",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/ArgumentParser.cs",
+        "src/GitVersion.App/TelemetryInvocationFactory.cs"
+      ],
+      "tests": [
+        "TestPlatformArgumentParserParity",
+        "TestPlatformCSharpCLISchema"
+      ],
+      "evidence": [
+        "CSHARP-ARGUMENT-PARSER-EVIDENCE.json",
+        "CSHARP-CLI-SCHEMA-EVIDENCE.json"
+      ],
+      "gap": "Add a process-level assertion that opt-out is side-effect-free."
+    },
+    {
+      "id": "cli-telemetry-default",
+      "area": "CLI",
+      "behavior": "Default telemetry, consent and transport behavior",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.App/TelemetryInvocationFactory.cs",
+        "src/GitVersion.Telemetry/GitVersionTelemetryModule.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Decide whether the rewrite should retain the pinned telemetry contract. No external service is needed for the audit."
+    },
+    {
+      "id": "cfg-lookup",
+      "area": "Configuration",
+      "behavior": "Four default filenames, custom path, case, ambiguity and nested checkout lookup",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/ConfigurationFileLocator.cs"
+      ],
+      "tests": [
+        "TestCSharpConfigurationFileLocator",
+        "TestPlatformConfigurationQueryParity",
+        "TestPlatformCLIExecutionParity"
+      ],
+      "evidence": [
+        "CSHARP-FILE-LOCATOR-EVIDENCE.json",
+        "CSHARP-CONFIGURATION-QUERY-EVIDENCE.json",
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json"
+      ],
+      "gap": "Complete filesystem casing, symlink and ambiguous lookup process cases."
+    },
+    {
+      "id": "cfg-layout",
+      "area": "Configuration",
+      "behavior": "V7 ownership, v6 layout selection, nulls, defaults and invalid mixed layout",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/ConfigurationDocumentMapper.cs"
+      ],
+      "tests": [
+        "TestCSharpConfigurationDocumentMapper",
+        "TestPlatformCSharpConfigurationPorts",
+        "TestPlatformConfigurationValidationParity"
+      ],
+      "evidence": [
+        "CSHARP-DOCUMENT-MAPPER-EVIDENCE.json",
+        "CSHARP-CONFIG-VALIDATION-EVIDENCE.json"
+      ],
+      "gap": "Complete end-to-end reads of every mapped property and layout error."
+    },
+    {
+      "id": "cfg-override",
+      "area": "Configuration",
+      "behavior": "Workflow defaults, file values and runtime override precedence",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/ConfigurationResolver.cs"
+      ],
+      "tests": [
+        "TestPlatformConfigurationQueryParity",
+        "TestPlatformConfigurationEdgeParity",
+        "TestPlatformExecutorCacheParity"
+      ],
+      "evidence": [
+        "CSHARP-CONFIGURATION-RESOLVER-EVIDENCE.json",
+        "CONFIGURATION-EVIDENCE.json",
+        "CSHARP-EXECUTOR-CACHE-EVIDENCE.json"
+      ],
+      "gap": "Close field-level combinations of null, collections, repeated overrides and cache invalidation."
+    },
+    {
+      "id": "cfg-display",
+      "area": "Configuration",
+      "behavior": "Effective YAML display for v6 and v7 in verified executor cases",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.App/ConfigurationQueryExecutor.cs"
+      ],
+      "tests": [
+        "TestPlatformExecutorRoutingParity/display-v6",
+        "TestPlatformExecutorRoutingParity/display-v7"
+      ],
+      "evidence": [
+        "CSHARP-EXECUTOR-ROUTING-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "cfg-query",
+      "area": "Configuration",
+      "behavior": "Query scalar public property paths, reject maps, collections and unknown paths",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/ConfigurationPropertyQuery.cs"
+      ],
+      "tests": [
+        "TestPlatformConfigurationQueryParity",
+        "TestPlatformExecutorRoutingParity"
+      ],
+      "evidence": [
+        "CSHARP-CONFIGURATION-QUERY-EVIDENCE.json",
+        "CSHARP-EXECUTOR-ROUTING-EVIDENCE.json"
+      ],
+      "gap": "Check output bytes for every scalar property and error with combined selectors."
+    },
+    {
+      "id": "cfg-validate",
+      "area": "Configuration",
+      "behavior": "Standalone validation, text and JSON diagnostics, override validation and read-only behavior",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/ConfigurationValidationExecutor.cs"
+      ],
+      "tests": [
+        "TestPlatformConfigurationValidationParity",
+        "TestPlatformCSharpValidationInvocationParity"
+      ],
+      "evidence": [
+        "CSHARP-CONFIG-VALIDATION-EVIDENCE.json"
+      ],
+      "gap": "Add per-property error and precedence coverage for options and input boundaries."
+    },
+    {
+      "id": "cfg-migrate",
+      "area": "Configuration",
+      "behavior": "V6 migration to v7, stdout, explicit output, overwrite and atomic in-place edits",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/ConfigurationMigrationExecutor.cs",
+        "src/GitVersion.Configuration/ConfigurationMigrationService.cs"
+      ],
+      "tests": [
+        "TestPlatformConfigurationMigrationParity",
+        "TestPlatformCLILoggingParity"
+      ],
+      "evidence": [
+        "CSHARP-CONFIGURATION-MIGRATION-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Verify remaining invalid input, output conflict, and filesystem failure combinations."
+    },
+    {
+      "id": "cfg-ignore",
+      "area": "Configuration",
+      "behavior": "Ignore dates, SHA prefixes, paths, branches and tags",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/IgnoreConfiguration.cs"
+      ],
+      "tests": [
+        "TestPlatformRepositoryCompatibilityParity",
+        "TestPlatformConfigurationEdgeParity",
+        "TestCSharpIgnoreConfiguration"
+      ],
+      "evidence": [
+        "CSHARP-IGNORE-CONFIGURATION-EVIDENCE.json",
+        "CSHARP-VERSION-FILTER-EVIDENCE.json",
+        "CONFIGURATION-EVIDENCE.json"
+      ],
+      "gap": "Cover mixed path/branch/tag filters and interaction with every strategy and normalization."
+    },
+    {
+      "id": "cfg-custom-bumps",
+      "area": "Configuration",
+      "behavior": "Custom bump and reset regexes and custom merge message formats",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/GitVersionConfiguration.cs"
+      ],
+      "tests": [
+        "TestPlatformResetParity",
+        "TestPlatformMergeControlParity",
+        "TestCSharpMergeMessages"
+      ],
+      "evidence": [
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-MERGE-MESSAGE-EVIDENCE.json"
+      ],
+      "gap": "Port the custom pattern paths that remain outside root calculator parity and compare against pinned C# with non-default regexes."
+    },
+    {
+      "id": "cfg-labels",
+      "area": "Configuration",
+      "behavior": "Branch label captures, null versus empty, commit placeholders and sanitation",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/BranchConfiguration.cs"
+      ],
+      "tests": [
+        "TestPlatformBranchRuleParity",
+        "TestPlatformBranchInheritanceParity",
+        "TestCSharpConfigurationLabels"
+      ],
+      "evidence": [
+        "CSHARP-LABEL-VALIDATION-EVIDENCE.json",
+        "CSHARP-BRANCH-INHERITANCE-EVIDENCE.json"
+      ],
+      "gap": "Finish label inheritance with ambiguous sources, unrecognized tokens and custom branch names."
+    },
+    {
+      "id": "cfg-output",
+      "area": "Configuration",
+      "behavior": "Assembly schemes, version and date formats, weights, per-branch output and build-number switch",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/GitVersionConfiguration.cs"
+      ],
+      "tests": [
+        "TestPlatformFormatArgumentParity",
+        "TestPlatformGlobalDeploymentModeParity",
+        "TestPlatformExecutorRoutingParity"
+      ],
+      "evidence": [
+        "CSHARP-FORMAT-ARGUMENTS-EVIDENCE.json",
+        "CSHARP-TEMPLATE-FORMATTING-EVIDENCE.json",
+        "CSHARP-VARIABLE-PROVIDER-EVIDENCE.json",
+        "CSHARP-EXECUTOR-ROUTING-EVIDENCE.json"
+      ],
+      "gap": "Complete mode × output settings matrix and custom formatting failure diagnostics."
+    },
+    {
+      "id": "calc-workflows",
+      "area": "Calculation",
+      "behavior": "GitFlow, GitHub Flow and Trunk Based workflow defaults across branch families",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/Builders/GitFlowConfigurationBuilder.cs",
+        "src/GitVersion.Configuration/Builders/GitHubFlowConfigurationBuilder.cs",
+        "src/GitVersion.Configuration/Builders/TrunkBasedConfigurationBuilder.cs"
+      ],
+      "tests": [
+        "TestPlatformWorkflowParity",
+        "TestPlatformGeneratedWorkflowParity",
+        "TestPlatformBranchRuleParity"
+      ],
+      "evidence": [
+        "WORKFLOW-EVIDENCE.json"
+      ],
+      "gap": "Fill custom and fallback branch families and uncommon topology intersections."
+    },
+    {
+      "id": "calc-modes",
+      "area": "Calculation",
+      "behavior": "ManualDeployment, ContinuousDelivery and ContinuousDeployment, global and branch defaults",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs"
+      ],
+      "tests": [
+        "TestPlatformGlobalDeploymentModeParity",
+        "TestPlatformPolicyParity",
+        "TestPlatformBranchRuleParity"
+      ],
+      "evidence": [
+        "CONFIGURATION-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json"
+      ],
+      "gap": "Close cross-mode branch controls and explicit null/default policy interactions."
+    },
+    {
+      "id": "calc-inherit",
+      "area": "Calculation",
+      "behavior": "Branch detection, source precedence and multiple candidate sources",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Configuration/BranchConfiguration.cs",
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs"
+      ],
+      "tests": [
+        "TestPlatformBranchInheritanceParity",
+        "TestPlatformBranchRuleParity"
+      ],
+      "evidence": [
+        "CSHARP-BRANCH-INHERITANCE-EVIDENCE.json",
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json"
+      ],
+      "gap": "Extend custom source regexes, recursive/multiple sources and exact rejection paths."
+    },
+    {
+      "id": "calc-increments",
+      "area": "Calculation",
+      "behavior": "Commit-message increment modes, reset directives and merge prevention controls",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs",
+        "src/GitVersion.Core/VersionCalculation/IncrementStrategyFinder.cs"
+      ],
+      "tests": [
+        "TestPlatformResetParity",
+        "TestPlatformMergeControlParity",
+        "TestPlatformWorkflowEdgeParity"
+      ],
+      "evidence": [
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json"
+      ],
+      "gap": "Test custom patterns, competing bumps, unusual merges and zero/overflow edges across modes."
+    },
+    {
+      "id": "calc-fallback",
+      "area": "Calculation",
+      "behavior": "Fallback version when enabled strategies yield no source",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/FallbackVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity/fallback",
+        "TestPlatformStrategyParity"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Cover filtered and unanchored histories across all workflow policies."
+    },
+    {
+      "id": "calc-configured",
+      "area": "Calculation",
+      "behavior": "Configured next version precedence and prerelease behavior",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/ConfiguredNextVersionVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformConfiguredNextStrategyParity",
+        "TestPlatformNextVersionParity",
+        "TestPlatformCLITraceParity/configured-next"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Cover remaining prerelease, label, overflow and tag interactions."
+    },
+    {
+      "id": "calc-mainline",
+      "area": "Calculation",
+      "behavior": "Mainline traversal, merges, source switches and increment fold",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/MainlineVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformWorkflowParity",
+        "TestPlatformStrategyParity",
+        "TestPlatformCLITraceParity/mainline-merge"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Close deep inheritance and mixed topology cases and remaining verbose traversal diagnostics."
+    },
+    {
+      "id": "calc-merge",
+      "area": "Calculation",
+      "behavior": "Merge-message strategy finds versioned releases and reports source",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/MergeMessageVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformMergeControlParity",
+        "TestPlatformRepositoryCompatibilityParity",
+        "TestPlatformCLITraceParity/merged-release"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Exercise custom formats, malformed messages and competing merge/tag candidates."
+    },
+    {
+      "id": "calc-tagged",
+      "area": "Calculation",
+      "behavior": "Tagged commit strategy, pruning, ties, labels and alternative tags",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/TaggedCommitVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformStrategyParity",
+        "TestPlatformCLITraceParity/pruned-tags",
+        "TestPlatformCLITraceParity/tied-tags"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Extend alternate-tag and equal-time interactions and verbose tag-cache diagnostics."
+    },
+    {
+      "id": "calc-release",
+      "area": "Calculation",
+      "behavior": "Release tracking from versioned names and first-parent prerelease tags",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/TrackReleaseBranchesVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformStrategyParity",
+        "TestPlatformCLITraceParity/named-release",
+        "TestPlatformCLITraceParity/tagged-release"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Exercise multiple release refs and tie rules with custom patterns and forwarded merges."
+    },
+    {
+      "id": "calc-branch-name",
+      "area": "Calculation",
+      "behavior": "Extract a version from an eligible release branch name",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/VersionInBranchNameVersionStrategy.cs"
+      ],
+      "tests": [
+        "TestPlatformBranchRuleParity",
+        "TestPlatformRepositoryCompatibilityParity"
+      ],
+      "evidence": [
+        "CSHARP-VERSION-STRATEGIES-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json"
+      ],
+      "gap": "Compare configurable version-in-branch patterns and malformed/ambiguous names."
+    },
+    {
+      "id": "calc-strategy-combinations",
+      "area": "Calculation",
+      "behavior": "128 strategy subsets on six histories, including pinned rejection status and state",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs"
+      ],
+      "tests": [
+        "TestPlatformStrategyParity"
+      ],
+      "evidence": [
+        "CONFIGURATION-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "calc-source-count",
+      "area": "Calculation",
+      "behavior": "Semantic source, commit-count anchor, distance and tie ordering",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/VersionCalculators/NextVersionCalculator.cs"
+      ],
+      "tests": [
+        "TestPlatformNextVersionParity",
+        "TestPlatformRepositoryExecutionParity",
+        "TestPlatformCLITraceParity/tied-tags",
+        "TestCSharpVersionSources"
+      ],
+      "evidence": [
+        "CSHARP-NEXT-VERSION-EVIDENCE.json",
+        "CSHARP-VERSION-SOURCE-EVIDENCE.json",
+        "CSHARP-REPOSITORY-EXECUTION-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Expand equal-time, alternate-source and missing-anchor tests across all strategies."
+    },
+    {
+      "id": "calc-semver",
+      "area": "Calculation",
+      "behavior": "Strict/loose SemVer, metadata, version bounds and tag matching",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/SemVer/SemanticVersion.cs"
+      ],
+      "tests": [
+        "TestPlatformRepositoryCompatibilityParity",
+        "TestPlatformNextVersionParity"
+      ],
+      "evidence": [
+        "CSHARP-SEMVER-EVIDENCE.json",
+        "CSHARP-NEXT-VERSION-EVIDENCE.json"
+      ],
+      "gap": "Complete parser-to-calculator matrix for loose inputs, nonnumeric prereleases and arithmetic bounds."
+    },
+    {
+      "id": "git-discovery",
+      "area": "Repository",
+      "behavior": "Nested repository discovery, non-repository and unborn checkout errors",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/GitVersionToolRunner.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIExecutionParity",
+        "TestPlatformRepositoryCompatibilityParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json",
+        "CSHARP-REPOSITORY-CONTRACTS-EVIDENCE.json"
+      ],
+      "gap": "Add symlink, permissions, broken gitdir and bare path cases through root CLI."
+    },
+    {
+      "id": "git-layouts",
+      "area": "Repository",
+      "behavior": "Linked worktrees and repository format extensions",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Git.Managed/Adapter/RepositoryPathResolution.cs"
+      ],
+      "tests": [
+        "TestPlatformLinkedWorktreeParity",
+        "TestPlatformRepositoryCompatibilityParity"
+      ],
+      "evidence": [
+        "CSHARP-MANAGED-REPOSITORY-EVIDENCE.json",
+        "CSHARP-REPOSITORY-CONTRACTS-EVIDENCE.json"
+      ],
+      "gap": "Define supported extensions and cover linked-worktree discovery with fetch and dirty state."
+    },
+    {
+      "id": "git-objects",
+      "area": "Repository",
+      "behavior": "Managed reference, object and revision-walk behavior on packed and loose storage",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Git.Managed/Adapter/ManagedGitRepository.cs"
+      ],
+      "tests": [
+        "TestPlatformRevisionWalkerOracle",
+        "TestPlatformRepositoryContractOracle",
+        "TestPlatformDualBackendOracle"
+      ],
+      "evidence": [
+        "CSHARP-REVISION-WALKER-EVIDENCE.json",
+        "CSHARP-GIT-OBJECT-READERS-EVIDENCE.json",
+        "CSHARP-DUAL-BACKEND-EVIDENCE.json"
+      ],
+      "gap": "Add full CLI cases for corruption, missing objects and malformed or unsupported repositories."
+    },
+    {
+      "id": "git-index",
+      "area": "Repository",
+      "behavior": "Uncommitted changes, index flags and dirty checkout counts",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/GitVersionContextFactory.cs"
+      ],
+      "tests": [
+        "TestPlatformIndexAssumeValidParity",
+        "TestPlatformRepositoryCompatibilityParity"
+      ],
+      "evidence": [
+        "CSHARP-GIT-INDEX-STREAMS-EVIDENCE.json",
+        "CSHARP-REPOSITORY-CONTRACTS-EVIDENCE.json"
+      ],
+      "gap": "Close dirty, staged, conflicted, ignored and filesystem-specific index combinations."
+    },
+    {
+      "id": "git-branch",
+      "area": "Repository",
+      "behavior": "Explicit branch, provider branch, contextual override and targeted commit selection",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/BranchResolver.cs"
+      ],
+      "tests": [
+        "TestPlatformBranchSelectionParity",
+        "TestPlatformCLIExecutionParity",
+        "TestPlatformExecutorCacheParity"
+      ],
+      "evidence": [
+        "CSHARP-BRANCH-SELECTION-EVIDENCE.json",
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json",
+        "CSHARP-EXECUTOR-CACHE-EVIDENCE.json"
+      ],
+      "gap": "Extend detached and remote branch spelling, precedence and missing commit combinations."
+    },
+    {
+      "id": "git-shallow",
+      "area": "Repository",
+      "behavior": "Shallow history, fetch, no-fetch, allow-shallow and rejection",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformShallowCIParity",
+        "TestPlatformRemoteCIParity"
+      ],
+      "evidence": [
+        "CSHARP-SHALLOW-CI-EVIDENCE.json",
+        "CSHARP-REMOTE-CI-EVIDENCE.json"
+      ],
+      "gap": "Extend boundary and history-deepening cases across supported providers."
+    },
+    {
+      "id": "git-dynamic",
+      "area": "Repository",
+      "behavior": "Dynamic clone with target branch and configurable checkout location",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformRepositoryPreparationParity",
+        "TestPlatformRemoteCIParity",
+        "TestPlatformCLITraceParity/clone"
+      ],
+      "evidence": [
+        "CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json",
+        "CSHARP-REMOTE-CI-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Close relative paths, collisions, concurrent clone and failure effects."
+    },
+    {
+      "id": "git-clone-reuse",
+      "area": "Repository",
+      "behavior": "Dynamic clone reuse and destination selection",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity/clone-repeat"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Go can reuse a matching clone where the pinned managed CLI chooses another destination."
+    },
+    {
+      "id": "git-auth",
+      "area": "Repository",
+      "behavior": "Local HTTP and HTTPS Basic credentials, certificate handling and failures",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformRemoteCIParity"
+      ],
+      "evidence": [
+        "CSHARP-REMOTE-CI-EVIDENCE.json"
+      ],
+      "gap": "Extend credential precedence and redaction, certificate failures, redirects and proxies using local fixtures."
+    },
+    {
+      "id": "git-normalize",
+      "area": "Repository",
+      "behavior": "Fetch and normalization flags, provider fetch policy and tracked branch decisions",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformRepositoryPreparationParity",
+        "TestPlatformRemoteCIParity",
+        "TestPlatformCLITraceParity/ci-ref-decisions",
+        "TestPlatformCLITraceParity/ci-context-skips-projection"
+      ],
+      "evidence": [
+        "CSHARP-REPOSITORY-PREPARATION-EVIDENCE.json",
+        "CSHARP-REMOTE-CI-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Cover more providers, refspecs and projected ref topology combinations."
+    },
+    {
+      "id": "git-normalize-state",
+      "area": "Repository",
+      "behavior": "Local ref writes and HEAD attachment during CI normalization",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity/ci-ref-decisions",
+        "TestPlatformCLITraceParity/ci-detached-selection"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Go preserves local refs and HEAD through its calculation view where C# can mutate them."
+    },
+    {
+      "id": "git-cache",
+      "area": "Repository",
+      "behavior": "Cache miss, hit, bypass, config/ref invalidation and corrupt-entry recovery",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/Caching/GitVersionCacheProvider.cs"
+      ],
+      "tests": [
+        "TestPlatformExecutorCacheParity",
+        "TestPlatformCLITraceParity/cache-miss",
+        "TestPlatformCLITraceParity/cache-hit",
+        "TestPlatformCLITraceParity/cache-corrupt"
+      ],
+      "evidence": [
+        "CSHARP-EXECUTOR-CACHE-EVIDENCE.json",
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Cover concurrent reads/writes, inaccessible cache and all ref/config invalidation combinations."
+    },
+    {
+      "id": "git-cache-layout",
+      "area": "Repository",
+      "behavior": "Cache key interoperability and corrupt-entry handling",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.Core/VersionCalculation/Caching/GitVersionCacheProvider.cs"
+      ],
+      "tests": [
+        "TestPlatformCLITraceParity/cache-corrupt"
+      ],
+      "evidence": [
+        "CSHARP-CLI-LOGGING-EVIDENCE.json"
+      ],
+      "gap": "Go uses separate cache keys and atomic replacement where the oracle deletes corrupt entries first."
+    },
+    {
+      "id": "output-json",
+      "area": "Output",
+      "behavior": "33 JSON fields and types, deterministic order and stdout/file separation",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Output/Serializer/VersionVariablesJsonModel.cs"
+      ],
+      "tests": [
+        "TestPlatformCLIExecutionParity",
+        "TestPlatformRepositoryCompatibilityParity",
+        "TestPlatformFormatArgumentParity"
+      ],
+      "evidence": [
+        "CSHARP-CLI-EXECUTION-EVIDENCE.json",
+        "CSHARP-FORMAT-ARGUMENTS-EVIDENCE.json",
+        "WORKFLOW-EVIDENCE.json"
+      ],
+      "gap": "Extend exact JSON byte comparisons to nullability, escaping, file errors and combined sinks."
+    },
+    {
+      "id": "output-text",
+      "area": "Output",
+      "behavior": "Scalar, formatted, template, dotenv and invalid output handling",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Output/OutputGenerator/OutputGenerator.cs"
+      ],
+      "tests": [
+        "TestPlatformFormatArgumentParity",
+        "TestPlatformExecutorRoutingParity",
+        "TestPlatformBuildAgentParity/dotenv"
+      ],
+      "evidence": [
+        "CSHARP-FORMAT-ARGUMENTS-EVIDENCE.json",
+        "CSHARP-EXECUTOR-ROUTING-EVIDENCE.json",
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Close formatting errors, combined sink precedence, encodings and escaping."
+    },
+    {
+      "id": "output-assembly",
+      "area": "Output",
+      "behavior": "Discover, update and ensure C#, F# and VB assembly files with encoding preservation",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Output/AssemblyInfo/AssemblyInfoFileUpdater.cs"
+      ],
+      "tests": [
+        "TestPlatformAssemblyInfoParity"
+      ],
+      "evidence": [
+        "CSHARP-ASSEMBLY-INFO-EVIDENCE.json"
+      ],
+      "gap": "Add recursive glob, read-only and partially failed write cases."
+    },
+    {
+      "id": "output-project",
+      "area": "Output",
+      "behavior": "Update project files through the CLI and honor assembly-generation controls",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.Output/AssemblyInfo/ProjectFileUpdater.cs"
+      ],
+      "tests": [
+        "TestPlatformProjectFileParity"
+      ],
+      "evidence": [
+        "CSHARP-PROJECT-FILE-EVIDENCE.json"
+      ],
+      "gap": "Verify mixed and malformed projects and wider filesystem/encoding cases."
+    },
+    {
+      "id": "output-wix",
+      "area": "Output",
+      "behavior": "Create WiX version file at tag and replace existing file after tag",
+      "status": "matched",
+      "source": [
+        "src/GitVersion.Output/WixUpdater/WixVersionFileUpdater.cs"
+      ],
+      "tests": [
+        "TestPlatformWixParity"
+      ],
+      "evidence": [
+        "CSHARP-WIX-AND-OUTPUT-EVIDENCE.json"
+      ],
+      "gap": ""
+    },
+    {
+      "id": "output-wix-failures",
+      "area": "Output",
+      "behavior": "WiX write failures and combined update order",
+      "status": "open",
+      "source": [
+        "src/GitVersion.Output/GitVersionOutputTool.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Add live tests for unwritable or conflicting paths and multiple enabled writers."
+    },
+    {
+      "id": "output-order",
+      "area": "Output",
+      "behavior": "Failure and side-effect order across build-server, JSON, assembly, projects and WiX",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.App/GitVersionToolRunner.cs",
+        "src/GitVersion.Output/GitVersionOutputTool.cs"
+      ],
+      "tests": [
+        "TestPlatformExecutorRoutingParity",
+        "TestPlatformAssemblyInfoParity",
+        "TestPlatformProjectFileParity",
+        "TestPlatformWixParity"
+      ],
+      "evidence": [
+        "CSHARP-EXECUTOR-ROUTING-EVIDENCE.json",
+        "CSHARP-WIX-AND-OUTPUT-EVIDENCE.json"
+      ],
+      "gap": "Cover simultaneous outputs and first/late write failure against the original."
+    },
+    {
+      "id": "ci-precedence",
+      "area": "CI",
+      "behavior": "Provider detection, overlapping environment variables and LocalBuild fallback",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/GitVersionBuildAgentsModule.cs",
+        "src/GitVersion.Core/Agents/BuildAgentResolver.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/selection-precedence",
+        "TestPlatformBuildAgentParity/local",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Extend cross-provider precedence, empty values and isolation from inherited CI variables."
+    },
+    {
+      "id": "ci-appveyor",
+      "area": "CI",
+      "behavior": "Build number REST request, branch/PR environment and error response",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/AppVeyor.cs"
+      ],
+      "tests": [
+        "TestAppVeyorUsesLocalRequestPayloads",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Existing Go test uses a local HTTP server. Add a pinned C# process comparison of the request and failure behavior."
+    },
+    {
+      "id": "ci-azure",
+      "area": "CI",
+      "behavior": "Build number placeholder substitution, output variables and disabled updates",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/AzurePipelines.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/azure",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add escaping, PR refs and simultaneous provider cases."
+    },
+    {
+      "id": "ci-bitbucket",
+      "area": "CI",
+      "behavior": "Properties and PowerShell files, environment output and branch selection",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/BitBucketPipelines.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/bitbucket",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Expand path and escaping cases, PR normalization and consumer use."
+    },
+    {
+      "id": "ci-buildkite",
+      "area": "CI",
+      "behavior": "Buildkite integration output and branch selection",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/BuildKite.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/buildkite",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add PR/tag routing and downstream consumer cases."
+    },
+    {
+      "id": "ci-codebuild",
+      "area": "CI",
+      "behavior": "Webhook/source branch selection and properties output",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/CodeBuild.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/codebuild",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Compare both environment selectors together, unusual refs and consuming builds."
+    },
+    {
+      "id": "ci-continua",
+      "area": "CI",
+      "behavior": "Build number and variable service messages",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/ContinuaCi.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/continua",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add branch/tag environment and message escaping boundaries."
+    },
+    {
+      "id": "ci-drone",
+      "area": "CI",
+      "behavior": "Drone output and branch environment",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/Drone.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/drone",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add tag, PR and fetch-enabled repository shapes."
+    },
+    {
+      "id": "ci-envrun",
+      "area": "CI",
+      "behavior": "EnvRun database/output integration",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/EnvRun.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/envrun",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add missing and invalid database target cases."
+    },
+    {
+      "id": "ci-github",
+      "area": "CI",
+      "behavior": "GitHub environment file, missing file, and detached PR/tag normalization",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/GitHubActions.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/github",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Expand job environment/output routing and consumer smoke tests."
+    },
+    {
+      "id": "ci-gitlab",
+      "area": "CI",
+      "behavior": "GitLab properties, build-number toggle and branch selection",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/GitLabCi.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/gitlab",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add merge-request environments and downstream dotenv consumer tests."
+    },
+    {
+      "id": "ci-jenkins",
+      "area": "CI",
+      "behavior": "Jenkins properties and duplicate remote normalization",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/Jenkins.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/jenkins",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Verify more multibranch, checkout and remote-cleanup side effects."
+    },
+    {
+      "id": "ci-myget",
+      "area": "CI",
+      "behavior": "MyGet service messages and build variables",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/MyGet.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/myget",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add provider-specific escaping and remote prep cases."
+    },
+    {
+      "id": "ci-space",
+      "area": "CI",
+      "behavior": "Space Automation variables and branch environment",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/SpaceAutomation.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/space",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add missing environment and failure paths."
+    },
+    {
+      "id": "ci-teamcity",
+      "area": "CI",
+      "behavior": "TeamCity build number, service messages and contextual branch",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/TeamCity.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/teamcity",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Cover escaping, build number suppression and detached branch cases."
+    },
+    {
+      "id": "ci-travis",
+      "area": "CI",
+      "behavior": "Travis output and CI branch environment",
+      "status": "partial",
+      "source": [
+        "src/GitVersion.BuildAgents/Agents/TravisCI.cs"
+      ],
+      "tests": [
+        "TestPlatformBuildAgentParity/travis",
+        "TestCSharpBuildAgents"
+      ],
+      "evidence": [
+        "CSHARP-BUILD-AGENT-EVIDENCE.json"
+      ],
+      "gap": "Add PR/tag and provider precedence cases."
+    },
+    {
+      "id": "ci-consumers",
+      "area": "Delivery",
+      "behavior": "Local CI consumers install the executable and consume version outputs and variables",
+      "status": "open",
+      "source": [
+        "src/GitVersion.App/GitVersion.App.csproj"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Add clean consumer runs for the supported GitTools Actions and other CI entry points using local stand-ins."
+    },
+    {
+      "id": "delivery-native",
+      "area": "Delivery",
+      "behavior": "Native executable names, archives, supported architectures and invocation from PATH",
+      "status": "open",
+      "source": [
+        "build/build/Tasks/Package/PackageArchive.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Build and smoke-test a reproducible local distribution on each priority OS and supported architecture."
+    },
+    {
+      "id": "delivery-tool",
+      "area": "Delivery",
+      "behavior": "Existing .NET tool entry point and migration or compatibility packaging",
+      "status": "decision",
+      "source": [
+        "src/GitVersion.App/GitVersion.App.csproj",
+        "build/build/Tasks/Package/PackageNuget.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Decide the supported install and invocation contract for downstream dotnet-gitversion consumers."
+    },
+    {
+      "id": "delivery-installers",
+      "area": "Delivery",
+      "behavior": "Container, Homebrew, Chocolatey and Winget distribution contracts",
+      "status": "open",
+      "source": [
+        "build/docker/Dockerfile",
+        "build/build/Tasks/Package/PackageChocolatey.cs",
+        ".github/workflows/homebrew.yml",
+        ".github/workflows/winget.yml"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Verify package layout and install/run flows locally. Treat platform-specific Windows installers in the final phase."
+    },
+    {
+      "id": "gate-mac",
+      "area": "Platform",
+      "behavior": "Complete agreed behavior matrix on macOS and supported architectures",
+      "status": "open",
+      "source": [
+        "src/GitVersion.App/GitVersion.App.csproj"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Run the full agreed matrix after closing gaps. Current per-row evidence is primarily arm64."
+    },
+    {
+      "id": "gate-linux",
+      "area": "Platform",
+      "behavior": "Complete agreed behavior matrix on Ubuntu 26.04 and supported architectures",
+      "status": "open",
+      "source": [
+        "src/GitVersion.App/GitVersion.App.csproj"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Run the full agreed matrix in a pinned local container after closing gaps. Current per-row evidence is primarily arm64."
+    },
+    {
+      "id": "gate-windows",
+      "area": "Platform",
+      "behavior": "Windows native behavior and packaging",
+      "status": "deferred",
+      "source": [
+        "src/GitVersion.App/GitVersion.App.csproj"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": "Validate Windows after macOS and Ubuntu 26 are ready."
+    },
+    {
+      "id": "scope-msbuild",
+      "area": "Scope",
+      "behavior": "MSBuild task, props and targets, and managed task loading",
+      "status": "excluded",
+      "source": [
+        "src/GitVersion.slnx"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": ""
+    },
+    {
+      "id": "scope-experimental",
+      "area": "Scope",
+      "behavior": "Experimental new-cli command tree",
+      "status": "excluded",
+      "source": [
+        "new-cli/GitVersion.slnx"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": ""
+    },
+    {
+      "id": "scope-ssh",
+      "area": "Scope",
+      "behavior": "SSH authentication and transport",
+      "status": "excluded",
+      "source": [
+        "src/GitVersion.Core/Core/GitPreparer.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": ""
+    },
+    {
+      "id": "scope-legacy",
+      "area": "Scope",
+      "behavior": "Legacy slash arguments and v6 argument parser",
+      "status": "excluded",
+      "source": [
+        "src/GitVersion.App/LegacyArgumentParser.cs"
+      ],
+      "tests": [],
+      "evidence": [],
+      "gap": ""
+    }
+  ],
+  "surface": {
+    "cli": [
+      {
+        "kind": "command",
+        "command": "gitversion",
+        "name": "gitversion",
+        "behaviors": [
+          "cli-parse"
+        ]
+      },
+      {
+        "kind": "argument",
+        "command": "gitversion",
+        "name": "path",
+        "behaviors": [
+          "git-discovery"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--help",
+        "aliases": [
+          "-?",
+          "-h",
+          "/?",
+          "/h"
+        ],
+        "behaviors": [
+          "cli-help"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--version",
+        "aliases": [],
+        "behaviors": [
+          "cli-version"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--diagnose",
+        "aliases": [
+          "-d"
+        ],
+        "behaviors": [
+          "cli-diagnose"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--log-file",
+        "aliases": [
+          "-l"
+        ],
+        "behaviors": [
+          "cli-sinks",
+          "cli-traces"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--output",
+        "aliases": [
+          "-o"
+        ],
+        "behaviors": [
+          "output-json",
+          "output-text",
+          "output-order",
+          "ci-precedence"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--output-file",
+        "aliases": [],
+        "behaviors": [
+          "output-json"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--show-variable",
+        "aliases": [
+          "-v"
+        ],
+        "behaviors": [
+          "output-text"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--format",
+        "aliases": [
+          "-f"
+        ],
+        "behaviors": [
+          "output-text"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--config",
+        "aliases": [
+          "-c"
+        ],
+        "behaviors": [
+          "cfg-lookup",
+          "cfg-layout"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--show-config",
+        "aliases": [],
+        "behaviors": [
+          "cfg-display",
+          "cfg-layout"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--override-config",
+        "aliases": [],
+        "behaviors": [
+          "cfg-override"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--target-path",
+        "aliases": [],
+        "behaviors": [
+          "git-discovery"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--no-fetch",
+        "aliases": [],
+        "behaviors": [
+          "git-normalize",
+          "git-shallow"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--no-cache",
+        "aliases": [],
+        "behaviors": [
+          "git-cache"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--no-normalize",
+        "aliases": [],
+        "behaviors": [
+          "git-normalize"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--allow-shallow",
+        "aliases": [],
+        "behaviors": [
+          "git-shallow"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--verbosity",
+        "aliases": [],
+        "behaviors": [
+          "cli-sinks",
+          "cli-traces"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--update-assembly-info",
+        "aliases": [],
+        "behaviors": [
+          "output-assembly"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--update-project-files",
+        "aliases": [],
+        "behaviors": [
+          "output-project"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--ensure-assembly-info",
+        "aliases": [],
+        "behaviors": [
+          "output-assembly"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--update-wix-version-file",
+        "aliases": [],
+        "behaviors": [
+          "output-wix",
+          "output-wix-failures"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--url",
+        "aliases": [],
+        "behaviors": [
+          "git-dynamic",
+          "git-auth"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--branch",
+        "aliases": [
+          "-b"
+        ],
+        "behaviors": [
+          "git-branch"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--username",
+        "aliases": [
+          "-u"
+        ],
+        "behaviors": [
+          "git-auth"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--password",
+        "aliases": [
+          "-p"
+        ],
+        "behaviors": [
+          "git-auth"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--commit",
+        "aliases": [],
+        "behaviors": [
+          "git-branch",
+          "git-cache"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--dynamic-repo-location",
+        "aliases": [],
+        "behaviors": [
+          "git-dynamic",
+          "git-clone-reuse"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--cli-schema",
+        "aliases": [],
+        "behaviors": [
+          "cli-schema"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion",
+        "name": "--telemetry-opt-out",
+        "aliases": [],
+        "behaviors": [
+          "cli-telemetry-opt-out"
+        ]
+      },
+      {
+        "kind": "command",
+        "command": "gitversion config",
+        "name": "gitversion config",
+        "behaviors": [
+          "cli-parse"
+        ]
+      },
+      {
+        "kind": "command",
+        "command": "gitversion config migrate",
+        "name": "gitversion config migrate",
+        "behaviors": [
+          "cfg-migrate"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config migrate",
+        "name": "--config",
+        "aliases": [
+          "-c"
+        ],
+        "behaviors": [
+          "cfg-migrate"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config migrate",
+        "name": "--output",
+        "aliases": [],
+        "behaviors": [
+          "cfg-migrate"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config migrate",
+        "name": "--in-place",
+        "aliases": [],
+        "behaviors": [
+          "cfg-migrate"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config migrate",
+        "name": "--force",
+        "aliases": [],
+        "behaviors": [
+          "cfg-migrate"
+        ]
+      },
+      {
+        "kind": "command",
+        "command": "gitversion config get",
+        "name": "gitversion config get",
+        "behaviors": [
+          "cfg-query"
+        ]
+      },
+      {
+        "kind": "argument",
+        "command": "gitversion config get",
+        "name": "property-path",
+        "behaviors": [
+          "cfg-query"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config get",
+        "name": "--config",
+        "aliases": [
+          "-c"
+        ],
+        "behaviors": [
+          "cfg-query",
+          "cfg-lookup"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config get",
+        "name": "--override-config",
+        "aliases": [],
+        "behaviors": [
+          "cfg-query",
+          "cfg-override"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config get",
+        "name": "--target-path",
+        "aliases": [],
+        "behaviors": [
+          "cfg-query",
+          "cfg-lookup"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config get",
+        "name": "--log-file",
+        "aliases": [
+          "-l"
+        ],
+        "behaviors": [
+          "cfg-query",
+          "cli-sinks"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config get",
+        "name": "--verbosity",
+        "aliases": [],
+        "behaviors": [
+          "cfg-query",
+          "cli-sinks"
+        ]
+      },
+      {
+        "kind": "command",
+        "command": "gitversion config validate",
+        "name": "gitversion config validate",
+        "behaviors": [
+          "cfg-validate"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config validate",
+        "name": "--config",
+        "aliases": [
+          "-c"
+        ],
+        "behaviors": [
+          "cfg-validate",
+          "cfg-lookup"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config validate",
+        "name": "--override-config",
+        "aliases": [],
+        "behaviors": [
+          "cfg-validate",
+          "cfg-override"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config validate",
+        "name": "--target-path",
+        "aliases": [],
+        "behaviors": [
+          "cfg-validate",
+          "cfg-lookup"
+        ]
+      },
+      {
+        "kind": "option",
+        "command": "gitversion config validate",
+        "name": "--format",
+        "aliases": [],
+        "behaviors": [
+          "cfg-validate"
+        ]
+      }
+    ],
+    "configuration_schema": "schemas/7.0/GitVersion.configuration.json",
+    "configuration": [
+      {
+        "path": "calculation.branches.*.commit-message-incrementing",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.increment",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.is-main-branch",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.is-release-branch",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.is-source-branch-for",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.label",
+        "behaviors": [
+          "cfg-labels"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.mode",
+        "behaviors": [
+          "calc-modes"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.prevent-increment.of-merged-branch",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.prevent-increment.when-branch-merged",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.prevent-increment.when-current-commit-tagged",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.regex",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.source-branches",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.track-merge-message",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.track-merge-target",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.branches.*.tracks-release-branches",
+        "behaviors": [
+          "calc-release"
+        ]
+      },
+      {
+        "path": "calculation.commit-message-incrementing",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.ignore.branches",
+        "behaviors": [
+          "cfg-ignore"
+        ]
+      },
+      {
+        "path": "calculation.ignore.commits-before",
+        "behaviors": [
+          "cfg-ignore"
+        ]
+      },
+      {
+        "path": "calculation.ignore.paths",
+        "behaviors": [
+          "cfg-ignore"
+        ]
+      },
+      {
+        "path": "calculation.ignore.sha",
+        "behaviors": [
+          "cfg-ignore"
+        ]
+      },
+      {
+        "path": "calculation.ignore.tags",
+        "behaviors": [
+          "cfg-ignore"
+        ]
+      },
+      {
+        "path": "calculation.increment",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.is-main-branch",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.is-release-branch",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.is-source-branch-for",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.label",
+        "behaviors": [
+          "cfg-labels"
+        ]
+      },
+      {
+        "path": "calculation.major-version-bump-message",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.merge-message-formats",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.minor-version-bump-message",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.mode",
+        "behaviors": [
+          "calc-modes"
+        ]
+      },
+      {
+        "path": "calculation.next-version",
+        "behaviors": [
+          "calc-configured"
+        ]
+      },
+      {
+        "path": "calculation.no-bump-message",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.patch-version-bump-message",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.prevent-increment.of-merged-branch",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.prevent-increment.when-branch-merged",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.prevent-increment.when-current-commit-tagged",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.regex",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.semantic-version-format",
+        "behaviors": [
+          "calc-semver",
+          "calc-tagged"
+        ]
+      },
+      {
+        "path": "calculation.source-branches",
+        "behaviors": [
+          "calc-inherit"
+        ]
+      },
+      {
+        "path": "calculation.strategies",
+        "behaviors": [
+          "calc-strategy-combinations",
+          "calc-fallback",
+          "calc-configured",
+          "calc-mainline",
+          "calc-merge",
+          "calc-tagged",
+          "calc-release",
+          "calc-branch-name"
+        ]
+      },
+      {
+        "path": "calculation.tag-prefix",
+        "behaviors": [
+          "calc-semver",
+          "calc-tagged"
+        ]
+      },
+      {
+        "path": "calculation.track-merge-message",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.track-merge-target",
+        "behaviors": [
+          "calc-increments"
+        ]
+      },
+      {
+        "path": "calculation.tracks-release-branches",
+        "behaviors": [
+          "calc-release"
+        ]
+      },
+      {
+        "path": "calculation.version-bump-reset-message",
+        "behaviors": [
+          "cfg-custom-bumps"
+        ]
+      },
+      {
+        "path": "calculation.version-in-branch-pattern",
+        "behaviors": [
+          "calc-branch-name"
+        ]
+      },
+      {
+        "path": "output.assembly-file-versioning-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.assembly-file-versioning-scheme",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.assembly-informational-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.assembly-versioning-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.assembly-versioning-scheme",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.branches.*.custom-version-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.branches.*.pre-release-weight",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.commit-date-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.custom-version-format",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.pre-release-weight",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.tag-pre-release-weight",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "output.update-build-number",
+        "behaviors": [
+          "cfg-output"
+        ]
+      },
+      {
+        "path": "workflow",
+        "behaviors": [
+          "calc-workflows",
+          "cfg-override"
+        ]
+      }
+    ],
+    "output_variables": {
+      "source": "src/GitVersion.Output/Serializer/VersionVariablesJsonModel.cs",
+      "names": [
+        "AssemblySemFileVer",
+        "AssemblySemVer",
+        "BranchName",
+        "BuildMetaData",
+        "CommitCountSourceDistance",
+        "CommitCountSourceSha",
+        "CommitDate",
+        "CustomVersion",
+        "EscapedBranchName",
+        "FullBuildMetaData",
+        "FullSemVer",
+        "InformationalVersion",
+        "Major",
+        "MajorMinorPatch",
+        "Minor",
+        "Patch",
+        "PreReleaseLabel",
+        "PreReleaseLabelName",
+        "PreReleaseLabelNameWithDash",
+        "PreReleaseLabelWithDash",
+        "PreReleaseNumber",
+        "SemVer",
+        "SemVerSourceIncrement",
+        "SemVerSourceSemVer",
+        "SemVerSourceSha",
+        "Sha",
+        "ShortSha",
+        "UncommittedChanges",
+        "VersionSourceDistance",
+        "VersionSourceIncrement",
+        "VersionSourceSemVer",
+        "VersionSourceSha",
+        "WeightedPreReleaseNumber"
+      ],
+      "behaviors": [
+        "output-json",
+        "calc-source-count"
+      ]
+    },
+    "strategies": [
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/FallbackVersionStrategy.cs",
+        "behavior": "calc-fallback"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/ConfiguredNextVersionVersionStrategy.cs",
+        "behavior": "calc-configured"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/MainlineVersionStrategy.cs",
+        "behavior": "calc-mainline"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/MergeMessageVersionStrategy.cs",
+        "behavior": "calc-merge"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/TaggedCommitVersionStrategy.cs",
+        "behavior": "calc-tagged"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/TrackReleaseBranchesVersionStrategy.cs",
+        "behavior": "calc-release"
+      },
+      {
+        "source": "src/GitVersion.Core/VersionCalculation/VersionSearchStrategies/VersionInBranchNameVersionStrategy.cs",
+        "behavior": "calc-branch-name"
+      }
+    ],
+    "providers": [
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/AppVeyor.cs",
+        "behavior": "ci-appveyor"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/AzurePipelines.cs",
+        "behavior": "ci-azure"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/BitBucketPipelines.cs",
+        "behavior": "ci-bitbucket"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/BuildKite.cs",
+        "behavior": "ci-buildkite"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/CodeBuild.cs",
+        "behavior": "ci-codebuild"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/ContinuaCi.cs",
+        "behavior": "ci-continua"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/Drone.cs",
+        "behavior": "ci-drone"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/EnvRun.cs",
+        "behavior": "ci-envrun"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/GitHubActions.cs",
+        "behavior": "ci-github"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/GitLabCi.cs",
+        "behavior": "ci-gitlab"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/Jenkins.cs",
+        "behavior": "ci-jenkins"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/MyGet.cs",
+        "behavior": "ci-myget"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/SpaceAutomation.cs",
+        "behavior": "ci-space"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/TeamCity.cs",
+        "behavior": "ci-teamcity"
+      },
+      {
+        "source": "src/GitVersion.BuildAgents/Agents/TravisCI.cs",
+        "behavior": "ci-travis"
+      }
+    ]
+  }
+}

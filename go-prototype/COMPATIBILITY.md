@@ -4,6 +4,8 @@ The target is **replacement of the established C# CLI and in-scope integrations*
 
 Compatibility is an inventory of observable behaviors, not a percentage inferred from passing tests. A group closes only when positive, negative, boundary and interaction cases match the pinned reference on both priority platforms. Unsupported cases remain open even when the Go executable rejects them cleanly. Intentional differences require an explicit decision; do not silently call them compatible.
 
+The [behavior checklist](PARITY-CHECKLIST.md) links the pinned source, existing test results and acceptance gaps. Its [machine-readable mappings](PARITY-CHECKLIST.json) are the status source for the [CLI option index](CLI-COMPATIBILITY.md). The table below summarizes the milestone history. After editing the mappings, run `python3 scripts/render-parity-checklist.py` to validate and regenerate both views. Add `--check` to check for stale views or `--cli-schema PATH` to compare a local pinned executable export.
+
 | Area | Current state | Remaining acceptance work |
 | --- | --- | --- |
 | GitHub Flow main/feature calculation | Verified declared subset | Reset directives verified; additional configuration interactions, unusual histories and version bounds |
@@ -27,7 +29,7 @@ The pinned source is extracted under `.local/source/`; do not use a moving branc
 
 - `src/GitVersion.Configuration/GitVersionConfiguration.cs`, `BranchConfiguration.cs`, `ConfigurationDocumentMapper.cs`, configuration builders and the generated v7 schema define the configuration surface. Calculation/output/normalization settings must retain their v7 locations.
 - `src/GitVersion.Core/VersionCalculation/` defines version strategies, deployment and increment/reset semantics. Test merge ordering and configuration-source inheritance, not only rendered version strings.
-- `src/GitVersion.App/` and the captured executable help/schema define CLI contracts. [CLI-COMPATIBILITY.md](CLI-COMPATIBILITY.md) enumerates all 42 captured command/option entries. The current prototype CLI is not yet a command-line drop-in replacement.
+- `src/GitVersion.App/` and the captured executable help/schema define CLI contracts. [CLI-COMPATIBILITY.md](CLI-COMPATIBILITY.md) indexes all 42 captured option entries, plus commands and positional arguments. The current prototype CLI is not yet a command-line drop-in replacement.
 - `src/GitVersion.BuildAgents/Agents/` contains GitHub Actions, GitLab CI, Azure Pipelines, TeamCity, Jenkins, AppVeyor, Bitbucket Pipelines, Buildkite, CodeBuild, Continua CI, Drone, EnvRun, MyGet, Space Automation and Travis CI adapters. AppVeyorJsonContext is a helper, not a separate provider.
 - `src/GitVersion.MsBuild/Tasks/`, `.props`/`.targets`, and public API files define MSBuild consumer contracts. A pure Go executable cannot directly be loaded as a managed MSBuild task; preserve the consumer interface through an explicitly tested bridge if needed. The core remains Go/go-git with no libgit2 dependency.
 
