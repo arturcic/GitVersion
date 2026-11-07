@@ -43770,7 +43770,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForPreRelease": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43786,7 +43786,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForStable": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43802,7 +43802,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForStable": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43818,7 +43818,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForStableWhenCurrentCommitIsTagged": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43834,7 +43834,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeWithTagNamePattern": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43850,7 +43850,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeWithTagSetToBranchName": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43866,7 +43866,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForFeatureBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43882,7 +43882,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeliveryModeForFeatureBranchWithCustomAssemblyInfoFormat": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43898,7 +43898,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesVariablesInContinuousDeploymentModeForMainBranchWithEmptyLabel": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43914,7 +43914,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.CustomVersionIsEmptyWhenFormatIsNotConfigured": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43930,7 +43930,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.CustomVersionSupportsPep440FormatForIssue2065": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43946,7 +43946,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.ProvidesUnambiguousPreReleaseVariables": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43964,7 +43964,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.CustomVersionFormatCanBeConfiguredPerBranch": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43980,7 +43980,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.CustomVersionSupportsMonotonicallyIncreasingIntegerFormatForIssue3340": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -43996,7 +43996,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.Format_Allows_CSharp_FormatStrings": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -44012,7 +44012,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.SeparateSourcesSurviveFormattingEnumerationAndJson": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -44029,7 +44029,7 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "VariableProviderTests.CopyingEnumeratedVariablesDoesNotReuseOldSourceValues": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/VariableProviderTests.cs",
@@ -44045,6 +44045,6 @@
       "Repository-independent variable metadata preserves the original inputs, and approved JSON is compared field by field with JSON types.",
       "C# string variables and record enumeration use Go map lookup and decimal conversion for numbers. JSON round trips use UseNumber, and record copies use maps.Clone."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
