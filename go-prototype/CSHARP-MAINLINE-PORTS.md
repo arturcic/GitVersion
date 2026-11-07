@@ -31,7 +31,29 @@ pinned C# managed backend reads common configuration and ignores config.worktree
 this is compatibility with that baseline, not general Git overlay semantics.
 Calculator traversal reads commit metadata without unnecessary tree diffs.
 
-Full platform gates are running. Methods remain unverified in the inventory until
-both macOS and Ubuntu execution complete. Windows stays pending. Earlier batch
-reports retain their historical results; this report supersedes their checkout
-blocker once the new platform evidence is recorded.
+Implementation checkpoint: `d7f2796a6`. macOS arm64 and Ubuntu 26.04.1 arm64
+each passed **37,617 regular tests/subtests in 11 packages**, with no failures or
+skips. This includes every one of the 32,064 original Mainline parameter cases.
+Each OS also passed 17 fresh repository compatibility JSON comparisons, 88 global
+mode comparisons, 87 prior calculation comparisons and six configuration checks.
+
+The actual GitVersion checkout at `9b63978c52ee9f634c46c6795d867920ae97f528`
+returns **7.0.0-alpha.1+739** in both C# and Go. All 33 JSON fields and types match
+on macOS and Ubuntu. The Linux snapshot contains the same tracked files, Git
+objects/references and configuration, excluding ignored host build output.
+Separate fresh fixtures cover ignored build-file behavior. The original checkout,
+Git configuration and version configuration were unchanged. The Linux container
+ran without network access or host mounts. Full logs, process outputs and fixture
+archives are retained locally; hashes/provenance are in `CSHARP-MAINLINE-EVIDENCE.json`.
+
+The source extractor reproduces all 81 generated corpus/index/mapping files
+unchanged. Source input hashes are verified against the implementation checkpoint
+and the actual Linux input archive. `go vet ./...` and whitespace checks pass.
+Original NUnit is not executed by the source-port harness. Windows remains pending.
+This batch supersedes the historical worktreeconfig blocker in earlier reports.
+
+Verified unit/component ports now total **549 / 1,516 (36.21%)**, with **816 more**
+needed to reach 1,365 (90%). Integration ports remain 38 / 662; overall mapping is
+587 / 2,178 (26.95%). These are source-method port percentages, not line coverage
+or proof of full product replacement. CLI/integrations and remaining configuration,
+repository and strategy contracts continue under the active goal.
