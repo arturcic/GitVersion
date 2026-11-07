@@ -9,8 +9,8 @@ outside the explicit IntegrationTests directories and **662 integration declarat
 Using this conservative existing classification, the target is **at least 1,365
 fully mapped and verified unit/component declarations**. The first batch added
 six unit methods plus 38 integration methods; the increment batch added 14 unit
-methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Current verified
-unit total: **630 of 1,516 (41.56%)**, leaving **735** to reach the target.
+methods and the parsing/formatting/regex batch added 42 more. Label tokenization and input validation added another 24. Placeholder/formatter ports added 50; formatter dispatch and configuration labels added 33; Mainline scenarios added 380 methods / 32,064 original cases. Merge-message parsing adds 15 methods / 49 cases. Version-source filter APIs add 12 methods / 12 cases. Version-source metadata and operator tests add 19 methods / 27 cases. Ignore configuration and version selection add 21 methods / 35 cases. Configuration file lookup adds 14 methods / 39 cases. Document mapping adds 10 methods and 19 cases. The verified
+unit total is **640 of 1,516 (42.22%)**, leaving **725** to reach the target.
 Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-MODEL-PATTERNS-EVIDENCE.json`, plus
 `CSHARP-LABEL-VALIDATION-EVIDENCE.json` and
@@ -21,7 +21,8 @@ Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
 `CSHARP-VERSION-FILTER-EVIDENCE.json` and
 `CSHARP-VERSION-SOURCE-EVIDENCE.json` and
 `CSHARP-IGNORE-CONFIGURATION-EVIDENCE.json` and
-`CSHARP-FILE-LOCATOR-EVIDENCE.json`.
+`CSHARP-FILE-LOCATOR-EVIDENCE.json` and
+`CSHARP-DOCUMENT-MAPPER-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside
