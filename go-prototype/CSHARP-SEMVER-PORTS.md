@@ -35,12 +35,13 @@ runner is not executed by this port harness. Fresh C#/Go process comparisons sti
 cover the 87 calculation checkpoints and six configuration cases from the first
 batch, on both platforms. Final evidence is in `CSHARP-SEMVER-EVIDENCE.json`.
 
-This does not claim complete SemanticVersion API parity. The source methods for
-full valid parsing and format strings remain pending, including loose formats,
-custom prefixes, build metadata and large numeric ranges. Numeric limits and
-metadata rejection in the current calculator remain unchanged.
+This is historical evidence for the increment batch. The subsequent
+[parsing, formatting and regex batch](CSHARP-MODEL-PATTERNS-PORTS.md) completes
+the remaining seven methods in this source class, including loose formats,
+custom prefixes, build metadata and large numeric ranges in the model API.
+The calculator's input boundary remains unchanged.
 
 The active target remains 90% of the pinned 1,516 unit/component declarations
-(at least 1,365). Both batches together map 20 unit/component methods plus 38
+(at least 1,365). At this historical checkpoint, both batches mapped 20 unit/component methods plus 38
 integration methods; only successful macOS and Ubuntu gates mark ports verified.
 Windows stays last and all work remains local.

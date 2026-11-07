@@ -7,10 +7,12 @@ Windows validation stays last.
 The pinned static inventory has **1,516 unit-or-component test declarations**
 outside the explicit IntegrationTests directories and **662 integration declarations**.
 Using this conservative existing classification, the target is **at least 1,365
-fully mapped and verified unit/component declarations**. First batch: six verified unit methods plus 38 integration methods. The semantic-version
-batch adds 14 unit methods (1,158 original cases), with verification recorded in
-`CSHARP-SEMVER-EVIDENCE.json`. When both platform gates pass, the total is **20 of
-1,516 (1.32%)**, leaving 1,345 additional verified methods to reach the target.
+fully mapped and verified unit/component declarations**. The first batch added
+six unit methods plus 38 integration methods; the increment batch added 14 unit
+methods and the parsing/formatting/regex batch added 42 more. Current verified
+unit total: **62 of 1,516 (4.09%)**, leaving **1,303** to reach the target.
+Evidence: `CSHARP-PORTS-EVIDENCE.json`, `CSHARP-SEMVER-EVIDENCE.json` and
+`CSHARP-MODEL-PATTERNS-EVIDENCE.json`.
 The all-method mapping figure uses a different denominator.
 
 This classification includes repository-backed Mainline/component tests outside

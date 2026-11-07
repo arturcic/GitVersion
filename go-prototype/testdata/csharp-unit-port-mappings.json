@@ -1366,7 +1366,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ObscurePasswordRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1381,7 +1381,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ExpandTokensRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1398,7 +1398,7 @@
       "case-004"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultTagPrefixRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1417,7 +1417,7 @@
       "case-006"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultVersionInBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1432,7 +1432,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.MainBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1447,7 +1447,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DevelopBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1463,7 +1463,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ReleaseBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1478,7 +1478,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.FeatureBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1493,7 +1493,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.PullRequestBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1509,7 +1509,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.HotfixBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1524,7 +1524,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.SupportBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1539,7 +1539,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.UnknownBranchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1553,7 +1553,7 @@
       "case-001"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultMergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1568,7 +1568,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.SmartGitMergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1583,7 +1583,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.BitBucketPullMergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1598,7 +1598,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.BitBucketPullv7MergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1613,7 +1613,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.BitBucketCloudPullMergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1628,7 +1628,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.AzureDevOpsPullMergeMessageRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1642,7 +1642,7 @@
       "case-001"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.CsharpAssemblyAttributeRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1658,7 +1658,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.FsharpAssemblyAttributeRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1674,7 +1674,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.VisualBasicAssemblyAttributeRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1690,7 +1690,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultMajorRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1705,7 +1705,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultMinorRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1720,7 +1720,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultPatchRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1735,7 +1735,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.DefaultNoBumpRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1750,7 +1750,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ParseStrictRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1765,7 +1765,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ParseLooseRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1781,7 +1781,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ParseBuildMetaDataRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1796,7 +1796,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.FormatBuildMetaDataRegex_CapturesInvalidCharacters": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1813,7 +1813,7 @@
       "case-004"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.ParsePreReleaseTagRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1828,7 +1828,7 @@
       "case-002"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.CSharpTriviaRegex_CapturesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1844,7 +1844,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.CSharpAttributeRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1860,7 +1860,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.FSharpTriviaRegex_CapturesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1876,7 +1876,7 @@
       "case-003"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "RegexPatternTests.FSharpAttributeRegex_MatchesExpected": {
     "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
@@ -1893,7 +1893,7 @@
       "case-004"
     ],
     "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ValidateVersionParsing": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -1934,7 +1934,7 @@
       "case-028"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringWithInvalidFormatTest": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -1947,7 +1947,7 @@
       "invalid-format"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringTests": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -1963,7 +1963,7 @@
       "case-003"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringWithSFormatTests": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -1979,7 +1979,7 @@
       "case-003"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringWithFormatJTests": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -1994,7 +1994,7 @@
       "case-002"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringWithFormatFTests": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -2010,7 +2010,7 @@
       "case-003"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "SemanticVersionTests.ToStringWithFormatITests": {
     "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
@@ -2026,6 +2026,6 @@
       "case-003"
     ],
     "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

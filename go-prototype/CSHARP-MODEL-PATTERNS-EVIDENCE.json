@@ -1,0 +1,138 @@
+{
+  "implementation_checkpoint": "57b651354df3114a6f026b2d488ac983cd96ecb3",
+  "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "new_unit_methods": 42,
+  "original_unit_cases": 171,
+  "mapped_methods": 100,
+  "unit_component_methods": {
+    "total": 1516,
+    "verified": 62,
+    "target": 1365,
+    "target_percent": 90
+  },
+  "integration_methods": {
+    "total": 662,
+    "verified": 38
+  },
+  "platforms": {
+    "macos": {
+      "regular_tests_passed": 4659,
+      "regular_packages_passed": 10,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6
+    },
+    "ubuntu26": {
+      "regular_tests_passed": 4659,
+      "regular_packages_passed": 10,
+      "failures": 0,
+      "skips": 0,
+      "fresh_calculation_json_matches": 87,
+      "fresh_configuration_value_cases": 6
+    }
+  },
+  "reports": [
+    {
+      "platform": "macos",
+      "kind": "configuration-values",
+      "path": ".local/csharp-config-ports-253692954",
+      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+      "passed": 6
+    },
+    {
+      "platform": "macos",
+      "kind": "calculation-json",
+      "path": ".local/platform-evidence/run-2561171891",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "configuration-values",
+      "path": ".local/csharp-model-patterns-linux-evidence/csharp-config-ports-824085538",
+      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+      "passed": 6
+    },
+    {
+      "platform": "ubuntu26",
+      "kind": "calculation-json",
+      "path": ".local/csharp-model-patterns-linux-evidence/run-1757949121",
+      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+      "passed": 87
+    }
+  ],
+  "production_inputs": {
+    "cmd/gitversion-go/main.go": "f322f3def2afb153c1b04ad2e1ac520a62d40e2eef936f83ff0b853a9c709c89",
+    "internal/calculate/calculate.go": "e744f802258233da6c2bc14fd7dd70d1e12ced04ead76ffdf4a3eb0f38a1337d",
+    "internal/calculate/mainline.go": "cd572d2e2dbb899ff61b822551dfcf3dc2782d156e9204760042ecd49686f47c",
+    "internal/calculate/workflows.go": "d187f8a4ad07d6a5a67fbe51e17985bc525b511aee75c8cd2bd7fd6547e9a7e8",
+    "internal/config/config.go": "40630c7c2ace1447af06c5bfcaca42455502ca305516a88c99375dfc6d65afee",
+    "internal/config/workflows.go": "a435864fd2ab853e734fc9049fa26b0ee9553c37002d12001be3b5d3ff53a98c",
+    "internal/gitrepo/repository.go": "26f5aee50242fc0e777253260789d46611a675dac1a892fef4775a991bdd6a93",
+    "internal/gitrepo/walk.go": "c404252bb932e571dd435d7fd61aaeb3dacb3e7beb314f855b37264bbbc83bd9",
+    "internal/output/output.go": "3b7b5b9f77eeb309bb953bb5f73d2a2e6b34de59c7edd6ec5b9948312b322078",
+    "internal/semver/full.go": "17935171844be5bb88bf91a419aad52e00aa359327152f48855569118802d1e8",
+    "internal/semver/version.go": "5efc3881aa9164014d38321434282c39c1e00c2167cbb67205ed9c737ea459be",
+    "internal/patterns/patterns.go": "09bd7e9f41abad535d5021bc5e934a2c7798d2cc5b4b6f328987e990813cabc0",
+    "go.mod": "8b0442dd0cdab323d02b77df2ac36b894ff56c4e2465df083b430ed022e641aa",
+    "go.sum": "135718341e900ee1d8d3b14c324bbacc21f93d9db265ce10a4bad4fbb1515252",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8"
+  },
+  "candidate_sha256": {
+    "macos": "4813f54d5f7722f1cbec8d68745156408f73ba8a4e95b991882573fca6f69a06",
+    "ubuntu26": "3609fe95f87030d95856925911240a8eee61f635c100f324b0cb5c41cf6edc2f"
+  },
+  "linux_container": {
+    "image": "sha256:4e39440ade4565b61cd7c01e4572b117cce23cc98d3db437beac6f133c5598eb",
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-07T00:40:24.5822675Z",
+      "FinishedAt": "2026-11-07T00:41:29.430309836Z"
+    },
+    "network": "none",
+    "mounts": []
+  },
+  "linux_archives": [
+    {
+      "path": ".local/csharp-model-patterns-linux-evidence/csharp-config-ports-824085538.tar.gz",
+      "sha256": "c4a651113bc4cbe70466da69f21e9ee7c88687d4eb497998a226697d1d759ddc",
+      "bytes": 30864
+    },
+    {
+      "path": ".local/csharp-model-patterns-linux-evidence/run-1757949121.tar.gz",
+      "sha256": "295b0928d2ff899b0026e9b68dfaf9c6e8b397af5b14305154157784100b4c36",
+      "bytes": 565688
+    }
+  ],
+  "evidence_hashes": {
+    ".local/csharp-model-patterns-unit-macos-final.jsonl": "e1e9c62f061f0eef9a69adf896dbb566c09254cfa947cc173b781001d09614cd",
+    ".local/csharp-model-patterns-platform-macos.log": "e1d774ca8b304688ade197a69e29a995c6d0f048eccd7b23cb6f8170cd7ffaaf",
+    ".local/csharp-model-patterns-linux-evidence/linux-platform.log": "4e150934e79d9179da6f54e2b8cab9ebcc81f64193774b2ab62b900915aca1b8",
+    ".local/csharp-model-patterns-linux-evidence/linux-os-release": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+    ".local/csharp-model-patterns-linux-evidence/archive-index.json": "2136e871a7f863ca5781926e8b84d4cb0f68b148ea757d315bc80fa4e1d4c716",
+    "testdata/csharp-regex-patterns.json": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "testdata/csharp-semver-formats.json": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "internal/patterns/builtins.json": "118af05359535cd30b070f74501c48a0bcdce2ccc452aee549017e401da673c8",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/cmd-gitversion-go.log": "9416eac20bd23cc590eb4311406c21e33a33bc3f9368646e6b0939d0f85cbbc7",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/cmd-parity.log": "b36a65f724690df43da80f2092a3d27be3a1def1ee38dc94ee6de365586dc9db",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-calculate.log": "89fbe52c676c69c94c4c77c17bba257cfa23c9a65addaa6ada750c9170fdaf72",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-config.log": "87f3a808c7330e8ad14632321f55805e574c019f1060eeb59624e9685e37553a",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-fixtures.log": "d415041a9a8866f9e09f4b8d0b8b814e304d7c71e56b79e69c73c45f8e68c28b",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-gitrepo.log": "4d4596972a081fecddf4ef2925d1abc6cf5c544d179537cf6c996f5e7459d696",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-output.log": "03b9d7b1ab9ab4b1bc6548f9214fb4e47a8b927f6216207d75daac3484570908",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-parity.log": "7b8ade9c8937d90bd9bf94fb261606cfce69dba1c05b46aebc6fa8ac8931db1c",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+    ".local/csharp-model-patterns-linux-evidence/linux-unit-logs/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1"
+  },
+  "unit_reference": "Literal expected values and assertions from pinned C# source. Original NUnit runner not executed by this harness.",
+  "regression_scope": "Full regular/frozen suites on both OS; fresh first-batch calculation/configuration process probes. Previous full strategy matrix remains historical evidence."
+}
