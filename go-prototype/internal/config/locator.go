@@ -48,6 +48,9 @@ func (OSConfigurationFS) ReadFile(p string) ([]byte, error) {
 	if e != nil {
 		return nil, e
 	}
+	if !info.Mode().IsRegular() {
+		return nil, fmt.Errorf("unsupported nonregular config %s", filepath.Base(p))
+	}
 	if info.Size() > 1<<20 {
 		return nil, fmt.Errorf("configuration exceeds 1 MiB")
 	}
