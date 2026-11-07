@@ -1352,5 +1352,680 @@
       "Go errors/non-recognition represent C# TryParse false; comparison sign assertions are retained."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "RegexPatternTests.SwitchArgumentRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "SwitchArgumentRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ObscurePasswordRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ObscurePasswordRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ExpandTokensRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ExpandTokensRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultTagPrefixRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultTagPrefixRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultVersionInBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultVersionInBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.MainBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "MainBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DevelopBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DevelopBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ReleaseBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ReleaseBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.FeatureBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "FeatureBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.PullRequestBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "PullRequestBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.HotfixBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "HotfixBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.SupportBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "SupportBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.UnknownBranchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "UnknownBranchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultMergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultMergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.SmartGitMergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "SmartGitMergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.BitBucketPullMergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "BitBucketPullMergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.BitBucketPullv7MergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "BitBucketPullv7MergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.BitBucketCloudPullMergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "BitBucketCloudPullMergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.AzureDevOpsPullMergeMessageRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "AzureDevOpsPullMergeMessageRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.CsharpAssemblyAttributeRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "CsharpAssemblyAttributeRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.FsharpAssemblyAttributeRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "FsharpAssemblyAttributeRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.VisualBasicAssemblyAttributeRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "VisualBasicAssemblyAttributeRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultMajorRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultMajorRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultMinorRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultMinorRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultPatchRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultPatchRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.DefaultNoBumpRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "DefaultNoBumpRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ParseStrictRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ParseStrictRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ParseLooseRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ParseLooseRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ParseBuildMetaDataRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ParseBuildMetaDataRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.FormatBuildMetaDataRegex_CapturesInvalidCharacters": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "FormatBuildMetaDataRegex_CapturesInvalidCharacters",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.ParsePreReleaseTagRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "ParsePreReleaseTagRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.CSharpTriviaRegex_CapturesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "CSharpTriviaRegex_CapturesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.CSharpAttributeRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "CSharpAttributeRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.FSharpTriviaRegex_CapturesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "FSharpTriviaRegex_CapturesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "RegexPatternTests.FSharpAttributeRegex_MatchesExpected": {
+    "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+    "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+    "method": "FSharpAttributeRegex_MatchesExpected",
+    "go_test": "TestCSharpRegexPatterns",
+    "case_file": "testdata/csharp-regex-patterns.json",
+    "case_file_sha256": "ef319545ba454e0d4765c8a88c3fdc4f0b97cdc6f2280a54a3008589eea7e9d1",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "Pinned production patterns and all literal TestCase expectations retained; .NET regex operations mapped to pure-Go UTF-16 matching. Culture-sensitive case folding remains a wider parity boundary.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ValidateVersionParsing": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ValidateVersionParsing",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012",
+      "case-013",
+      "case-014",
+      "case-015",
+      "case-016",
+      "case-017",
+      "case-018",
+      "case-019",
+      "case-020",
+      "case-021",
+      "case-022",
+      "case-023",
+      "case-024",
+      "case-025",
+      "case-026",
+      "case-027",
+      "case-028"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringWithInvalidFormatTest": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringWithInvalidFormatTest",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "invalid-format"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringTests": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringTests",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringWithSFormatTests": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringWithSFormatTests",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringWithFormatJTests": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringWithFormatJTests",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringWithFormatFTests": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringWithFormatFTests",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "SemanticVersionTests.ToStringWithFormatITests": {
+    "source": "src/GitVersion.Core.Tests/VersionCalculation/SemanticVersionTests.cs",
+    "source_sha256": "132aef64ee99b1ba70e636121486dc47353af441584261082da3cb9adcd157d3",
+    "method": "ToStringWithFormatITests",
+    "go_test": "TestCSharpSemanticVersionParsingAndFormats",
+    "case_file": "testdata/csharp-semver-formats.json",
+    "case_file_sha256": "f375f0f0e79cccfd3beb24dd0e7fda4a2b0fa28a6053d7ec83f78b2d0eff38fa",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original component, nullable metadata and formatting assertions retained. Nullable C# values map to Go pointers and format exceptions to errors; original BuildSemVer construction rules retained. General version-model API does not expand calculator CLI input scope.",
+    "status": "ported-awaiting-platform-verification"
   }
 }

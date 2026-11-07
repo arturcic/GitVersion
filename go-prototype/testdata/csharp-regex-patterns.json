@@ -1,0 +1,1063 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Core/RegexPatternTests.cs",
+  "source_sha256": "5c3dd26460c1cc545cec592757ae3278be5cfec487445f1c74ed8e018d9472fb",
+  "pattern_source": "src/GitVersion.Core/Core/RegexPatterns.cs",
+  "pattern_source_sha256": "a01d0a057407ea1a7a5dbe0d805c9a9c127cd1bfda44ce094662636571d04dd7",
+  "methods": {
+    "SwitchArgumentRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "SwitchArgumentRegex",
+        "operation": "first",
+        "input": "/foo:",
+        "match": true,
+        "capture": "/foo:"
+      },
+      {
+        "id": "case-001",
+        "pattern": "SwitchArgumentRegex",
+        "operation": "first",
+        "input": "/bar:",
+        "match": true,
+        "capture": "/bar:"
+      },
+      {
+        "id": "case-002",
+        "pattern": "SwitchArgumentRegex",
+        "operation": "first",
+        "input": "foo:",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "ObscurePasswordRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "ObscurePasswordRegex",
+        "operation": "first",
+        "input": "https://user:pass@host",
+        "match": true,
+        "capture": "https://user:pass@"
+      },
+      {
+        "id": "case-001",
+        "pattern": "ObscurePasswordRegex",
+        "operation": "first",
+        "input": "http://user:pass@host",
+        "match": true,
+        "capture": "http://user:pass@"
+      },
+      {
+        "id": "case-002",
+        "pattern": "ObscurePasswordRegex",
+        "operation": "first",
+        "input": "ftp://user:pass@host",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "ExpandTokensRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "ExpandTokensRegex",
+        "operation": "first",
+        "input": "{env:FOO}",
+        "match": true,
+        "capture": "{env:FOO}"
+      },
+      {
+        "id": "case-001",
+        "pattern": "ExpandTokensRegex",
+        "operation": "first",
+        "input": "{bar}",
+        "match": true,
+        "capture": "{bar}"
+      },
+      {
+        "id": "case-002",
+        "pattern": "ExpandTokensRegex",
+        "operation": "first",
+        "input": "{env:FOO ?? \"fallback\"}",
+        "match": true,
+        "capture": "{env:FOO ?? \"fallback\"}"
+      },
+      {
+        "id": "case-003",
+        "pattern": "ExpandTokensRegex",
+        "operation": "first",
+        "input": "{bar ?? fallback}",
+        "match": true,
+        "capture": "{bar ?? fallback}"
+      },
+      {
+        "id": "case-004",
+        "pattern": "ExpandTokensRegex",
+        "operation": "first",
+        "input": "env:FOO",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DefaultTagPrefixRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "v",
+        "match": true,
+        "capture": "v"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "V",
+        "match": true,
+        "capture": "V"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "v1",
+        "match": true,
+        "capture": "v"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "V2.0",
+        "match": true,
+        "capture": "V"
+      },
+      {
+        "id": "case-004",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "1",
+        "match": true,
+        "capture": ""
+      },
+      {
+        "id": "case-005",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "x",
+        "match": true,
+        "capture": ""
+      },
+      {
+        "id": "case-006",
+        "pattern": "Configuration.DefaultTagPrefixRegex",
+        "operation": "first",
+        "input": "",
+        "match": true,
+        "capture": ""
+      }
+    ],
+    "DefaultVersionInBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.DefaultVersionInBranchRegex",
+        "operation": "first",
+        "input": "v1.2.3",
+        "match": true,
+        "capture": "v1.2.3"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.DefaultVersionInBranchRegex",
+        "operation": "first",
+        "input": "1.2",
+        "match": true,
+        "capture": "1.2"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.DefaultVersionInBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "MainBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.MainBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": true,
+        "capture": "main"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.MainBranchRegex",
+        "operation": "first",
+        "input": "master",
+        "match": true,
+        "capture": "master"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.MainBranchRegex",
+        "operation": "first",
+        "input": "develop",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DevelopBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.DevelopBranchRegex",
+        "operation": "first",
+        "input": "develop",
+        "match": true,
+        "capture": "develop"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.DevelopBranchRegex",
+        "operation": "first",
+        "input": "development",
+        "match": true,
+        "capture": "development"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.DevelopBranchRegex",
+        "operation": "first",
+        "input": "dev",
+        "match": true,
+        "capture": "dev"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Configuration.DevelopBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "ReleaseBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.ReleaseBranchRegex",
+        "operation": "first",
+        "input": "release/1.0",
+        "match": true,
+        "capture": "release/1.0"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.ReleaseBranchRegex",
+        "operation": "first",
+        "input": "releases-2.0",
+        "match": true,
+        "capture": "releases-2.0"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.ReleaseBranchRegex",
+        "operation": "first",
+        "input": "feature/foo",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "FeatureBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.FeatureBranchRegex",
+        "operation": "first",
+        "input": "feature/foo",
+        "match": true,
+        "capture": "feature/foo"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.FeatureBranchRegex",
+        "operation": "first",
+        "input": "features-bar",
+        "match": true,
+        "capture": "features-bar"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.FeatureBranchRegex",
+        "operation": "first",
+        "input": "hotfix/1.0",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "PullRequestBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.PullRequestBranchRegex",
+        "operation": "first",
+        "input": "pull-requests/123",
+        "match": true,
+        "capture": "pull-requests/123"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.PullRequestBranchRegex",
+        "operation": "first",
+        "input": "pull-123",
+        "match": true,
+        "capture": "pull-123"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.PullRequestBranchRegex",
+        "operation": "first",
+        "input": "pr-456",
+        "match": true,
+        "capture": "pr-456"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Configuration.PullRequestBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "HotfixBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.HotfixBranchRegex",
+        "operation": "first",
+        "input": "hotfix/1.0",
+        "match": true,
+        "capture": "hotfix/1.0"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.HotfixBranchRegex",
+        "operation": "first",
+        "input": "hotfixes-2.0",
+        "match": true,
+        "capture": "hotfixes-2.0"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.HotfixBranchRegex",
+        "operation": "first",
+        "input": "support/1.0",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "SupportBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.SupportBranchRegex",
+        "operation": "first",
+        "input": "support/1.0",
+        "match": true,
+        "capture": "support/1.0"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.SupportBranchRegex",
+        "operation": "first",
+        "input": "support-2.0",
+        "match": true,
+        "capture": "support-2.0"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Configuration.SupportBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "UnknownBranchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Configuration.UnknownBranchRegex",
+        "operation": "first",
+        "input": "any-branch",
+        "match": true,
+        "capture": "any-branch"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Configuration.UnknownBranchRegex",
+        "operation": "first",
+        "input": "main",
+        "match": true,
+        "capture": "main"
+      }
+    ],
+    "DefaultMergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.DefaultMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge branch 'feature/foo' into develop",
+        "match": true,
+        "capture": "Merge branch 'feature/foo' into develop"
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.DefaultMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge tag 'v1.0.0'",
+        "match": true,
+        "capture": "Merge tag 'v1.0.0'"
+      },
+      {
+        "id": "case-002",
+        "pattern": "MergeMessage.DefaultMergeMessageRegex",
+        "operation": "first",
+        "input": "Finish feature/foo",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "SmartGitMergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.SmartGitMergeMessageRegex",
+        "operation": "first",
+        "input": "Finish feature/foo into develop",
+        "match": true,
+        "capture": "Finish feature/foo into develop"
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.SmartGitMergeMessageRegex",
+        "operation": "first",
+        "input": "Finish bugfix/bar",
+        "match": true,
+        "capture": "Finish bugfix/bar"
+      },
+      {
+        "id": "case-002",
+        "pattern": "MergeMessage.SmartGitMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge branch 'feature/foo'",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "BitBucketPullMergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.BitBucketPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #123 from repo from feature/foo to develop",
+        "match": true,
+        "capture": "Merge pull request #123 from repo from feature/foo to develop"
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.BitBucketPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #1 in repo from bugfix/bar to main",
+        "match": true,
+        "capture": "Merge pull request #1 in repo from bugfix/bar to main"
+      },
+      {
+        "id": "case-002",
+        "pattern": "MergeMessage.BitBucketPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Finish feature/foo",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "BitBucketPullv7MergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.BitBucketPullv7MergeMessageRegex",
+        "operation": "first",
+        "input": "Pull request #123\n\nMerge in repo from feature/foo to develop",
+        "match": true,
+        "capture": "Pull request #123\n\nMerge in repo from feature/foo to develop"
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.BitBucketPullv7MergeMessageRegex",
+        "operation": "first",
+        "input": "Pull request #1\n\nMerge in repo from bugfix/bar to main",
+        "match": true,
+        "capture": "Pull request #1\n\nMerge in repo from bugfix/bar to main"
+      },
+      {
+        "id": "case-002",
+        "pattern": "MergeMessage.BitBucketPullv7MergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #123 from repo from feature/foo to develop",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "BitBucketCloudPullMergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.BitBucketCloudPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merged in feature/foo (pull request #123)",
+        "match": true,
+        "capture": "Merged in feature/foo (pull request #123)"
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.BitBucketCloudPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merged in bugfix/bar (pull request #1)",
+        "match": true,
+        "capture": "Merged in bugfix/bar (pull request #1)"
+      },
+      {
+        "id": "case-002",
+        "pattern": "MergeMessage.BitBucketCloudPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #123 from repo from feature/foo to develop",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "AzureDevOpsPullMergeMessageRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "MergeMessage.AzureDevOpsPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #123 from repo/feature/foo",
+        "match": false,
+        "capture": null
+      },
+      {
+        "id": "case-001",
+        "pattern": "MergeMessage.AzureDevOpsPullMergeMessageRegex",
+        "operation": "first",
+        "input": "Merge pull request #123 from feature/foo into develop",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "CsharpAssemblyAttributeRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Output.CsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyVersion(\"1.0.0.0\")]",
+        "match": true,
+        "capture": "[assembly: AssemblyVersion(\"1.0.0.0\")]"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Output.CsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyFileVersion(\"1.0.0.0\")]",
+        "match": true,
+        "capture": "[assembly: AssemblyFileVersion(\"1.0.0.0\")]"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Output.CsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyInformationalVersion(\"1.0.0.0\")]",
+        "match": true,
+        "capture": "[assembly: AssemblyInformationalVersion(\"1.0.0.0\")]"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Output.CsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "random text",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "FsharpAssemblyAttributeRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Output.FsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[<assembly: AssemblyVersion(\"1.0.0.0\")>]",
+        "match": true,
+        "capture": "[<assembly: AssemblyVersion(\"1.0.0.0\")>]"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Output.FsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[<assembly: AssemblyFileVersion(\"1.0.0.0\")>]",
+        "match": true,
+        "capture": "[<assembly: AssemblyFileVersion(\"1.0.0.0\")>]"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Output.FsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "[<assembly: AssemblyInformationalVersion(\"1.0.0.0\")>]",
+        "match": true,
+        "capture": "[<assembly: AssemblyInformationalVersion(\"1.0.0.0\")>]"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Output.FsharpAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "random text",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "VisualBasicAssemblyAttributeRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "Output.VisualBasicAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "<Assembly: AssemblyVersion(\"1.0.0.0\")>",
+        "match": true,
+        "capture": "<Assembly: AssemblyVersion(\"1.0.0.0\")>"
+      },
+      {
+        "id": "case-001",
+        "pattern": "Output.VisualBasicAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "<Assembly: AssemblyFileVersion(\"1.0.0.0\")>",
+        "match": true,
+        "capture": "<Assembly: AssemblyFileVersion(\"1.0.0.0\")>"
+      },
+      {
+        "id": "case-002",
+        "pattern": "Output.VisualBasicAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "<Assembly: AssemblyInformationalVersion(\"1.0.0.0\")>",
+        "match": true,
+        "capture": "<Assembly: AssemblyInformationalVersion(\"1.0.0.0\")>"
+      },
+      {
+        "id": "case-003",
+        "pattern": "Output.VisualBasicAssemblyAttributeRegex",
+        "operation": "first",
+        "input": "random text",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DefaultMajorRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "VersionCalculation.DefaultMajorRegex",
+        "operation": "first",
+        "input": "+semver: major",
+        "match": true,
+        "capture": "+semver: major"
+      },
+      {
+        "id": "case-001",
+        "pattern": "VersionCalculation.DefaultMajorRegex",
+        "operation": "first",
+        "input": "+semver: breaking",
+        "match": true,
+        "capture": "+semver: breaking"
+      },
+      {
+        "id": "case-002",
+        "pattern": "VersionCalculation.DefaultMajorRegex",
+        "operation": "first",
+        "input": "+semver: minor",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DefaultMinorRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "VersionCalculation.DefaultMinorRegex",
+        "operation": "first",
+        "input": "+semver: minor",
+        "match": true,
+        "capture": "+semver: minor"
+      },
+      {
+        "id": "case-001",
+        "pattern": "VersionCalculation.DefaultMinorRegex",
+        "operation": "first",
+        "input": "+semver: feature",
+        "match": true,
+        "capture": "+semver: feature"
+      },
+      {
+        "id": "case-002",
+        "pattern": "VersionCalculation.DefaultMinorRegex",
+        "operation": "first",
+        "input": "+semver: patch",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DefaultPatchRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "VersionCalculation.DefaultPatchRegex",
+        "operation": "first",
+        "input": "+semver: patch",
+        "match": true,
+        "capture": "+semver: patch"
+      },
+      {
+        "id": "case-001",
+        "pattern": "VersionCalculation.DefaultPatchRegex",
+        "operation": "first",
+        "input": "+semver: fix",
+        "match": true,
+        "capture": "+semver: fix"
+      },
+      {
+        "id": "case-002",
+        "pattern": "VersionCalculation.DefaultPatchRegex",
+        "operation": "first",
+        "input": "+semver: none",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "DefaultNoBumpRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "VersionCalculation.DefaultNoBumpRegex",
+        "operation": "first",
+        "input": "+semver: none",
+        "match": true,
+        "capture": "+semver: none"
+      },
+      {
+        "id": "case-001",
+        "pattern": "VersionCalculation.DefaultNoBumpRegex",
+        "operation": "first",
+        "input": "+semver: skip",
+        "match": true,
+        "capture": "+semver: skip"
+      },
+      {
+        "id": "case-002",
+        "pattern": "VersionCalculation.DefaultNoBumpRegex",
+        "operation": "first",
+        "input": "+semver: patch",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "ParseStrictRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "SemanticVersion.ParseStrictRegex",
+        "operation": "first",
+        "input": "1.2.3",
+        "match": true,
+        "capture": "1.2.3"
+      },
+      {
+        "id": "case-001",
+        "pattern": "SemanticVersion.ParseStrictRegex",
+        "operation": "first",
+        "input": "1.2.3-alpha",
+        "match": true,
+        "capture": "1.2.3-alpha"
+      },
+      {
+        "id": "case-002",
+        "pattern": "SemanticVersion.ParseStrictRegex",
+        "operation": "first",
+        "input": "1.2",
+        "match": false,
+        "capture": null
+      }
+    ],
+    "ParseLooseRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "SemanticVersion.ParseLooseRegex",
+        "operation": "first",
+        "input": "1.2.3",
+        "match": true,
+        "capture": "1.2.3"
+      },
+      {
+        "id": "case-001",
+        "pattern": "SemanticVersion.ParseLooseRegex",
+        "operation": "first",
+        "input": "1.2",
+        "match": true,
+        "capture": "1.2"
+      },
+      {
+        "id": "case-002",
+        "pattern": "SemanticVersion.ParseLooseRegex",
+        "operation": "first",
+        "input": "1",
+        "match": true,
+        "capture": "1"
+      },
+      {
+        "id": "case-003",
+        "pattern": "SemanticVersion.ParseLooseRegex",
+        "operation": "first",
+        "input": "1.2.3.4",
+        "match": true,
+        "capture": "1.2.3.4"
+      }
+    ],
+    "ParseBuildMetaDataRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "SemanticVersion.ParseBuildMetaDataRegex",
+        "operation": "first",
+        "input": "123.BranchName.foo.Sha.abc",
+        "match": true,
+        "capture": "123.BranchName.foo.Sha.abc"
+      },
+      {
+        "id": "case-001",
+        "pattern": "SemanticVersion.ParseBuildMetaDataRegex",
+        "operation": "first",
+        "input": "Branch.Name.develop",
+        "match": true,
+        "capture": "Branch.Name.develop"
+      },
+      {
+        "id": "case-002",
+        "pattern": "SemanticVersion.ParseBuildMetaDataRegex",
+        "operation": "first",
+        "input": "random",
+        "match": true,
+        "capture": "random"
+      }
+    ],
+    "FormatBuildMetaDataRegex_CapturesInvalidCharacters": [
+      {
+        "id": "case-000",
+        "pattern": "SemanticVersion.FormatBuildMetaDataRegex",
+        "operation": "all",
+        "input": "meta-data",
+        "match": false,
+        "captures": []
+      },
+      {
+        "id": "case-001",
+        "pattern": "SemanticVersion.FormatBuildMetaDataRegex",
+        "operation": "all",
+        "input": "meta_data",
+        "match": true,
+        "captures": [
+          "_"
+        ]
+      },
+      {
+        "id": "case-002",
+        "pattern": "SemanticVersion.FormatBuildMetaDataRegex",
+        "operation": "all",
+        "input": "meta.data",
+        "match": false,
+        "captures": []
+      },
+      {
+        "id": "case-003",
+        "pattern": "SemanticVersion.FormatBuildMetaDataRegex",
+        "operation": "all",
+        "input": "meta+data$",
+        "match": true,
+        "captures": [
+          "+",
+          "$"
+        ]
+      },
+      {
+        "id": "case-004",
+        "pattern": "SemanticVersion.FormatBuildMetaDataRegex",
+        "operation": "all",
+        "input": "m@e#t!a",
+        "match": true,
+        "captures": [
+          "@",
+          "#",
+          "!"
+        ]
+      }
+    ],
+    "ParsePreReleaseTagRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "SemanticVersion.ParsePreReleaseTagRegex",
+        "operation": "first",
+        "input": "alpha.1",
+        "match": true,
+        "capture": "alpha.1"
+      },
+      {
+        "id": "case-001",
+        "pattern": "SemanticVersion.ParsePreReleaseTagRegex",
+        "operation": "first",
+        "input": "beta",
+        "match": true,
+        "capture": "beta"
+      },
+      {
+        "id": "case-002",
+        "pattern": "SemanticVersion.ParsePreReleaseTagRegex",
+        "operation": "first",
+        "input": "rc.2",
+        "match": true,
+        "capture": "rc.2"
+      }
+    ],
+    "CSharpTriviaRegex_CapturesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "AssemblyVersion.CSharp.TriviaRegex",
+        "operation": "group",
+        "input": "/* block comment */",
+        "match": true,
+        "group": "1",
+        "capture": " block comment "
+      },
+      {
+        "id": "case-001",
+        "pattern": "AssemblyVersion.CSharp.TriviaRegex",
+        "operation": "group",
+        "input": "// line comment\r\n",
+        "match": true,
+        "group": "2",
+        "capture": " line comment"
+      },
+      {
+        "id": "case-002",
+        "pattern": "AssemblyVersion.CSharp.TriviaRegex",
+        "operation": "group",
+        "input": "\"string \\\"text\\\" inside\"",
+        "match": true,
+        "group": "3",
+        "capture": "string \\\"text\\\" inside"
+      },
+      {
+        "id": "case-003",
+        "pattern": "AssemblyVersion.CSharp.TriviaRegex",
+        "operation": "group",
+        "input": "int x = 5;",
+        "match": false,
+        "group": "",
+        "capture": ""
+      }
+    ],
+    "CSharpAttributeRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "AssemblyVersion.CSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyVersion()]",
+        "match": true
+      },
+      {
+        "id": "case-001",
+        "pattern": "AssemblyVersion.CSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[assembly:AssemblyFileVersion()]",
+        "match": true
+      },
+      {
+        "id": "case-002",
+        "pattern": "AssemblyVersion.CSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[assembly:System.Reflection.AssemblyInformationalVersion()]",
+        "match": true
+      },
+      {
+        "id": "case-003",
+        "pattern": "AssemblyVersion.CSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyTitle(\"App\")]",
+        "match": false
+      }
+    ],
+    "FSharpTriviaRegex_CapturesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "AssemblyVersion.FSharp.TriviaRegex",
+        "operation": "group",
+        "input": "/* block comment */",
+        "match": true,
+        "group": "1",
+        "capture": " block comment "
+      },
+      {
+        "id": "case-001",
+        "pattern": "AssemblyVersion.FSharp.TriviaRegex",
+        "operation": "group",
+        "input": "// line comment\r\n",
+        "match": true,
+        "group": "2",
+        "capture": " line comment"
+      },
+      {
+        "id": "case-002",
+        "pattern": "AssemblyVersion.FSharp.TriviaRegex",
+        "operation": "group",
+        "input": "\"string \\\"text\\\" inside\"",
+        "match": true,
+        "group": "3",
+        "capture": "string \\\"text\\\" inside"
+      },
+      {
+        "id": "case-003",
+        "pattern": "AssemblyVersion.FSharp.TriviaRegex",
+        "operation": "group",
+        "input": "let x = 1",
+        "match": false,
+        "group": "",
+        "capture": ""
+      }
+    ],
+    "FSharpAttributeRegex_MatchesExpected": [
+      {
+        "id": "case-000",
+        "pattern": "AssemblyVersion.FSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[<assembly: AssemblyVersion()>]",
+        "match": true
+      },
+      {
+        "id": "case-001",
+        "pattern": "AssemblyVersion.FSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[<assembly:AssemblyFileVersion()>]",
+        "match": true
+      },
+      {
+        "id": "case-002",
+        "pattern": "AssemblyVersion.FSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[<assembly:System.Reflection.AssemblyInformationalVersion()>]",
+        "match": true
+      },
+      {
+        "id": "case-003",
+        "pattern": "AssemblyVersion.FSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[<assembly: AssemblyTitle(\"Test\")>]",
+        "match": false
+      },
+      {
+        "id": "case-004",
+        "pattern": "AssemblyVersion.FSharp.AttributeRegex",
+        "operation": "first",
+        "input": "[assembly: AssemblyVersion()]",
+        "match": false
+      }
+    ]
+  }
+}

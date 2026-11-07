@@ -3,6 +3,7 @@ module github.com/GitTools/GitVersion/go-prototype
 go 1.26.0
 
 require (
+	github.com/dlclark/regexp2/v2 v2.12.0
 	github.com/go-git/go-git/v5 v5.19.3
 	gopkg.in/yaml.v3 v3.0.1
 )

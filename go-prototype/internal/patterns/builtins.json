@@ -1,0 +1,222 @@
+{
+  "SwitchArgumentRegex": {
+    "pattern": "/\\w+:",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "ObscurePasswordRegex": {
+    "pattern": "(https?://)(.+)(:.+@)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "ExpandTokensRegex": {
+    "pattern": "\\{([^{}]+)\\}",
+    "options": [
+      "IgnorePatternWhitespace",
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.DefaultTagPrefixRegex": {
+    "pattern": "[vV]?",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.DefaultVersionInBranchRegex": {
+    "pattern": "(?<version>[vV]?\\d+(\\.\\d+)?(\\.\\d+)?).*",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.MainBranchRegex": {
+    "pattern": "^master$|^main$",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.DevelopBranchRegex": {
+    "pattern": "^dev(elop)?(ment)?$",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.ReleaseBranchRegex": {
+    "pattern": "^releases?[\\/-](?<BranchName>.+)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.FeatureBranchRegex": {
+    "pattern": "^features?[\\/-](?<BranchName>.+)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.PullRequestBranchRegex": {
+    "pattern": "^(pull-requests|pull|pr)[\\/-](?<Number>\\d*)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.HotfixBranchRegex": {
+    "pattern": "^hotfix(es)?[\\/-](?<BranchName>.+)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.SupportBranchRegex": {
+    "pattern": "^support[\\/-](?<BranchName>.+)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Configuration.UnknownBranchRegex": {
+    "pattern": "(?<BranchName>.+)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.DefaultMergeMessageRegex": {
+    "pattern": "^Merge (branch|tag) '(?<SourceBranch>[^']*)'(?: into (?<TargetBranch>[^\\s]*))*",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.SmartGitMergeMessageRegex": {
+    "pattern": "^Finish (?<SourceBranch>[^\\s]*)(?: into (?<TargetBranch>[^\\s]*))*",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.BitBucketPullMergeMessageRegex": {
+    "pattern": "^Merge pull request #(?<PullRequestNumber>\\d+) (from|in) (?<Source>.*) from (?<SourceBranch>[^\\s]*) to (?<TargetBranch>[^\\s]*)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.BitBucketPullv7MergeMessageRegex": {
+    "pattern": "^Pull request #(?<PullRequestNumber>\\d+).*\\r?\\n\\r?\\nMerge in (?<Source>.*) from (?<SourceBranch>[^\\s]*) to (?<TargetBranch>[^\\s]*)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.BitBucketCloudPullMergeMessageRegex": {
+    "pattern": "^Merged in (?<SourceBranch>[^\\s]*) \\(pull request #(?<PullRequestNumber>\\d+)\\)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "MergeMessage.AzureDevOpsPullMergeMessageRegex": {
+    "pattern": "^Merge pull request (?<PullRequestNumber>\\d+) from (?<SourceBranch>[^\\s]*) into (?<TargetBranch>[^\\s]*)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "Output.CsharpAssemblyAttributeRegex": {
+    "pattern": "(\\s*\\[\\s*assembly:\\s*(?:.*)\\s*\\]\\s*$(\\r?\\n)?)",
+    "options": [
+      "IgnoreCase",
+      "Multiline"
+    ]
+  },
+  "Output.FsharpAssemblyAttributeRegex": {
+    "pattern": "(\\s*\\[\\s*\\<assembly:\\s*(?:.*)\\>\\s*\\]\\s*$(\\r?\\n)?)",
+    "options": [
+      "IgnoreCase",
+      "Multiline"
+    ]
+  },
+  "Output.VisualBasicAssemblyAttributeRegex": {
+    "pattern": "(\\s*\\<Assembly:\\s*(?:.*)\\>\\s*$(\\r?\\n)?)",
+    "options": [
+      "IgnoreCase",
+      "Multiline"
+    ]
+  },
+  "VersionCalculation.DefaultMajorRegex": {
+    "pattern": "[+=]semver:\\s?(breaking|major)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "VersionCalculation.DefaultMinorRegex": {
+    "pattern": "[+=]semver:\\s?(feature|minor)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "VersionCalculation.DefaultPatchRegex": {
+    "pattern": "[+=]semver:\\s?(fix|patch)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "VersionCalculation.DefaultNoBumpRegex": {
+    "pattern": "[+=]semver:\\s?(none|skip)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "SemanticVersion.ParseStrictRegex": {
+    "pattern": "^(?<major>0|[1-9]\\d*)\\.(?<minor>0|[1-9]\\d*)\\.(?<patch>0|[1-9]\\d*)(?:-(?<prerelease>(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "SemanticVersion.ParseLooseRegex": {
+    "pattern": "^(?<SemVer>(?<Major>\\d+)(\\.(?<Minor>\\d+))?(\\.(?<Patch>\\d+))?)(\\.(?<FourthPart>\\d+))?(-(?<Tag>[^\\+]*))?(\\+(?<BuildMetaData>.*))?$",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "SemanticVersion.ParseBuildMetaDataRegex": {
+    "pattern": "(?<BuildNumber>\\d+)?(\\.?Branch(Name)?\\.(?<BranchName>[^\\.]+))?(\\.?Sha?\\.(?<Sha>[^\\.]+))?(?<Other>.*)",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "SemanticVersion.FormatBuildMetaDataRegex": {
+    "pattern": "[^0-9A-Za-z-.]",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "SemanticVersion.ParsePreReleaseTagRegex": {
+    "pattern": "(?<name>.*?)\\.?(?<number>\\d+)?$",
+    "options": [
+      "IgnoreCase"
+    ]
+  },
+  "AssemblyVersion.CSharp.TriviaRegex": {
+    "pattern": "/\\*(.*?)\\*/                    # Block comments: matches /* ... */\n|//(.*?)\\r?\\n                  # Line comments: matches // ... followed by a newline\n|\"((\\\\[^\\n]|[^\"\\n])*)\"         # Strings: matches \" ... \" including escaped quotes",
+    "options": [
+      "Singleline",
+      "IgnorePatternWhitespace",
+      "IgnoreCase"
+    ]
+  },
+  "AssemblyVersion.CSharp.AttributeRegex": {
+    "pattern": "(?x)                                  # IgnorePatternWhitespace\n\\[\\s*assembly\\s*:\\s*                  # The [assembly: part\n(System\\s*\\.\\s*Reflection\\s*\\.\\s*)?   # The System.Reflection. part (optional)\nAssembly(File|Informational)?Version  # The attribute AssemblyVersion, AssemblyFileVersion, or AssemblyInformationalVersion\n\\s*\\(\\s*\\)\\s*\\]                       # End brackets ()]",
+    "options": [
+      "IgnorePatternWhitespace",
+      "IgnoreCase"
+    ]
+  },
+  "AssemblyVersion.FSharp.TriviaRegex": {
+    "pattern": "/\\*(.*?)\\*/                    # Block comments: matches /* ... */\n|//(.*?)\\r?\\n                  # Line comments: matches // ... followed by a newline\n|\"((\\\\[^\\n]|[^\"\\n])*)\"         # Strings: matches \" ... \" including escaped quotes",
+    "options": [
+      "Singleline",
+      "IgnorePatternWhitespace",
+      "IgnoreCase"
+    ]
+  },
+  "AssemblyVersion.FSharp.AttributeRegex": {
+    "pattern": "(?x)                                    # IgnorePatternWhitespace\n\\[\\s*<\\s*assembly\\s*:\\s*                # The [<assembly: part\n(System\\s*\\.\\s*Reflection\\s*\\.\\s*)?     # The System.Reflection. part (optional)\nAssembly(File|Informational)?Version    # The attribute AssemblyVersion, AssemblyFileVersion, or AssemblyInformationalVersion\n\\s*\\(\\s*\\)\\s*>\\s*\\]                     # End brackets ()>]",
+    "options": [
+      "IgnorePatternWhitespace",
+      "IgnoreCase"
+    ]
+  }
+}
