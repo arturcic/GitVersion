@@ -3,12 +3,12 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1169,
+  "mapped_declarations": 1192,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1131,
-      "verified": 1131
+      "mapped": 1154,
+      "verified": 1154
     },
     "integration": {
       "declarations": 662,
@@ -219318,9 +219318,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#ReadsARootCommitWithoutParents",
@@ -219335,9 +219342,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#CommitMatchesGitLogOutput",
@@ -219352,9 +219366,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#CommitMessageMatchesGitCatFileOutput",
@@ -219369,9 +219390,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#ReadsACommitMessageHonoringTheEncodingHeader",
@@ -219386,9 +219414,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#FallsBackToLatin1ForInvalidUtf8WithoutAnEncodingHeader",
@@ -219403,9 +219438,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#ReadsABlobFromLooseObjects",
@@ -219420,9 +219462,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#ReportsTheObjectTypeWhenItIsNotKnownUpFront",
@@ -219437,9 +219486,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#DoesNotFindAMissingObject",
@@ -219454,9 +219510,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#DoesNotFindAnObjectWhenRequestedWithTheWrongType",
@@ -219471,9 +219534,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs#ReadsObjectsFromAnAlternateObjectDatabase",
@@ -219488,9 +219558,16 @@
       ],
       "source_sha256": "065dd19b8851cc7bdc78a28317e3b213208c89c88637a7c901b10afa9a8f8fcd",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/MultiPackIndexTests.cs#ReadsObjectsFromMultiplePacksThroughTheMultiPackIndex",
@@ -219556,9 +219633,16 @@
       ],
       "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs#ReadsDeltifiedObjectsFromAPackWithDeepDeltaChains",
@@ -219573,9 +219657,16 @@
       ],
       "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs#ReadsRefDeltaObjectsFromAPackFile",
@@ -219590,9 +219681,16 @@
       ],
       "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs#ReadsBlobsAndTreesFromAPackFile",
@@ -219607,9 +219705,16 @@
       ],
       "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs#ReadsLooseObjectsCreatedAfterThePack",
@@ -219624,9 +219729,16 @@
       ],
       "source_sha256": "9398570cf77e022256a421cda036ee994aa571c40c3cb25da43cab9013e6adc9",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/PullRequestBranchOperationsTests.cs#HeadAdvertisementIsNotACandidateTip",
@@ -219798,9 +219910,16 @@
       ],
       "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TagTests.cs#ReadsAnAnnotatedTagWithAMultiLineMessage",
@@ -219815,9 +219934,16 @@
       ],
       "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TagTests.cs#ReadsANestedAnnotatedTag",
@@ -219832,9 +219958,16 @@
       ],
       "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TagTests.cs#ReadsAnAnnotatedTagFromAPackFile",
@@ -219849,9 +219982,16 @@
       ],
       "source_sha256": "787c76f18015bb7442578e1681e7547956825e316100197055b77047877b2d61",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TreeTests.cs#ReadsTheRootTreeEntriesMatchingGitLsTree",
@@ -219866,9 +220006,16 @@
       ],
       "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TreeTests.cs#ReadsANestedTree",
@@ -219883,9 +220030,16 @@
       ],
       "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/TreeTests.cs#FindsANodeUsingTheStreamingReader",
@@ -219900,9 +220054,16 @@
       ],
       "source_sha256": "c4df033a76249d7da79ff0f5e675fd5c04b1ead27c2172051b063f433fc1966a",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "verified-macos-ubuntu",
+      "go_test": "TestCSharpGitObjectReaders",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-git-object-readers.json",
+      "adaptations": [
+        "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
+      ]
     },
     {
       "id": "src/GitVersion.MsBuild.Tests/AssemblyInfoFileHelperTests.cs#GetFileExtensionShouldReturnCorrectExtension",

@@ -51720,7 +51720,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.ReadsARootCommitWithoutParents": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51735,7 +51735,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.CommitMatchesGitLogOutput": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51750,7 +51750,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.CommitMessageMatchesGitCatFileOutput": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51765,7 +51765,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.ReadsACommitMessageHonoringTheEncodingHeader": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51780,7 +51780,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.FallsBackToLatin1ForInvalidUtf8WithoutAnEncodingHeader": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51795,7 +51795,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.ReadsABlobFromLooseObjects": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51810,7 +51810,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.ReportsTheObjectTypeWhenItIsNotKnownUpFront": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51825,7 +51825,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.DoesNotFindAMissingObject": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51840,7 +51840,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.DoesNotFindAnObjectWhenRequestedWithTheWrongType": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51855,7 +51855,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "LooseObjectTests.ReadsObjectsFromAnAlternateObjectDatabase": {
     "source": "src/GitVersion.Git.Managed.Tests/LooseObjectTests.cs",
@@ -51870,7 +51870,7 @@
     "adaptations": [
       "Go-git fixtures preserve Git object identities, exact commit and blob bytes, distinct signatures and time zone, type checks and alternate storage. The original Git expressions are captured for offline comparison."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PackedObjectTests.ReadsCommitsFromAPackFile": {
     "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
@@ -51885,7 +51885,7 @@
     "adaptations": [
       "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PackedObjectTests.ReadsDeltifiedObjectsFromAPackWithDeepDeltaChains": {
     "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
@@ -51900,7 +51900,7 @@
     "adaptations": [
       "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PackedObjectTests.ReadsRefDeltaObjectsFromAPackFile": {
     "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
@@ -51915,7 +51915,7 @@
     "adaptations": [
       "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PackedObjectTests.ReadsBlobsAndTreesFromAPackFile": {
     "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
@@ -51930,7 +51930,7 @@
     "adaptations": [
       "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "PackedObjectTests.ReadsLooseObjectsCreatedAfterThePack": {
     "source": "src/GitVersion.Git.Managed.Tests/PackedObjectTests.cs",
@@ -51945,7 +51945,7 @@
     "adaptations": [
       "Go-git creates and indexes real packs, and the fixtures verify loose removal and the requested offset/reference delta types. The original commit lineage, messages and blob lines are asserted."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagTests.ReadsAnAnnotatedTag": {
     "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
@@ -51960,7 +51960,7 @@
     "adaptations": [
       "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagTests.ReadsAnAnnotatedTagWithAMultiLineMessage": {
     "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
@@ -51975,7 +51975,7 @@
     "adaptations": [
       "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagTests.ReadsANestedAnnotatedTag": {
     "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
@@ -51990,7 +51990,7 @@
     "adaptations": [
       "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TagTests.ReadsAnAnnotatedTagFromAPackFile": {
     "source": "src/GitVersion.Git.Managed.Tests/TagTests.cs",
@@ -52005,7 +52005,7 @@
     "adaptations": [
       "Go-git tag objects preserve the tagger, one-hop target, target type and full message. The application resolves nested tags via the same object storage."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TreeTests.ReadsTheRootTreeEntriesMatchingGitLsTree": {
     "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
@@ -52020,7 +52020,7 @@
     "adaptations": [
       "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TreeTests.ReadsANestedTree": {
     "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
@@ -52035,7 +52035,7 @@
     "adaptations": [
       "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "TreeTests.FindsANodeUsingTheStreamingReader": {
     "source": "src/GitVersion.Git.Managed.Tests/TreeTests.cs",
@@ -52050,6 +52050,6 @@
     "adaptations": [
       "Go-git tree entry lookup preserves the original found and missing node behavior; a missing entry returns its typed error instead of a zero ID. Root metadata is compared in Git ls-tree order."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }
