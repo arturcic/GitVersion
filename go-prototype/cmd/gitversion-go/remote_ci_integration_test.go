@@ -37,7 +37,7 @@ type remoteCIHarness struct {
 	exe, candidate, dll, report, git string
 }
 
-func newRemoteCIHarness(t *testing.T) remoteCIHarness {
+func newRemoteCIHarness(t *testing.T, prefix string) remoteCIHarness {
 	t.Helper()
 	root, err := filepath.Abs("../..")
 	if err != nil {
@@ -61,7 +61,7 @@ func newRemoteCIHarness(t *testing.T) remoteCIHarness {
 	if err != nil {
 		t.Fatal("Git is required for the managed oracle and fixture server", err)
 	}
-	h.report, err = os.MkdirTemp(os.Getenv("PARITY_EVIDENCE_DIR"), "remote-ci-")
+	h.report, err = os.MkdirTemp(os.Getenv("PARITY_EVIDENCE_DIR"), prefix)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -70,6 +70,15 @@ func newRemoteCIHarness(t *testing.T) remoteCIHarness {
 }
 
 func (h remoteCIHarness) run(t *testing.T, implementation, checkout string, env map[string]string, args []string, failure string) []byte {
+	t.Helper()
+	return h.runWithRejection(t, implementation, checkout, env, args, failure, failure)
+}
+
+func (h remoteCIHarness) runWithRejection(t *testing.T, implementation, checkout string, env map[string]string, args []string, csharpFailure, goFailure string) []byte {
+	failure := goFailure
+	if implementation == "csharp" {
+		failure = csharpFailure
+	}
 	t.Helper()
 	area := filepath.Join(h.report, filepath.Base(t.Name()), implementation)
 	if err := os.MkdirAll(area, 0755); err != nil {
@@ -197,7 +206,7 @@ func verifyRemoteCIResult(t *testing.T, ref, got []byte, head plumbing.Hash, bra
 }
 
 func TestPlatformRemoteCIParity(t *testing.T) {
-	h := newRemoteCIHarness(t)
+	h := newRemoteCIHarness(t, "remote-ci-")
 	cases := []struct {
 		name, mode, failure string
 		status              int
