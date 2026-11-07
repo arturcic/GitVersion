@@ -215,6 +215,7 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 		{name: "shallow-fetch-rejected", mode: "shallow", failure: "Repository is a shallow clone. Git repositories must contain the full history."},
 		{name: "shallow-no-fetch", mode: "shallow-no-fetch"},
 		{name: "jenkins-duplicate-origin", mode: "jenkins"},
+		{name: "jenkins-first-configured-remote", mode: "jenkins-no-origin"},
 		{name: "multiple-remotes-rejected", mode: "multi", failure: "2 remote(s) have been detected."},
 		{name: "missing-ci-remote", mode: "no-remote", failure: "0 remote(s) have been detected."},
 		{name: "github-detached-provider-pr", mode: "provider"},
@@ -343,7 +344,7 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 					repo := remoteCIRepo(t, checkout)
 					if shallow {
 						h.fixtureGit(t, checkout, "remote", "set-url", "origin", url)
-					} else if tc.mode != "no-remote" {
+					} else if tc.mode != "no-remote" && tc.mode != "jenkins-no-origin" {
 						remoteURL := url
 						if tc.mode == "local-tag" {
 							remoteURL = "../upstream.git"
@@ -364,6 +365,14 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 							setRemoteCIRef(t, repo, "refs/remotes/origin1/feature/ci", initial)
 							wantBranch = "feature/ci"
 						}
+					case "jenkins-no-origin":
+						h.fixtureGit(t, checkout, "remote", "add", "z-first", url)
+						h.fixtureGit(t, checkout, "remote", "add", "a-other", url)
+						setRemoteCIRef(t, repo, "refs/remotes/z-first/feature/ci", before)
+						setRemoteCIRef(t, repo, "refs/remotes/a-other/feature/ci", initial)
+						env = map[string]string{"JENKINS_URL": "fixture", "BRANCH_NAME": "feature/ci"}
+						args = append(args, "--no-fetch")
+						wantBranch = "feature/ci"
 					case "provider":
 						env = map[string]string{"GITHUB_ACTIONS": "true", "GITHUB_REF": branch}
 					case "stale", "ignored":
@@ -440,8 +449,12 @@ func TestPlatformRemoteCIParity(t *testing.T) {
 						}
 					}
 				}
-				if tc.mode == "jenkins" {
-					_, err := remoteCIRepo(t, checkout).Reference("refs/remotes/origin1/feature/ci", true)
+				if tc.mode == "jenkins" || tc.mode == "jenkins-no-origin" {
+					discarded := "origin1"
+					if tc.mode == "jenkins-no-origin" {
+						discarded = "a-other"
+					}
+					_, err := remoteCIRepo(t, checkout).Reference(plumbing.NewRemoteReferenceName(discarded, "feature/ci"), true)
 					if implementation == "go" && err != nil || implementation == "csharp" && !errors.Is(err, plumbing.ErrReferenceNotFound) {
 						t.Fatalf("%s: unexpected duplicate remote ref state: %v", implementation, err)
 					}

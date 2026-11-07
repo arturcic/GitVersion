@@ -215,7 +215,16 @@ func normalizationRemote(repo *git.Repository, preferOrigin bool) (*git.Remote, 
 				return remote, nil
 			}
 		}
-		return remotes[0], nil
+		cfg, err := repo.Config()
+		if err != nil {
+			return nil, err
+		}
+		// The managed reader uses Git config file order when origin is absent.
+		for _, section := range cfg.Raw.Section("remote").Subsections {
+			if remote := cfg.Remotes[section.Name]; remote != nil {
+				return git.NewRemote(repo.Storer, remote), nil
+			}
+		}
 	}
 	return nil, fmt.Errorf("%d remote(s) have been detected. When being run on a build server, the Git repository is expected to bear one (and no more than one) remote.", len(remotes))
 }
