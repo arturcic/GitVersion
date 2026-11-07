@@ -19,7 +19,19 @@ func (c Config) Kinds() []string {
 	}
 	return kinds
 }
+
+// Options exposes the workflow's fallback mode for callers that inspect a
+// single branch without traversing its sources.
 func (c Config) Options(kind string) Options {
+	o := c.DeclaredOptions(kind)
+	if o.Mode == "" {
+		o.Mode = c.DefaultMode
+	}
+	return o
+}
+
+// DeclaredOptions keeps nullable values available for source inheritance.
+func (c Config) DeclaredOptions(kind string) Options {
 	switch kind {
 	case "main":
 		return c.Main

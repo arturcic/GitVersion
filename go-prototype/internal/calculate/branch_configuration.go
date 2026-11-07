@@ -29,7 +29,7 @@ func (f branchConfigurationFinder) configurations(branch, sha string) ([]effecti
 	if err != nil {
 		return nil, err
 	}
-	inherited := f.config.Options(kind).Increment == nil
+	inherited := f.config.DeclaredOptions(kind).Increment == nil
 	var walk func(string, *config.Options, bool) ([]effectiveBranchConfiguration, error)
 	walk = func(current string, child *config.Options, resolveTarget bool) ([]effectiveBranchConfiguration, error) {
 		if visited[current] {
@@ -40,7 +40,7 @@ func (f branchConfigurationFinder) configurations(branch, sha string) ([]effecti
 		if err != nil {
 			return nil, err
 		}
-		options := f.config.Options(kind)
+		options := f.config.DeclaredOptions(kind)
 		if child != nil {
 			options = child.Inherit(options)
 		}

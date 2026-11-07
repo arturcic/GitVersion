@@ -81,14 +81,14 @@ func (c Config) EffectiveAt(branch, source, sha string) (Effective, error) {
 	if err != nil {
 		return Effective{}, err
 	}
-	options := c.Options(kind)
+	options := c.DeclaredOptions(kind)
 	inherited := options.Increment == nil
 	if inherited {
 		parent, _, err := c.Branch(source)
 		if err != nil {
 			return Effective{}, err
 		}
-		options = options.Inherit(c.Options(parent))
+		options = options.Inherit(c.DeclaredOptions(parent))
 	}
 	return c.projectEffective(branch, kind, capture, sha, options, inherited)
 }
@@ -280,7 +280,7 @@ func Parse(data []byte) (Config, error) {
 			for i := 0; i < len(n.Content); i += 2 {
 				kind := n.Content[i].Value
 				if n := bs[kind]; n != nil {
-					o := c.Options(kind)
+					o := c.DeclaredOptions(kind)
 					if _, exists := c.branchRegex[kind]; !exists {
 						o = Options{Label: "{BranchName}", PreventTagged: true, InheritPreventTagged: true, InheritWeight: true}
 						c.branchOrder = append(c.branchOrder, kind)
@@ -336,7 +336,7 @@ func Parse(data []byte) (Config, error) {
 					if err != nil {
 						return c, err
 					}
-					o := c.Options(kind)
+					o := c.DeclaredOptions(kind)
 					if n := b["custom-version-format"]; n != nil && n.Tag != "!!null" {
 						value, err := scalar(n, "output.branches."+kind+".custom-version-format")
 						if err != nil {

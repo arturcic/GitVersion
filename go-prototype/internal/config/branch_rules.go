@@ -55,7 +55,7 @@ var embeddedBranchRules = sync.OnceValue(func() map[string][]workflowBranchRule 
 func (c *Config) initializeBranchRules() error {
 	definitions := []BranchDefinition{}
 	for _, rule := range embeddedBranchRules()[c.Workflow] {
-		definitions = append(definitions, BranchDefinition{rule.kind, rule.expression, c.Options(rule.kind), rule.sources})
+		definitions = append(definitions, BranchDefinition{rule.kind, rule.expression, c.DeclaredOptions(rule.kind), rule.sources})
 	}
 	updated, err := c.WithBranchDefinitions(definitions)
 	if err == nil {
