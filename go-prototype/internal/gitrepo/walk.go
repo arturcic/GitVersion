@@ -111,14 +111,21 @@ func (w *walk) addParents(n *node, list []*node) ([]*node, error) {
 // Walk mirrors the pinned managed backend's limiting pass and heap mechanics.
 // Using go-git's default log order here would silently change equal-date ties.
 func (r *Repository) Walk(o WalkOptions) ([]string, error) {
+	return r.walkFrom(o, []string{o.Include})
+}
+
+func (r *Repository) walkFrom(o WalkOptions, includes []string) ([]string, error) {
 	if o.Sort > 7 {
 		return nil, fmt.Errorf("unsupported sort flags %d", o.Sort)
 	}
 	w := walk{repo: r, options: o, nodes: map[string]*node{}}
 	input := []*node{}
 	limited := o.Sort != 0
-	if o.Include != "" {
-		input = append(input, w.lookup(o.Include))
+	// libgit2 prepends each seed in the order it was supplied.
+	for _, id := range slices.Backward(includes) {
+		if id != "" {
+			input = append(input, w.lookup(id))
+		}
 	}
 	if o.Exclude != "" {
 		n := w.lookup(o.Exclude)

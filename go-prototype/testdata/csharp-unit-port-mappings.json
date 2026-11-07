@@ -50755,5 +50755,282 @@
       "The original nested paths, file type changes, raw byte ordering, modes, and merge parents are retained. Ordered expected paths for every commit are captured from the original LibGit2Sharp expression."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "GitRevisionWalkerTests.LinearHistoryMatchesLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "LinearHistoryMatchesLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.MergedHistoryMatchesLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "MergedHistoryMatchesLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.MergedHistoryWithExcludesMatchesLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "MergedHistoryWithExcludesMatchesLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.EqualCommitterTimestampsMatchLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "EqualCommitterTimestampsMatchLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.CrissCrossHistoryMatchesLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "CrissCrossHistoryMatchesLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.OctopusMergeMatchesLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "OctopusMergeMatchesLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.FirstParentWalksMatchLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "FirstParentWalksMatchLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.MultipleIncludesMatchLibGit2": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "MultipleIncludesMatchLibGit2",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.FindsTheMergeBaseOfDivergedBranches": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "FindsTheMergeBaseOfDivergedBranches",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.FindsTheMergeBaseOfCrissCrossBranches": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "FindsTheMergeBaseOfCrissCrossBranches",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.TheMergeBaseOfACommitAndItsAncestorIsTheAncestor": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "TheMergeBaseOfACommitAndItsAncestorIsTheAncestor",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.UnrelatedHistoriesHaveNoMergeBase": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "UnrelatedHistoriesHaveNoMergeBase",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.WalksUpToTheShallowBoundary": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "WalksUpToTheShallowBoundary",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.TheShallowBoundaryWinsOverPresentParentObjects": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "TheShallowBoundaryWinsOverPresentParentObjects",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.AMissingParentObjectFailsTheWalkInsteadOfTruncatingHistory": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "AMissingParentObjectFailsTheWalkInsteadOfTruncatingHistory",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "GitRevisionWalkerTests.WalkingFromAMissingCommitFails": {
+    "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+    "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+    "method": "WalkingFromAMissingCommitFails",
+    "go_test": "TestCSharpRevisionWalker",
+    "case_file": "testdata/csharp-revision-walker.json",
+    "case_file_sha256": "9f455b18bb85c02510ab45ab6b1c571682b363d8d11257e1c95073917c238a56",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Deterministic go-git object graphs preserve original parent order, reference targets, and timestamp ties. The original LibGit2Sharp sort and merge-base expressions capture ordered SHA results. Shallow and missing-object cases retain the original storage assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

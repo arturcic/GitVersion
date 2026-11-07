@@ -1,0 +1,433 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "cases": {
+    "CrissCrossHistoryMatchesLibGit2/case-000": [
+      [
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-001": [
+      [
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-002": [
+      [
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-003": [
+      [
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-004": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-005": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45"
+      ]
+    ],
+    "CrissCrossHistoryMatchesLibGit2/case-006": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "f60e0e27e0e4d87eaedd568e9416b1e58f5be619",
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316",
+        "c6a95bbb03b3e7d8715d83bd07a578ac1a830b45"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-000": [
+      [
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114",
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-001": [
+      [
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114",
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "01df8e9a0c86b0da99c346230f73301729b7f632"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-002": [
+      [
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-003": [
+      [
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114",
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-004": [
+      [
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-005": [
+      [
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114"
+      ]
+    ],
+    "EqualCommitterTimestampsMatchLibGit2/case-006": [
+      [
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "6675c48330ac862a57eaf2790fcb951f35e7dde5",
+        "8c2a02d72c1a3ed4d66bb1d28fc95491ec7ac9a1",
+        "d5318dd3c591747ac40f99c709055447f19a79b2",
+        "01df8e9a0c86b0da99c346230f73301729b7f632",
+        "da435ab8c9b3cc7a81ebc14b217c6929da602114"
+      ]
+    ],
+    "FindsTheMergeBaseOfCrissCrossBranches/case-000": [
+      [
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316"
+      ],
+      [
+        "6f7e6f5d92ad82f6bb6ca6bd675dc40424241316"
+      ]
+    ],
+    "FindsTheMergeBaseOfDivergedBranches/case-000": [
+      [
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170"
+      ]
+    ],
+    "FirstParentWalksMatchLibGit2/case-000": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "FirstParentWalksMatchLibGit2/case-001": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-000": [
+      [
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "57a96f9a085905e709f770772f34c15af34d4c27"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-001": [
+      [
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "57a96f9a085905e709f770772f34c15af34d4c27"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-002": [
+      [
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "57a96f9a085905e709f770772f34c15af34d4c27"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-003": [
+      [
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "57a96f9a085905e709f770772f34c15af34d4c27"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-004": [
+      [
+        "57a96f9a085905e709f770772f34c15af34d4c27",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-005": [
+      [
+        "57a96f9a085905e709f770772f34c15af34d4c27",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e"
+      ]
+    ],
+    "LinearHistoryMatchesLibGit2/case-006": [
+      [
+        "57a96f9a085905e709f770772f34c15af34d4c27",
+        "ca8b5e8154f88f404b06cbe124d7c6fc4d6ed183",
+        "3f4a64ca671489c4cd4af04201427b4104132c8d",
+        "85e8fd941cefb3f34ef5ce5cf9cddf77dc16219e",
+        "02cc3b62dbd38b33c60d7da6a09ca6865e1c2966",
+        "566c671e7f5d88aaaeed08114b34468c6f3db00e"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-000": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-001": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-002": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-003": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-004": [
+      [
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-005": [
+      [
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MergedHistoryMatchesLibGit2/case-006": [
+      [
+        "99ee8096956b4ed0074dd49c666175c7ab121053",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-000": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-001": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-002": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-003": [
+      [
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-004": [
+      [
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-005": [
+      [
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MergedHistoryWithExcludesMatchesLibGit2/case-006": [
+      [
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "90f8e05ed316f36368f41d8dc88856692aebb34a",
+        "9c2f33e22cc2db9aa8811bf474052890b0d4ccd9"
+      ]
+    ],
+    "MultipleIncludesMatchLibGit2/case-000": [
+      [
+        "dc0243414317fe09d0a2142cf2b6c9e67de1ee69",
+        "3fd95d9046772f85c6e516e6e317c2ba1ee69170",
+        "515d4fe2612f418bc60efcc71b42a752f5a711e2",
+        "99ee8096956b4ed0074dd49c666175c7ab121053"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-000": [
+      [
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-001": [
+      [
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-002": [
+      [
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-003": [
+      [
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-004": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-005": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7"
+      ]
+    ],
+    "OctopusMergeMatchesLibGit2/case-006": [
+      [
+        "e82cfcbcc4e455ad717d798ba5933ba2a39e3fbf",
+        "9e71affdb8c6fbe3192251fb9e59df5966b1c2cc",
+        "7cb9d72ea5440881d4f98043fc73bc343d57ccc0",
+        "6bd18856104d5f0aef763df51b424a669cb9d933",
+        "4d3797f36bf3b3d97b0542bd3ca93e5b0b8bcef7"
+      ]
+    ]
+  }
+}

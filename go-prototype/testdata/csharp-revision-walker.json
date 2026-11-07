@@ -1,0 +1,285 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs",
+  "source_sha256": "4484077fbbeecdc868b8c9dd053aefa0b7a0059a6763b9077bed58a3502d3e32",
+  "methods": {
+    "LinearHistoryMatchesLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "MergedHistoryMatchesLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "MergedHistoryWithExcludesMatchesLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "EqualCommitterTimestampsMatchLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "CrissCrossHistoryMatchesLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "OctopusMergeMatchesLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "None"
+        },
+        {
+          "id": "case-001",
+          "argument": "Time"
+        },
+        {
+          "id": "case-002",
+          "argument": "Topological"
+        },
+        {
+          "id": "case-003",
+          "argument": "Topological, Time"
+        },
+        {
+          "id": "case-004",
+          "argument": "Topological, Reverse"
+        },
+        {
+          "id": "case-005",
+          "argument": "Time, Reverse"
+        },
+        {
+          "id": "case-006",
+          "argument": "Topological, Time, Reverse"
+        }
+      ]
+    },
+    "FirstParentWalksMatchLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": "false"
+        },
+        {
+          "id": "case-001",
+          "argument": "true"
+        }
+      ]
+    },
+    "MultipleIncludesMatchLibGit2": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "FindsTheMergeBaseOfDivergedBranches": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "FindsTheMergeBaseOfCrissCrossBranches": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "TheMergeBaseOfACommitAndItsAncestorIsTheAncestor": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "UnrelatedHistoriesHaveNoMergeBase": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "WalksUpToTheShallowBoundary": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "TheShallowBoundaryWinsOverPresentParentObjects": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "AMissingParentObjectFailsTheWalkInsteadOfTruncatingHistory": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    },
+    "WalkingFromAMissingCommitFails": {
+      "cases": [
+        {
+          "id": "case-000",
+          "argument": ""
+        }
+      ]
+    }
+  },
+  "reference": "testdata/csharp-revision-walker-reference.json",
+  "reference_sha256": "d4e5e88d65d68fb151b5d04246a0ca7c1ec06ed655738305595eabb18b6bc978"
+}

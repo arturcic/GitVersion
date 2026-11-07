@@ -22,6 +22,7 @@ type Repository struct {
 	head    string
 	branch  string
 	commits map[string]*object.Commit
+	shallow map[ObjectID]struct{}
 }
 
 // Head identifies the attached local branch and its commit in this snapshot.
@@ -112,11 +113,26 @@ func Open(path string) (*Repository, error) {
 	if !status.IsClean() {
 		return nil, fmt.Errorf("unsupported dirty repository")
 	}
-	r := &Repository{git: g, dir: layout.commonDirectory, head: tip.Hash().String(), branch: head.Target().String(), commits: map[string]*object.Commit{}}
+	r := newCommitRepository(layout, g, shallow)
+	r.head = tip.Hash().String()
+	r.branch = head.Target().String()
 	if _, err = r.load(r.head); err != nil {
 		return nil, err
 	}
 	return r, nil
+}
+
+// newCommitRepository applies storage-level shallow boundaries to every history
+// consumer. Open separately checks whether a repository can be used to calculate.
+func newCommitRepository(layout repositoryLayout, g *git.Repository, shallow []ObjectID) *Repository {
+	r := &Repository{git: g, dir: layout.commonDirectory, commits: map[string]*object.Commit{}}
+	if len(shallow) > 0 {
+		r.shallow = make(map[ObjectID]struct{}, len(shallow))
+		for _, id := range shallow {
+			r.shallow[id] = struct{}{}
+		}
+	}
+	return r
 }
 
 func (r *Repository) load(id string) (*object.Commit, error) {
@@ -130,6 +146,9 @@ func (r *Repository) load(id string) (*object.Commit, error) {
 	c, err := r.git.CommitObject(plumbing.Hash(parsed.data[:sha1Size]))
 	if err != nil {
 		return nil, fmt.Errorf("commit %s: %w", id, err)
+	}
+	if _, boundary := r.shallow[parsed]; boundary {
+		c.ParentHashes = nil
 	}
 	r.commits[id] = c
 	return c, nil
