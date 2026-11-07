@@ -386,6 +386,12 @@ without opening a repository. The [CLI schema evidence](CSHARP-CLI-SCHEMA-EVIDEN
 records comparisons with the pinned C# executable, with each executable
 reporting its own informational version.
 
+The root CLI writes logs to stderr with `--log-file console` or
+`--output buildserver`. File logging appends relative paths from the invocation
+directory. Warnings also go to stderr, subject to the selected verbosity.
+The [logging evidence](CSHARP-CLI-LOGGING-EVIDENCE.json) separates complete
+normalized transcript matches from checks of selected log records and sinks.
+
 The compatibility CLI caches version variables under the checkout's Git
 metadata using Go-specific filenames. `--no-cache` and runtime overrides
 bypass the cache. The [executor cache evidence](CSHARP-EXECUTOR-CACHE-EVIDENCE.json)

@@ -1,0 +1,67 @@
+{
+  "baseline": "14d222235b7dabb7033473528a76fd18478a9217",
+  "oracle": "src/GitVersion.App with the v7 argument parser and managed Git backend",
+  "implementation": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
+  "platforms": [
+    "macOS arm64",
+    "Ubuntu 26.04.1 LTS arm64 in an offline container"
+  ],
+  "suites": [
+    "TestPlatformCLIExecutionParity",
+    "TestPlatformCLIHelpAndDiagnosticsParity",
+    "TestPlatformCLILoggingParity",
+    "TestPlatformCSharpCLISchema",
+    "TestPlatformExecutorCacheParity",
+    "TestPlatformExecutorRoutingParity"
+  ],
+  "comparisons": {
+    "normalized_complete_transcript": [
+      "default",
+      "tagged-console",
+      "tagged-file",
+      "show-config",
+      "minimal-console",
+      "quiet-console",
+      "quiet-creates-empty-file",
+      "root-argument-error",
+      "root-verbosity-error",
+      "invalid-file-sink",
+      "unborn-no-sink",
+      "missing-directory",
+      "missing-directory-minimal",
+      "missing-commit-quiet",
+      "config-get",
+      "config-get-missing-path",
+      "config-get-quiet",
+      "config-get-failure",
+      "migration-root-log-option",
+      "migration-ignores-root-verbosity",
+      "migration-missing-input",
+      "migration-local-log-option-rejected"
+    ],
+    "selected_log_records_and_routing": [
+      "normal-console",
+      "verbose-console",
+      "diagnostic-console",
+      "file-relative-to-cwd",
+      "append-to-file",
+      "buildserver-console",
+      "buildserver-both-sinks",
+      "unborn-console",
+      "invalid-config",
+      "missing-commit-warning",
+      "diagnose"
+    ]
+  },
+  "normalization": [
+    "Wall clock timestamps",
+    "Elapsed scope times"
+  ],
+  "remaining": [
+    "Full nested strategy diagnostics in untagged calculations.",
+    "Dynamic clone, fetch and CI normalization messages.",
+    "C# exception stack traces and backend-specific failure text.",
+    "Cache filenames, cache event ordering and other implementation-specific messages.",
+    "Windows runtime verification."
+  ]
+}
