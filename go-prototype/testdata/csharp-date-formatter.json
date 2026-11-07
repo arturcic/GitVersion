@@ -1,0 +1,44 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
+  "source_sha256": "435b4ba341292ed2c3089413f4e2bb631f9199ae459112c43742dea7ee166d52",
+  "methods": {
+    "Priority_ShouldBe2": [
+      {
+        "operation": "priority-date",
+        "priority": 2,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_NullValue_ReturnsFalse": [
+      {
+        "operation": "date",
+        "kind": "null",
+        "format": "yyyy-MM-dd",
+        "expected": "",
+        "success": false,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_ValidDateFormats_ReturnsExpectedResult": [
+      {
+        "operation": "date",
+        "kind": "date",
+        "value": "2021-01-01",
+        "format": "yyyy-MM-dd",
+        "expected": "2021-01-01",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "date",
+        "kind": "date",
+        "value": "2021-01-01T12:00:00Z",
+        "format": "yyyy-MM-ddTHH:mm:ssZ",
+        "expected": "2021-01-01T12:00:00Z",
+        "success": true,
+        "id": "case-001"
+      }
+    ]
+  }
+}

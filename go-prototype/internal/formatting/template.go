@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // EnvironmentLookup is injected so formatting never reads ambient process state.
@@ -66,10 +67,7 @@ func evaluate(expression string, source any, environment EnvironmentLookup) (str
 				lastError = err
 				continue
 			}
-			formatted, ok, err := NumericFormatter{}.TryFormat(value, format)
-			if err == nil && !ok {
-				formatted, ok, err = StringFormatter{}.TryFormat(value, format)
-			}
+			formatted, ok, err := defaultValueFormatter.TryFormat(value, format)
 			if err != nil {
 				lastError = err
 				continue
@@ -166,6 +164,14 @@ func memberText(value reflect.Value) (string, bool, error) {
 		return "", false, nil
 	}
 	if value.CanInterface() {
+		switch v := value.Interface().(type) {
+		case time.Time:
+			text, err := formatDate(v, "G", v.Location() == time.UTC)
+			return text, true, err
+		case DateValue:
+			text, err := formatDate(v.Time, "G", v.UTC)
+			return text, true, err
+		}
 		if v, ok := value.Interface().(fmt.Stringer); ok {
 			return v.String(), true, nil
 		}

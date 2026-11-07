@@ -10,6 +10,8 @@ import (
 )
 
 type originalCase struct {
+	Kind                           string
+	Stages                         []formatterStage
 	ID, Operation, Input, Expected string
 	Template                       string
 	SourceKind                     string `json:"source_kind"`
@@ -190,4 +192,11 @@ func TestSanitizerBoundariesAndNullNames(t *testing.T) {
 	if _, err := s.SanitizeMemberName(&member); err == nil {
 		t.Fatal("member hyphen accepted")
 	}
+}
+
+type formatterStage struct {
+	Op, Kind, Name, Marker, Format, Expected string
+	Value                                    any
+	Priority                                 int
+	Success                                  *bool
 }

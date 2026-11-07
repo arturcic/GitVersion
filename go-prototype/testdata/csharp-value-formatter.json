@@ -1,0 +1,189 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+  "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+  "methods": {
+    "TryFormat_NullValue_ReturnsFalse": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "null",
+            "value": null,
+            "format": "any",
+            "expected": "",
+            "success": false
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_String_UsesStringFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "string",
+            "value": "hello",
+            "format": "u",
+            "expected": "HELLO",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_Number_UsesNumericFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "float",
+            "value": 1234.5678,
+            "format": "n",
+            "expected": "1,234.57",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_Date_UsesDateFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "date",
+            "value": "2023-12-25T00:00:00Z",
+            "format": "yyyy-MM-dd",
+            "expected": "2023-12-25",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_FormattableObject_UsesFormattableFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "decimal",
+            "value": "123.456",
+            "format": "C",
+            "expected": "\u00a4123.46",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_InvalidFormat_ReturnsFalse": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "string",
+            "value": "test",
+            "format": "invalidformat",
+            "expected": "",
+            "success": false
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "RegisterFormatter_AddsNewFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "register",
+            "priority": 0,
+            "marker": "CUSTOM:"
+          },
+          {
+            "op": "format",
+            "kind": "string",
+            "value": "test",
+            "format": "custom",
+            "expected": "CUSTOM:test",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "RemoveFormatter_RemovesExistingFormatter": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "format",
+            "kind": "float",
+            "value": 123.45,
+            "format": "n1",
+            "expected": "123.5"
+          },
+          {
+            "op": "remove",
+            "name": "numeric"
+          },
+          {
+            "op": "format",
+            "kind": "float",
+            "value": 123.45,
+            "format": "n1",
+            "expected": "123.5",
+            "success": true
+          },
+          {
+            "op": "remove",
+            "name": "formattable"
+          },
+          {
+            "op": "format",
+            "kind": "float",
+            "value": 123.45,
+            "format": "n1",
+            "expected": "",
+            "success": false
+          }
+        ],
+        "id": "case-000"
+      }
+    ],
+    "Formatters_ExecuteInPriorityOrder": [
+      {
+        "operation": "dispatch",
+        "stages": [
+          {
+            "op": "register",
+            "priority": 99,
+            "marker": "CUSTOM:"
+          },
+          {
+            "op": "register",
+            "priority": 0,
+            "marker": "CUSTOM:"
+          },
+          {
+            "op": "format",
+            "kind": "string",
+            "value": "test",
+            "format": "custom",
+            "expected": "CUSTOM:test",
+            "success": true
+          }
+        ],
+        "id": "case-000"
+      }
+    ]
+  }
+}

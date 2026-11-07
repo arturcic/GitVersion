@@ -3086,5 +3086,465 @@
     ],
     "adaptations": "All original cases and output/handled/error assertions retained. Flat anonymous C# objects use Go dictionaries with exact keys; the nested semantic-version fixture uses exported Go object fields to preserve recursive metadata lookup. C# exception assertions map to Go errors; explicit messages retained. Unit formatting uses invariant behavior; full culture/date/custom-format dispatch and CLI label integration remain separate ports.",
     "status": "verified-macos-ubuntu"
+  },
+  "DateFormatterTests.Priority_ShouldBe2": {
+    "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
+    "source_sha256": "435b4ba341292ed2c3089413f4e2bb631f9199ae459112c43742dea7ee166d52",
+    "method": "Priority_ShouldBe2",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-date-formatter.json",
+    "case_file_sha256": "8f01bb09e71998763da0f15a4c48d59cdc228b620c8bc91ebe3e5d66e5ceca83",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "DateFormatterTests.TryFormat_NullValue_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
+    "source_sha256": "435b4ba341292ed2c3089413f4e2bb631f9199ae459112c43742dea7ee166d52",
+    "method": "TryFormat_NullValue_ReturnsFalse",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-date-formatter.json",
+    "case_file_sha256": "8f01bb09e71998763da0f15a4c48d59cdc228b620c8bc91ebe3e5d66e5ceca83",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "DateFormatterTests.TryFormat_ValidDateFormats_ReturnsExpectedResult": {
+    "source": "src/GitVersion.Core.Tests/Formatting/DateFormatterTests.cs",
+    "source_sha256": "435b4ba341292ed2c3089413f4e2bb631f9199ae459112c43742dea7ee166d52",
+    "method": "TryFormat_ValidDateFormats_ReturnsExpectedResult",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-date-formatter.json",
+    "case_file_sha256": "8f01bb09e71998763da0f15a4c48d59cdc228b620c8bc91ebe3e5d66e5ceca83",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormattableFormatterTests.Priority_ShouldBe2": {
+    "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+    "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+    "method": "Priority_ShouldBe2",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-formattable-formatter.json",
+    "case_file_sha256": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormattableFormatterTests.TryFormat_NullValue_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+    "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+    "method": "TryFormat_NullValue_ReturnsFalse",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-formattable-formatter.json",
+    "case_file_sha256": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormattableFormatterTests.TryFormat_ValidFormats_ReturnsExpectedResult": {
+    "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+    "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+    "method": "TryFormat_ValidFormats_ReturnsExpectedResult",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-formattable-formatter.json",
+    "case_file_sha256": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormattableFormatterTests.TryFormat_UnsupportedFormat_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+    "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+    "method": "TryFormat_UnsupportedFormat_ReturnsFalse",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-formattable-formatter.json",
+    "case_file_sha256": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "FormattableFormatterTests.ZeroFormatting": {
+    "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+    "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+    "method": "ZeroFormatting",
+    "go_test": "TestCSharpDateAndFormattableFormatters",
+    "case_file": "testdata/csharp-formattable-formatter.json",
+    "case_file_sha256": "420427b9c7dd9ed8bad7d54d2e28a3ab7bc5a262042ac7493060bbf986cd80e5",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_NullValue_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_NullValue_ReturnsFalse",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_String_UsesStringFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_String_UsesStringFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_Number_UsesNumericFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_Number_UsesNumericFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_Date_UsesDateFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_Date_UsesDateFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_FormattableObject_UsesFormattableFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_FormattableObject_UsesFormattableFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.TryFormat_InvalidFormat_ReturnsFalse": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "TryFormat_InvalidFormat_ReturnsFalse",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.RegisterFormatter_AddsNewFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "RegisterFormatter_AddsNewFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.RemoveFormatter_RemovesExistingFormatter": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "RemoveFormatter_RemovesExistingFormatter",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ValueFormatterTests.Formatters_ExecuteInPriorityOrder": {
+    "source": "src/GitVersion.Core.Tests/Formatting/ValueFormatterTests.cs",
+    "source_sha256": "40ed1c3dc91fa4ed46bf85035e1d5420f67faa480f408cad43094e089b003cb6",
+    "method": "Formatters_ExecuteInPriorityOrder",
+    "go_test": "TestCSharpValueFormatterDispatch",
+    "case_file": "testdata/csharp-value-formatter.json",
+    "case_file_sha256": "a1733a427ebc99085abee9e785562d54853a444a9e224e272044081a7a374c29",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original cases, results, handled flags, priorities and error assertions retained. C# DateTime kind and decimal constants use explicit Go DateValue/Decimal values; formatter removal by type uses a Go type exemplar. C# exceptions map to error results; explicit messages retained.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.CommitLabelPlaceholdersComposeWithCapturesAndFallbacks": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "CommitLabelPlaceholdersComposeWithCapturesAndFallbacks",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.CommitLabelPlaceholdersDoNotRequireMatchingBranchRegex": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "CommitLabelPlaceholdersDoNotRequireMatchingBranchRegex",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.NamedCapturesTakePrecedenceOverCommitPlaceholders": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "NamedCapturesTakePrecedenceOverCommitPlaceholders",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.BranchOverrideChangesCaptureButKeepsCurrentCommitHash": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "BranchOverrideChangesCaptureButKeepsCurrentCommitHash",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnvironmentValuesComposeWithCommitPlaceholdersAndAreSanitized": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnvironmentValuesComposeWithCommitPlaceholdersAndAreSanitized",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.CommitPlaceholdersDoNotSuppressUnknownPlaceholderErrors": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "CommitPlaceholdersDoNotSuppressUnknownPlaceholderErrors",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.CommitPlaceholdersPreserveMalformedFallbackErrors": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "CommitPlaceholdersPreserveMalformedFallbackErrors",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.LabelResolutionRequiresExplicitCurrentCommit": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "LabelResolutionRequiresExplicitCurrentCommit",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelWorksAsExpected": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelWorksAsExpected",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariables": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelProcessesEnvironmentVariables",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesWithFallback": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesWithFallback",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesAndRegexPlaceholders": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesAndRegexPlaceholders",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelWorksWithoutEnvironmentWhenNoEnvPlaceholders": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelWorksWithoutEnvironmentWhenNoEnvPlaceholders",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelThrowsWhenEnvVarMissing": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelThrowsWhenEnvVarMissing",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelThrowsWhenBranchNamePropertyMissing": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelThrowsWhenBranchNamePropertyMissing",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationExtensionsTests.EnsureGetBranchSpecificLabelReturnsValidLabelForEnvironmentVariables": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+    "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+    "method": "EnsureGetBranchSpecificLabelReturnsValidLabelForEnvironmentVariables",
+    "go_test": "TestCSharpConfigurationLabels",
+    "case_file": "testdata/csharp-configuration-labels.json",
+    "case_file_sha256": "f98abaa11bebb3765b369babad9d98cc99a6b95dcca57c010409dcc2ea01c02f",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": "All original label/error assertions and parameter cases retained. Single-branch C# builders project their effective Label/Regex fields into Go LabelConfiguration; mocked current commit becomes explicit SHA/ShortSHA values and TestEnvironment becomes an injected lookup. ReferenceName wrapper calls use their original local branch text. The separate configuration-default and reference-classification source methods remain pending.",
+    "status": "ported-awaiting-platform-verification"
   }
 }

@@ -144,8 +144,14 @@ func (NumericFormatter) TryFormat(value any, format string) (string, bool, error
 	if !strings.ContainsRune("FEGNCP", rune(upper)) {
 		return "", false, fmt.Errorf("unsupported numeric format %q", format)
 	}
-	if math.IsInf(n, 0) || math.IsNaN(n) {
-		return strconv.FormatFloat(n, 'g', -1, 64), true, nil
+	if math.IsNaN(n) {
+		return "NaN", true, nil
+	}
+	if math.IsInf(n, 1) {
+		return "Infinity", true, nil
+	}
+	if math.IsInf(n, -1) {
+		return "-Infinity", true, nil
 	}
 	if upper == 'G' {
 		p := precision

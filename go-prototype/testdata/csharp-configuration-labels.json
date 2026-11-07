@@ -1,0 +1,481 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Configuration.Tests/Configuration/ConfigurationExtensionsTests.cs",
+  "source_sha256": "d9307515bd129f5be8ed9b735cbd6e89a218e67e7c1ac89842343381c314458c",
+  "methods": {
+    "CommitLabelPlaceholdersComposeWithCapturesAndFallbacks": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{Sha}",
+        "expected": "1234567890abcdef1234567890abcdef12345678",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-001"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{ShortSha}.{Sha}.{ShortSha}",
+        "expected": "1234567.1234567890abcdef1234567890abcdef12345678.1234567",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-002"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{StoryNo}.{BranchName}.{ShortSha}",
+        "expected": "sc-42.add-login.1234567",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-003"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{env:BUILD_LABEL ?? ShortSha}.{Sha}",
+        "expected": "1234567.1234567890abcdef1234567890abcdef12345678",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-004"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{Missing ?? ShortSha}",
+        "expected": "1234567",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-005"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": null,
+        "expected": null,
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-006"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "",
+        "expected": "",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-007"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "literal",
+        "expected": "literal",
+        "regex": "^feature/(?<StoryNo>sc-\\d+)/(?<BranchName>.+)",
+        "branch": "feature/sc-42/add-login",
+        "id": "case-008"
+      }
+    ],
+    "CommitLabelPlaceholdersDoNotRequireMatchingBranchRegex": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": null,
+        "branch": "feature/topic",
+        "override": null,
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "",
+        "branch": "feature/topic",
+        "override": null,
+        "id": "case-001"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "^release/",
+        "branch": "feature/topic",
+        "override": null,
+        "id": "case-002"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "^feature/",
+        "branch": null,
+        "override": null,
+        "id": "case-003"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "^feature/",
+        "branch": "",
+        "override": null,
+        "id": "case-004"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.1234567",
+        "regex": "^feature/",
+        "branch": "feature/topic",
+        "override": "release/override",
+        "id": "case-005"
+      }
+    ],
+    "NamedCapturesTakePrecedenceOverCommitPlaceholders": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{Sha}",
+        "expected": "ci.captured",
+        "regex": "^feature/(?<Sha>.+)?$",
+        "branch": "feature/captured",
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.captured",
+        "regex": "^feature/(?<ShortSha>.+)?$",
+        "branch": "feature/captured",
+        "id": "case-001"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{Sha}",
+        "expected": "ci.",
+        "regex": "^feature/(?<Sha>.+)?$",
+        "branch": "feature/",
+        "id": "case-002"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "expected": "ci.",
+        "regex": "^feature/(?<ShortSha>.+)?$",
+        "branch": "feature/",
+        "id": "case-003"
+      }
+    ],
+    "BranchOverrideChangesCaptureButKeepsCurrentCommitHash": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{BranchName}.{ShortSha}",
+        "regex": "^feature/(?<BranchName>.+)",
+        "branch": "feature/original",
+        "override": "feature/override",
+        "expected": "override.1234567",
+        "id": "case-000"
+      }
+    ],
+    "EnvironmentValuesComposeWithCommitPlaceholdersAndAreSanitized": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "BUILD_LABEL": "team/topic"
+        },
+        "label": "{env:BUILD_LABEL}.{ShortSha}",
+        "branch": "feature/topic",
+        "expected": "team-topic.1234567",
+        "id": "case-000"
+      }
+    ],
+    "CommitPlaceholdersDoNotSuppressUnknownPlaceholderErrors": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{Unknown}.{ShortSha}",
+        "branch": "feature/topic",
+        "error": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{env:MISSING_VAR}.{ShortSha}",
+        "branch": "feature/topic",
+        "error": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{sha}.{ShortSha}",
+        "branch": "feature/topic",
+        "error": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{shortsha}.{Sha}",
+        "branch": "feature/topic",
+        "error": true,
+        "id": "case-003"
+      }
+    ],
+    "CommitPlaceholdersPreserveMalformedFallbackErrors": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "{env:MISSING_VAR ??? \"fallback\"}.{ShortSha}",
+        "branch": "feature/topic",
+        "error": true,
+        "id": "case-000"
+      }
+    ],
+    "LabelResolutionRequiresExplicitCurrentCommit": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": null,
+        "branch": "feature/topic",
+        "missing_commit": true,
+        "error": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "label": "ci.{ShortSha}",
+        "branch": "feature/topic",
+        "missing_commit": true,
+        "error": true,
+        "id": "case-001"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelWorksAsExpected": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "feature/sc-1000/Description",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{BranchName}",
+        "expected": "sc-1000-Description",
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "feature/sc-1000/Description",
+        "regex": "^features?[\\/-](?<StoryNo>sc-\\d+)[-\\/].+",
+        "label": "{StoryNo}",
+        "expected": "sc-1000",
+        "id": "case-001"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelProcessesEnvironmentVariables": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "GITHUB_HEAD_REF": "feature-branch"
+        },
+        "branch": "pull-request",
+        "regex": "^pull[/-]",
+        "label": "pr-{env:GITHUB_HEAD_REF}",
+        "expected": "pr-feature-branch",
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesWithFallback": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "pull-request",
+        "regex": "^pull[/-]",
+        "label": "pr-{env:GITHUB_HEAD_REF ?? \"unknown\"}",
+        "expected": "pr-unknown",
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelProcessesEnvironmentVariablesAndRegexPlaceholders": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "GITHUB_HEAD_REF": "feature-branch"
+        },
+        "branch": "feature/test-branch",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{BranchName}-{env:GITHUB_HEAD_REF}",
+        "expected": "test-branch-feature-branch",
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelWorksWithoutEnvironmentWhenNoEnvPlaceholders": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "feature/test",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{BranchName}",
+        "expected": "test",
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelThrowsWhenEnvVarMissing": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "pull-request",
+        "regex": "^pull[/-]",
+        "label": "pr-{env:MISSING_VAR}",
+        "error": true,
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelThrowsWhenBranchNamePropertyMissing": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {},
+        "branch": "pull-request",
+        "regex": "^features?[\\/-]",
+        "label": "{BranchName}",
+        "error": true,
+        "id": "case-000"
+      }
+    ],
+    "EnsureGetBranchSpecificLabelReturnsValidLabelForEnvironmentVariables": [
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "GITHUB_HEAD_REF": "case-00/my-branch"
+        },
+        "branch": "feature/test-feature",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{env:GITHUB_HEAD_REF}",
+        "expected": "case-00-my-branch",
+        "id": "case-000"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "GITHUB_HEAD_REF": "my-branch"
+        },
+        "branch": "feature/test-feature",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{env:GITHUB_HEAD_REF}",
+        "expected": "my-branch",
+        "id": "case-001"
+      },
+      {
+        "operation": "label",
+        "sha": "1234567890abcdef1234567890abcdef12345678",
+        "short_sha": "1234567",
+        "environment": {
+          "GITHUB_HEAD_REF": "my_branch/valid"
+        },
+        "branch": "feature/test-feature",
+        "regex": "^features?[\\/-](?<BranchName>.+)",
+        "label": "{env:GITHUB_HEAD_REF}",
+        "expected": "my-branch-valid",
+        "id": "case-002"
+      }
+    ]
+  }
+}

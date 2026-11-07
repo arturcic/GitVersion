@@ -1,0 +1,120 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Formatting/FormattableFormatterTests.cs",
+  "source_sha256": "8b9628c558efa83ea938a759415c24da8d2192745a67eb52dc606db0b38b1742",
+  "methods": {
+    "Priority_ShouldBe2": [
+      {
+        "operation": "priority-formattable",
+        "priority": 2,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_NullValue_ReturnsFalse": [
+      {
+        "operation": "formattable",
+        "kind": "null",
+        "format": "G",
+        "expected": "",
+        "success": false,
+        "id": "case-000"
+      }
+    ],
+    "TryFormat_ValidFormats_ReturnsExpectedResult": [
+      {
+        "operation": "formattable",
+        "kind": "float",
+        "value": 123.456,
+        "format": "F2",
+        "expected": "123.46",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "formattable",
+        "kind": "float",
+        "value": 1234.456,
+        "format": "F2",
+        "expected": "1234.46",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "formattable",
+        "kind": "float",
+        "value": 123.456,
+        "format": "C",
+        "expected": "\u00a4123.46",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "formattable",
+        "kind": "float",
+        "value": 123.456,
+        "format": "P",
+        "expected": "12,345.60 %",
+        "success": true,
+        "id": "case-003"
+      },
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 1234567890,
+        "format": "N0",
+        "expected": "1,234,567,890",
+        "success": true,
+        "id": "case-004"
+      }
+    ],
+    "TryFormat_UnsupportedFormat_ReturnsFalse": [
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 1234567890,
+        "format": "Z",
+        "expected": "Format 'Z' is not supported in FormattableFormatter",
+        "success": false,
+        "id": "case-000"
+      }
+    ],
+    "ZeroFormatting": [
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 0,
+        "format": "0000",
+        "expected": "0000",
+        "success": true,
+        "id": "case-000"
+      },
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 1,
+        "format": "0000",
+        "expected": "0001",
+        "success": true,
+        "id": "case-001"
+      },
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 0,
+        "format": "-0000;;''",
+        "expected": "",
+        "success": true,
+        "id": "case-002"
+      },
+      {
+        "operation": "formattable",
+        "kind": "integer",
+        "value": 1,
+        "format": "-0000;;''",
+        "expected": "-0001",
+        "success": true,
+        "id": "case-003"
+      }
+    ]
+  }
+}
