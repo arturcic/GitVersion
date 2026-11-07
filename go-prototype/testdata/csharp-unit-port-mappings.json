@@ -52680,7 +52680,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldCreateAssemblyInfoFileAtPathWhenNotExistsAndEnsureAssemblyInfo": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52697,7 +52697,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldCreateAssemblyInfoFilesAtPathWhenNotExistsAndEnsureAssemblyInfo": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52714,7 +52714,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldNotCreateAssemblyInfoFileWhenNotExistsAndNotEnsureAssemblyInfo": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52731,7 +52731,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldStartSearchFromWorkingDirectory": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52746,7 +52746,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersion": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52763,7 +52763,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldNotReplaceAssemblyVersionWhenVersionSchemeIsNone": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52780,7 +52780,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePath": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52797,7 +52797,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithWhiteSpace": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52814,7 +52814,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWithStar": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52831,7 +52831,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWithAttributeSuffix": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52848,7 +52848,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldAddAssemblyVersionIfMissingFromInfoFile": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52865,7 +52865,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAlreadySubstitutedValues": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52882,7 +52882,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionWhenCreatingAssemblyVersionFileAndEnsureAssemblyInfo": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52899,7 +52899,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithVariables": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52916,7 +52916,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldReplaceAssemblyVersionInRelativePathWithVariablesAndWhiteSpace": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52933,7 +52933,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldAddAssemblyInformationalVersionWhenUpdatingAssemblyVersionFile": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52950,7 +52950,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.Issue1183ShouldAddFSharpAssemblyInformationalVersionBesideOtherAttributes": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52967,7 +52967,7 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   },
   "AssemblyInfoFileUpdaterTests.ShouldNotAddAssemblyInformationalVersionWhenVersionSchemeIsNone": {
     "source": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs",
@@ -52984,6 +52984,6 @@
     "adaptations": [
       "Use a temporary filesystem and the Go variable provider. Verify observable file contents and discovery boundaries in place of mocked filesystem calls. Approved text uses normalized line endings."
     ],
-    "status": "ported-awaiting-platform-verification"
+    "status": "verified-macos-ubuntu"
   }
 }

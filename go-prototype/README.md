@@ -203,12 +203,12 @@ Cross-builds only establish compilation. On Windows, copy the module including t
 ### Original C# test ports
 
 [Calculation and configuration ports](CSHARP-PORTS.md) retain original assertions,
-parameter cases and source hashes. The mapping inventory now covers 1231 of 2,178
+parameter cases and source hashes. The mapping inventory now covers 1250 of 2,178
 C# declarations; remaining source tests are explicitly pending.
 
 [Semantic-version unit ports](CSHARP-SEMVER-PORTS.md) add all 1,158 original cases
 from 14 methods. The active [90% unit-test goal](UNIT-TEST-PORTING.md) tracks
-1,193 verified unit/component methods out of 1,516 separately from integration ports.
+1,212 verified unit/component methods out of 1,516 separately from integration ports.
 
 [Parsing, formatting and regex ports](CSHARP-MODEL-PATTERNS-PORTS.md) add 42 methods
 and 171 original cases, verified on both priority platforms. All 21 methods in
@@ -305,3 +305,16 @@ The [Git index and stream report](CSHARP-GIT-INDEX-STREAMS-PORTS.md) covers inde
 The [dual-backend parity report](CSHARP-DUAL-BACKEND-PORTS.md) records the read contracts checked against both pinned C# Git adapters.
 
 The [formatted output evidence](CSHARP-FORMAT-ARGUMENTS-EVIDENCE.json) records 29 ported NUnit cases and byte-for-byte comparisons of formatted and dotenv stdout against the pinned C# executable.
+
+The root CLI can update C#, F#, and Visual Basic assembly attributes.
+Pass `--update-assembly-info` to discover `AssemblyInfo.*` files or pass an
+explicit filename. Pair it with `--ensure-assembly-info` to create an explicit
+file from the language template. For example:
+
+```bash
+.local/gitversion-go /path/to/repository --update-assembly-info Properties/AssemblyInfo.cs --ensure-assembly-info
+```
+
+The [assembly updater evidence](CSHARP-ASSEMBLY-INFO-EVIDENCE.json) records 19
+ported C# tests, all 55 parameter cases, and byte comparisons of the files
+written by both executables on macOS and Ubuntu.
