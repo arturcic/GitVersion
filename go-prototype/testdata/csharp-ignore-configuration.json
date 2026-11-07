@@ -1,0 +1,261 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+  "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+  "methods": {
+    "CanDeserialize": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Shas": [
+            "b6c0c9fda88830ebcd563e500a5a7da5a1658e98"
+          ],
+          "Before": "2015-10-23T12:23:15"
+        },
+        "yaml": "ignore:\n    commits-before: 2015-10-23T12:23:15\n    sha: [b6c0c9fda88830ebcd563e500a5a7da5a1658e98]",
+        "error": false
+      }
+    ],
+    "ShouldSupportsOtherSequenceFormat": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Shas": [
+            "b6c0c9fda88830ebcd563e500a5a7da5a1658e98",
+            "6c19c7c219ecf8dbc468042baefa73a1b213e8b1"
+          ]
+        },
+        "yaml": "ignore:\n    sha:\n        - b6c0c9fda88830ebcd563e500a5a7da5a1658e98\n        - 6c19c7c219ecf8dbc468042baefa73a1b213e8b1",
+        "error": false
+      }
+    ],
+    "CanDeserializeCompactBranchesSequence": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Branches": [
+            "^legacy/",
+            "^release/old$"
+          ]
+        },
+        "yaml": "ignore:\n  branches: ['^legacy/', '^release/old$']",
+        "error": false
+      }
+    ],
+    "CanDeserializeCompactTagsSequence": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Tags": [
+            "^preview-",
+            "^v0\\."
+          ]
+        },
+        "yaml": "ignore:\n  tags: ['^preview-', '^v0\\.']",
+        "error": false
+      }
+    ],
+    "CanDeserializeMultilineBranchesAndTagsSequences": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Branches": [
+            "^legacy/",
+            "^release/old$"
+          ],
+          "Tags": [
+            "^preview-"
+          ]
+        },
+        "yaml": "ignore:\n    branches:\n        - ^legacy/\n        - ^release/old$\n    tags:\n        - ^preview-",
+        "error": false
+      }
+    ],
+    "CanDeserializeMultilineTagsSequence": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Tags": [
+            "^preview-",
+            "^v0\\."
+          ]
+        },
+        "yaml": "ignore:\n    tags:\n        - ^preview-\n        - ^v0\\.",
+        "error": false
+      }
+    ],
+    "WhenNotInConfigShouldHaveDefaults": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Branches": [],
+          "Paths": [],
+          "Shas": [],
+          "Tags": [],
+          "Before": null
+        },
+        "yaml": "next-version: 1.0",
+        "error": false
+      }
+    ],
+    "IsEmpty_WhenBranchPatternIsConfigured_ReturnsFalse": [
+      {
+        "id": "case-000",
+        "operation": "empty",
+        "expected": {
+          "IsEmpty": false
+        },
+        "field": "Branches",
+        "values": [
+          "^legacy/"
+        ]
+      }
+    ],
+    "IsEmpty_WhenTagPatternIsConfigured_ReturnsFalse": [
+      {
+        "id": "case-000",
+        "operation": "empty",
+        "expected": {
+          "IsEmpty": false
+        },
+        "field": "Tags",
+        "values": [
+          "^preview-"
+        ]
+      }
+    ],
+    "InvalidIgnoreBranchExpression_ThrowsConfigurationExceptionWithoutPattern": [
+      {
+        "id": "case-000",
+        "operation": "validate",
+        "expected": {},
+        "field": "Branches",
+        "values": [
+          "[invalid"
+        ],
+        "error": true,
+        "contains": "ignore.branches",
+        "not_contains": "[invalid"
+      }
+    ],
+    "InvalidIgnoreTagExpression_ThrowsConfigurationExceptionWithoutPattern": [
+      {
+        "id": "case-000",
+        "operation": "validate",
+        "expected": {},
+        "field": "Tags",
+        "values": [
+          "[invalid"
+        ],
+        "error": true,
+        "contains": "ignore.tags",
+        "not_contains": "[invalid"
+      }
+    ],
+    "Serialize_IgnoreBranchPatterns_UsesBranchesPropertyName": [
+      {
+        "id": "case-000",
+        "operation": "serialize",
+        "expected": {},
+        "field": "Branches",
+        "values": [
+          "^legacy/"
+        ],
+        "contains_all": [
+          "branches:",
+          "^legacy/"
+        ]
+      }
+    ],
+    "Serialize_IgnoreTagPatterns_UsesTagsPropertyName": [
+      {
+        "id": "case-000",
+        "operation": "serialize",
+        "expected": {},
+        "field": "Tags",
+        "values": [
+          "^preview-"
+        ],
+        "contains_all": [
+          "tags:",
+          "^preview-"
+        ]
+      }
+    ],
+    "IgnoreConfigurationBuilder_WithBranches_PreservesCollection": [
+      {
+        "id": "case-000",
+        "operation": "builder",
+        "expected": {
+          "Branches": [
+            "^legacy/",
+            "^release/old$"
+          ]
+        },
+        "field": "Branches",
+        "values": [
+          "^legacy/",
+          "^release/old$"
+        ]
+      }
+    ],
+    "IgnoreConfigurationBuilder_WithTags_PreservesCollection": [
+      {
+        "id": "case-000",
+        "operation": "builder",
+        "expected": {
+          "Tags": [
+            "^preview-",
+            "^v0\\."
+          ]
+        },
+        "field": "Tags",
+        "values": [
+          "^preview-",
+          "^v0\\."
+        ]
+      }
+    ],
+    "WhenBadDateFormatShouldFail": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {},
+        "yaml": "ignore:\n    commits-before: bad format date",
+        "error": true
+      }
+    ],
+    "ShouldSupportScalarVersionStrategiesOverrideFormat": [
+      {
+        "id": "case-000",
+        "operation": "decode",
+        "expected": {
+          "Strategies": [
+            "ConfiguredNextVersion",
+            "TaggedCommit"
+          ]
+        },
+        "yaml": "strategies: ConfiguredNextVersion, TaggedCommit",
+        "error": false
+      }
+    ],
+    "NewInstanceShouldBeEmpty": [
+      {
+        "id": "case-000",
+        "operation": "empty",
+        "expected": {
+          "IsEmpty": true
+        },
+        "field": "Tags",
+        "values": []
+      }
+    ]
+  }
+}

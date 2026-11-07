@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/GitTools/GitVersion/go-prototype/internal/semver"
 	"regexp"
+	"strings"
 )
 
 func boolp(v bool) *bool                        { return &v }
@@ -75,6 +76,10 @@ var workflowPatterns = map[string]*regexp.Regexp{
 }
 
 func (c Config) Branch(name string) (kind, capture string, err error) {
+	if strings.HasPrefix(name, "refs/remotes/") {
+		name = strings.TrimPrefix(name, "refs/remotes/")
+		name = strings.TrimPrefix(name, "origin/")
+	}
 	if name == "main" || name == "master" {
 		return "main", "", nil
 	}

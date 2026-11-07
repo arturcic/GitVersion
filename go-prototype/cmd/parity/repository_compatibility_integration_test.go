@@ -92,6 +92,56 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		}
 	}
 
+	for _, workflow := range []string{"GitHubFlow/v1", "GitFlow/v1"} {
+		for _, mainline := range []bool{false, true} {
+			doc := map[string]any{"workflow": workflow, "calculation": map[string]any{"mode": "ManualDeployment", "ignore": map[string]any{"commits-before": "2025-01-01T00:01:00Z"}, "branches": map[string]any{"main": map[string]any{"label": "alpha"}}}}
+			if mainline {
+				doc["calculation"].(map[string]any)["strategies"] = []string{"Mainline"}
+			}
+			raw, _ := json.Marshal(doc)
+			recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("date-floor-%02d", len(recipes)), Description: "Mismatched high tag exactly at minimum date", Config: string(raw), Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "boundary"}, {Op: "tag", Name: "5.0.0-other.1"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}})
+		}
+	}
+
+	for _, workflow := range []string{"GitHubFlow/v1", "GitFlow/v1"} {
+		for _, mainline := range []bool{false, true} {
+			for _, pattern := range []string{"^5[.]", "OTHER", "(?-i)OTHER", "^missing"} {
+				calc := map[string]any{"mode": "ManualDeployment", "ignore": map[string]any{"tags": []string{pattern}}, "branches": map[string]any{"main": map[string]any{"label": "alpha"}}}
+				if mainline {
+					calc["strategies"] = []string{"Mainline"}
+				}
+				raw, _ := json.Marshal(map[string]any{"workflow": workflow, "calculation": calc})
+				recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("tag-name-%02d", len(recipes)), Description: pattern, Config: string(raw), Steps: []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "high"}, {Op: "tag", Name: "5.0.0-other.1"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}})
+			}
+		}
+	}
+	releaseSteps := []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "branch", Name: "develop"}, {Op: "checkout", Name: "develop"}, {Op: "commit", ID: "base"}, {Op: "branch", Name: "release/2.0.0"}, {Op: "checkout", Name: "release/2.0.0"}, {Op: "commit", ID: "release"}, {Op: "tag", Name: "2.0.0-beta.1"}, {Op: "checkout", Name: "develop"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}
+	for _, mainline := range []bool{false, true} {
+		for _, pattern := range []string{"^release/", "^RELEASE/", "(?-i)^RELEASE/", "^missing"} {
+			calc := map[string]any{"mode": "ManualDeployment", "ignore": map[string]any{"branches": []string{pattern}}}
+			if mainline {
+				calc["strategies"] = []string{"Mainline"}
+			}
+			raw, _ := json.Marshal(map[string]any{"workflow": "GitFlow/v1", "calculation": calc})
+			recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("branch-name-%02d", len(recipes)), Description: pattern, Config: string(raw), Steps: releaseSteps})
+		}
+	}
+	for _, workflow := range []string{"GitHubFlow/v1", "GitFlow/v1"} {
+		for _, variant := range []string{"plain", "tags", "branches"} {
+			doc := map[string]any{"workflow": workflow, "mode": "ManualDeployment", "next-version": "2.0.0", "strategies": "ConfiguredNextVersion, TaggedCommit", "branches": map[string]any{"main": map[string]any{"label": "alpha"}}}
+			steps := []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "commit", ID: "high"}, {Op: "tag", Name: "5.0.0-other.1"}, {Op: "commit", ID: "after"}, {Op: "checkpoint", ID: "head"}}
+			if variant == "tags" {
+				doc["ignore"] = map[string]any{"tags": []string{"other"}}
+			}
+			if variant == "branches" {
+				doc["ignore"] = map[string]any{"branches": []string{"^release/"}}
+				steps = releaseSteps
+			}
+			raw, _ := json.Marshal(doc)
+			recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("legacy-%02d", len(recipes)), Description: variant, Config: string(raw), Steps: steps})
+		}
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}
@@ -204,10 +254,17 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 			write(".git/refs/codex/private", cp.Head+"\n")
 			write(".git/refs/remotes/origin/main", cp.Head+"\n")
 			write(".git/refs/remotes/origin/HEAD", "ref: refs/remotes/origin/main\n")
+			environment := map[string]string{}
+			for k, v := range baseline.Spec.Environment {
+				environment[k] = v
+			}
+			if strings.HasPrefix(cp.Recipe, "legacy-") {
+				environment["GITVERSION_CONFIGURATION_VERSION"] = "v6"
+			}
 			var reference []byte
 			for j, command := range commands {
 				output := filepath.Join(dir, fmt.Sprintf("%s-%d", cp.ID, j))
-				result, err := parity.Run(t.Context(), command, cp.Path, output, baseline.Spec.Environment, 60*time.Second)
+				result, err := parity.Run(t.Context(), command, cp.Path, output, environment, 60*time.Second)
 				if err != nil {
 					t.Fatal(err)
 				}

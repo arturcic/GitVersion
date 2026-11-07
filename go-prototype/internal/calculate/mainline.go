@@ -217,6 +217,13 @@ func (e *mlEngine) tagMap(branch string, fallback map[string][]semver.Version) (
 		return nil, err
 	}
 	for _, b := range e.refs {
+		skip, err := e.cfg.Ignore.BranchIgnored(b.name)
+		if err != nil {
+			return nil, err
+		}
+		if skip {
+			continue
+		}
 		p := e.cfg.Options(b.kind)
 		if b.name != branch && ((!(truth(o.IsMain) || truth(o.IsRelease)) && truth(p.IsMain)) || (truth(o.TracksRelease) && truth(p.IsRelease))) {
 			if err := add(b.sha, false); err != nil {

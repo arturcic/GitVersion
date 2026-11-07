@@ -174,7 +174,7 @@ search:
 	if err != nil {
 		return Config{}, err
 	}
-	return Parse(b)
+	return ParseSelected(b, os.Getenv("GITVERSION_CONFIGURATION_VERSION"))
 }
 func Parse(data []byte) (Config, error) {
 	c := Config{Strategies: map[string]bool{"Fallback": true, "ConfiguredNextVersion": true, "MergeMessage": true, "TaggedCommit": true, "TrackReleaseBranches": true, "VersionInBranchName": true}, MainIncrement: semver.Patch, TagWeight: 60000, Main: Options{Mode: Delivery, Label: "", Weight: 55000, PreventTagged: true}, Feature: Options{Mode: Manual, Label: "{BranchName}", Weight: 30000}}

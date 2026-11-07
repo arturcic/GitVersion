@@ -42913,5 +42913,391 @@
       "Original injected mock strategy uses the shared production strategy callback; operator cases use the production Mainline base/operator model."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "IgnoreConfigurationTests.CanDeserialize": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "CanDeserialize",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.ShouldSupportsOtherSequenceFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "ShouldSupportsOtherSequenceFormat",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.CanDeserializeCompactBranchesSequence": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "CanDeserializeCompactBranchesSequence",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.CanDeserializeCompactTagsSequence": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "CanDeserializeCompactTagsSequence",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.CanDeserializeMultilineBranchesAndTagsSequences": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "CanDeserializeMultilineBranchesAndTagsSequences",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.CanDeserializeMultilineTagsSequence": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "CanDeserializeMultilineTagsSequence",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.WhenNotInConfigShouldHaveDefaults": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "WhenNotInConfigShouldHaveDefaults",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.IsEmpty_WhenBranchPatternIsConfigured_ReturnsFalse": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "IsEmpty_WhenBranchPatternIsConfigured_ReturnsFalse",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.IsEmpty_WhenTagPatternIsConfigured_ReturnsFalse": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "IsEmpty_WhenTagPatternIsConfigured_ReturnsFalse",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.InvalidIgnoreBranchExpression_ThrowsConfigurationExceptionWithoutPattern": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "InvalidIgnoreBranchExpression_ThrowsConfigurationExceptionWithoutPattern",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.InvalidIgnoreTagExpression_ThrowsConfigurationExceptionWithoutPattern": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "InvalidIgnoreTagExpression_ThrowsConfigurationExceptionWithoutPattern",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.Serialize_IgnoreBranchPatterns_UsesBranchesPropertyName": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "Serialize_IgnoreBranchPatterns_UsesBranchesPropertyName",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.Serialize_IgnoreTagPatterns_UsesTagsPropertyName": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "Serialize_IgnoreTagPatterns_UsesTagsPropertyName",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.IgnoreConfigurationBuilder_WithBranches_PreservesCollection": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "IgnoreConfigurationBuilder_WithBranches_PreservesCollection",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.IgnoreConfigurationBuilder_WithTags_PreservesCollection": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "IgnoreConfigurationBuilder_WithTags_PreservesCollection",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.WhenBadDateFormatShouldFail": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "WhenBadDateFormatShouldFail",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.ShouldSupportScalarVersionStrategiesOverrideFormat": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "ShouldSupportScalarVersionStrategiesOverrideFormat",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "IgnoreConfigurationTests.NewInstanceShouldBeEmpty": {
+    "source": "src/GitVersion.Configuration.Tests/Configuration/IgnoreConfigurationTests.cs",
+    "source_sha256": "caaeadd30a310331235f2232e2eb7c05a852ca2205a2be4ba6b24176ae153692",
+    "method": "NewInstanceShouldBeEmpty",
+    "go_test": "TestCSharpIgnoreConfiguration",
+    "case_file": "testdata/csharp-ignore-configuration.json",
+    "case_file_sha256": "fbac26ea970ce3fdaab1b50c845290a8e736db21df125383244cb9a0276e3ae4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Original v6 document strings are decoded through the legacy document loader, separately from effective calculation validation.",
+      "Go value records and empty slices represent the original nonnull configuration/default empty collections. Date assertions compare the original local wall-clock instant using the host local zone, as DateTimeOffset.Parse does.",
+      "Ordered distinct slices replace HashSet/builder collections; Go errors replace YamlException/ConfigurationException, retaining all explicitly asserted diagnostic containment/privacy.",
+      "Strategy flag combinations map to the same set of enabled strategy names. Serialization preserves all original substring assertions."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationVersionSelectorTests.ResolvesKnownValues": {
+    "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
+    "source_sha256": "49f7319c2f4248d97ca1ccb4651991af279ebbae68cd152e3fdf42201dc400d7",
+    "method": "ResolvesKnownValues",
+    "go_test": "TestCSharpConfigurationVersionSelector",
+    "case_file": "testdata/csharp-configuration-selector.json",
+    "case_file_sha256": "f8a2170d72453b40b8a34fb31a1ca235fe6ff72c5e33ec44752abd3c19aab026",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008"
+    ],
+    "adaptations": [
+      "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
+      "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationVersionSelectorTests.IdentifiesExplicitV6Selection": {
+    "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
+    "source_sha256": "49f7319c2f4248d97ca1ccb4651991af279ebbae68cd152e3fdf42201dc400d7",
+    "method": "IdentifiesExplicitV6Selection",
+    "go_test": "TestCSharpConfigurationVersionSelector",
+    "case_file": "testdata/csharp-configuration-selector.json",
+    "case_file_sha256": "f8a2170d72453b40b8a34fb31a1ca235fe6ff72c5e33ec44752abd3c19aab026",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
+      "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "ConfigurationVersionSelectorTests.FailsFastOnUnknownValues": {
+    "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
+    "source_sha256": "49f7319c2f4248d97ca1ccb4651991af279ebbae68cd152e3fdf42201dc400d7",
+    "method": "FailsFastOnUnknownValues",
+    "go_test": "TestCSharpConfigurationVersionSelector",
+    "case_file": "testdata/csharp-configuration-selector.json",
+    "case_file_sha256": "f8a2170d72453b40b8a34fb31a1ca235fe6ff72c5e33ec44752abd3c19aab026",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Explicit nullable string input replaces a process environment scope, retaining every original unset/empty/case/whitespace value. The same selector is called by configuration loading.",
+      "Go version names replace C# enum values; Go errors replace WarningException with every original diagnostic containment assertion retained."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

@@ -1,0 +1,115 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/Core/ConfigurationVersionSelectorTests.cs",
+  "source_sha256": "49f7319c2f4248d97ca1ccb4651991af279ebbae68cd152e3fdf42201dc400d7",
+  "methods": {
+    "ResolvesKnownValues": [
+      {
+        "id": "case-000",
+        "value": null,
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-001",
+        "value": "",
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-002",
+        "value": " \t ",
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-003",
+        "value": "v6",
+        "expected": true,
+        "error": false
+      },
+      {
+        "id": "case-004",
+        "value": "V6",
+        "expected": true,
+        "error": false
+      },
+      {
+        "id": "case-005",
+        "value": " v6 ",
+        "expected": true,
+        "error": false
+      },
+      {
+        "id": "case-006",
+        "value": "v7",
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-007",
+        "value": "V7",
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-008",
+        "value": " v7 ",
+        "expected": false,
+        "error": false
+      }
+    ],
+    "IdentifiesExplicitV6Selection": [
+      {
+        "id": "case-000",
+        "value": null,
+        "expected": false,
+        "error": false
+      },
+      {
+        "id": "case-001",
+        "value": "v6",
+        "expected": true,
+        "error": false
+      },
+      {
+        "id": "case-002",
+        "value": " V6 ",
+        "expected": true,
+        "error": false
+      },
+      {
+        "id": "case-003",
+        "value": "v7",
+        "expected": false,
+        "error": false
+      }
+    ],
+    "FailsFastOnUnknownValues": [
+      {
+        "id": "case-000",
+        "value": "6",
+        "expected": null,
+        "error": true
+      },
+      {
+        "id": "case-001",
+        "value": "7",
+        "expected": null,
+        "error": true
+      },
+      {
+        "id": "case-002",
+        "value": "true",
+        "expected": null,
+        "error": true
+      },
+      {
+        "id": "case-003",
+        "value": "legacy",
+        "expected": null,
+        "error": true
+      }
+    ]
+  }
+}

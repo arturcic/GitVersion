@@ -109,16 +109,23 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	mainTips := []string{}
 	branches := []branchRef{}
 	for _, ref := range refs {
-		if !strings.HasPrefix(ref.Name, "refs/heads/") {
+
+		local := strings.HasPrefix(ref.Name, "refs/heads/")
+		remote := strings.HasPrefix(ref.Name, "refs/remotes/") && !strings.HasSuffix(ref.Name, "/HEAD")
+		if !local && !remote {
 			continue
 		}
-		name := strings.TrimPrefix(ref.Name, "refs/heads/")
+		name := ref.Name
+		if local {
+			name = strings.TrimPrefix(name, "refs/heads/")
+		}
+
 		refKind, _, err := cfg.Branch(name)
 		if err != nil {
 			return nil, trace, err
 		}
 		branches = append(branches, branchRef{name, ref.SHA, refKind})
-		if refKind == "main" {
+		if local && refKind == "main" {
 			mainTips = append(mainTips, ref.SHA)
 		}
 	}
@@ -190,6 +197,13 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	allTags := []tag{}
 	byCommit := map[string][]tag{}
 	for _, raw := range rawTags {
+		skip, err := cfg.Ignore.TagIgnored(strings.TrimPrefix(raw.Name, "refs/tags/"))
+		if err != nil {
+			return nil, trace, err
+		}
+		if skip {
+			continue
+		}
 		allowed, err := ignored.include(raw.Commit)
 		if err != nil {
 			return nil, trace, err
@@ -255,6 +269,13 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 			}
 		}
 		for _, br := range branches {
+			skip, err := cfg.Ignore.BranchIgnored(br.name)
+			if err != nil {
+				return nil, err
+			}
+			if skip {
+				continue
+			}
 			o := cfg.Options(br.kind)
 			take := (!effective.IsMain && !effective.IsRelease && truth(o.IsMain)) || (effective.TracksRelease && truth(o.IsRelease))
 			if take && br.name != branch {
@@ -391,7 +412,17 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 				}
 			}
 			{
-				extra, err := workflowCandidates(r, cfg, effective, branch, source, head, branches, history, allTags, load)
+				versionBranches := []branchRef{}
+				for _, b := range branches {
+					skip, err := cfg.Ignore.BranchIgnored(b.name)
+					if err != nil {
+						return nil, err
+					}
+					if !skip {
+						versionBranches = append(versionBranches, b)
+					}
+				}
+				extra, err := workflowCandidates(r, cfg, effective, branch, source, head, versionBranches, history, allTags, load)
 				if err != nil {
 					return nil, err
 				}
@@ -524,6 +555,9 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	var maxTag *tag
 	for i := range allTags {
 		t := &allTags[i]
+		if cfg.Ignore.Before != nil && commits[t.ref.Commit].When <= cfg.Ignore.Before.Unix() {
+			continue
+		}
 		if reachable[t.ref.Commit] && commits[t.ref.Commit].When <= current.When && (maxTag == nil || t.v.Compare(maxTag.v) > 0) {
 			maxTag = t
 		}
