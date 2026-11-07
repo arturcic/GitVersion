@@ -120,6 +120,7 @@ func matchIgnore(expressions []string, value string) (bool, error) {
 	return false, nil
 }
 func (i IgnoreSettings) BranchIgnored(name string) (bool, error) {
+	name = strings.TrimPrefix(name, "refs/heads/")
 	if strings.HasPrefix(name, "refs/remotes/") {
 		name = strings.TrimPrefix(name, "refs/remotes/")
 		if slash := strings.IndexByte(name, '/'); slash >= 0 {

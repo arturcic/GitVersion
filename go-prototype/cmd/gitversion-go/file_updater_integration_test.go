@@ -17,8 +17,8 @@ import (
 )
 
 type fileUpdaterCase struct {
-	name, path, original   string
-	explicit, ensure, skip bool
+	name, path, original             string
+	explicit, ensure, skip, afterTag bool
 }
 
 func testFileUpdaterParity(t *testing.T, kind, flag string, cases []fileUpdaterCase) {
@@ -57,11 +57,12 @@ func testFileUpdaterParity(t *testing.T, kind, flag string, cases []fileUpdaterC
 			if err := os.Mkdir(caseDir, 0755); err != nil {
 				t.Fatal(err)
 			}
-			repositories, err := fixtures.Generate([]fixtures.Recipe{{
-				ID: kind, Steps: []fixtures.Step{
-					{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.2.3"}, {Op: "checkpoint", ID: "head"},
-				},
-			}}, filepath.Join(caseDir, "fixtures"))
+			steps := []fixtures.Step{{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.2.3"}}
+			if tc.afterTag {
+				steps = append(steps, fixtures.Step{Op: "commit", ID: "after"})
+			}
+			steps = append(steps, fixtures.Step{Op: "checkpoint", ID: "head"})
+			repositories, err := fixtures.Generate([]fixtures.Recipe{{ID: kind, Steps: steps}}, filepath.Join(caseDir, "fixtures"))
 			if err != nil {
 				t.Fatal(err)
 			}

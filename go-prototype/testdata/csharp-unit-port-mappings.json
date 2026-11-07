@@ -53142,5 +53142,207 @@
       "Use the Go variable provider and temporary project files in place of mocked filesystem calls. Retain the original eligibility, warning, and rendered XML assertions."
     ],
     "status": "verified-macos-ubuntu"
+  },
+  "UpdateWixVersionFileTests.WixVersionFileCreationTest": {
+    "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
+    "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
+    "method": "WixVersionFileCreationTest",
+    "go_test": "TestCSharpWixOutput",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "UpdateWixVersionFileTests.WixVersionFileVarCountTest": {
+    "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
+    "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
+    "method": "WixVersionFileVarCountTest",
+    "go_test": "TestCSharpWixOutput",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "UpdateWixVersionFileTests.WixVersionFileContentTest": {
+    "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
+    "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
+    "method": "WixVersionFileContentTest",
+    "go_test": "TestCSharpWixOutput",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "WixFileTests.UpdateWixVersionFile": {
+    "source": "src/GitVersion.Output.Tests/Output/WixFileTests.cs",
+    "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
+    "method": "UpdateWixVersionFile",
+    "go_test": "TestCSharpWixOutput",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "WixFileTests.UpdateWixVersionFileWhenFileAlreadyExists": {
+    "source": "src/GitVersion.Output.Tests/Output/WixFileTests.cs",
+    "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
+    "method": "UpdateWixVersionFileWhenFileAlreadyExists",
+    "go_test": "TestCSharpWixOutput",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "AssemblyFileVersionTests.ValidateAssemblyFileVersionBuilder": {
+    "source": "src/GitVersion.Output.Tests/Output/AssemblyFileVersionTests.cs",
+    "source_sha256": "3f448269374202e8bed17e89f250065cedce69a4eda78b21a706a1f53ea3c64c",
+    "method": "ValidateAssemblyFileVersionBuilder",
+    "go_test": "TestCSharpOutputProjections",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004"
+    ],
+    "adaptations": [
+      "Exercise the Go formatter. The None scheme is represented internally by an empty string."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "InformationalVersionBuilderTests.ValidateInformationalVersionBuilder": {
+    "source": "src/GitVersion.Output.Tests/Output/InformationalVersionBuilderTests.cs",
+    "source_sha256": "9329044f09b183b7f6a96c1576f90c7353b984f33a1ccf927840edd1c6e24eb5",
+    "method": "ValidateInformationalVersionBuilder",
+    "go_test": "TestCSharpOutputProjections",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-006",
+      "case-007",
+      "case-008",
+      "case-009",
+      "case-010",
+      "case-011",
+      "case-012"
+    ],
+    "adaptations": [
+      "Project the original semantic version and build metadata through the Go output provider."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "CommitDateTests.CommitDateFormatTest": {
+    "source": "src/GitVersion.Core.Tests/CommitDateTests.cs",
+    "source_sha256": "7336371333c18f2308d381d12aad443335277d3636d9691739d68b9bc4bc2c17",
+    "method": "CommitDateFormatTest",
+    "go_test": "TestCSharpOutputProjections",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002",
+      "case-003"
+    ],
+    "adaptations": [
+      "Use the four parameterized NUnit cases and the original UTC timestamp. The Test marker adds no arguments."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_IgnoredAndEligibleTagsShareCommit_ReturnsOnlyEligibleTag": {
+    "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
+    "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
+    "method": "GetTaggedSemanticVersions_IgnoredAndEligibleTagsShareCommit_ReturnsOnlyEligibleTag",
+    "go_test": "TestCSharpTaggedVersionFiltering",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_MultiplePatterns_UsesCaseInsensitiveOrSemanticsOnFriendlyName": {
+    "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
+    "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
+    "method": "GetTaggedSemanticVersions_MultiplePatterns_UsesCaseInsensitiveOrSemanticsOnFriendlyName",
+    "go_test": "TestCSharpTaggedVersionFiltering",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000"
+    ],
+    "adaptations": [
+      "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "TaggedSemanticVersionRepositoryTests.GetTaggedSemanticVersions_EmptyOrNonMatchingTags_PreservesCandidates": {
+    "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
+    "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
+    "method": "GetTaggedSemanticVersions_EmptyOrNonMatchingTags_PreservesCandidates",
+    "go_test": "TestCSharpTaggedVersionFiltering",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000",
+      "case-001"
+    ],
+    "adaptations": [
+      "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+    ],
+    "status": "ported-awaiting-platform-verification"
+  },
+  "BranchRepositoryTests.IsBranchIgnored_MatchesFriendlyNameWithoutRemoteName": {
+    "source": "src/GitVersion.Core.Tests/Core/BranchRepositoryTests.cs",
+    "source_sha256": "b0ed20cf463bb98776d557e351d14e7c9f6c8e859a27ca6b45f3d464c583302e",
+    "method": "IsBranchIgnored_MatchesFriendlyNameWithoutRemoteName",
+    "go_test": "TestCSharpCanonicalBranchIgnore",
+    "case_file": "testdata/csharp-wix-and-output.json",
+    "case_file_sha256": "d81f16b676c59402b7859d3fe7e6eefae46d931a55583baa7252e09cad3764b4",
+    "case_ids": [
+      "case-000",
+      "case-001",
+      "case-002"
+    ],
+    "adaptations": [
+      "Match the original canonical local and remote names with the Go ignore matcher."
+    ],
+    "status": "ported-awaiting-platform-verification"
   }
 }

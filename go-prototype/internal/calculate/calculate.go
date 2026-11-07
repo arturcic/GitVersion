@@ -205,36 +205,13 @@ func calculateWithStrategy(path string, cfg config.Config, strategy versionStrat
 	if err != nil {
 		return nil, trace, err
 	}
-	allTags := []tag{}
+	allTags, err := readSemanticTags(rawTags, cfg.Ignore, ignored, load)
+	if err != nil {
+		return nil, trace, err
+	}
 	byCommit := map[string][]tag{}
-	for _, raw := range rawTags {
-		skip, err := cfg.Ignore.TagIgnored(strings.TrimPrefix(raw.Name, "refs/tags/"))
-		if err != nil {
-			return nil, trace, err
-		}
-		if skip {
-			continue
-		}
-		allowed, err := ignored.include(raw.Commit)
-		if err != nil {
-			return nil, trace, err
-		}
-		if !allowed {
-			continue
-		}
-		v, recognized, err := semver.ParseTag(strings.TrimPrefix(raw.Name, "refs/tags/"))
-		if err != nil {
-			return nil, trace, err
-		}
-		if !recognized {
-			continue
-		}
-		if _, err = load(raw.Commit); err != nil {
-			return nil, trace, err
-		}
-		t := tag{v, raw}
-		allTags = append(allTags, t)
-		byCommit[raw.Commit] = append(byCommit[raw.Commit], t)
+	for _, tag := range allTags {
+		byCommit[tag.ref.Commit] = append(byCommit[tag.ref.Commit], tag)
 	}
 	// The C# service orders groups by their lookup commit, which can be a
 	// merge target's parent rather than the tagged commit itself. Flatten and
@@ -631,4 +608,39 @@ func (l *commitLog) increment(head, base, label string, defaultIncrement semver.
 		result = defaultIncrement
 	}
 	return result, nil
+}
+
+// readSemanticTags preserves reference order while applying the configured
+// name and commit filters before parsing semantic versions.
+func readSemanticTags(rawTags []gitrepo.Tag, settings config.IgnoreSettings, ignored *commitFilter, load func(string) (gitrepo.Commit, error)) ([]tag, error) {
+	allTags := []tag{}
+	for _, raw := range rawTags {
+		skip, err := settings.TagIgnored(strings.TrimPrefix(raw.Name, "refs/tags/"))
+		if err != nil {
+			return nil, err
+		}
+		if skip {
+			continue
+		}
+		allowed, err := ignored.include(raw.Commit)
+		if err != nil {
+			return nil, err
+		}
+		if !allowed {
+			continue
+		}
+		v, recognized, err := semver.ParseTag(strings.TrimPrefix(raw.Name, "refs/tags/"))
+		if err != nil {
+			return nil, err
+		}
+		if !recognized {
+			continue
+		}
+		if _, err = load(raw.Commit); err != nil {
+			return nil, err
+		}
+		t := tag{v, raw}
+		allTags = append(allTags, t)
+	}
+	return allTags, nil
 }

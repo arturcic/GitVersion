@@ -72,9 +72,6 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if options.TargetURL != "" || options.TargetBranch != "" || options.CommitID != "" || options.ClonePath != "" {
 		return fmt.Errorf("remote, branch, and commit targeting are pending")
 	}
-	if options.UpdateWixVersionFile {
-		return fmt.Errorf("the selected output or file updater is pending")
-	}
 	if options.AllowShallow || options.Diag {
 		return fmt.Errorf("shallow history and diagnostic mode are pending")
 	}
@@ -85,11 +82,17 @@ func runRootCLI(args []string, out, diagnostics io.Writer) error {
 	if err := writeRootOutput(options, values, out); err != nil {
 		return err
 	}
-	if options.UpdateProjectFiles {
-		return updateProjectFiles(options.TargetPath, options.UpdateAssemblyInfoFileName, values, diagnostics)
+	switch {
+	case options.UpdateProjectFiles:
+		err = updateProjectFiles(options.TargetPath, options.UpdateAssemblyInfoFileName, values, diagnostics)
+	case options.UpdateAssemblyInfo:
+		err = updateAssemblyInfo(options.TargetPath, options.UpdateAssemblyInfoFileName, options.EnsureAssemblyInfo, values, diagnostics)
 	}
-	if options.UpdateAssemblyInfo {
-		return updateAssemblyInfo(options.TargetPath, options.UpdateAssemblyInfoFileName, options.EnsureAssemblyInfo, values, diagnostics)
+	if err != nil {
+		return err
+	}
+	if options.UpdateWixVersionFile {
+		return updateWixVersionFile(options.TargetPath, values)
 	}
 	return nil
 }

@@ -1,0 +1,488 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "UpdateWixVersionFileTests": {
+      "source": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs",
+      "sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
+      "go_test": "TestCSharpWixOutput",
+      "methods": {
+        "WixVersionFileCreationTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WixVersionFileVarCountTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "WixVersionFileContentTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "WixFileTests": {
+      "source": "src/GitVersion.Output.Tests/Output/WixFileTests.cs",
+      "sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
+      "go_test": "TestCSharpWixOutput",
+      "methods": {
+        "UpdateWixVersionFile": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "approved": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Include xmlns=\"http://schemas.microsoft.com/wix/2006/wi\">\n  <?define AssemblySemFileVer=\"1.2.3.0\"?>\n  <?define AssemblySemVer=\"1.2.3.0\"?>\n  <?define BranchName=\"develop\"?>\n  <?define BuildMetaData=\"5\"?>\n  <?define CommitCountSourceDistance=\"5\"?>\n  <?define CommitCountSourceSha=\"versionSourceSha\"?>\n  <?define CommitDate=\"2019-02-20\"?>\n  <?define CustomVersion=\"\"?>\n  <?define EscapedBranchName=\"develop\"?>\n  <?define FullBuildMetaData=\"5.Branch.develop.Sha.commitSha\"?>\n  <?define FullSemVer=\"1.2.3+5\"?>\n  <?define InformationalVersion=\"1.2.3+5.Branch.develop.Sha.commitSha\"?>\n  <?define Major=\"1\"?>\n  <?define MajorMinorPatch=\"1.2.3\"?>\n  <?define Minor=\"2\"?>\n  <?define Patch=\"3\"?>\n  <?define PreReleaseLabel=\"\"?>\n  <?define PreReleaseLabelName=\"\"?>\n  <?define PreReleaseLabelNameWithDash=\"\"?>\n  <?define PreReleaseLabelWithDash=\"\"?>\n  <?define PreReleaseNumber=\"\"?>\n  <?define SemVer=\"1.2.3\"?>\n  <?define SemVerSourceIncrement=\"None\"?>\n  <?define SemVerSourceSemVer=\"\"?>\n  <?define SemVerSourceSha=\"\"?>\n  <?define Sha=\"commitSha\"?>\n  <?define ShortSha=\"commitShortSha\"?>\n  <?define UncommittedChanges=\"0\"?>\n  <?define VersionSourceDistance=\"5\"?>\n  <?define VersionSourceIncrement=\"None\"?>\n  <?define VersionSourceSemVer=\"\"?>\n  <?define VersionSourceSha=\"versionSourceSha\"?>\n  <?define WeightedPreReleaseNumber=\"0\"?>\n</Include>"
+            }
+          ]
+        },
+        "UpdateWixVersionFileWhenFileAlreadyExists": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "approved": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Include xmlns=\"http://schemas.microsoft.com/wix/2006/wi\">\n  <?define AssemblySemFileVer=\"1.2.3.0\"?>\n  <?define AssemblySemVer=\"1.2.3.0\"?>\n  <?define BranchName=\"develop\"?>\n  <?define BuildMetaData=\"5\"?>\n  <?define CommitCountSourceDistance=\"5\"?>\n  <?define CommitCountSourceSha=\"versionSourceSha\"?>\n  <?define CommitDate=\"2019-02-20\"?>\n  <?define CustomVersion=\"\"?>\n  <?define EscapedBranchName=\"develop\"?>\n  <?define FullBuildMetaData=\"5.Branch.develop.Sha.commitSha\"?>\n  <?define FullSemVer=\"1.2.3+5\"?>\n  <?define InformationalVersion=\"1.2.3+5.Branch.develop.Sha.commitSha\"?>\n  <?define Major=\"1\"?>\n  <?define MajorMinorPatch=\"1.2.3\"?>\n  <?define Minor=\"2\"?>\n  <?define Patch=\"3\"?>\n  <?define PreReleaseLabel=\"\"?>\n  <?define PreReleaseLabelName=\"\"?>\n  <?define PreReleaseLabelNameWithDash=\"\"?>\n  <?define PreReleaseLabelWithDash=\"\"?>\n  <?define PreReleaseNumber=\"\"?>\n  <?define SemVer=\"1.2.3\"?>\n  <?define SemVerSourceIncrement=\"None\"?>\n  <?define SemVerSourceSemVer=\"\"?>\n  <?define SemVerSourceSha=\"\"?>\n  <?define Sha=\"commitSha\"?>\n  <?define ShortSha=\"commitShortSha\"?>\n  <?define UncommittedChanges=\"0\"?>\n  <?define VersionSourceDistance=\"5\"?>\n  <?define VersionSourceIncrement=\"None\"?>\n  <?define VersionSourceSemVer=\"\"?>\n  <?define VersionSourceSha=\"versionSourceSha\"?>\n  <?define WeightedPreReleaseNumber=\"0\"?>\n</Include>"
+            }
+          ]
+        }
+      }
+    },
+    "AssemblyFileVersionTests": {
+      "source": "src/GitVersion.Output.Tests/Output/AssemblyFileVersionTests.cs",
+      "sha256": "3f448269374202e8bed17e89f250065cedce69a4eda78b21a706a1f53ea3c64c",
+      "go_test": "TestCSharpOutputProjections",
+      "methods": {
+        "ValidateAssemblyFileVersionBuilder": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "None",
+                1,
+                2,
+                3,
+                4,
+                null
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "Major",
+                1,
+                2,
+                3,
+                4,
+                "1.0.0.0"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "MajorMinor",
+                1,
+                2,
+                3,
+                4,
+                "1.2.0.0"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "MajorMinorPatch",
+                1,
+                2,
+                3,
+                4,
+                "1.2.3.0"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "MajorMinorPatchTag",
+                1,
+                2,
+                3,
+                4,
+                "1.2.3.4"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "InformationalVersionBuilderTests": {
+      "source": "src/GitVersion.Output.Tests/Output/InformationalVersionBuilderTests.cs",
+      "sha256": "9329044f09b183b7f6a96c1576f90c7353b984f33a1ccf927840edd1c6e24eb5",
+      "go_test": "TestCSharpOutputProjections",
+      "methods": {
+        "ValidateInformationalVersionBuilder": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "feature1",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "unstable",
+                "1c6609bcf",
+                1,
+                "1.2.3-unstable+1.Branch.feature1.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "develop",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "alpha645",
+                null,
+                null,
+                "1.2.3-alpha.645+Branch.develop.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "develop",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "unstable645",
+                null,
+                null,
+                "1.2.3-unstable.645+Branch.develop.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "develop",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "beta645",
+                null,
+                null,
+                "1.2.3-beta.645+Branch.develop.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-004",
+              "arguments": [
+                "hotfix-foo",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "alpha645",
+                null,
+                null,
+                "1.2.3-alpha.645+Branch.hotfix-foo.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-005",
+              "arguments": [
+                "hotfix-foo",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "beta645",
+                null,
+                null,
+                "1.2.3-beta.645+Branch.hotfix-foo.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-006",
+              "arguments": [
+                "hotfix-foo",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                null,
+                null,
+                null,
+                "1.2.3+Branch.hotfix-foo.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-007",
+              "arguments": [
+                "main",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                null,
+                null,
+                null,
+                "1.2.3+Branch.main.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-008",
+              "arguments": [
+                "myPullRequest",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                3,
+                "unstable3",
+                null,
+                null,
+                "1.2.3-unstable.3+Branch.myPullRequest.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-009",
+              "arguments": [
+                "release-1.2",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                0,
+                "beta2",
+                null,
+                null,
+                "1.2.0-beta.2+Branch.release-1.2.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-010",
+              "arguments": [
+                "release-1.2",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                0,
+                "alpha2",
+                null,
+                null,
+                "1.2.0-alpha.2+Branch.release-1.2.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-011",
+              "arguments": [
+                "release/1.2",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                0,
+                "beta2",
+                null,
+                null,
+                "1.2.0-beta.2+Branch.release-1.2.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            },
+            {
+              "id": "case-012",
+              "arguments": [
+                "release/1.2",
+                "a682956dc1a2752aa24597a0f5cd939f93614509",
+                "a682956d",
+                1,
+                2,
+                0,
+                "alpha2",
+                null,
+                null,
+                "1.2.0-alpha.2+Branch.release-1.2.Sha.a682956dc1a2752aa24597a0f5cd939f93614509"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "CommitDateTests": {
+      "source": "src/GitVersion.Core.Tests/CommitDateTests.cs",
+      "sha256": "7336371333c18f2308d381d12aad443335277d3636d9691739d68b9bc4bc2c17",
+      "go_test": "TestCSharpOutputProjections",
+      "methods": {
+        "CommitDateFormatTest": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "yyyy-MM-dd",
+                "2017-10-06"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "dd.MM.yyyy",
+                "06.10.2017"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "yyyyMMdd",
+                "20171006"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                "yyyy-MM",
+                "2017-10"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "TaggedSemanticVersionRepositoryTests": {
+      "source": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs",
+      "sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
+      "go_test": "TestCSharpTaggedVersionFiltering",
+      "methods": {
+        "GetTaggedSemanticVersions_IgnoredAndEligibleTagsShareCommit_ReturnsOnlyEligibleTag": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "tags": [
+                "1.0.0",
+                "2.0.0"
+              ],
+              "expected_tags": [
+                "1.0.0"
+              ],
+              "patterns": [
+                "^2\\.0\\.0$"
+              ]
+            }
+          ]
+        },
+        "GetTaggedSemanticVersions_MultiplePatterns_UsesCaseInsensitiveOrSemanticsOnFriendlyName": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [],
+              "tags": [
+                "v1.0.0",
+                "v2.0.0",
+                "v3.0.0"
+              ],
+              "expected_tags": [
+                "v3.0.0"
+              ],
+              "patterns": [
+                "^v1\\.",
+                "^V2\\.",
+                "^refs/tags/v3"
+              ]
+            }
+          ]
+        },
+        "GetTaggedSemanticVersions_EmptyOrNonMatchingTags_PreservesCandidates": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                null
+              ],
+              "tags": [
+                "1.0.0"
+              ],
+              "expected_tags": [
+                "1.0.0"
+              ],
+              "patterns": []
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "^preview-"
+              ],
+              "tags": [
+                "1.0.0"
+              ],
+              "expected_tags": [
+                "1.0.0"
+              ],
+              "patterns": [
+                "^preview-"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "BranchRepositoryTests": {
+      "source": "src/GitVersion.Core.Tests/Core/BranchRepositoryTests.cs",
+      "sha256": "b0ed20cf463bb98776d557e351d14e7c9f6c8e859a27ca6b45f3d464c583302e",
+      "go_test": "TestCSharpCanonicalBranchIgnore",
+      "methods": {
+        "IsBranchIgnored_MatchesFriendlyNameWithoutRemoteName": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                "refs/heads/release/legacy"
+              ],
+              "patterns": [
+                "^release/legacy$"
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                "refs/remotes/origin/release/legacy"
+              ],
+              "patterns": [
+                "^release/legacy$"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                "refs/remotes/upstream/release/legacy"
+              ],
+              "patterns": [
+                "^release/legacy$"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

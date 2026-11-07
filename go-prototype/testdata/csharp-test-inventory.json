@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1260,
+  "mapped_declarations": 1272,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1222,
+      "mapped": 1234,
       "verified": 1222
     },
     "integration": {
@@ -7185,9 +7185,16 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpWixOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs#WixVersionFileVarCountTest",
@@ -7202,9 +7209,16 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpWixOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/UpdateWixVersionFileTests.cs#WixVersionFileContentTest",
@@ -7219,9 +7233,16 @@
       ],
       "source_sha256": "416ab91036ef4c6a2bb824e28484cbdcf9b5c828bd4823001deec50584f818bf",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpWixOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Run the Go CLI on the original commit/tag topology. Check file existence and compare its variable count or every value with the independent calculation."
+      ]
     },
     {
       "id": "src/GitVersion.App.Tests/VersionWriterTests.cs#WriteVersionShouldWriteFileVersionWithNoPrereleaseTag",
@@ -13397,9 +13418,19 @@
       ],
       "source_sha256": "7336371333c18f2308d381d12aad443335277d3636d9691739d68b9bc4bc2c17",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpOutputProjections",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Use the four parameterized NUnit cases and the original UTC timestamp. The Test marker adds no arguments."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/BranchRepositoryTests.cs#IsBranchIgnored_MatchesFriendlyNameWithoutRemoteName",
@@ -13422,9 +13453,18 @@
       ],
       "source_sha256": "b0ed20cf463bb98776d557e351d14e7c9f6c8e859a27ca6b45f3d464c583302e",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpCanonicalBranchIgnore",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Match the original canonical local and remote names with the Go ignore matcher."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/BranchRepositoryTests.cs#GetMainBranches_IgnorePatternsUseCaseInsensitiveOrSemanticsWithoutRemote",
@@ -16714,9 +16754,16 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpTaggedVersionFiltering",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs#GetTaggedSemanticVersions_MultiplePatterns_UsesCaseInsensitiveOrSemanticsOnFriendlyName",
@@ -16731,9 +16778,16 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpTaggedVersionFiltering",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/Core/TaggedSemanticVersionRepositoryTests.cs#GetTaggedSemanticVersions_EmptyOrNonMatchingTags_PreservesCandidates",
@@ -16752,9 +16806,17 @@
       ],
       "source_sha256": "e64141f8f74b89c336858290d3e77b76e7ef64c10ecdf9a67b2b966badfd3c00",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpTaggedVersionFiltering",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Generate the original Git histories with go-git. Check the entire ordered tag-name set returned by the calculation tag reader."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/DependencyRegistrationTests.cs#VersionStrategiesPreserveTheCompleteDiscoveryOrder",
@@ -221390,9 +221452,20 @@
       ],
       "source_sha256": "3f448269374202e8bed17e89f250065cedce69a4eda78b21a706a1f53ea3c64c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpOutputProjections",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Exercise the Go formatter. The None scheme is represented internally by an empty string."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/AssemblyInfoFileUpdaterTests.cs#ShouldCreateAssemblyInfoFileWhenNotExistsAndEnsureAssemblyInfo",
@@ -222417,9 +222490,28 @@
       ],
       "source_sha256": "9329044f09b183b7f6a96c1576f90c7353b984f33a1ccf927840edd1c6e24eb5",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpOutputProjections",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007",
+        "case-008",
+        "case-009",
+        "case-010",
+        "case-011",
+        "case-012"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Project the original semantic version and build metadata through the Go output provider."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/ProjectFileUpdaterTests.cs#CanUpdateProjectFileWithSdkProjectFileXml",
@@ -222709,9 +222801,16 @@
       ],
       "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpWixOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
+      ]
     },
     {
       "id": "src/GitVersion.Output.Tests/Output/WixFileTests.cs#UpdateWixVersionFileWhenFileAlreadyExists",
@@ -222726,9 +222825,16 @@
       ],
       "source_sha256": "f99941d139f444b2f34f72741470e5110158b5e8da6a7ca7f474b6d3f7808a7c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpWixOutput",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-wix-and-output.json",
+      "adaptations": [
+        "Use the Go variable provider and temporary files. Remove the UTF-8 BOM for the original approved-text assertion."
+      ]
     },
     {
       "id": "src/GitVersion.Telemetry.Tests/TelemetryRuntimeContextTests.cs#LinuxMetadataIsAllowlisted",
