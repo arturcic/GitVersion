@@ -1,0 +1,615 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "source": "src/GitVersion.Core.Tests/MergeMessageTests.cs",
+  "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
+  "methods": {
+    "ParsesMergeMessage": [
+      {
+        "message": "Merge branch 'feature/one'",
+        "format": "Default",
+        "branch": "feature/one",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge branch 'origin/feature/one'",
+        "format": "Default",
+        "branch": "origin/feature/one",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge tag 'v4.0.0' into main",
+        "format": "Default",
+        "branch": "v4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      },
+      {
+        "message": "Merge tag 'V4.0.0' into main",
+        "format": "Default",
+        "branch": "V4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-003"
+      },
+      {
+        "message": "Merge branch 'feature/4.1.0/one'",
+        "format": "Default",
+        "branch": "feature/4.1.0/one",
+        "target": null,
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-004"
+      },
+      {
+        "message": "Merge branch 'origin/4.1.0/feature/one'",
+        "format": "Default",
+        "branch": "origin/4.1.0/feature/one",
+        "target": null,
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-005"
+      },
+      {
+        "message": "Merge tag 'v://10.10.10.10' into main",
+        "format": "Default",
+        "branch": "v://10.10.10.10",
+        "target": "main",
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-006"
+      }
+    ],
+    "ParsesGitHubPullMergeMessage": [
+      {
+        "message": "Merge pull request #1234 from organization/feature/one",
+        "format": "GitHubPull",
+        "branch": "feature/one",
+        "target": null,
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge pull request #1234 in organization/feature/one",
+        "format": "GitHubPull",
+        "branch": "feature/one",
+        "target": null,
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge pull request #1234 in v4.0.0",
+        "format": "GitHubPull",
+        "branch": "v4.0.0",
+        "target": null,
+        "version": "4.0.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      },
+      {
+        "message": "Merge pull request #1234 in organization/feature/4.1.0/one",
+        "format": "GitHubPull",
+        "branch": "feature/4.1.0/one",
+        "target": null,
+        "version": "4.1.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-003"
+      },
+      {
+        "message": "Merge pull request #1234 from organization/feature/one into dev",
+        "format": "GitHubPull",
+        "branch": "feature/one",
+        "target": "dev",
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-004"
+      }
+    ],
+    "ParsesBitBucketPullMergeMessage": [
+      {
+        "message": "Merge pull request #1234 from feature/one from feature/two to dev",
+        "format": "BitBucketPull",
+        "branch": "feature/two",
+        "target": "dev",
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge pull request #1234 in feature/one from feature/two to dev",
+        "format": "BitBucketPull",
+        "branch": "feature/two",
+        "target": "dev",
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge pull request #1234 in v4.0.0 from v4.1.0 to dev",
+        "format": "BitBucketPull",
+        "branch": "v4.1.0",
+        "target": "dev",
+        "version": "4.1.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      },
+      {
+        "message": "Merge pull request #1234 from origin/feature/one from origin/feature/4.2.0/two to dev",
+        "format": "BitBucketPull",
+        "branch": "origin/feature/4.2.0/two",
+        "target": "dev",
+        "version": "4.2.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-003"
+      },
+      {
+        "message": "Merge pull request #1234 in feature/4.1.0/one from feature/4.2.0/two to dev",
+        "format": "BitBucketPull",
+        "branch": "feature/4.2.0/two",
+        "target": "dev",
+        "version": "4.2.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-004"
+      },
+      {
+        "message": "Merge pull request #1234 from feature/one from feature/two to main",
+        "format": "BitBucketPull",
+        "branch": "feature/two",
+        "target": "main",
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-005"
+      },
+      {
+        "message": "Merge pull request #1234 in V4.1.0 from V://10.10.10.10 to dev",
+        "format": "BitBucketPull",
+        "branch": "V://10.10.10.10",
+        "target": "dev",
+        "version": null,
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-006"
+      },
+      {
+        "message": "Merge pull request #1234 from feature/one from v4.0.0 to main",
+        "format": "BitBucketPull",
+        "branch": "v4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": 1234,
+        "custom": [],
+        "error": false,
+        "id": "case-007"
+      }
+    ],
+    "ParsesBitBucketPullMergeMessage_v7": [
+      {
+        "message": "Pull request #68: Release/2.2.0\n\nMerge in aaa/777 from release/2.2.0 to main\n\n* commit '750aa37753dec1a85b22cc16db851187649d9e97':",
+        "format": "BitBucketPullv7",
+        "branch": "release/2.2.0",
+        "target": "main",
+        "version": "2.2.0",
+        "pr": 68,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "ParsesBitBucketCloudPullMergeMessage": [
+      {
+        "message": "Merged in release/2.301.0 (pull request #1789)\n\nRelease/2.301.0\n\nApproved-by: John Doe",
+        "format": "BitBucketCloudPull",
+        "branch": "release/2.301.0",
+        "target": null,
+        "version": "2.301.0",
+        "pr": 1789,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "ParsesSmartGitMergeMessage": [
+      {
+        "message": "Finish feature/one",
+        "format": "SmartGit",
+        "branch": "feature/one",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Finish origin/feature/one",
+        "format": "SmartGit",
+        "branch": "origin/feature/one",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Finish v4.0.0",
+        "format": "SmartGit",
+        "branch": "v4.0.0",
+        "target": null,
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      },
+      {
+        "message": "Finish feature/4.1.0/one",
+        "format": "SmartGit",
+        "branch": "feature/4.1.0/one",
+        "target": null,
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-003"
+      },
+      {
+        "message": "Finish origin/4.1.0/feature/one",
+        "format": "SmartGit",
+        "branch": "origin/4.1.0/feature/one",
+        "target": null,
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-004"
+      },
+      {
+        "message": "Finish V://10.10.10.10",
+        "format": "SmartGit",
+        "branch": "V://10.10.10.10",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-005"
+      },
+      {
+        "message": "Finish V4.0.0 into main",
+        "format": "SmartGit",
+        "branch": "V4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-006"
+      }
+    ],
+    "ParsesRemoteTrackingMergeMessage": [
+      {
+        "message": "Merge remote-tracking branch 'feature/one' into main",
+        "format": "RemoteTracking",
+        "branch": "feature/one",
+        "target": "main",
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge remote-tracking branch 'origin/feature/one' into dev",
+        "format": "RemoteTracking",
+        "branch": "origin/feature/one",
+        "target": "dev",
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Merge remote-tracking branch 'v4.0.0' into main",
+        "format": "RemoteTracking",
+        "branch": "v4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      },
+      {
+        "message": "Merge remote-tracking branch 'V4.0.0' into main",
+        "format": "RemoteTracking",
+        "branch": "V4.0.0",
+        "target": "main",
+        "version": "4.0.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-003"
+      },
+      {
+        "message": "Merge remote-tracking branch 'feature/4.1.0/one' into dev",
+        "format": "RemoteTracking",
+        "branch": "feature/4.1.0/one",
+        "target": "dev",
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-004"
+      },
+      {
+        "message": "Merge remote-tracking branch 'origin/4.1.0/feature/one' into main",
+        "format": "RemoteTracking",
+        "branch": "origin/4.1.0/feature/one",
+        "target": "main",
+        "version": "4.1.0",
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-005"
+      },
+      {
+        "message": "Merge remote-tracking branch 'v://10.10.10.10' into main",
+        "format": "RemoteTracking",
+        "branch": "v://10.10.10.10",
+        "target": "main",
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-006"
+      }
+    ],
+    "ParsesInvalidMergeMessage": [
+      {
+        "message": "Merge pull request # from feature/one",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "Merge pull request # in feature/one from feature/two to main",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      },
+      {
+        "message": "Zusammengef\u00fchrter PR : feature/one mit main mergen",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-002"
+      }
+    ],
+    "NullMessageStringThrows": [
+      {
+        "message": null,
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": true,
+        "id": "case-000"
+      }
+    ],
+    "EmptyMessageString": [
+      {
+        "message": "",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-000"
+      },
+      {
+        "message": "\t\t  ",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "id": "case-001"
+      }
+    ],
+    "EmptyTagPrefix": [
+      {
+        "message": "Updated some code.",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "tag_prefix": "",
+        "id": "case-000"
+      },
+      {
+        "message": "Updated some code.",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "tag_prefix": "\t\t  ",
+        "id": "case-001"
+      },
+      {
+        "message": "Updated some code.",
+        "format": null,
+        "branch": null,
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [],
+        "error": false,
+        "tag_prefix": null,
+        "id": "case-002"
+      }
+    ],
+    "MatchesSingleCustomMessage": [
+      {
+        "message": "My custom message",
+        "format": "MyCustom",
+        "branch": "",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [
+          {
+            "Name": "MyCustom",
+            "Pattern": "My custom message"
+          }
+        ],
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "MatchesMultipleCustomMessages": [
+      {
+        "message": "My custom message",
+        "format": "MyCustom",
+        "branch": "",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [
+          {
+            "Name": "Default2",
+            "Pattern": "some example"
+          },
+          {
+            "Name": "Default3",
+            "Pattern": "another example"
+          },
+          {
+            "Name": "MyCustom",
+            "Pattern": "My custom message"
+          }
+        ],
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "MatchesCaptureGroupsFromCustomMessages": [
+      {
+        "message": "Merged PR #1234 into main from feature/2.0.0/example",
+        "format": "MyCustom",
+        "branch": "feature/2.0.0/example",
+        "target": "main",
+        "version": "2.0.0",
+        "pr": 1234,
+        "custom": [
+          {
+            "Name": "MyCustom",
+            "Pattern": "^Merged PR #(?<PullRequestNumber>\\d+) into (?<TargetBranch>[^\\s]*) from (?:(?<SourceBranch>[^\\s]*))"
+          }
+        ],
+        "error": false,
+        "id": "case-000"
+      }
+    ],
+    "ReturnsAfterFirstMatchingPattern": [
+      {
+        "message": "Merge branch 'this'",
+        "format": "MyCustom",
+        "branch": "this",
+        "target": null,
+        "version": null,
+        "pr": null,
+        "custom": [
+          {
+            "Name": "MyCustom",
+            "Pattern": "^Merge (branch|tag) '(?<SourceBranch>[^']*)'(?: into (?<TargetBranch>[^\\s]*))*"
+          },
+          {
+            "Name": "Default2",
+            "Pattern": "^Merge (branch|tag) '(?<SourceBranch>[^']*)'(?: into (?<TargetBranch>[^\\s]*))*"
+          },
+          {
+            "Name": "Default3",
+            "Pattern": "^Merge (branch|tag) '(?<SourceBranch>[^']*)'(?: into (?<TargetBranch>[^\\s]*))*"
+          }
+        ],
+        "error": false,
+        "id": "case-000"
+      }
+    ]
+  }
+}

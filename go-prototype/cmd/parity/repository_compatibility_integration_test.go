@@ -59,6 +59,21 @@ func TestPlatformRepositoryCompatibilityParity(t *testing.T) {
 		{Op: "commit", ID: "root"}, {Op: "tag", Name: "6.0.0"}, {Op: "branch", Name: "hotfix/4795-reads-tag-from-other-branch"}, {Op: "checkout", Name: "hotfix/4795-reads-tag-from-other-branch"}, {Op: "commit", ID: "work"}, {Op: "checkout", Name: "main"}, {Op: "merge", ID: "merge", From: "hotfix/4795-reads-tag-from-other-branch", Message: "Merge pull request #4796 from HHobeck/hotfix/4795-reads-tag-from-other-branch"}, {Op: "checkpoint", ID: "merged"},
 	}})
 
+	for n, message := range []string{
+		"Merge tag 'v2.0.0' into main",
+		"Finish release/2.0.0 into main",
+		"Merge pull request #1234 from project from release/2.0.0 to main",
+		"Pull request #68: Release/2.0.0\n\nMerge in aaa/777 from release/2.0.0 to main",
+		"Merged in release/2.0.0 (pull request #1789)",
+		"Merge pull request #1234 in organization/release/2.0.0 into main",
+		"Merge remote-tracking branch 'origin/release/2.0.0' into main",
+		"Merge pull request 1234 from release/2.0.0 into main",
+	} {
+		recipes = append(recipes, fixtures.Recipe{ID: fmt.Sprintf("merge-format-%02d", n), Description: message, Config: "workflow: GitFlow/v1\ncalculation:\n  mode: ManualDeployment\n  branches:\n    main: {label: alpha}\n", Steps: []fixtures.Step{
+			{Op: "commit", ID: "root"}, {Op: "tag", Name: "1.0.0"}, {Op: "branch", Name: "release/2.0.0"}, {Op: "checkout", Name: "release/2.0.0"}, {Op: "commit", ID: "work"}, {Op: "checkout", Name: "main"}, {Op: "merge", ID: "merge", From: "release/2.0.0", Message: message}, {Op: "checkpoint", ID: "merged"},
+		}})
+	}
+
 	if err := parity.WriteJSON(filepath.Join(dir, "recipes.json"), recipes); err != nil {
 		t.Fatal(err)
 	}

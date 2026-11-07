@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 587,
+  "mapped_declarations": 602,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 549,
+      "mapped": 564,
       "verified": 549
     },
     "integration": {
@@ -204017,9 +204017,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#EmptyMessageString",
@@ -204038,9 +204047,19 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#EmptyTagPrefix",
@@ -204063,9 +204082,20 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesMergeMessage",
@@ -204080,9 +204110,24 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesGitHubPullMergeMessage",
@@ -204097,9 +204142,22 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesBitBucketPullMergeMessage",
@@ -204114,9 +204172,25 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006",
+        "case-007"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesBitBucketPullMergeMessage_v7",
@@ -204131,9 +204205,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesBitBucketCloudPullMergeMessage",
@@ -204148,9 +204231,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesSmartGitMergeMessage",
@@ -204165,9 +204257,24 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesRemoteTrackingMergeMessage",
@@ -204182,9 +204289,24 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003",
+        "case-004",
+        "case-005",
+        "case-006"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ParsesInvalidMergeMessage",
@@ -204199,9 +204321,20 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#MatchesSingleCustomMessage",
@@ -204216,9 +204349,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#MatchesMultipleCustomMessages",
@@ -204233,9 +204375,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#MatchesCaptureGroupsFromCustomMessages",
@@ -204250,9 +204401,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/MergeMessageTests.cs#ReturnsAfterFirstMatchingPattern",
@@ -204267,9 +204427,18 @@
       ],
       "source_sha256": "703af3d98e90436f15bb0423e52d49624e1a843d767128948ff446dd8b835aac",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpMergeMessages",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-merge-messages.json",
+      "adaptations": [
+        "Go pointers retain C# null versus empty capture values; Go errors replace null argument exceptions.",
+        "All original format, branch, target, pull-request and semantic version assertions retained. EmptyTagPrefix has an unused tag prefix on an unmatched message; original arguments retained.",
+        "Custom builder dictionaries map to an ordered format list, preserving first-match precedence."
+      ]
     },
     {
       "id": "src/GitVersion.Core.Tests/VersionCalculation/EffectiveBranchConfigurationFinderTests.cs#When_getting_configurations_of_a_branch_without_versioning_mode_Given_fallback_configuration_with_versioning_mode_Then_result_should_have_versioning_mode",

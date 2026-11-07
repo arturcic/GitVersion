@@ -158,17 +158,12 @@ func versionInBranch(name string) (semver.Version, bool) {
 	return semver.Version{}, false
 }
 
-var mergeBranchPattern = regexp.MustCompile(`(?i)Merge (?:remote-tracking )?branch ['"]([^'"]+)['"]`)
-var pullMergePattern = regexp.MustCompile(`(?i)Merge pull request #[0-9]+ from (?:[^/]+/)?(.+)`)
-
 func mergedBranch(message string) string {
-	if m := mergeBranchPattern.FindStringSubmatch(message); m != nil {
-		return strings.TrimPrefix(m[1], "origin/")
+	parsed, err := ParseMergeMessage(&message, nil)
+	if err != nil || parsed.MergedBranch == nil {
+		return ""
 	}
-	if m := pullMergePattern.FindStringSubmatch(message); m != nil {
-		return strings.TrimSpace(m[1])
-	}
-	return ""
+	return strings.TrimPrefix(*parsed.MergedBranch, "origin/")
 }
 func workflowCandidates(r *gitrepo.Repository, cfg config.Config, e config.Effective, branch, source, head string, refs []branchRef, history []string, tags []tag, load func(string) (gitrepo.Commit, error)) ([]candidate, error) {
 	var out []candidate
