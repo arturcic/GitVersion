@@ -2,13 +2,14 @@ package gitrepo
 
 import (
 	"fmt"
-	"path/filepath"
+	"github.com/go-git/go-billy/v5"
 
 	"github.com/go-git/go-billy/v5/osfs"
 	git "github.com/go-git/go-git/v5"
 	gitconfig "github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing/cache"
 	"github.com/go-git/go-git/v5/storage/filesystem"
+	"github.com/go-git/go-git/v5/storage/filesystem/dotgit"
 )
 
 // The pinned C# managed repository reads the common Git configuration, including
@@ -35,11 +36,15 @@ func (s *commonConfigStorage) Config() (*gitconfig.Config, error) {
 func (s *commonConfigStorage) SetConfig(*gitconfig.Config) error {
 	return fmt.Errorf("repository configuration is read-only")
 }
-func openCommonConfigRepository(path string) (*git.Repository, error) {
-	abs, err := filepath.Abs(path)
-	if err != nil {
-		return nil, err
+func (layout repositoryLayout) open() (*git.Repository, error) {
+	var fs billy.Filesystem = osfs.New(layout.gitDirectory)
+	if layout.commonDirectory != layout.gitDirectory {
+		fs = dotgit.NewRepositoryFilesystem(fs, osfs.New(layout.commonDirectory))
 	}
-	st := filesystem.NewStorage(osfs.New(filepath.Join(abs, ".git")), cache.NewObjectLRUDefault())
-	return git.Open(&commonConfigStorage{st}, osfs.New(abs))
+	var worktree billy.Filesystem
+	if layout.workingDirectory != "" {
+		worktree = osfs.New(layout.workingDirectory)
+	}
+	storage := filesystem.NewStorage(fs, cache.NewObjectLRUDefault())
+	return git.Open(&commonConfigStorage{storage}, worktree)
 }

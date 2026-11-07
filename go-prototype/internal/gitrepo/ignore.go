@@ -151,7 +151,7 @@ func loadIgnoreSource(path, base string, ignoreCase bool) (ignoreSource, error) 
 	rules, err := parseIgnoreRules(string(raw), ignoreCase)
 	return ignoreSource{base, rules}, err
 }
-func gitConfigValue(path, section, key string) (string, bool, error) {
+func gitConfigValue(path, section, subsection, key string) (string, bool, error) {
 	f, err := os.Open(path)
 	if os.IsNotExist(err) {
 		return "", false, nil
@@ -168,13 +168,20 @@ func gitConfigValue(path, section, key string) (string, bool, error) {
 		return "", false, nil
 	}
 	s := cfg.Raw.Section(section)
+	if subsection != "" {
+		if !s.HasSubsection(subsection) {
+			return "", false, nil
+		}
+		sub := s.Subsection(subsection)
+		return sub.Option(key), sub.HasOption(key), nil
+	}
 	return s.Option(key), s.HasOption(key), nil
 }
 
 // reconcileUntracked uses the reference's ordered ignore sources and directory
 // traversal. Tracked changes from go-git are retained regardless of ignore rules.
 func reconcileUntracked(path, gitdir string, g *git.Repository, status git.Status) error {
-	ignore, _, err := gitConfigValue(filepath.Join(gitdir, "config"), "core", "ignorecase")
+	ignore, _, err := gitConfigValue(filepath.Join(gitdir, "config"), "core", "", "ignorecase")
 	if err != nil {
 		return err
 	}
@@ -189,7 +196,7 @@ func reconcileUntracked(path, gitdir string, g *git.Repository, status git.Statu
 	}
 	global := filepath.Join(xdg, "git", "ignore")
 	for _, p := range []string{filepath.Join(gitdir, "config"), filepath.Join(home, ".gitconfig"), filepath.Join(xdg, "git", "config")} {
-		value, found, err := gitConfigValue(p, "core", "excludesfile")
+		value, found, err := gitConfigValue(p, "core", "", "excludesfile")
 		if err != nil {
 			return err
 		}

@@ -73,24 +73,26 @@ type Observation struct {
 	Uncommitted int                 `json:"uncommitted"`
 }
 
-// Open deliberately accepts only complete, clean, non-bare repositories with
+// Open deliberately accepts only complete, clean working trees with
 // attached local HEAD. Unsupported states must not yield plausible observations.
 func Open(path string) (*Repository, error) {
-	dir := filepath.Join(path, ".git")
-	info, err := os.Stat(dir)
-	if err != nil || !info.IsDir() {
-		return nil, fmt.Errorf("unsupported repository: require a normal non-bare .git directory")
-	}
-	g, err := openCommonConfigRepository(path)
+	layout, err := openLayout(path)
 	if err != nil {
 		return nil, err
 	}
-	shallow, err := g.Storer.Shallow()
+	if layout.workingDirectory == "" {
+		return nil, fmt.Errorf("unsupported bare repository")
+	}
+	shallow, err := layout.readShallowCommits()
 	if err != nil {
 		return nil, err
 	}
 	if len(shallow) > 0 {
 		return nil, fmt.Errorf("unsupported shallow repository")
+	}
+	g, err := layout.open()
+	if err != nil {
+		return nil, err
 	}
 	head, err := g.Reference(plumbing.HEAD, false)
 	if err != nil {
@@ -111,13 +113,13 @@ func Open(path string) (*Repository, error) {
 	if err != nil {
 		return nil, err
 	}
-	if err := reconcileUntracked(path, dir, g, status); err != nil {
+	if err := reconcileUntracked(layout.workingDirectory, layout.commonDirectory, g, status); err != nil {
 		return nil, err
 	}
 	if !status.IsClean() {
 		return nil, fmt.Errorf("unsupported dirty repository")
 	}
-	r := &Repository{git: g, dir: dir, head: tip.Hash().String(), branch: head.Target().String(), commits: map[string]*object.Commit{}}
+	r := &Repository{git: g, dir: layout.commonDirectory, head: tip.Hash().String(), branch: head.Target().String(), commits: map[string]*object.Commit{}}
 	if _, err = r.load(r.head); err != nil {
 		return nil, err
 	}
@@ -128,10 +130,11 @@ func (r *Repository) load(id string) (*object.Commit, error) {
 	if c, ok := r.commits[id]; ok {
 		return c, nil
 	}
-	if !plumbing.IsHash(id) {
+	parsed, err := parseObjectID(id)
+	if err != nil || parsed.length != sha1Size {
 		return nil, fmt.Errorf("invalid commit id %q", id)
 	}
-	c, err := r.git.CommitObject(plumbing.NewHash(id))
+	c, err := r.git.CommitObject(plumbing.Hash(parsed.data[:sha1Size]))
 	if err != nil {
 		return nil, fmt.Errorf("commit %s: %w", id, err)
 	}

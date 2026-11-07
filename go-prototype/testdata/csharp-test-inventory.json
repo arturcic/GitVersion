@@ -3,11 +3,11 @@
   "source_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "kind": "static attributed method inventory; not expanded NUnit discovery",
   "declarations": 2178,
-  "mapped_declarations": 1054,
+  "mapped_declarations": 1085,
   "categories": {
     "unit-or-component": {
       "declarations": 1516,
-      "mapped": 1016,
+      "mapped": 1047,
       "verified": 1016
     },
     "integration": {
@@ -216860,9 +216860,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs#UnescapesBackslashesInQuotedValue",
@@ -216877,9 +216884,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs#KeepsForwardSlashPathUnchanged",
@@ -216894,9 +216908,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs#StripsInlineCommentOutsideQuotesButNotInside",
@@ -216911,9 +216932,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs#DecodesEscapeSequences",
@@ -216928,9 +216956,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs#TrimsUnquotedTrailingWhitespaceButKeepsQuotedWhitespace",
@@ -216945,9 +216980,16 @@
       ],
       "source_sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "The repository reader uses go-git config decoding and the same file lookup path used by the tests. Both original assertions are retained in the comment and whitespace methods."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitIndexTests.cs#IndexEntriesMatchGitLsFiles",
@@ -217038,9 +217080,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParsesUpperCaseHexAndNormalizesToLowerCase",
@@ -217055,9 +217104,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParsesA64CharacterSha256HexString",
@@ -217072,9 +217128,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParsesRawBytes",
@@ -217089,9 +217152,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParsesAsciiEncodedHex",
@@ -217106,9 +217176,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParseRejectsInvalidHexLengths",
@@ -217135,9 +217212,19 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParseRejectsInvalidRawByteLengths",
@@ -217152,9 +217239,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ParseRejectsNonHexCharacters",
@@ -217169,9 +217263,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#EqualObjectIdsAreEqualAndHaveTheSameHashCode",
@@ -217186,9 +217287,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#DifferentObjectIdsAreNotEqual",
@@ -217203,9 +217311,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ASha1IdIsNotEqualToASha256IdWithTheSamePrefix",
@@ -217220,9 +217335,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#CanBeUsedAsADictionaryKey",
@@ -217237,9 +217359,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ToStringWithLengthReturnsAHexPrefix",
@@ -217266,9 +217395,19 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000",
+        "case-001",
+        "case-002",
+        "case-003"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#ToStringWithInvalidLengthThrows",
@@ -217283,9 +217422,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#CopyToCopiesTheRawBytes",
@@ -217300,9 +217446,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#AsUInt16ReturnsTheFirstTwoBytes",
@@ -217317,9 +217470,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs#EmptyHasAZeroHashLength",
@@ -217334,9 +217494,16 @@
       ],
       "source_sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go comparable values and dictionary lookups preserve equality, inequality, and equal-key hashing. Typed Go errors distinguish length, format, and prefix bounds."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitPackMemoryCacheTests.cs#ConcurrentAddsAndReadsPreserveIndependentViews",
@@ -217606,9 +217773,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#TryOpenDoesNotWalkUpToAnEnclosingRepository",
@@ -217623,9 +217797,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#RejectsSha256RepositoriesWithAClearMessage",
@@ -217640,9 +217821,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#ReturnsNullOutsideOfARepository",
@@ -217657,9 +217845,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#ResolvesLinkedWorktrees",
@@ -217674,9 +217869,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#DetectsShallowClones",
@@ -217691,9 +217893,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#DiscoversABareRepository",
@@ -217708,9 +217917,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs#ThrowsForReftableRepositories",
@@ -217725,9 +217941,16 @@
       ],
       "source_sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
       "category": "unit-or-component",
-      "status": "pending",
-      "go_test": null,
-      "fixtures": []
+      "status": "ported-awaiting-platform-verification",
+      "go_test": "TestCSharpManagedRepository",
+      "fixtures": [],
+      "port_cases": [
+        "case-000"
+      ],
+      "case_file": "testdata/csharp-managed-repository.json",
+      "adaptations": [
+        "Go-git creates the commit graph, clone, and stores. Linked worktree metadata and unsupported format markers reproduce the original on-disk layouts without requiring a Git executable on Ubuntu."
+      ]
     },
     {
       "id": "src/GitVersion.Git.Managed.Tests/GitRevisionWalkerTests.cs#LinearHistoryMatchesLibGit2",

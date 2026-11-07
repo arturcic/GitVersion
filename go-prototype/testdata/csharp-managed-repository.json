@@ -1,0 +1,321 @@
+{
+  "revision": "14d222235b7dabb7033473528a76fd18478a9217",
+  "suites": {
+    "GitObjectIdTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitObjectIdTests.cs",
+      "sha256": "5b337f4755e5a7b458e5c887ffe9280c2ac055944781bb05b96281141916f175",
+      "constants": {
+        "Sha1Hex": "4e912736c27e40b389904d046dc63dc9f578117f",
+        "Sha256Hex": "9c5e01e5827b7a2e0f9b2ecabf5ee89f4fd8b7c153bf8dd9b1f38f9b7d6f2a3c"
+      },
+      "methods": {
+        "ParsesA40CharacterSha1HexString": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParsesUpperCaseHexAndNormalizesToLowerCase": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParsesA64CharacterSha256HexString": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParsesRawBytes": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParsesAsciiEncodedHex": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParseRejectsInvalidHexLengths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                0
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                19
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                39
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                41
+              ]
+            }
+          ]
+        },
+        "ParseRejectsInvalidRawByteLengths": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ParseRejectsNonHexCharacters": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EqualObjectIdsAreEqualAndHaveTheSameHashCode": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DifferentObjectIdsAreNotEqual": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ASha1IdIsNotEqualToASha256IdWithTheSamePrefix": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CanBeUsedAsADictionaryKey": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ToStringWithLengthReturnsAHexPrefix": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": [
+                0,
+                ""
+              ]
+            },
+            {
+              "id": "case-001",
+              "arguments": [
+                1,
+                "4"
+              ]
+            },
+            {
+              "id": "case-002",
+              "arguments": [
+                7,
+                "4e91273"
+              ]
+            },
+            {
+              "id": "case-003",
+              "arguments": [
+                40,
+                "4e912736c27e40b389904d046dc63dc9f578117f"
+              ]
+            }
+          ]
+        },
+        "ToStringWithInvalidLengthThrows": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "CopyToCopiesTheRawBytes": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "AsUInt16ReturnsTheFirstTwoBytes": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "EmptyHasAZeroHashLength": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "GitRepositoryLayoutTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitRepositoryLayoutTests.cs",
+      "sha256": "19025cd6dd1feea8837923fdb000bfcd90d62a7752858d2aeb939f776a2bebc0",
+      "constants": {},
+      "methods": {
+        "DiscoversARepositoryFromItsRootAndFromANestedDirectory": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "TryOpenDoesNotWalkUpToAnEnclosingRepository": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "RejectsSha256RepositoriesWithAClearMessage": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ReturnsNullOutsideOfARepository": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ResolvesLinkedWorktrees": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DetectsShallowClones": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DiscoversABareRepository": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "ThrowsForReftableRepositories": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    },
+    "GitConfigurationFileTests": {
+      "source": "src/GitVersion.Git.Managed.Tests/GitConfigurationFileTests.cs",
+      "sha256": "6e807e384da2181fc1190c4147893812cedce4a45bb0b7db9b114ca772c8039c",
+      "constants": {},
+      "methods": {
+        "UnescapesBackslashesInUnquotedValue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "UnescapesBackslashesInQuotedValue": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "KeepsForwardSlashPathUnchanged": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "StripsInlineCommentOutsideQuotesButNotInside": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "DecodesEscapeSequences": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        },
+        "TrimsUnquotedTrailingWhitespaceButKeepsQuotedWhitespace": {
+          "cases": [
+            {
+              "id": "case-000",
+              "arguments": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}
