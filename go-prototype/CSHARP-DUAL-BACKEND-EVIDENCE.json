@@ -1,4 +1,637 @@
 {
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "passed",
+      "runs": [
+        {
+          "implementation_checkpoint": "33f4d8525122aebe8e338011504ed35ecdd910f3",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 39935,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "regular_tests_passed",
+                  "value": 39935
+                },
+                {
+                  "name": "regular_packages_passed",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "fresh_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "actual_repository_fields_matching",
+                  "value": 33
+                }
+              ]
+            },
+            {
+              "name": "dual-backend-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 19,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/dual-backend-oracle-1095767242",
+                  "sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
+                  "host": null
+                },
+                {
+                  "kind": "provenance",
+                  "path": ".local/dual-backend-oracle-1095767242/provenance.json",
+                  "sha256": "26c8d062b27468724d63c15c2e4fd8f7b7f90afb04627dc2c56a16b5722902d5",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5",
+          "scope": "Focused rerun against the frozen dual-backend reference",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows.eLaDqM/darwin-tests.jsonl"
+                },
+                {
+                  "name": "test_log_sha256",
+                  "value": "329d684613b494111915a66825bce2838b16028070899bed5a4238e0a4af56dc"
+                }
+              ]
+            },
+            {
+              "name": "TestCSharpDualBackendParity",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows.eLaDqM/darwin-tests.jsonl"
+                },
+                {
+                  "name": "test_log_sha256",
+                  "value": "329d684613b494111915a66825bce2838b16028070899bed5a4238e0a4af56dc"
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/dual-backend-windows.eLaDqM/darwin-tests.jsonl",
+              "sha256": "329d684613b494111915a66825bce2838b16028070899bed5a4238e0a4af56dc",
+              "host": null
+            }
+          ],
+          "metrics": [
+            {
+              "name": "implementation_checkpoint",
+              "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+            },
+            {
+              "name": "live_dual_backend_matches",
+              "value": 19
+            },
+            {
+              "name": "paired_go_cases_passed",
+              "value": 19
+            },
+            {
+              "name": "failures",
+              "value": 0
+            },
+            {
+              "name": "skips",
+              "value": 0
+            },
+            {
+              "name": "test_log",
+              "value": ".local/dual-backend-windows.eLaDqM/darwin-tests.jsonl"
+            },
+            {
+              "name": "test_log_sha256",
+              "value": "329d684613b494111915a66825bce2838b16028070899bed5a4238e0a4af56dc"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "passed",
+      "runs": [
+        {
+          "implementation_checkpoint": "33f4d8525122aebe8e338011504ed35ecdd910f3",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 39935,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "regular_tests_passed",
+                  "value": 39935
+                },
+                {
+                  "name": "regular_packages_passed",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "fresh_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "actual_repository_fields_matching",
+                  "value": 33
+                }
+              ]
+            },
+            {
+              "name": "dual-backend-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 19,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/dual-backend-ports-linux-evidence/dual-backend-oracle-2653133181",
+                  "sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
+                  "host": null
+                },
+                {
+                  "kind": "provenance",
+                  "path": ".local/dual-backend-ports-linux-evidence/dual-backend-oracle-2653133181/provenance.json",
+                  "sha256": "26c8d062b27468724d63c15c2e4fd8f7b7f90afb04627dc2c56a16b5722902d5",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5",
+          "scope": "Focused rerun against the frozen dual-backend reference",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows.eLaDqM/ubuntu26-retry-tests.jsonl"
+                },
+                {
+                  "name": "test_log_sha256",
+                  "value": "28e34a57d475679d829f96d817364b77b3426369880355859d40cc3d2707b7ee"
+                }
+              ]
+            },
+            {
+              "name": "TestCSharpDualBackendParity",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows.eLaDqM/ubuntu26-retry-tests.jsonl"
+                },
+                {
+                  "name": "test_log_sha256",
+                  "value": "28e34a57d475679d829f96d817364b77b3426369880355859d40cc3d2707b7ee"
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/dual-backend-windows.eLaDqM/ubuntu26-retry-tests.jsonl",
+              "sha256": "28e34a57d475679d829f96d817364b77b3426369880355859d40cc3d2707b7ee",
+              "host": null
+            }
+          ],
+          "metrics": [
+            {
+              "name": "implementation_checkpoint",
+              "value": "c34adc5b411f2f51bd7340ae1dd2324a7958f4b5"
+            },
+            {
+              "name": "live_dual_backend_matches",
+              "value": 19
+            },
+            {
+              "name": "paired_go_cases_passed",
+              "value": 19
+            },
+            {
+              "name": "failures",
+              "value": 0
+            },
+            {
+              "name": "skips",
+              "value": 0
+            },
+            {
+              "name": "test_log",
+              "value": ".local/dual-backend-windows.eLaDqM/ubuntu26-retry-tests.jsonl"
+            },
+            {
+              "name": "test_log_sha256",
+              "value": "28e34a57d475679d829f96d817364b77b3426369880355859d40cc3d2707b7ee"
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "passed",
+      "runs": [
+        {
+          "implementation_checkpoint": "f8feae66238790076333dff64cec1135c76644ae",
+          "scope": "Focused rerun against the frozen dual-backend reference",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "architecture",
+                  "value": "arm64"
+                },
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "f8feae66238790076333dff64cec1135c76644ae"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "native_library",
+                  "value": "git2-5853918.dll"
+                },
+                {
+                  "name": "native_library_sha256",
+                  "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
+                },
+                {
+                  "name": "evidence_host",
+                  "value": "ArturWinArm"
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
+                },
+                {
+                  "name": "evidence_chat",
+                  "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
+                }
+              ]
+            },
+            {
+              "name": "TestCSharpDualBackendParity",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "architecture",
+                  "value": "arm64"
+                },
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "f8feae66238790076333dff64cec1135c76644ae"
+                },
+                {
+                  "name": "live_dual_backend_matches",
+                  "value": 19
+                },
+                {
+                  "name": "paired_go_cases_passed",
+                  "value": 19
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "native_library",
+                  "value": "git2-5853918.dll"
+                },
+                {
+                  "name": "native_library_sha256",
+                  "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
+                },
+                {
+                  "name": "evidence_host",
+                  "value": "ArturWinArm"
+                },
+                {
+                  "name": "test_log",
+                  "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
+                },
+                {
+                  "name": "evidence_chat",
+                  "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/dual-backend-windows-fix/tests-native.jsonl",
+              "sha256": null,
+              "host": "ArturWinArm"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "ArturWinArm"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "architecture",
+              "value": "arm64"
+            },
+            {
+              "name": "implementation_checkpoint",
+              "value": "f8feae66238790076333dff64cec1135c76644ae"
+            },
+            {
+              "name": "live_dual_backend_matches",
+              "value": 19
+            },
+            {
+              "name": "paired_go_cases_passed",
+              "value": 19
+            },
+            {
+              "name": "failures",
+              "value": 0
+            },
+            {
+              "name": "skips",
+              "value": 0
+            },
+            {
+              "name": "native_library",
+              "value": "git2-5853918.dll"
+            },
+            {
+              "name": "native_library_sha256",
+              "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
+            },
+            {
+              "name": "evidence_host",
+              "value": "ArturWinArm"
+            },
+            {
+              "name": "test_log",
+              "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
+            },
+            {
+              "name": "evidence_chat",
+              "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
+            },
+            {
+              "name": "architecture",
+              "value": "arm64"
+            },
+            {
+              "name": "scope",
+              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
+            },
+            {
+              "name": "vm_index",
+              "value": {
+                "host": "ArturWinArm",
+                "path": ".local/windows-test-evidence.json",
+                "path_relative_to": "Windows validation worktree go-prototype directory",
+                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+              }
+            },
+            {
+              "name": "status",
+              "value": "passed"
+            },
+            {
+              "name": "portability_rerun_key",
+              "value": "portability_rerun.platforms.windows"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "implementation_checkpoint": "33f4d8525122aebe8e338011504ed35ecdd910f3",
   "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "new_unit_methods": 19,
@@ -13,47 +646,11 @@
     "total": 662,
     "verified": 38
   },
-  "platforms": {
-    "macos": {
-      "regular_tests_passed": 39935,
-      "regular_packages_passed": 13,
-      "failures": 0,
-      "skips": 0,
-      "fresh_dual_backend_matches": 19,
-      "actual_repository_fields_matching": 33
-    },
-    "ubuntu26": {
-      "regular_tests_passed": 39935,
-      "regular_packages_passed": 13,
-      "failures": 0,
-      "skips": 0,
-      "fresh_dual_backend_matches": 19,
-      "actual_repository_fields_matching": 33
-    }
-  },
   "matrices": {
     "queries": 48,
     "criss_cross_merge_bases": 49,
     "octopus_merge_bases": 25
   },
-  "reports": [
-    {
-      "platform": "macos",
-      "kind": "dual-backend-oracle",
-      "path": ".local/dual-backend-oracle-1095767242",
-      "report_sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
-      "provenance_sha256": "26c8d062b27468724d63c15c2e4fd8f7b7f90afb04627dc2c56a16b5722902d5",
-      "passed": 19
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "dual-backend-oracle",
-      "path": ".local/dual-backend-ports-linux-evidence/dual-backend-oracle-2653133181",
-      "report_sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
-      "provenance_sha256": "26c8d062b27468724d63c15c2e4fd8f7b7f90afb04627dc2c56a16b5722902d5",
-      "passed": 19
-    }
-  ],
   "production_inputs": {
     "cmd/gitversion-go/arguments.go": "ed038e048e0e8dca7d087ddede52bb9bfc20627e6ea9cab1d3916d16d817e001",
     "cmd/gitversion-go/config_migrate.go": "4bdeb8cddbb9649c023a6466b2f002730fde102be9b446bb42720cca553db905",
@@ -251,5 +848,9 @@
       ".local/dual-backend-ports-linux-evidence/real-linux-csharp.json": "cbfcdb071f388dba54e4c8d0ab614431710bbad087162faae9f2d2d372bd8b19",
       ".local/dual-backend-ports-linux-evidence/real-linux-go.json": "4336e5b81278e01593ecd48b7396d12af1d66f68342710c9040d0b202c6817a7"
     }
+  },
+  "portability_rerun": {
+    "scope": "Focused rerun against the frozen dual-backend reference",
+    "base_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
   }
 }

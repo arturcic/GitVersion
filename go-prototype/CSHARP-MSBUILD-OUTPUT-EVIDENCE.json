@@ -1,4 +1,195 @@
 {
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "f8d93b311f8a8d890bb2be29ace9d8fd4529ddeb",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 40451,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "tests_and_subtests",
+                  "value": 40451
+                },
+                {
+                  "name": "packages",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "msbuild_engine_cases",
+                  "value": 18
+                },
+                {
+                  "name": "shallow_ci_regression_comparisons",
+                  "value": 14
+                },
+                {
+                  "name": "repository_execution_regression_comparisons",
+                  "value": 3
+                },
+                {
+                  "name": "cli_execution_regression_comparisons",
+                  "value": 7
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "f8d93b311f8a8d890bb2be29ace9d8fd4529ddeb",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 40451,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "tests_and_subtests",
+                  "value": 40451
+                },
+                {
+                  "name": "packages",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "msbuild_engine_cases",
+                  "value": 18
+                },
+                {
+                  "name": "shallow_ci_regression_comparisons",
+                  "value": 14
+                },
+                {
+                  "name": "repository_execution_regression_comparisons",
+                  "value": 3
+                },
+                {
+                  "name": "cli_execution_regression_comparisons",
+                  "value": 7
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "excluded",
+      "runs": [
+        {
+          "implementation_checkpoint": null,
+          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
+          "status": "excluded",
+          "checks": [
+            {
+              "name": "MSBuild integration",
+              "kind": "live",
+              "status": "excluded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "reason",
+                  "value": "MSBuild integration was outside the Windows acceptance scope."
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "ArturWinArm"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "architecture",
+              "value": "arm64"
+            },
+            {
+              "name": "scope",
+              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
+            },
+            {
+              "name": "vm_index",
+              "value": {
+                "host": "ArturWinArm",
+                "path": ".local/windows-test-evidence.json",
+                "path_relative_to": "Windows validation worktree go-prototype directory",
+                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+              }
+            },
+            {
+              "name": "status",
+              "value": "excluded"
+            },
+            {
+              "name": "reason",
+              "value": "MSBuild integration was outside the Windows acceptance scope."
+            }
+          ]
+        }
+      ]
+    }
+  },
   "source_checkpoint": "f8d93b311f8a8d890bb2be29ace9d8fd4529ddeb",
   "macos_regular_test_checkpoint": "7a40b1eac11165c58d67f524a3a01502b4fa8490",
   "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
@@ -12,28 +203,6 @@
     "target": 1365,
     "verified_integration": 38,
     "total_integration": 662
-  },
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40451,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "msbuild_engine_cases": 18,
-      "shallow_ci_regression_comparisons": 14,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40451,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "msbuild_engine_cases": 18,
-      "shallow_ci_regression_comparisons": 14,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    }
   },
   "candidate_sha256": {
     "macos": "974858a0692cbf46273367a124e3e31544a5541f9ada93518c2c4de34bf12de7",

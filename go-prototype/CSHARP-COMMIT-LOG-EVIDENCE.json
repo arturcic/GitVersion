@@ -1,4 +1,1075 @@
 {
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "8e3b7fb34344a32316066ec3e4c963e74fa0a08d",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 39801,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "regular_tests_passed",
+                  "value": 39801
+                },
+                {
+                  "name": "regular_packages_passed",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "fresh_repository_contract_oracle_matches",
+                  "value": 16
+                },
+                {
+                  "name": "fresh_revision_walker_oracle_matches",
+                  "value": 47
+                },
+                {
+                  "name": "fresh_revision_walker_oracle_queries",
+                  "value": 48
+                },
+                {
+                  "name": "fresh_configured_next_strategy_json_matches",
+                  "value": 7
+                },
+                {
+                  "name": "fresh_validation_invocation_matches",
+                  "value": 13
+                },
+                {
+                  "name": "fresh_reset_policy_json_matches",
+                  "value": 192
+                },
+                {
+                  "name": "fresh_linked_worktree_json_matches",
+                  "value": 4
+                },
+                {
+                  "name": "fresh_branch_inheritance_json_matches",
+                  "value": 22
+                },
+                {
+                  "name": "fresh_next_version_json_matches",
+                  "value": 23
+                },
+                {
+                  "name": "fresh_branch_rule_json_matches",
+                  "value": 21
+                },
+                {
+                  "name": "fresh_calculation_json_matches",
+                  "value": 87
+                },
+                {
+                  "name": "fresh_configuration_value_cases",
+                  "value": 6
+                },
+                {
+                  "name": "fresh_validation_cli_cases",
+                  "value": 17
+                },
+                {
+                  "name": "fresh_query_cli_cases",
+                  "value": 19
+                },
+                {
+                  "name": "fresh_migration_cli_cases",
+                  "value": 15
+                },
+                {
+                  "name": "fresh_root_parser_cases",
+                  "value": 18
+                },
+                {
+                  "name": "fresh_build_agent_cases",
+                  "value": 20
+                },
+                {
+                  "name": "fresh_global_mode_json_matches",
+                  "value": 88
+                },
+                {
+                  "name": "fresh_repository_compatibility_json_matches",
+                  "value": 110
+                },
+                {
+                  "name": "actual_repository_fields_matching",
+                  "value": 33
+                }
+              ]
+            },
+            {
+              "name": "repository-contract-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 16,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/repository-contract-oracle-142590516",
+                  "sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "revision-walker-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 47,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/revision-walker-oracle-3750526441",
+                  "sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "root-argument-parser-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 18,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/argument-parser-1365080624",
+                  "sha256": "8a74364cc0d112e2a2020c5ee633a88ececdf25228208094539c4182a59743fd",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "build-agent-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 20,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/build-agent-2914009083",
+                  "sha256": "0b350dc3c90bc2a18ee06f152772f7f787fd78613705b12dac76ae02526fe923",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-migration-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 15,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/configuration-migration-408385867",
+                  "sha256": "45ecfcfed40b53aad4b93f83a02ec7c9d63d2252bd7caba41f1c4f02538c21f2",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-query-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 19,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/configuration-query-2379262076",
+                  "sha256": "dc6ee269cc7a37e322b047c8dea3020320199ebc2f60c881b1769cab8877f9b0",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-validation-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 17,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/configuration-validation-3414093273",
+                  "sha256": "6b242caa489902eb1a9c64135f4dc9886bab83b38efbfb30b6b76df288945b7e",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "csharp-validation-invocation",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 13,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/configuration-validation-3507904898",
+                  "sha256": "dcdb574e1509df9e2ae7ee52e46d7ad718ae581ab4864538cca7eb2be32d3494",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "configuration-values",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 6,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-config-ports-1971018710",
+                  "sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "global-mode-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 88,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/global-mode-parity-3174534072",
+                  "sha256": "fda9998ca742c11c53d894ac1cdcf4c5fc75a3d7b94c130c8ee0701619248456",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "linked-worktree-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 4,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/linked-worktree-3376854648",
+                  "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "calculation-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 87,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-314806216",
+                  "sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "next-version-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 23,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3852256220",
+                  "sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "configured-next-strategy",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 7,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-15851296",
+                  "sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "branch-rule-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 21,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1070953083",
+                  "sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "branch-inheritance-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 22,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1039424109",
+                  "sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "reset-policy-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 192,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-858938686",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository-compatibility-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 110,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/repository-compatibility-2401029723",
+                  "sha256": "bf412f74fa28d648903bcec237550b4bee1381d6d33b54959e25988ba36ac23b",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "8e3b7fb34344a32316066ec3e4c963e74fa0a08d",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical platform summary",
+              "kind": "summary",
+              "status": "passed",
+              "counts": {
+                "passed": 39801,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "regular_tests_passed",
+                  "value": 39801
+                },
+                {
+                  "name": "regular_packages_passed",
+                  "value": 13
+                },
+                {
+                  "name": "failures",
+                  "value": 0
+                },
+                {
+                  "name": "skips",
+                  "value": 0
+                },
+                {
+                  "name": "fresh_repository_contract_oracle_matches",
+                  "value": 16
+                },
+                {
+                  "name": "fresh_revision_walker_oracle_matches",
+                  "value": 47
+                },
+                {
+                  "name": "fresh_revision_walker_oracle_queries",
+                  "value": 48
+                },
+                {
+                  "name": "fresh_configured_next_strategy_json_matches",
+                  "value": 7
+                },
+                {
+                  "name": "fresh_validation_invocation_matches",
+                  "value": 13
+                },
+                {
+                  "name": "fresh_reset_policy_json_matches",
+                  "value": 192
+                },
+                {
+                  "name": "fresh_linked_worktree_json_matches",
+                  "value": 4
+                },
+                {
+                  "name": "fresh_branch_inheritance_json_matches",
+                  "value": 22
+                },
+                {
+                  "name": "fresh_next_version_json_matches",
+                  "value": 23
+                },
+                {
+                  "name": "fresh_branch_rule_json_matches",
+                  "value": 21
+                },
+                {
+                  "name": "fresh_calculation_json_matches",
+                  "value": 87
+                },
+                {
+                  "name": "fresh_configuration_value_cases",
+                  "value": 6
+                },
+                {
+                  "name": "fresh_validation_cli_cases",
+                  "value": 17
+                },
+                {
+                  "name": "fresh_query_cli_cases",
+                  "value": 19
+                },
+                {
+                  "name": "fresh_migration_cli_cases",
+                  "value": 15
+                },
+                {
+                  "name": "fresh_root_parser_cases",
+                  "value": 18
+                },
+                {
+                  "name": "fresh_build_agent_cases",
+                  "value": 20
+                },
+                {
+                  "name": "fresh_global_mode_json_matches",
+                  "value": 88
+                },
+                {
+                  "name": "fresh_repository_compatibility_json_matches",
+                  "value": 110
+                },
+                {
+                  "name": "actual_repository_fields_matching",
+                  "value": 33
+                }
+              ]
+            },
+            {
+              "name": "root-argument-parser-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 18,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/argument-parser-3518906478",
+                  "sha256": "2f92fbb3fdfdb833083d2144b433419e6f237871ada697efa9813669ad4cd7f1",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "build-agent-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 20,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/build-agent-861384536",
+                  "sha256": "b8d4d2a6096ed48d480d110fdaeb318c4bacdb09efa5b5082d08392f9414baca",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-migration-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 15,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/configuration-migration-279186344",
+                  "sha256": "53e3ee0bc924bff00a7d90bd1af2ac3674cdadf47dea8ffdbbb51f64c4013163",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-query-output",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 19,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/configuration-query-2930658733",
+                  "sha256": "1c68c1715ff36be34fa643c16cbf3af3009b9703456da8669215474a816b7344",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "config-validation-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 17,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/configuration-validation-4088547679",
+                  "sha256": "b2ac954d5c60051401c269ee0235c8becbe52bf53907a6efa715e42086c754c8",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "csharp-validation-invocation",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 13,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/configuration-validation-2148713479",
+                  "sha256": "539f2aeeab34480983dc50f76b5b3d93ab7b31570ee349cd45d28a637df53cd1",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "configuration-values",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 6,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/csharp-config-ports-1908315625",
+                  "sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "global-mode-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 88,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/global-mode-parity-1346284252",
+                  "sha256": "7e5ef81308f9abfc6b9e83fdeff7dc96a4fa961fc6ee7746b1bee90a8d84f3f1",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "linked-worktree-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 4,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/linked-worktree-3693875782",
+                  "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "calculation-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 87,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-3607495322",
+                  "sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "next-version-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 23,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-1867750193",
+                  "sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "configured-next-strategy",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 7,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-438780546",
+                  "sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "branch-rule-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 21,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-2707881684",
+                  "sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "branch-inheritance-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 22,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-4111638464",
+                  "sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "reset-policy-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 192,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/run-1952858312",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository-compatibility-json",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 110,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/repository-compatibility-1697454276",
+                  "sha256": "ec4abf3a71aaeb0c163f6ad2e9baabd27dabf89c1d7b86974e51c71f9c376d3f",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository-contract-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 16,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/repository-contract-oracle-436115483",
+                  "sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "revision-walker-oracle",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": 47,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/commit-log-ports-linux-evidence/revision-walker-oracle-2969609209",
+                  "sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
+                  "host": null
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "passed",
+      "runs": [
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpRepositoryStoreCommitLog",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "test_log",
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": null,
+                  "host": "ArturWinArm"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "suite",
+                  "value": "TestCSharpRepositoryStoreCommitLog"
+                },
+                {
+                  "name": "status",
+                  "value": "passed"
+                },
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
+                },
+                {
+                  "name": "vm_log",
+                  "value": ".local/final-e5c31807/unit.jsonl"
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "ArturWinArm"
+            },
+            {
+              "kind": "acceptance_report",
+              "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
+              "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09",
+              "host": null
+            }
+          ],
+          "metrics": [
+            {
+              "name": "architecture",
+              "value": "arm64"
+            },
+            {
+              "name": "scope",
+              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
+            },
+            {
+              "name": "vm_index",
+              "value": {
+                "host": "ArturWinArm",
+                "path": ".local/windows-test-evidence.json",
+                "path_relative_to": "Windows validation worktree go-prototype directory",
+                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+              }
+            },
+            {
+              "name": "acceptance_report",
+              "value": {
+                "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
+                "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09"
+              }
+            },
+            {
+              "name": "unit_result_basis",
+              "value": "Matching default Windows test declarations at the acceptance commit and the complete Windows unit run. Per-suite log details are indexed on the VM."
+            },
+            {
+              "name": "status",
+              "value": "passed"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "implementation_checkpoint": "8e3b7fb34344a32316066ec3e4c963e74fa0a08d",
   "baseline_revision": "14d222235b7dabb7033473528a76fd18478a9217",
   "new_unit_methods": 9,
@@ -15,314 +1086,6 @@
     "total": 662,
     "verified": 38
   },
-  "platforms": {
-    "macos": {
-      "regular_tests_passed": 39801,
-      "regular_packages_passed": 13,
-      "failures": 0,
-      "skips": 0,
-      "fresh_repository_contract_oracle_matches": 16,
-      "fresh_revision_walker_oracle_matches": 47,
-      "fresh_revision_walker_oracle_queries": 48,
-      "fresh_configured_next_strategy_json_matches": 7,
-      "fresh_validation_invocation_matches": 13,
-      "fresh_reset_policy_json_matches": 192,
-      "fresh_linked_worktree_json_matches": 4,
-      "fresh_branch_inheritance_json_matches": 22,
-      "fresh_next_version_json_matches": 23,
-      "fresh_branch_rule_json_matches": 21,
-      "fresh_calculation_json_matches": 87,
-      "fresh_configuration_value_cases": 6,
-      "fresh_validation_cli_cases": 17,
-      "fresh_query_cli_cases": 19,
-      "fresh_migration_cli_cases": 15,
-      "fresh_root_parser_cases": 18,
-      "fresh_build_agent_cases": 20,
-      "fresh_global_mode_json_matches": 88,
-      "fresh_repository_compatibility_json_matches": 110,
-      "actual_repository_fields_matching": 33
-    },
-    "ubuntu26": {
-      "regular_tests_passed": 39801,
-      "regular_packages_passed": 13,
-      "failures": 0,
-      "skips": 0,
-      "fresh_repository_contract_oracle_matches": 16,
-      "fresh_revision_walker_oracle_matches": 47,
-      "fresh_revision_walker_oracle_queries": 48,
-      "fresh_configured_next_strategy_json_matches": 7,
-      "fresh_validation_invocation_matches": 13,
-      "fresh_reset_policy_json_matches": 192,
-      "fresh_linked_worktree_json_matches": 4,
-      "fresh_branch_inheritance_json_matches": 22,
-      "fresh_next_version_json_matches": 23,
-      "fresh_branch_rule_json_matches": 21,
-      "fresh_calculation_json_matches": 87,
-      "fresh_configuration_value_cases": 6,
-      "fresh_validation_cli_cases": 17,
-      "fresh_query_cli_cases": 19,
-      "fresh_migration_cli_cases": 15,
-      "fresh_root_parser_cases": 18,
-      "fresh_build_agent_cases": 20,
-      "fresh_global_mode_json_matches": 88,
-      "fresh_repository_compatibility_json_matches": 110,
-      "actual_repository_fields_matching": 33
-    }
-  },
-  "reports": [
-    {
-      "platform": "macos",
-      "kind": "repository-contract-oracle",
-      "path": ".local/repository-contract-oracle-142590516",
-      "report_sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
-      "passed": 16
-    },
-    {
-      "platform": "macos",
-      "kind": "revision-walker-oracle",
-      "path": ".local/revision-walker-oracle-3750526441",
-      "report_sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
-      "passed": 47
-    },
-    {
-      "platform": "macos",
-      "kind": "root-argument-parser-output",
-      "path": ".local/argument-parser-1365080624",
-      "report_sha256": "8a74364cc0d112e2a2020c5ee633a88ececdf25228208094539c4182a59743fd",
-      "passed": 18
-    },
-    {
-      "platform": "macos",
-      "kind": "build-agent-output",
-      "path": ".local/build-agent-2914009083",
-      "report_sha256": "0b350dc3c90bc2a18ee06f152772f7f787fd78613705b12dac76ae02526fe923",
-      "passed": 20
-    },
-    {
-      "platform": "macos",
-      "kind": "config-migration-output",
-      "path": ".local/configuration-migration-408385867",
-      "report_sha256": "45ecfcfed40b53aad4b93f83a02ec7c9d63d2252bd7caba41f1c4f02538c21f2",
-      "passed": 15
-    },
-    {
-      "platform": "macos",
-      "kind": "config-query-output",
-      "path": ".local/configuration-query-2379262076",
-      "report_sha256": "dc6ee269cc7a37e322b047c8dea3020320199ebc2f60c881b1769cab8877f9b0",
-      "passed": 19
-    },
-    {
-      "platform": "macos",
-      "kind": "config-validation-json",
-      "path": ".local/configuration-validation-3414093273",
-      "report_sha256": "6b242caa489902eb1a9c64135f4dc9886bab83b38efbfb30b6b76df288945b7e",
-      "passed": 17
-    },
-    {
-      "platform": "macos",
-      "kind": "csharp-validation-invocation",
-      "path": ".local/configuration-validation-3507904898",
-      "report_sha256": "dcdb574e1509df9e2ae7ee52e46d7ad718ae581ab4864538cca7eb2be32d3494",
-      "passed": 13
-    },
-    {
-      "platform": "macos",
-      "kind": "configuration-values",
-      "path": ".local/csharp-config-ports-1971018710",
-      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
-      "passed": 6
-    },
-    {
-      "platform": "macos",
-      "kind": "global-mode-json",
-      "path": ".local/global-mode-parity-3174534072",
-      "report_sha256": "fda9998ca742c11c53d894ac1cdcf4c5fc75a3d7b94c130c8ee0701619248456",
-      "passed": 88
-    },
-    {
-      "platform": "macos",
-      "kind": "linked-worktree-json",
-      "path": ".local/linked-worktree-3376854648",
-      "report_sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
-      "passed": 4
-    },
-    {
-      "platform": "macos",
-      "kind": "calculation-json",
-      "path": ".local/platform-evidence/run-314806216",
-      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
-      "passed": 87
-    },
-    {
-      "platform": "macos",
-      "kind": "next-version-json",
-      "path": ".local/platform-evidence/run-3852256220",
-      "report_sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
-      "passed": 23
-    },
-    {
-      "platform": "macos",
-      "kind": "configured-next-strategy",
-      "path": ".local/platform-evidence/run-15851296",
-      "report_sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
-      "passed": 7
-    },
-    {
-      "platform": "macos",
-      "kind": "branch-rule-json",
-      "path": ".local/platform-evidence/run-1070953083",
-      "report_sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
-      "passed": 21
-    },
-    {
-      "platform": "macos",
-      "kind": "branch-inheritance-json",
-      "path": ".local/platform-evidence/run-1039424109",
-      "report_sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
-      "passed": 22
-    },
-    {
-      "platform": "macos",
-      "kind": "reset-policy-json",
-      "path": ".local/platform-evidence/run-858938686",
-      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
-      "passed": 192
-    },
-    {
-      "platform": "macos",
-      "kind": "repository-compatibility-json",
-      "path": ".local/repository-compatibility-2401029723",
-      "report_sha256": "bf412f74fa28d648903bcec237550b4bee1381d6d33b54959e25988ba36ac23b",
-      "passed": 110
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "root-argument-parser-output",
-      "path": ".local/commit-log-ports-linux-evidence/argument-parser-3518906478",
-      "report_sha256": "2f92fbb3fdfdb833083d2144b433419e6f237871ada697efa9813669ad4cd7f1",
-      "passed": 18
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "build-agent-output",
-      "path": ".local/commit-log-ports-linux-evidence/build-agent-861384536",
-      "report_sha256": "b8d4d2a6096ed48d480d110fdaeb318c4bacdb09efa5b5082d08392f9414baca",
-      "passed": 20
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "config-migration-output",
-      "path": ".local/commit-log-ports-linux-evidence/configuration-migration-279186344",
-      "report_sha256": "53e3ee0bc924bff00a7d90bd1af2ac3674cdadf47dea8ffdbbb51f64c4013163",
-      "passed": 15
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "config-query-output",
-      "path": ".local/commit-log-ports-linux-evidence/configuration-query-2930658733",
-      "report_sha256": "1c68c1715ff36be34fa643c16cbf3af3009b9703456da8669215474a816b7344",
-      "passed": 19
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "config-validation-json",
-      "path": ".local/commit-log-ports-linux-evidence/configuration-validation-4088547679",
-      "report_sha256": "b2ac954d5c60051401c269ee0235c8becbe52bf53907a6efa715e42086c754c8",
-      "passed": 17
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "csharp-validation-invocation",
-      "path": ".local/commit-log-ports-linux-evidence/configuration-validation-2148713479",
-      "report_sha256": "539f2aeeab34480983dc50f76b5b3d93ab7b31570ee349cd45d28a637df53cd1",
-      "passed": 13
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "configuration-values",
-      "path": ".local/commit-log-ports-linux-evidence/csharp-config-ports-1908315625",
-      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
-      "passed": 6
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "global-mode-json",
-      "path": ".local/commit-log-ports-linux-evidence/global-mode-parity-1346284252",
-      "report_sha256": "7e5ef81308f9abfc6b9e83fdeff7dc96a4fa961fc6ee7746b1bee90a8d84f3f1",
-      "passed": 88
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "linked-worktree-json",
-      "path": ".local/commit-log-ports-linux-evidence/linked-worktree-3693875782",
-      "report_sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
-      "passed": 4
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "calculation-json",
-      "path": ".local/commit-log-ports-linux-evidence/run-3607495322",
-      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
-      "passed": 87
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "next-version-json",
-      "path": ".local/commit-log-ports-linux-evidence/run-1867750193",
-      "report_sha256": "98d36259dce39193abbe0a2d458ecf93195660a24edc6b331d84c79fe3039b99",
-      "passed": 23
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "configured-next-strategy",
-      "path": ".local/commit-log-ports-linux-evidence/run-438780546",
-      "report_sha256": "b65a89f96638ab7b02e0154ad8c94746d1d403647e832c710cebc6f488b888a1",
-      "passed": 7
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "branch-rule-json",
-      "path": ".local/commit-log-ports-linux-evidence/run-2707881684",
-      "report_sha256": "113eced0858d220035d353f7287e406424ad506b3fbd4b1905078961c82c568a",
-      "passed": 21
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "branch-inheritance-json",
-      "path": ".local/commit-log-ports-linux-evidence/run-4111638464",
-      "report_sha256": "87d1e40e0b7d83342dab73f22f1c78048dc3779262c4de69937057cd6904596e",
-      "passed": 22
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "reset-policy-json",
-      "path": ".local/commit-log-ports-linux-evidence/run-1952858312",
-      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
-      "passed": 192
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "repository-compatibility-json",
-      "path": ".local/commit-log-ports-linux-evidence/repository-compatibility-1697454276",
-      "report_sha256": "ec4abf3a71aaeb0c163f6ad2e9baabd27dabf89c1d7b86974e51c71f9c376d3f",
-      "passed": 110
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "repository-contract-oracle",
-      "path": ".local/commit-log-ports-linux-evidence/repository-contract-oracle-436115483",
-      "report_sha256": "531314553e62343252fbc329c35ac0750b9836d713c411b5772871fc55e5394d",
-      "passed": 16
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "revision-walker-oracle",
-      "path": ".local/commit-log-ports-linux-evidence/revision-walker-oracle-2969609209",
-      "report_sha256": "e16256c873a64d9f680fa1e4cf9dd451375a3b44810b4ae58319405764e19780",
-      "passed": 47
-    }
-  ],
   "production_inputs": {
     "cmd/gitversion-go/arguments.go": "ed038e048e0e8dca7d087ddede52bb9bfc20627e6ea9cab1d3916d16d817e001",
     "cmd/gitversion-go/config_migrate.go": "4bdeb8cddbb9649c023a6466b2f002730fde102be9b446bb42720cca553db905",

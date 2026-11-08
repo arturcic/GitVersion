@@ -19,8 +19,13 @@ on each OS. The actual checkout matches all 33 C# JSON fields at
 `7.0.0-alpha.1+739`, using a snapshot on Ubuntu. Production source hashes
 match the previous checkpoint, which retains the earlier process evidence.
 
-The verified inventory reaches 1,187 of 1,516 unit and component methods
-(78.30%). Another 178 methods are needed for 90%. Windows validation is pending.
+The original checkpoint verified 1,187 of 1,516 unit and component methods
+(78.30%). Another 178 methods were needed for 90% at that checkpoint.
 
-`CSHARP-DUAL-BACKEND-EVIDENCE.json` records the source and executable hashes,
-comparison matrices, process reports, and checkout snapshot.
+The later portability rerun passed all 19 live C# comparisons and 19 paired
+Go cases on Windows ARM64, macOS ARM64, and Ubuntu 26 ARM64. Windows tested
+`f8feae662`, and macOS and Ubuntu tested `c34adc5b4`.
+
+[`CSHARP-DUAL-BACKEND-EVIDENCE.json`](CSHARP-DUAL-BACKEND-EVIDENCE.json)
+records the original checkpoint and the separate portability rerun. The
+Windows test log is on ArturWinArm.

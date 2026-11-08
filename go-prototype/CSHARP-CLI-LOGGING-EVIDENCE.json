@@ -1,11 +1,553 @@
 {
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Recorded live suites",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "suites",
+                  "value": [
+                    "TestPlatformCLIExecutionParity",
+                    "TestPlatformCLIHelpAndDiagnosticsParity",
+                    "TestPlatformCLILoggingParity",
+                    "TestPlatformCSharpCLISchema",
+                    "TestPlatformExecutorCacheParity",
+                    "TestPlatformExecutorRoutingParity"
+                  ]
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "platform_label",
+              "value": "macOS arm64"
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+          "scope": "trace_checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation",
+                  "value": "ceaf5464ae65e68e4ac26912bdeef60be2520950"
+                },
+                {
+                  "name": "test",
+                  "value": "TestPlatformCLITraceParity"
+                },
+                {
+                  "name": "normalized_complete_transcript",
+                  "value": [
+                    "fallback",
+                    "configured-next",
+                    "tagged-strategy",
+                    "cache-miss",
+                    "cache-hit",
+                    "clone-no-sink-exception"
+                  ]
+                },
+                {
+                  "name": "ordered_records",
+                  "value": [
+                    "mainline",
+                    "cache-corrupt",
+                    "clone",
+                    "clone-repeat",
+                    "clone-exception",
+                    "clone-quiet-exception",
+                    "ci-skip",
+                    "ci-fetch"
+                  ]
+                },
+                {
+                  "name": "normalization",
+                  "value": [
+                    "Wall clock timestamps",
+                    "Elapsed scope times",
+                    "Per-process fixture directory",
+                    "Independent cache keys"
+                  ]
+                },
+                {
+                  "name": "regression_suites",
+                  "value": 8
+                },
+                {
+                  "name": "remote_ci_regression_cases",
+                  "value": 25
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+          "scope": "complex_trace_checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation",
+                  "value": "4127627126985a6f08f46bf2f41cd9d1405d9786"
+                },
+                {
+                  "name": "test",
+                  "value": "TestPlatformCLITraceParity"
+                },
+                {
+                  "name": "normalized_complete_transcript",
+                  "value": [
+                    "fallback",
+                    "configured-next",
+                    "tagged-strategy",
+                    "mainline",
+                    "merged-release",
+                    "named-release",
+                    "tagged-release",
+                    "mainline-merge",
+                    "pruned-tags",
+                    "tied-tags",
+                    "cache-miss",
+                    "cache-hit",
+                    "clone-no-sink-exception",
+                    "ci-context-skips-projection"
+                  ]
+                },
+                {
+                  "name": "ordered_records",
+                  "value": [
+                    "cache-corrupt",
+                    "clone",
+                    "clone-repeat",
+                    "clone-exception",
+                    "clone-quiet-exception",
+                    "ci-skip",
+                    "ci-ref-decisions",
+                    "ci-detached-selection",
+                    "ci-fetch"
+                  ]
+                },
+                {
+                  "name": "normalization",
+                  "value": [
+                    "Wall clock timestamps",
+                    "Elapsed scope times",
+                    "Per-process fixture directory",
+                    "Independent cache keys"
+                  ]
+                },
+                {
+                  "name": "ref_state_assertions",
+                  "value": [
+                    "ci-ref-decisions",
+                    "ci-context-skips-projection",
+                    "ci-detached-selection"
+                  ]
+                },
+                {
+                  "name": "regression_suites",
+                  "value": 8
+                },
+                {
+                  "name": "remote_ci_regression_cases",
+                  "value": 25
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
+          "scope": "Historical checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Recorded live suites",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "suites",
+                  "value": [
+                    "TestPlatformCLIExecutionParity",
+                    "TestPlatformCLIHelpAndDiagnosticsParity",
+                    "TestPlatformCLILoggingParity",
+                    "TestPlatformCSharpCLISchema",
+                    "TestPlatformExecutorCacheParity",
+                    "TestPlatformExecutorRoutingParity"
+                  ]
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "platform_label",
+              "value": "Ubuntu 26.04.1 LTS arm64 in an offline container"
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+          "scope": "trace_checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation",
+                  "value": "ceaf5464ae65e68e4ac26912bdeef60be2520950"
+                },
+                {
+                  "name": "test",
+                  "value": "TestPlatformCLITraceParity"
+                },
+                {
+                  "name": "normalized_complete_transcript",
+                  "value": [
+                    "fallback",
+                    "configured-next",
+                    "tagged-strategy",
+                    "cache-miss",
+                    "cache-hit",
+                    "clone-no-sink-exception"
+                  ]
+                },
+                {
+                  "name": "ordered_records",
+                  "value": [
+                    "mainline",
+                    "cache-corrupt",
+                    "clone",
+                    "clone-repeat",
+                    "clone-exception",
+                    "clone-quiet-exception",
+                    "ci-skip",
+                    "ci-fetch"
+                  ]
+                },
+                {
+                  "name": "normalization",
+                  "value": [
+                    "Wall clock timestamps",
+                    "Elapsed scope times",
+                    "Per-process fixture directory",
+                    "Independent cache keys"
+                  ]
+                },
+                {
+                  "name": "regression_suites",
+                  "value": 8
+                },
+                {
+                  "name": "remote_ci_regression_cases",
+                  "value": 25
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+          "scope": "complex_trace_checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "implementation",
+                  "value": "4127627126985a6f08f46bf2f41cd9d1405d9786"
+                },
+                {
+                  "name": "test",
+                  "value": "TestPlatformCLITraceParity"
+                },
+                {
+                  "name": "normalized_complete_transcript",
+                  "value": [
+                    "fallback",
+                    "configured-next",
+                    "tagged-strategy",
+                    "mainline",
+                    "merged-release",
+                    "named-release",
+                    "tagged-release",
+                    "mainline-merge",
+                    "pruned-tags",
+                    "tied-tags",
+                    "cache-miss",
+                    "cache-hit",
+                    "clone-no-sink-exception",
+                    "ci-context-skips-projection"
+                  ]
+                },
+                {
+                  "name": "ordered_records",
+                  "value": [
+                    "cache-corrupt",
+                    "clone",
+                    "clone-repeat",
+                    "clone-exception",
+                    "clone-quiet-exception",
+                    "ci-skip",
+                    "ci-ref-decisions",
+                    "ci-detached-selection",
+                    "ci-fetch"
+                  ]
+                },
+                {
+                  "name": "normalization",
+                  "value": [
+                    "Wall clock timestamps",
+                    "Elapsed scope times",
+                    "Per-process fixture directory",
+                    "Independent cache keys"
+                  ]
+                },
+                {
+                  "name": "ref_state_assertions",
+                  "value": [
+                    "ci-ref-decisions",
+                    "ci-context-skips-projection",
+                    "ci-detached-selection"
+                  ]
+                },
+                {
+                  "name": "regression_suites",
+                  "value": 8
+                },
+                {
+                  "name": "remote_ci_regression_cases",
+                  "value": 25
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "passed",
+      "runs": [
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCLILoggingParity",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "test_log",
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": null,
+                  "host": "ArturWinArm"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "suite",
+                  "value": "TestPlatformCLILoggingParity"
+                },
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
+                },
+                {
+                  "name": "status",
+                  "value": "passed"
+                },
+                {
+                  "name": "vm_log",
+                  "value": ".local/final-e5c31807/cli.jsonl"
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "test_log",
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": null,
+                  "host": "ArturWinArm"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "suite",
+                  "value": "TestPlatformCLITraceParity"
+                },
+                {
+                  "name": "implementation_checkpoint",
+                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
+                },
+                {
+                  "name": "status",
+                  "value": "passed"
+                },
+                {
+                  "name": "vm_log",
+                  "value": ".local/final-e5c31807/cli.jsonl"
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "ArturWinArm"
+            },
+            {
+              "kind": "acceptance_report",
+              "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
+              "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09",
+              "host": null
+            }
+          ],
+          "metrics": [
+            {
+              "name": "architecture",
+              "value": "arm64"
+            },
+            {
+              "name": "scope",
+              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
+            },
+            {
+              "name": "vm_index",
+              "value": {
+                "host": "ArturWinArm",
+                "path": ".local/windows-test-evidence.json",
+                "path_relative_to": "Windows validation worktree go-prototype directory",
+                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+              }
+            },
+            {
+              "name": "acceptance_report",
+              "value": {
+                "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
+                "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09"
+              }
+            },
+            {
+              "name": "status",
+              "value": "passed"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "baseline": "14d222235b7dabb7033473528a76fd18478a9217",
   "oracle": "src/GitVersion.App with the v7 argument parser and managed Git backend",
   "implementation": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
-  "platforms": [
-    "macOS arm64",
-    "Ubuntu 26.04.1 LTS arm64 in an offline container"
-  ],
   "suites": [
     "TestPlatformCLIExecutionParity",
     "TestPlatformCLIHelpAndDiagnosticsParity",
@@ -59,7 +601,7 @@
   ],
   "remaining": [
     "Verbose tag-cache internals and additional Mainline and inheritance traversal branches remain outside the exact transcript matrix.",
-    "CI branch creation and updates operate on Go\u2019s calculation view. The oracle can update on-disk refs and attach HEAD. Go can reuse a matching local clone where the oracle selects another destination.",
+    "CI branch creation and updates operate on Go’s calculation view. The oracle can update on-disk refs and attach HEAD. Go can reuse a matching local clone where the oracle selects another destination.",
     "Go uses independent cache keys and atomically replaces corrupt entries after calculation. The oracle deletes corrupt entries before recalculating.",
     "Go uses native transport and parsing diagnostics. Managed Git command output and .NET stack frames differ.",
     "Windows runtime verification."
