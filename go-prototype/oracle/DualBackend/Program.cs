@@ -62,7 +62,7 @@ object BareInfo(Assembly assembly, string type)
     return new { root = Location(info.ProjectRootDirectory), git = Location(info.DotGitDirectory) };
 }
 
-string? Location(string? value) => value is null ? null : Path.GetRelativePath(fixture, Path.TrimEndingDirectorySeparator(value));
+string? Location(string? value) => value is null ? null : Path.GetRelativePath(fixture, Path.TrimEndingDirectorySeparator(value)).Replace(Path.DirectorySeparatorChar, '/');
 
 static object? Head(IBranch b) => new { name = b.Name.Canonical, tip = b.Tip?.Sha };
 static object Branch(IBranch b) => new { name = b.Name.Canonical, tip = b.Tip?.Sha, remote = b.IsRemote, tracking = b.IsTracking, detached = b.IsDetachedHead };

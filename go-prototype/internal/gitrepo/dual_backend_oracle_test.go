@@ -51,9 +51,15 @@ func TestPlatformDualBackendOracle(t *testing.T) {
 	if runtime.GOOS == "darwin" {
 		native = "libgit2-5853918.dylib"
 	}
-	expectedNative, err := parity.FileHash(filepath.Join(root, ".local/repository-contract-oracle", native))
-	if err != nil || copies[native] != expectedNative {
-		t.Fatal("native oracle library differs", err)
+	var expectedNative string
+	if runtime.GOOS == "windows" {
+		native = "git2-5853918.dll"
+		expectedNative = baseline.Files["runtimes/win-"+runtime.GOARCH+"/native/"+native]
+	} else {
+		expectedNative, err = parity.FileHash(filepath.Join(root, ".local/repository-contract-oracle", native))
+	}
+	if err != nil || expectedNative == "" || copies[native] != expectedNative {
+		t.Fatalf("native oracle library %s differs from the pin: got %q, want %q: %v", native, copies[native], expectedNative, err)
 	}
 	assembly := filepath.Join(oracle, "DualBackend.dll")
 	home := t.TempDir()
