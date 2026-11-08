@@ -25,149 +25,9 @@
     "Go projects CI branch changes in memory",
     "HTTP 401 wording may differ by C# oracle Git client"
   ],
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40406,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "remote_ci_comparisons": 25,
-      "repository_preparation_regression_comparisons": 7,
-      "branch_selection_regression_comparisons": 8,
-      "executor_routing_regression_comparisons": 8,
-      "executor_cache_regression_comparisons": 20,
-      "cli_schema_regression_cases": 12,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 6
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40406,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "remote_ci_comparisons": 25,
-      "repository_preparation_regression_comparisons": 7,
-      "branch_selection_regression_comparisons": 8,
-      "executor_routing_regression_comparisons": 8,
-      "executor_cache_regression_comparisons": 20,
-      "cli_schema_regression_cases": 12,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 6
-    }
-  },
   "candidate_sha256": {
     "macos": "82c12dcc607d119b58a80732687485a18e624f9a75a9278eef19c7a91cff16a8",
     "ubuntu26": "d6352ebca08bc27bd37730a9f89ebec44f70a69270809dd48994449a8dd694b6"
-  },
-  "process_reports": {
-    "macos": {
-      "branch_selection": {
-        "report": ".local/remote-ci/macos/branch-selection-1275146841/report.json",
-        "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "cli_execution_regression": {
-        "report": ".local/remote-ci/macos/cli-execution-2315441454/report.json",
-        "sha256": "6b62918e3505c74bb8ef82a35c19901880afdfb748868890e04f5280b1110786",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "cli_schema": {
-        "report": ".local/remote-ci/macos/cli-schema-3372849250/report.json",
-        "sha256": "9fd727d50e1f28ceb40fc6c3b4faf0b6b137d45e07d0d2b422a629b169e2a423",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "executor_cache": {
-        "report": ".local/remote-ci/macos/executor-cache-806136145/report.json",
-        "sha256": "145b494cd706e25a308a733f860ec845b7b1954a3adc75592f02bba6cf735641",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "executor_routing": {
-        "report": ".local/remote-ci/macos/executor-routing-72528689/report.json",
-        "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/remote-ci/macos/msbuild-output-2929657694/report.json",
-        "sha256": "7214348b3fd77ca5db9c04e45da2486caea77e19269568193f3e2d7a810a767a",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "msbuild_tasks": {
-        "report": ".local/remote-ci/macos/msbuild-tasks-40600330/report.json",
-        "sha256": "577ea7d884709ac80854a0f5cadf523726888d5112534458392dc651e82349b1",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "repository_preparation": {
-        "report": ".local/remote-ci/macos/repository-preparation-496023789/report.json",
-        "sha256": "cb8bfc7ca3fe7fe82ca0c380a3a900c2da47cf52ef36227d5eab2e80e0532d5c",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "remote_ci": {
-        "report": ".local/remote-ci/macos/remote-ci-294978580/report.json",
-        "sha256": "da8830a8ed510a2429f8a9d1e8bded3a152341f9eb2733d2d620287f99ed1995",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      },
-      "repository_execution_regression": {
-        "report": ".local/remote-ci/macos/repository-execution-145278106/report.json",
-        "sha256": "e992cf0d1418c566831e4d43c52a05f7489acf224588d3ddb32458e6e32c6fb4",
-        "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
-      }
-    },
-    "ubuntu26": {
-      "branch_selection": {
-        "report": ".local/remote-ci/linux/branch-selection-918527158/report.json",
-        "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "cli_execution_regression": {
-        "report": ".local/remote-ci/linux/cli-execution-4244450373/report.json",
-        "sha256": "8c2824cc23d05c3206a77a7dff5dbd65cd7fc7abe4757a5292f8ee9dee4e73e9",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "cli_schema": {
-        "report": ".local/remote-ci/linux/cli-schema-1069134160/report.json",
-        "sha256": "181eac45af0253b8add4ab3fd228b649b80f82bfebb9c290c4ee8ed9b9c2e358",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "executor_cache": {
-        "report": ".local/remote-ci/linux/executor-cache-3278711189/report.json",
-        "sha256": "a7e5bb59e5bd7bed6e00289a7852bf803d8930cc6a4e3609aa2213d29d26ce3d",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "executor_routing": {
-        "report": ".local/remote-ci/linux/executor-routing-616715274/report.json",
-        "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/remote-ci/linux/msbuild-output-829049845/report.json",
-        "sha256": "a9177db78aadadef36853118b52e7f583a6e4b350f502b1955634813318df7cc",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "msbuild_tasks": {
-        "report": ".local/remote-ci/linux/msbuild-tasks-3398658857/report.json",
-        "sha256": "306bfdd2f743c5e51528ebb66bcd73a20f7e37e2e057e3fd96934b52e3c3de80",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "repository_preparation": {
-        "report": ".local/remote-ci/linux/repository-preparation-3064954418/report.json",
-        "sha256": "e974615c63febe50fbe41ae3b5989eee582267fafba27ee65af6d7c462457aca",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "remote_ci": {
-        "report": ".local/remote-ci/linux/remote-ci-1805071350/report.json",
-        "sha256": "64d01361a27f46d1ab2d1fd527ff507680ca9dac4057dccc6d3dd51296bc8d34",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      },
-      "repository_execution_regression": {
-        "report": ".local/remote-ci/linux/repository-execution-448463170/report.json",
-        "sha256": "d317ce1bb68ae6da50830c53beb8568a34e5b8373ee45539ea283b43769c511e",
-        "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
-      }
-    }
   },
   "unit_logs": {
     "macos": "51e0f1450f4b783aaf8b69f348a12f24ea3ecc8276d56e3d47d568dd4aa41a85",
@@ -300,5 +160,1050 @@
         "Propagation": "rprivate"
       }
     ]
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "e6f326762ccd170dc4baac1f92102d3e5d486236",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40406,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "branch_selection",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/branch-selection-1275146841/report.json",
+                  "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/cli-execution-2315441454/report.json",
+                  "sha256": "6b62918e3505c74bb8ef82a35c19901880afdfb748868890e04f5280b1110786",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/cli-schema-3372849250/report.json",
+                  "sha256": "9fd727d50e1f28ceb40fc6c3b4faf0b6b137d45e07d0d2b422a629b169e2a423",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/executor-cache-806136145/report.json",
+                  "sha256": "145b494cd706e25a308a733f860ec845b7b1954a3adc75592f02bba6cf735641",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_routing",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/executor-routing-72528689/report.json",
+                  "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/msbuild-output-2929657694/report.json",
+                  "sha256": "7214348b3fd77ca5db9c04e45da2486caea77e19269568193f3e2d7a810a767a",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/msbuild-tasks-40600330/report.json",
+                  "sha256": "577ea7d884709ac80854a0f5cadf523726888d5112534458392dc651e82349b1",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_preparation",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/repository-preparation-496023789/report.json",
+                  "sha256": "cb8bfc7ca3fe7fe82ca0c380a3a900c2da47cf52ef36227d5eab2e80e0532d5c",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "remote_ci",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/remote-ci-294978580/report.json",
+                  "sha256": "da8830a8ed510a2429f8a9d1e8bded3a152341f9eb2733d2d620287f99ed1995",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/macos/repository-execution-145278106/report.json",
+                  "sha256": "e992cf0d1418c566831e4d43c52a05f7489acf224588d3ddb32458e6e32c6fb4",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40406,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "remote_ci_comparisons": 25,
+                "repository_preparation_regression_comparisons": 7,
+                "branch_selection_regression_comparisons": 8,
+                "executor_routing_regression_comparisons": 8,
+                "executor_cache_regression_comparisons": 20,
+                "cli_schema_regression_cases": 12,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 6
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "branch_selection": {
+                  "report": ".local/remote-ci/macos/branch-selection-1275146841/report.json",
+                  "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "cli_execution_regression": {
+                  "report": ".local/remote-ci/macos/cli-execution-2315441454/report.json",
+                  "sha256": "6b62918e3505c74bb8ef82a35c19901880afdfb748868890e04f5280b1110786",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "cli_schema": {
+                  "report": ".local/remote-ci/macos/cli-schema-3372849250/report.json",
+                  "sha256": "9fd727d50e1f28ceb40fc6c3b4faf0b6b137d45e07d0d2b422a629b169e2a423",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "executor_cache": {
+                  "report": ".local/remote-ci/macos/executor-cache-806136145/report.json",
+                  "sha256": "145b494cd706e25a308a733f860ec845b7b1954a3adc75592f02bba6cf735641",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "executor_routing": {
+                  "report": ".local/remote-ci/macos/executor-routing-72528689/report.json",
+                  "sha256": "9aff0a0d0d116f2b443181a6a7b62905758843f63be13e924a7c93c86d3dd056",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/remote-ci/macos/msbuild-output-2929657694/report.json",
+                  "sha256": "7214348b3fd77ca5db9c04e45da2486caea77e19269568193f3e2d7a810a767a",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/remote-ci/macos/msbuild-tasks-40600330/report.json",
+                  "sha256": "577ea7d884709ac80854a0f5cadf523726888d5112534458392dc651e82349b1",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "repository_preparation": {
+                  "report": ".local/remote-ci/macos/repository-preparation-496023789/report.json",
+                  "sha256": "cb8bfc7ca3fe7fe82ca0c380a3a900c2da47cf52ef36227d5eab2e80e0532d5c",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "remote_ci": {
+                  "report": ".local/remote-ci/macos/remote-ci-294978580/report.json",
+                  "sha256": "da8830a8ed510a2429f8a9d1e8bded3a152341f9eb2733d2d620287f99ed1995",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/remote-ci/macos/repository-execution-145278106/report.json",
+                  "sha256": "e992cf0d1418c566831e4d43c52a05f7489acf224588d3ddb32458e6e32c6fb4",
+                  "log_sha256": "48047eacb6e3f35416bdb1755089ee23c3efc04b4a340ec28076c9987817b1f3"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": "51e0f1450f4b783aaf8b69f348a12f24ea3ecc8276d56e3d47d568dd4aa41a85"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "e6f326762ccd170dc4baac1f92102d3e5d486236",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40406,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "branch_selection",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/branch-selection-918527158/report.json",
+                  "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/cli-execution-4244450373/report.json",
+                  "sha256": "8c2824cc23d05c3206a77a7dff5dbd65cd7fc7abe4757a5292f8ee9dee4e73e9",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/cli-schema-1069134160/report.json",
+                  "sha256": "181eac45af0253b8add4ab3fd228b649b80f82bfebb9c290c4ee8ed9b9c2e358",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/executor-cache-3278711189/report.json",
+                  "sha256": "a7e5bb59e5bd7bed6e00289a7852bf803d8930cc6a4e3609aa2213d29d26ce3d",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_routing",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/executor-routing-616715274/report.json",
+                  "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/msbuild-output-829049845/report.json",
+                  "sha256": "a9177db78aadadef36853118b52e7f583a6e4b350f502b1955634813318df7cc",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/msbuild-tasks-3398658857/report.json",
+                  "sha256": "306bfdd2f743c5e51528ebb66bcd73a20f7e37e2e057e3fd96934b52e3c3de80",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_preparation",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/repository-preparation-3064954418/report.json",
+                  "sha256": "e974615c63febe50fbe41ae3b5989eee582267fafba27ee65af6d7c462457aca",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "remote_ci",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/remote-ci-1805071350/report.json",
+                  "sha256": "64d01361a27f46d1ab2d1fd527ff507680ca9dac4057dccc6d3dd51296bc8d34",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/remote-ci/linux/repository-execution-448463170/report.json",
+                  "sha256": "d317ce1bb68ae6da50830c53beb8568a34e5b8373ee45539ea283b43769c511e",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/cmd-gitversion-go.log",
+              "sha256": "b9152e27652118d647ef76d435c6a47da7480c26e42a8e2f251844f15719e943",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-semver.log",
+              "sha256": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-gitrepo.log",
+              "sha256": "95917087952ec35ad692a7afed881d0e7e4ac11e54137b5c99cb8b0a707019c0",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-output.log",
+              "sha256": "105bcec53e6b40c8463ebfec946793846e5b7e228880fb72a8077048db4ceca5",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-calculate.log",
+              "sha256": "43446d05d79e5572a28968d599dbf55643cbbebc8138cb864b304b316f15a484",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/cmd-parity.log",
+              "sha256": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-patterns.log",
+              "sha256": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-fixtures.log",
+              "sha256": "b7b6536075aea689ec6143238719750ec90b947bc20b7845419e7d783eae89aa",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-commandline.log",
+              "sha256": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-parity.log",
+              "sha256": "4f41b88865d4f9bb507620ab6ad09d3460ba25b82334210ea593e51ce194650f",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-config.log",
+              "sha256": "2ebc32bde9155ae3efe8a27b8f0c3c9c264094e60c24b2c5c7441b0620c3bf68",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-formatting.log",
+              "sha256": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/remote-ci/linux/unit/internal-buildagent.log",
+              "sha256": "61317aa9289a30522022f50a4feb17e2400b89ec5f84d7c97db046beeaca8975",
+              "host": "ubuntu26"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40406,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "remote_ci_comparisons": 25,
+                "repository_preparation_regression_comparisons": 7,
+                "branch_selection_regression_comparisons": 8,
+                "executor_routing_regression_comparisons": 8,
+                "executor_cache_regression_comparisons": 20,
+                "cli_schema_regression_cases": 12,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 6
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "branch_selection": {
+                  "report": ".local/remote-ci/linux/branch-selection-918527158/report.json",
+                  "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "cli_execution_regression": {
+                  "report": ".local/remote-ci/linux/cli-execution-4244450373/report.json",
+                  "sha256": "8c2824cc23d05c3206a77a7dff5dbd65cd7fc7abe4757a5292f8ee9dee4e73e9",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "cli_schema": {
+                  "report": ".local/remote-ci/linux/cli-schema-1069134160/report.json",
+                  "sha256": "181eac45af0253b8add4ab3fd228b649b80f82bfebb9c290c4ee8ed9b9c2e358",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "executor_cache": {
+                  "report": ".local/remote-ci/linux/executor-cache-3278711189/report.json",
+                  "sha256": "a7e5bb59e5bd7bed6e00289a7852bf803d8930cc6a4e3609aa2213d29d26ce3d",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "executor_routing": {
+                  "report": ".local/remote-ci/linux/executor-routing-616715274/report.json",
+                  "sha256": "f1efa51f79a7d27b982cf1ac7161af796e0da747a4a26c13f4b16a41fa24370c",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/remote-ci/linux/msbuild-output-829049845/report.json",
+                  "sha256": "a9177db78aadadef36853118b52e7f583a6e4b350f502b1955634813318df7cc",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/remote-ci/linux/msbuild-tasks-3398658857/report.json",
+                  "sha256": "306bfdd2f743c5e51528ebb66bcd73a20f7e37e2e057e3fd96934b52e3c3de80",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "repository_preparation": {
+                  "report": ".local/remote-ci/linux/repository-preparation-3064954418/report.json",
+                  "sha256": "e974615c63febe50fbe41ae3b5989eee582267fafba27ee65af6d7c462457aca",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "remote_ci": {
+                  "report": ".local/remote-ci/linux/remote-ci-1805071350/report.json",
+                  "sha256": "64d01361a27f46d1ab2d1fd527ff507680ca9dac4057dccc6d3dd51296bc8d34",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/remote-ci/linux/repository-execution-448463170/report.json",
+                  "sha256": "d317ce1bb68ae6da50830c53beb8568a34e5b8373ee45539ea283b43769c511e",
+                  "log_sha256": "946d97f0626b975bd643914b300bfecf217ba789c0deb6a137964774e878fc05"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": {
+                ".local/remote-ci/linux/unit/cmd-gitversion-go.log": "b9152e27652118d647ef76d435c6a47da7480c26e42a8e2f251844f15719e943",
+                ".local/remote-ci/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+                ".local/remote-ci/linux/unit/internal-gitrepo.log": "95917087952ec35ad692a7afed881d0e7e4ac11e54137b5c99cb8b0a707019c0",
+                ".local/remote-ci/linux/unit/internal-output.log": "105bcec53e6b40c8463ebfec946793846e5b7e228880fb72a8077048db4ceca5",
+                ".local/remote-ci/linux/unit/internal-calculate.log": "43446d05d79e5572a28968d599dbf55643cbbebc8138cb864b304b316f15a484",
+                ".local/remote-ci/linux/unit/cmd-parity.log": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3",
+                ".local/remote-ci/linux/unit/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+                ".local/remote-ci/linux/unit/internal-fixtures.log": "b7b6536075aea689ec6143238719750ec90b947bc20b7845419e7d783eae89aa",
+                ".local/remote-ci/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+                ".local/remote-ci/linux/unit/internal-parity.log": "4f41b88865d4f9bb507620ab6ad09d3460ba25b82334210ea593e51ce194650f",
+                ".local/remote-ci/linux/unit/internal-config.log": "2ebc32bde9155ae3efe8a27b8f0c3c9c264094e60c24b2c5c7441b0620c3bf68",
+                ".local/remote-ci/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+                ".local/remote-ci/linux/unit/internal-buildagent.log": "61317aa9289a30522022f50a4feb17e2400b89ec5f84d7c97db046beeaca8975"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformRemoteCIParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 4,
+                "failed": 21,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformRemoteCIParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 4,
+                      "fail": 21,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformRemoteCIParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 0,
+                "failed": 25,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-remote-retry.jsonl",
+              "sha256": "653dfef8c24c57f7f0d4002a99cf8be8231da528c48229556a9553546c90350d",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-remote-retry.jsonl",
+                  "sha256": "653dfef8c24c57f7f0d4002a99cf8be8231da528c48229556a9553546c90350d"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformRemoteCIParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 0,
+                      "fail": 25,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformRemoteCIParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 25,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/retry-native/remote-ci-2264542109/report.json",
+                  "sha256": "73b7ee2231fb908389efa872ec507981f5d79718118d7483fe47747aec6b58a7",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-remote-native.jsonl",
+              "sha256": "d1a0d3ad169c7d51ac04c38e934f5a1214c4429d19673262fc7ddd60c49f56f6",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-remote-native.jsonl",
+                  "sha256": "d1a0d3ad169c7d51ac04c38e934f5a1214c4429d19673262fc7ddd60c49f56f6"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformRemoteCIParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 25,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/retry-native/remote-ci-2264542109/report.json",
+                    "sha256": "73b7ee2231fb908389efa872ec507981f5d79718118d7483fe47747aec6b58a7",
+                    "bytes": 8090,
+                    "test": "TestPlatformRemoteCIParity",
+                    "totals": {
+                      "comparisons": 25
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformRemoteCIParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 25,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/final-e5c31807/remote-ci-693493997/report.json",
+                  "sha256": "0b460aca154bb6c0c8e9a3bfefb59cbce0f3bcd1125d61f4faa482d4620760ce",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/cli.jsonl",
+              "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformRemoteCIParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 25,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/final-e5c31807/remote-ci-693493997/report.json",
+                    "sha256": "0b460aca154bb6c0c8e9a3bfefb59cbce0f3bcd1125d61f4faa482d4620760ce",
+                    "bytes": 8090,
+                    "test": "TestPlatformRemoteCIParity",
+                    "totals": {
+                      "comparisons": 25
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }

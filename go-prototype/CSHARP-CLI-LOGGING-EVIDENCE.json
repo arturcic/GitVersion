@@ -2,10 +2,6 @@
   "baseline": "14d222235b7dabb7033473528a76fd18478a9217",
   "oracle": "src/GitVersion.App with the v7 argument parser and managed Git backend",
   "implementation": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
-  "platforms": [
-    "macOS arm64",
-    "Ubuntu 26.04.1 LTS arm64 in an offline container"
-  ],
   "suites": [
     "TestPlatformCLIExecutionParity",
     "TestPlatformCLIHelpAndDiagnosticsParity",
@@ -59,7 +55,7 @@
   ],
   "remaining": [
     "Verbose tag-cache internals and additional Mainline and inheritance traversal branches remain outside the exact transcript matrix.",
-    "CI branch creation and updates operate on Go\u2019s calculation view. The oracle can update on-disk refs and attach HEAD. Go can reuse a matching local clone where the oracle selects another destination.",
+    "CI branch creation and updates operate on Go’s calculation view. The oracle can update on-disk refs and attach HEAD. Go can reuse a matching local clone where the oracle selects another destination.",
     "Go uses independent cache keys and atomically replaces corrupt entries after calculation. The oracle deletes corrupt entries before recalculating.",
     "Go uses native transport and parsing diagnostics. Managed Git command output and .NET stack frames differ.",
     "Windows runtime verification."
@@ -137,5 +133,879 @@
     ],
     "regression_suites": 8,
     "remote_ci_regression_cases": 25
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLIExecutionParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLIHelpAndDiagnosticsParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLILoggingParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCSharpCLISchema",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformExecutorCacheParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformExecutorRoutingParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": [
+                "macOS arm64"
+              ]
+            },
+            {
+              "name": "historical_transcript_scope",
+              "value": {
+                "normalized_complete_transcript": [
+                  "default",
+                  "tagged-console",
+                  "tagged-file",
+                  "show-config",
+                  "minimal-console",
+                  "quiet-console",
+                  "quiet-creates-empty-file",
+                  "root-argument-error",
+                  "root-verbosity-error",
+                  "invalid-file-sink",
+                  "unborn-no-sink",
+                  "missing-directory",
+                  "missing-directory-minimal",
+                  "missing-commit-quiet",
+                  "config-get",
+                  "config-get-missing-path",
+                  "config-get-quiet",
+                  "config-get-failure",
+                  "migration-root-log-option",
+                  "migration-ignores-root-verbosity",
+                  "migration-missing-input",
+                  "migration-local-log-option-rejected"
+                ],
+                "selected_log_records_and_routing": [
+                  "normal-console",
+                  "verbose-console",
+                  "diagnostic-console",
+                  "file-relative-to-cwd",
+                  "append-to-file",
+                  "buildserver-console",
+                  "buildserver-both-sinks",
+                  "unborn-console",
+                  "invalid-config",
+                  "missing-commit-warning",
+                  "diagnose"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+          "scope": "Historical trace checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "historical live trace",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "source.trace_checkpoint",
+                  "value": {
+                    "implementation": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+                    "test": "TestPlatformCLITraceParity",
+                    "normalized_complete_transcript": [
+                      "fallback",
+                      "configured-next",
+                      "tagged-strategy",
+                      "cache-miss",
+                      "cache-hit",
+                      "clone-no-sink-exception"
+                    ],
+                    "ordered_records": [
+                      "mainline",
+                      "cache-corrupt",
+                      "clone",
+                      "clone-repeat",
+                      "clone-exception",
+                      "clone-quiet-exception",
+                      "ci-skip",
+                      "ci-fetch"
+                    ],
+                    "normalization": [
+                      "Wall clock timestamps",
+                      "Elapsed scope times",
+                      "Per-process fixture directory",
+                      "Independent cache keys"
+                    ],
+                    "regression_suites": 8,
+                    "remote_ci_regression_cases": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+          "scope": "Historical trace checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "historical live trace",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "source.complex_trace_checkpoint",
+                  "value": {
+                    "implementation": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+                    "test": "TestPlatformCLITraceParity",
+                    "normalized_complete_transcript": [
+                      "fallback",
+                      "configured-next",
+                      "tagged-strategy",
+                      "mainline",
+                      "merged-release",
+                      "named-release",
+                      "tagged-release",
+                      "mainline-merge",
+                      "pruned-tags",
+                      "tied-tags",
+                      "cache-miss",
+                      "cache-hit",
+                      "clone-no-sink-exception",
+                      "ci-context-skips-projection"
+                    ],
+                    "ordered_records": [
+                      "cache-corrupt",
+                      "clone",
+                      "clone-repeat",
+                      "clone-exception",
+                      "clone-quiet-exception",
+                      "ci-skip",
+                      "ci-ref-decisions",
+                      "ci-detached-selection",
+                      "ci-fetch"
+                    ],
+                    "normalization": [
+                      "Wall clock timestamps",
+                      "Elapsed scope times",
+                      "Per-process fixture directory",
+                      "Independent cache keys"
+                    ],
+                    "ref_state_assertions": [
+                      "ci-ref-decisions",
+                      "ci-context-skips-projection",
+                      "ci-detached-selection"
+                    ],
+                    "regression_suites": 8,
+                    "remote_ci_regression_cases": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "a3992fc78a748cf7d072c218d8b8ed7dde3213f3",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLIExecutionParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLIHelpAndDiagnosticsParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLILoggingParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCSharpCLISchema",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformExecutorCacheParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformExecutorRoutingParity",
+              "kind": "historical live suite",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": [
+                "Ubuntu 26.04.1 LTS arm64 in an offline container"
+              ]
+            },
+            {
+              "name": "historical_transcript_scope",
+              "value": {
+                "normalized_complete_transcript": [
+                  "default",
+                  "tagged-console",
+                  "tagged-file",
+                  "show-config",
+                  "minimal-console",
+                  "quiet-console",
+                  "quiet-creates-empty-file",
+                  "root-argument-error",
+                  "root-verbosity-error",
+                  "invalid-file-sink",
+                  "unborn-no-sink",
+                  "missing-directory",
+                  "missing-directory-minimal",
+                  "missing-commit-quiet",
+                  "config-get",
+                  "config-get-missing-path",
+                  "config-get-quiet",
+                  "config-get-failure",
+                  "migration-root-log-option",
+                  "migration-ignores-root-verbosity",
+                  "migration-missing-input",
+                  "migration-local-log-option-rejected"
+                ],
+                "selected_log_records_and_routing": [
+                  "normal-console",
+                  "verbose-console",
+                  "diagnostic-console",
+                  "file-relative-to-cwd",
+                  "append-to-file",
+                  "buildserver-console",
+                  "buildserver-both-sinks",
+                  "unborn-console",
+                  "invalid-config",
+                  "missing-commit-warning",
+                  "diagnose"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+          "scope": "Historical trace checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "historical live trace",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "source.trace_checkpoint",
+                  "value": {
+                    "implementation": "ceaf5464ae65e68e4ac26912bdeef60be2520950",
+                    "test": "TestPlatformCLITraceParity",
+                    "normalized_complete_transcript": [
+                      "fallback",
+                      "configured-next",
+                      "tagged-strategy",
+                      "cache-miss",
+                      "cache-hit",
+                      "clone-no-sink-exception"
+                    ],
+                    "ordered_records": [
+                      "mainline",
+                      "cache-corrupt",
+                      "clone",
+                      "clone-repeat",
+                      "clone-exception",
+                      "clone-quiet-exception",
+                      "ci-skip",
+                      "ci-fetch"
+                    ],
+                    "normalization": [
+                      "Wall clock timestamps",
+                      "Elapsed scope times",
+                      "Per-process fixture directory",
+                      "Independent cache keys"
+                    ],
+                    "regression_suites": 8,
+                    "remote_ci_regression_cases": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        },
+        {
+          "implementation_checkpoint": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+          "scope": "Historical trace checkpoint",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "historical live trace",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": [
+                {
+                  "name": "source.complex_trace_checkpoint",
+                  "value": {
+                    "implementation": "4127627126985a6f08f46bf2f41cd9d1405d9786",
+                    "test": "TestPlatformCLITraceParity",
+                    "normalized_complete_transcript": [
+                      "fallback",
+                      "configured-next",
+                      "tagged-strategy",
+                      "mainline",
+                      "merged-release",
+                      "named-release",
+                      "tagged-release",
+                      "mainline-merge",
+                      "pruned-tags",
+                      "tied-tags",
+                      "cache-miss",
+                      "cache-hit",
+                      "clone-no-sink-exception",
+                      "ci-context-skips-projection"
+                    ],
+                    "ordered_records": [
+                      "cache-corrupt",
+                      "clone",
+                      "clone-repeat",
+                      "clone-exception",
+                      "clone-quiet-exception",
+                      "ci-skip",
+                      "ci-ref-decisions",
+                      "ci-detached-selection",
+                      "ci-fetch"
+                    ],
+                    "normalization": [
+                      "Wall clock timestamps",
+                      "Elapsed scope times",
+                      "Per-process fixture directory",
+                      "Independent cache keys"
+                    ],
+                    "ref_state_assertions": [
+                      "ci-ref-decisions",
+                      "ci-context-skips-projection",
+                      "ci-detached-selection"
+                    ],
+                    "regression_suites": 8,
+                    "remote_ci_regression_cases": 25
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformCLILoggingParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 1,
+                "failed": 32,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 3,
+                "failed": 20,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformCLILoggingParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 32,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformCLITraceParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 3,
+                      "fail": 20,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 3,
+                "failed": 20,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-remote-retry.jsonl",
+              "sha256": "653dfef8c24c57f7f0d4002a99cf8be8231da528c48229556a9553546c90350d",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-remote-retry.jsonl",
+                  "sha256": "653dfef8c24c57f7f0d4002a99cf8be8231da528c48229556a9553546c90350d"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformCLITraceParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 3,
+                      "fail": 20,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 3,
+                "failed": 20,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-remote-native.jsonl",
+              "sha256": "d1a0d3ad169c7d51ac04c38e934f5a1214c4429d19673262fc7ddd60c49f56f6",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-remote-native.jsonl",
+                  "sha256": "d1a0d3ad169c7d51ac04c38e934f5a1214c4429d19673262fc7ddd60c49f56f6"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformCLITraceParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 3,
+                      "fail": 20,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCLILoggingParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 33,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformCLITraceParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 23,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/cli.jsonl",
+              "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformCLILoggingParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 33,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformCLITraceParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 23,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }

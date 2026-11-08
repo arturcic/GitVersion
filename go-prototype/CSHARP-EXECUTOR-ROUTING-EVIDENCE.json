@@ -12,113 +12,9 @@
     "verified_integration": 38,
     "total_integration": 662
   },
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40583,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "executor_routing_process_comparisons": 8,
-      "executor_cache_regression_comparisons": 22,
-      "cli_schema_regression_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40583,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "executor_routing_process_comparisons": 8,
-      "executor_cache_regression_comparisons": 22,
-      "cli_schema_regression_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    }
-  },
   "candidate_sha256": {
     "macos": "0881a58d29a694b28d3912951e03d1e2bc215c495f43408d20633c76903c2a41",
     "ubuntu26": "7d88be2519d229abe574713251b6f200dd797a1745418bae043132d1b54c8dad"
-  },
-  "process_reports": {
-    "macos": {
-      "cli_execution_regression": {
-        "report": ".local/executor-routing-ports/macos/cli-execution-755710204/report.json",
-        "sha256": "cfc47048e6e8a0e49530c5d979f91ce46ee8bdfd2a822f6ceb7ee1c894249625",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "cli_schema": {
-        "report": ".local/executor-routing-ports/macos/cli-schema-2796009976/report.json",
-        "sha256": "f5fb425af2f9bcf71b473558af0bada822e7818abf48a58b2bcd22ceeb487068",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "executor_cache": {
-        "report": ".local/executor-routing-ports/macos/executor-cache-4155067249/report.json",
-        "sha256": "7bc2d524f9c3c78a6ddf33d7f3e521cbd24ec35910e9d5f38ecc8e698f2a5795",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "executor_routing": {
-        "report": ".local/executor-routing-ports/macos/executor-routing-2054620781/report.json",
-        "sha256": "10d4f1362f771479322116464ad4a78755715fd926057b29bc0e55490f7c3160",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/executor-routing-ports/macos/msbuild-output-3421671110/report.json",
-        "sha256": "30691af1d310d9a3e2a93b39c71dbfffb510ae4c648e341bb201b047dda3941c",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "msbuild_tasks": {
-        "report": ".local/executor-routing-ports/macos/msbuild-tasks-2871194754/report.json",
-        "sha256": "0d6e403e8e00a1a1a34ac68bfbe5a36c12889ff7f64d047123918d3ee7555479",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      },
-      "repository_execution_regression": {
-        "report": ".local/executor-routing-ports/macos/repository-execution-115841117/report.json",
-        "sha256": "4c2e8c9bf14ee5b932bff9bf6fed1c06746b1c2d5512a1a2c3051121c867ea9c",
-        "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
-      }
-    },
-    "ubuntu26": {
-      "cli_execution_regression": {
-        "report": ".local/executor-routing-ports/linux/cli-execution-93925878/report.json",
-        "sha256": "d7e2c396f397ab4d23efb937e0c5e014f16b3ec12b3a44712d9b53bb78ae0083",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "cli_schema": {
-        "report": ".local/executor-routing-ports/linux/cli-schema-3042330210/report.json",
-        "sha256": "b71c8f19d08ef9114b100dcec422fb99564e56e2b969630d9ac9c52f05359a31",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "executor_cache": {
-        "report": ".local/executor-routing-ports/linux/executor-cache-2278506199/report.json",
-        "sha256": "a956534c3224ad1e07f098b91417ee93b9935659b0970b1f250720c99bc78b7f",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "executor_routing": {
-        "report": ".local/executor-routing-ports/linux/executor-routing-580072257/report.json",
-        "sha256": "8ccb137d9eb3a06ab16597165b2e24bf22be065ba5c4456e0c46c8b277b94e16",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/executor-routing-ports/linux/msbuild-output-2270372977/report.json",
-        "sha256": "9d0b7baa9b304a1650f619e8891adbda738ef66084db3f4ea2042795e186cf70",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "msbuild_tasks": {
-        "report": ".local/executor-routing-ports/linux/msbuild-tasks-4260450194/report.json",
-        "sha256": "18c5349b87bc1982b304be5db2cb9a6dfea91007398ecd1effc099bd971acb11",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      },
-      "repository_execution_regression": {
-        "report": ".local/executor-routing-ports/linux/repository-execution-1969384054/report.json",
-        "sha256": "76e4e0bd9684bf880761fed910c8418c5eea504e50f0e03418ec22879e86c1d4",
-        "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
-      }
-    }
   },
   "port_target_audit": {
     "platforms": {
@@ -432,5 +328,870 @@
         "Propagation": "rprivate"
       }
     ]
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "095fba61ea9967e004785f860403a8a97bfb2407",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40583,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/cli-execution-755710204/report.json",
+                  "sha256": "cfc47048e6e8a0e49530c5d979f91ce46ee8bdfd2a822f6ceb7ee1c894249625",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/cli-schema-2796009976/report.json",
+                  "sha256": "f5fb425af2f9bcf71b473558af0bada822e7818abf48a58b2bcd22ceeb487068",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/executor-cache-4155067249/report.json",
+                  "sha256": "7bc2d524f9c3c78a6ddf33d7f3e521cbd24ec35910e9d5f38ecc8e698f2a5795",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_routing",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/executor-routing-2054620781/report.json",
+                  "sha256": "10d4f1362f771479322116464ad4a78755715fd926057b29bc0e55490f7c3160",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/msbuild-output-3421671110/report.json",
+                  "sha256": "30691af1d310d9a3e2a93b39c71dbfffb510ae4c648e341bb201b047dda3941c",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/msbuild-tasks-2871194754/report.json",
+                  "sha256": "0d6e403e8e00a1a1a34ac68bfbe5a36c12889ff7f64d047123918d3ee7555479",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/macos/repository-execution-115841117/report.json",
+                  "sha256": "4c2e8c9bf14ee5b932bff9bf6fed1c06746b1c2d5512a1a2c3051121c867ea9c",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40583,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "executor_routing_process_comparisons": 8,
+                "executor_cache_regression_comparisons": 22,
+                "cli_schema_regression_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/executor-routing-ports/macos/cli-execution-755710204/report.json",
+                  "sha256": "cfc47048e6e8a0e49530c5d979f91ce46ee8bdfd2a822f6ceb7ee1c894249625",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "cli_schema": {
+                  "report": ".local/executor-routing-ports/macos/cli-schema-2796009976/report.json",
+                  "sha256": "f5fb425af2f9bcf71b473558af0bada822e7818abf48a58b2bcd22ceeb487068",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "executor_cache": {
+                  "report": ".local/executor-routing-ports/macos/executor-cache-4155067249/report.json",
+                  "sha256": "7bc2d524f9c3c78a6ddf33d7f3e521cbd24ec35910e9d5f38ecc8e698f2a5795",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "executor_routing": {
+                  "report": ".local/executor-routing-ports/macos/executor-routing-2054620781/report.json",
+                  "sha256": "10d4f1362f771479322116464ad4a78755715fd926057b29bc0e55490f7c3160",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/executor-routing-ports/macos/msbuild-output-3421671110/report.json",
+                  "sha256": "30691af1d310d9a3e2a93b39c71dbfffb510ae4c648e341bb201b047dda3941c",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/executor-routing-ports/macos/msbuild-tasks-2871194754/report.json",
+                  "sha256": "0d6e403e8e00a1a1a34ac68bfbe5a36c12889ff7f64d047123918d3ee7555479",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/executor-routing-ports/macos/repository-execution-115841117/report.json",
+                  "sha256": "4c2e8c9bf14ee5b932bff9bf6fed1c06746b1c2d5512a1a2c3051121c867ea9c",
+                  "log_sha256": "51667bae26230366cb0d8f94973d479ef4de86f18a454fbea4c40e9eee1639f3"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": "02cfac4427e47fee115b303083d316b3e4e4e73e926c6de66e50728c2728d0bd"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "095fba61ea9967e004785f860403a8a97bfb2407",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40583,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/cli-execution-93925878/report.json",
+                  "sha256": "d7e2c396f397ab4d23efb937e0c5e014f16b3ec12b3a44712d9b53bb78ae0083",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/cli-schema-3042330210/report.json",
+                  "sha256": "b71c8f19d08ef9114b100dcec422fb99564e56e2b969630d9ac9c52f05359a31",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/executor-cache-2278506199/report.json",
+                  "sha256": "a956534c3224ad1e07f098b91417ee93b9935659b0970b1f250720c99bc78b7f",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_routing",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/executor-routing-580072257/report.json",
+                  "sha256": "8ccb137d9eb3a06ab16597165b2e24bf22be065ba5c4456e0c46c8b277b94e16",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/msbuild-output-2270372977/report.json",
+                  "sha256": "9d0b7baa9b304a1650f619e8891adbda738ef66084db3f4ea2042795e186cf70",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/msbuild-tasks-4260450194/report.json",
+                  "sha256": "18c5349b87bc1982b304be5db2cb9a6dfea91007398ecd1effc099bd971acb11",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-routing-ports/linux/repository-execution-1969384054/report.json",
+                  "sha256": "76e4e0bd9684bf880761fed910c8418c5eea504e50f0e03418ec22879e86c1d4",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-patterns.log",
+              "sha256": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-output.log",
+              "sha256": "8a366b8f270f5d454bcdba8f029f0ee2490047afc9de263ad2053fedf772d445",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/cmd-parity.log",
+              "sha256": "a8a50a85e0301526a6c560bc605c277d1d9dac442611b7e40aa7b799a1c207d6",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-formatting.log",
+              "sha256": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-config.log",
+              "sha256": "4c4647dd444c15951f33628c4a3794632d96b02a86954b9c07cf9c09ee42715d",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-fixtures.log",
+              "sha256": "c6320acb829b7445983d05e52789e8c84c9b344546429de83e3fbb91c894f01b",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-calculate.log",
+              "sha256": "5957835e4ab56636e239aec141c813b355a6992c364a06d5aae0be3848a9c80d",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-gitrepo.log",
+              "sha256": "2a5820049c5edff4603127359024dc9c3958385687887ca246875078fb573f30",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-semver.log",
+              "sha256": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/cmd-gitversion-go.log",
+              "sha256": "9cb94a9ea0aa2e505d50ca12e5e4c9870d48403ad97f1eca9bbea199cdc76629",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-buildagent.log",
+              "sha256": "a2c7f0d51d7dcd4f43fb3735998bd13cec0194b6d8eec9967c2565db658bb7ce",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-parity.log",
+              "sha256": "8f0a172ef1a16238f72d0785c2ee6ae31db4bcc7033d049f9827fa134267560e",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-routing-ports/linux/unit/internal-commandline.log",
+              "sha256": "364c192b9cc1a6fee183cad782cbe7b40d87c1f2680e890ecab599e65026b27f",
+              "host": "ubuntu26"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40583,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "executor_routing_process_comparisons": 8,
+                "executor_cache_regression_comparisons": 22,
+                "cli_schema_regression_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/executor-routing-ports/linux/cli-execution-93925878/report.json",
+                  "sha256": "d7e2c396f397ab4d23efb937e0c5e014f16b3ec12b3a44712d9b53bb78ae0083",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "cli_schema": {
+                  "report": ".local/executor-routing-ports/linux/cli-schema-3042330210/report.json",
+                  "sha256": "b71c8f19d08ef9114b100dcec422fb99564e56e2b969630d9ac9c52f05359a31",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "executor_cache": {
+                  "report": ".local/executor-routing-ports/linux/executor-cache-2278506199/report.json",
+                  "sha256": "a956534c3224ad1e07f098b91417ee93b9935659b0970b1f250720c99bc78b7f",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "executor_routing": {
+                  "report": ".local/executor-routing-ports/linux/executor-routing-580072257/report.json",
+                  "sha256": "8ccb137d9eb3a06ab16597165b2e24bf22be065ba5c4456e0c46c8b277b94e16",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/executor-routing-ports/linux/msbuild-output-2270372977/report.json",
+                  "sha256": "9d0b7baa9b304a1650f619e8891adbda738ef66084db3f4ea2042795e186cf70",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/executor-routing-ports/linux/msbuild-tasks-4260450194/report.json",
+                  "sha256": "18c5349b87bc1982b304be5db2cb9a6dfea91007398ecd1effc099bd971acb11",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/executor-routing-ports/linux/repository-execution-1969384054/report.json",
+                  "sha256": "76e4e0bd9684bf880761fed910c8418c5eea504e50f0e03418ec22879e86c1d4",
+                  "log_sha256": "c5ccb338bbcdf75f3823cb5ad5a29c7fbcb8ebaea419fa17debbb807a59fd547"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": {
+                ".local/executor-routing-ports/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+                ".local/executor-routing-ports/linux/unit/internal-output.log": "8a366b8f270f5d454bcdba8f029f0ee2490047afc9de263ad2053fedf772d445",
+                ".local/executor-routing-ports/linux/unit/cmd-parity.log": "a8a50a85e0301526a6c560bc605c277d1d9dac442611b7e40aa7b799a1c207d6",
+                ".local/executor-routing-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+                ".local/executor-routing-ports/linux/unit/internal-config.log": "4c4647dd444c15951f33628c4a3794632d96b02a86954b9c07cf9c09ee42715d",
+                ".local/executor-routing-ports/linux/unit/internal-fixtures.log": "c6320acb829b7445983d05e52789e8c84c9b344546429de83e3fbb91c894f01b",
+                ".local/executor-routing-ports/linux/unit/internal-calculate.log": "5957835e4ab56636e239aec141c813b355a6992c364a06d5aae0be3848a9c80d",
+                ".local/executor-routing-ports/linux/unit/internal-gitrepo.log": "2a5820049c5edff4603127359024dc9c3958385687887ca246875078fb573f30",
+                ".local/executor-routing-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+                ".local/executor-routing-ports/linux/unit/cmd-gitversion-go.log": "9cb94a9ea0aa2e505d50ca12e5e4c9870d48403ad97f1eca9bbea199cdc76629",
+                ".local/executor-routing-ports/linux/unit/internal-buildagent.log": "a2c7f0d51d7dcd4f43fb3735998bd13cec0194b6d8eec9967c2565db658bb7ce",
+                ".local/executor-routing-ports/linux/unit/internal-parity.log": "8f0a172ef1a16238f72d0785c2ee6ae31db4bcc7033d049f9827fa134267560e",
+                ".local/executor-routing-ports/linux/unit/internal-commandline.log": "364c192b9cc1a6fee183cad782cbe7b40d87c1f2680e890ecab599e65026b27f"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestCSharpExecutorRouting",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 8,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpExecutorRouting",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 8,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformExecutorRoutingParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 5,
+                "failed": 3,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformExecutorRoutingParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 5,
+                      "fail": 3,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpExecutorRouting",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 8,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpExecutorRouting",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 8,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformExecutorRoutingParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 8,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/final-e5c31807/executor-routing-1560365579/report.json",
+                  "sha256": "82fe2078f413d02accc25592ed596b612305b2cacdaa1a8bdfa9e373275b8fc4",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 8
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/cli.jsonl",
+              "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformExecutorRoutingParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 8,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/final-e5c31807/executor-routing-1560365579/report.json",
+                    "sha256": "82fe2078f413d02accc25592ed596b612305b2cacdaa1a8bdfa9e373275b8fc4",
+                    "bytes": 7974,
+                    "test": "TestPlatformExecutorRoutingParity",
+                    "totals": {
+                      "comparisons": 8
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }

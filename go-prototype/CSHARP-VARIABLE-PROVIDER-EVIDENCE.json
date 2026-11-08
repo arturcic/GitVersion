@@ -15,88 +15,6 @@
     "total": 662,
     "verified": 38
   },
-  "platforms": {
-    "macos": {
-      "regular_tests_passed": 38006,
-      "regular_packages_passed": 11,
-      "failures": 0,
-      "skips": 0,
-      "fresh_calculation_json_matches": 87,
-      "fresh_configuration_value_cases": 6,
-      "fresh_global_mode_json_matches": 88,
-      "fresh_repository_compatibility_json_matches": 104,
-      "actual_repository_fields_matching": 33
-    },
-    "ubuntu26": {
-      "regular_tests_passed": 38006,
-      "regular_packages_passed": 11,
-      "failures": 0,
-      "skips": 0,
-      "fresh_calculation_json_matches": 87,
-      "fresh_configuration_value_cases": 6,
-      "fresh_global_mode_json_matches": 88,
-      "fresh_repository_compatibility_json_matches": 104,
-      "actual_repository_fields_matching": 33
-    }
-  },
-  "reports": [
-    {
-      "platform": "macos",
-      "kind": "configuration-values",
-      "path": ".local/csharp-config-ports-1437418248",
-      "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
-      "passed": 6
-    },
-    {
-      "platform": "macos",
-      "kind": "global-mode-json",
-      "path": ".local/global-mode-parity-3394232517",
-      "report_sha256": "f29138a308253c916675765ad1fe810564031bbd1fe0839c59a64bddacd3e64f",
-      "passed": 88
-    },
-    {
-      "platform": "macos",
-      "kind": "calculation-json",
-      "path": ".local/platform-evidence/run-768961187",
-      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
-      "passed": 87
-    },
-    {
-      "platform": "macos",
-      "kind": "repository-compatibility-json",
-      "path": ".local/repository-compatibility-2432113902",
-      "report_sha256": "30d1c6265c86d664be4d14aa91f46a2d1514e0eadf8d0203b86aa44921eb99c0",
-      "passed": 104
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "configuration-values",
-      "path": ".local/csharp-variable-linux-evidence/csharp-config-ports-1604318607",
-      "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
-      "passed": 6
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "global-mode-json",
-      "path": ".local/csharp-variable-linux-evidence/global-mode-parity-1588998788",
-      "report_sha256": "8ff972e7be8279472b8e2cc027ee3d0c99da5ef99dcc4d608c136ef5f62ce7b9",
-      "passed": 88
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "calculation-json",
-      "path": ".local/csharp-variable-linux-evidence/run-2493310100",
-      "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
-      "passed": 87
-    },
-    {
-      "platform": "ubuntu26",
-      "kind": "repository-compatibility-json",
-      "path": ".local/csharp-variable-linux-evidence/repository-compatibility-4020391456",
-      "report_sha256": "2aeaac00e79cb30d8d5622ece7aab39623759bf56e479b8462deb3360bf6366b",
-      "passed": 104
-    }
-  ],
   "production_inputs": {
     "cmd/gitversion-go/main.go": "f2aef681cffd7ca665f0b8b1e85f080983ad6a864bb53c7f3320aefac90237e7",
     "internal/calculate/calculate.go": "7507bd99e01487c1efc059b81c7353356d050c68862e5bbcefe3034835c6bbe2",
@@ -235,6 +153,599 @@
     ".local/csharp-variable-linux-evidence/actual-repository.tar.gz": {
       "sha256": "7333bb7ca463af32df79e87bb65ee9630fcc95d0f275588d6e5a2adbb5fd2106",
       "bytes": 79771137
+    }
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "cc6c6f23002bf8e1b8f34537508498a6210da3ef",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 38006,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "configuration-values",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 6,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-config-ports-1437418248",
+                  "sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.0",
+                  "value": {
+                    "platform": "macos",
+                    "kind": "configuration-values",
+                    "path": ".local/csharp-config-ports-1437418248",
+                    "report_sha256": "8dd54980eb1d48929d23a3f14930e376955b680f34b4acb2e27f895aaf3262ad",
+                    "passed": 6
+                  }
+                }
+              ]
+            },
+            {
+              "name": "global-mode-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 88,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/global-mode-parity-3394232517",
+                  "sha256": "f29138a308253c916675765ad1fe810564031bbd1fe0839c59a64bddacd3e64f",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.1",
+                  "value": {
+                    "platform": "macos",
+                    "kind": "global-mode-json",
+                    "path": ".local/global-mode-parity-3394232517",
+                    "report_sha256": "f29138a308253c916675765ad1fe810564031bbd1fe0839c59a64bddacd3e64f",
+                    "passed": 88
+                  }
+                }
+              ]
+            },
+            {
+              "name": "calculation-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 87,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-768961187",
+                  "sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.2",
+                  "value": {
+                    "platform": "macos",
+                    "kind": "calculation-json",
+                    "path": ".local/platform-evidence/run-768961187",
+                    "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                    "passed": 87
+                  }
+                }
+              ]
+            },
+            {
+              "name": "repository-compatibility-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 104,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/repository-compatibility-2432113902",
+                  "sha256": "30d1c6265c86d664be4d14aa91f46a2d1514e0eadf8d0203b86aa44921eb99c0",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.3",
+                  "value": {
+                    "platform": "macos",
+                    "kind": "repository-compatibility-json",
+                    "path": ".local/repository-compatibility-2432113902",
+                    "report_sha256": "30d1c6265c86d664be4d14aa91f46a2d1514e0eadf8d0203b86aa44921eb99c0",
+                    "passed": 104
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "regular_tests_passed": 38006,
+                "regular_packages_passed": 11,
+                "failures": 0,
+                "skips": 0,
+                "fresh_calculation_json_matches": 87,
+                "fresh_configuration_value_cases": 6,
+                "fresh_global_mode_json_matches": 88,
+                "fresh_repository_compatibility_json_matches": 104,
+                "actual_repository_fields_matching": 33
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "cc6c6f23002bf8e1b8f34537508498a6210da3ef",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 38006,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "configuration-values",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 6,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-variable-linux-evidence/csharp-config-ports-1604318607",
+                  "sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.4",
+                  "value": {
+                    "platform": "ubuntu26",
+                    "kind": "configuration-values",
+                    "path": ".local/csharp-variable-linux-evidence/csharp-config-ports-1604318607",
+                    "report_sha256": "1f2f8f4d4a5926fc696e5561963d37aba394e5e22cf9df4739caeb8e18d9a714",
+                    "passed": 6
+                  }
+                }
+              ]
+            },
+            {
+              "name": "global-mode-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 88,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-variable-linux-evidence/global-mode-parity-1588998788",
+                  "sha256": "8ff972e7be8279472b8e2cc027ee3d0c99da5ef99dcc4d608c136ef5f62ce7b9",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.5",
+                  "value": {
+                    "platform": "ubuntu26",
+                    "kind": "global-mode-json",
+                    "path": ".local/csharp-variable-linux-evidence/global-mode-parity-1588998788",
+                    "report_sha256": "8ff972e7be8279472b8e2cc027ee3d0c99da5ef99dcc4d608c136ef5f62ce7b9",
+                    "passed": 88
+                  }
+                }
+              ]
+            },
+            {
+              "name": "calculation-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 87,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-variable-linux-evidence/run-2493310100",
+                  "sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.6",
+                  "value": {
+                    "platform": "ubuntu26",
+                    "kind": "calculation-json",
+                    "path": ".local/csharp-variable-linux-evidence/run-2493310100",
+                    "report_sha256": "6f8ee35d0ce0c392e62a1a74aa5a56b5a50e595932a720f54dab419c90911f84",
+                    "passed": 87
+                  }
+                }
+              ]
+            },
+            {
+              "name": "repository-compatibility-json",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 104,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/csharp-variable-linux-evidence/repository-compatibility-4020391456",
+                  "sha256": "2aeaac00e79cb30d8d5622ece7aab39623759bf56e479b8462deb3360bf6366b",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.reports.7",
+                  "value": {
+                    "platform": "ubuntu26",
+                    "kind": "repository-compatibility-json",
+                    "path": ".local/csharp-variable-linux-evidence/repository-compatibility-4020391456",
+                    "report_sha256": "2aeaac00e79cb30d8d5622ece7aab39623759bf56e479b8462deb3360bf6366b",
+                    "passed": 104
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "regular_tests_passed": 38006,
+                "regular_packages_passed": 11,
+                "failures": 0,
+                "skips": 0,
+                "fresh_calculation_json_matches": 87,
+                "fresh_configuration_value_cases": 6,
+                "fresh_global_mode_json_matches": 88,
+                "fresh_repository_compatibility_json_matches": 104,
+                "actual_repository_fields_matching": 33
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "partial",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestCSharpOutputProjections",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 22,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpVariableProvider",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 21,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpVersionJSON",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpOutputProjections",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 22,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpVariableProvider",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 21,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpVersionJSON",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "unit_only",
+                "note": "No matching specialized Windows live run was recorded for this manifest."
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpOutputProjections",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 22,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpVariableProvider",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 21,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpVersionJSON",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpOutputProjections",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 22,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpVariableProvider",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 21,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpVersionJSON",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
     }
   }
 }

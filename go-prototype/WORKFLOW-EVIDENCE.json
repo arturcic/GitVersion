@@ -17,158 +17,6 @@
     "mounts": [],
     "network_mode": "none"
   },
-  "gates": [
-    {
-      "platform": "darwin/arm64",
-      "suite": "original-curated",
-      "test": "TestPinnedGoCalculationParity",
-      "version_matches": 63,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/calculation-evidence/run-1062734462",
-      "report_sha256": "0269e012f295211671728510f077c02aab40276ae9b9e7bc533a6efd302761e1"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "generated-original",
-      "test": "TestGeneratedCalculationParity",
-      "version_matches": 1000,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/expansion-evidence/run-1978075679",
-      "report_sha256": "6d0621089df281e676851591871a891ee14ae03d71fd0d5ac7cd465cf1b101ea"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "generated-policies",
-      "test": "TestGeneratedPolicyParity",
-      "version_matches": 1000,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/expanded-generated-evidence/run-1595104750",
-      "report_sha256": "1febc9b2cbc29f1325508667d9e7a1062cfe7b4c3b9882ab54f2a3d4de613420"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "generated-workflows",
-      "test": "TestGeneratedWorkflowParity",
-      "version_matches": 999,
-      "matched_rejections": 1,
-      "failed": 0,
-      "evidence": ".local/workflow-generated-evidence/run-261441363",
-      "report_sha256": "79f7b86092ef00cc599f5c7e4883c6784712c41af9fdcea2743ac161f5ff0182"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "generated-resets",
-      "test": "TestGeneratedResetParity",
-      "version_matches": 1000,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/reset-generated-evidence/run-2998368911",
-      "report_sha256": "f5c84678630ef4944b8235d21054d27e5a329336aee597b451171b7d358f91eb"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "policies",
-      "test": "TestExpandedPolicyParity",
-      "version_matches": 250,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/policy-evidence/run-1091897742",
-      "report_sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "workflows",
-      "test": "TestWorkflowParity",
-      "version_matches": 166,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-evidence/run-4235390807",
-      "report_sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "resets",
-      "test": "TestResetPolicyParity",
-      "version_matches": 192,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/reset-evidence/run-4209902195",
-      "report_sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871"
-    },
-    {
-      "platform": "darwin/arm64",
-      "suite": "workflow-edges",
-      "test": "TestWorkflowEdgeParity",
-      "version_matches": 13,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-edge-evidence/run-1840756721",
-      "report_sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "curated",
-      "test": "TestPlatformCuratedParity",
-      "version_matches": 63,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1374849907",
-      "report_sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "policies",
-      "test": "TestPlatformPolicyParity",
-      "version_matches": 250,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1694546380",
-      "report_sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "workflows",
-      "test": "TestPlatformWorkflowParity",
-      "version_matches": 166,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-2829079192",
-      "report_sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "workflow-edges",
-      "test": "TestPlatformWorkflowEdgeParity",
-      "version_matches": 13,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3154974821",
-      "report_sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "resets",
-      "test": "TestPlatformResetParity",
-      "version_matches": 192,
-      "matched_rejections": 0,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3345911498",
-      "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b"
-    },
-    {
-      "platform": "linux/arm64",
-      "suite": "workflow-generated",
-      "test": "TestPlatformGeneratedWorkflowParity",
-      "version_matches": 999,
-      "matched_rejections": 1,
-      "failed": 0,
-      "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3735133865",
-      "report_sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d"
-    }
-  ],
   "retry": {
     "test": "TestWorkflowEdgeParity",
     "failed_evidence": ".local/workflow-edge-evidence/run-1246037678",
@@ -180,5 +28,3058 @@
     "Declared workflow subset, not full replacement compatibility.",
     "Known rejection matches exit and empty stdout; diagnostic wording remains a CLI gap.",
     "Windows validation intentionally pending."
-  ]
+  ],
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "6ce9921c65596f4a7199457753b7dbd00bec71b3",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPinnedGoCalculationParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 63,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/calculation-evidence/run-1062734462",
+                  "sha256": "0269e012f295211671728510f077c02aab40276ae9b9e7bc533a6efd302761e1",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.0",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "original-curated",
+                    "test": "TestPinnedGoCalculationParity",
+                    "version_matches": 63,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/calculation-evidence/run-1062734462",
+                    "report_sha256": "0269e012f295211671728510f077c02aab40276ae9b9e7bc533a6efd302761e1"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestGeneratedCalculationParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 1000,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/expansion-evidence/run-1978075679",
+                  "sha256": "6d0621089df281e676851591871a891ee14ae03d71fd0d5ac7cd465cf1b101ea",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.1",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "generated-original",
+                    "test": "TestGeneratedCalculationParity",
+                    "version_matches": 1000,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/expansion-evidence/run-1978075679",
+                    "report_sha256": "6d0621089df281e676851591871a891ee14ae03d71fd0d5ac7cd465cf1b101ea"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestGeneratedPolicyParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 1000,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/expanded-generated-evidence/run-1595104750",
+                  "sha256": "1febc9b2cbc29f1325508667d9e7a1062cfe7b4c3b9882ab54f2a3d4de613420",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.2",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "generated-policies",
+                    "test": "TestGeneratedPolicyParity",
+                    "version_matches": 1000,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/expanded-generated-evidence/run-1595104750",
+                    "report_sha256": "1febc9b2cbc29f1325508667d9e7a1062cfe7b4c3b9882ab54f2a3d4de613420"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestGeneratedWorkflowParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 1000,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-generated-evidence/run-261441363",
+                  "sha256": "79f7b86092ef00cc599f5c7e4883c6784712c41af9fdcea2743ac161f5ff0182",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.3",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "generated-workflows",
+                    "test": "TestGeneratedWorkflowParity",
+                    "version_matches": 999,
+                    "matched_rejections": 1,
+                    "failed": 0,
+                    "evidence": ".local/workflow-generated-evidence/run-261441363",
+                    "report_sha256": "79f7b86092ef00cc599f5c7e4883c6784712c41af9fdcea2743ac161f5ff0182"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestGeneratedResetParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 1000,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/reset-generated-evidence/run-2998368911",
+                  "sha256": "f5c84678630ef4944b8235d21054d27e5a329336aee597b451171b7d358f91eb",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.4",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "generated-resets",
+                    "test": "TestGeneratedResetParity",
+                    "version_matches": 1000,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/reset-generated-evidence/run-2998368911",
+                    "report_sha256": "f5c84678630ef4944b8235d21054d27e5a329336aee597b451171b7d358f91eb"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestExpandedPolicyParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 250,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-1091897742",
+                  "sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.5",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "policies",
+                    "test": "TestExpandedPolicyParity",
+                    "version_matches": 250,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/policy-evidence/run-1091897742",
+                    "report_sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 166,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-4235390807",
+                  "sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.6",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "workflows",
+                    "test": "TestWorkflowParity",
+                    "version_matches": 166,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-evidence/run-4235390807",
+                    "report_sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestResetPolicyParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 192,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-4209902195",
+                  "sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.7",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "resets",
+                    "test": "TestResetPolicyParity",
+                    "version_matches": 192,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/reset-evidence/run-4209902195",
+                    "report_sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowEdgeParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-1840756721",
+                  "sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d",
+                  "host": "macos"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.8",
+                  "value": {
+                    "platform": "darwin/arm64",
+                    "suite": "workflow-edges",
+                    "test": "TestWorkflowEdgeParity",
+                    "version_matches": 13,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-edge-evidence/run-1840756721",
+                    "report_sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d"
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "6ce9921c65596f4a7199457753b7dbd00bec71b3",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPlatformCuratedParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 63,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-1374849907",
+                  "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.9",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "curated",
+                    "test": "TestPlatformCuratedParity",
+                    "version_matches": 63,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1374849907",
+                    "report_sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformPolicyParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 250,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-1694546380",
+                  "sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.10",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "policies",
+                    "test": "TestPlatformPolicyParity",
+                    "version_matches": 250,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-1694546380",
+                    "report_sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 166,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-2829079192",
+                  "sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.11",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "workflows",
+                    "test": "TestPlatformWorkflowParity",
+                    "version_matches": 166,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-2829079192",
+                    "report_sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowEdgeParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-3154974821",
+                  "sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.12",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "workflow-edges",
+                    "test": "TestPlatformWorkflowEdgeParity",
+                    "version_matches": 13,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3154974821",
+                    "report_sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformResetParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 192,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-3345911498",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.13",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "resets",
+                    "test": "TestPlatformResetParity",
+                    "version_matches": 192,
+                    "matched_rejections": 0,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3345911498",
+                    "report_sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformGeneratedWorkflowParity",
+              "kind": "historical report or gate",
+              "status": "passed",
+              "counts": {
+                "passed": 1000,
+                "failed": 0,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-ubuntu-nativefs-evidence/run-3735133865",
+                  "sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "source.gates.14",
+                  "value": {
+                    "platform": "linux/arm64",
+                    "suite": "workflow-generated",
+                    "test": "TestPlatformGeneratedWorkflowParity",
+                    "version_matches": 999,
+                    "matched_rejections": 1,
+                    "failed": 0,
+                    "evidence": ".local/workflow-ubuntu-nativefs-evidence/run-3735133865",
+                    "report_sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d"
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [],
+          "metrics": []
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestWorkflowFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 166,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestResetPolicyFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 192,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestWorkflowEdgeFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-calculate-retry.jsonl",
+              "sha256": "987eec32af5c44f236108cafa53769d8dbaee1e6a23f4521331875c2876da18c",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-calculate-retry.jsonl",
+                  "sha256": "987eec32af5c44f236108cafa53769d8dbaee1e6a23f4521331875c2876da18c"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestWorkflowFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 166,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestResetPolicyFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 192,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowEdgeFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 13,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCuratedParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2195157897/report.json",
+                  "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2195157897/provenance.json",
+                  "sha256": "9bed370ce919dd0e8551e033ca6e59ed5aff1fb49094f211fe45eb108889e8f0",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "cases": 63
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "expected": 63,
+                    "complete": true
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-curated.jsonl",
+              "sha256": "13008989a69a0f0fce7bd65a992333c1a11ba40b683bf70c16db8454ab3bf341",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-curated.jsonl",
+                  "sha256": "13008989a69a0f0fce7bd65a992333c1a11ba40b683bf70c16db8454ab3bf341"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformCuratedParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-2195157897/report.json",
+                    "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                    "bytes": 5092,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "cases": 63
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-2195157897/provenance.json",
+                    "sha256": "9bed370ce919dd0e8551e033ca6e59ed5aff1fb49094f211fe45eb108889e8f0",
+                    "bytes": 27826,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "expected": 63,
+                      "complete": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformCuratedParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-603735130/report.json",
+                  "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-603735130/provenance.json",
+                  "sha256": "9bed370ce919dd0e8551e033ca6e59ed5aff1fb49094f211fe45eb108889e8f0",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "cases": 63
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "expected": 63,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3207660866/report.json",
+                  "sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3207660866/provenance.json",
+                  "sha256": "da0b7a73db4d55b1a21972beb875df87f46b69ec63b29beda179af70e9d8e5e0",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "expected": 250,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1929810343/report.json",
+                  "sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1929810343/provenance.json",
+                  "sha256": "01bc9c08e007a15650334e2d3abccd822770a06438d8ceb40206f17ba1f66a8d",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "expected": 166,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowEdgeParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2588659346/report.json",
+                  "sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2588659346/provenance.json",
+                  "sha256": "805114118b734904527f8803db8c6a6ff0584dbc0f6484a6498fdc5d413847d6",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "expected": 13,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformGeneratedWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 0,
+                "failed": 1,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformCuratedParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformWorkflowEdgeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformGeneratedWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 0,
+                      "fail": 1,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-603735130/report.json",
+                    "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                    "bytes": 5092,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "cases": 63
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-603735130/provenance.json",
+                    "sha256": "9bed370ce919dd0e8551e033ca6e59ed5aff1fb49094f211fe45eb108889e8f0",
+                    "bytes": 27826,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "expected": 63,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-3207660866/report.json",
+                    "sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d",
+                    "bytes": 22867,
+                    "test": "TestPlatformPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-3207660866/provenance.json",
+                    "sha256": "da0b7a73db4d55b1a21972beb875df87f46b69ec63b29beda179af70e9d8e5e0",
+                    "bytes": 27829,
+                    "test": "TestPlatformPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "expected": 250,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1929810343/report.json",
+                    "sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c",
+                    "bytes": 13502,
+                    "test": "TestPlatformWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1929810343/provenance.json",
+                    "sha256": "01bc9c08e007a15650334e2d3abccd822770a06438d8ceb40206f17ba1f66a8d",
+                    "bytes": 27830,
+                    "test": "TestPlatformWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "expected": 166,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-2588659346/report.json",
+                    "sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20",
+                    "bytes": 1351,
+                    "test": "TestPlatformWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-2588659346/provenance.json",
+                    "sha256": "805114118b734904527f8803db8c6a6ff0584dbc0f6484a6498fdc5d413847d6",
+                    "bytes": 27833,
+                    "test": "TestPlatformWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "expected": 13,
+                      "complete": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformResetParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2921244686/report.json",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-2921244686/provenance.json",
+                  "sha256": "070baed736c2d34bae536a4208157e92b6660c5f173d35a9d6f301197170f861",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "expected": 192,
+                    "complete": true
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-reset.jsonl",
+              "sha256": "bc4830aff2f0fddfc869a5158c99596f7c96aa12ef3ccfdc38ca4271bdd9c2d6",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-reset.jsonl",
+                  "sha256": "bc4830aff2f0fddfc869a5158c99596f7c96aa12ef3ccfdc38ca4271bdd9c2d6"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformResetParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-2921244686/report.json",
+                    "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                    "bytes": 15304,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-2921244686/provenance.json",
+                    "sha256": "070baed736c2d34bae536a4208157e92b6660c5f173d35a9d6f301197170f861",
+                    "bytes": 27827,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "expected": 192,
+                      "complete": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformResetParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1150321491/report.json",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1150321491/provenance.json",
+                  "sha256": "070baed736c2d34bae536a4208157e92b6660c5f173d35a9d6f301197170f861",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "expected": 192,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestExpandedPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2105031085/provenance.json",
+                  "sha256": "d67a96963650b09713941702a018015110ab421208c20d4eab0ea558abb9bf88",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2105031085/go/report.json",
+                  "sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2105031085/capture/report.json",
+                  "sha256": "9aa242a2f7fe39feb085c3750118efc93127bf6c609c601303c7b614394445d5",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "expected": 250,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-3183977447/provenance.json",
+                  "sha256": "e8c985525d24db0eafa59add727a9fb222187e0171330d186c6cb21f640b082b",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-3183977447/go/report.json",
+                  "sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-3183977447/capture/report.json",
+                  "sha256": "c8a8de6390574eca0e60553aee5b0b13fa108659639fb644bb7fb64870e5090a",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "expected": 166,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestResetPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-654243248/provenance.json",
+                  "sha256": "67b75eebdbdf0c9e5b184ff949442f9921249bfa65d08a9fed558bb2906ea44b",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-654243248/go/report.json",
+                  "sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-654243248/capture/report.json",
+                  "sha256": "4556e2a5f97be3018dc1ec832b6ff64b9ccafb4c5bbc4496b54cafb8269db7f3",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "expected": 192,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowEdgeParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2885755192/provenance.json",
+                  "sha256": "a56cd870f667509260127e8784b204e9c8e0adfeb29a15be2f94c6309436f0af",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2885755192/go/report.json",
+                  "sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2885755192/capture/report.json",
+                  "sha256": "6473a555402f33525e03454c48ba5247e18161f27adbfb7468f1efc4b8dacc6d",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "expected": 13,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-matrix-retry.jsonl",
+              "sha256": "421a8b483d88c82c8d9eb6cec3e8f21ca3dabbca80c32fc7c275296c234755b9",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.4",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-matrix-retry.jsonl",
+                  "sha256": "421a8b483d88c82c8d9eb6cec3e8f21ca3dabbca80c32fc7c275296c234755b9"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformResetParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestExpandedPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestResetPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowEdgeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-1150321491/report.json",
+                    "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                    "bytes": 15304,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1150321491/provenance.json",
+                    "sha256": "070baed736c2d34bae536a4208157e92b6660c5f173d35a9d6f301197170f861",
+                    "bytes": 27827,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "expected": 192,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2105031085/provenance.json",
+                    "sha256": "d67a96963650b09713941702a018015110ab421208c20d4eab0ea558abb9bf88",
+                    "bytes": 346,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "expected": 250,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2105031085/go/report.json",
+                    "sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb",
+                    "bytes": 22865,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2105031085/capture/report.json",
+                    "sha256": "9aa242a2f7fe39feb085c3750118efc93127bf6c609c601303c7b614394445d5",
+                    "bytes": 22872,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-3183977447/provenance.json",
+                    "sha256": "e8c985525d24db0eafa59add727a9fb222187e0171330d186c6cb21f640b082b",
+                    "bytes": 346,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "expected": 166,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-3183977447/go/report.json",
+                    "sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536",
+                    "bytes": 13500,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-3183977447/capture/report.json",
+                    "sha256": "c8a8de6390574eca0e60553aee5b0b13fa108659639fb644bb7fb64870e5090a",
+                    "bytes": 13507,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-654243248/provenance.json",
+                    "sha256": "67b75eebdbdf0c9e5b184ff949442f9921249bfa65d08a9fed558bb2906ea44b",
+                    "bytes": 346,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "expected": 192,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-654243248/go/report.json",
+                    "sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871",
+                    "bytes": 15302,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-654243248/capture/report.json",
+                    "sha256": "4556e2a5f97be3018dc1ec832b6ff64b9ccafb4c5bbc4496b54cafb8269db7f3",
+                    "bytes": 15309,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2885755192/provenance.json",
+                    "sha256": "a56cd870f667509260127e8784b204e9c8e0adfeb29a15be2f94c6309436f0af",
+                    "bytes": 344,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "expected": 13,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2885755192/go/report.json",
+                    "sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d",
+                    "bytes": 1349,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2885755192/capture/report.json",
+                    "sha256": "6473a555402f33525e03454c48ba5247e18161f27adbfb7468f1efc4b8dacc6d",
+                    "bytes": 1356,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformGeneratedWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-602821328/report.json",
+                  "sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-602821328/provenance.json",
+                  "sha256": "896e8e032871c1866ff7d606ca6356d0f699448b2a53710517c5391bcda8f867",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 1000,
+                    "failed": 0,
+                    "cases": 1000,
+                    "expected_rejections": 1
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 1000,
+                    "failed": 0,
+                    "expected": 1000,
+                    "complete": true
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-generated-platform.jsonl",
+              "sha256": "bbaee0d742c52c9b998605ec74039996536d47731e5bae5a75422e6c5b7e8d56",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.5",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-generated-platform.jsonl",
+                  "sha256": "bbaee0d742c52c9b998605ec74039996536d47731e5bae5a75422e6c5b7e8d56"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformGeneratedWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-602821328/report.json",
+                    "sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d",
+                    "bytes": 83147,
+                    "test": "TestPlatformGeneratedWorkflowParity",
+                    "totals": {
+                      "passed": 1000,
+                      "failed": 0,
+                      "cases": 1000,
+                      "expected_rejections": 1
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-602821328/provenance.json",
+                    "sha256": "896e8e032871c1866ff7d606ca6356d0f699448b2a53710517c5391bcda8f867",
+                    "bytes": 27841,
+                    "test": "TestPlatformGeneratedWorkflowParity",
+                    "totals": {
+                      "passed": 1000,
+                      "failed": 0,
+                      "expected": 1000,
+                      "complete": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestWorkflowFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 166,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestResetPolicyFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 192,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestWorkflowEdgeFrozenReference",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.6",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestWorkflowFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 166,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestResetPolicyFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 192,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowEdgeFrozenReference",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 13,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCuratedParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1857704892/report.json",
+                  "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1857704892/provenance.json",
+                  "sha256": "4222ed1383d51903ab73d74140bafc7b0a236ad9a47225c08eb467fca96b5ab2",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "cases": 63
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 63,
+                    "failed": 0,
+                    "expected": 63,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3585682946/report.json",
+                  "sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3585682946/provenance.json",
+                  "sha256": "36b1ba767cc8a277d60103dfed7b7493c3352eec3089c836704fc1da209d6e17",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "expected": 250,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-4113509280/report.json",
+                  "sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-4113509280/provenance.json",
+                  "sha256": "6244dd25d46d79f2d01b4f46f6e9269e5b70f3b13bd01becc7a84a5dc81d5560",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "expected": 166,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformWorkflowEdgeParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1608958648/report.json",
+                  "sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-1608958648/provenance.json",
+                  "sha256": "6ae06103c653760587ce3487f46d1159cfc28f74bad07ddcb8df79ce5d2a6a95",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "expected": 13,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformResetParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-945728543/report.json",
+                  "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-945728543/provenance.json",
+                  "sha256": "9dc3069c9d109a9a27b57d795764184bf85084a9007cae7ab26d7bfe339490d8",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "expected": 192,
+                    "complete": true
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestExpandedPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2786526103/provenance.json",
+                  "sha256": "0da0516efc774b36cb0d75a1a93fbed11e754caa66e6c20a56185c1ae0d4bcd3",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2786526103/go/report.json",
+                  "sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/policy-evidence/run-2786526103/capture/report.json",
+                  "sha256": "9aa242a2f7fe39feb085c3750118efc93127bf6c609c601303c7b614394445d5",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "expected": 250,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 250,
+                    "failed": 0,
+                    "cases": 250
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-1128013119/provenance.json",
+                  "sha256": "cd51f4ac127702c67c882ea4cc3b78920eb83c0deb1f9a22b4cf9e100c75fd10",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-1128013119/go/report.json",
+                  "sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-evidence/run-1128013119/capture/report.json",
+                  "sha256": "c8a8de6390574eca0e60553aee5b0b13fa108659639fb644bb7fb64870e5090a",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "expected": 166,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 166,
+                    "failed": 0,
+                    "cases": 166
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestResetPolicyParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-395032741/provenance.json",
+                  "sha256": "d7c79f102885ef4b6fd1c36903b7e8e9b496f2888f344a0e8fc4f07fdbb81a81",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-395032741/go/report.json",
+                  "sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/reset-evidence/run-395032741/capture/report.json",
+                  "sha256": "4556e2a5f97be3018dc1ec832b6ff64b9ccafb4c5bbc4496b54cafb8269db7f3",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "expected": 192,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 192,
+                    "failed": 0,
+                    "cases": 192
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowEdgeParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2120750572/provenance.json",
+                  "sha256": "7b25c461186ce2496a38b1dbbf08b3c5f9b5fb0e754a2f6e3b0a71c910682e7e",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2120750572/go/report.json",
+                  "sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/workflow-edge-evidence/run-2120750572/capture/report.json",
+                  "sha256": "6473a555402f33525e03454c48ba5247e18161f27adbfb7468f1efc4b8dacc6d",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "expected": 13,
+                    "complete": true
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 13,
+                    "failed": 0,
+                    "cases": 13
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TestWorkflowReferenceRejectionContract",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 5,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/matrix.jsonl",
+              "sha256": "978f2367d260854b474d0c6c4155e038e458d41008d0514edb4d7ec33f8844f6",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.7",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/matrix.jsonl",
+                  "sha256": "978f2367d260854b474d0c6c4155e038e458d41008d0514edb4d7ec33f8844f6"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformCuratedParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformWorkflowEdgeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformResetParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestExpandedPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestResetPolicyParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowEdgeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestWorkflowReferenceRejectionContract",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 5,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-1857704892/report.json",
+                    "sha256": "d33d88202fa4b92418358710f8dc121303c3b3fc28acd01bf98297080c108e41",
+                    "bytes": 5092,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "cases": 63
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1857704892/provenance.json",
+                    "sha256": "4222ed1383d51903ab73d74140bafc7b0a236ad9a47225c08eb467fca96b5ab2",
+                    "bytes": 27826,
+                    "test": "TestPlatformCuratedParity",
+                    "totals": {
+                      "passed": 63,
+                      "failed": 0,
+                      "expected": 63,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-3585682946/report.json",
+                    "sha256": "fbbd203aedad764b69d3c6af2b2623e026c3ec4d7f78439cdea84e436f85744d",
+                    "bytes": 22867,
+                    "test": "TestPlatformPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-3585682946/provenance.json",
+                    "sha256": "36b1ba767cc8a277d60103dfed7b7493c3352eec3089c836704fc1da209d6e17",
+                    "bytes": 27829,
+                    "test": "TestPlatformPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "expected": 250,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-4113509280/report.json",
+                    "sha256": "ffa6623f317539620e575b34e3b06a6f978978e6538b08978d5a5836a5ef8b9c",
+                    "bytes": 13502,
+                    "test": "TestPlatformWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-4113509280/provenance.json",
+                    "sha256": "6244dd25d46d79f2d01b4f46f6e9269e5b70f3b13bd01becc7a84a5dc81d5560",
+                    "bytes": 27830,
+                    "test": "TestPlatformWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "expected": 166,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1608958648/report.json",
+                    "sha256": "25f6e0d2da5e5868aa31fedbbda31fb7e76614d6141a3617b7195c998ab97b20",
+                    "bytes": 1351,
+                    "test": "TestPlatformWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-1608958648/provenance.json",
+                    "sha256": "6ae06103c653760587ce3487f46d1159cfc28f74bad07ddcb8df79ce5d2a6a95",
+                    "bytes": 27833,
+                    "test": "TestPlatformWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "expected": 13,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-945728543/report.json",
+                    "sha256": "1aa6dcc9157c0cd241b10a9e35519da27bf7b08e862dc7601124a9266354fd1b",
+                    "bytes": 15304,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-945728543/provenance.json",
+                    "sha256": "9dc3069c9d109a9a27b57d795764184bf85084a9007cae7ab26d7bfe339490d8",
+                    "bytes": 27827,
+                    "test": "TestPlatformResetParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "expected": 192,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2786526103/provenance.json",
+                    "sha256": "0da0516efc774b36cb0d75a1a93fbed11e754caa66e6c20a56185c1ae0d4bcd3",
+                    "bytes": 346,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "expected": 250,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2786526103/go/report.json",
+                    "sha256": "8d2aba23443ab1c47fffedb00934142144c8b4988f14d97490b31e94c8a2c5eb",
+                    "bytes": 22865,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/policy-evidence/run-2786526103/capture/report.json",
+                    "sha256": "9aa242a2f7fe39feb085c3750118efc93127bf6c609c601303c7b614394445d5",
+                    "bytes": 22872,
+                    "test": "TestExpandedPolicyParity",
+                    "totals": {
+                      "passed": 250,
+                      "failed": 0,
+                      "cases": 250
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-1128013119/provenance.json",
+                    "sha256": "cd51f4ac127702c67c882ea4cc3b78920eb83c0deb1f9a22b4cf9e100c75fd10",
+                    "bytes": 346,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "expected": 166,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-1128013119/go/report.json",
+                    "sha256": "8515bf08f7157caadabc91b08b3488cf3c3c1f191dadc2a4822dfe6923ca0536",
+                    "bytes": 13500,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-evidence/run-1128013119/capture/report.json",
+                    "sha256": "c8a8de6390574eca0e60553aee5b0b13fa108659639fb644bb7fb64870e5090a",
+                    "bytes": 13507,
+                    "test": "TestWorkflowParity",
+                    "totals": {
+                      "passed": 166,
+                      "failed": 0,
+                      "cases": 166
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-395032741/provenance.json",
+                    "sha256": "d7c79f102885ef4b6fd1c36903b7e8e9b496f2888f344a0e8fc4f07fdbb81a81",
+                    "bytes": 346,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "expected": 192,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-395032741/go/report.json",
+                    "sha256": "afd296b4c745d4430713ae8c14aa3e18e65378aa1aef7d8e7f9f5d18d871e871",
+                    "bytes": 15302,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/reset-evidence/run-395032741/capture/report.json",
+                    "sha256": "4556e2a5f97be3018dc1ec832b6ff64b9ccafb4c5bbc4496b54cafb8269db7f3",
+                    "bytes": 15309,
+                    "test": "TestResetPolicyParity",
+                    "totals": {
+                      "passed": 192,
+                      "failed": 0,
+                      "cases": 192
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2120750572/provenance.json",
+                    "sha256": "7b25c461186ce2496a38b1dbbf08b3c5f9b5fb0e754a2f6e3b0a71c910682e7e",
+                    "bytes": 344,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "expected": 13,
+                      "complete": true
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2120750572/go/report.json",
+                    "sha256": "73cb12db841dca565a4be6ab1b2bf3d36e3673f9fac8f30cf6c32d51c24c6c3d",
+                    "bytes": 1349,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  },
+                  {
+                    "path": ".local/workflow-edge-evidence/run-2120750572/capture/report.json",
+                    "sha256": "6473a555402f33525e03454c48ba5247e18161f27adbfb7468f1efc4b8dacc6d",
+                    "bytes": 1356,
+                    "test": "TestWorkflowEdgeParity",
+                    "totals": {
+                      "passed": 13,
+                      "failed": 0,
+                      "cases": 13
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformGeneratedWorkflowParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 1,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3737199117/report.json",
+                  "sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/platform-evidence/run-3737199117/provenance.json",
+                  "sha256": "03efa354aaa837447f4295d6112a05fe2a8de89f4cf4bad0638c07d45c98e4ba",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 1000,
+                    "failed": 0,
+                    "cases": 1000,
+                    "expected_rejections": 1
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 1000,
+                    "failed": 0,
+                    "expected": 1000,
+                    "complete": true
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/generated.jsonl",
+              "sha256": "29d89b3b4e4d8d1bbbfc539e1e2fae1fdd08741da9087abfdb39bb039a16876d",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.8",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/generated.jsonl",
+                  "sha256": "29d89b3b4e4d8d1bbbfc539e1e2fae1fdd08741da9087abfdb39bb039a16876d"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformGeneratedWorkflowParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/platform-evidence/run-3737199117/report.json",
+                    "sha256": "8d247ec4e0a34ae9d3004bcac28c7c43ee13cab23954d6f94c8967165808ff7d",
+                    "bytes": 83147,
+                    "test": "TestPlatformGeneratedWorkflowParity",
+                    "totals": {
+                      "passed": 1000,
+                      "failed": 0,
+                      "cases": 1000,
+                      "expected_rejections": 1
+                    }
+                  },
+                  {
+                    "path": ".local/platform-evidence/run-3737199117/provenance.json",
+                    "sha256": "03efa354aaa837447f4295d6112a05fe2a8de89f4cf4bad0638c07d45c98e4ba",
+                    "bytes": 27841,
+                    "test": "TestPlatformGeneratedWorkflowParity",
+                    "totals": {
+                      "passed": 1000,
+                      "failed": 0,
+                      "expected": 1000,
+                      "complete": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

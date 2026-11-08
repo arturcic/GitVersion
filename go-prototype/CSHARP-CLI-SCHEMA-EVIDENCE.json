@@ -12,89 +12,9 @@
     "verified_integration": 38,
     "total_integration": 662
   },
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40533,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "cli_schema_process_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40533,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "cli_schema_process_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    }
-  },
   "candidate_sha256": {
     "macos": "50530240fd7242839952034636e790ee32ef37a9cd185a3cff5c6b66c26fe6b5",
     "ubuntu26": "1355e862792b86339b22fe833f84713b2c6893427e6788d6e6d0cb7957df3c8c"
-  },
-  "process_reports": {
-    "macos": {
-      "cli_execution_regression": {
-        "report": ".local/cli-schema-ports/macos/cli-execution-3735208301/report.json",
-        "sha256": "a7d38d9b9ee51e88918e30eb1365ae3d1a4776d929e18673ae116d9acbfd077f",
-        "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
-      },
-      "cli_schema": {
-        "report": ".local/cli-schema-ports/macos/cli-schema-722744123/report.json",
-        "sha256": "a52c9e236db40f8f7c7bf277c668f1be872c21364a8efd82963209ba357215de",
-        "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/cli-schema-ports/macos/msbuild-output-3405525548/report.json",
-        "sha256": "6ebb9c636332e259358fdf54714e7e2ad8b97cbff5c337654b1baf693ee8620d",
-        "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
-      },
-      "msbuild_tasks": {
-        "report": ".local/cli-schema-ports/macos/msbuild-tasks-2885011870/report.json",
-        "sha256": "c298c8283b8354a61fedd69bd529206fc8ab42f449dabf36943eafc82d950d98",
-        "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
-      },
-      "repository_execution_regression": {
-        "report": ".local/cli-schema-ports/macos/repository-execution-686623071/report.json",
-        "sha256": "b254ad3b42fea90db0a85a076a519286313f093fa3eb8bf22f96779d8da748fd",
-        "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
-      }
-    },
-    "ubuntu26": {
-      "cli_execution_regression": {
-        "report": ".local/cli-schema-ports/linux/cli-execution-851074913/report.json",
-        "sha256": "3c1fb9727f5e9415c1fccd3a758081a65bc7ca0e9d80beeb70a2117e3955b257",
-        "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
-      },
-      "cli_schema": {
-        "report": ".local/cli-schema-ports/linux/cli-schema-1196987843/report.json",
-        "sha256": "bf31880787e78d2bb0c268a3937de715a91f588df7476be6d8558b691ba5cbfe",
-        "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/cli-schema-ports/linux/msbuild-output-3063031064/report.json",
-        "sha256": "4fcff9db85e1b172f7407cdb76c27814bc2849eafbf47adc35d38fe632737fac",
-        "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
-      },
-      "msbuild_tasks": {
-        "report": ".local/cli-schema-ports/linux/msbuild-tasks-3399968441/report.json",
-        "sha256": "5a981623cecd1b7240694c3476e681280f48963acb65bd5a0bed42731df2f060",
-        "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
-      },
-      "repository_execution_regression": {
-        "report": ".local/cli-schema-ports/linux/repository-execution-1774912478/report.json",
-        "sha256": "3744c2042ac53a8f18c6423c028e88616a8cad171ff38af8874d973c8865992d",
-        "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
-      }
-    }
   },
   "unit_logs": {
     "macos": "50efc266cd4c3e8d023c804f6337be6d2b6a7ce377939ba1465cfde42947fef8",
@@ -220,5 +140,806 @@
         "Propagation": "rprivate"
       }
     ]
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "d1a17d11e8710d826cee85d193d32da825294b64",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40533,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/macos/cli-execution-3735208301/report.json",
+                  "sha256": "a7d38d9b9ee51e88918e30eb1365ae3d1a4776d929e18673ae116d9acbfd077f",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/macos/cli-schema-722744123/report.json",
+                  "sha256": "a52c9e236db40f8f7c7bf277c668f1be872c21364a8efd82963209ba357215de",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/macos/msbuild-output-3405525548/report.json",
+                  "sha256": "6ebb9c636332e259358fdf54714e7e2ad8b97cbff5c337654b1baf693ee8620d",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/macos/msbuild-tasks-2885011870/report.json",
+                  "sha256": "c298c8283b8354a61fedd69bd529206fc8ab42f449dabf36943eafc82d950d98",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/macos/repository-execution-686623071/report.json",
+                  "sha256": "b254ad3b42fea90db0a85a076a519286313f093fa3eb8bf22f96779d8da748fd",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40533,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "cli_schema_process_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/cli-schema-ports/macos/cli-execution-3735208301/report.json",
+                  "sha256": "a7d38d9b9ee51e88918e30eb1365ae3d1a4776d929e18673ae116d9acbfd077f",
+                  "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
+                },
+                "cli_schema": {
+                  "report": ".local/cli-schema-ports/macos/cli-schema-722744123/report.json",
+                  "sha256": "a52c9e236db40f8f7c7bf277c668f1be872c21364a8efd82963209ba357215de",
+                  "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/cli-schema-ports/macos/msbuild-output-3405525548/report.json",
+                  "sha256": "6ebb9c636332e259358fdf54714e7e2ad8b97cbff5c337654b1baf693ee8620d",
+                  "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/cli-schema-ports/macos/msbuild-tasks-2885011870/report.json",
+                  "sha256": "c298c8283b8354a61fedd69bd529206fc8ab42f449dabf36943eafc82d950d98",
+                  "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/cli-schema-ports/macos/repository-execution-686623071/report.json",
+                  "sha256": "b254ad3b42fea90db0a85a076a519286313f093fa3eb8bf22f96779d8da748fd",
+                  "log_sha256": "e8660eccf32a92cbeae2cc14b174d2a61512deab03b1c834fe069787b51d4e1d"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": "50efc266cd4c3e8d023c804f6337be6d2b6a7ce377939ba1465cfde42947fef8"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "d1a17d11e8710d826cee85d193d32da825294b64",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40533,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/linux/cli-execution-851074913/report.json",
+                  "sha256": "3c1fb9727f5e9415c1fccd3a758081a65bc7ca0e9d80beeb70a2117e3955b257",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/linux/cli-schema-1196987843/report.json",
+                  "sha256": "bf31880787e78d2bb0c268a3937de715a91f588df7476be6d8558b691ba5cbfe",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/linux/msbuild-output-3063031064/report.json",
+                  "sha256": "4fcff9db85e1b172f7407cdb76c27814bc2849eafbf47adc35d38fe632737fac",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/linux/msbuild-tasks-3399968441/report.json",
+                  "sha256": "5a981623cecd1b7240694c3476e681280f48963acb65bd5a0bed42731df2f060",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/cli-schema-ports/linux/repository-execution-1774912478/report.json",
+                  "sha256": "3744c2042ac53a8f18c6423c028e88616a8cad171ff38af8874d973c8865992d",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-semver.log",
+              "sha256": "da924d9ef48c3ba41235e18e0038690abb92c5cdda5d5550cd7087201ba80ff7",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-fixtures.log",
+              "sha256": "2b3a23f36ac66e660ac607880a1ddd1af986e357acb7e3cac2dea59a1eceab3c",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-parity.log",
+              "sha256": "f3eceff2d6bcfaf8a48faf2d93a0940c3681d396c8c65cb95e2060fceaea9c72",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-config.log",
+              "sha256": "4235afc21db119b1d418d49c4c5b382e7e220452e7eb1f4c1f987df38cdc28cc",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-calculate.log",
+              "sha256": "e08bb100967a054caff4cffa53586f92e643db0642a6c386ef73f2bae5848f17",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-formatting.log",
+              "sha256": "c94834db1d6fafacce1a6c54a8f718e48f540e72349cb645f58fe1bdefb10a27",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/cmd-parity.log",
+              "sha256": "c9ee9156307d1338b0fb526618c744a4187da4a0b4fb8ef94dec7b543a7f4e5d",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-gitrepo.log",
+              "sha256": "8f31c0b56d13bf65696c97a98144fad6e92b678adec5c0066b6bf18502e8ba07",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-output.log",
+              "sha256": "5b4348b7250b91344043a16bc2871bfd41067b4017a31e96a237474f9aedac51",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-commandline.log",
+              "sha256": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-buildagent.log",
+              "sha256": "5ca130cfeb018aa9376397c7bc6b567b1f5c8b8bfd83c6df5406896e7da777ab",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/internal-patterns.log",
+              "sha256": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/cli-schema-ports/linux/unit/cmd-gitversion-go.log",
+              "sha256": "af00493bf065043f753c9b0155e1ac141dda2ca0c94ac864070899a248a8d24e",
+              "host": "ubuntu26"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40533,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "cli_schema_process_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/cli-schema-ports/linux/cli-execution-851074913/report.json",
+                  "sha256": "3c1fb9727f5e9415c1fccd3a758081a65bc7ca0e9d80beeb70a2117e3955b257",
+                  "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
+                },
+                "cli_schema": {
+                  "report": ".local/cli-schema-ports/linux/cli-schema-1196987843/report.json",
+                  "sha256": "bf31880787e78d2bb0c268a3937de715a91f588df7476be6d8558b691ba5cbfe",
+                  "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/cli-schema-ports/linux/msbuild-output-3063031064/report.json",
+                  "sha256": "4fcff9db85e1b172f7407cdb76c27814bc2849eafbf47adc35d38fe632737fac",
+                  "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/cli-schema-ports/linux/msbuild-tasks-3399968441/report.json",
+                  "sha256": "5a981623cecd1b7240694c3476e681280f48963acb65bd5a0bed42731df2f060",
+                  "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/cli-schema-ports/linux/repository-execution-1774912478/report.json",
+                  "sha256": "3744c2042ac53a8f18c6423c028e88616a8cad171ff38af8874d973c8865992d",
+                  "log_sha256": "8a24bc82fdaa03f0422449a6d46639dbad3921588dda1b3d529a6fa010b6f598"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": {
+                ".local/cli-schema-ports/linux/unit/internal-semver.log": "da924d9ef48c3ba41235e18e0038690abb92c5cdda5d5550cd7087201ba80ff7",
+                ".local/cli-schema-ports/linux/unit/internal-fixtures.log": "2b3a23f36ac66e660ac607880a1ddd1af986e357acb7e3cac2dea59a1eceab3c",
+                ".local/cli-schema-ports/linux/unit/internal-parity.log": "f3eceff2d6bcfaf8a48faf2d93a0940c3681d396c8c65cb95e2060fceaea9c72",
+                ".local/cli-schema-ports/linux/unit/internal-config.log": "4235afc21db119b1d418d49c4c5b382e7e220452e7eb1f4c1f987df38cdc28cc",
+                ".local/cli-schema-ports/linux/unit/internal-calculate.log": "e08bb100967a054caff4cffa53586f92e643db0642a6c386ef73f2bae5848f17",
+                ".local/cli-schema-ports/linux/unit/internal-formatting.log": "c94834db1d6fafacce1a6c54a8f718e48f540e72349cb645f58fe1bdefb10a27",
+                ".local/cli-schema-ports/linux/unit/cmd-parity.log": "c9ee9156307d1338b0fb526618c744a4187da4a0b4fb8ef94dec7b543a7f4e5d",
+                ".local/cli-schema-ports/linux/unit/internal-gitrepo.log": "8f31c0b56d13bf65696c97a98144fad6e92b678adec5c0066b6bf18502e8ba07",
+                ".local/cli-schema-ports/linux/unit/internal-output.log": "5b4348b7250b91344043a16bc2871bfd41067b4017a31e96a237474f9aedac51",
+                ".local/cli-schema-ports/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+                ".local/cli-schema-ports/linux/unit/internal-buildagent.log": "5ca130cfeb018aa9376397c7bc6b567b1f5c8b8bfd83c6df5406896e7da777ab",
+                ".local/cli-schema-ports/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+                ".local/cli-schema-ports/linux/unit/cmd-gitversion-go.log": "af00493bf065043f753c9b0155e1ac141dda2ca0c94ac864070899a248a8d24e"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestCSharpCLISchema",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 34,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpCLISchema",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 34,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformCSharpCLISchema",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 1,
+                "failed": 11,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformCSharpCLISchema",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 1,
+                      "fail": 11,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCSharpCLISchema",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 12,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-schema-retry2.log",
+              "sha256": "0c2258e761ddef7428f03fcefd22b75fbb671e0873ec5b560720dba5fb9b9e0f",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-schema-retry2.log",
+                  "sha256": "0c2258e761ddef7428f03fcefd22b75fbb671e0873ec5b560720dba5fb9b9e0f"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformCSharpCLISchema",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 12,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpCLISchema",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 34,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpCLISchema",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 34,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformCSharpCLISchema",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 12,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/schema.log",
+              "sha256": "7b03e3bdb245d7b8554936aa26b0403e28b43cfca39faa21338e2070f320a81f",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.4",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/schema.log",
+                  "sha256": "7b03e3bdb245d7b8554936aa26b0403e28b43cfca39faa21338e2070f320a81f"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformCSharpCLISchema",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 12,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }

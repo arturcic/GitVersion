@@ -69,5 +69,60 @@
     ".local/configuration-final-coverage.out": "c1cb420b8fba9e110666d51c18d622d717ca19895e6e62f98edd366aff4d628d",
     ".local/configuration-final-harness-coverage.out": "90b6674563dfc128708f5a96ec5e5a2025a20a1a158a77d5b0ed7399ac621b91",
     ".local/configuration-combined-coverage.out": "5a2e5e57e1aeacb417feb28244c40890412152968f457de57893462c29fc1245"
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "unverified",
+      "runs": []
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "unverified",
+      "runs": []
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "unmeasured",
+      "runs": [
+        {
+          "implementation_checkpoint": null,
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "unmeasured",
+          "checks": [],
+          "artifacts": [
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "unmeasured",
+                "note": "No Windows coverage profile was located. Existing coverage is historical."
+              }
+            }
+          ]
+        }
+      ]
+    }
   }
 }

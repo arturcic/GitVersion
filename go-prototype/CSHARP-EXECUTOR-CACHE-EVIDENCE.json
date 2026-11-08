@@ -12,101 +12,9 @@
     "verified_integration": 38,
     "total_integration": 662
   },
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40559,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "executor_cache_process_comparisons": 22,
-      "cli_schema_regression_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40559,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "executor_cache_process_comparisons": 22,
-      "cli_schema_regression_cases": 13,
-      "msbuild_task_regression_cases": 27,
-      "msbuild_generation_regression_cases": 18,
-      "repository_execution_regression_comparisons": 3,
-      "cli_execution_regression_comparisons": 7
-    }
-  },
   "candidate_sha256": {
     "macos": "589eb6de242b2265e74d5401234ae1aebe1914e1587fe38413dd22fe89ff4d14",
     "ubuntu26": "22bbf9b1dba93c07cb7e616b93d09ddc8eb73be7cc7151be5728aa206535fcb3"
-  },
-  "process_reports": {
-    "macos": {
-      "cli_execution_regression": {
-        "report": ".local/executor-cache-ports/macos/cli-execution-4088047289/report.json",
-        "sha256": "99fd8d54eebb64a7b26225e73cdecf55b02bff758cf42b1f94dda344c362ae58",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      },
-      "cli_schema": {
-        "report": ".local/executor-cache-ports/macos/cli-schema-347540726/report.json",
-        "sha256": "a1dd07fef9c3aab52e8a0d786d155b9ca996fc9d7ac655403b11fcdf918221b5",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      },
-      "executor_cache": {
-        "report": ".local/executor-cache-ports/macos/executor-cache-84619154/report.json",
-        "sha256": "95f88379083d4088453772bf5c66e103d946e9c0c0b21b32f8ce1fe4f8f4a688",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/executor-cache-ports/macos/msbuild-output-341905633/report.json",
-        "sha256": "04463f1c6538ea1b27babbe9b7c0ba6ee0b1e73e23a0aba1f6b0d696ca0b028a",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      },
-      "msbuild_tasks": {
-        "report": ".local/executor-cache-ports/macos/msbuild-tasks-3571382005/report.json",
-        "sha256": "4fb6b940332cbacf289a63bd5b43aa86d49032432928cb2edf02dcc89c0b5870",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      },
-      "repository_execution_regression": {
-        "report": ".local/executor-cache-ports/macos/repository-execution-266274604/report.json",
-        "sha256": "1c76864b996ef2d7512c5b6349dd7fe7b3a195bf9768c8035723ce7b76c661be",
-        "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
-      }
-    },
-    "ubuntu26": {
-      "cli_execution_regression": {
-        "report": ".local/executor-cache-ports/linux/cli-execution-1634773817/report.json",
-        "sha256": "2c5c10f85914ac10a3d9a05f7231cccc6c0ef5dbcc798aa2abec10d021f2f77b",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      },
-      "cli_schema": {
-        "report": ".local/executor-cache-ports/linux/cli-schema-1220422598/report.json",
-        "sha256": "ad850b10cfc9c6dfba7ba5f7c673002c0448c067e96b8730e20fa5ea8ae983c9",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      },
-      "executor_cache": {
-        "report": ".local/executor-cache-ports/linux/executor-cache-2470683016/report.json",
-        "sha256": "1bf1eca455f12d5fb95e735fee07663e10c35661f1acddeaab4e98f4c40ad7a8",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      },
-      "msbuild_generation_regression": {
-        "report": ".local/executor-cache-ports/linux/msbuild-output-1495307674/report.json",
-        "sha256": "fecf6da348eb22e9c5fc5e5957a8eba70df5edfdec20036d95358a35b64ff44a",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      },
-      "msbuild_tasks": {
-        "report": ".local/executor-cache-ports/linux/msbuild-tasks-928908271/report.json",
-        "sha256": "d8da938e574a96256790fca3a536946f9b5e6fb73d5ae919b88feaa32a69f4d5",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      },
-      "repository_execution_regression": {
-        "report": ".local/executor-cache-ports/linux/repository-execution-3580523406/report.json",
-        "sha256": "0093cc7c772868fd4b4df5a5d4bc1a3fec933cfdeb52b37ca70e9f4c0b2fc900",
-        "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
-      }
-    }
   },
   "unit_logs": {
     "macos": "724f0492ad627c33f764de78d13311b2661d6ee5c3363fccffc1fff2c3dc79f4",
@@ -233,5 +141,842 @@
         "Propagation": "rprivate"
       }
     ]
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "615d3bf82d016d80f8b019189a4748e360dbb9f0",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40559,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/cli-execution-4088047289/report.json",
+                  "sha256": "99fd8d54eebb64a7b26225e73cdecf55b02bff758cf42b1f94dda344c362ae58",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/cli-schema-347540726/report.json",
+                  "sha256": "a1dd07fef9c3aab52e8a0d786d155b9ca996fc9d7ac655403b11fcdf918221b5",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/executor-cache-84619154/report.json",
+                  "sha256": "95f88379083d4088453772bf5c66e103d946e9c0c0b21b32f8ce1fe4f8f4a688",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/msbuild-output-341905633/report.json",
+                  "sha256": "04463f1c6538ea1b27babbe9b7c0ba6ee0b1e73e23a0aba1f6b0d696ca0b028a",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/msbuild-tasks-3571382005/report.json",
+                  "sha256": "4fb6b940332cbacf289a63bd5b43aa86d49032432928cb2edf02dcc89c0b5870",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/macos/repository-execution-266274604/report.json",
+                  "sha256": "1c76864b996ef2d7512c5b6349dd7fe7b3a195bf9768c8035723ce7b76c661be",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40559,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "executor_cache_process_comparisons": 22,
+                "cli_schema_regression_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/executor-cache-ports/macos/cli-execution-4088047289/report.json",
+                  "sha256": "99fd8d54eebb64a7b26225e73cdecf55b02bff758cf42b1f94dda344c362ae58",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                },
+                "cli_schema": {
+                  "report": ".local/executor-cache-ports/macos/cli-schema-347540726/report.json",
+                  "sha256": "a1dd07fef9c3aab52e8a0d786d155b9ca996fc9d7ac655403b11fcdf918221b5",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                },
+                "executor_cache": {
+                  "report": ".local/executor-cache-ports/macos/executor-cache-84619154/report.json",
+                  "sha256": "95f88379083d4088453772bf5c66e103d946e9c0c0b21b32f8ce1fe4f8f4a688",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/executor-cache-ports/macos/msbuild-output-341905633/report.json",
+                  "sha256": "04463f1c6538ea1b27babbe9b7c0ba6ee0b1e73e23a0aba1f6b0d696ca0b028a",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/executor-cache-ports/macos/msbuild-tasks-3571382005/report.json",
+                  "sha256": "4fb6b940332cbacf289a63bd5b43aa86d49032432928cb2edf02dcc89c0b5870",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/executor-cache-ports/macos/repository-execution-266274604/report.json",
+                  "sha256": "1c76864b996ef2d7512c5b6349dd7fe7b3a195bf9768c8035723ce7b76c661be",
+                  "log_sha256": "237ee2ee7f3d8f38300ed4de40dd7826d2eb095d95e9acfe8fec1795c9a7fe3b"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": "724f0492ad627c33f764de78d13311b2661d6ee5c3363fccffc1fff2c3dc79f4"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "615d3bf82d016d80f8b019189a4748e360dbb9f0",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40559,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "cli_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/cli-execution-1634773817/report.json",
+                  "sha256": "2c5c10f85914ac10a3d9a05f7231cccc6c0ef5dbcc798aa2abec10d021f2f77b",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "cli_schema",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/cli-schema-1220422598/report.json",
+                  "sha256": "ad850b10cfc9c6dfba7ba5f7c673002c0448c067e96b8730e20fa5ea8ae983c9",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "executor_cache",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/executor-cache-2470683016/report.json",
+                  "sha256": "1bf1eca455f12d5fb95e735fee07663e10c35661f1acddeaab4e98f4c40ad7a8",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_generation_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/msbuild-output-1495307674/report.json",
+                  "sha256": "fecf6da348eb22e9c5fc5e5957a8eba70df5edfdec20036d95358a35b64ff44a",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "msbuild_tasks",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/msbuild-tasks-928908271/report.json",
+                  "sha256": "d8da938e574a96256790fca3a536946f9b5e6fb73d5ae919b88feaa32a69f4d5",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "repository_execution_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/executor-cache-ports/linux/repository-execution-3580523406/report.json",
+                  "sha256": "0093cc7c772868fd4b4df5a5d4bc1a3fec933cfdeb52b37ca70e9f4c0b2fc900",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-parity.log",
+              "sha256": "912bbdd23705b3f43f43333278aa07a600e02b65b02e56cb30e4fcc764bb7435",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/cmd-gitversion-go.log",
+              "sha256": "3754edacddc699a80291625a2f41937c63a7fb88d7ed166bc304f28a6e032270",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-patterns.log",
+              "sha256": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-fixtures.log",
+              "sha256": "81e7c777a7aee4d2b1d28acd8a7c386f49295676a423c6c4ac2820ac8e0c1068",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-output.log",
+              "sha256": "7b1ffbcb19e1e90ce50322e8c69540d3045e28cca7d4dcad52d7196dd2df69f8",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-config.log",
+              "sha256": "f475c6f625523f5dbdeba64026d62c5bf41c62949c58b5655a1fd85aac580501",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-calculate.log",
+              "sha256": "76455a9953d6dc788f72fc90a27cfbeca89fe4bbee69e366bd840095069cd97b",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-gitrepo.log",
+              "sha256": "36fa34f3fdc24fee705bb2bb3bc27fd0b17f795451765b01f239b8df376719af",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-semver.log",
+              "sha256": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-formatting.log",
+              "sha256": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-buildagent.log",
+              "sha256": "58d8d06a175d63a4c49d62a4315d79485b5acafe7a5804ed7b0970269f80fb6b",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/internal-commandline.log",
+              "sha256": "f36f0c65ffb5ff893c88980f0f6b32c87bcbf15ddf106f247ee7af7a911e1a12",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/executor-cache-ports/linux/unit/cmd-parity.log",
+              "sha256": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3",
+              "host": "ubuntu26"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40559,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "executor_cache_process_comparisons": 22,
+                "cli_schema_regression_cases": 13,
+                "msbuild_task_regression_cases": 27,
+                "msbuild_generation_regression_cases": 18,
+                "repository_execution_regression_comparisons": 3,
+                "cli_execution_regression_comparisons": 7
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "cli_execution_regression": {
+                  "report": ".local/executor-cache-ports/linux/cli-execution-1634773817/report.json",
+                  "sha256": "2c5c10f85914ac10a3d9a05f7231cccc6c0ef5dbcc798aa2abec10d021f2f77b",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                },
+                "cli_schema": {
+                  "report": ".local/executor-cache-ports/linux/cli-schema-1220422598/report.json",
+                  "sha256": "ad850b10cfc9c6dfba7ba5f7c673002c0448c067e96b8730e20fa5ea8ae983c9",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                },
+                "executor_cache": {
+                  "report": ".local/executor-cache-ports/linux/executor-cache-2470683016/report.json",
+                  "sha256": "1bf1eca455f12d5fb95e735fee07663e10c35661f1acddeaab4e98f4c40ad7a8",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                },
+                "msbuild_generation_regression": {
+                  "report": ".local/executor-cache-ports/linux/msbuild-output-1495307674/report.json",
+                  "sha256": "fecf6da348eb22e9c5fc5e5957a8eba70df5edfdec20036d95358a35b64ff44a",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                },
+                "msbuild_tasks": {
+                  "report": ".local/executor-cache-ports/linux/msbuild-tasks-928908271/report.json",
+                  "sha256": "d8da938e574a96256790fca3a536946f9b5e6fb73d5ae919b88feaa32a69f4d5",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                },
+                "repository_execution_regression": {
+                  "report": ".local/executor-cache-ports/linux/repository-execution-3580523406/report.json",
+                  "sha256": "0093cc7c772868fd4b4df5a5d4bc1a3fec933cfdeb52b37ca70e9f4c0b2fc900",
+                  "log_sha256": "f648f0232509b079e9a8412b78483422f98a06cfbe7d5805f15a8b49f705e29a"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": {
+                ".local/executor-cache-ports/linux/unit/internal-parity.log": "912bbdd23705b3f43f43333278aa07a600e02b65b02e56cb30e4fcc764bb7435",
+                ".local/executor-cache-ports/linux/unit/cmd-gitversion-go.log": "3754edacddc699a80291625a2f41937c63a7fb88d7ed166bc304f28a6e032270",
+                ".local/executor-cache-ports/linux/unit/internal-patterns.log": "6c2c9e310492ea60a538a03e76c0cf88648ffe7becc7efbc320ed1cdbbbd61ab",
+                ".local/executor-cache-ports/linux/unit/internal-fixtures.log": "81e7c777a7aee4d2b1d28acd8a7c386f49295676a423c6c4ac2820ac8e0c1068",
+                ".local/executor-cache-ports/linux/unit/internal-output.log": "7b1ffbcb19e1e90ce50322e8c69540d3045e28cca7d4dcad52d7196dd2df69f8",
+                ".local/executor-cache-ports/linux/unit/internal-config.log": "f475c6f625523f5dbdeba64026d62c5bf41c62949c58b5655a1fd85aac580501",
+                ".local/executor-cache-ports/linux/unit/internal-calculate.log": "76455a9953d6dc788f72fc90a27cfbeca89fe4bbee69e366bd840095069cd97b",
+                ".local/executor-cache-ports/linux/unit/internal-gitrepo.log": "36fa34f3fdc24fee705bb2bb3bc27fd0b17f795451765b01f239b8df376719af",
+                ".local/executor-cache-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+                ".local/executor-cache-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+                ".local/executor-cache-ports/linux/unit/internal-buildagent.log": "58d8d06a175d63a4c49d62a4315d79485b5acafe7a5804ed7b0970269f80fb6b",
+                ".local/executor-cache-ports/linux/unit/internal-commandline.log": "f36f0c65ffb5ff893c88980f0f6b32c87bcbf15ddf106f247ee7af7a911e1a12",
+                ".local/executor-cache-ports/linux/unit/cmd-parity.log": "19c6d332e96514b44a746a71654a8d0c02a7ccab65b353df5b926df0adbbcfe3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestCSharpExecutorCache",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpExecutorCache",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 13,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformExecutorCacheParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 6,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/windows-evidence/executor-cache-2486270594/report.json",
+                  "sha256": "c4fb93773896b02648424bc0eb159ab6f65dc273158d09d281410d6aebdde94d",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 20
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformExecutorCacheParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 6,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/windows-evidence/executor-cache-2486270594/report.json",
+                    "sha256": "c4fb93773896b02648424bc0eb159ab6f65dc273158d09d281410d6aebdde94d",
+                    "bytes": 7975,
+                    "test": "TestPlatformExecutorCacheParity",
+                    "totals": {
+                      "comparisons": 20
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpExecutorCache",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 13,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpExecutorCache",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 13,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformExecutorCacheParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 6,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/final-e5c31807/executor-cache-3846033219/report.json",
+                  "sha256": "d26023f1580f46c8e3b325216f64dc8365bc5ad01e04213a89bf48dafceb1bed",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 20
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/cli.jsonl",
+              "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformExecutorCacheParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 6,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/final-e5c31807/executor-cache-3846033219/report.json",
+                    "sha256": "d26023f1580f46c8e3b325216f64dc8365bc5ad01e04213a89bf48dafceb1bed",
+                    "bytes": 7975,
+                    "test": "TestPlatformExecutorCacheParity",
+                    "totals": {
+                      "comparisons": 20
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }

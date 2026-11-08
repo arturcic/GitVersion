@@ -10,95 +10,9 @@
     "verified_integration": 38,
     "total_integration": 662
   },
-  "platforms": {
-    "macos": {
-      "tests_and_subtests": 40125,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "wix_process_comparisons": 2,
-      "project_file_regression_comparisons": 7,
-      "assembly_info_regression_comparisons": 11,
-      "format_and_dotenv_regression_comparisons": 11
-    },
-    "ubuntu26": {
-      "tests_and_subtests": 40125,
-      "packages": 13,
-      "failures": 0,
-      "skips": 0,
-      "wix_process_comparisons": 2,
-      "project_file_regression_comparisons": 7,
-      "assembly_info_regression_comparisons": 11,
-      "format_and_dotenv_regression_comparisons": 11
-    }
-  },
   "candidate_sha256": {
     "macos": "aa34cf873195e0a538adc51376f0b6f5cf21ab72d5959cdfbc3cfdd063c1bef5",
     "ubuntu26": "00133b8e49ccc752e2f71cc1600d4b75782fba2cb51fbded4abfaecd13adcc90"
-  },
-  "process_reports": {
-    "macos": {
-      "assembly_info": {
-        "report": ".local/wix-and-output-ports/macos/assembly-info-689147426/report.json",
-        "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
-        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
-      },
-      "format_regression": {
-        "report": ".local/wix-and-output-ports/macos/format-arguments-368684162/report.json",
-        "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
-        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
-      },
-      "project_file": {
-        "report": ".local/wix-and-output-ports/macos/project-file-998747754/report.json",
-        "sha256": "fae64ca57a6d30a175fd1b31826bdfe4b8215d1c3d20a2accb5c9368864c5e40",
-        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
-      },
-      "wix_output": {
-        "report": ".local/wix-and-output-ports/macos/wix-output-1576545741/report.json",
-        "sha256": "d1d218cda68694920afc536d0636c96f32d1660f5c36777fdcceb12e8b721a68",
-        "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
-      }
-    },
-    "ubuntu26": {
-      "assembly_info": {
-        "report": ".local/wix-and-output-ports/linux/assembly-info-1998058851/report.json",
-        "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
-        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
-      },
-      "format_regression": {
-        "report": ".local/wix-and-output-ports/linux/format-arguments-476381858/report.json",
-        "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
-        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
-      },
-      "project_file": {
-        "report": ".local/wix-and-output-ports/linux/project-file-2272935504/report.json",
-        "sha256": "1cd1396ee8de76589ab88475b7a4637ee7cb7fd4175f04ce3946b4ef561046ca",
-        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
-      },
-      "wix_output": {
-        "report": ".local/wix-and-output-ports/linux/wix-output-1118365468/report.json",
-        "sha256": "9eec75dee112dac7c0bcca434ec4d34a9aa5b061925f36de49a295c61d34151b",
-        "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
-      }
-    }
-  },
-  "unit_logs": {
-    "macos": "276a92e2a50d1f1085a27255223afc9446ed7e84403eb90cad72728568982c9a",
-    "ubuntu26": {
-      ".local/wix-and-output-ports/linux/unit/internal-config.log": "f93a36626be9fda9a03c6e5d93adddff6b8db76ec0b40f2790dd94eb2279c2e6",
-      ".local/wix-and-output-ports/linux/unit/cmd-gitversion-go.log": "b8cb91af3901d839d71447c521f6fefb1fff828c9a9f7cc3084e179b5053f074",
-      ".local/wix-and-output-ports/linux/unit/internal-parity.log": "dd32e825c78f742851c3d68ff7b03612d06da03bb373d4884418066096971974",
-      ".local/wix-and-output-ports/linux/unit/cmd-parity.log": "f3230adcde12aaf6601500fc1278b99c4ab53029a8a099197144853ab4e4c6f4",
-      ".local/wix-and-output-ports/linux/unit/internal-output.log": "e82607a46d095955a4d4833b6cff4826f3b99ecddb11b4c88637bf472037a61b",
-      ".local/wix-and-output-ports/linux/unit/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
-      ".local/wix-and-output-ports/linux/unit/internal-fixtures.log": "f470c1db9c491b133beb97b6ac3b987d7c43b9ec8f4ff1a303a9a6cf89dffeae",
-      ".local/wix-and-output-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
-      ".local/wix-and-output-ports/linux/unit/internal-buildagent.log": "736a5ef6fb6a389b474cf10530e04632ea4b06e95ffd49c0bea8ba8b784ffac3",
-      ".local/wix-and-output-ports/linux/unit/internal-calculate.log": "7988b99b178f676574931c47ea6965588456fcfdf27fd8057f4ce521994a954b",
-      ".local/wix-and-output-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
-      ".local/wix-and-output-ports/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
-      ".local/wix-and-output-ports/linux/unit/internal-gitrepo.log": "8be7dd4709d1cd0ee6388abe6c3a0a53071e977ee0300e81ce14f8ea60569882"
-    }
   },
   "dependency_list_sha256": "120d87d71910d57fb10ef5b6b9eeedeec3e2747dab986622be439affe4400130",
   "source_checkpoint_inputs": {
@@ -179,5 +93,714 @@
         "Propagation": "rprivate"
       }
     ]
+  },
+  "platform_schema_version": 1,
+  "platforms": {
+    "macos": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "46e4a8e4db41f5d5e0a13b12a83c2217df364b40",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40125,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "assembly_info",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/macos/assembly-info-689147426/report.json",
+                  "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "format_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/macos/format-arguments-368684162/report.json",
+                  "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "project_file",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/macos/project-file-998747754/report.json",
+                  "sha256": "fae64ca57a6d30a175fd1b31826bdfe4b8215d1c3d20a2accb5c9368864c5e40",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "wix_output",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/macos/wix-output-1576545741/report.json",
+                  "sha256": "d1d218cda68694920afc536d0636c96f32d1660f5c36777fdcceb12e8b721a68",
+                  "host": "macos"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40125,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "wix_process_comparisons": 2,
+                "project_file_regression_comparisons": 7,
+                "assembly_info_regression_comparisons": 11,
+                "format_and_dotenv_regression_comparisons": 11
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "assembly_info": {
+                  "report": ".local/wix-and-output-ports/macos/assembly-info-689147426/report.json",
+                  "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+                  "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+                },
+                "format_regression": {
+                  "report": ".local/wix-and-output-ports/macos/format-arguments-368684162/report.json",
+                  "sha256": "a78f727a7e8335eed637405b50cd025086c3adeef5c6f44b400b43e963388e55",
+                  "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+                },
+                "project_file": {
+                  "report": ".local/wix-and-output-ports/macos/project-file-998747754/report.json",
+                  "sha256": "fae64ca57a6d30a175fd1b31826bdfe4b8215d1c3d20a2accb5c9368864c5e40",
+                  "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+                },
+                "wix_output": {
+                  "report": ".local/wix-and-output-ports/macos/wix-output-1576545741/report.json",
+                  "sha256": "d1d218cda68694920afc536d0636c96f32d1660f5c36777fdcceb12e8b721a68",
+                  "log_sha256": "d1fe2c4e563769acac0bf019f9500a1538ca48df313a6cdf8b5604ac689890e7"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": "276a92e2a50d1f1085a27255223afc9446ed7e84403eb90cad72728568982c9a"
+            }
+          ]
+        }
+      ]
+    },
+    "ubuntu26": {
+      "architecture": null,
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "46e4a8e4db41f5d5e0a13b12a83c2217df364b40",
+          "scope": "Historical platform evidence",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "Historical regular suite",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 40125,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": null
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "assembly_info",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/linux/assembly-info-1998058851/report.json",
+                  "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "format_regression",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/linux/format-arguments-476381858/report.json",
+                  "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "project_file",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/linux/project-file-2272935504/report.json",
+                  "sha256": "1cd1396ee8de76589ab88475b7a4637ee7cb7fd4175f04ce3946b4ef561046ca",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            },
+            {
+              "name": "wix_output",
+              "kind": "historical report or gate",
+              "status": "recorded",
+              "counts": {
+                "passed": null,
+                "failed": null,
+                "skipped": null,
+                "incomplete": null
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/wix-and-output-ports/linux/wix-output-1118365468/report.json",
+                  "sha256": "9eec75dee112dac7c0bcca434ec4d34a9aa5b061925f36de49a295c61d34151b",
+                  "host": "ubuntu26"
+                }
+              ],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-config.log",
+              "sha256": "f93a36626be9fda9a03c6e5d93adddff6b8db76ec0b40f2790dd94eb2279c2e6",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/cmd-gitversion-go.log",
+              "sha256": "b8cb91af3901d839d71447c521f6fefb1fff828c9a9f7cc3084e179b5053f074",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-parity.log",
+              "sha256": "dd32e825c78f742851c3d68ff7b03612d06da03bb373d4884418066096971974",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/cmd-parity.log",
+              "sha256": "f3230adcde12aaf6601500fc1278b99c4ab53029a8a099197144853ab4e4c6f4",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-output.log",
+              "sha256": "e82607a46d095955a4d4833b6cff4826f3b99ecddb11b4c88637bf472037a61b",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-patterns.log",
+              "sha256": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-fixtures.log",
+              "sha256": "f470c1db9c491b133beb97b6ac3b987d7c43b9ec8f4ff1a303a9a6cf89dffeae",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-formatting.log",
+              "sha256": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-buildagent.log",
+              "sha256": "736a5ef6fb6a389b474cf10530e04632ea4b06e95ffd49c0bea8ba8b784ffac3",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-calculate.log",
+              "sha256": "7988b99b178f676574931c47ea6965588456fcfdf27fd8057f4ce521994a954b",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-semver.log",
+              "sha256": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-commandline.log",
+              "sha256": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+              "host": "ubuntu26"
+            },
+            {
+              "kind": "test_log",
+              "path": ".local/wix-and-output-ports/linux/unit/internal-gitrepo.log",
+              "sha256": "8be7dd4709d1cd0ee6388abe6c3a0a53071e977ee0300e81ce14f8ea60569882",
+              "host": "ubuntu26"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.platforms",
+              "value": {
+                "tests_and_subtests": 40125,
+                "packages": 13,
+                "failures": 0,
+                "skips": 0,
+                "wix_process_comparisons": 2,
+                "project_file_regression_comparisons": 7,
+                "assembly_info_regression_comparisons": 11,
+                "format_and_dotenv_regression_comparisons": 11
+              }
+            },
+            {
+              "name": "source.process_reports",
+              "value": {
+                "assembly_info": {
+                  "report": ".local/wix-and-output-ports/linux/assembly-info-1998058851/report.json",
+                  "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+                  "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+                },
+                "format_regression": {
+                  "report": ".local/wix-and-output-ports/linux/format-arguments-476381858/report.json",
+                  "sha256": "13d84561393dcdf3190399472de926ecb1d91c4adc2c1e3200c478ab2764c022",
+                  "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+                },
+                "project_file": {
+                  "report": ".local/wix-and-output-ports/linux/project-file-2272935504/report.json",
+                  "sha256": "1cd1396ee8de76589ab88475b7a4637ee7cb7fd4175f04ce3946b4ef561046ca",
+                  "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+                },
+                "wix_output": {
+                  "report": ".local/wix-and-output-ports/linux/wix-output-1118365468/report.json",
+                  "sha256": "9eec75dee112dac7c0bcca434ec4d34a9aa5b061925f36de49a295c61d34151b",
+                  "log_sha256": "4a835022ee3160f68fcf927fc11d04d1b909a490efa472f44a37c4e01ec1832d"
+                }
+              }
+            },
+            {
+              "name": "source.unit_logs",
+              "value": {
+                ".local/wix-and-output-ports/linux/unit/internal-config.log": "f93a36626be9fda9a03c6e5d93adddff6b8db76ec0b40f2790dd94eb2279c2e6",
+                ".local/wix-and-output-ports/linux/unit/cmd-gitversion-go.log": "b8cb91af3901d839d71447c521f6fefb1fff828c9a9f7cc3084e179b5053f074",
+                ".local/wix-and-output-ports/linux/unit/internal-parity.log": "dd32e825c78f742851c3d68ff7b03612d06da03bb373d4884418066096971974",
+                ".local/wix-and-output-ports/linux/unit/cmd-parity.log": "f3230adcde12aaf6601500fc1278b99c4ab53029a8a099197144853ab4e4c6f4",
+                ".local/wix-and-output-ports/linux/unit/internal-output.log": "e82607a46d095955a4d4833b6cff4826f3b99ecddb11b4c88637bf472037a61b",
+                ".local/wix-and-output-ports/linux/unit/internal-patterns.log": "c71aef5a2d92ef3c414156edf9fac26f2fe3d9c8d260201fc45911aa7a6a6a70",
+                ".local/wix-and-output-ports/linux/unit/internal-fixtures.log": "f470c1db9c491b133beb97b6ac3b987d7c43b9ec8f4ff1a303a9a6cf89dffeae",
+                ".local/wix-and-output-ports/linux/unit/internal-formatting.log": "8704c5a8aee30c0a91eb3ec13404eb3455e83a0f02e6f7ec300fc10796c011ae",
+                ".local/wix-and-output-ports/linux/unit/internal-buildagent.log": "736a5ef6fb6a389b474cf10530e04632ea4b06e95ffd49c0bea8ba8b784ffac3",
+                ".local/wix-and-output-ports/linux/unit/internal-calculate.log": "7988b99b178f676574931c47ea6965588456fcfdf27fd8057f4ce521994a954b",
+                ".local/wix-and-output-ports/linux/unit/internal-semver.log": "49d226a2bee5d8f57eb63f55b3442895b0c9f6c022e740d265771d71b20db0f1",
+                ".local/wix-and-output-ports/linux/unit/internal-commandline.log": "301231c7d6cd0597a01daf934338af1641ed0835ae123cc4d79fbb005cbc3c95",
+                ".local/wix-and-output-ports/linux/unit/internal-gitrepo.log": "8be7dd4709d1cd0ee6388abe6c3a0a53071e977ee0300e81ce14f8ea60569882"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "architecture": "arm64",
+      "status": "recorded",
+      "runs": [
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestCSharpWixOutput",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 5,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpWixOutput",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 5,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformWixParity",
+              "kind": "live comparison or oracle contract",
+              "status": "failed",
+              "counts": {
+                "passed": 0,
+                "failed": 2,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformWixParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 0,
+                      "fail": 2,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpWixOutput",
+              "kind": "unit/component",
+              "status": "passed",
+              "counts": {
+                "passed": 5,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpWixOutput",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 5,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformWixParity",
+              "kind": "live comparison or oracle contract",
+              "status": "passed",
+              "counts": {
+                "passed": 2,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/final-e5c31807/wix-output-941202660/report.json",
+                  "sha256": "5bdc92333ca4c9611ed0db7e8439551254af11f86c5051308bd250da856ab9b3",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "comparisons": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/cli.jsonl",
+              "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/cli.jsonl",
+                  "sha256": "a29c031ee6bc5ee0cad3dffbee40d7abd8ae5f38b1ad1894d71e02ee5eb6a055"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformWixParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 2,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/final-e5c31807/wix-output-941202660/report.json",
+                    "sha256": "5bdc92333ca4c9611ed0db7e8439551254af11f86c5051308bd250da856ab9b3",
+                    "bytes": 7974,
+                    "test": "TestPlatformWixParity",
+                    "totals": {
+                      "comparisons": 2
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
   }
 }
