@@ -422,68 +422,100 @@
       "status": "passed",
       "runs": [
         {
-          "implementation_checkpoint": "f8feae66238790076333dff64cec1135c76644ae",
-          "scope": "Focused rerun against the frozen dual-backend reference",
-          "status": "passed",
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
           "checks": [
             {
-              "name": "TestPlatformDualBackendOracle",
-              "kind": "live",
-              "status": "passed",
+              "name": "TestCSharpDualBackendParity",
+              "kind": "unit",
+              "status": "failed",
               "counts": {
-                "passed": 19,
-                "failed": 0,
+                "passed": 17,
+                "failed": 2,
                 "skipped": 0,
-                "incomplete": null
+                "incomplete": 0
               },
               "artifacts": [],
-              "metrics": [
-                {
-                  "name": "architecture",
-                  "value": "arm64"
-                },
-                {
-                  "name": "implementation_checkpoint",
-                  "value": "f8feae66238790076333dff64cec1135c76644ae"
-                },
-                {
-                  "name": "live_dual_backend_matches",
-                  "value": 19
-                },
-                {
-                  "name": "paired_go_cases_passed",
-                  "value": 19
-                },
-                {
-                  "name": "failures",
-                  "value": 0
-                },
-                {
-                  "name": "skips",
-                  "value": 0
-                },
-                {
-                  "name": "native_library",
-                  "value": "git2-5853918.dll"
-                },
-                {
-                  "name": "native_library_sha256",
-                  "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
-                },
-                {
-                  "name": "evidence_host",
-                  "value": "ArturWinArm"
-                },
-                {
-                  "name": "test_log",
-                  "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
-                },
-                {
-                  "name": "evidence_chat",
-                  "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
-                }
-              ]
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
             },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpDualBackendParity",
+                    "kind": "unit/component",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 17,
+                      "fail": 2,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded",
+                "note": "The tagged Windows run failed at the Unix DLL-name check, and the first retry hit portable path differences. The diagnostic-only checkpoint passed all 19 live and 19 paired Go cases."
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
             {
               "name": "TestCSharpDualBackendParity",
               "kind": "unit",
@@ -492,53 +524,239 @@
                 "passed": 19,
                 "failed": 0,
                 "skipped": 0,
-                "incomplete": null
+                "incomplete": 0
               },
               "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpDualBackendParity",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 19,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "failed",
+              "counts": {
+                "passed": 0,
+                "failed": 1,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/repository-platform.jsonl",
+              "sha256": "3bb8dc3307eee87aa2c83f6f3252d084abd3b452aadd632ddab00eab3e9be68e",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/repository-platform.jsonl",
+                  "sha256": "3bb8dc3307eee87aa2c83f6f3252d084abd3b452aadd632ddab00eab3e9be68e"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformDualBackendOracle",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 0,
+                      "fail": 1,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "failed",
+              "counts": {
+                "passed": 17,
+                "failed": 2,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/dual-backend-retry.jsonl",
+              "sha256": "09a0dfc53bd844272d54a82fd11e735787295105de6ae1c5f7db7e9b22d7ed9c",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.3",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/dual-backend-retry.jsonl",
+                  "sha256": "09a0dfc53bd844272d54a82fd11e735787295105de6ae1c5f7db7e9b22d7ed9c"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformDualBackendOracle",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "fail",
+                    "leaf_counts": {
+                      "pass": 17,
+                      "fail": 2,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "f8feae66238790076333dff64cec1135c76644ae",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpDualBackendParity",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestPlatformDualBackendOracle",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 19,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/dual-backend-oracle-3038620811/report.json",
+                  "sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/dual-backend-oracle-3038620811/provenance.json",
+                  "sha256": "3352dc04f8986189eb25ab6504c930962e4edb8bffaf01119c99662e764f21a9",
+                  "host": "windows"
+                }
+              ],
               "metrics": [
                 {
-                  "name": "architecture",
-                  "value": "arm64"
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 19,
+                    "failed": 0,
+                    "cases": 19
+                  }
                 },
                 {
-                  "name": "implementation_checkpoint",
-                  "value": "f8feae66238790076333dff64cec1135c76644ae"
-                },
-                {
-                  "name": "live_dual_backend_matches",
-                  "value": 19
-                },
-                {
-                  "name": "paired_go_cases_passed",
-                  "value": 19
-                },
-                {
-                  "name": "failures",
-                  "value": 0
-                },
-                {
-                  "name": "skips",
-                  "value": 0
-                },
-                {
-                  "name": "native_library",
-                  "value": "git2-5853918.dll"
-                },
-                {
-                  "name": "native_library_sha256",
-                  "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
-                },
-                {
-                  "name": "evidence_host",
-                  "value": "ArturWinArm"
-                },
-                {
-                  "name": "test_log",
-                  "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
-                },
-                {
-                  "name": "evidence_chat",
-                  "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
+                  "name": "report_totals",
+                  "value": {}
                 }
               ]
             }
@@ -547,85 +765,74 @@
             {
               "kind": "test_log",
               "path": ".local/dual-backend-windows-fix/tests-native.jsonl",
-              "sha256": null,
-              "host": "ArturWinArm"
-            },
-            {
-              "kind": "evidence_index",
-              "path": ".local/windows-test-evidence.json",
-              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
-              "host": "ArturWinArm"
+              "sha256": "c52727c242af72ccacefd0796db2e7ec847e1892c9bc619d190a20a9e5cbbf71",
+              "host": "windows"
             }
           ],
           "metrics": [
             {
-              "name": "architecture",
-              "value": "arm64"
-            },
-            {
-              "name": "implementation_checkpoint",
-              "value": "f8feae66238790076333dff64cec1135c76644ae"
-            },
-            {
-              "name": "live_dual_backend_matches",
-              "value": 19
-            },
-            {
-              "name": "paired_go_cases_passed",
-              "value": 19
-            },
-            {
-              "name": "failures",
-              "value": 0
-            },
-            {
-              "name": "skips",
-              "value": 0
-            },
-            {
-              "name": "native_library",
-              "value": "git2-5853918.dll"
-            },
-            {
-              "name": "native_library_sha256",
-              "value": "5bf69534d4fb36ea957f767c509f1529c542af2d9666b17046b9c0e893df9e6c"
-            },
-            {
-              "name": "evidence_host",
-              "value": "ArturWinArm"
-            },
-            {
-              "name": "test_log",
-              "value": ".local/dual-backend-windows-fix/tests-native.jsonl"
-            },
-            {
-              "name": "evidence_chat",
-              "value": "thread://01a1bb3f-acc9-73b0-a668-7718ca936e0b?hostId=remote-control%3Aenv_e_6a33da0daeb08322be9cf0b348167e04"
-            },
-            {
-              "name": "architecture",
-              "value": "arm64"
-            },
-            {
-              "name": "scope",
-              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
-            },
-            {
-              "name": "vm_index",
+              "name": "source.windows_evidence.runs.4",
               "value": {
-                "host": "ArturWinArm",
-                "path": ".local/windows-test-evidence.json",
-                "path_relative_to": "Windows validation worktree go-prototype directory",
-                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                "implementation_sha": "f8feae66238790076333dff64cec1135c76644ae",
+                "source_state": "passing source staged unchanged in checkpoint; test preceded commit",
+                "log": {
+                  "path": ".local/dual-backend-windows-fix/tests-native.jsonl",
+                  "sha256": "c52727c242af72ccacefd0796db2e7ec847e1892c9bc619d190a20a9e5cbbf71"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpDualBackendParity",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 19,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformDualBackendOracle",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 19,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/dual-backend-oracle-3038620811/report.json",
+                    "sha256": "7498c2de18a5c2014700a7a6b5052a3e0644cbf0cb612f317ed6c504fbe54f14",
+                    "bytes": 44168,
+                    "test": "TestPlatformDualBackendOracle",
+                    "totals": {
+                      "passed": 19,
+                      "failed": 0,
+                      "cases": 19
+                    }
+                  },
+                  {
+                    "path": ".local/dual-backend-oracle-3038620811/provenance.json",
+                    "sha256": "3352dc04f8986189eb25ab6504c930962e4edb8bffaf01119c99662e764f21a9",
+                    "bytes": 11095,
+                    "test": "TestPlatformDualBackendOracle",
+                    "totals": {}
+                  }
+                ]
               }
             },
             {
-              "name": "status",
-              "value": "passed"
+              "name": "source_state",
+              "value": "passing source staged unchanged in checkpoint; test preceded commit"
             },
             {
-              "name": "portability_rerun_key",
-              "value": "portability_rerun.platforms.windows"
+              "name": "exit_status",
+              "value": 0
             }
           ]
         }

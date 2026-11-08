@@ -728,81 +728,366 @@
       "status": "passed",
       "runs": [
         {
-          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
-          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
-          "status": "passed",
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
           "checks": [
             {
               "name": "TestCSharpManagedRepository",
               "kind": "unit",
               "status": "passed",
               "counts": {
-                "passed": null,
-                "failed": null,
-                "skipped": null,
-                "incomplete": null
+                "passed": 37,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpReferenceName",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 18,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
+            },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpManagedRepository",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 37,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpReferenceName",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 18,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "live_recorded"
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "recorded",
+          "checks": [
+            {
+              "name": "TestPinnedRepositoryObservations",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 47,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
               },
               "artifacts": [
                 {
-                  "kind": "test_log",
-                  "path": ".local/final-e5c31807/unit.jsonl",
-                  "sha256": null,
-                  "host": "ArturWinArm"
+                  "kind": "report",
+                  "path": ".local/observation-evidence/run-1288802800/report.json",
+                  "sha256": "0a3673b56d80e191ca57f24c74a5d9f1135c850c9526afb29405572834bc34b2",
+                  "host": "windows"
                 }
               ],
               "metrics": [
                 {
-                  "name": "suite",
-                  "value": "TestCSharpManagedRepository"
-                },
-                {
-                  "name": "status",
-                  "value": "passed"
-                },
-                {
-                  "name": "implementation_checkpoint",
-                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
-                },
-                {
-                  "name": "vm_log",
-                  "value": ".local/final-e5c31807/unit.jsonl"
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 47,
+                    "failed": 0,
+                    "expected": 47,
+                    "complete": true,
+                    "cases": 47,
+                    "queries": 2233.0
+                  }
                 }
               ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/observer-test.jsonl",
+              "sha256": "d86c8fbbd7e2a7aaf54228b22911db8403672cb5f4405bdefa0dec5e93ac6782",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/observer-test.jsonl",
+                  "sha256": "d86c8fbbd7e2a7aaf54228b22911db8403672cb5f4405bdefa0dec5e93ac6782"
+                },
+                "run_exit_status": null,
+                "tests": [
+                  {
+                    "name": "TestPinnedRepositoryObservations",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 47,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/observation-evidence/run-1288802800/report.json",
+                    "sha256": "0a3673b56d80e191ca57f24c74a5d9f1135c850c9526afb29405572834bc34b2",
+                    "bytes": 9681,
+                    "test": "TestPinnedRepositoryObservations",
+                    "totals": {
+                      "passed": 47,
+                      "failed": 0,
+                      "expected": 47,
+                      "complete": true,
+                      "cases": 47,
+                      "queries": 2233.0
+                    }
+                  }
+                ]
+              }
             },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": null
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
             {
               "name": "TestPlatformLinkedWorktreeParity",
               "kind": "live",
               "status": "passed",
               "counts": {
-                "passed": null,
-                "failed": null,
-                "skipped": null,
-                "incomplete": null
+                "passed": 4,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
               },
               "artifacts": [
                 {
-                  "kind": "test_log",
-                  "path": ".local/final-e5c31807/matrix.jsonl",
-                  "sha256": null,
-                  "host": "ArturWinArm"
+                  "kind": "report",
+                  "path": ".local/linked-worktree-1197184013/report.json",
+                  "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/linked-worktree-1197184013/provenance.json",
+                  "sha256": "91d7b78e1a4a07de7240510918cb1859a301587e33ca6eefad91e30ac6b85e42",
+                  "host": "windows"
                 }
               ],
               "metrics": [
                 {
-                  "name": "suite",
-                  "value": "TestPlatformLinkedWorktreeParity"
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 4,
+                    "failed": 0,
+                    "cases": 4
+                  }
                 },
                 {
-                  "name": "implementation_checkpoint",
-                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
+                  "name": "report_totals",
+                  "value": {}
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/windows-integration.jsonl",
+              "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.2",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-integration.jsonl",
+                  "sha256": "f8005de6b323a9aba2aa249f1e9791c76dbc1822437b10738e6119016ee3bfe3"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformLinkedWorktreeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 4,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/linked-worktree-1197184013/report.json",
+                    "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                    "bytes": 395,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {
+                      "passed": 4,
+                      "failed": 0,
+                      "cases": 4
+                    }
+                  },
+                  {
+                    "path": ".local/linked-worktree-1197184013/provenance.json",
+                    "sha256": "91d7b78e1a4a07de7240510918cb1859a301587e33ca6eefad91e30ac6b85e42",
+                    "bytes": 285,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {}
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
+          "checks": [
+            {
+              "name": "TestPlatformLinkedWorktreeParity",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 4,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/linked-worktree-502463422/report.json",
+                  "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                  "host": "windows"
                 },
                 {
-                  "name": "status",
-                  "value": "passed"
+                  "kind": "report",
+                  "path": ".local/linked-worktree-502463422/provenance.json",
+                  "sha256": "91d7b78e1a4a07de7240510918cb1859a301587e33ca6eefad91e30ac6b85e42",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 4,
+                    "failed": 0,
+                    "cases": 4
+                  }
                 },
                 {
-                  "name": "vm_log",
-                  "value": ".local/final-e5c31807/matrix.jsonl"
+                  "name": "report_totals",
+                  "value": {}
                 }
               ]
             },
@@ -811,85 +1096,456 @@
               "kind": "live",
               "status": "passed",
               "counts": {
-                "passed": null,
-                "failed": null,
-                "skipped": null,
-                "incomplete": null
+                "passed": 110,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
               },
               "artifacts": [
                 {
-                  "kind": "test_log",
-                  "path": ".local/final-e5c31807/matrix.jsonl",
-                  "sha256": null,
-                  "host": "ArturWinArm"
+                  "kind": "report",
+                  "path": ".local/repository-compatibility-3776663290/report.json",
+                  "sha256": "9c24d18712d4f5b8b771fbbe9ddb16494099d54a0d7a1faac2aab1edf385491b",
+                  "host": "windows"
                 }
               ],
               "metrics": [
                 {
-                  "name": "suite",
-                  "value": "TestPlatformRepositoryCompatibilityParity"
-                },
-                {
-                  "name": "implementation_checkpoint",
-                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
-                },
-                {
-                  "name": "status",
-                  "value": "passed"
-                },
-                {
-                  "name": "vm_log",
-                  "value": ".local/final-e5c31807/matrix.jsonl"
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 110,
+                    "failed": 0
+                  }
                 }
               ]
             }
           ],
           "artifacts": [
             {
-              "kind": "evidence_index",
-              "path": ".local/windows-test-evidence.json",
-              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
-              "host": "ArturWinArm"
-            },
-            {
-              "kind": "acceptance_report",
-              "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
-              "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09",
-              "host": null
+              "kind": "test_log",
+              "path": ".local/windows-bounded.jsonl",
+              "sha256": "a72d4656f5d7433116c9bb18659426aa6f1dc38195ee22c6963579d6def3718e",
+              "host": "windows"
             }
           ],
           "metrics": [
             {
-              "name": "architecture",
-              "value": "arm64"
-            },
-            {
-              "name": "scope",
-              "value": "Windows runs recorded separately from the historical checkpoint in this manifest."
-            },
-            {
-              "name": "vm_index",
+              "name": "source.windows_evidence.runs.3",
               "value": {
-                "host": "ArturWinArm",
-                "path": ".local/windows-test-evidence.json",
-                "path_relative_to": "Windows validation worktree go-prototype directory",
-                "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/windows-bounded.jsonl",
+                  "sha256": "a72d4656f5d7433116c9bb18659426aa6f1dc38195ee22c6963579d6def3718e"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestPlatformLinkedWorktreeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 4,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformRepositoryCompatibilityParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 110,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/linked-worktree-502463422/report.json",
+                    "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                    "bytes": 395,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {
+                      "passed": 4,
+                      "failed": 0,
+                      "cases": 4
+                    }
+                  },
+                  {
+                    "path": ".local/linked-worktree-502463422/provenance.json",
+                    "sha256": "91d7b78e1a4a07de7240510918cb1859a301587e33ca6eefad91e30ac6b85e42",
+                    "bytes": 285,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {}
+                  },
+                  {
+                    "path": ".local/repository-compatibility-3776663290/report.json",
+                    "sha256": "9c24d18712d4f5b8b771fbbe9ddb16494099d54a0d7a1faac2aab1edf385491b",
+                    "bytes": 277,
+                    "test": "TestPlatformRepositoryCompatibilityParity",
+                    "totals": {
+                      "passed": 110,
+                      "failed": 0
+                    }
+                  }
+                ]
               }
             },
             {
-              "name": "acceptance_report",
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpManagedRepository",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 37,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpReferenceName",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 18,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.4",
               "value": {
-                "path": ".local/windows-fix-matrix.jqdari/windows-acceptance.md",
-                "sha256": "9d5316ec5e980e6818fa9a69e9720e8d2f1c0bf745d5bbce056238e709e63c09"
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpManagedRepository",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 37,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpReferenceName",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 18,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
               }
             },
             {
-              "name": "unit_result_basis",
-              "value": "Matching default Windows test declarations at the acceptance commit and the complete Windows unit run. Per-suite log details are indexed on the VM."
+              "name": "source_state",
+              "value": "committed"
             },
             {
-              "name": "status",
-              "value": "passed"
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPlatformLinkedWorktreeParity",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 4,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/linked-worktree-2044869627/report.json",
+                  "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                  "host": "windows"
+                },
+                {
+                  "kind": "report",
+                  "path": ".local/linked-worktree-2044869627/provenance.json",
+                  "sha256": "f83d5dedadce7283fd6fbad19d2b1d7857eaa5207013b5356ba5fd88bb859285",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 4,
+                    "failed": 0,
+                    "cases": 4
+                  }
+                },
+                {
+                  "name": "report_totals",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "name": "TestPlatformRepositoryCompatibilityParity",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 110,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/repository-compatibility-1503362583/report.json",
+                  "sha256": "1ff143b91f43e2ac8ef8350e998de97bc62f3a02857877a2e936206c36906792",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 110,
+                    "failed": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/matrix.jsonl",
+              "sha256": "978f2367d260854b474d0c6c4155e038e458d41008d0514edb4d7ec33f8844f6",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.5",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/matrix.jsonl",
+                  "sha256": "978f2367d260854b474d0c6c4155e038e458d41008d0514edb4d7ec33f8844f6"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPlatformLinkedWorktreeParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 4,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestPlatformRepositoryCompatibilityParity",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 110,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/linked-worktree-2044869627/report.json",
+                    "sha256": "f234d5b523decd9ede30ba40a2720f18072f934da2f0694f6d772eff7b5603cf",
+                    "bytes": 395,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {
+                      "passed": 4,
+                      "failed": 0,
+                      "cases": 4
+                    }
+                  },
+                  {
+                    "path": ".local/linked-worktree-2044869627/provenance.json",
+                    "sha256": "f83d5dedadce7283fd6fbad19d2b1d7857eaa5207013b5356ba5fd88bb859285",
+                    "bytes": 285,
+                    "test": "TestPlatformLinkedWorktreeParity",
+                    "totals": {}
+                  },
+                  {
+                    "path": ".local/repository-compatibility-1503362583/report.json",
+                    "sha256": "1ff143b91f43e2ac8ef8350e998de97bc62f3a02857877a2e936206c36906792",
+                    "bytes": 277,
+                    "test": "TestPlatformRepositoryCompatibilityParity",
+                    "totals": {
+                      "passed": 110,
+                      "failed": 0
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestPinnedRepositoryObservations",
+              "kind": "live",
+              "status": "passed",
+              "counts": {
+                "passed": 47,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [
+                {
+                  "kind": "report",
+                  "path": ".local/observation-evidence/run-1044836522/report.json",
+                  "sha256": "3996e4938ed1a62f5a72b7eedea8f12c55c8418a9e691ecb985e68fd55e2ab5e",
+                  "host": "windows"
+                }
+              ],
+              "metrics": [
+                {
+                  "name": "report_totals",
+                  "value": {
+                    "passed": 47,
+                    "failed": 0,
+                    "expected": 47,
+                    "complete": true,
+                    "cases": 47,
+                    "queries": 2233.0
+                  }
+                }
+              ]
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/observer.jsonl",
+              "sha256": "3438a62d1754b7360233f76a05c6ac9ed0d7e94ad3e66599124ea13864723286",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.6",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/observer.jsonl",
+                  "sha256": "3438a62d1754b7360233f76a05c6ac9ed0d7e94ad3e66599124ea13864723286"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestPinnedRepositoryObservations",
+                    "kind": "live comparison or oracle contract",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 47,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": [
+                  {
+                    "path": ".local/observation-evidence/run-1044836522/report.json",
+                    "sha256": "3996e4938ed1a62f5a72b7eedea8f12c55c8418a9e691ecb985e68fd55e2ab5e",
+                    "bytes": 9681,
+                    "test": "TestPinnedRepositoryObservations",
+                    "totals": {
+                      "passed": 47,
+                      "failed": 0,
+                      "expected": 47,
+                      "complete": true,
+                      "cases": 47,
+                      "queries": 2233.0
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
             }
           ]
         }

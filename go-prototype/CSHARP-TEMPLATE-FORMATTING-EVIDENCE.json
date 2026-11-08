@@ -192,84 +192,260 @@
       "status": "passed",
       "runs": [
         {
-          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
-          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
-          "status": "passed",
+          "implementation_checkpoint": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "failed",
           "checks": [
+            {
+              "name": "TestCSharpDateAndFormattableFormatters",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 16,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
             {
               "name": "TestCSharpTemplateFormatting",
               "kind": "unit",
               "status": "passed",
               "counts": {
-                "passed": null,
-                "failed": null,
-                "skipped": null,
-                "incomplete": null
+                "passed": 43,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
               },
-              "artifacts": [
-                {
-                  "kind": "test_log",
-                  "path": ".local/final-e5c31807/unit.jsonl",
-                  "sha256": null,
-                  "host": "ArturWinArm"
-                }
-              ],
-              "metrics": [
-                {
-                  "name": "suite",
-                  "value": "TestCSharpTemplateFormatting"
-                },
-                {
-                  "name": "status",
-                  "value": "passed"
-                },
-                {
-                  "name": "implementation_checkpoint",
-                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
-                },
-                {
-                  "name": "vm_log",
-                  "value": ".local/final-e5c31807/unit.jsonl"
-                }
-              ]
+              "artifacts": [],
+              "metrics": []
             },
             {
               "name": "TestCSharpStringAndNumericFormatters",
               "kind": "unit",
               "status": "passed",
               "counts": {
-                "passed": null,
-                "failed": null,
-                "skipped": null,
-                "incomplete": null
+                "passed": 37,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
               },
-              "artifacts": [
-                {
-                  "kind": "test_log",
-                  "path": ".local/final-e5c31807/unit.jsonl",
-                  "sha256": null,
-                  "host": "ArturWinArm"
-                }
-              ],
-              "metrics": [
-                {
-                  "name": "suite",
-                  "value": "TestCSharpStringAndNumericFormatters"
-                },
-                {
-                  "name": "status",
-                  "value": "passed"
-                },
-                {
-                  "name": "implementation_checkpoint",
-                  "value": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74"
-                },
-                {
-                  "name": "vm_log",
-                  "value": ".local/final-e5c31807/unit.jsonl"
-                }
-              ]
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/go-test.jsonl",
+              "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b",
+              "host": "windows"
             },
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.0",
+              "value": {
+                "implementation_sha": "4cad8a794a5768d0f0321d550c4bbf29dd9125c1",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/go-test.jsonl",
+                  "sha256": "48b4a814cce7d454f7b26b67a1c7fae08503e3e13ba95fdae50cfc74a02e2b1b"
+                },
+                "run_exit_status": 1,
+                "tests": [
+                  {
+                    "name": "TestCSharpDateAndFormattableFormatters",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 16,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpTemplateFormatting",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 43,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpStringAndNumericFormatters",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 37,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 1
+            },
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "unit_only",
+                "note": "No matching specialized Windows live run was recorded for this manifest."
+              }
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "passed",
+          "checks": [
+            {
+              "name": "TestCSharpDateAndFormattableFormatters",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 16,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpTemplateFormatting",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 43,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            },
+            {
+              "name": "TestCSharpStringAndNumericFormatters",
+              "kind": "unit",
+              "status": "passed",
+              "counts": {
+                "passed": 37,
+                "failed": 0,
+                "skipped": 0,
+                "incomplete": 0
+              },
+              "artifacts": [],
+              "metrics": []
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "test_log",
+              "path": ".local/final-e5c31807/unit.jsonl",
+              "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.runs.1",
+              "value": {
+                "implementation_sha": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+                "source_state": "committed",
+                "log": {
+                  "path": ".local/final-e5c31807/unit.jsonl",
+                  "sha256": "2fb92f4205b07985f8d77d7e09e3309b837d3f1af4f1895cbd5a016b0ab344ea"
+                },
+                "run_exit_status": 0,
+                "tests": [
+                  {
+                    "name": "TestCSharpDateAndFormattableFormatters",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 16,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpTemplateFormatting",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 43,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  },
+                  {
+                    "name": "TestCSharpStringAndNumericFormatters",
+                    "kind": "unit/component",
+                    "outcome": "pass",
+                    "leaf_counts": {
+                      "pass": 37,
+                      "fail": 0,
+                      "skip": 0,
+                      "incomplete": 0
+                    }
+                  }
+                ],
+                "reports": []
+              }
+            },
+            {
+              "name": "source_state",
+              "value": "committed"
+            },
+            {
+              "name": "exit_status",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "implementation_checkpoint": "e5c31807fef6b9d25b86bb174d2b0fa911d58b74",
+          "scope": "Windows runs recorded separately from the historical checkpoint in this manifest.",
+          "status": "passed",
+          "checks": [
             {
               "name": "TestCSharpSanitizerEdgeCases",
               "kind": "unit",

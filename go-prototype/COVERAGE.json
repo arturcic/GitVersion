@@ -345,6 +345,42 @@
               }
             }
           ]
+        },
+        {
+          "implementation_checkpoint": null,
+          "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+          "status": "unmeasured",
+          "checks": [],
+          "artifacts": [
+            {
+              "kind": "evidence_index",
+              "path": ".local/windows-test-evidence.json",
+              "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939",
+              "host": "windows"
+            }
+          ],
+          "metrics": [
+            {
+              "name": "source.windows_evidence.metadata",
+              "value": {
+                "schema_version": 1,
+                "platform": {
+                  "os": "windows",
+                  "arch": "arm64",
+                  "go": "1.27.3",
+                  "cgo_enabled": 0
+                },
+                "pinned_reference_revision": "14d222235b7dabb7033473528a76fd18478a9217",
+                "index": {
+                  "path": ".local/windows-test-evidence.json",
+                  "sha256": "11e6696afb1440017558563c90c382fcc47081646e8966a94afbeb3179378939"
+                },
+                "scope": "Windows results are specific to the recorded implementation SHA and selected suites.",
+                "status": "unmeasured",
+                "note": "No Windows coverage profile was located. Existing coverage is historical."
+              }
+            }
+          ]
         }
       ]
     }

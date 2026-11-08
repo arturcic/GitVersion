@@ -10,8 +10,8 @@
       <HintPath>$(BaselineDirectory)/%(Identity).dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-    <None Include="$(BaselineDirectory)/runtimes/$(NETCoreSdkRuntimeIdentifier)/native/git2-5853918.dll"
-          Link="git2-5853918.dll" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
+  <Target Name="StageWindowsLibGit2" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <Copy SourceFiles="$(BaselineDirectory)/runtimes/$(NETCoreSdkRuntimeIdentifier)/native/git2-5853918.dll"
+          DestinationFolder="$(TargetDir)" />
+  </Target>
 </Project>
