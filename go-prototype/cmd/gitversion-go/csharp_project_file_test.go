@@ -86,7 +86,11 @@ func TestCSharpProjectFileUpdater(t *testing.T) {
 						}
 						actual = string(data)
 					}
-					if actual != tc.ExpectedXML {
+					expected := tc.ExpectedXML
+					if tc.FileName != "" {
+						expected = string(nativeText([]byte(expected)))
+					}
+					if actual != expected {
 						t.Fatalf("project XML differs\ngot:\n%s\nwant:\n%s", actual, tc.ExpectedXML)
 					}
 				})

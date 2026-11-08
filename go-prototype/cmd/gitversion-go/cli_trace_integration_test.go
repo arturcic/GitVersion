@@ -84,7 +84,7 @@ func TestPlatformCLITraceParity(t *testing.T) {
 	}
 	ts := regexp.MustCompile(`(?m)^([A-Z]{4}) \[\d{2}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}:\d{2}\] `)
 	elapsed := regexp.MustCompile(`\(Took: [0-9.]+ms\)`)
-	cacheKey := regexp.MustCompile(`gitversion_cache/(?:[A-F0-9]{40}|go-v1-[a-f0-9]{64})`)
+	cacheKey := regexp.MustCompile(`gitversion_cache[/\\](?:[A-F0-9]{40}|go-v1-[a-f0-9]{64})`)
 	all := map[string]map[string]transcript{}
 	for _, implementation := range []string{"csharp", "go"} {
 		dir := t.TempDir()

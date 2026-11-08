@@ -118,7 +118,7 @@ func TestPlatformRepositoryExecutionParity(t *testing.T) {
 			})
 			got := run("go", candidate, nil)
 			if name == "teamcity-json-buildserver-and-file" {
-				refAt, gotAt := bytes.Index(ref.Stdout, []byte("{\n")), bytes.Index(got.Stdout, []byte("{\n"))
+				refAt, gotAt := bytes.Index(ref.Stdout, nativeText([]byte("{\n"))), bytes.Index(got.Stdout, nativeText([]byte("{\n")))
 				if refAt < 0 || gotAt < 0 || !bytes.Equal(ref.Stdout[:refAt], got.Stdout[:gotAt]) {
 					t.Fatalf("TeamCity protocol differs\nC# %s\nGo %s", ref.Stdout, got.Stdout)
 				}

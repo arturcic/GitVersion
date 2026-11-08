@@ -409,7 +409,7 @@ func checkIntegration(t *testing.T, a *Agent, env map[string]string, method stri
 				t.Fatal(writes.String())
 			}
 			content, err := os.ReadFile(file)
-			if err != nil || string(content) != "GitVersion_Major=1.0.0\n" {
+			if err != nil || string(content) != "GitVersion_Major=1.0.0"+integrationNewline() {
 				t.Fatalf("%s: %v", content, err)
 			}
 		} else if strings.Contains(writes.String(), "Set Build Number for ") {

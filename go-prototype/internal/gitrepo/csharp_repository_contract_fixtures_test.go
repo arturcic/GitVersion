@@ -1,9 +1,12 @@
 package gitrepo
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
+	"syscall"
 	"testing"
 	"time"
 
@@ -346,6 +349,9 @@ func contractStatusFixture(t *testing.T, method string) *contractFixture {
 		f.commit("commit")
 		for name, target := range map[string]string{"link": "target", "self": "."} {
 			if err := os.Symlink(target, filepath.Join(f.path, name)); err != nil {
+				if runtime.GOOS == "windows" && errors.Is(err, syscall.Errno(1314)) {
+					t.Skip("Windows symlink creation privilege is unavailable")
+				}
 				t.Fatal(err)
 			}
 		}

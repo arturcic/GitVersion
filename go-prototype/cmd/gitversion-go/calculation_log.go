@@ -85,10 +85,12 @@ func (l *cliLog) writeSinks(level logLevel, message, fileMessage string) {
 	now := time.Now()
 	prefix := fmt.Sprintf("%s [%s:%02d] ", logNames[level], now.Format("06-01-02 15:04:05"), now.Nanosecond()/10_000_000)
 	render := func(text string) string {
-		return prefix + l.indent + logURLPassword.ReplaceAllString(text, "${1}*******@") + "\n"
+		// The message template may contain literal LF. Only the sink's
+		// record terminator follows Environment.NewLine.
+		return prefix + l.indent + logURLPassword.ReplaceAllString(text, "${1}*******@") + string(nativeText([]byte{'\n'}))
 	}
 	if l.console || level == logWarning {
-		_, _ = io.WriteString(l.stderr, render(message))
+		_, _ = io.WriteString(rawTextWriter(l.stderr), render(message))
 	}
 	if l.file != nil {
 		_, _ = io.WriteString(l.file, render(fileMessage))
@@ -99,7 +101,7 @@ func (l *cliLog) initialize(directory, version string, agent *buildagent.Agent, 
 	l.featureSelection(version)
 	l.write(logInfo, fmt.Sprintf("Applicable build agent found: '%s'.", agent.Name))
 	if diagnose {
-		l.write(logInfo, gitGraphHint)
+		l.write(logInfo, string(nativeText([]byte(gitGraphHint))))
 	}
 	if !(config.OSConfigurationFS{}).DirectoryExists(directory) {
 		l.write(logWarning, fmt.Sprintf("The working directory '%s' does not exist.", directory))

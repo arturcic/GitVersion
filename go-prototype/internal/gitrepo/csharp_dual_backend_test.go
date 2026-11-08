@@ -111,7 +111,7 @@ func observeDualBackend(t *testing.T, method string, fixture dualBackendFixture)
 		if err != nil {
 			t.Fatal(err)
 		}
-		return relative
+		return filepath.ToSlash(relative)
 	}
 	paths := map[string]any{"git": location(layout.gitDirectory), "root": location(layout.workingDirectory)}
 	if method == "BareRepositoryHasNullProjectRootDirectoryOnBothBackends" ||

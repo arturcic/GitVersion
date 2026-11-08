@@ -156,6 +156,13 @@ func writeConfigurationQuery(version, directory, remoteURL string, property *str
 	if err != nil {
 		return err
 	}
+	if property == nil {
+		// YamlDotNet emits LF even when Console.WriteLine appends CRLF.
+		if native, ok := out.(nativeTextWriter); ok {
+			_, err = native.Writer.Write(append(data, nativeText([]byte{'\n'})...))
+			return err
+		}
+	}
 	_, err = out.Write(append(data, '\n'))
 	return err
 }

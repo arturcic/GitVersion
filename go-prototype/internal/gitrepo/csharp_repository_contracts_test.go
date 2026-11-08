@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"runtime"
 	"slices"
 	"sort"
 	"strings"
@@ -317,6 +318,10 @@ func checkStatusContract(t *testing.T, method string, expected json.RawMessage, 
 	var oracle int
 	if err := json.Unmarshal(expected, &oracle); err != nil {
 		t.Fatal(err)
+	}
+	if runtime.GOOS == "windows" && method == "CountsExecutableBitChanges" {
+		// The pinned managed backend ignores executable mode on Windows.
+		original, oracle = 0, 0
 	}
 	if count != original || count != oracle {
 		t.Fatalf("want original %d and libgit2 %d, got %d: %v", original, oracle, count, status)

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime"
 	"slices"
 	"sort"
 	"strings"
@@ -66,7 +67,7 @@ func (a *Agent) WriteIntegration(ctx context.Context, writer io.Writer, variable
 		var content strings.Builder
 		for _, key := range output.VariableNames {
 			if value := ValueText(variables[key]); value != "" {
-				fmt.Fprintf(&content, "GitVersion_%s=%s\n", key, value)
+				fmt.Fprintf(&content, "GitVersion_%s=%s%s", key, value, integrationNewline())
 			}
 		}
 		stream, err := os.OpenFile(a.path(file), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
@@ -114,7 +115,15 @@ func (a *Agent) WriteIntegration(ctx context.Context, writer io.Writer, variable
 }
 
 func writeLines(path string, lines []string) error {
-	return os.WriteFile(path, []byte(strings.Join(lines, "\n")+"\n"), 0600)
+	newline := integrationNewline()
+	return os.WriteFile(path, []byte(strings.Join(lines, newline)+newline), 0600)
+}
+
+func integrationNewline() string {
+	if runtime.GOOS == "windows" {
+		return "\r\n"
+	}
+	return "\n"
 }
 
 func WriteDotEnv(writer io.Writer, variables map[string]any) error {

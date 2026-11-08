@@ -116,7 +116,12 @@ func runConfigValidate(args []string, workdir, problem string, discover func(str
 		}
 		if err == nil {
 			var data []byte
-			data, err = (config.OSConfigurationFS{}).ReadFile(*result.File)
+			fs := config.OSConfigurationFS{}
+			if fs.FileExists(*result.File) {
+				data, err = fs.ReadFile(*result.File)
+			} else {
+				err = os.ErrNotExist
+			}
 			if err == nil {
 				var runtime []byte
 				runtime, err = config.ValidationOverrides(overrides, version)

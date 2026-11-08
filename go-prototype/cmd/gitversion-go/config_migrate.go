@@ -148,7 +148,7 @@ func executeMigration(options migrationOptions, stdout io.Writer, log *cliLog) e
 		return err
 	}
 	if !options.inPlace && options.output == "" {
-		_, err = stdout.Write(migrated)
+		_, err = rawTextWriter(stdout).Write(migrated)
 		return err
 	}
 	destination := input

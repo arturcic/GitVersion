@@ -175,7 +175,7 @@ func TestVerifyBaselineRejectsSpecAndHostDrift(t *testing.T) {
 
 func TestRuntimeDirectoryPreservesSpaces(t *testing.T) {
 	got, err := RuntimeDirectory("Microsoft.NETCore.App 10.0.14 [/Applications/Shared Tools/dotnet]\r\n", "10.0.14")
-	if err != nil || got != "/Applications/Shared Tools/dotnet/10.0.14" {
+	if err != nil || got != filepath.Join("/Applications/Shared Tools/dotnet", "10.0.14") {
 		t.Fatalf("runtime path %q: %v", got, err)
 	}
 }

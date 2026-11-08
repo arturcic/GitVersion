@@ -34,7 +34,7 @@ func updateWixVersionFile(directory string, values map[string]any) error {
 	if err != nil && !os.IsNotExist(err) {
 		return err
 	}
-	return writeFileAtomically(path, []byte(document.String()), info, true)
+	return writeFileAtomically(path, nativeText([]byte(document.String())), info, true)
 }
 
 func invalidXMLRune(r rune) bool {

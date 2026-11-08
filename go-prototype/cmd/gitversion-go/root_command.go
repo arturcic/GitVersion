@@ -236,7 +236,7 @@ func runRootCalculation(options cliArguments, repoOptions gitrepo.OpenOptions, a
 		var unexpected gitrepo.UnexpectedPreparationError
 		if errors.Is(err, gitrepo.ErrNoCommits) || errors.As(err, &unexpected) {
 			log.write(logError, "An unexpected error occurred:\n"+message)
-			log.write(logInfo, gitGraphHint)
+			log.write(logInfo, string(nativeText([]byte(gitGraphHint))))
 		} else {
 			if errors.As(err, &failure) || strings.HasPrefix(err.Error(), "An error occurred:\n") {
 				fmt.Fprintln(diagnostics, "An error occurred:")
@@ -269,7 +269,7 @@ func writeRootOutput(options cliArguments, values map[string]any, updateBuildNum
 		if err != nil && !errors.Is(err, os.ErrNotExist) {
 			return err
 		}
-		if err := writeFileAtomically(path, data, info, true); err != nil {
+		if err := writeFileAtomically(path, nativeText(data), info, true); err != nil {
 			return err
 		}
 	}

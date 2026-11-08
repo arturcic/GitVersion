@@ -177,7 +177,7 @@ func TestPlatformExecutorRoutingParity(t *testing.T) {
 					}
 				}
 			case "scalar":
-				if string(ref.Stdout) != "true\n" || !bytes.Equal(ref.Stdout, actual.Stdout) {
+				if string(ref.Stdout) != string(nativeText([]byte("true\n"))) || !bytes.Equal(ref.Stdout, actual.Stdout) {
 					t.Fatalf("scalar output differs: %q vs %q", ref.Stdout, actual.Stdout)
 				}
 			case "write":

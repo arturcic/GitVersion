@@ -64,7 +64,7 @@ func TestCSharpConfigurationFileLocator(t *testing.T) {
 						for _, pair := range [][2]string{{"@lowerrepo", lower}, {"@working", working}, {"@repo", repo}, {"@unrelated", filepath.Join(base, "unrelated")}, {"@process", filepath.Join(base, "process")}} {
 							s = strings.ReplaceAll(s, pair[0], pair[1])
 						}
-						return s
+						return filepath.FromSlash(s)
 					}
 					fs := &locatorFixtureFS{files: map[string][]byte{}, dirs: map[string]bool{repo: true, working: true, lower: true}}
 					for _, file := range c.Files {

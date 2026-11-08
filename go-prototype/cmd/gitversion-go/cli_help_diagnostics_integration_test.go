@@ -81,7 +81,7 @@ func TestPlatformCLIHelpAndDiagnosticsParity(t *testing.T) {
 	})
 	t.Run("version", func(t *testing.T) {
 		dir := t.TempDir()
-		version := regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+(?:[-+][A-Za-z0-9.+-]+)?\n$`)
+		version := regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+(?:[-+][A-Za-z0-9.+-]+)?\r?\n$`)
 		for _, implementation := range []string{"csharp", "go"} {
 			got := run(t, implementation, dir, "--version")
 			schema := run(t, implementation, dir, "--cli-schema")

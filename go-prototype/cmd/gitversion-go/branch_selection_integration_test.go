@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -79,7 +80,12 @@ func TestPlatformBranchSelectionParity(t *testing.T) {
 				t.Fatal(err)
 			}
 			env := maps.Clone(baseline.Spec.Environment)
-			env["GIT_BRANCH"], env["Git_Branch"] = test.upper, test.alias
+			if test.upper != "" && (runtime.GOOS != "windows" || strings.TrimSpace(test.upper) != "" || test.alias == "") {
+				env["GIT_BRANCH"] = test.upper
+			}
+			if test.alias != "" && (runtime.GOOS != "windows" || strings.TrimSpace(test.upper) == "") {
+				env["Git_Branch"] = test.alias
+			}
 			path := source.path
 			if test.detached {
 				path = detached

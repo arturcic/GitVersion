@@ -130,7 +130,7 @@ func TestPlatformCLILoggingParity(t *testing.T) {
 					if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
 						t.Fatal(err)
 					}
-					if err := os.WriteFile(path, []byte(tc.seed), 0600); err != nil {
+					if err := os.WriteFile(path, nativeText([]byte(tc.seed)), 0600); err != nil {
 						t.Fatal(err)
 					}
 				}
@@ -186,7 +186,11 @@ func TestPlatformCLILoggingParity(t *testing.T) {
 				if tc.file {
 					stream = r.File
 				}
-				if !strings.HasPrefix(stream, tc.prefix) || !strings.Contains(stream, tc.contains) {
+				contains := tc.contains
+				if tc.name != "unborn-console" {
+					contains = string(nativeText([]byte(contains)))
+				}
+				if !strings.HasPrefix(stream, string(nativeText([]byte(tc.prefix)))) || !strings.Contains(stream, contains) {
 					t.Fatalf("expected prefix %q and message %q, got %q", tc.prefix, tc.contains, stream)
 				}
 			}

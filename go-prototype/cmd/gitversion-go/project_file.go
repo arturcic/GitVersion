@@ -96,7 +96,7 @@ func updateProjectFiles(directory string, paths []string, values map[string]any,
 				setProjectVersionElement(groups, item.element, value)
 			}
 		}
-		updated := project.render()
+		updated := string(nativeText([]byte(project.render())))
 		if updated != content {
 			changes = append(changes, fileChange{target, updated, raw, info})
 		}

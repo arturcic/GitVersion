@@ -94,8 +94,13 @@ func execute(args []string, out, diagnostics io.Writer) error {
 	return json.NewEncoder(out).Encode(observation)
 }
 func main() {
-	if err := execute(os.Args[1:], os.Stdout, os.Stderr); err != nil {
-		writeCommandDiagnostic(os.Stderr, err)
+	stdout, stderr := io.Writer(os.Stdout), io.Writer(os.Stderr)
+	args := os.Args[1:]
+	if len(args) == 0 || (args[0] != "calculate" && args[0] != "observe" && args[0] != "msbuild") {
+		stdout, stderr = nativeTextWriter{stdout}, nativeTextWriter{stderr}
+	}
+	if err := execute(args, stdout, stderr); err != nil {
+		writeCommandDiagnostic(stderr, err)
 		os.Exit(1)
 	}
 }

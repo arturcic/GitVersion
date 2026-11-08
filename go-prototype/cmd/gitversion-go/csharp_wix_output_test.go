@@ -60,7 +60,7 @@ func TestCSharpWixOutput(t *testing.T) {
 							if err != nil {
 								t.Fatal(err)
 							}
-							if string(bytes.TrimPrefix(data, []byte("\ufeff"))) != tc.Approved {
+							if string(bytes.TrimPrefix(data, []byte("\ufeff"))) != string(nativeText([]byte(tc.Approved))) {
 								t.Fatalf("WiX text differs from the approved file\n%s", data)
 							}
 							return
