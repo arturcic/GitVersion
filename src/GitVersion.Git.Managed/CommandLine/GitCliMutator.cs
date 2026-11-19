@@ -49,7 +49,7 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         var arguments = new List<string>();
         AddAuthentication(arguments, sourceUrl, auth);
         var filter = mode == DynamicCloneMode.Treeless ? "--filter=tree:0" : "--filter=blob:none";
-        arguments.AddRange(["clone", "--bare", "--single-branch", filter, "--no-local", "--", sourceUrl, gitDirectory]);
+        arguments.AddRange(["clone", "--bare", "--origin", "origin", "--single-branch", filter, "--no-local", "--", sourceUrl, gitDirectory]);
         var result = this.executor.Execute(null, arguments);
         ThrowOnFailure(result, isNetworkOperation: true);
         if (result.StandardError.Contains("filtering not recognized by server", StringComparison.Ordinal))
@@ -68,7 +68,7 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         // The treeless walk deliberately omits --objects, so it only needs commit history.
         string[] arguments = mode == DynamicCloneMode.Treeless
             ? ["rev-list", "--count", "--missing=print", "--all"]
-            : ["rev-list", "--objects", "--filter=blob:none", "--missing=print", "--all"];
+            : ["rev-list", "--objects", "--quiet", "--filter=blob:none", "--missing=print", "--all"];
         var result = this.executor.Execute(workingDirectory, arguments);
         if (!result.IsSuccess || result.StandardOutput.Split('\n').Any(line => line.StartsWith('?')))
         {
