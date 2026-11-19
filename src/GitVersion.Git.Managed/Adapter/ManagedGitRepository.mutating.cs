@@ -2,7 +2,7 @@ using GitVersion.Extensions;
 
 namespace GitVersion.Git;
 
-internal sealed partial class ManagedGitRepository(ILogger<ManagedGitRepository> logger, IGitCliMutator cliMutator) : IMutatingGitRepository
+internal sealed partial class ManagedGitRepository(ILogger<ManagedGitRepository> logger, IGitCliMutator cliMutator) : IMutatingGitRepository, ILightweightGitRepository
 {
     private readonly ILogger<ManagedGitRepository> logger = logger.NotNull();
 
@@ -10,6 +10,23 @@ internal sealed partial class ManagedGitRepository(ILogger<ManagedGitRepository>
 
     public void Clone(string? sourceUrl, string? workdirPath, AuthenticationInfo auth) =>
         CliMutator.Clone(sourceUrl, workdirPath, auth);
+
+    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo authentication) =>
+        CliMutator.CloneLightweight(sourceUrl, gitDirectory, authentication);
+
+    public void SelectBranchWithoutCheckout(string canonicalName)
+    {
+        var otherLocalBranches = Branches.Where(branch => !branch.IsRemote && branch.Name.Canonical != canonicalName)
+            .Select(branch => branch.Name.Canonical).ToArray();
+        CliMutator.CreateSymbolicReference(CliWorkingDirectory, "HEAD", canonicalName);
+        foreach (var branch in otherLocalBranches)
+        {
+            CliMutator.DeleteReference(CliWorkingDirectory, branch);
+        }
+        Invalidate();
+    }
+
+    public void ValidateLightweightHistory() => CliMutator.ValidateLightweightHistory(CliWorkingDirectory);
 
     public void Checkout(string commitOrBranchSpec)
     {

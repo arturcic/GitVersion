@@ -33,7 +33,7 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
     private string? GetDynamicGitRepositoryPath()
     {
         var repositoryInfo = this.gitVersionOptions.RepositoryInfo;
-        return DynamicRepositoryPath.Get(this.fileSystem, repositoryInfo.TargetUrl, repositoryInfo.ClonePath, GitRepoHasMatchingRemote);
+        return DynamicRepositoryPath.Get(this.fileSystem, repositoryInfo.TargetUrl, repositoryInfo.ClonePath, GitRepoHasMatchingRemote, repositoryInfo.UsePartialClone);
     }
 
     private string? GetDotGitDirectory() =>
@@ -73,7 +73,7 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
     private static GitRepositoryLayout? Discover(string startPath) =>
         Directory.Exists(startPath) ? GitRepositoryLayout.TryDiscover(startPath) : null;
 
-    private static bool GitRepoHasMatchingRemote(string possiblePath, string targetUrl)
+    private bool GitRepoHasMatchingRemote(string possiblePath, string targetUrl)
     {
         try
         {
@@ -87,6 +87,10 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
             }
 
             var configuration = GitConfigurationFile.Load(SysPath.Combine(layout.CommonDirectory, "config"));
+            if (this.gitVersionOptions.RepositoryInfo.UsePartialClone && configuration.GetBoolean("core", null, "bare") != true)
+            {
+                return false;
+            }
             return configuration.GetSubsections("remote")
                 .Any(remoteName => configuration.GetString("remote", remoteName, "url") == targetUrl);
         }

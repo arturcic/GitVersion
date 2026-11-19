@@ -398,6 +398,11 @@ internal class ArgumentParser(
 
     private static void MapRemoteOptions(Arguments arguments, ParseResult parseResult, CommandOptions options)
     {
+        arguments.UsePartialClone = parseResult.GetValue(options.PartialClone);
+        if (arguments.UsePartialClone && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
+        {
+            throw new WarningException("--partial-clone requires --url.");
+        }
         if (parseResult.GetValue(options.Url) is { } url)
         {
             arguments.TargetUrl = url;
@@ -590,6 +595,10 @@ internal class ArgumentParser(
         {
             Description = "By default dynamic repositories will be cloned to %tmp%. Use this option to override"
         };
+        var partialClone = new Option<bool>("--partial-clone")
+        {
+            Description = "With --url, omit blobs and working-tree checkout. Servers without filtering support download full objects without checkout."
+        };
         var configCommand = new Command("config", "Manages GitVersion configuration.");
         configCommand.SetAction(_ => { });
         var migrate = new Command("migrate", "Migrates a v6 configuration document to the v7 structure.");
@@ -661,6 +670,7 @@ internal class ArgumentParser(
             password,
             commit,
             dynamicRepoLocation,
+            partialClone,
             cliSchema,
             telemetryOptOut
         };
@@ -685,7 +695,7 @@ internal class ArgumentParser(
             VerbosityOption: verbosity, UpdateAssemblyInfo: updateAssemblyInfo, UpdateProjectFiles: updateProjectFiles,
             EnsureAssemblyInfo: ensureAssemblyInfo, UpdateWixVersionFile: updateWixVersionFile,
             Url: url, Branch: branch, Username: username, Password: password,
-            Commit: commit, DynamicRepoLocation: dynamicRepoLocation,
+            Commit: commit, DynamicRepoLocation: dynamicRepoLocation, PartialClone: partialClone,
             ConfigCommand: configCommand, Migrate: migrate,
             MigrationInputFile: migrationInputFile, MigrationOutputFile: migrationOutputFile,
             InPlace: inPlace, Force: force, Get: get, PropertyPath: propertyPath, CliSchema: cliSchema,
@@ -819,6 +829,7 @@ internal class ArgumentParser(
         Option<string?> Password,
         Option<string?> Commit,
         Option<string?> DynamicRepoLocation,
+        Option<bool> PartialClone,
         Command ConfigCommand,
         Command Migrate,
         Option<string?> MigrationInputFile,

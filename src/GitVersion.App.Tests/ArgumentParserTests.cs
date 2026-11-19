@@ -862,6 +862,19 @@ public class ArgumentParserTests : TestBase
     }
 
     [Test]
+    public void PartialCloneRequiresUrl() =>
+        Should.Throw<WarningException>(() => this.argumentParser.ParseArguments("--partial-clone"))
+            .Message.ShouldContain("requires --url");
+
+    [Test]
+    public void PartialCloneIsPassedToRepositoryOptions()
+    {
+        var arguments = this.argumentParser.ParseArguments("--url https://example.test/repo.git --partial-clone");
+        arguments.UsePartialClone.ShouldBeTrue();
+        arguments.ToOptions().RepositoryInfo.UsePartialClone.ShouldBeTrue();
+    }
+
+    [Test]
     public void DynamicRepoLocation()
     {
         var arguments = this.argumentParser.ParseArguments("--dynamic-repo-location /tmp/foo");
