@@ -54,6 +54,10 @@ internal class GitPreparer(
 
     private void PrepareInternal(GitVersionOptions gitVersionOptions)
     {
+        if (gitVersionOptions.RepositoryInfo.UsePartialClone && gitVersionOptions.RepositoryInfo.TargetUrl.IsNullOrWhiteSpace())
+        {
+            throw new WarningException("--partial-clone requires --url.");
+        }
         var currentBranch = branchResolver.TargetBranch;
         this.logger.LogInformation("Branch input: {Branch}; contextual override: {Context}", currentBranch, branchResolver.ContextBranch);
 
@@ -131,7 +135,17 @@ internal class GitPreparer(
     {
         using (this.logger.StartIndentedScope($"Cloning repository from url '{repositoryUrl}'"))
         {
-            this.retryAction.Execute(() => this.repository.Clone(repositoryUrl, gitDirectory, auth));
+            this.retryAction.Execute(() =>
+            {
+                if (this.options.Value.RepositoryInfo.UsePartialClone)
+                {
+                    LightweightRepository.CloneLightweight(repositoryUrl, gitDirectory, auth);
+                }
+                else
+                {
+                    this.repository.Clone(repositoryUrl, gitDirectory, auth);
+                }
+            });
         }
     }
 
@@ -140,7 +154,11 @@ internal class GitPreparer(
         using (this.logger.StartIndentedScope($"Normalizing git directory for branch '{targetBranch}'"))
         {
             // Normalize (download branches) before using the branch
-            NormalizeGitDirectory(this.options.Value.Settings.NoFetch || this.buildAgent.PreventFetch(), targetBranch, isDynamicRepository, this.configuration.Value.Ignore);
+            // Build-agent fetch restrictions protect the build's checkout. A lightweight
+            // dynamic repository is our own cache and must update unless explicitly disabled.
+            var lightweight = isDynamicRepository && this.options.Value.RepositoryInfo.UsePartialClone;
+            var noFetch = this.options.Value.Settings.NoFetch || (!lightweight && this.buildAgent.PreventFetch());
+            NormalizeGitDirectory(noFetch, targetBranch, isDynamicRepository, this.configuration.Value.Ignore);
         }
     }
 
@@ -153,6 +171,14 @@ internal class GitPreparer(
     private void NormalizeGitDirectory(bool noFetch, string? currentBranchName, bool isDynamicRepository, IIgnoreConfiguration ignoreConfiguration)
     {
         var authentication = this.options.Value.AuthenticationInfo;
+        if (isDynamicRepository && this.options.Value.RepositoryInfo.UsePartialClone)
+        {
+            var lightweightRemote = EnsureOnlyOneRemoteIsDefined();
+            FetchRemotesIfRequired(lightweightRemote, noFetch, authentication);
+            NormalizeLightweightRepository(lightweightRemote, currentBranchName);
+            EnsureFullHistory();
+            return;
+        }
         // Need to ensure the HEAD does not move, this is essentially a BugCheck
         var expectedSha = this.repository.Head.Tip?.Sha;
         var expectedBranchName = this.repository.Head.Name.Canonical;
@@ -192,6 +218,30 @@ internal class GitPreparer(
         EnsureRepositoryHeadDuringNormalisation(nameof(EnsureHeadIsAttachedToBranch), expectedSha);
 
         EnsureFullHistory();
+    }
+
+    private ILightweightGitRepository LightweightRepository => this.repository as ILightweightGitRepository
+        ?? throw new WarningException("The selected Git backend does not support lightweight dynamic repositories.");
+
+    private void NormalizeLightweightRepository(IRemote remote, string? targetBranch)
+    {
+        LightweightRepository.ValidateLightweightHistory();
+        if (branchResolver.ContextBranch != null)
+        {
+            return;
+        }
+
+        targetBranch.NotNull();
+        const string localPrefix = "refs/heads/";
+        var name = targetBranch.StartsWith(localPrefix, StringComparison.Ordinal) ? targetBranch[localPrefix.Length..] : targetBranch;
+        var remoteName = $"refs/remotes/{remote.Name}/{name}";
+        var branch = this.repository.Branches[remoteName]
+            ?? throw new WarningException($"The remote branch '{targetBranch}' was not found. Lightweight clones require a branch advertised by the remote.");
+        var tip = branch.Tip ?? throw new WarningException($"The remote branch '{targetBranch}' has no commits.");
+        var canonicalName = localPrefix + name;
+        this.repository.References.Add(canonicalName, tip.Sha, true);
+        this.repository.Branches.UpdateTrackedBranch(this.repository.Branches[canonicalName].NotNull(), remoteName);
+        LightweightRepository.SelectBranchWithoutCheckout(canonicalName);
     }
 
     private void EnsureFullHistory()

@@ -115,6 +115,9 @@ GitVersion [path]
     --dynamic-repo-location
                     By default dynamic repositories will be cloned to %tmp%.
                     Use this switch to override
+    --partial-clone
+                    With --url, omit blobs and working-tree checkout. Servers
+                    without filtering support download full objects without checkout.
     --no-fetch      Disables 'git fetch' during version calculation. Might cause
                     GitVersion to not calculate your version as expected.
 ```

@@ -26,6 +26,7 @@ internal class Arguments
     public string? TargetBranch;
     public string? CommitId;
     public string? ClonePath;
+    public bool UsePartialClone;
 
     public bool Diag;
     public bool IsVersion;
@@ -95,7 +96,8 @@ internal class Arguments
                 TargetUrl = this.TargetUrl,
                 TargetBranch = this.TargetBranch,
                 CommitId = this.CommitId,
-                ClonePath = this.ClonePath
+                ClonePath = this.ClonePath,
+                UsePartialClone = this.UsePartialClone
             },
 
             Settings =

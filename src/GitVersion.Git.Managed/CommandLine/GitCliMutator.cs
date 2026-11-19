@@ -9,12 +9,15 @@ namespace GitVersion.Git;
 internal interface IGitCliMutator
 {
     void Clone(string? sourceUrl, string? workdirPath, AuthenticationInfo auth);
+    void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth);
+    void ValidateLightweightHistory(string workingDirectory);
     void Fetch(string workingDirectory, string remote, IEnumerable<string> refSpecs, AuthenticationInfo auth);
     void Checkout(string workingDirectory, string commitOrBranchSpec);
     IReadOnlyList<GitRemoteReference> ListRemoteReferences(string workingDirectory, string remoteName, AuthenticationInfo auth);
     void SetConfig(string workingDirectory, string key, string value);
     void AddConfig(string workingDirectory, string key, string value);
     void RemoveRemote(string workingDirectory, string remoteName);
+    void DeleteReference(string workingDirectory, string name);
     void UpdateReference(string workingDirectory, string name, string targetSha);
     void CreateSymbolicReference(string workingDirectory, string name, string targetReferenceName);
 }
@@ -37,6 +40,39 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         ThrowOnFailure(result, isNetworkOperation: true);
         this.logger.LogInformation("Cloned repository '{SourceUrl}' into '{WorkdirPath}'", sourceUrl, workdirPath);
     }
+
+    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth)
+    {
+        ArgumentNullException.ThrowIfNull(sourceUrl);
+        ArgumentNullException.ThrowIfNull(gitDirectory);
+
+        var arguments = new List<string>();
+        AddAuthentication(arguments, sourceUrl, auth);
+        arguments.AddRange(["clone", "--bare", "--single-branch", "--filter=blob:none", "--no-local", "--", sourceUrl, gitDirectory]);
+        var result = this.executor.Execute(null, arguments);
+        ThrowOnFailure(result, isNetworkOperation: true);
+        if (result.StandardError.Contains("filtering not recognized by server", StringComparison.Ordinal))
+        {
+            this.logger.LogWarning("The remote does not support partial-clone filtering. Downloading full objects without checking out files.");
+        }
+
+        // Version calculation needs source-branch history, not only the selected branch.
+        SetConfig(gitDirectory, "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*");
+        Fetch(gitDirectory, "origin", [], auth);
+    }
+
+    public void ValidateLightweightHistory(string workingDirectory)
+    {
+        // Blobs may intentionally be absent; commits and trees must be available locally.
+        var result = this.executor.Execute(workingDirectory, ["rev-list", "--objects", "--filter=blob:none", "--missing=print", "--all"]);
+        if (!result.IsSuccess || result.StandardOutput.Split('\n').Any(line => line.StartsWith('?')))
+        {
+            throw new InvalidOperationException("The lightweight repository is missing commit or tree objects. Allow fetching, or retry without --partial-clone using a fresh dynamic repository location.");
+        }
+    }
+
+    public void DeleteReference(string workingDirectory, string name) =>
+        ThrowOnFailure(this.executor.Execute(workingDirectory, ["update-ref", "-d", name]));
 
     public void Fetch(string workingDirectory, string remote, IEnumerable<string> refSpecs, AuthenticationInfo auth)
     {

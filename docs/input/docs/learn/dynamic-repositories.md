@@ -60,4 +60,31 @@ GitVersion will checkout the dynamic repository into the %tmp% directory and
 just keep that dynamic repository up to date, this saves recloning the
 repository every build.
 
+## Partial clones
+
+Add `--partial-clone` with `--url` to calculate versions without checking out
+repository files:
+
+```console
+gitversion --url https://github.com/example/project.git --branch feature/example --partial-clone
+```
+
+This mode requests `blob:none` filtering and uses a bare repository. Commit and
+tree history and all remote branch references remain available for version
+calculation, including GitFlow source branches such as `develop`. Only the selected
+branch needs a local reference. Configuration is read from the caller's working
+directory or the explicit `--config` file, so no configuration checkout is needed.
+
+Servers that do not support filtering download full objects instead; files are
+still never checked out. Missing commit or tree objects cause an error rather
+than an incomplete version calculation. Retry with fetching enabled, or omit
+`--partial-clone` and use a fresh `--dynamic-repo-location` if the remote's
+partial-clone support is incompatible.
+
+Partial clones use a separate cache ending in `-lightweight`, leaving existing
+dynamic clones untouched. As with normal dynamic repositories, `--no-fetch` skips
+updates to an existing cache; creating a new clone still requires downloading
+history. Specify an advertised branch name with `--branch`; pull-request pseudo
+refs are not supported in this mode.
+
 [tc-checkout]: https://confluence.jetbrains.com/display/TCD7/VCS+Checkout+Mode
