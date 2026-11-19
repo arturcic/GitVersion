@@ -398,10 +398,16 @@ internal class ArgumentParser(
 
     private static void MapRemoteOptions(Arguments arguments, ParseResult parseResult, CommandOptions options)
     {
-        arguments.UsePartialClone = parseResult.GetValue(options.PartialClone);
-        if (arguments.UsePartialClone && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
+        var partialCloneSpecified = parseResult.GetResult(options.PartialClone) is { Implicit: false };
+        var noPartialClone = parseResult.GetValue(options.NoPartialClone);
+        if (partialCloneSpecified && noPartialClone && parseResult.GetValue(options.PartialClone))
         {
-            throw new WarningException("--partial-clone requires --url.");
+            throw new WarningException("Cannot combine --partial-clone and --no-partial-clone.");
+        }
+        arguments.UsePartialClone = !noPartialClone && (!partialCloneSpecified || parseResult.GetValue(options.PartialClone));
+        if ((noPartialClone || (partialCloneSpecified && arguments.UsePartialClone)) && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
+        {
+            throw new WarningException(noPartialClone ? "--no-partial-clone requires --url." : "--partial-clone requires --url.");
         }
         if (parseResult.GetValue(options.Url) is { } url)
         {
@@ -597,7 +603,11 @@ internal class ArgumentParser(
         };
         var partialClone = new Option<bool>("--partial-clone")
         {
-            Description = "With --url, omit blobs and working-tree checkout. Servers without filtering support download full objects without checkout."
+            Description = "Use partial cloning with --url (the default)."
+        };
+        var noPartialClone = new Option<bool>("--no-partial-clone")
+        {
+            Description = "With --url, clone all objects and check out files using the original preparation path."
         };
         var configCommand = new Command("config", "Manages GitVersion configuration.");
         configCommand.SetAction(_ => { });
@@ -671,6 +681,7 @@ internal class ArgumentParser(
             commit,
             dynamicRepoLocation,
             partialClone,
+            noPartialClone,
             cliSchema,
             telemetryOptOut
         };
@@ -695,7 +706,7 @@ internal class ArgumentParser(
             VerbosityOption: verbosity, UpdateAssemblyInfo: updateAssemblyInfo, UpdateProjectFiles: updateProjectFiles,
             EnsureAssemblyInfo: ensureAssemblyInfo, UpdateWixVersionFile: updateWixVersionFile,
             Url: url, Branch: branch, Username: username, Password: password,
-            Commit: commit, DynamicRepoLocation: dynamicRepoLocation, PartialClone: partialClone,
+            Commit: commit, DynamicRepoLocation: dynamicRepoLocation, PartialClone: partialClone, NoPartialClone: noPartialClone,
             ConfigCommand: configCommand, Migrate: migrate,
             MigrationInputFile: migrationInputFile, MigrationOutputFile: migrationOutputFile,
             InPlace: inPlace, Force: force, Get: get, PropertyPath: propertyPath, CliSchema: cliSchema,
@@ -830,6 +841,7 @@ internal class ArgumentParser(
         Option<string?> Commit,
         Option<string?> DynamicRepoLocation,
         Option<bool> PartialClone,
+        Option<bool> NoPartialClone,
         Command ConfigCommand,
         Command Migrate,
         Option<string?> MigrationInputFile,

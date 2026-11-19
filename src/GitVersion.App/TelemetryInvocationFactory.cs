@@ -29,7 +29,7 @@ internal static class TelemetryInvocationFactory
         Add(args.TargetBranch != null, "--branch");
         Add(args.CommitId != null, "--commit");
         Add(args.ClonePath != null, "--dynamic-repo-location");
-        Add(args.UsePartialClone, "--partial-clone");
+        Add(args.TargetUrl != null && !args.UsePartialClone, "--no-partial-clone");
         Add(args.LogFilePath != null, "--log-file");
         Add(args.OutputFile != null, "--output-file");
         Add(args.UpdateAssemblyInfo, "--update-assembly-info");

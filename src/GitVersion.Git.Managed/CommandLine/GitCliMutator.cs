@@ -9,8 +9,8 @@ namespace GitVersion.Git;
 internal interface IGitCliMutator
 {
     void Clone(string? sourceUrl, string? workdirPath, AuthenticationInfo auth);
-    void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth);
-    void ValidateLightweightHistory(string workingDirectory);
+    void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth, DynamicCloneMode mode);
+    void ValidateLightweightHistory(string workingDirectory, DynamicCloneMode mode);
     void Fetch(string workingDirectory, string remote, IEnumerable<string> refSpecs, AuthenticationInfo auth);
     void Checkout(string workingDirectory, string commitOrBranchSpec);
     IReadOnlyList<GitRemoteReference> ListRemoteReferences(string workingDirectory, string remoteName, AuthenticationInfo auth);
@@ -41,14 +41,15 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         this.logger.LogInformation("Cloned repository '{SourceUrl}' into '{WorkdirPath}'", sourceUrl, workdirPath);
     }
 
-    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth)
+    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth, DynamicCloneMode mode)
     {
         ArgumentNullException.ThrowIfNull(sourceUrl);
         ArgumentNullException.ThrowIfNull(gitDirectory);
 
         var arguments = new List<string>();
         AddAuthentication(arguments, sourceUrl, auth);
-        arguments.AddRange(["clone", "--bare", "--single-branch", "--filter=blob:none", "--no-local", "--", sourceUrl, gitDirectory]);
+        var filter = mode == DynamicCloneMode.Treeless ? "--filter=tree:0" : "--filter=blob:none";
+        arguments.AddRange(["clone", "--bare", "--single-branch", filter, "--no-local", "--", sourceUrl, gitDirectory]);
         var result = this.executor.Execute(null, arguments);
         ThrowOnFailure(result, isNetworkOperation: true);
         if (result.StandardError.Contains("filtering not recognized by server", StringComparison.Ordinal))
@@ -61,13 +62,18 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         Fetch(gitDirectory, "origin", [], auth);
     }
 
-    public void ValidateLightweightHistory(string workingDirectory)
+    public void ValidateLightweightHistory(string workingDirectory, DynamicCloneMode mode)
     {
-        // Blobs may intentionally be absent; commits and trees must be available locally.
-        var result = this.executor.Execute(workingDirectory, ["rev-list", "--objects", "--filter=blob:none", "--missing=print", "--all"]);
+        // --missing=print reports missing objects without requesting them from the promisor remote.
+        // The treeless walk deliberately omits --objects, so it only needs commit history.
+        string[] arguments = mode == DynamicCloneMode.Treeless
+            ? ["rev-list", "--count", "--missing=print", "--all"]
+            : ["rev-list", "--objects", "--filter=blob:none", "--missing=print", "--all"];
+        var result = this.executor.Execute(workingDirectory, arguments);
         if (!result.IsSuccess || result.StandardOutput.Split('\n').Any(line => line.StartsWith('?')))
         {
-            throw new InvalidOperationException("The lightweight repository is missing commit or tree objects. Allow fetching, or retry without --partial-clone using a fresh dynamic repository location.");
+            var required = mode == DynamicCloneMode.Treeless ? "commit" : "commit or tree";
+            throw new InvalidOperationException($"The partial clone is missing {required} objects. Allow fetching, or retry with --no-partial-clone.");
         }
     }
 

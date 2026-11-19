@@ -41,10 +41,9 @@ Long-form arguments are recommended for scripts and documentation.
 
 Please note that these arguments are described when calling `GitVersion.exe --help`.
 
-Also, be aware that if you don't specify the `--branch` argument (branch name) then
-GitVersion will currently fallback to targeting whatever the default branch name
-happens to be for the repo. This could lead to incorrect results, so for that
-reason it's recommended to always explicitly specify the branch name.
+Pass `--branch` to select the remote branch to version. If it is omitted,
+GitVersion requires a branch from the build agent or an environment-provided
+branch context.
 
 NB: In Team City, the VCS branch is available from a configuration parameter
 with the following name:
@@ -56,35 +55,33 @@ Where `<VCS root ID>` is the `VCS root ID` as described on the Configuring
 
 ## Where is the repository stored
 
-GitVersion will checkout the dynamic repository into the %tmp% directory and
-just keep that dynamic repository up to date, this saves recloning the
-repository every build.
+GitVersion stores the dynamic repository in the system temp directory and reuses
+it across builds. Use `--dynamic-repo-location` to choose a different location.
 
 ## Partial clones
 
-Add `--partial-clone` with `--url` to calculate versions without checking out
-repository files:
+With `--url`, GitVersion defaults to a bare partial clone for advertised branches.
+It calculates the version without checking out repository files:
 
 ```console
-gitversion --url https://github.com/example/project.git --branch feature/example --partial-clone
+gitversion --url https://github.com/example/project.git --branch feature/example
 ```
 
-This mode requests `blob:none` filtering and uses a bare repository. Commit and
-tree history and all remote branch references remain available for version
-calculation, including GitFlow source branches such as `develop`. Only the selected
-branch needs a local reference. Configuration is read from the caller's working
-directory or the explicit `--config` file, so no configuration checkout is needed.
+GitVersion keeps commit history, tags available through the fetched branches, and
+remote branch references for version calculation. If the effective configuration
+has `ignore.paths` entries, it uses `blob:none` to keep trees for changed-path
+detection without downloading file contents. Otherwise it uses `tree:0` to omit
+trees as well. Configuration comes from the calling directory or the explicit
+`--config` file.
 
-Servers that do not support filtering download full objects instead; files are
-still never checked out. Missing commit or tree objects cause an error rather
-than an incomplete version calculation. Retry with fetching enabled, or omit
-`--partial-clone` and use a fresh `--dynamic-repo-location` if the remote's
-partial-clone support is incompatible.
+Servers that do not advertise filtering can still download all objects without
+checking out files. Pass `--no-partial-clone` to use the original full clone and
+checkout, for example if a server rejects the requested filter or a script relies
+on checked-out files. Canonical refs outside `refs/heads/*`, such as pull request
+refs, use the original preparation path.
 
-Partial clones use a separate cache ending in `-lightweight`, leaving existing
-dynamic clones untouched. As with normal dynamic repositories, `--no-fetch` skips
-updates to an existing cache; creating a new clone still requires downloading
-history. Specify an advertised branch name with `--branch`; pull-request pseudo
-refs are not supported in this mode.
+Each mode has a separate cache. The partial caches use the `-treeless` suffix for
+`tree:0` and `-lightweight` for `blob:none`. The `--no-fetch` option skips updates
+to an existing cache. A fresh clone still downloads history.
 
 [tc-checkout]: https://confluence.jetbrains.com/display/TCD7/VCS+Checkout+Mode

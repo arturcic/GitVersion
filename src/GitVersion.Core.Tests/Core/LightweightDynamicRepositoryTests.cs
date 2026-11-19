@@ -33,6 +33,16 @@ public class LightweightDynamicRepositoryTests : TestBase
         var result = Calculate(source, caller, "feature/version-test");
 
         result.Path.ShouldNotBe(full.Path);
+        Git(full.Path, "rev-parse", "--is-bare-repository").ShouldBe("false");
+        var checkout = Path.GetDirectoryName(Path.TrimEndingDirectorySeparator(full.Path)).ShouldNotBeNull();
+        Directory.EnumerateFiles(checkout).ShouldNotBeEmpty();
+        if (filterSupported)
+        {
+            Git(result.Path, "config", "remote.origin.partialclonefilter").ShouldBe("tree:0");
+            var objects = Git(result.Path, "cat-file", "--batch-all-objects", "--batch-check=%(objecttype)");
+            objects.Split('\n').ShouldNotContain("tree");
+            objects.Split('\n').ShouldNotContain("blob");
+        }
         result.Version.ShouldBe(full.Version);
         result.Version.ShouldStartWith("1.2.0-version-test.");
         Git(result.Path, "rev-parse", "--is-bare-repository").ShouldBe("true");
@@ -164,8 +174,8 @@ public class LightweightDynamicRepositoryTests : TestBase
         using var caller = new EmptyRepositoryFixture();
         var clone = Path.Combine(caller.RepositoryPath, "partial.git");
 
-        Mutator.CloneLightweight(new Uri(source.RepositoryPath.TrimEnd('/', '\\')).AbsoluteUri, clone, Authentication);
-        Mutator.ValidateLightweightHistory(clone);
+        Mutator.CloneLightweight(new Uri(source.RepositoryPath.TrimEnd('/', '\\')).AbsoluteUri, clone, Authentication, DynamicCloneMode.Blobless);
+        Mutator.ValidateLightweightHistory(clone, DynamicCloneMode.Blobless);
 
         Git(clone, "config", "remote.origin.promisor").ShouldBe("true");
         var missing = Git(clone, "rev-list", "--objects", "--missing=print", "--all");
@@ -191,7 +201,13 @@ public class LightweightDynamicRepositoryTests : TestBase
         using var caller = new EmptyRepositoryFixture();
 
         var full = Calculate(source, caller, "main", lightweight: false, configuration: configuration);
+        var treeless = Calculate(source, caller, "main");
         var partial = Calculate(source, caller, "main", configuration: configuration);
+        var treelessAgain = Calculate(source, caller, "main");
+
+        treeless.Path.ShouldNotBe(partial.Path);
+        treelessAgain.Path.ShouldBe(treeless.Path);
+        Git(partial.Path, "config", "remote.origin.partialclonefilter").ShouldBe("blob:none");
 
         full.Version.ShouldBe("0.0.3");
         partial.Version.ShouldBe(full.Version);
@@ -216,7 +232,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         var result = Calculate(source, caller, "main");
 
         result.Version.ShouldBe("1.1.0");
-        Git(result.Path, "ls-tree", "-r", "HEAD").ShouldContain(longPath);
+        Git(source.RepositoryPath, "ls-tree", "-r", "HEAD").ShouldContain(longPath);
         Directory.Exists(Path.Combine(result.Path, new string('a', 60))).ShouldBeFalse();
     }
 
@@ -231,7 +247,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         var mutator = new GitCliMutator(new TestLogger<GitCliMutator>(messages.Add), Executor);
         var clone = Path.Combine(caller.RepositoryPath, "fallback.git");
 
-        mutator.CloneLightweight(new Uri(source.RepositoryPath.TrimEnd('/', '\\')).AbsoluteUri, clone, Authentication);
+        mutator.CloneLightweight(new Uri(source.RepositoryPath.TrimEnd('/', '\\')).AbsoluteUri, clone, Authentication, DynamicCloneMode.Blobless);
 
         messages.ShouldContain(message => message.Contains("does not support partial-clone filtering", StringComparison.Ordinal));
         Git(clone, "rev-list", "--objects", "--missing=print", "--all").ShouldNotContain("?");
@@ -246,7 +262,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         var mutator = new GitCliMutator(NullLogger<GitCliMutator>.Instance,
             new MissingHistoryExecutor("", 128, $"fatal: The requested URL returned error: {status}"));
 
-        var error = Should.Throw<InvalidOperationException>(() => mutator.CloneLightweight("https://example.test/repo.git", "unused", Authentication));
+        var error = Should.Throw<InvalidOperationException>(() => mutator.CloneLightweight("https://example.test/repo.git", "unused", Authentication, DynamicCloneMode.Treeless));
 
         error.Message.ShouldStartWith(expected);
     }
@@ -259,9 +275,24 @@ public class LightweightDynamicRepositoryTests : TestBase
         var tree = Git(source.RepositoryPath, "rev-parse", "HEAD^{tree}");
         File.Delete(Path.Combine(source.RepositoryPath, ".git", "objects", tree[..2], tree[2..]));
 
-        var error = Should.Throw<InvalidOperationException>(() => Mutator.ValidateLightweightHistory(source.RepositoryPath));
+        var error = Should.Throw<InvalidOperationException>(() => Mutator.ValidateLightweightHistory(source.RepositoryPath, DynamicCloneMode.Blobless));
 
         error.Message.ShouldContain("missing commit or tree objects");
+    }
+
+    [Test]
+    public void TreelessValidationRejectsMissingParentCommit()
+    {
+        using var source = new EmptyRepositoryFixture();
+        var parent = source.Repository.MakeACommit().Sha;
+        source.Repository.MakeACommit();
+        File.Delete(Path.Combine(source.RepositoryPath, ".git", "objects", parent[..2], parent[2..]));
+
+        var error = Should.Throw<InvalidOperationException>(() =>
+            Mutator.ValidateLightweightHistory(source.RepositoryPath, DynamicCloneMode.Treeless));
+
+        error.Message.ShouldContain("missing commit objects");
+        error.Message.ShouldContain("--no-partial-clone");
     }
 
     [TestCase("?0123456789012345678901234567890123456789\n", 0)]
@@ -270,10 +301,10 @@ public class LightweightDynamicRepositoryTests : TestBase
     {
         var mutator = new GitCliMutator(NullLogger<GitCliMutator>.Instance, new MissingHistoryExecutor(output, exitCode));
 
-        var error = Should.Throw<InvalidOperationException>(() => mutator.ValidateLightweightHistory("unused"));
+        var error = Should.Throw<InvalidOperationException>(() => mutator.ValidateLightweightHistory("unused", DynamicCloneMode.Blobless));
 
         error.Message.ShouldContain("missing commit or tree objects");
-        error.Message.ShouldContain("without --partial-clone");
+        error.Message.ShouldContain("with --no-partial-clone");
     }
 
     private sealed class MissingHistoryExecutor(string output, int exitCode, string error = "") : IGitCliExecutor
@@ -281,7 +312,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         public GitCliResult Execute(string? workingDirectory, IReadOnlyList<string> arguments) => new(exitCode, output, error);
     }
 
-    private static (string Version, string Path, int UncommittedChanges) Calculate(EmptyRepositoryFixture source, EmptyRepositoryFixture caller, string? branch, bool lightweight = true, bool noFetch = false, string? contextBranch = null, string? commitId = null, IGitVersionConfiguration? configuration = null)
+    private static (string Version, string Path, int UncommittedChanges) Calculate(EmptyRepositoryFixture source, EmptyRepositoryFixture caller, string? branch, bool? lightweight = null, bool noFetch = false, string? contextBranch = null, string? commitId = null, IGitVersionConfiguration? configuration = null)
     {
         var options = Options.Create(new GitVersionOptions
         {
@@ -292,11 +323,14 @@ public class LightweightDynamicRepositoryTests : TestBase
                 TargetUrl = new Uri(source.RepositoryPath.TrimEnd('/', '\\')).AbsoluteUri,
                 TargetBranch = branch,
                 ClonePath = Path.Combine(caller.RepositoryPath, "dynamic"),
-                UsePartialClone = lightweight,
                 CommitId = commitId
             },
             Settings = { NoCache = true, NoFetch = noFetch }
         });
+        if (lightweight is { } usePartialClone)
+        {
+            options.Value.RepositoryInfo.UsePartialClone = usePartialClone;
+        }
         var environment = new TestEnvironment();
         if (contextBranch is not null)
         {

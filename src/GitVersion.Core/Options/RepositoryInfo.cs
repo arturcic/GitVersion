@@ -15,6 +15,6 @@ public record RepositoryInfo
     /// <summary>Gets or sets the local path to which the repository should be cloned when using dynamic repositories.</summary>
     public string? ClonePath { get; set; }
 
-    /// <summary>Gets or sets whether dynamic repositories omit blobs and working-tree checkout.</summary>
-    public bool UsePartialClone { get; set; }
+    /// <summary>Gets or sets whether dynamic repositories use partial clones by default.</summary>
+    public bool UsePartialClone { get; set; } = true;
 }
