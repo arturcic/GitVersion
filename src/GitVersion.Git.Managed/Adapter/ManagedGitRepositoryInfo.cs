@@ -8,16 +8,18 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
 {
     private readonly IFileSystem fileSystem;
     private readonly GitVersionOptions gitVersionOptions;
+    private readonly DynamicClonePlan clonePlan;
 
     private readonly Lazy<string?> dynamicGitRepositoryPath;
     private readonly Lazy<string?> dotGitDirectory;
     private readonly Lazy<string?> gitRootPath;
     private readonly Lazy<string?> projectRootDirectory;
 
-    public ManagedGitRepositoryInfo(IFileSystem fileSystem, IOptions<GitVersionOptions> options)
+    public ManagedGitRepositoryInfo(IFileSystem fileSystem, IOptions<GitVersionOptions> options, DynamicClonePlan clonePlan)
     {
         this.fileSystem = fileSystem.NotNull();
         this.gitVersionOptions = options.NotNull().Value;
+        this.clonePlan = clonePlan.NotNull();
 
         this.dynamicGitRepositoryPath = new(GetDynamicGitRepositoryPath);
         this.dotGitDirectory = new(GetDotGitDirectory);
@@ -33,7 +35,7 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
     private string? GetDynamicGitRepositoryPath()
     {
         var repositoryInfo = this.gitVersionOptions.RepositoryInfo;
-        return DynamicRepositoryPath.Get(this.fileSystem, repositoryInfo.TargetUrl, repositoryInfo.ClonePath, GitRepoHasMatchingRemote, repositoryInfo.UsePartialClone);
+        return DynamicRepositoryPath.Get(this.fileSystem, repositoryInfo.TargetUrl, repositoryInfo.ClonePath, GitRepoHasMatchingRemote, this.clonePlan.Mode);
     }
 
     private string? GetDotGitDirectory() =>
@@ -87,7 +89,7 @@ internal sealed class ManagedGitRepositoryInfo : IGitRepositoryInfo
             }
 
             var configuration = GitConfigurationFile.Load(SysPath.Combine(layout.CommonDirectory, "config"));
-            if (this.gitVersionOptions.RepositoryInfo.UsePartialClone && configuration.GetBoolean("core", null, "bare") != true)
+            if (this.clonePlan.Mode != DynamicCloneMode.Full && configuration.GetBoolean("core", null, "bare") != true)
             {
                 return false;
             }

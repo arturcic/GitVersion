@@ -23,6 +23,7 @@ public class GitVersionCoreModule : IGitVersionModule
         services.AddSingleton<RepositoryPreparationState>();
         services.AddSingleton<IGitPreparer, GitPreparer>();
         services.AddSingleton<BranchResolver>();
+        services.AddSingleton<DynamicClonePlan>();
         services.AddSingleton<IRepositoryStore, RepositoryStore>();
         services.AddSingleton<ITaggedSemanticVersionRepository, TaggedSemanticVersionRepository>();
         services.AddSingleton<ITaggedSemanticVersionService, TaggedSemanticVersionService>();

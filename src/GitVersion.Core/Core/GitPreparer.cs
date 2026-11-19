@@ -19,6 +19,7 @@ internal class GitPreparer(
     IGitRepositoryInfo repositoryInfo,
     Lazy<GitVersionContext> versionContext,
     BranchResolver branchResolver,
+    DynamicClonePlan clonePlan,
     RepositoryPreparationState preparationState)
     : IGitPreparer
 {
@@ -54,10 +55,6 @@ internal class GitPreparer(
 
     private void PrepareInternal(GitVersionOptions gitVersionOptions)
     {
-        if (gitVersionOptions.RepositoryInfo.UsePartialClone && gitVersionOptions.RepositoryInfo.TargetUrl.IsNullOrWhiteSpace())
-        {
-            throw new WarningException("--partial-clone requires --url.");
-        }
         var currentBranch = branchResolver.TargetBranch;
         this.logger.LogInformation("Branch input: {Branch}; contextual override: {Context}", currentBranch, branchResolver.ContextBranch);
 
@@ -137,9 +134,9 @@ internal class GitPreparer(
         {
             this.retryAction.Execute(() =>
             {
-                if (this.options.Value.RepositoryInfo.UsePartialClone)
+                if (clonePlan.Mode != DynamicCloneMode.Full)
                 {
-                    LightweightRepository.CloneLightweight(repositoryUrl, gitDirectory, auth);
+                    LightweightRepository.CloneLightweight(repositoryUrl, gitDirectory, auth, clonePlan.Mode);
                 }
                 else
                 {
@@ -156,7 +153,7 @@ internal class GitPreparer(
             // Normalize (download branches) before using the branch
             // Build-agent fetch restrictions protect the build's checkout. A lightweight
             // dynamic repository is our own cache and must update unless explicitly disabled.
-            var lightweight = isDynamicRepository && this.options.Value.RepositoryInfo.UsePartialClone;
+            var lightweight = isDynamicRepository && clonePlan.Mode != DynamicCloneMode.Full;
             var noFetch = this.options.Value.Settings.NoFetch || (!lightweight && this.buildAgent.PreventFetch());
             NormalizeGitDirectory(noFetch, targetBranch, isDynamicRepository, this.configuration.Value.Ignore);
         }
@@ -171,7 +168,7 @@ internal class GitPreparer(
     private void NormalizeGitDirectory(bool noFetch, string? currentBranchName, bool isDynamicRepository, IIgnoreConfiguration ignoreConfiguration)
     {
         var authentication = this.options.Value.AuthenticationInfo;
-        if (isDynamicRepository && this.options.Value.RepositoryInfo.UsePartialClone)
+        if (isDynamicRepository && clonePlan.Mode != DynamicCloneMode.Full)
         {
             var lightweightRemote = EnsureOnlyOneRemoteIsDefined();
             FetchRemotesIfRequired(lightweightRemote, noFetch, authentication);
@@ -225,7 +222,7 @@ internal class GitPreparer(
 
     private void NormalizeLightweightRepository(IRemote remote, string? targetBranch)
     {
-        LightweightRepository.ValidateLightweightHistory();
+        LightweightRepository.ValidateLightweightHistory(clonePlan.Mode);
         if (branchResolver.ContextBranch != null)
         {
             return;

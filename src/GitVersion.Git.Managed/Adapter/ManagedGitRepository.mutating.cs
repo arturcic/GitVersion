@@ -11,8 +11,8 @@ internal sealed partial class ManagedGitRepository(ILogger<ManagedGitRepository>
     public void Clone(string? sourceUrl, string? workdirPath, AuthenticationInfo auth) =>
         CliMutator.Clone(sourceUrl, workdirPath, auth);
 
-    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo authentication) =>
-        CliMutator.CloneLightweight(sourceUrl, gitDirectory, authentication);
+    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo authentication, DynamicCloneMode mode) =>
+        CliMutator.CloneLightweight(sourceUrl, gitDirectory, authentication, mode);
 
     public void SelectBranchWithoutCheckout(string canonicalName)
     {
@@ -26,7 +26,7 @@ internal sealed partial class ManagedGitRepository(ILogger<ManagedGitRepository>
         Invalidate();
     }
 
-    public void ValidateLightweightHistory() => CliMutator.ValidateLightweightHistory(CliWorkingDirectory);
+    public void ValidateLightweightHistory(DynamicCloneMode mode) => CliMutator.ValidateLightweightHistory(CliWorkingDirectory, mode);
 
     public void Checkout(string commitOrBranchSpec)
     {
