@@ -1,1 +1,3 @@
 #nullable enable
+GitVersion.RepositoryInfo.UsePartialClone.get -> bool
+GitVersion.RepositoryInfo.UsePartialClone.set -> void

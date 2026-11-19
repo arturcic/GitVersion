@@ -862,6 +862,33 @@ public class ArgumentParserTests : TestBase
     }
 
     [Test]
+    public void PartialCloneRequiresUrl() =>
+        Should.Throw<WarningException>(() => this.argumentParser.ParseArguments("--partial-clone"))
+            .Message.ShouldContain("requires --url");
+
+    [TestCase("", true)]
+    [TestCase("--no-partial-clone", false)]
+    public void DynamicCloneDefaultsToPartialUnlessDisabled(string flag, bool expected)
+    {
+        var arguments = this.argumentParser.ParseArguments($"--url https://example.test/repo.git {flag}");
+        arguments.ToOptions().RepositoryInfo.UsePartialClone.ShouldBe(expected);
+    }
+
+    [Test]
+    public void ConflictingCloneFlagsAreRejected() =>
+        Should.Throw<WarningException>(() =>
+            this.argumentParser.ParseArguments("--url https://example.test/repo.git --partial-clone --no-partial-clone"))
+            .Message.ShouldContain("Cannot combine");
+
+    [Test]
+    public void PartialCloneIsPassedToRepositoryOptions()
+    {
+        var arguments = this.argumentParser.ParseArguments("--url https://example.test/repo.git --partial-clone");
+        arguments.UsePartialClone.ShouldBeTrue();
+        arguments.ToOptions().RepositoryInfo.UsePartialClone.ShouldBeTrue();
+    }
+
+    [Test]
     public void DynamicRepoLocation()
     {
         var arguments = this.argumentParser.ParseArguments("--dynamic-repo-location /tmp/foo");
