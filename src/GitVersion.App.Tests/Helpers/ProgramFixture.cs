@@ -62,7 +62,7 @@ public sealed class ProgramFixture
 
         Overrides.ForEach(action => action(builder.Services));
 
-        var host = builder.Build();
+        using var host = builder.Build();
         var app = host.Services.GetRequiredService<GitVersionApp>();
         var exitCode = await app.RunAsync(CancellationToken.None);
 

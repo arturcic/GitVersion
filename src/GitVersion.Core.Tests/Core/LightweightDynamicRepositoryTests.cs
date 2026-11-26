@@ -273,7 +273,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         using var source = new EmptyRepositoryFixture();
         source.Repository.MakeACommit();
         var tree = Git(source.RepositoryPath, "rev-parse", "HEAD^{tree}");
-        File.Delete(Path.Combine(source.RepositoryPath, ".git", "objects", tree[..2], tree[2..]));
+        DeleteLooseObject(source.RepositoryPath, tree);
 
         var error = Should.Throw<InvalidOperationException>(() => Mutator.ValidateLightweightHistory(source.RepositoryPath, DynamicCloneMode.Blobless));
 
@@ -286,7 +286,7 @@ public class LightweightDynamicRepositoryTests : TestBase
         using var source = new EmptyRepositoryFixture();
         var parent = source.Repository.MakeACommit().Sha;
         source.Repository.MakeACommit();
-        File.Delete(Path.Combine(source.RepositoryPath, ".git", "objects", parent[..2], parent[2..]));
+        DeleteLooseObject(source.RepositoryPath, parent);
 
         var error = Should.Throw<InvalidOperationException>(() =>
             Mutator.ValidateLightweightHistory(source.RepositoryPath, DynamicCloneMode.Treeless));
@@ -305,6 +305,13 @@ public class LightweightDynamicRepositoryTests : TestBase
 
         error.Message.ShouldContain("missing commit or tree objects");
         error.Message.ShouldContain("with --no-partial-clone");
+    }
+
+    private static void DeleteLooseObject(string repositoryPath, string sha)
+    {
+        var path = Path.Combine(repositoryPath, ".git", "objects", sha[..2], sha[2..]);
+        File.SetAttributes(path, FileAttributes.Normal);
+        File.Delete(path);
     }
 
     private sealed class MissingHistoryExecutor(string output, int exitCode, string error = "") : IGitCliExecutor
