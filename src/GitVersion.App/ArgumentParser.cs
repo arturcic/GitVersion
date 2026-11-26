@@ -399,15 +399,15 @@ internal class ArgumentParser(
     private static void MapRemoteOptions(Arguments arguments, ParseResult parseResult, CommandOptions options)
     {
         var partialCloneSpecified = parseResult.GetResult(options.PartialClone) is { Implicit: false };
-        var noPartialClone = parseResult.GetValue(options.NoPartialClone);
-        if (partialCloneSpecified && noPartialClone && parseResult.GetValue(options.PartialClone))
+        var noPartialCloneSpecified = parseResult.GetResult(options.NoPartialClone) is { Implicit: false };
+        if (partialCloneSpecified && noPartialCloneSpecified)
         {
             throw new WarningException("Cannot combine --partial-clone and --no-partial-clone.");
         }
-        arguments.UsePartialClone = !noPartialClone && (!partialCloneSpecified || parseResult.GetValue(options.PartialClone));
-        if ((noPartialClone || (partialCloneSpecified && arguments.UsePartialClone)) && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
+        arguments.UsePartialClone = !parseResult.GetValue(options.NoPartialClone) && (!partialCloneSpecified || parseResult.GetValue(options.PartialClone));
+        if ((partialCloneSpecified || noPartialCloneSpecified) && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
         {
-            throw new WarningException(noPartialClone ? "--no-partial-clone requires --url." : "--partial-clone requires --url.");
+            throw new WarningException(noPartialCloneSpecified ? "--no-partial-clone requires --url." : "--partial-clone requires --url.");
         }
         if (parseResult.GetValue(options.Url) is { } url)
         {

@@ -861,23 +861,29 @@ public class ArgumentParserTests : TestBase
         arguments.EnsureAssemblyInfo.ShouldBe(false);
     }
 
-    [Test]
-    public void PartialCloneRequiresUrl() =>
-        Should.Throw<WarningException>(() => this.argumentParser.ParseArguments("--partial-clone"))
+    [TestCase("--partial-clone")]
+    [TestCase("--partial-clone false")]
+    [TestCase("--no-partial-clone")]
+    [TestCase("--no-partial-clone false")]
+    public void PartialCloneRequiresUrl(string flag) =>
+        Should.Throw<WarningException>(() => this.argumentParser.ParseArguments(flag))
             .Message.ShouldContain("requires --url");
 
     [TestCase("", true)]
     [TestCase("--no-partial-clone", false)]
+    [TestCase("--partial-clone false", false)]
     public void DynamicCloneDefaultsToPartialUnlessDisabled(string flag, bool expected)
     {
         var arguments = this.argumentParser.ParseArguments($"--url https://example.test/repo.git {flag}");
         arguments.ToOptions().RepositoryInfo.UsePartialClone.ShouldBe(expected);
     }
 
-    [Test]
-    public void ConflictingCloneFlagsAreRejected() =>
+    [TestCase("--partial-clone --no-partial-clone")]
+    [TestCase("--partial-clone false --no-partial-clone")]
+    [TestCase("--partial-clone --no-partial-clone false")]
+    public void ConflictingCloneFlagsAreRejected(string flags) =>
         Should.Throw<WarningException>(() =>
-            this.argumentParser.ParseArguments("--url https://example.test/repo.git --partial-clone --no-partial-clone"))
+            this.argumentParser.ParseArguments($"--url https://example.test/repo.git {flags}"))
             .Message.ShouldContain("Cannot combine");
 
     [Test]
