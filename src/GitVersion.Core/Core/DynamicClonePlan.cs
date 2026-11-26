@@ -1,13 +1,7 @@
 using GitVersion.Configuration;
+using GitVersion.Git;
 
 namespace GitVersion;
-
-internal enum DynamicCloneMode
-{
-    Full,
-    Blobless,
-    Treeless
-}
 
 internal sealed class DynamicClonePlan(
     IOptions<GitVersionOptions> options,
