@@ -9,12 +9,15 @@ namespace GitVersion.Git;
 internal interface IGitCliMutator
 {
     void Clone(string? sourceUrl, string? workdirPath, AuthenticationInfo auth);
+    void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth, DynamicCloneMode mode);
+    void ValidateLightweightHistory(string workingDirectory, DynamicCloneMode mode);
     void Fetch(string workingDirectory, string remote, IEnumerable<string> refSpecs, AuthenticationInfo auth);
     void Checkout(string workingDirectory, string commitOrBranchSpec);
     IReadOnlyList<GitRemoteReference> ListRemoteReferences(string workingDirectory, string remoteName, AuthenticationInfo auth);
     void SetConfig(string workingDirectory, string key, string value);
     void AddConfig(string workingDirectory, string key, string value);
     void RemoveRemote(string workingDirectory, string remoteName);
+    void DeleteReference(string workingDirectory, string name);
     void UpdateReference(string workingDirectory, string name, string targetSha);
     void CreateSymbolicReference(string workingDirectory, string name, string targetReferenceName);
 }
@@ -37,6 +40,45 @@ internal sealed class GitCliMutator(ILogger<GitCliMutator> logger, IGitCliExecut
         ThrowOnFailure(result, isNetworkOperation: true);
         this.logger.LogInformation("Cloned repository '{SourceUrl}' into '{WorkdirPath}'", sourceUrl, workdirPath);
     }
+
+    public void CloneLightweight(string? sourceUrl, string? gitDirectory, AuthenticationInfo auth, DynamicCloneMode mode)
+    {
+        ArgumentNullException.ThrowIfNull(sourceUrl);
+        ArgumentNullException.ThrowIfNull(gitDirectory);
+
+        var arguments = new List<string>();
+        AddAuthentication(arguments, sourceUrl, auth);
+        var filter = mode == DynamicCloneMode.Treeless ? "--filter=tree:0" : "--filter=blob:none";
+        arguments.AddRange(["clone", "--bare", "--origin", "origin", "--single-branch", filter, "--no-local", "--", sourceUrl, gitDirectory]);
+        var result = this.executor.Execute(null, arguments);
+        ThrowOnFailure(result, isNetworkOperation: true);
+        if (result.StandardError.Contains("filtering not recognized by server", StringComparison.Ordinal))
+        {
+            this.logger.LogWarning("The remote does not support partial-clone filtering. Downloading full objects without checking out files.");
+        }
+
+        // Version calculation needs source-branch history, not only the selected branch.
+        SetConfig(gitDirectory, "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*");
+        Fetch(gitDirectory, "origin", [], auth);
+    }
+
+    public void ValidateLightweightHistory(string workingDirectory, DynamicCloneMode mode)
+    {
+        // --missing=print reports missing objects without requesting them from the promisor remote.
+        // The treeless walk deliberately omits --objects, so it only needs commit history.
+        string[] arguments = mode == DynamicCloneMode.Treeless
+            ? ["rev-list", "--count", "--missing=print", "--all"]
+            : ["rev-list", "--objects", "--quiet", "--filter=blob:none", "--missing=print", "--all"];
+        var result = this.executor.Execute(workingDirectory, arguments);
+        if (!result.IsSuccess || result.StandardOutput.Split('\n').Any(line => line.StartsWith('?')))
+        {
+            var required = mode == DynamicCloneMode.Treeless ? "commit" : "commit or tree";
+            throw new InvalidOperationException($"The partial clone is missing {required} objects. Allow fetching, or retry with --no-partial-clone.");
+        }
+    }
+
+    public void DeleteReference(string workingDirectory, string name) =>
+        ThrowOnFailure(this.executor.Execute(workingDirectory, ["update-ref", "-d", name]));
 
     public void Fetch(string workingDirectory, string remote, IEnumerable<string> refSpecs, AuthenticationInfo auth)
     {

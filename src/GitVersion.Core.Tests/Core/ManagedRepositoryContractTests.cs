@@ -1,4 +1,3 @@
-using System.IO.Abstractions;
 using GitVersion.Git;
 using GitVersion.Helpers;
 using GitVersion.Testing.Extensions;
@@ -184,7 +183,9 @@ public class ManagedRepositoryContractTests : TestBase
         FixtureGit.Repository.Init(path, isBare: true);
         try
         {
-            var info = new ManagedGitRepositoryInfo(new FileSystem(), Options.Create(new GitVersionOptions { WorkingDirectory = path }));
+            using var provider = (ServiceProvider)ConfigureServices(services =>
+                services.AddSingleton(Options.Create(new GitVersionOptions { WorkingDirectory = path })));
+            var info = provider.GetRequiredService<IGitRepositoryInfo>();
             info.ProjectRootDirectory.ShouldBeNull();
             info.DotGitDirectory.ShouldNotBeNull().TrimEnd(Path.DirectorySeparatorChar).ShouldBe(Path.GetFullPath(path));
         }

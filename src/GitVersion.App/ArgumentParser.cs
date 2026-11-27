@@ -398,6 +398,17 @@ internal class ArgumentParser(
 
     private static void MapRemoteOptions(Arguments arguments, ParseResult parseResult, CommandOptions options)
     {
+        var partialCloneSpecified = parseResult.GetResult(options.PartialClone) is { Implicit: false };
+        var noPartialCloneSpecified = parseResult.GetResult(options.NoPartialClone) is { Implicit: false };
+        if (partialCloneSpecified && noPartialCloneSpecified)
+        {
+            throw new WarningException("Cannot combine --partial-clone and --no-partial-clone.");
+        }
+        arguments.UsePartialClone = !parseResult.GetValue(options.NoPartialClone) && (!partialCloneSpecified || parseResult.GetValue(options.PartialClone));
+        if ((partialCloneSpecified || noPartialCloneSpecified) && string.IsNullOrWhiteSpace(parseResult.GetValue(options.Url)))
+        {
+            throw new WarningException(noPartialCloneSpecified ? "--no-partial-clone requires --url." : "--partial-clone requires --url.");
+        }
         if (parseResult.GetValue(options.Url) is { } url)
         {
             arguments.TargetUrl = url;
@@ -590,6 +601,14 @@ internal class ArgumentParser(
         {
             Description = "By default dynamic repositories will be cloned to %tmp%. Use this option to override"
         };
+        var partialClone = new Option<bool>("--partial-clone")
+        {
+            Description = "Use partial cloning with --url (the default)."
+        };
+        var noPartialClone = new Option<bool>("--no-partial-clone")
+        {
+            Description = "With --url, clone all objects and check out files using the original preparation path."
+        };
         var configCommand = new Command("config", "Manages GitVersion configuration.");
         configCommand.SetAction(_ => { });
         var migrate = new Command("migrate", "Migrates a v6 configuration document to the v7 structure.");
@@ -661,6 +680,8 @@ internal class ArgumentParser(
             password,
             commit,
             dynamicRepoLocation,
+            partialClone,
+            noPartialClone,
             cliSchema,
             telemetryOptOut
         };
@@ -685,7 +706,7 @@ internal class ArgumentParser(
             VerbosityOption: verbosity, UpdateAssemblyInfo: updateAssemblyInfo, UpdateProjectFiles: updateProjectFiles,
             EnsureAssemblyInfo: ensureAssemblyInfo, UpdateWixVersionFile: updateWixVersionFile,
             Url: url, Branch: branch, Username: username, Password: password,
-            Commit: commit, DynamicRepoLocation: dynamicRepoLocation,
+            Commit: commit, DynamicRepoLocation: dynamicRepoLocation, PartialClone: partialClone, NoPartialClone: noPartialClone,
             ConfigCommand: configCommand, Migrate: migrate,
             MigrationInputFile: migrationInputFile, MigrationOutputFile: migrationOutputFile,
             InPlace: inPlace, Force: force, Get: get, PropertyPath: propertyPath, CliSchema: cliSchema,
@@ -819,6 +840,8 @@ internal class ArgumentParser(
         Option<string?> Password,
         Option<string?> Commit,
         Option<string?> DynamicRepoLocation,
+        Option<bool> PartialClone,
+        Option<bool> NoPartialClone,
         Command ConfigCommand,
         Command Migrate,
         Option<string?> MigrationInputFile,

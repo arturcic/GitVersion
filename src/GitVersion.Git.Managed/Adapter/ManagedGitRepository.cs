@@ -74,6 +74,10 @@ internal sealed partial class ManagedGitRepository
     public int UncommittedChangesCount()
     {
         var session = Session;
+        if (session.Layout.WorkingDirectory is null)
+        {
+            return 0;
+        }
         var headTip = Head.Tip;
 
         if (headTip is ManagedCommit managedTip)
@@ -155,7 +159,8 @@ internal sealed partial class ManagedGitRepository
             return GitRepositoryLayout.Discover(path);
         }
 
-        return SysPath.GetFileName(path) == ".git"
+        var isBare = GitConfigurationFile.Load(SysPath.Combine(path, "config")).GetBoolean("core", null, "bare") == true;
+        return !isBare && SysPath.GetFileName(path) == ".git"
             ? GitRepositoryLayout.FromGitDirectory(path, SysPath.GetDirectoryName(path))
             : GitRepositoryLayout.FromGitDirectory(path, workingDirectory: null);
     }

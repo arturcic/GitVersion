@@ -20,8 +20,9 @@ internal static class DynamicRepositoryPath
     /// <param name="fileSystem">The file system.</param>
     /// <param name="targetUrl">The URL of the remote repository.</param>
     /// <param name="clonePath">The directory to clone into, or <see langword="null"/> for the temp directory.</param>
+    /// <param name="mode">The clone mode used to separate incompatible caches.</param>
     /// <param name="gitRepoHasMatchingRemote">Checks whether the repository at the given path has a remote with the given URL.</param>
-    public static string? Get(IFileSystem fileSystem, string? targetUrl, string? clonePath, Func<string, string, bool> gitRepoHasMatchingRemote)
+    public static string? Get(IFileSystem fileSystem, string? targetUrl, string? clonePath, Func<string, string, bool> gitRepoHasMatchingRemote, DynamicCloneMode mode)
     {
         if (targetUrl.IsNullOrWhiteSpace())
         {
@@ -30,6 +31,12 @@ internal static class DynamicRepositoryPath
 
         var userTemp = clonePath ?? FileSystemHelper.Path.GetTempPath();
         var repositoryName = targetUrl.Split(DirectorySeparators)[^1].Replace(".git", string.Empty);
+        repositoryName += mode switch
+        {
+            DynamicCloneMode.Blobless => "-lightweight",
+            DynamicCloneMode.Treeless => "-treeless",
+            _ => string.Empty
+        };
         var possiblePath = FileSystemHelper.Path.Combine(userTemp, repositoryName);
 
         // Verify that the existing directory is ok for us to use

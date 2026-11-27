@@ -714,13 +714,7 @@ public class GitVersionExecutorTests : TestBase
                 services.AddSingleton(environment);
             }
 
-            var options = Options.Create(gitVersionOptions);
-            services.AddSingleton(options);
-            services.AddSingleton<IGitRepositoryInfo>(sp =>
-            {
-                var fs = sp.GetRequiredService<IFileSystem>();
-                return new GitVersion.Git.ManagedGitRepositoryInfo(fs, options);
-            });
+            services.AddSingleton(Options.Create(gitVersionOptions));
         });
 
     /// <summary>

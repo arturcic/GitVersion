@@ -551,7 +551,7 @@ public class BranchContextTests : TestBase
     }
 
     [Test]
-    public void DynamicExistingCloneUsesItsCheckout()
+    public void DynamicExistingFullCloneUsesItsCheckoutWhenPartialCloneDisabled()
     {
         using var remote = new EmptyRepositoryFixture();
         remote.Repository.MakeATaggedCommit("1.0.0");
@@ -572,6 +572,7 @@ public class BranchContextTests : TestBase
                 using var services = CreateServices(working, environment, configure: options =>
                 {
                     options.RepositoryInfo.TargetUrl = url;
+                    options.RepositoryInfo.UsePartialClone = false;
                     options.RepositoryInfo.ClonePath = Path.Combine(scratch, "clones");
                 });
                 var variables = services.GetRequiredService<IGitVersionCalculateTool>().CalculateVersionVariables();
